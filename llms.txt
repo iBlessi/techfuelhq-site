@@ -1,0 +1,30 @@
+# TechFuel HQ
+
+> Homelab, PC hardware, and self-hosting guides with first-party benchmarks
+> and open datasets, written and edited by Lowell K. Wood IV in St. Louis, MO.
+> Every article carries a dated evidence ledger; the editorial standard is at
+> https://techfuelhq.com/methodology/
+
+## Open datasets (CC BY 4.0 — cite the page URL)
+
+- [RTX 5080 LLM throughput](https://techfuelhq.com/data/rtx-5080-llm-throughput/): measured ollama decode/prefill tok/s across models and context sizes on a retail RTX 5080
+- [DDR5 RAM price index](https://techfuelhq.com/data/ram-price-index/): dated direct-retailer price observations for named 2x16 DDR5-6000 kits
+- [HDD price index](https://techfuelhq.com/data/hdd-price-index/): dated direct-retailer $/TB observations for named NAS drives
+- [GPU coil whine census](https://techfuelhq.com/data/coil-whine-database/): open community severity census, publishes distributions at n>=5 per model
+- [ASUS ROG Astral RTX 5080 OC bench](https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/): 59-row first-party bench dataset with OC offsets and provenance
+- [PC part prices](https://techfuelhq.com/data/pc-part-prices-2026/): component street-price observations
+
+## Hubs
+
+- [Articles](https://techfuelhq.com/articles/): troubleshooting, buying guides, comparisons
+- [Homelab](https://techfuelhq.com/homelab/): NAS, Proxmox, self-hosting decisions
+- [Tutorials](https://techfuelhq.com/tutorials/): step-by-step self-hosting and homelab setups
+- [Tools](https://techfuelhq.com/tools/): 20+ free calculators with published assumptions
+- [GPU reviews](https://techfuelhq.com/gpu-reviews/): verdict-first GPU comparisons
+- [Data](https://techfuelhq.com/data/): all first-party datasets
+
+## Policy
+
+- Facts trace to vendor documentation, named third-party labs, or first-party artifacts: https://techfuelhq.com/methodology/
+- Affiliate and advertising disclosure: https://techfuelhq.com/disclosure/
+- Contact: hello@techfuelhq.com

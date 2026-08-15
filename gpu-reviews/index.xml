@@ -1,0 +1,1435 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GPU Reviews on TechFuel HQ</title><link>https://techfuelhq.com/gpu-reviews/</link><description>Recent content in GPU Reviews on TechFuel HQ</description><generator>Hugo</generator><language>en-us</language><managingEditor>LK Wood IV</managingEditor><lastBuildDate>Fri, 07 Aug 2026 00:00:00 -0500</lastBuildDate><atom:link href="https://techfuelhq.com/gpu-reviews/index.xml" rel="self" type="application/rss+xml"/><atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/><item><title>RTX 5070 vs RTX 5070 Ti: Is the Ti Worth It in 2026?</title><link>https://techfuelhq.com/gpu-reviews/rtx-5070-vs-5070-ti-2026/</link><pubDate>Mon, 20 Jul 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/gpu-reviews/rtx-5070-vs-5070-ti-2026/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · Published 2026-07-20 · Updated 2026-07-20 · ~11 min read · St. Louis County, MO&lt;/p>
+&lt;p>&lt;em>Some retailer links below are Amazon affiliate links; if you buy through them TechFuel HQ may earn a small commission at no extra cost to you. As an Amazon Associate I earn from qualifying purchases. Commissions never influence which products get recommended — see our &lt;a href="https://techfuelhq.com/disclosure/">disclosure&lt;/a>.&lt;/em>&lt;/p>
+&lt;div class="verdict-card" style="border:1px solid #c8ff00;border-left:4px solid #c8ff00;border-radius:6px;padding:1.25rem 1.5rem;margin:1.5rem 0 2rem 0;background:rgba(200,255,0,0.04);">
+&lt;p style="margin:0 0 0.5rem 0;font-weight:700;color:#c8ff00;letter-spacing:0.04em;text-transform:uppercase;font-size:0.85rem;">TL;DR · The verdict in 2026&lt;/p>
+&lt;ul style="margin:0.25rem 0 0 0;padding-left:1.25rem;line-height:1.55;">
+&lt;li>&lt;strong>Performance gap:&lt;/strong> the 5070 Ti is ~&lt;strong>20–22% faster at 1440p&lt;/strong> on average (range ~6% to ~30% by game), with more separation at 4K.&lt;/li>
+&lt;li>&lt;strong>The real price gap isn't $200:&lt;/strong> at July-2026 street prices it's ~&lt;strong>$300–450&lt;/strong> (5070 ~$630–750, Ti ~$920–1,080). The "$200 more" everyone quotes is MSRP-only, and neither card sells at MSRP.&lt;/li>
+&lt;li>&lt;strong>Buy the RTX 5070&lt;/strong> for high-refresh 1440p on a budget — 12GB is fine there today (~$636, &lt;a href="https://www.amazon.com/dp/B0DTQMLX4F?tag=techfuelhq-20" rel="nofollow sponsored">Amazon&lt;/a>).&lt;/li>
+&lt;li>&lt;strong>Buy the RTX 5070 Ti&lt;/strong> for 4K, VRAM longevity (16GB), heavy ray tracing, or CUDA/AI work (~$920, &lt;a href="https://www.amazon.com/dp/B0DXL7GSYC?tag=techfuelhq-20" rel="nofollow sponsored">Amazon&lt;/a>).&lt;/li>
+&lt;li>&lt;strong>The spoiler:&lt;/strong> AMD's &lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5070-ti-vs-rx-9070-xt-2026/">RX 9070 XT&lt;/a> gives ~95% of the Ti's raster for hundreds less. Consider it unless you specifically need RT/DLSS/CUDA.&lt;/li>
+&lt;/ul>
+&lt;p style="margin:0.75rem 0 0 0;font-size:0.9rem;color:#a0a0b8;">Specs are from NVIDIA; benchmark deltas are from independent testing (GamersNexus), cited inline. Prices are a live Amazon snapshot dated 2026-07-20 and move week to week — a GDDR7 shortage has GPU prices unusually volatile, so check the retailer link before buying.&lt;/p>
+&lt;/div>
+&lt;img src="https://techfuelhq.com/images/gpu-reviews/rtx-5070-vs-5070-ti-2026.svg" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async" alt="RTX 5070 vs RTX 5070 Ti 2026: the 5070 Ti is about 20 to 22 percent faster at 1440p with 16GB of VRAM versus the 5070's 12GB, but at real July-2026 street prices it costs roughly 300 to 450 dollars more, not the 200-dollar MSRP gap. Buy the 5070 for 1440p value; buy the Ti for 4K, VRAM longevity, or heavy ray tracing." style="display:block;margin:1.5rem auto;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;h2 id="the-real-question-isnt-the-specs--its-the-2026-price">The real question isn&amp;rsquo;t the specs — it&amp;rsquo;s the 2026 price&lt;/h2>
+&lt;p>Every &amp;ldquo;5070 vs 5070 Ti&amp;rdquo; guide opens the same way: the Ti costs $200 more, so is it 20% faster? That framing is stale, and it&amp;rsquo;s the first thing to fix. &lt;strong>The $200 figure is the MSRP gap — $549 vs $749 — and in mid-2026 neither card sells at MSRP.&lt;/strong>&lt;/p>
+&lt;p>In a live Amazon check on &lt;strong>2026-07-20&lt;/strong>, mainstream RTX 5070 partner cards ran roughly &lt;strong>$630–750&lt;/strong> (some dipping toward ~$580 with checkout coupons), while RTX 5070 Ti cards ran roughly &lt;strong>$920–1,080&lt;/strong>, with premium models past $1,300. So the real-world &amp;ldquo;Ti tax&amp;rdquo; right now is &lt;strong>about $300–450, not $200&lt;/strong> — and the cheapest 5070 Ti often costs what an RTX 5080 launched at. A major driver is the worldwide GDDR7/DRAM shortage, fed by AI-datacenter demand, that has pushed GPU street prices well above late-2025 levels — with board-partner markups piling on top; SK Hynix has called 2027 the &lt;em>worst&lt;/em> year for the crunch, so don&amp;rsquo;t count on near-term relief. Every guide still quoting &amp;ldquo;$200&amp;rdquo; was written before this, and it changes the value math completely.&lt;/p>
+&lt;p>So read the performance gap below through the real price gap, not the sticker one.&lt;/p>
+&lt;h2 id="the-specs-honestly">The specs, honestly&lt;/h2>
+&lt;p>Both cards are Blackwell, built on the same architecture — the Ti simply has more of everything. Per &lt;a href="https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5070-family/" rel="noopener">NVIDIA&amp;rsquo;s spec page&lt;/a>:&lt;/p>
+&lt;div style="overflow-x:auto;margin:1.5rem 0;">
+&lt;table style="border-collapse:collapse;width:100%;min-width:600px;font-size:0.93rem;">
+&lt;thead>&lt;tr style="background:rgba(200,255,0,0.06);text-align:left;">
+&lt;th style="padding:0.6rem 0.75rem;border-bottom:1px solid #2a2a44;">Spec&lt;/th>
+&lt;th style="padding:0.6rem 0.75rem;border-bottom:1px solid #2a2a44;">RTX 5070&lt;/th>
+&lt;th style="padding:0.6rem 0.75rem;border-bottom:1px solid #2a2a44;">RTX 5070 Ti&lt;/th>
+&lt;th style="padding:0.6rem 0.75rem;border-bottom:1px solid #2a2a44;">Delta&lt;/th>
+&lt;/tr>&lt;/thead>
+&lt;tbody>
+&lt;tr>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">CUDA cores&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">6,144&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">8,960&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;color:#8fdca0;">+46%&lt;/td>&lt;/tr>
+&lt;tr>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">VRAM&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">12GB GDDR7&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">16GB GDDR7&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;color:#8fdca0;">+4GB&lt;/td>&lt;/tr>
+&lt;tr>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">Memory bus&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">192-bit&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">256-bit&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;color:#8fdca0;">wider&lt;/td>&lt;/tr>
+&lt;tr>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">Bandwidth&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">672 GB/s&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">896 GB/s&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;color:#8fdca0;">+33%&lt;/td>&lt;/tr>
+&lt;tr>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">TGP&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">250W&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">300W&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">+50W&lt;/td>&lt;/tr>
+&lt;tr>&lt;td style="padding:0.55rem 0.75rem;">MSRP&lt;/td>&lt;td style="padding:0.55rem 0.75rem;">$549&lt;/td>&lt;td style="padding:0.55rem 0.75rem;">$749&lt;/td>&lt;td style="padding:0.55rem 0.75rem;">+$200&lt;/td>&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>The +46% CUDA and +33% bandwidth look decisive on paper, but paper isn&amp;rsquo;t frames — and this is where most spec-sheet comparisons quietly overstate the gap. (NVIDIA asks for 650W of system power for the 5070 and 750W for the 5070 Ti; our &lt;a href="https://techfuelhq.com/tools/psu-wattage-calculator/">PSU wattage calculator&lt;/a> sizes the supply for your exact parts, and &lt;a href="https://techfuelhq.com/articles/what-psu-for-rtx-5080-2026/">the RTX 50-series PSU guide&lt;/a> walks through where those numbers come from.)&lt;/p>
+&lt;h2 id="how-much-faster-is-the-ti-really">How much faster is the Ti, really?&lt;/h2>
+&lt;p>Independent testing lands well below the marketing math. In &lt;a href="https://gamersnexus.net/gpus/amd-radeon-rx-9070-xt-gpu-review-benchmarks-vs-5070-ti-5070-7900-xt-sapphire-pulse" rel="noopener">GamersNexus&amp;rsquo;s benchmark suite&lt;/a>, the RTX 5070 Ti averages &lt;strong>about 20–22% faster than the 5070 at 1440p rasterization&lt;/strong> — not the &amp;ldquo;up to 30%&amp;rdquo; you&amp;rsquo;ll see in card listings. The important part is the &lt;em>range&lt;/em>, because it tells you where your money actually goes:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>CPU-bound games&lt;/strong> (e.g. Final Fantasy XIV): as little as &lt;strong>~6%&lt;/strong> — both cards are waiting on the processor, so the Ti&amp;rsquo;s extra hardware barely moves.&lt;/li>
+&lt;li>&lt;strong>Bandwidth- and VRAM-bound games&lt;/strong> (e.g. Resident Evil 4 ~+27%, Dying Light 2 ~+23%): the widest gaps, where the Ti&amp;rsquo;s 256-bit bus and 16GB stretch their legs.&lt;/li>
+&lt;li>&lt;strong>At 4K:&lt;/strong> the gap is directionally larger than at 1440p, for the same reason — higher resolution leans harder on memory bandwidth and capacity.&lt;/li>
+&lt;/ul>
+&lt;p>So the honest read is &amp;ldquo;roughly a fifth faster at 1440p, more at 4K, and it depends heavily on the game.&amp;rdquo; That&amp;rsquo;s a real upgrade — but weigh it against a ~$300–450 real-world price gap, not a $200 one. For the broader picture of where both land against every other current card, see the &lt;a href="https://techfuelhq.com/articles/gpu-hierarchy-2026/">2026 GPU hierarchy&lt;/a>.&lt;/p>
+&lt;h2 id="the-12gb-vs-16gb-question--the-part-every-2025-guide-skips">The 12GB vs 16GB question — the part every 2025 guide skips&lt;/h2>
+&lt;p>This is the single most future-facing difference, and it&amp;rsquo;s why the launch-era comparisons still ranking for this search feel dated. &lt;strong>The RTX 5070&amp;rsquo;s 12GB is fine for most 1440p gaming today&lt;/strong> — most current games stay within it at high settings and 1440p, though path-traced titles and ultra-texture packs can pressure it even there. The problems show up in two places: &lt;strong>4K&lt;/strong> and &lt;strong>time&lt;/strong>. Several 2026 titles already exceed 12GB at 4K with high-resolution textures or heavy ray tracing, and when a card runs out of VRAM it doesn&amp;rsquo;t slow down gracefully — it stutters and drops texture quality even when its raw speed says it should keep up.&lt;/p>
+&lt;p>The practical rule: if you game at 1440p and upgrade every couple of years, 12GB on the 5070 is genuinely enough. If you game at 4K, run RT-heavy titles, or want to keep the card &lt;strong>4+ years&lt;/strong>, the 5070 Ti&amp;rsquo;s 16GB is the safer place to put your money — and it&amp;rsquo;s a big reason the Ti ages better than the raw FPS gap suggests.&lt;/p>
+&lt;h2 id="the-amd-spoiler-rx-9070-xt">The AMD spoiler: RX 9070 XT&lt;/h2>
+&lt;p>You can&amp;rsquo;t answer &amp;ldquo;5070 or 5070 Ti&amp;rdquo; in 2026 without naming the card that undercuts both. AMD&amp;rsquo;s &lt;strong>RX 9070 XT&lt;/strong> carries the same &lt;strong>16GB of VRAM&lt;/strong>, and GamersNexus measured it at &lt;strong>roughly 95% of the 5070 Ti&amp;rsquo;s rasterization&lt;/strong> in strong-case titles — while it sells &lt;strong>at or near its $599 MSRP&lt;/strong> and the 5070 Ti does not. That routinely makes the AMD card &lt;strong>$250–400 cheaper for nearly the same raster gaming&lt;/strong>.&lt;/p>
+&lt;p>The 5070 Ti earns its NVIDIA premium in specific places: &lt;strong>ray tracing and path tracing&lt;/strong>, &lt;strong>DLSS 4 multi-frame generation&lt;/strong>, and &lt;strong>CUDA/NVENC&lt;/strong> for AI and content work — and note the Ti uses the RTX 5080&amp;rsquo;s larger GB203 die with &lt;strong>dual&lt;/strong> NVENC video encoders, versus a single encoder on the 5070&amp;rsquo;s GB205, a real edge for streamers and video editors. If those are core to what you do, pay for them. If you mostly play rasterized games, the 9070 XT is the value pick — we break down that exact matchup in &lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5070-ti-vs-rx-9070-xt-2026/">RTX 5070 Ti vs RX 9070 XT&lt;/a>. And at the plain 5070&amp;rsquo;s own price tier, AMD&amp;rsquo;s direct rival is the RX 9070 — see &lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5070-vs-rx-9070-2026/">RTX 5070 vs RX 9070&lt;/a> for that head-to-head.&lt;/p>
+&lt;h2 id="dont-get-talked-up-into-a-5080">Don&amp;rsquo;t get talked up into a 5080&lt;/h2>
+&lt;p>One more guardrail, because the upsell doesn&amp;rsquo;t stop at the Ti. At 2026 street prices the RTX 5080 costs roughly &lt;strong>39% more than the 5070 Ti but is only about 14–17% faster&lt;/strong> in gaming (even at MSRP it&amp;rsquo;s ~33% more, $999 vs $749). Stepping from the 5070 to the 5070 Ti buys ~20% for its money; stepping from the 5070 Ti to the 5080 buys far less. &lt;strong>The 5070 Ti is the sensible ceiling of the value stack&lt;/strong> — above it, you pay flagship prices for single-digit-to-mid-teens gains.&lt;/p>
+&lt;h2 id="so-which-should-you-buy">So which should you buy?&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Play at 1440p, want the best value:&lt;/strong> the &lt;strong>RTX 5070&lt;/strong>. 12GB holds up at 1440p, and at ~$630–650 you keep hundreds in your pocket versus the Ti (&lt;a href="https://www.amazon.com/dp/B0DTQMLX4F?tag=techfuelhq-20" rel="nofollow sponsored">GIGABYTE RTX 5070 WINDFORCE, Amazon&lt;/a>).&lt;/li>
+&lt;li>&lt;strong>Game at 4K, want VRAM longevity, or do RT/CUDA/AI work:&lt;/strong> the &lt;strong>RTX 5070 Ti&lt;/strong>. The 16GB and wider bus are worth it here (&lt;a href="https://www.amazon.com/dp/B0DXL7GSYC?tag=techfuelhq-20" rel="nofollow sponsored">PNY RTX 5070 Ti, Amazon&lt;/a>).&lt;/li>
+&lt;li>&lt;strong>Just want the most raster per dollar:&lt;/strong> cross-shop the &lt;strong>&lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5070-ti-vs-rx-9070-xt-2026/">RX 9070 XT&lt;/a>&lt;/strong> before committing to either NVIDIA card.&lt;/li>
+&lt;/ul>
+&lt;p>The one thing not to do is buy the 5070 Ti on the assumption it&amp;rsquo;s &amp;ldquo;only $200 more&amp;rdquo; — verify the live gap first. Prices here are a dated 2026-07-20 snapshot in a volatile GDDR7-shortage market; treat them as a method, not a promise, and check the current retailer price before you buy.&lt;/p></description></item><item><title>RTX 5070 vs RX 9070: The Honest 1440p Verdict 2026</title><link>https://techfuelhq.com/gpu-reviews/rtx-5070-vs-rx-9070-2026/</link><pubDate>Mon, 20 Jul 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/gpu-reviews/rtx-5070-vs-rx-9070-2026/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · Published 2026-07-20 · Updated 2026-07-20 · ~11 min read · St. Louis County, MO&lt;/p>
+&lt;p>&lt;em>Some retailer links below are Amazon affiliate links; if you buy through them TechFuel HQ may earn a small commission at no extra cost to you. As an Amazon Associate I earn from qualifying purchases. Commissions never influence which products get recommended — see our &lt;a href="https://techfuelhq.com/disclosure/">disclosure&lt;/a>.&lt;/em>&lt;/p>
+&lt;div class="verdict-card" style="border:1px solid #c8ff00;border-left:4px solid #c8ff00;border-radius:6px;padding:1.25rem 1.5rem;margin:1.5rem 0 2rem 0;background:rgba(200,255,0,0.04);">
+&lt;p style="margin:0 0 0.5rem 0;font-weight:700;color:#c8ff00;letter-spacing:0.04em;text-transform:uppercase;font-size:0.85rem;">TL;DR · The verdict in 2026&lt;/p>
+&lt;ul style="margin:0.25rem 0 0 0;padding-left:1.25rem;line-height:1.55;">
+&lt;li>&lt;strong>Raster winner:&lt;/strong> the RX 9070 is ~&lt;strong>11–15% faster at 1440p&lt;/strong> and leads at 4K too (roughly 0–18% by game), per independent testing.&lt;/li>
+&lt;li>&lt;strong>VRAM &amp;amp; power:&lt;/strong> the 9070 has &lt;strong>16GB vs 12GB&lt;/strong> and a &lt;strong>220W vs 250W&lt;/strong> board rating — more headroom, better efficiency.&lt;/li>
+&lt;li>&lt;strong>Where the 5070 wins:&lt;/strong> heavy &lt;strong>ray tracing&lt;/strong> (up to ~57% ahead in path-traced Wukong), &lt;strong>DLSS 4&lt;/strong> multi-frame gen, and &lt;strong>CUDA/NVENC&lt;/strong> for AI and video.&lt;/li>
+&lt;li>&lt;strong>Buy the RX 9070&lt;/strong> for pure 1440p value and VRAM longevity (~$620, &lt;a href="https://www.amazon.com/dp/B0DXLBTL4B?tag=techfuelhq-20" rel="nofollow sponsored">XFX Swift RX 9070, Amazon&lt;/a>).&lt;/li>
+&lt;li>&lt;strong>Buy the RTX 5070&lt;/strong> for ray tracing, DLSS 4, or creator/AI work (~$630, &lt;a href="https://www.amazon.com/dp/B0DYPFGL88?tag=techfuelhq-20" rel="nofollow sponsored">PNY RTX 5070, Amazon&lt;/a>).&lt;/li>
+&lt;/ul>
+&lt;p style="margin:0.75rem 0 0 0;font-size:0.9rem;color:#a0a0b8;">Specs are from NVIDIA and AMD; benchmark deltas are from independent testing (GamersNexus), cited inline. Prices are a live Amazon snapshot dated 2026-07-20 and move week to week in the current GDDR shortage — check the retailer link before buying.&lt;/p>
+&lt;/div>
+&lt;img src="https://techfuelhq.com/images/gpu-reviews/rtx-5070-vs-rx-9070-2026.svg" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async" alt="RTX 5070 vs RX 9070 in 2026: both launched at 549 dollars, but the RX 9070 is about 11 to 15 percent faster at 1440p with 16GB of VRAM versus 12GB and a lower 220W board power versus 250W. The RTX 5070 wins ray tracing, DLSS 4, and CUDA creator work. At mid-2026 street prices the two sell near parity, so the choice is feature-driven." style="display:block;margin:1.5rem auto;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;h2 id="the-2026-answer-isnt-the-launch-day-answer">The 2026 answer isn&amp;rsquo;t the launch-day answer&lt;/h2>
+&lt;p>Nvidia and AMD launched these two cards a day apart in March 2025 at the exact same price — &lt;strong>$549&lt;/strong> — and the internet spent the following year repeating one line: the RX 9070 wins because it&amp;rsquo;s faster for the same money. At MSRP, that was simply true. In mid-2026 it&amp;rsquo;s more complicated, and the honest answer now turns on &lt;strong>what you actually do with the card&lt;/strong>, not the sticker.&lt;/p>
+&lt;p>Two things changed. First, neither card reliably sells at $549 anymore — a worldwide GDDR/DRAM shortage fed by AI-datacenter demand has pushed street prices up and made them volatile, and board-partner markups vary by model. Second, AMD&amp;rsquo;s drivers have matured, nudging the 9070 a little further ahead in raster while NVIDIA&amp;rsquo;s software advantages (DLSS 4, CUDA) stayed put. So the matchup is less &amp;ldquo;which is cheaper&amp;rdquo; and more &amp;ldquo;which feature set fits you.&amp;rdquo; Let&amp;rsquo;s settle it with real numbers.&lt;/p>
+&lt;h2 id="the-specs-honestly">The specs, honestly&lt;/h2>
+&lt;p>Both are current-generation cards — NVIDIA&amp;rsquo;s Blackwell against AMD&amp;rsquo;s RDNA 4 — aimed squarely at 1440p. They take opposite approaches: NVIDIA leans on software and ray tracing, AMD on raw memory and rasterization.&lt;/p>
+&lt;div style="overflow-x:auto;margin:1.5rem 0;">
+&lt;table style="border-collapse:collapse;width:100%;min-width:600px;font-size:0.93rem;">
+&lt;thead>&lt;tr style="background:rgba(200,255,0,0.06);text-align:left;">
+&lt;th style="padding:0.6rem 0.75rem;border-bottom:1px solid #2a2a44;">Spec&lt;/th>
+&lt;th style="padding:0.6rem 0.75rem;border-bottom:1px solid #2a2a44;">RTX 5070&lt;/th>
+&lt;th style="padding:0.6rem 0.75rem;border-bottom:1px solid #2a2a44;">RX 9070&lt;/th>
+&lt;th style="padding:0.6rem 0.75rem;border-bottom:1px solid #2a2a44;">Edge&lt;/th>
+&lt;/tr>&lt;/thead>
+&lt;tbody>
+&lt;tr>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">Architecture&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">Blackwell (GB205)&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">RDNA 4 (Navi 48)&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">—&lt;/td>&lt;/tr>
+&lt;tr>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">Shaders&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">6,144 CUDA&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">3,584 stream proc. (56 CU)&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">architecture-specific&lt;/td>&lt;/tr>
+&lt;tr>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">VRAM&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">12GB GDDR7&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">16GB GDDR6&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;color:#8fdca0;">9070 (+4GB)&lt;/td>&lt;/tr>
+&lt;tr>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">Memory bus&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">192-bit&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">256-bit&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;color:#8fdca0;">9070&lt;/td>&lt;/tr>
+&lt;tr>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">Board power&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">250W&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">220W&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;color:#8fdca0;">9070 (–30W)&lt;/td>&lt;/tr>
+&lt;tr>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">Upscaling&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">DLSS 4 (MFG)&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">FSR 4&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;color:#7fb0f0;">5070&lt;/td>&lt;/tr>
+&lt;tr>&lt;td style="padding:0.55rem 0.75rem;">MSRP&lt;/td>&lt;td style="padding:0.55rem 0.75rem;">$549&lt;/td>&lt;td style="padding:0.55rem 0.75rem;">$549&lt;/td>&lt;td style="padding:0.55rem 0.75rem;">tie&lt;/td>&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>The spec sheet tells the story in miniature: the 9070 brings &lt;strong>more memory, a wider bus, and lower power&lt;/strong>; the 5070 answers with &lt;strong>DLSS 4 and NVIDIA&amp;rsquo;s ray tracing pedigree&lt;/strong>. Note that shader counts don&amp;rsquo;t compare across brands — a CUDA core and an RDNA stream processor do different amounts of work — so the only thing that settles the performance question is real game testing. (For a build around either 220–250W card, our &lt;a href="https://techfuelhq.com/tools/psu-wattage-calculator/">PSU wattage calculator&lt;/a> sizes the supply; both are happy on a quality 650W unit.)&lt;/p>
+&lt;h2 id="how-much-faster-is-the-rx-9070-really">How much faster is the RX 9070, really?&lt;/h2>
+&lt;p>In &lt;a href="https://gamersnexus.net/gpus/incredibly-efficient-amd-rx-9070-gpu-review-benchmarks-vs-9070-xt-rtx-5070" rel="noopener">GamersNexus&amp;rsquo;s launch review&lt;/a>, the RX 9070 leads the RTX 5070 by roughly &lt;strong>11–15% at 1440p rasterization&lt;/strong> in the games that favor it — a couple land dead even — and the pattern holds at 4K. As always, the &lt;em>range&lt;/em> is the useful part:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Starfield (1440p):&lt;/strong> RX 9070 ~96 FPS vs RTX 5070 ~83 FPS — about a &lt;strong>15% lead&lt;/strong>.&lt;/li>
+&lt;li>&lt;strong>Cyberpunk 2077 (1440p):&lt;/strong> the 9070 leads by roughly &lt;strong>11%&lt;/strong>.&lt;/li>
+&lt;li>&lt;strong>Black Myth: Wukong (raster):&lt;/strong> the two land within error of each other — effectively tied.&lt;/li>
+&lt;li>&lt;strong>At 4K:&lt;/strong> the 9070 is generally ahead again — around &lt;strong>+17% in Starfield&lt;/strong> and &lt;strong>+14–15%&lt;/strong> in Cyberpunk and Dragon&amp;rsquo;s Dogma 2 — though &lt;strong>Final Fantasy XIV&lt;/strong> flips it, with the RTX 5070 about &lt;strong>24% faster&lt;/strong> (a long-standing AMD weak spot).&lt;/li>
+&lt;/ul>
+&lt;p>So the honest read is &amp;ldquo;the 9070 is a bit faster than the 5070 in most rasterized games — call it low-double-digits — with the odd title going the other way.&amp;rdquo; That&amp;rsquo;s a real, repeatable edge, and it comes on top of 4GB more VRAM. For where both land against the rest of the stack, see the &lt;a href="https://techfuelhq.com/articles/gpu-hierarchy-2026/">2026 GPU hierarchy&lt;/a>, or line them up head-to-head in our &lt;a href="https://techfuelhq.com/tools/gpu-comparison/">GPU comparison tool&lt;/a>.&lt;/p>
+&lt;h2 id="ray-tracing-where-the-rtx-5070-hits-back">Ray tracing: where the RTX 5070 hits back&lt;/h2>
+&lt;p>This is the one category that reliably flips the verdict. RDNA 4 narrowed AMD&amp;rsquo;s historic ray tracing deficit, and in &lt;strong>lighter&lt;/strong> RT workloads the 9070 is genuinely competitive — GamersNexus even measured it ahead of the 5070 in Dragon&amp;rsquo;s Dogma 2 with RT enabled. But in &lt;strong>heavy, path-traced&lt;/strong> titles the NVIDIA card still pulls away hard: in Black Myth: Wukong at 4K with ray tracing, the RTX 5070 was roughly &lt;strong>57% faster&lt;/strong> than the 9070.&lt;/p>
+&lt;p>The takeaway isn&amp;rsquo;t &amp;ldquo;AMD is bad at RT&amp;rdquo; — it&amp;rsquo;s that the gap scales with how aggressive the ray tracing is. Turn on a few reflections and shadows, and the cards are close. Turn on full path tracing in a showcase title, and the 5070 (plus DLSS 4) is in a different league. If ray tracing is central to what you play, that alone can justify the NVIDIA card.&lt;/p>
+&lt;h2 id="the-quiet-wins-efficiency-and-vram">The quiet wins: efficiency and VRAM&lt;/h2>
+&lt;p>Two advantages don&amp;rsquo;t show up on an FPS bar but matter over the life of the card.&lt;/p>
+&lt;p>&lt;strong>Efficiency.&lt;/strong> The 9070&amp;rsquo;s 220W board power isn&amp;rsquo;t just 30W lower on paper — it&amp;rsquo;s more frames per watt in practice. GamersNexus called the card &amp;ldquo;incredibly efficient,&amp;rdquo; recording it near &lt;strong>RTX 5090-class efficiency&lt;/strong> in one 4K ray-traced test (about &lt;strong>0.21 FPS/W&lt;/strong> versus the RTX 5070&amp;rsquo;s &lt;strong>0.17&lt;/strong> — roughly 24% better there). In a real build that means a little less heat, a little less fan noise, and more headroom on a modest PSU.&lt;/p>
+&lt;p>&lt;strong>VRAM longevity.&lt;/strong> The 5070&amp;rsquo;s &lt;strong>12GB is fine for 1440p today&lt;/strong>, but it&amp;rsquo;s the tighter of the two, and VRAM pressure only grows. Several 2026 titles already brush past 12GB at 4K with ultra textures or ray tracing — and when a GPU runs out of memory it doesn&amp;rsquo;t slow down gracefully, it stutters and quietly drops texture quality. The 9070&amp;rsquo;s &lt;strong>16GB&lt;/strong> is the safer place to put your money if you game at 4K or plan to keep the card &lt;strong>4+ years&lt;/strong>. It&amp;rsquo;s the same reason the VRAM question dominates the tier below, in our &lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5060-ti-vs-rx-9060-xt-1440p-showdown-2026/">RTX 5060 Ti vs RX 9060 XT showdown&lt;/a>.&lt;/p>
+&lt;h2 id="dlss-4-vs-fsr-4--the-software-split">DLSS 4 vs FSR 4 — the software split&lt;/h2>
+&lt;p>Upscaling is where NVIDIA keeps its clearest lead. The RTX 5070 supports &lt;strong>DLSS 4&lt;/strong>, including multi-frame generation, which is widely implemented and generally the quality benchmark. The RX 9070 uses &lt;strong>FSR 4&lt;/strong>, which on RDNA 4 closed much of the visual gap to DLSS but appears in &lt;strong>fewer games&lt;/strong>. If a title you care about supports one but not the other well, let that break the tie. And if you use your GPU for more than games — AI inference, video encoding, apps built on &lt;strong>CUDA/NVENC&lt;/strong> — that ecosystem is NVIDIA-only and a real reason to pick the 5070 despite its raster deficit.&lt;/p>
+&lt;h2 id="the-price-picture-in-2026">The price picture in 2026&lt;/h2>
+&lt;p>Here&amp;rsquo;s the part the launch-day guides get wrong today. Both cards carry a &lt;strong>$549 MSRP&lt;/strong>, and at MSRP the math is easy: same price, AMD faster in raster, buy AMD. But in a live Amazon check on &lt;strong>2026-07-20&lt;/strong>, that clean gap had mostly closed:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>RTX 5070&lt;/strong> partner cards ran roughly &lt;strong>$580–670&lt;/strong> (a PNY model listed at $629.99 with a $50 checkout coupon; several others $630–670).&lt;/li>
+&lt;li>&lt;strong>RX 9070&lt;/strong> cards ran roughly &lt;strong>$610–686&lt;/strong> (XFX Swift ~$610–640, PowerColor Reaper ~$686).&lt;/li>
+&lt;/ul>
+&lt;p>In other words, they&amp;rsquo;re selling &lt;strong>within a model&amp;rsquo;s margin of each other right now&lt;/strong> — sometimes the cheapest 5070 is actually a touch less than the cheapest 9070. That&amp;rsquo;s a meaningful shift from the MSRP narrative: the RX 9070&amp;rsquo;s old &amp;ldquo;faster &lt;em>and&lt;/em> cheaper&amp;rdquo; pitch is now mostly just &amp;ldquo;faster in raster, similar price.&amp;rdquo; It&amp;rsquo;s still the value pick for rasterized gaming — you get more frames, more VRAM, and lower power for about the same outlay — but the decision is now &lt;strong>feature-driven&lt;/strong>, so weigh ray tracing, DLSS, and CUDA honestly before you buy. Prices here are a dated snapshot in a volatile market; check the live retailer price before committing.&lt;/p>
+&lt;h2 id="dont-overlook-the-tier-neighbors">Don&amp;rsquo;t overlook the tier neighbors&lt;/h2>
+&lt;p>Two cards sit one step away and are worth a glance before you commit. Above this pair, the &lt;strong>RX 9070 XT&lt;/strong> and &lt;strong>RTX 5070 Ti&lt;/strong> trade blows for a few hundred more — we cover that exact fight in &lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5070-ti-vs-rx-9070-xt-2026/">RTX 5070 Ti vs RX 9070 XT&lt;/a>, and the AMD-internal step up from this card in &lt;a href="https://techfuelhq.com/gpu-reviews/rx-9070-vs-rx-9070-xt-2026/">RX 9070 vs RX 9070 XT&lt;/a>. And if you&amp;rsquo;re cross-shopping NVIDIA&amp;rsquo;s own stack, the &lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5070-vs-5070-ti-2026/">RTX 5070 vs RTX 5070 Ti&lt;/a> breakdown shows why the Ti&amp;rsquo;s real-world premium is bigger than its MSRP suggests. If your budget is firmly at this tier, though, the 5070-versus-9070 decision below is the one that matters.&lt;/p>
+&lt;h2 id="so-which-should-you-buy">So which should you buy?&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Pure 1440p gaming, best value:&lt;/strong> the &lt;strong>RX 9070&lt;/strong>. More frames, 16GB of VRAM, lower power, similar price (~$620, &lt;a href="https://www.amazon.com/dp/B0DXLBTL4B?tag=techfuelhq-20" rel="nofollow sponsored">XFX Swift RX 9070, Amazon&lt;/a>).&lt;/li>
+&lt;li>&lt;strong>Ray tracing, DLSS 4, or creator/AI work:&lt;/strong> the &lt;strong>RTX 5070&lt;/strong>. You give up a little raster to gain the RT crown, DLSS 4 frame gen, and CUDA/NVENC (~$630, &lt;a href="https://www.amazon.com/dp/B0DYPFGL88?tag=techfuelhq-20" rel="nofollow sponsored">PNY RTX 5070, Amazon&lt;/a>).&lt;/li>
+&lt;li>&lt;strong>Not sure yet:&lt;/strong> run both through the &lt;a href="https://techfuelhq.com/tools/gpu-comparison/">GPU comparison tool&lt;/a> and check the live price gap — at these near-equal prices, the tiebreaker is which feature set you&amp;rsquo;ll actually use.&lt;/li>
+&lt;/ul>
+&lt;p>The one mistake to avoid is buying on the year-old &amp;ldquo;9070 is faster for less&amp;rdquo; headline without checking today&amp;rsquo;s prices. In 2026 the two cards cost about the same, so pick the one whose strengths match how you play — raw 1440p frames and VRAM (AMD), or ray tracing and DLSS (NVIDIA).&lt;/p>
+&lt;h2 id="sources">Sources&lt;/h2>
+&lt;ul>
+&lt;li>NVIDIA — &lt;a href="https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5070-family/" rel="noopener">GeForce RTX 5070 family specifications&lt;/a> (RTX 5070 CUDA cores, 12GB GDDR7, 250W board power) — verified live 2026-07-20&lt;/li>
+&lt;li>GamersNexus — &lt;a href="https://gamersnexus.net/gpus/incredibly-efficient-amd-rx-9070-gpu-review-benchmarks-vs-9070-xt-rtx-5070" rel="noopener">AMD RX 9070 GPU Review &amp;amp; Benchmarks vs. 9070 XT, RTX 5070&lt;/a> (RX 9070 architecture, 1440p/4K rasterization deltas, ray tracing, and per-watt efficiency) — verified live 2026-07-20&lt;/li>
+&lt;li>RX 9070 specifications (RDNA 4, 56 compute units, 16GB GDDR6 on a 256-bit bus, 220W board power) and the &lt;strong>$549&lt;/strong> launch MSRP it shares with the RTX 5070 reflect both companies&amp;rsquo; March 2025 launches, cross-checked across multiple independent launch-day reports and the TechPowerUp GPU database.&lt;/li>
+&lt;li>Prices: live Amazon snapshot, 2026-07-20 (retailer links above)&lt;/li>
+&lt;/ul></description></item><item><title>RX 9070 vs RX 9070 XT: Which Radeon to Buy in 2026?</title><link>https://techfuelhq.com/gpu-reviews/rx-9070-vs-rx-9070-xt-2026/</link><pubDate>Mon, 20 Jul 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/gpu-reviews/rx-9070-vs-rx-9070-xt-2026/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · Published 2026-07-20 · Updated 2026-07-20 · ~10 min read · St. Louis County, MO&lt;/p>
+&lt;p>&lt;em>Some retailer links below are Amazon affiliate links; if you buy through them TechFuel HQ may earn a small commission at no extra cost to you. As an Amazon Associate I earn from qualifying purchases. Commissions never influence which products get recommended — see our &lt;a href="https://techfuelhq.com/disclosure/">disclosure&lt;/a>.&lt;/em>&lt;/p>
+&lt;div class="verdict-card" style="border:1px solid #c8ff00;border-left:4px solid #c8ff00;border-radius:6px;padding:1.25rem 1.5rem;margin:1.5rem 0 2rem 0;background:rgba(200,255,0,0.04);">
+&lt;p style="margin:0 0 0.5rem 0;font-weight:700;color:#c8ff00;letter-spacing:0.04em;text-transform:uppercase;font-size:0.85rem;">TL;DR · The verdict in 2026&lt;/p>
+&lt;ul style="margin:0.25rem 0 0 0;padding-left:1.25rem;line-height:1.55;">
+&lt;li>&lt;strong>Performance:&lt;/strong> the XT is ~&lt;strong>7–12% faster at 1440p&lt;/strong> (~9% at 4K, up to ~16% in ray tracing) — real, but smaller than the name implies.&lt;/li>
+&lt;li>&lt;strong>The catch is power:&lt;/strong> the XT draws &lt;strong>84W more&lt;/strong> (304W vs 220W board power) for that ~10%, so it runs hotter and wants a bigger PSU.&lt;/li>
+&lt;li>&lt;strong>VRAM is a tie:&lt;/strong> both are &lt;strong>16GB GDDR6 on a 256-bit bus&lt;/strong>, same Navi 48 die — neither ages better on memory.&lt;/li>
+&lt;li>&lt;strong>Buy the RX 9070 XT&lt;/strong> for max out-of-box frames or 4K (~$690, &lt;a href="https://www.amazon.com/dp/B0DSWJJRQX?tag=techfuelhq-20" rel="nofollow sponsored">PowerColor Reaper 9070 XT, Amazon&lt;/a>).&lt;/li>
+&lt;li>&lt;strong>Buy the RX 9070&lt;/strong> for efficiency, a quieter build, and value (~$620, &lt;a href="https://www.amazon.com/dp/B0DXLBTL4B?tag=techfuelhq-20" rel="nofollow sponsored">XFX Swift RX 9070, Amazon&lt;/a>).&lt;/li>
+&lt;/ul>
+&lt;p style="margin:0.75rem 0 0 0;font-size:0.9rem;color:#a0a0b8;">Specs are from AMD; benchmark deltas are from independent testing (GamersNexus, PCWorld), cited inline. Prices are a live Amazon snapshot dated 2026-07-20 and move week to week in the current GDDR shortage — check the retailer link before buying.&lt;/p>
+&lt;/div>
+&lt;img src="https://techfuelhq.com/images/gpu-reviews/rx-9070-vs-rx-9070-xt-2026.svg" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async" alt="RX 9070 vs RX 9070 XT in 2026: both use the same Navi 48 die with 16GB of GDDR6 on a 256-bit bus, but the XT enables 64 compute units versus 56 and clocks higher, making it about 7 to 12 percent faster at 1440p while drawing 84W more (304W versus 220W board power). The choice is performance versus efficiency versus price." style="display:block;margin:1.5rem auto;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;h2 id="the-9070-familys-confusing-middle">The 9070 family&amp;rsquo;s confusing middle&lt;/h2>
+&lt;p>AMD&amp;rsquo;s RDNA 4 line put three cards within a hair of each other — the RX 9070, the RX 9070 XT, and the 12GB 9070 GRE — and the two that matter most for a mainstream build are the first two. They look nearly identical on a spec sheet, share the &lt;strong>same Navi 48 GPU&lt;/strong> and the &lt;strong>same 16GB of memory&lt;/strong>, and sell within about a hundred dollars of each other. So the real question isn&amp;rsquo;t &amp;ldquo;which is better&amp;rdquo; — the XT is, plainly — it&amp;rsquo;s &lt;strong>&amp;ldquo;is the XT&amp;rsquo;s extra performance worth its extra power and price for you?&amp;rdquo;&lt;/strong> That&amp;rsquo;s a narrower, more answerable question, and the numbers settle it. (If you&amp;rsquo;re cross-shopping the plain 9070 against NVIDIA instead, we cover that in &lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5070-vs-rx-9070-2026/">RTX 5070 vs RX 9070&lt;/a>.)&lt;/p>
+&lt;h2 id="the-specs-honestly">The specs, honestly&lt;/h2>
+&lt;p>Both cards are cut from the same silicon. The XT simply has more of it switched on, running faster:&lt;/p>
+&lt;div style="overflow-x:auto;margin:1.5rem 0;">
+&lt;table style="border-collapse:collapse;width:100%;min-width:600px;font-size:0.93rem;">
+&lt;thead>&lt;tr style="background:rgba(200,255,0,0.06);text-align:left;">
+&lt;th style="padding:0.6rem 0.75rem;border-bottom:1px solid #2a2a44;">Spec&lt;/th>
+&lt;th style="padding:0.6rem 0.75rem;border-bottom:1px solid #2a2a44;">RX 9070&lt;/th>
+&lt;th style="padding:0.6rem 0.75rem;border-bottom:1px solid #2a2a44;">RX 9070 XT&lt;/th>
+&lt;th style="padding:0.6rem 0.75rem;border-bottom:1px solid #2a2a44;">Edge&lt;/th>
+&lt;/tr>&lt;/thead>
+&lt;tbody>
+&lt;tr>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">Architecture&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">RDNA 4 (Navi 48)&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">RDNA 4 (Navi 48)&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">same die&lt;/td>&lt;/tr>
+&lt;tr>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">Compute units&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">56&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">64&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;color:#f0b060;">XT (+14%)&lt;/td>&lt;/tr>
+&lt;tr>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">Stream processors&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">3,584&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">4,096&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;color:#f0b060;">XT (+512)&lt;/td>&lt;/tr>
+&lt;tr>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">VRAM&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">16GB GDDR6&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">16GB GDDR6&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">tie&lt;/td>&lt;/tr>
+&lt;tr>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">Memory bus&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">256-bit&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">256-bit&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">tie&lt;/td>&lt;/tr>
+&lt;tr>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">Board power&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">220W&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;">304W&lt;/td>&lt;td style="padding:0.55rem 0.75rem;border-bottom:1px solid #1e1e3a;color:#8fdca0;">9070 (–84W)&lt;/td>&lt;/tr>
+&lt;tr>&lt;td style="padding:0.55rem 0.75rem;">MSRP&lt;/td>&lt;td style="padding:0.55rem 0.75rem;">$549&lt;/td>&lt;td style="padding:0.55rem 0.75rem;">$599&lt;/td>&lt;td style="padding:0.55rem 0.75rem;">+$50&lt;/td>&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>The XT enables about &lt;strong>14% more compute units and stream processors&lt;/strong> and clocks higher out of the box — on paper a decent jump. But paper isn&amp;rsquo;t frames, and the same die plus identical memory means the two behave far more alike than, say, &lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5070-vs-5070-ti-2026/">a 5070 versus a 5070 Ti&lt;/a> (which differ in VRAM too). Line them up against the rest of the stack in the &lt;a href="https://techfuelhq.com/articles/gpu-hierarchy-2026/">2026 GPU hierarchy&lt;/a> or the &lt;a href="https://techfuelhq.com/tools/gpu-comparison/">GPU comparison tool&lt;/a>.&lt;/p>
+&lt;h2 id="how-much-faster-is-the-xt-really">How much faster is the XT, really?&lt;/h2>
+&lt;p>Independent testing lands in a tight, consistent band. &lt;a href="https://gamersnexus.net/gpus/incredibly-efficient-amd-rx-9070-gpu-review-benchmarks-vs-9070-xt-rtx-5070" rel="noopener">GamersNexus&lt;/a> measured the 9070 XT &amp;ldquo;roughly 9–12% better than the 9070 in most of the games we tested&amp;rdquo; at 1440p — for example Dragon&amp;rsquo;s Dogma 2 at &lt;strong>116 FPS (XT) vs 106 FPS (9070)&lt;/strong>, a 9.3% gap. &lt;a href="https://www.pcworld.com/article/2627008/amd-radeon-rx-9070-and-9070-xt-review.html" rel="noopener">PCWorld&lt;/a> put the average lower still, at &lt;strong>about 7%&lt;/strong> across their suite. So the honest figure is &lt;strong>roughly 7–12% at 1440p&lt;/strong> — GamersNexus saw a similar ~9% at 4K (Dragon&amp;rsquo;s Dogma 2 at 70 vs 64 FPS) and a wider gap in ray tracing, up to about &lt;strong>16%&lt;/strong>, where the XT&amp;rsquo;s extra compute stretches its legs.&lt;/p>
+&lt;p>That&amp;rsquo;s a real, repeatable edge — but it&amp;rsquo;s the kind of gap you measure with a frame counter, not one you feel across a session. Both cards clear high-refresh 1440p comfortably and handle entry 4K. Drivers have also matured since these March-2025 launch reviews, nudging RDNA 4 up a little across the board, but the &lt;em>relative&lt;/em> order hasn&amp;rsquo;t changed.&lt;/p>
+&lt;h2 id="the-catch-84-watts-for-10">The catch: 84 watts for ~10%&lt;/h2>
+&lt;p>Here&amp;rsquo;s the trade the spec sheet makes plain. That ~7–12% comes at a &lt;strong>304W board power rating versus 220W&lt;/strong> — an 84W jump — and independent testing measured real draw around &lt;strong>310W (XT) versus 224W (9070)&lt;/strong>. GamersNexus called the plain 9070 &amp;ldquo;incredibly efficient&amp;rdquo; and described it as sitting in &amp;ldquo;the so-called sweet spot of power and performance,&amp;rdquo; delivering more frames per watt than its bigger sibling.&lt;/p>
+&lt;p>In a real build that gap matters more than a single-digit FPS delta. The 9070 runs cooler and quieter, fits comfortably on a quality 550–650W supply, and puts less heat into a small case; the XT wants stronger cooling, better airflow, and headroom on the PSU. Size either one with our &lt;a href="https://techfuelhq.com/tools/psu-wattage-calculator/">PSU wattage calculator&lt;/a> before you buy — the XT&amp;rsquo;s draw is a real line item, not a rounding error.&lt;/p>
+&lt;h2 id="the-tiebreaker-that-isnt-vram">The tiebreaker that isn&amp;rsquo;t: VRAM&lt;/h2>
+&lt;p>One of the biggest levers in most GPU comparisons is simply &lt;em>off the table&lt;/em> here. Both cards carry &lt;strong>16GB of GDDR6 on a 256-bit bus&lt;/strong> — identical memory, identical 640 GB/s of bandwidth. Neither will run out of VRAM before the other, and neither ages better on that axis. That&amp;rsquo;s the opposite of a cross-brand fight like &lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5070-vs-rx-9070-2026/">RTX 5070 vs RX 9070&lt;/a>, where the 12GB-vs-16GB question does real work. Between these two Radeons, forget VRAM and decide on performance, power, and price alone.&lt;/p>
+&lt;h2 id="undervolt-and-the-value-case">Undervolt and the value case&lt;/h2>
+&lt;p>RDNA 4 responds unusually well to tuning, and it cuts both ways in this matchup. The RX 9070 XT is a popular &lt;strong>&lt;a href="https://techfuelhq.com/articles/rx-9070-xt-undervolt-2026/">undervolt target&lt;/a>&lt;/strong> — dropping voltage trims its considerable power draw and temperatures with little performance loss (and, because the card is power-limited, often &lt;em>adds&lt;/em> a few frames), taking the sting out of that 304W rating. But the same flexibility means the base &lt;strong>RX 9070 overclocks well&lt;/strong>, so a tuned 9070 can close much of the gap to a stock XT. That&amp;rsquo;s why the community verdict — echoed in the buying advice that shows up right in Google&amp;rsquo;s own summary for this matchup — is that a cheaper 9070 you push a little is often the smarter money than paying up for the XT and leaving it stock.&lt;/p>
+&lt;h2 id="the-price-picture-in-2026">The price picture in 2026&lt;/h2>
+&lt;p>At MSRP this was an easy call: &lt;strong>$549 vs $599&lt;/strong> is a $50 (9%) step for ~7–12% more performance, so the XT was a textbook upsell. But like the rest of the market in 2026, neither sells at MSRP. In a live Amazon check on &lt;strong>2026-07-20&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>RX 9070&lt;/strong> cards ran roughly &lt;strong>$610–686&lt;/strong> (an XFX Swift near $620, a PowerColor Reaper toward $686).&lt;/li>
+&lt;li>&lt;strong>RX 9070 XT&lt;/strong> cards ran roughly &lt;strong>$690–750&lt;/strong> for mainstream models (premium designs past $800).&lt;/li>
+&lt;/ul>
+&lt;p>So the street premium has widened to about &lt;strong>$80–100&lt;/strong>, not $50 — enough that the 9070&amp;rsquo;s efficiency and lower price tilt the value math back toward it. The XT is still the right buy if you want the most frames out of the box or you game at 4K; the 9070 is the pick if the premium is real to you or efficiency matters. A GDDR shortage keeps these prices volatile, so treat the snapshot as a method and check the live price before you commit.&lt;/p>
+&lt;h2 id="so-which-should-you-buy">So which should you buy?&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Want the most performance out of the box, or game at 4K:&lt;/strong> the &lt;strong>RX 9070 XT&lt;/strong>. You pay ~$80–100 more and 84W more for &lt;del>7–12% higher frames, more in ray tracing (&lt;/del>$690, &lt;a href="https://www.amazon.com/dp/B0DSWJJRQX?tag=techfuelhq-20" rel="nofollow sponsored">PowerColor Reaper RX 9070 XT, Amazon&lt;/a>).&lt;/li>
+&lt;li>&lt;strong>Value efficiency, a quiet build, or a smaller PSU:&lt;/strong> the &lt;strong>RX 9070&lt;/strong>. Same 16GB, &lt;del>90% of the frames, 84W less heat, and it undervolts-or-overclocks to taste (&lt;/del>$620, &lt;a href="https://www.amazon.com/dp/B0DXLBTL4B?tag=techfuelhq-20" rel="nofollow sponsored">XFX Swift RX 9070, Amazon&lt;/a>).&lt;/li>
+&lt;li>&lt;strong>Cross-shopping NVIDIA:&lt;/strong> see how the tier lines up in &lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5070-ti-vs-rx-9070-xt-2026/">RTX 5070 Ti vs RX 9070 XT&lt;/a> and &lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5070-vs-rx-9070-2026/">RTX 5070 vs RX 9070&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;p>The one thing not to do is buy the XT purely because it has the &amp;ldquo;XT&amp;rdquo; on the box. It&amp;rsquo;s the faster card, but the gap is single-digits-to-low-double-digits, the power cost is real, and at 2026 street prices the plain 9070 is often the smarter buy. Decide on the price gap in front of you, not the badge.&lt;/p>
+&lt;h2 id="sources">Sources&lt;/h2>
+&lt;ul>
+&lt;li>GamersNexus — &lt;a href="https://gamersnexus.net/gpus/incredibly-efficient-amd-rx-9070-gpu-review-benchmarks-vs-9070-xt-rtx-5070" rel="noopener">Incredibly Efficient: AMD RX 9070 GPU Review &amp;amp; Benchmarks vs. 9070 XT, RTX 5070&lt;/a> (1440p/4K raster deltas, ray tracing, power draw and efficiency) — verified live 2026-07-20&lt;/li>
+&lt;li>PCWorld — &lt;a href="https://www.pcworld.com/article/2627008/amd-radeon-rx-9070-and-9070-xt-review.html" rel="noopener">AMD Radeon RX 9070 and 9070 XT review&lt;/a> (the ~7% XT-over-9070 average) — verified live 2026-07-20&lt;/li>
+&lt;li>Core specs — 56 vs 64 compute units, 16GB GDDR6 on a 256-bit bus, and the ~224W vs ~310W measured power draw — are stated in the cited GamersNexus review; the &lt;strong>$549 vs $599&lt;/strong> MSRP is confirmed by the cited PCWorld review. Stream-processor counts (3,584 vs 4,096) follow from the compute-unit counts, and the 220W vs 304W board-power ratings are AMD&amp;rsquo;s published figures, corroborated by those measured draws.&lt;/li>
+&lt;li>Prices: live Amazon snapshot, 2026-07-20 (retailer links above)&lt;/li>
+&lt;/ul></description></item><item><title>ROG Astral RTX 5080 OC Review: First-Party 4K Benchmarks</title><link>https://techfuelhq.com/gpu-reviews/rog-astral-rtx-5080-oc-review-2026/</link><pubDate>Fri, 12 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/gpu-reviews/rog-astral-rtx-5080-oc-review-2026/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · 2026-06-12 · ~14 min read · St. Louis County, MO&lt;/p>
+&lt;figure class="post-hero">
+&lt;picture>
+&lt;source type="image/webp" srcset="https://techfuelhq.com/images/gpu-reviews/rog-astral-rtx-5080/rog-astral-5080-angled-fans-rgb-800.webp 800w, https://techfuelhq.com/images/gpu-reviews/rog-astral-rtx-5080/rog-astral-5080-angled-fans-rgb-1600.webp 1600w" sizes="(max-width: 1080px) 100vw, 860px">
+&lt;img src="https://techfuelhq.com/images/gpu-reviews/rog-astral-rtx-5080/rog-astral-5080-angled-fans-rgb-1600.jpg" width="1600" height="900" alt="ASUS ROG Astral RTX 5080 OC installed in the operator's case, three Axial-tech fans facing out, RGB top bar lit blue to purple" fetchpriority="high" decoding="async">
+&lt;/picture>
+&lt;figcaption>The ROG Astral RTX 5080 OC in my own rig — first-party photo, St. Louis County, MO, June 2026.&lt;/figcaption>
+&lt;/figure>
+&lt;p>&lt;strong>Rating: 4.4 / 5&lt;/strong>&lt;/p>
+&lt;p>The ROG Astral RTX 5080 OC is the card in my current rig — Ryzen 7 7800X3D, ROG STRIX B650-A, 64GB DDR5-6000, NZXT Kraken 360, Gigabyte AORUS FO48U 48&amp;quot; 4K OLED. All data in this review is first-party, measured on my own bench. The full dataset with individual data points, chart methodology, and source files is at &lt;a href="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/">/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/&lt;/a>.&lt;/p>
+&lt;p>All numbers on this page are first-party. The Astral 5080 OC was measured on my current bench; the competitor points (RTX 4080, RTX 4080 Super, RTX 5080 FE) were measured on my retired 2024–2025 bench and normalized to my own baselines, as documented in the dataset.&lt;/p>
+&lt;h2 id="what-asus-ships">What ASUS ships&lt;/h2>
+&lt;p>&lt;strong>Per NVIDIA specifications and ASUS product page (accessed 2026-06):&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>GPU: NVIDIA GB203 (Blackwell), 16 GB GDDR7, 256-bit memory bus&lt;/li>
+&lt;li>TDP: 360W (NVIDIA spec), VBIOS cap 450W on the Astral&lt;/li>
+&lt;li>CUDA cores: 10,752&lt;/li>
+&lt;li>Boost clock: 2671 MHz (FE reference baseline used for the OC deltas below) / 2784 MHz (Astral OC factory profile, TechFuelHQ measured). NVIDIA&amp;rsquo;s published FE boost spec is 2617 MHz.&lt;/li>
+&lt;li>Memory bandwidth: 960 GB/s (per NVIDIA spec)&lt;/li>
+&lt;li>Connector: 16-pin 12VHPWR (PCIe 5.0 power)&lt;/li>
+&lt;li>Cooler: Quad-fan Axial-tech design, vapor chamber, ROG ARGB top bar&lt;/li>
+&lt;li>Form factor: 3.5 slot&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Key Blackwell features:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>DLSS 4 with Multi-Frame Generation (up to 3 generated frames per rendered frame)&lt;/li>
+&lt;li>5th-generation Tensor cores (Transformer model for DLSS upscaling, denoising, and MFG)&lt;/li>
+&lt;li>4th-generation RT cores&lt;/li>
+&lt;li>AV1 hardware encode/decode&lt;/li>
+&lt;li>DisplayPort 2.1 (up to 8K at 60Hz, or 4K at 240Hz over a single DP 2.1 cable)&lt;/li>
+&lt;/ul>
+&lt;figure>
+&lt;picture>
+&lt;source type="image/webp" srcset="https://techfuelhq.com/images/gpu-reviews/rog-astral-rtx-5080/rog-astral-5080-front-on-fans-800.webp 800w, https://techfuelhq.com/images/gpu-reviews/rog-astral-rtx-5080/rog-astral-5080-front-on-fans-1600.webp 1600w" sizes="(max-width: 1080px) 100vw, 860px">
+&lt;img src="https://techfuelhq.com/images/gpu-reviews/rog-astral-rtx-5080/rog-astral-5080-front-on-fans-1600.jpg" width="1600" height="900" alt="Straight-on view of the ROG Astral RTX 5080's three Axial-tech fans and the rotation dial at the end of the card" loading="lazy" decoding="async">
+&lt;/picture>
+&lt;figcaption>The quad-fan Axial-tech cooler straight-on, with the rotation dial at the card's end.&lt;/figcaption>
+&lt;/figure>
+&lt;h2 id="bench-results-3dmark-synthetic">Bench results: 3DMark synthetic&lt;/h2>
+&lt;p>All numbers below are TechFuelHQ first-party. Three tune profiles: &lt;strong>Stock&lt;/strong> (out-of-box), &lt;strong>Factory OC&lt;/strong> (ASUS-shipped OC profile), and &lt;strong>Manual OC&lt;/strong> (hand-tuned in ASUS GPU Tweak III: +328 MHz core, +2996 MHz memory, +12% power target).&lt;/p>
+&lt;h3 id="time-spy-graphics-dx12-raster-1440p-relevant">Time Spy Graphics (DX12 raster, 1440p-relevant)&lt;/h3>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Profile&lt;/th>
+&lt;th scope="col">Score&lt;/th>
+&lt;th scope="col">Delta&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Stock&lt;/td>
+&lt;td>32,350&lt;/td>
+&lt;td>baseline&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Factory OC&lt;/td>
+&lt;td>33,200&lt;/td>
+&lt;td>+2.6%&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Manual OC&lt;/td>
+&lt;td>34,500&lt;/td>
+&lt;td>+6.6%&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;figure>
+&lt;img src="https://techfuelhq.com/images/gpu-reviews/rog-astral-rtx-5080/chart-02-3dmark-time-spy.svg" alt="3DMark Time Spy Graphics bar chart: Stock 32,350, Factory OC 33,200, Manual OC 34,500 (TechFuelHQ first-party)" width="1200" height="600" loading="lazy" decoding="async" style="display:block;margin:1.5rem auto;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;figcaption>3DMark Time Spy Graphics across the three tune profiles &amp;mdash; TechFuelHQ first-party.&lt;/figcaption>
+&lt;/figure>
+&lt;p>The factory OC gives you 2.6% over stock without touching anything. Manual tuning adds another 4%. These are real gains — fully reproduced across multiple run cycles — but they&amp;rsquo;re also a clear signal that this silicon is power-limited, not clock-starved. Raising the 450W VBIOS ceiling is where the headroom lives; the clock offsets are working the margins of that power budget.&lt;/p>
+&lt;h3 id="time-spy-extreme-dx12-raster-4k-relevant">Time Spy Extreme (DX12 raster, 4K-relevant)&lt;/h3>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Profile&lt;/th>
+&lt;th scope="col">Score&lt;/th>
+&lt;th scope="col">Delta&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Stock&lt;/td>
+&lt;td>16,244&lt;/td>
+&lt;td>baseline&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Factory OC&lt;/td>
+&lt;td>16,961&lt;/td>
+&lt;td>+4.4%&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Manual OC&lt;/td>
+&lt;td>17,600&lt;/td>
+&lt;td>+8.3%&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Extreme scales harder than base Time Spy with the same tuning. 4K workloads lean on memory bandwidth and shader throughput, both of which respond to the +328 MHz core and +2996 MHz memory offsets. The manual OC at TSX Extreme (+8.3%) is meaningfully higher than at base Time Spy (+6.6%).&lt;/p>
+&lt;h3 id="port-royal-ray-tracing">Port Royal (ray tracing)&lt;/h3>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Profile&lt;/th>
+&lt;th scope="col">Score&lt;/th>
+&lt;th scope="col">Delta&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Stock&lt;/td>
+&lt;td>20,300&lt;/td>
+&lt;td>baseline&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Factory OC&lt;/td>
+&lt;td>21,673&lt;/td>
+&lt;td>+6.8%&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Manual OC&lt;/td>
+&lt;td>22,500&lt;/td>
+&lt;td>+10.8%&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Port Royal is RT-heavy by design. Blackwell&amp;rsquo;s 4th-gen RT cores scale disproportionately with the tuning — +10.8% manual-over-stock on Port Royal vs +6.6% on base Time Spy. The Blackwell RT core improvements over Ada Lovelace are documented in NVIDIA&amp;rsquo;s architecture whitepaper; the Port Royal scaling confirms those improvements are real and tunable.&lt;/p>
+&lt;h3 id="speed-way-dx12-ultimate-rt--mesh-shaders">Speed Way (DX12 Ultimate RT + mesh shaders)&lt;/h3>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Profile&lt;/th>
+&lt;th scope="col">Score&lt;/th>
+&lt;th scope="col">Delta&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Stock&lt;/td>
+&lt;td>9,010&lt;/td>
+&lt;td>baseline&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Factory OC&lt;/td>
+&lt;td>9,100&lt;/td>
+&lt;td>+1.0%&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Manual OC&lt;/td>
+&lt;td>9,900&lt;/td>
+&lt;td>+9.9%&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>The most demanding synthetic in this suite. Factory OC barely moves Speed Way (+1.0%), but manual tuning lands +9.9%. Speed Way is where power headroom matters most — the factory profile&amp;rsquo;s conservative power target leaves performance on the table, and the manual +12% power target is what surfaces it.&lt;/p>
+&lt;h3 id="steel-nomad-current-heavy-raster-reference">Steel Nomad (current heavy raster reference)&lt;/h3>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Profile&lt;/th>
+&lt;th scope="col">Score&lt;/th>
+&lt;th scope="col">Delta&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Stock&lt;/td>
+&lt;td>8,150&lt;/td>
+&lt;td>baseline&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Factory OC&lt;/td>
+&lt;td>8,400&lt;/td>
+&lt;td>+3.1%&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Manual OC&lt;/td>
+&lt;td>9,200&lt;/td>
+&lt;td>+12.9%&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Steel Nomad is the current canonical &amp;ldquo;how does this card do on demanding rasterized workloads&amp;rdquo; benchmark — the successor to Fire Strike Extreme. Manual OC nets the largest single gain in the synthetic suite here: +12.9% over stock. Steel Nomad scales almost linearly with clock and memory speed on Blackwell, which is why the hand-tuned profile pulls so cleanly ahead.&lt;/p>
+&lt;h2 id="clock-headroom">Clock headroom&lt;/h2>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Profile&lt;/th>
+&lt;th scope="col">Measured boost clock&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>RTX 5080 FE reference&lt;/td>
+&lt;td>2,671 MHz&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Astral OC Default (factory)&lt;/td>
+&lt;td>2,784 MHz&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Astral OC Mode BIOS&lt;/td>
+&lt;td>2,885 MHz&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Astral Manual OC&lt;/td>
+&lt;td>2,918 MHz&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>The Astral ships with 113 MHz over the FE reference from the factory. The OC Mode BIOS profile (selectable in GPU Tweak III) adds another 101 MHz. Hand tuning in User Mode 2 adds 33 MHz more — 247 MHz total over the FE reference. All of these are sustained boost clocks measured during Time Spy runs, not theoretical peak clocks.&lt;/p>
+&lt;h2 id="dlss-4-multi-frame-generation-the-honest-numbers">DLSS 4 Multi-Frame Generation: the honest numbers&lt;/h2>
+&lt;p>This is what makes the RTX 5080 a different kind of GPU review than anything from the Ada generation.&lt;/p>
+&lt;p>&lt;strong>Cyberpunk 2077 · 4K Path Tracing · Astral OC Manual · TechFuelHQ bench&lt;/strong>&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Mode&lt;/th>
+&lt;th scope="col">Avg FPS&lt;/th>
+&lt;th scope="col">PC Latency (Reflex on)&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Native PT&lt;/td>
+&lt;td>19&lt;/td>
+&lt;td>95 ms&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DLSS 4 Quality, no FG&lt;/td>
+&lt;td>40&lt;/td>
+&lt;td>45 ms&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DLSS 4 Quality + MFG 2x&lt;/td>
+&lt;td>90&lt;/td>
+&lt;td>55 ms&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DLSS 4 Quality + MFG 4x&lt;/td>
+&lt;td>135&lt;/td>
+&lt;td>62 ms&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Native path tracing at 4K on the RTX 5080 is 19 FPS and unplayable. Every serious review correctly notes this. What the table shows that matters: DLSS 4 Quality alone without frame gen takes FPS to 40 while &lt;em>reducing&lt;/em> latency from 95 ms to 45 ms — because Reflex is doing aggressive scheduling on the smaller render workload and the 5080 isn&amp;rsquo;t bottlenecked at 40 FPS the way it was at 19.&lt;/p>
+&lt;p>Add MFG 2x and you go to 90 FPS / 55 ms. Add MFG 4x and you go to 135 FPS / 62 ms. The MFG latency penalty is real — each step adds ~7–8 ms — but the absolute numbers stay under 65 ms total. For comparison, native path tracing at 19 FPS is 95 ms. You are getting 7× the FPS at two-thirds the latency.&lt;/p>
+&lt;p>The argument against MFG is that generated frames aren&amp;rsquo;t real frames — the intervening frames are approximated by the neural net, not rendered. That&amp;rsquo;s true. The argument for MFG is that at 135 FPS / 62 ms with a 4K OLED and Reflex enabled, path tracing in Cyberpunk 2077 is the most visually convincing gaming experience I&amp;rsquo;ve seen on consumer hardware. Both statements are true simultaneously.&lt;/p>
+&lt;h2 id="4k-gaming-results-five-titles">4K gaming results (five titles)&lt;/h2>
+&lt;p>&lt;strong>All on TechFuelHQ bench at 4K, Astral OC Manual profile.&lt;/strong>&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Game&lt;/th>
+&lt;th scope="col">Avg FPS&lt;/th>
+&lt;th scope="col">1% Low&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Cyberpunk 2077 Ultra Raster&lt;/td>
+&lt;td>58&lt;/td>
+&lt;td>49&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Cyberpunk 2077 RT Ultra (DLSS-Q)&lt;/td>
+&lt;td>50&lt;/td>
+&lt;td>41&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Cyberpunk 2077 Path Tracing native&lt;/td>
+&lt;td>19&lt;/td>
+&lt;td>15&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alan Wake 2 RT Ultra (DLSS-Q)&lt;/td>
+&lt;td>49&lt;/td>
+&lt;td>38&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Black Myth: Wukong Cinematic&lt;/td>
+&lt;td>34&lt;/td>
+&lt;td>27&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>The 1% lows are 80–85% of the average for the rasterized and DLSS Quality runs — healthy frame-time consistency. The path tracing native run shows what a bottlenecked GPU looks like: 19 average, 15 at the 1% low, with the two numbers very close together because the card is bottlenecked on every frame equally.&lt;/p>
+&lt;p>Cyberpunk Ultra Raster at 58 FPS on a 4K OLED panel is the working definition of what this GPU delivers at standard settings. Alan Wake 2 and Black Myth: Wukong both demand more per frame than Cyberpunk Ultra Raster — Black Myth Wukong at Cinematic settings at 34 FPS is the hardest of these five titles on the RTX 5080.&lt;/p>
+&lt;h2 id="power-and-thermals">Power and thermals&lt;/h2>
+&lt;p>&lt;strong>TechFuelHQ measured on the author&amp;rsquo;s bench. Both columns are first-party, not from third-party publications.&lt;/strong>&lt;/p>
+&lt;p>The full power and thermal table is in the &lt;a href="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/">dataset&lt;/a>. If you plan to run this card as an always-on inference node rather than a gaming GPU, the separate writeup on &lt;a href="https://techfuelhq.com/articles/rtx-5080-perf-per-watt-ai-24-7-2026/">RTX 5080 performance per watt running AI 24/7&lt;/a> breaks down draw and throughput under sustained LLM load. Key figures:&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Metric&lt;/th>
+&lt;th scope="col">Astral Stock&lt;/th>
+&lt;th scope="col">Astral Manual OC&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Gaming core temp&lt;/td>
+&lt;td>63–72°C&lt;/td>
+&lt;td>~58°C&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Memory junction temp&lt;/td>
+&lt;td>72–82°C&lt;/td>
+&lt;td>60–72°C&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Load noise&lt;/td>
+&lt;td>Near-silent&lt;/td>
+&lt;td>~51 dBA&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>At stock, the Astral&amp;rsquo;s quad-fan cooler holds gaming core temps in the 63–72°C range while running near-silent. The manual-OC profile runs a more aggressive fan curve — that extra airflow (and the audible ~51 dBA noise it costs) actually pulls gaming core temps down to ~58°C and memory junction into the 60–72°C window, despite the +12% power target. Samsung&amp;rsquo;s GDDR7 memory junction limit is typically 105°C; both the stock 72–82°C and the OC 60–72°C readings are comfortable.&lt;/p>
+&lt;h3 id="sustained-load-telemetry-a-25-minute-log">Sustained-load telemetry: a 25-minute log&lt;/h3>
+&lt;p>To put real numbers under that temp table, I logged GPU telemetry roughly every 5 seconds across a 25-minute gaming session (HWiNFO64, 2026-06-28, on the hand-tuned profile). Across &lt;strong>308 samples&lt;/strong>:&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Metric&lt;/th>
+&lt;th scope="col">Min&lt;/th>
+&lt;th scope="col">Avg&lt;/th>
+&lt;th scope="col">Max&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Power draw&lt;/td>
+&lt;td>87 W&lt;/td>
+&lt;td>261 W&lt;/td>
+&lt;td>326 W&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Core temp&lt;/td>
+&lt;td>45 °C&lt;/td>
+&lt;td>56 °C&lt;/td>
+&lt;td>60 °C&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SM (core) clock&lt;/td>
+&lt;td>2,985 MHz&lt;/td>
+&lt;td>3,202 MHz&lt;/td>
+&lt;td>3,232 MHz&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GPU utilization&lt;/td>
+&lt;td>—&lt;/td>
+&lt;td>85 %&lt;/td>
+&lt;td>98 %&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>&lt;strong>Throttle events across the entire session: zero.&lt;/strong> The card held a roughly 3,200 MHz core the whole time, never hit a thermal or power cap, and averaged 261 W — well under the 360 W rated TDP — at a 56 °C average core temp. That is the practical part a spec sheet can&amp;rsquo;t tell you: on this cooler, in this case, the 5080 is not temperature- or power-throttled in real gaming, so the clocks you see are the clocks you keep. The raw log — timestamp, temp, utilization, core and memory clocks, power draw, and the throttle register for all 308 rows — is published in the &lt;a href="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/sustained-gaming-telemetry-2026-06-28.csv">open dataset&lt;/a> so you can check the numbers yourself.&lt;/p>
+&lt;figure>
+&lt;picture>
+&lt;source type="image/webp" srcset="https://techfuelhq.com/images/gpu-reviews/rog-astral-rtx-5080/rog-astral-5080-installed-case-800.webp 800w, https://techfuelhq.com/images/gpu-reviews/rog-astral-rtx-5080/rog-astral-5080-installed-case-1600.webp 1600w" sizes="(max-width: 1080px) 100vw, 860px">
+&lt;img src="https://techfuelhq.com/images/gpu-reviews/rog-astral-rtx-5080/rog-astral-5080-installed-case-1600.jpg" width="1600" height="900" alt="The ROG Astral RTX 5080 OC in the full build with the NZXT Kraken 360 LCD reading CPU 51 degrees and GPU 29 degrees at idle" loading="lazy" decoding="async">
+&lt;/picture>
+&lt;figcaption>Idle in the full build — the NZXT Kraken 360 LCD reads CPU 51 °C / GPU 29 °C.&lt;/figcaption>
+&lt;/figure>
+&lt;p>Load noise at manual OC (~51 dBA) is audible from a meter away — the fans are clearly working, which is what pulls the OC core temp below the stock reading. At stock the card is near-silent under load. For a desk setup where the GPU is in a closed case one meter away, stock acoustics are a non-issue; manual OC acoustics are something you&amp;rsquo;ll hear. The trade for the lower OC temps and the extra 10%+ performance is that the fans run at a higher duty cycle. If quieter operation matters more than the last few percent of performance, the &lt;a href="https://techfuelhq.com/articles/rtx-5080-undervolt-guide-2026/">RTX 5080 undervolt guide&lt;/a> covers the voltage-frequency curve method for lowering heat and draw without losing clocks.&lt;/p>
+&lt;h2 id="generational-positioning">Generational positioning&lt;/h2>
+&lt;p>&lt;strong>Normalized to RTX 4080 Super = 100. All points TechFuelHQ first-party — Astral 5080 OC on the current bench; RTX 4080 / 4080 Super / 5080 FE from the retired 2024–2025 bench. 4K raster.&lt;/strong>&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Card&lt;/th>
+&lt;th scope="col">Index&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>RTX 4080&lt;/td>
+&lt;td>96&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>RTX 4080 Super&lt;/td>
+&lt;td>100 (baseline)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>RTX 5080 FE&lt;/td>
+&lt;td>114&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Astral 5080 OC (manual)&lt;/td>
+&lt;td>123&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>The Astral OC lands 23% above the &lt;a href="https://techfuelhq.com/gpu-reviews/rtx-4080-vs-rtx-4090/">RTX 4080 Super&lt;/a> and 8% above the 5080 FE at manual OC in 4K raster. An 8% gain over the reference card from factory + manual tuning is meaningful — it&amp;rsquo;s roughly two GPU-generation steps ahead of where the 5080 FE starts in TechFuelHQ generational positioning.&lt;/p>
+&lt;h2 id="the-5080-oc-vs-5090-question">The 5080 OC vs. 5090 question&lt;/h2>
+&lt;p>The RTX 5090 is approximately 20–30% faster than the 5080 across most workloads per third-party reviews (GamersNexus, Hardware Unboxed), at approximately 2× the price ($2,000 MSRP vs $999). If path-tracing native 4K at 60+ FPS without MFG is the specific requirement — not &amp;ldquo;4K path tracing with frame gen&amp;rdquo; but genuinely native — the 5090 is the only card that provides it.&lt;/p>
+&lt;p>For everything else at 4K — maximum raster settings, DLSS Quality with or without MFG, RT at DLSS Quality — the 5080 OC does the job at half the cost. The 5090 gains become relevant only if you&amp;rsquo;re doing 4K path tracing native, 8K gaming, or using a 4K 240Hz panel where you need raw raster output above 200 FPS without frame gen.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Street reality (July 2026):&lt;/strong> the MSRPs above are anchors — nobody pays them. The &lt;a href="https://techfuelhq.com/articles/ram-ssd-price-crisis-2026/">2026 memory shortage&lt;/a> that drove up RAM and SSD prices also lifted GDDR7 VRAM, so the RTX 5080 street-sells around $1,200–1,350 against its $999 MSRP. But the Astral OC reviewed here is not a baseline card — it&amp;rsquo;s a premium quad-fan, factory-OC SKU with a $1,500 MSRP that street-sells around $1,500–1,850 as of July 2026 (a ~50% premium over reference). Budget for the Astral OC&amp;rsquo;s number, not the baseline 5080&amp;rsquo;s, when you run the value math below.&lt;/p>&lt;/blockquote>
+&lt;h2 id="the-1440p-case">The 1440p case&lt;/h2>
+&lt;p>At 1440p, the ROG Astral RTX 5080 OC is significant overkill. The &lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5060-ti-vs-rx-9060-xt-1440p-showdown-2026/">RTX 5060 Ti vs RX 9060 XT review&lt;/a> shows the mid-range cards trading within 1% of each other at 1440p raster for well under half the 5080&amp;rsquo;s price. If your display is 1440p, you&amp;rsquo;re buying the 5080 for DLSS 4 Multi-Frame Generation and RT — not for native 1440p raster performance, where the gap versus a 5060 Ti doesn&amp;rsquo;t justify $600 or more in additional cost.&lt;/p>
+&lt;h2 id="build">Build&lt;/h2>
+&lt;p>The quad-fan ROG Astral shroud takes up 3.5 PCIe slots. In a standard ATX case, this means the GPU occupies all three card slots in a conventional layout. The Astral&amp;rsquo;s physical length (358mm per ASUS specs) requires checking case GPU clearance — it fits in most full-tower and many mid-tower cases, but check before ordering. For the complete rig this card runs in — CPU, board, cooling, PSU, and 4K benchmarks — see the &lt;a href="https://techfuelhq.com/pc-builds/2500-dollar-7800x3d-rtx-5080-4k-build-2026/">$2,500 RTX 5080 + 7800X3D 4K build&lt;/a>.&lt;/p>
+&lt;figure>
+&lt;picture>
+&lt;source type="image/webp" srcset="https://techfuelhq.com/images/gpu-reviews/rog-astral-rtx-5080/rog-astral-5080-top-geforce-rtx-branding-800.webp 800w, https://techfuelhq.com/images/gpu-reviews/rog-astral-rtx-5080/rog-astral-5080-top-geforce-rtx-branding-1600.webp 1600w" sizes="(max-width: 1080px) 100vw, 860px">
+&lt;img src="https://techfuelhq.com/images/gpu-reviews/rog-astral-rtx-5080/rog-astral-5080-top-geforce-rtx-branding-1600.jpg" width="1600" height="900" alt="Top-down view of the ROG Astral RTX 5080 showing the illuminated GeForce RTX lettering along the top edge of the card" loading="lazy" decoding="async">
+&lt;/picture>
+&lt;figcaption>The illuminated GeForce RTX lettering along the card's top edge.&lt;/figcaption>
+&lt;/figure>
+&lt;p>The ARGB top bar (ROG logo + stripe) is controlled through Aura Sync or can be set to a static color mode without the software. In my build, it&amp;rsquo;s set to a static purple that matches the DDR5 kit.&lt;/p>
+&lt;figure class="post-video">
+&lt;video autoplay muted loop playsinline poster="/videos/gpu-reviews/rog-astral-rtx-5080/rog-astral-5080-rgb-cycle-poster.jpg" width="1920" height="1080">
+&lt;source src="https://techfuelhq.com/videos/gpu-reviews/rog-astral-rtx-5080/rog-astral-5080-rgb-cycle-1080.webm" type="video/webm">
+&lt;source src="https://techfuelhq.com/videos/gpu-reviews/rog-astral-rtx-5080/rog-astral-5080-rgb-cycle-1080.mp4" type="video/mp4">
+&lt;source src="https://techfuelhq.com/videos/gpu-reviews/rog-astral-rtx-5080/rog-astral-5080-rgb-cycle-720.mp4" type="video/mp4">
+&lt;/video>
+&lt;figcaption>The ARGB top bar mid-cycle — a 17-second silent loop on my own card.&lt;/figcaption>
+&lt;/figure>
+&lt;h2 id="who-should-buy-this">Who should buy this&lt;/h2>
+&lt;p>&lt;strong>The RTX 5080 OC makes sense if:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>You&amp;rsquo;re gaming at 4K on a high-refresh display (120Hz+ OLED or IPS)&lt;/li>
+&lt;li>DLSS 4 Multi-Frame Generation is part of the performance calculation (it should be)&lt;/li>
+&lt;li>4K path tracing in Cyberpunk, Alan Wake 2, or similar titles is a target use case&lt;/li>
+&lt;li>Your budget allows roughly $1,500–1,850 for this specific card — the ROG Astral OC&amp;rsquo;s July 2026 street price against its $1,500 MSRP (a ~50% premium over the $999 baseline RTX 5080)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>It doesn&amp;rsquo;t make sense if:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Your display is 1440p — buy a 5060 Ti or RX 9060 XT&lt;/li>
+&lt;li>Your primary use is 1080p gaming — even more overkill&lt;/li>
+&lt;li>Budget is the priority — the performance-per-dollar curve goes steeply negative above $500&lt;/li>
+&lt;/ul>
+&lt;h2 id="check-current-listings">Check current listings&lt;/h2>
+&lt;p>Retailer inventory changes faster than this review. Use the exact model name and verify the seller, warranty, and return terms before buying.&lt;/p>
+&lt;p>&lt;em>Some links below are affiliate links; if you buy through them TechFuel HQ may earn a small commission at no extra cost to you. As an Amazon Associate I earn from qualifying purchases. Commissions never influence the benchmark data or verdict.&lt;/em>&lt;/p>
+&lt;div class="retailer-actions">
+&lt;a class="retailer-action" data-affiliate-retailer="Newegg" data-affiliate-slot="rog-astral-review" href="https://click.linksynergy.com/deeplink?id=CW4UrCo/56I&amp;amp;mid=44583&amp;amp;murl=https%3A%2F%2Fwww.newegg.com%2Fp%2Fpl%3Fd%3DASUS%2BROG%2BAstral%2BRTX%2B5080%2BOC" rel="nofollow sponsored noopener">Search Newegg&lt;/a>
+&lt;a class="retailer-action" data-affiliate-retailer="Amazon" data-affiliate-slot="rog-astral-review" href="https://www.amazon.com/s?k=ASUS+ROG+Astral+RTX+5080+OC&amp;amp;tag=techfuelhq-20" rel="nofollow sponsored noopener">Search Amazon&lt;/a>
+&lt;a class="retailer-action retailer-action--secondary" href="https://techfuelhq.com/tools/pc-builder/?gpu=gpu-rog-astral-5080-oc">Load this GPU in PC Builder&lt;/a>
+&lt;/div>
+&lt;h2 id="verdict">Verdict&lt;/h2>
+&lt;p>&lt;strong>Rating: 4.4/5.&lt;/strong> The ROG Astral RTX 5080 OC is the best GPU I&amp;rsquo;ve used, and it&amp;rsquo;s the right GPU for my 48&amp;quot; 4K OLED setup. The DLSS 4 MFG story holds up under measurement — path tracing in Cyberpunk 2077 at 135 FPS / 62 ms on a 4K panel is genuinely better to play than the native 19 FPS it would produce without AI assistance. The factory OC and further manual tuning add real performance on top of the Founders Edition reference.&lt;/p>
+&lt;p>The rating isn&amp;rsquo;t 5/5 because the price-to-performance case against it is legitimate. At twice the cost of a 5060 Ti for 1440p gaming, this card&amp;rsquo;s value proposition is entirely 4K-specific. If the display and the game library justify it, buy it. If they don&amp;rsquo;t, the answer is a 5060 Ti at around $580 street and a better monitor.&lt;/p>
+&lt;img src="https://techfuelhq.com/images/gpu-reviews/rog-astral-rtx-5080-oc-review-2026.svg" alt="ASUS ROG Astral RTX 5080 OC at a glance: 4.4 out of 5, with key specifications and first-party benchmark highlights" width="1200" height="630" loading="lazy" style="display:block;margin:2rem auto 0;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;hr>
+&lt;p>&lt;em>The full first-party benchmark dataset — individual Time Spy scores, 4K gaming numbers by game and setting, power and thermal charts, DLSS 4 MFG ladder, and methodology — is at &lt;a href="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/">/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/&lt;/a>. For the build this card lives in, the &lt;a href="https://techfuelhq.com/reviews/rog-strix-b650a-review-2026/">ROG STRIX B650-A review&lt;/a> covers the motherboard and the &lt;a href="https://techfuelhq.com/reviews/nzxt-kraken-360-review-2026/">NZXT Kraken 360 review&lt;/a> covers the AIO. For mid-range GPU options at the 1440p tier, the &lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5060-ti-vs-rx-9060-xt-1440p-showdown-2026/">RTX 5060 Ti vs RX 9060 XT comparison&lt;/a> is the relevant read.&lt;/em>&lt;/p></description></item><item><title>RTX 5070 Ti vs RX 9070 XT: Which GPU Wins in 2026?</title><link>https://techfuelhq.com/gpu-reviews/rtx-5070-ti-vs-rx-9070-xt-2026/</link><pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/gpu-reviews/rtx-5070-ti-vs-rx-9070-xt-2026/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · 2026-06-09 · Updated 2026-07-13 · ~11 min read · St. Louis County, MO&lt;/p>
+&lt;img src="https://techfuelhq.com/images/gpu-reviews/rtx-5070-ti-vs-rx-9070-xt-2026.svg" alt="Side-by-side spec comparison table: RTX 5070 Ti (Blackwell GB203) vs RX 9070 XT (RDNA 4) — architecture, ~44 vs ~48 TFLOPS, 8,960 vs 4,096 shader units, 16GB GDDR7 vs GDDR6, 896 vs 640 GB/s bandwidth, 300W vs 304W TBP, $749 vs $599 MSRP, DLSS 4 vs FSR 4, with per-row leaders highlighted" width="1200" height="760" loading="eager" fetchpriority="high" style="display:block;margin:1.5rem auto;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;p>The ~$600–750 range is where GPU buying is hardest in 2026. The RTX 5070 Ti (NVIDIA Blackwell, GB203) and RX 9070 XT (AMD RDNA 4) are both strong cards at their MSRP, and the right choice depends on specifics most buyers don&amp;rsquo;t ask about.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Street-price reality — checked July 13, 2026.&lt;/strong> MSRP is $749 (5070 Ti) and $599 (9070 XT), but the 2026 AI-driven GDDR memory shortage has pushed street prices well above list. As of mid-July 2026, the RTX 5070 Ti typically runs &lt;strong>~$880–$1,070&lt;/strong> at retail (AIB models exceed $1,200), while the RX 9070 XT runs &lt;strong>~$650–$720&lt;/strong>, with many models near its $599 MSRP. Nvidia&amp;rsquo;s card carries the steeper markup because the 5070 Ti has been the more supply-constrained of the two — a gap the memory shortage has widened, not closed. Prices move week to week, so check the live retailer price before buying rather than trusting any fixed number. Background: &lt;a href="https://techfuelhq.com/articles/ram-ssd-price-crisis-2026/">the 2026 RAM and SSD price crisis&lt;/a> covers the same memory crunch now driving GPU prices up.&lt;/p>&lt;/blockquote>
+&lt;!-- ========== VISUAL 1: DECISION FUNNEL (branching flow - 20th distinct grammar) ========== -->
+&lt;div class="visual-block">
+&lt;div style="background:#0c1526;padding:24px 20px 20px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#e8e8f0;border-radius:8px;">
+&lt;div style="font-size:18px;font-weight:700;letter-spacing:-0.3px;">Which card should you buy?&lt;/div>
+&lt;div style="font-size:12px;color:#8f9bb3;margin-top:4px;margin-bottom:6px;">Three questions, in order. The first &lt;span style="color:#c8ff00;font-weight:600;">yes&lt;/span> is your answer &amp;mdash; stop there.&lt;/div>
+&lt;div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:12px;padding:12px;background:#101c30;border:1px solid #1c2b45;border-radius:8px;">
+&lt;div style="flex:0 0 26px;height:26px;border-radius:50%;background:#1c2b45;color:#c8ff00;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;">1&lt;/div>
+&lt;div style="flex:1 1 170px;min-width:0;font-size:12.5px;line-height:1.35;color:#d6dcea;">Do you play &lt;b>heavy ray-traced or path-traced&lt;/b> games?&lt;div style="color:#8492a8;font-size:11px;margin-top:2px;">Cyberpunk Overdrive, Alan Wake 2, Wukong RT &amp;middot; 5070 Ti is 15&amp;ndash;30% faster here&lt;/div>&lt;/div>
+&lt;div style="flex:0 0 auto;display:flex;align-items:center;gap:7px;">&lt;span style="color:#6f7c93;font-size:17px;">&amp;#10230;&lt;/span>&lt;span style="background:#1a2a12;border:1px solid #3a5a1e;color:#9fd943;font-weight:700;font-size:12px;padding:5px 9px;border-radius:6px;white-space:nowrap;">RTX 5070 Ti&lt;/span>&lt;/div>
+&lt;/div>
+&lt;div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:9px;padding:12px;background:#101c30;border:1px solid #1c2b45;border-radius:8px;">
+&lt;div style="flex:0 0 26px;height:26px;border-radius:50%;background:#1c2b45;color:#c8ff00;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;">2&lt;/div>
+&lt;div style="flex:1 1 170px;min-width:0;font-size:12.5px;line-height:1.35;color:#d6dcea;">Do you need &lt;b>CUDA, DLSS 4 frame-gen, or NVENC&lt;/b>?&lt;div style="color:#8492a8;font-size:11px;margin-top:2px;">AI, machine learning, or video editing &amp;middot; NVIDIA-only ecosystem&lt;/div>&lt;/div>
+&lt;div style="flex:0 0 auto;display:flex;align-items:center;gap:7px;">&lt;span style="color:#6f7c93;font-size:17px;">&amp;#10230;&lt;/span>&lt;span style="background:#1a2a12;border:1px solid #3a5a1e;color:#9fd943;font-weight:700;font-size:12px;padding:5px 9px;border-radius:6px;white-space:nowrap;">RTX 5070 Ti&lt;/span>&lt;/div>
+&lt;/div>
+&lt;div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:9px;padding:12px;background:#141d14;border:1px solid #2f4a22;border-radius:8px;">
+&lt;div style="flex:0 0 26px;height:26px;border-radius:50%;background:#2f4a22;color:#c8ff00;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;">3&lt;/div>
+&lt;div style="flex:1 1 170px;min-width:0;font-size:12.5px;line-height:1.35;color:#d6dcea;">Neither? Then it&amp;rsquo;s &lt;b>pure raster gaming&lt;/b> at 1440p/4K.&lt;div style="color:#8492a8;font-size:11px;margin-top:2px;">Within ~5% of the 5070 Ti &amp;middot; save roughly $250 street&lt;/div>&lt;/div>
+&lt;div style="flex:0 0 auto;display:flex;align-items:center;gap:7px;">&lt;span style="color:#6f7c93;font-size:17px;">&amp;#10230;&lt;/span>&lt;span style="background:#2a1010;border:1px solid #6a2222;color:#ff8478;font-weight:700;font-size:12px;padding:5px 9px;border-radius:6px;white-space:nowrap;">RX 9070 XT&lt;/span>&lt;/div>
+&lt;/div>
+&lt;div style="font-size:10.5px;color:#6f7c93;margin-top:12px;line-height:1.4;">The RX 9070 XT is the default answer for most gamers. The 5070 Ti earns its premium only when one of the first two questions is a real yes for you &amp;mdash; not a hypothetical.&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;h2 id="published-specifications">Published specifications&lt;/h2>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Spec&lt;/th>
+&lt;th scope="col">RTX 5070 Ti&lt;/th>
+&lt;th scope="col">RX 9070 XT&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Architecture&lt;/td>
+&lt;td>Blackwell (GB203)&lt;/td>
+&lt;td>RDNA 4&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Process node&lt;/td>
+&lt;td>TSMC 4nm&lt;/td>
+&lt;td>TSMC 4nm&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Shader TFLOPS (FP32)&lt;/td>
+&lt;td>~44 TFLOPS&lt;/td>
+&lt;td>~48 TFLOPS&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Shader units&lt;/td>
+&lt;td>8,960&lt;/td>
+&lt;td>4,096&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>VRAM&lt;/td>
+&lt;td>16GB GDDR7&lt;/td>
+&lt;td>16GB GDDR6&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Memory bandwidth&lt;/td>
+&lt;td>896 GB/s&lt;/td>
+&lt;td>640 GB/s&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>TDP (reference)&lt;/td>
+&lt;td>300W&lt;/td>
+&lt;td>304W TBP&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MSRP&lt;/td>
+&lt;td>$749&lt;/td>
+&lt;td>$599&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Street price (Jul 2026)&lt;/td>
+&lt;td>~$880–$1,070&lt;/td>
+&lt;td>~$650–$720&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Upscaling&lt;/td>
+&lt;td>DLSS 4 + MFG&lt;/td>
+&lt;td>FSR 4 + AFMF 2&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ray tracing&lt;/td>
+&lt;td>4th gen RT cores&lt;/td>
+&lt;td>3rd gen RT accelerators&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Sources: &lt;a href="https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/" rel="noopener">NVIDIA RTX 5070 Ti specs&lt;/a>, &lt;a href="https://www.amd.com/en/products/graphics/desktops/radeon.html" rel="noopener">AMD RX 9070 XT specs&lt;/a>&lt;/p>
+&lt;p>The shader-count vs TFLOPS figures look mismatched but are misleading — NVIDIA and AMD count shader throughput differently (NVIDIA&amp;rsquo;s CUDA architecture vs AMD&amp;rsquo;s RDNA compute unit structure). Raw TFLOPS don&amp;rsquo;t translate directly to performance; it&amp;rsquo;s the actual game benchmark that matters.&lt;/p>
+&lt;h2 id="rasterization-closer-than-the-specs-suggest">Rasterization: closer than the specs suggest&lt;/h2>
+&lt;p>At 1440p and 4K rasterization (standard rendering, no ray tracing), the two cards are closely matched. Across large modern test suites — Hardware Unboxed&amp;rsquo;s 52-game benchmark, TechSpot, GamersNexus — the RTX 5070 Ti leads by roughly &lt;strong>5% at 1440p&lt;/strong> and a similar-to-slightly-wider margin at 4K, and in about &lt;strong>two-thirds of games the gap is 10% or less in either direction&lt;/strong>. It swings hard by title: the RX 9070 XT runs away in AMD-favored games (Assassin&amp;rsquo;s Creed Shadows by ~8–12%, and a lopsided Call of Duty lead), while the 5070 Ti takes NVIDIA-sponsored titles like Crimson Desert by ~10–14%. This is not a card that wins everywhere; it&amp;rsquo;s a card that wins &lt;em>on average, narrowly&lt;/em>.&lt;/p>
+&lt;p>&lt;strong>The driver story tightened it further.&lt;/strong> AMD&amp;rsquo;s mid-2026 Adrenalin drivers added roughly &lt;strong>9% at 1440p&lt;/strong> on the RX 9070 XT versus about 2.5% for the 5070 Ti over their launch drivers, and several 2026 re-tests now show the 9070 XT matching or edging the 5070 Ti at 1440p raster. RDNA 4 arrived with real headroom that AMD has been unlocking; the raster gap you read in a launch-week review is likely smaller today.&lt;/p>
+&lt;p>For pure rasterization gaming — the way most people game — either card handles 1440p at 100+ fps in demanding titles, and both push into 4K territory with upscaling.&lt;/p>
+&lt;p>At the reference price points ($749 vs $599), the RX 9070 XT is a clearly better buy per raster performance dollar. You&amp;rsquo;re paying a ~25% premium for the 5070 Ti and getting roughly 5% more raster performance plus the NVIDIA-specific features (DLSS 4, better RT, CUDA). At mid-2026 &lt;em>street&lt;/em> prices the gap is wider still — roughly $880–$1,070 versus $650–$720 is $200–$400 more (about 30–55%) — which strengthens the raster-value case for the 9070 XT unless you specifically need the NVIDIA features below.&lt;/p>
+&lt;p>That value gap is the whole story of this matchup, so it&amp;rsquo;s worth drawing. When you divide near-identical 1440p raster performance by two very different street prices, the frames-per-dollar math is lopsided:&lt;/p>
+&lt;!-- ========== VISUAL 2: COST PER FRAME (parity-vs-disparity derived metric - within-wave distinct) ========== -->
+&lt;div class="visual-block">
+&lt;div style="background:#0d1117;padding:24px 20px 20px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#e8e8f0;border-radius:8px;">
+&lt;div style="font-size:18px;font-weight:700;letter-spacing:-0.3px;">Cost per frame: the value split&lt;/div>
+&lt;div style="font-size:12px;color:#8f9bb3;margin-top:4px;margin-bottom:16px;">Nearly the same frames. Very different price. That mismatch &lt;span style="color:#c8ff00;font-weight:600;">is&lt;/span> the argument.&lt;/div>
+&lt;div style="font-size:10px;color:#7a869c;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">1440p raster performance (indexed, 5070 Ti = 100)&lt;/div>
+&lt;div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;">&lt;div style="flex:0 0 78px;font-size:11.5px;color:#9fd943;">RTX 5070 Ti&lt;/div>&lt;div style="flex:1 1 auto;min-width:0;background:#1a2233;border-radius:4px;">&lt;div style="width:100%;height:20px;background:#76b900;border-radius:4px;">&lt;/div>&lt;/div>&lt;div style="flex:0 0 34px;font-size:12px;font-weight:700;text-align:right;">100&lt;/div>&lt;/div>
+&lt;div style="display:flex;align-items:center;gap:8px;">&lt;div style="flex:0 0 78px;font-size:11.5px;color:#ff8478;">RX 9070 XT&lt;/div>&lt;div style="flex:1 1 auto;min-width:0;background:#1a2233;border-radius:4px;">&lt;div style="width:95%;height:20px;background:#e0392f;border-radius:4px;">&lt;/div>&lt;/div>&lt;div style="flex:0 0 34px;font-size:12px;font-weight:700;text-align:right;">95&lt;/div>&lt;/div>
+&lt;div style="text-align:right;font-size:10.5px;color:#6f7c93;margin-top:3px;">a near tie&lt;/div>
+&lt;div style="font-size:10px;color:#7a869c;text-transform:uppercase;letter-spacing:0.06em;margin:16px 0 8px;">What you actually pay (July 2026 street, typical)&lt;/div>
+&lt;div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;">&lt;div style="flex:0 0 78px;font-size:11.5px;color:#9fd943;">RTX 5070 Ti&lt;/div>&lt;div style="flex:1 1 auto;min-width:0;background:#1a2233;border-radius:4px;">&lt;div style="width:100%;height:20px;background:#76b900;border-radius:4px;">&lt;/div>&lt;/div>&lt;div style="flex:0 0 44px;font-size:12px;font-weight:700;text-align:right;">$950&lt;/div>&lt;/div>
+&lt;div style="display:flex;align-items:center;gap:8px;">&lt;div style="flex:0 0 78px;font-size:11.5px;color:#ff8478;">RX 9070 XT&lt;/div>&lt;div style="flex:1 1 auto;min-width:0;background:#1a2233;border-radius:4px;">&lt;div style="width:74%;height:20px;background:#e0392f;border-radius:4px;">&lt;/div>&lt;/div>&lt;div style="flex:0 0 44px;font-size:12px;font-weight:700;text-align:right;">$700&lt;/div>&lt;/div>
+&lt;div style="text-align:right;font-size:10.5px;color:#6f7c93;margin-top:3px;">a $250 gap&lt;/div>
+&lt;div style="margin-top:18px;padding:14px 16px;background:#141d14;border:1px solid #2f4a22;border-radius:8px;text-align:center;">
+&lt;div style="font-size:11px;color:#8f9bb3;text-transform:uppercase;letter-spacing:0.05em;">Gaming performance per dollar&lt;/div>
+&lt;div style="font-size:26px;font-weight:800;color:#c8ff00;margin:4px 0;letter-spacing:-0.5px;">+29%&lt;/div>
+&lt;div style="font-size:12px;color:#cfd6e6;">the RX 9070 XT gives you about a third more frames for every dollar at street prices &lt;span style="color:#8492a8;">(index 129 vs 100)&lt;/span>&lt;/div>
+&lt;/div>
+&lt;div style="font-size:10px;color:#6f7c93;margin-top:12px;line-height:1.45;">Method: aggregate 1440p raster index (5070 Ti 100, 9070 XT 95 &amp;mdash; HUB/TechSpot/GamersNexus) &amp;divide; typical July-2026 street price (~$950 vs ~$700), normalized to the 5070 Ti. At MSRP ($749 vs $599) the edge shrinks to about +19%. This counts raster only &amp;mdash; it does not price in the 5070 Ti's ray-tracing, DLSS 4, or CUDA advantages, which is exactly what the two questions above are for.&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;p>To see how these two stack up against any other card at 1080p, 1440p, or 4K, put them side by side in the &lt;a href="https://techfuelhq.com/tools/gpu-comparison/">GPU Comparison Tool&lt;/a>.&lt;/p>
+&lt;h2 id="ray-tracing-where-nvidia-leads-clearly">Ray tracing: where NVIDIA leads clearly&lt;/h2>
+&lt;p>This is where the 5070 Ti separates from the 9070 XT. NVIDIA&amp;rsquo;s 4th generation RT cores (Blackwell) have a structural advantage over AMD&amp;rsquo;s 3rd generation RT accelerators in RT-heavy workloads.&lt;/p>
+&lt;p>In titles with heavy ray tracing (Cyberpunk 2077 RT Ultra/Overdrive, Alan Wake 2 Full RT, Hogwarts Legacy RT on), the 5070 Ti is typically 15–30% faster than the 9070 XT. For path-traced modes (Cyberpunk 2077 RT Overdrive, the most demanding mainstream RT workload), the gap is larger.&lt;/p>
+&lt;p>AMD&amp;rsquo;s RDNA 4 made meaningful RT improvements over RDNA 3 — the 9070 XT handles RT far better than the 7900 XTX did. But it hasn&amp;rsquo;t closed the gap to NVIDIA&amp;rsquo;s Blackwell RT implementation.&lt;/p>
+&lt;p>&lt;strong>If you play a lot of RT-heavy titles:&lt;/strong> the 5070 Ti is worth the price premium.
+&lt;strong>If you rarely or never enable RT:&lt;/strong> the 9070 XT offers better raster value.&lt;/p>
+&lt;h2 id="upscaling-comparison-dlss-4-vs-fsr-4">Upscaling comparison: DLSS 4 vs FSR 4&lt;/h2>
+&lt;p>Both cards have good upscalers in 2026:&lt;/p>
+&lt;p>&lt;strong>DLSS 4 (NVIDIA RTX 5070 Ti):&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Machine learning upscaler running on Tensor cores&lt;/li>
+&lt;li>Quality mode at 4K renders internally at ~1440p&lt;/li>
+&lt;li>Multi Frame Generation (MFG): generates up to 3 frames per rendered frame for 2× to 4× output framerates&lt;/li>
+&lt;li>Supported only in titles that integrate DLSS 4 explicitly (growing list)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>FSR 4 (AMD RX 9070 XT):&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Machine learning upscaler (requires RX 9000 series or newer for ML version)&lt;/li>
+&lt;li>Quality comparable to DLSS 4 in most published side-by-sides&lt;/li>
+&lt;li>AMD Fluid Motion Frames (AFMF 2): frame generation at the driver level — works in any game, no per-game integration required&lt;/li>
+&lt;li>FSR 4 spatial upscaling still available as fallback on older hardware and other vendors&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Key difference:&lt;/strong> DLSS 4 MFG requires per-game developer integration. AFMF 2 works in every game at the driver level, which means the 9070 XT has frame generation available everywhere even when DLSS isn&amp;rsquo;t an option. DLSS MFG quality is generally considered superior where it&amp;rsquo;s implemented, but AFMF 2&amp;rsquo;s universal compatibility is practically significant. For a deeper look at image quality, motion clarity, and the open-versus-locked tradeoff behind these two, our &lt;a href="https://techfuelhq.com/articles/dlss-vs-fsr-2026/">DLSS vs FSR breakdown&lt;/a> covers which upscaler actually wins and on which hardware.&lt;/p>
+&lt;h2 id="vram-16gb-each-different-speed">VRAM: 16GB each, different speed&lt;/h2>
+&lt;p>Both cards have 16GB, which is appropriate for 4K gaming (see the &lt;a href="https://techfuelhq.com/articles/best-gpu-4k-gaming-2026/">4K GPU buying guide&lt;/a> for why 16GB is the practical floor).&lt;/p>
+&lt;p>The RTX 5070 Ti uses GDDR7 at 896 GB/s bandwidth. The RX 9070 XT uses GDDR6 at 640 GB/s. The bandwidth difference matters in VRAM-intensive workloads — AI inference, very high resolution texture streaming, high VRAM demand scenarios. For typical 1440p and 4K gaming at the settings these cards handle, both provide sufficient bandwidth.&lt;/p>
+&lt;h2 id="power-consumption-and-psu-requirements">Power consumption and PSU requirements&lt;/h2>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Card&lt;/th>
+&lt;th scope="col">Reference TDP&lt;/th>
+&lt;th scope="col">Typical gaming draw&lt;/th>
+&lt;th scope="col">Recommended PSU&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>RTX 5070 Ti (reference)&lt;/td>
+&lt;td>300W&lt;/td>
+&lt;td>~260–300W&lt;/td>
+&lt;td>850W&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>RTX 5070 Ti AIB OC&lt;/td>
+&lt;td>~300–330W&lt;/td>
+&lt;td>~290–330W&lt;/td>
+&lt;td>850–1000W&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>RX 9070 XT ref&lt;/td>
+&lt;td>304W TBP&lt;/td>
+&lt;td>~280–304W&lt;/td>
+&lt;td>850W&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>RX 9070 XT AIB OC&lt;/td>
+&lt;td>~320–340W&lt;/td>
+&lt;td>~310–340W&lt;/td>
+&lt;td>850–1000W&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Both cards comfortably run on a quality 850W PSU paired with a Ryzen or Intel mid-range CPU. Use the &lt;a href="https://techfuelhq.com/tools/psu-wattage-calculator/">PSU Wattage Calculator&lt;/a> to verify your specific build.&lt;/p>
+&lt;h2 id="the-verdict">The verdict&lt;/h2>
+&lt;p>&lt;strong>Buy the RTX 5070 Ti ($749 MSRP / ~$880–$1,070 street) if:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>You play RT-heavy titles (Cyberpunk RT Overdrive, Alan Wake 2 Full RT)&lt;/li>
+&lt;li>DLSS 4 MFG is a priority and you play titles that support it&lt;/li>
+&lt;li>You have CUDA compute workloads alongside gaming (video encoding with NVENC, some AI inference)&lt;/li>
+&lt;li>You&amp;rsquo;re already in the NVIDIA ecosystem&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Buy the RX 9070 XT ($599 MSRP / ~$650–$720 street) if:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Rasterization is your primary workload (no or minimal RT)&lt;/li>
+&lt;li>Value per dollar matters — 5–10% less performance for 20% less money at MSRP (closer to 25–35% less at mid-2026 street prices)&lt;/li>
+&lt;li>AFMF 2&amp;rsquo;s universal frame generation appeal outweighs DLSS 4 MFG&amp;rsquo;s per-title quality&lt;/li>
+&lt;li>You&amp;rsquo;re buying AMD for the open ecosystem (no dependency on NVIDIA&amp;rsquo;s proprietary features)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Skip both and buy the RTX 5080 ($999 MSRP; street higher in 2026) if:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>4K is the primary use case and you want comfortable headroom rather than just capable&lt;/li>
+&lt;li>The 5070 Ti&amp;rsquo;s 300W TDP gets you 80% of 5080 performance at 75% of the price — but the 5080 step-up is meaningful at 4K&lt;/li>
+&lt;/ul>
+&lt;p>The RTX 5080 review context from the &lt;a href="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/">TechFuelHQ first-party dataset&lt;/a> shows what the tier above looks like; the 5080 generational performance index at 123 vs the 5070 Ti&amp;rsquo;s estimated ~100 reflects roughly a 20% performance advantage at the same workloads.&lt;/p>
+&lt;hr>
+&lt;p>&lt;em>For context on what the tier above this looks like, the &lt;a href="https://techfuelhq.com/gpu-reviews/rog-astral-rtx-5080-oc-review-2026/">ROG Astral RTX 5080 OC review&lt;/a> has full first-party 4K benchmark data. One step down, the &lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5070-vs-rx-9070-2026/">RTX 5070 vs RX 9070&lt;/a> settles the $549 tier; for the AMD-internal choice see &lt;a href="https://techfuelhq.com/gpu-reviews/rx-9070-vs-rx-9070-xt-2026/">RX 9070 vs RX 9070 XT&lt;/a>; and the &lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5060-ti-vs-rx-9060-xt-1440p-showdown-2026/">RTX 5060 Ti vs RX 9060 XT 1440p showdown&lt;/a> covers the $400–500 range.&lt;/em>&lt;/p></description></item><item><title>RTX 5060 Ti vs RX 9060 XT: The Honest 1440p Showdown for 2026</title><link>https://techfuelhq.com/gpu-reviews/rtx-5060-ti-vs-rx-9060-xt-1440p-showdown-2026/</link><pubDate>Wed, 06 May 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/gpu-reviews/rtx-5060-ti-vs-rx-9060-xt-1440p-showdown-2026/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · Published 2026-05-06 · Updated 2026-07-13 · ~16 min read · St. Louis County, MO&lt;/p>
+&lt;img src="https://techfuelhq.com/images/gpu-reviews/rtx-5060-ti-vs-rx-9060-xt-1440p-showdown-2026.svg" alt="Spec head-to-head table comparing the RTX 5060 Ti 16GB (Blackwell GB206, 4,608 shaders, 36 4th-gen RT cores, 16GB GDDR7, 448 GB/s, 180W, $429) against the RX 9060 XT 16GB (RDNA 4 Navi 44, 2,048 shaders, 32 3rd-gen RT cores, 16GB GDDR6, 3,130 MHz boost, 160W, $349), both averaging ~78 fps at native 1440p with an $80 price gap." width="1200" height="760" loading="eager" fetchpriority="high" style="display:block;margin:1.5rem auto;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;div class="verdict-card" style="border:1px solid #c8ff00;border-left:4px solid #c8ff00;border-radius:6px;padding:1.25rem 1.5rem;margin:1.5rem 0 2rem 0;background:rgba(200,255,0,0.04);">
+&lt;p style="margin:0 0 0.5rem 0;font-weight:700;color:#c8ff00;letter-spacing:0.04em;text-transform:uppercase;font-size:0.85rem;">TL;DR · The 30-second verdict&lt;/p>
+&lt;ul style="margin:0.25rem 0 0 0;padding-left:1.25rem;line-height:1.55;">
+&lt;li>&lt;strong>Pure 1440p gaming on a budget:&lt;/strong> Buy the &lt;strong>RX 9060 XT 16GB&lt;/strong>. Within 1% of the 5060 Ti on raster average; the ~$115 saved at 2026 street prices is a tier of monitor or 32 GB of RAM.&lt;/li>
+&lt;li>&lt;strong>Ray tracing, content creation, or local AI (Stable Diffusion / LLMs):&lt;/strong> Buy the &lt;strong>RTX 5060 Ti 16GB&lt;/strong>. CUDA, NVENC, and 4th-gen RT cores are decisively ahead.&lt;/li>
+&lt;li>&lt;strong>Linux daily driver:&lt;/strong> Edge to the &lt;strong>9060 XT&lt;/strong> — amdgpu supports it out of the box.&lt;/li>
+&lt;li>&lt;strong>Esports / high-refresh 1440p:&lt;/strong> Either. Both push 240+ fps. Pick on price.&lt;/li>
+&lt;li>&lt;strong>Do not buy for 1440p:&lt;/strong> Either 8GB card. At 1440p the 8GB buffer overflows in modern titles and frames fall off a cliff — 16GB or nothing.&lt;/li>
+&lt;/ul>
+&lt;p style="margin:0.75rem 0 0 0;font-size:0.9rem;color:#a0a0b8;">Street price checked July 12–13, 2026: 5060 Ti 16GB ~$564 (up to ~$635) · 9060 XT 16GB ~$448 (up to ~$509) — a ~$115 gap, both well above MSRP in the 2026 GDDR shortage · Both 16GB VRAM · Both PCIe 5.0 · Both 160–180W TBP class.&lt;/p>
+&lt;/div>
+&lt;p>A year after both cards shipped, the question in my inbox is the same one I asked when I bought my own: with both cards now selling above MSRP in the 2026 memory crunch, which 16GB mid-range card is the one for a 1440p build in 2026? I&amp;rsquo;ve logged hours on both — an &lt;a href="https://investor.nvidia.com/news/press-release-details/2025/NVIDIA-Blackwell-GeForce-RTX-Arrives-for-Every-Gamer-Starting-at-299/default.aspx" rel="noopener">RTX 5060 Ti 16GB at $429 MSRP&lt;/a> and an &lt;a href="https://www.tomshardware.com/pc-components/gpus/amd-radeon-rx-9060-xt-launches-on-june-5-starting-at-usd299" rel="noopener">RX 9060 XT 16GB at $349 MSRP&lt;/a> — and the truth is more interesting than either side&amp;rsquo;s marketing.&lt;/p>
+&lt;p>Reviewers who tested only with vendor-favored game lists reached opposite conclusions. AMD picked titles where the &lt;a href="https://www.tomshardware.com/pc-components/gpus/amd-radeon-rx-9060-xt-launches-on-june-5-starting-at-usd299" rel="noopener">9060 XT 16GB beats the 5060 Ti 8GB by ~6% across 40 games&lt;/a>. NVIDIA pointed at DLSS 4 + MFG titles where the 5060 Ti pulls double-digit leads. Both are technically right. Neither tells you whether to buy.&lt;/p>
+&lt;p>This is what I&amp;rsquo;ve found running both through a sane game lineup at native 1440p, with upscaling on, ray tracing on, and as inference cards on the side.&lt;/p>
+&lt;h2 id="how-i-tested">How I tested&lt;/h2>
+&lt;p>Both cards passed through the home bench in St. Louis County, MO during the 2024–2025 testing period. I picked up the RTX 5060 Ti 16GB at the $429 launch MSRP in summer 2025 and the RX 9060 XT 16GB at $349 MSRP shortly after its June 2025 launch — both were dual-fan AIB models in the cheapest in-stock SKU. Most of that gear has since been sold or retired (see the &lt;a href="https://techfuelhq.com/colophon/">Colophon&lt;/a> for the timeline). The benchmark numbers in the table below are aggregated from the public reviews I cite alongside the table (TechSpot, Tom&amp;rsquo;s Hardware, Club386), with native 1440p Ultra unless noted. My role here is selection — I picked an eight-game lineup that mixes both vendors&amp;rsquo; favored titles so neither side gets to cherry-pick the verdict. The qualitative observations on driver behavior, thermals, and Linux support are firsthand from running both cards in my own builds between July 2025 and April 2026. Current first-party GPU bench data is in the &lt;a href="https://techfuelhq.com/data/">TechFuelHQ Open Bench Datasets&lt;/a> directory. Last verified: 2026-06-09 by LK Wood IV.&lt;/p>
+&lt;h2 id="spec-sheet-head-to-head">Spec sheet head-to-head&lt;/h2>
+&lt;p>The cards are closer than the marketing suggests, but they&amp;rsquo;re not the same architecture. Sources: &lt;a href="https://www.techspot.com/review/2996-amd-radeon-9060-xt/" rel="noopener">TechSpot&amp;rsquo;s day-one tables&lt;/a>, &lt;a href="https://www.club386.com/amd-radeon-rx-9060-xt-16gb-vs-nvidia-geforce-rtx-5060-ti-16gb/" rel="noopener">Club386&amp;rsquo;s spec breakdown&lt;/a>, &lt;a href="https://www.amd.com/en/products/graphics/desktops/radeon/9000-series/amd-radeon-rx-9060xt.html" rel="noopener">AMD&amp;rsquo;s official 9060 XT page&lt;/a>.&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Spec&lt;/th>
+&lt;th scope="col">RTX 5060 Ti 16GB&lt;/th>
+&lt;th scope="col">RX 9060 XT 16GB&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Architecture&lt;/td>
+&lt;td>Blackwell GB206&lt;/td>
+&lt;td>RDNA 4 Navi 44&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Process&lt;/td>
+&lt;td>TSMC 4NP&lt;/td>
+&lt;td>TSMC N4P&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Shaders / SPs&lt;/td>
+&lt;td>4,608&lt;/td>
+&lt;td>2,048&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>RT cores&lt;/td>
+&lt;td>36 (4th gen)&lt;/td>
+&lt;td>32 (3rd gen)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>AI / Tensor&lt;/td>
+&lt;td>144 (5th gen)&lt;/td>
+&lt;td>64 (2nd gen)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Boost clock&lt;/td>
+&lt;td>2,572 MHz&lt;/td>
+&lt;td>3,130 MHz&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Memory&lt;/td>
+&lt;td>16 GB GDDR7&lt;/td>
+&lt;td>16 GB GDDR6&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Bus&lt;/td>
+&lt;td>128-bit&lt;/td>
+&lt;td>128-bit&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Bandwidth&lt;/td>
+&lt;td>448 GB/s&lt;/td>
+&lt;td>320 GB/s&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Infinity / L2 cache&lt;/td>
+&lt;td>32 MB L2&lt;/td>
+&lt;td>32 MB Infinity&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>TBP&lt;/td>
+&lt;td>180 W&lt;/td>
+&lt;td>160 W&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>PCIe&lt;/td>
+&lt;td>5.0 x8&lt;/td>
+&lt;td>5.0 x16&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MSRP (May 2025)&lt;/td>
+&lt;td>$429&lt;/td>
+&lt;td>$349&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Street price (Jul 12–13, 2026)&lt;/td>
+&lt;td>~$564 (to ~$635)&lt;/td>
+&lt;td>~$448 (to ~$509)&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Two things stand out. NVIDIA more than doubles the shader count, which on paper looks like a blowout — until you notice Navi 44 boosts to 3.13 GHz, &lt;a href="https://www.club386.com/amd-radeon-rx-9060-xt-16gb-vs-nvidia-geforce-rtx-5060-ti-16gb/" rel="noopener">22% higher than the 5060 Ti&amp;rsquo;s clock&lt;/a>. Combined with RDNA 4&amp;rsquo;s per-CU efficiency, the 9060 XT closes most of the gap. The other surprise: the 5060 Ti runs only 8 PCIe lanes versus the 9060 XT&amp;rsquo;s 16. On a PCIe 5.0 board it&amp;rsquo;s irrelevant; on PCIe 4.0 the 5060 Ti can lose 2–4% in bandwidth-sensitive titles.&lt;/p>
+&lt;p>NVIDIA opens at $80 more for what is, in pure raster, a near-tie. That&amp;rsquo;s the entire conversation in one number — at MSRP.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Street-price reality — checked July 12–13, 2026.&lt;/strong> MSRP is $429 (5060 Ti 16GB) and $349 (9060 XT 16GB), but the 2026 AI-driven GDDR memory shortage has pushed both above list and &lt;em>widened&lt;/em> the gap. Live retail trackers put the RTX 5060 Ti 16GB at &lt;strong>~$564&lt;/strong> for the cheapest in-stock model (rising to &lt;del>$635) and the RX 9060 XT 16GB at **&lt;/del>$448** (to ~$509). So the AMD card now saves roughly &lt;strong>$115&lt;/strong> at real street prices, not the $80 launch gap — the value case for the 9060 XT is stronger today, not weaker. Neither vendor plans MSRP cuts before Q4, so don&amp;rsquo;t expect near-term relief. Prices move week to week — check the live retailer price before buying. Background: &lt;a href="https://techfuelhq.com/articles/ram-ssd-price-crisis-2026/">the 2026 RAM and SSD price crisis&lt;/a> covers the same memory crunch now driving GPU prices up.&lt;/p>&lt;/blockquote>
+&lt;h2 id="1440p-raster-benchmarks">1440p raster benchmarks&lt;/h2>
+&lt;p>These are real numbers from public reviews, not synthetics. Sources: &lt;a href="https://www.techspot.com/review/2996-amd-radeon-9060-xt/" rel="noopener">TechSpot&amp;rsquo;s 9060 XT day-one review&lt;/a>, &lt;a href="https://www.techspot.com/review/3019-nvidia-5060-ti-vs-amd-9060-xt-with-dlss-fsr/" rel="noopener">TechSpot&amp;rsquo;s DLSS 4 vs FSR 4 head-to-head&lt;/a>, &lt;a href="https://www.tomshardware.com/pc-components/gpus/amd-radeon-rx-9060-xt-16gb-review/4" rel="noopener">Tom&amp;rsquo;s Hardware&amp;rsquo;s 9060 XT 16GB review&lt;/a>, &lt;a href="https://www.club386.com/amd-radeon-rx-9060-xt-16gb-review/" rel="noopener">Club386&amp;rsquo;s 9060 XT review&lt;/a>. Native 1440p Ultra unless noted.&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Game&lt;/th>
+&lt;th scope="col">Setting&lt;/th>
+&lt;th scope="col">RTX 5060 Ti 16GB&lt;/th>
+&lt;th scope="col">RX 9060 XT 16GB&lt;/th>
+&lt;th scope="col">Winner&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Cyberpunk 2077&lt;/td>
+&lt;td>Ultra, no RT&lt;/td>
+&lt;td>71 fps&lt;/td>
+&lt;td>68 fps&lt;/td>
+&lt;td>NVIDIA +4%&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Horizon Zero Dawn Remastered&lt;/td>
+&lt;td>Highest&lt;/td>
+&lt;td>91 fps&lt;/td>
+&lt;td>88 fps&lt;/td>
+&lt;td>NVIDIA +3%&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Marvel Rivals&lt;/td>
+&lt;td>Ultra&lt;/td>
+&lt;td>88 fps&lt;/td>
+&lt;td>79 fps&lt;/td>
+&lt;td>NVIDIA +11%&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Stellar Blade&lt;/td>
+&lt;td>High&lt;/td>
+&lt;td>71 fps&lt;/td>
+&lt;td>55 fps&lt;/td>
+&lt;td>NVIDIA +29%&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Star Wars Outlaws&lt;/td>
+&lt;td>High&lt;/td>
+&lt;td>60 fps&lt;/td>
+&lt;td>67 fps&lt;/td>
+&lt;td>AMD +12%&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Microsoft Flight Sim 2024&lt;/td>
+&lt;td>Ultra&lt;/td>
+&lt;td>47 fps&lt;/td>
+&lt;td>58 fps&lt;/td>
+&lt;td>AMD +23%&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Space Marine 2&lt;/td>
+&lt;td>Ultra&lt;/td>
+&lt;td>74 fps&lt;/td>
+&lt;td>77 fps&lt;/td>
+&lt;td>AMD +4%&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>F1 2024&lt;/td>
+&lt;td>High&lt;/td>
+&lt;td>124 fps&lt;/td>
+&lt;td>132 fps&lt;/td>
+&lt;td>AMD +6%&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Across these eight, the 5060 Ti averages ~78 fps and the 9060 XT ~78 fps. Within a percent. Hand the 9060 XT a bandwidth-friendly title (MSFS24, Star Wars Outlaws) and it pulls ahead. Hand the 5060 Ti a shader-bound title (Stellar Blade, Marvel Rivals) and the higher core count opens a real lead. On raster at 1440p, neither card has a structural advantage. The game decides.&lt;/p>
+&lt;!-- ========== VISUAL 1: THE 1440p DUEL (diverging bar - signature grammar) ========== -->
+&lt;div class="visual-block">
+&lt;div style="background:#0b1220;padding:26px 22px 18px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#e8e8f0;">
+&lt;div style="margin-bottom:6px;">
+&lt;div style="font-size:18px;font-weight:700;letter-spacing:-0.3px;">The 1440p duel, game by game&lt;/div>
+&lt;div style="font-size:12px;color:#8f9bb3;margin-top:4px;">Native 1440p Ultra. Bars grow from the centre line by the winner's margin - &lt;span style="color:#8fd400;font-weight:600;">green = RTX 5060 Ti&lt;/span>, &lt;span style="color:#ff6a5a;font-weight:600;">red = RX 9060 XT&lt;/span>. Six of eight land inside 12%: the matchup is a coin toss the title decides.&lt;/div>
+&lt;/div>
+&lt;div style="display:flex;align-items:center;gap:8px;margin:14px 0 10px;font-size:9.5px;color:#7a869c;text-transform:uppercase;letter-spacing:0.05em;">
+&lt;div style="flex:0 0 96px;">&lt;/div>
+&lt;div style="flex:1 1 auto;min-width:0;display:flex;">&lt;div style="flex:1 1 0;text-align:left;color:#ff6a5a;">&amp;#9664; 9060 XT wins&lt;/div>&lt;div style="flex:1 1 0;text-align:right;color:#8fd400;">5060 Ti wins &amp;#9654;&lt;/div>&lt;/div>
+&lt;div style="flex:0 0 54px;">&lt;/div>
+&lt;/div>
+&lt;!-- Cyberpunk (NV +4) -->
+&lt;div style="display:flex;align-items:center;gap:8px;margin-bottom:9px;">
+&lt;div style="flex:0 0 96px;min-width:0;text-align:right;font-size:11.5px;line-height:1.2;color:#cfd6e6;">Cyberpunk 2077&lt;div style="color:#7a869c;font-size:10px;">71 &amp;middot; 68 fps&lt;/div>&lt;/div>
+&lt;div style="flex:1 1 auto;min-width:0;display:flex;align-items:center;">
+&lt;div style="flex:1 1 0;display:flex;justify-content:flex-end;">&lt;div style="width:0%;height:15px;background:#ef4b4b;border-radius:3px 0 0 3px;">&lt;/div>&lt;/div>
+&lt;div style="flex:0 0 2px;height:19px;background:#48506a;">&lt;/div>
+&lt;div style="flex:1 1 0;display:flex;justify-content:flex-start;">&lt;div style="width:13.3%;height:15px;background:#76b900;border-radius:0 3px 3px 0;">&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div style="flex:0 0 54px;font-size:11px;font-weight:700;color:#8fd400;">NV +4%&lt;/div>
+&lt;/div>
+&lt;!-- Horizon (NV +3) -->
+&lt;div style="display:flex;align-items:center;gap:8px;margin-bottom:9px;">
+&lt;div style="flex:0 0 96px;min-width:0;text-align:right;font-size:11.5px;line-height:1.2;color:#cfd6e6;">Horizon ZD Rem.&lt;div style="color:#7a869c;font-size:10px;">91 &amp;middot; 88 fps&lt;/div>&lt;/div>
+&lt;div style="flex:1 1 auto;min-width:0;display:flex;align-items:center;">
+&lt;div style="flex:1 1 0;display:flex;justify-content:flex-end;">&lt;div style="width:0%;height:15px;background:#ef4b4b;border-radius:3px 0 0 3px;">&lt;/div>&lt;/div>
+&lt;div style="flex:0 0 2px;height:19px;background:#48506a;">&lt;/div>
+&lt;div style="flex:1 1 0;display:flex;justify-content:flex-start;">&lt;div style="width:10%;height:15px;background:#76b900;border-radius:0 3px 3px 0;">&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div style="flex:0 0 54px;font-size:11px;font-weight:700;color:#8fd400;">NV +3%&lt;/div>
+&lt;/div>
+&lt;!-- Marvel Rivals (NV +11) -->
+&lt;div style="display:flex;align-items:center;gap:8px;margin-bottom:9px;">
+&lt;div style="flex:0 0 96px;min-width:0;text-align:right;font-size:11.5px;line-height:1.2;color:#cfd6e6;">Marvel Rivals&lt;div style="color:#7a869c;font-size:10px;">88 &amp;middot; 79 fps&lt;/div>&lt;/div>
+&lt;div style="flex:1 1 auto;min-width:0;display:flex;align-items:center;">
+&lt;div style="flex:1 1 0;display:flex;justify-content:flex-end;">&lt;div style="width:0%;height:15px;background:#ef4b4b;border-radius:3px 0 0 3px;">&lt;/div>&lt;/div>
+&lt;div style="flex:0 0 2px;height:19px;background:#48506a;">&lt;/div>
+&lt;div style="flex:1 1 0;display:flex;justify-content:flex-start;">&lt;div style="width:36.7%;height:15px;background:#76b900;border-radius:0 3px 3px 0;">&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div style="flex:0 0 54px;font-size:11px;font-weight:700;color:#8fd400;">NV +11%&lt;/div>
+&lt;/div>
+&lt;!-- Stellar Blade (NV +29) -->
+&lt;div style="display:flex;align-items:center;gap:8px;margin-bottom:9px;">
+&lt;div style="flex:0 0 96px;min-width:0;text-align:right;font-size:11.5px;line-height:1.2;color:#cfd6e6;">Stellar Blade&lt;div style="color:#7a869c;font-size:10px;">71 &amp;middot; 55 fps&lt;/div>&lt;/div>
+&lt;div style="flex:1 1 auto;min-width:0;display:flex;align-items:center;">
+&lt;div style="flex:1 1 0;display:flex;justify-content:flex-end;">&lt;div style="width:0%;height:15px;background:#ef4b4b;border-radius:3px 0 0 3px;">&lt;/div>&lt;/div>
+&lt;div style="flex:0 0 2px;height:19px;background:#48506a;">&lt;/div>
+&lt;div style="flex:1 1 0;display:flex;justify-content:flex-start;">&lt;div style="width:96.7%;height:15px;background:#76b900;border-radius:0 3px 3px 0;">&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div style="flex:0 0 54px;font-size:11px;font-weight:700;color:#8fd400;">NV +29%&lt;/div>
+&lt;/div>
+&lt;!-- Star Wars Outlaws (AMD +12) -->
+&lt;div style="display:flex;align-items:center;gap:8px;margin-bottom:9px;">
+&lt;div style="flex:0 0 96px;min-width:0;text-align:right;font-size:11.5px;line-height:1.2;color:#cfd6e6;">Star Wars Outlaws&lt;div style="color:#7a869c;font-size:10px;">60 &amp;middot; 67 fps&lt;/div>&lt;/div>
+&lt;div style="flex:1 1 auto;min-width:0;display:flex;align-items:center;">
+&lt;div style="flex:1 1 0;display:flex;justify-content:flex-end;">&lt;div style="width:40%;height:15px;background:#ef4b4b;border-radius:3px 0 0 3px;">&lt;/div>&lt;/div>
+&lt;div style="flex:0 0 2px;height:19px;background:#48506a;">&lt;/div>
+&lt;div style="flex:1 1 0;display:flex;justify-content:flex-start;">&lt;div style="width:0%;height:15px;background:#76b900;border-radius:0 3px 3px 0;">&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div style="flex:0 0 54px;font-size:11px;font-weight:700;color:#ff6a5a;">AMD +12%&lt;/div>
+&lt;/div>
+&lt;!-- MSFS 2024 (AMD +23) -->
+&lt;div style="display:flex;align-items:center;gap:8px;margin-bottom:9px;">
+&lt;div style="flex:0 0 96px;min-width:0;text-align:right;font-size:11.5px;line-height:1.2;color:#cfd6e6;">MS Flight Sim 2024&lt;div style="color:#7a869c;font-size:10px;">47 &amp;middot; 58 fps&lt;/div>&lt;/div>
+&lt;div style="flex:1 1 auto;min-width:0;display:flex;align-items:center;">
+&lt;div style="flex:1 1 0;display:flex;justify-content:flex-end;">&lt;div style="width:76.7%;height:15px;background:#ef4b4b;border-radius:3px 0 0 3px;">&lt;/div>&lt;/div>
+&lt;div style="flex:0 0 2px;height:19px;background:#48506a;">&lt;/div>
+&lt;div style="flex:1 1 0;display:flex;justify-content:flex-start;">&lt;div style="width:0%;height:15px;background:#76b900;border-radius:0 3px 3px 0;">&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div style="flex:0 0 54px;font-size:11px;font-weight:700;color:#ff6a5a;">AMD +23%&lt;/div>
+&lt;/div>
+&lt;!-- Space Marine 2 (AMD +4) -->
+&lt;div style="display:flex;align-items:center;gap:8px;margin-bottom:9px;">
+&lt;div style="flex:0 0 96px;min-width:0;text-align:right;font-size:11.5px;line-height:1.2;color:#cfd6e6;">Space Marine 2&lt;div style="color:#7a869c;font-size:10px;">74 &amp;middot; 77 fps&lt;/div>&lt;/div>
+&lt;div style="flex:1 1 auto;min-width:0;display:flex;align-items:center;">
+&lt;div style="flex:1 1 0;display:flex;justify-content:flex-end;">&lt;div style="width:13.3%;height:15px;background:#ef4b4b;border-radius:3px 0 0 3px;">&lt;/div>&lt;/div>
+&lt;div style="flex:0 0 2px;height:19px;background:#48506a;">&lt;/div>
+&lt;div style="flex:1 1 0;display:flex;justify-content:flex-start;">&lt;div style="width:0%;height:15px;background:#76b900;border-radius:0 3px 3px 0;">&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div style="flex:0 0 54px;font-size:11px;font-weight:700;color:#ff6a5a;">AMD +4%&lt;/div>
+&lt;/div>
+&lt;!-- F1 2024 (AMD +6) -->
+&lt;div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+&lt;div style="flex:0 0 96px;min-width:0;text-align:right;font-size:11.5px;line-height:1.2;color:#cfd6e6;">F1 2024&lt;div style="color:#7a869c;font-size:10px;">124 &amp;middot; 132 fps&lt;/div>&lt;/div>
+&lt;div style="flex:1 1 auto;min-width:0;display:flex;align-items:center;">
+&lt;div style="flex:1 1 0;display:flex;justify-content:flex-end;">&lt;div style="width:20%;height:15px;background:#ef4b4b;border-radius:3px 0 0 3px;">&lt;/div>&lt;/div>
+&lt;div style="flex:0 0 2px;height:19px;background:#48506a;">&lt;/div>
+&lt;div style="flex:1 1 0;display:flex;justify-content:flex-start;">&lt;div style="width:0%;height:15px;background:#76b900;border-radius:0 3px 3px 0;">&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div style="flex:0 0 54px;font-size:11px;font-weight:700;color:#ff6a5a;">AMD +6%&lt;/div>
+&lt;/div>
+&lt;div style="margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.07);font-size:11px;color:#8f9bb3;line-height:1.6;">Eight-game average: &lt;strong style="color:#cfd6e6;">78.3 fps&lt;/strong> (5060 Ti) vs &lt;strong style="color:#cfd6e6;">78.0 fps&lt;/strong> (9060 XT) - a statistical tie. The 9060 XT takes the bandwidth-bound titles; the 5060 Ti takes the shader-bound ones. Neither owns the average.&lt;/div>
+&lt;div style="text-align:right;margin-top:8px;font-size:10px;color:#8f9bb3;">techfuelhq.com &amp;middot; source: aggregated TechSpot, Tom's Hardware &amp;amp; Club386 review data, native 1440p Ultra&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;h2 id="the-8gb-trap-which-sku-to-actually-buy">The 8GB trap: which SKU to actually buy&lt;/h2>
+&lt;p>Before you compare these two cards, you have to pick the right &lt;em>version&lt;/em> of each, because both ship in 8GB and 16GB flavors under nearly the same name — and at 1440p that choice matters more than which brand you land on. The RTX 5060 Ti launched at $429 (16GB) and $379 (8GB); the RX 9060 XT at $349 (16GB) and $299 (8GB). Fifty to eighty dollars saved, identical box art — and a completely different experience the moment a game gets hungry.&lt;/p>
+&lt;p>The mechanism is simple. When a title&amp;rsquo;s working set fits inside 8 GB, the two capacities are indistinguishable: same GPU, same clocks, same frames. The instant a game needs more than 8 GB — increasingly routine at 1440p with 2026-era ultra textures — the 8GB card starts evicting and re-streaming textures across the PCIe bus into system RAM. Frame times spike, 1% lows crater, and no amount of raw shader horsepower papers over it. This is the failure mode that never shows up in a clean 60-second benchmark run and ambushes you three hours into a session.&lt;/p>
+&lt;p>&lt;a href="https://www.techspot.com/review/3003-amd-radeon-9060-xt-pcie-benchmark/" rel="noopener">TechSpot isolated it precisely&lt;/a> on the 9060 XT 8GB vs 16GB at 1440p with quality upscaling — reasonable settings, not synthetic torture:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>F1 25 (High):&lt;/strong> the 16GB card delivers ~50% more average frames and 63% higher 1% lows than the 8GB card on the same PCIe 3.0 slot.&lt;/li>
+&lt;li>&lt;strong>Monster Hunter Wilds (Ultra):&lt;/strong> the 16GB card doubles the 8GB card&amp;rsquo;s average, and the 8GB card&amp;rsquo;s 1% lows collapse to &lt;strong>2 fps even on PCIe 5.0&lt;/strong> — bandwidth cannot rescue a full buffer.&lt;/li>
+&lt;li>&lt;strong>Spider-Man 2:&lt;/strong> the 16GB card is ~26% faster on average and ~38% faster on 1% lows, even with the 8GB card running PCIe 5.0.&lt;/li>
+&lt;/ul>
+&lt;p>There&amp;rsquo;s a nasty amplifier hiding in the spec sheet: both 8GB cards run a 128-bit bus on just &lt;strong>8 PCIe lanes&lt;/strong>. Drop one into a PCIe 4.0 board — most builds from before 2024 — and that&amp;rsquo;s x8 at 4.0 speeds, effectively half the bandwidth, so the texture-streaming penalty gets &lt;em>worse&lt;/em>, not better. The cliff below is the same silicon losing frames purely as its lanes shrink.&lt;/p>
+&lt;!-- ========== VISUAL 2: THE 8GB CLIFF (descending columns - distinct within-wave grammar) ========== -->
+&lt;div class="visual-block">
+&lt;div style="background:#17110a;padding:26px 22px 18px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#e8e8f0;">
+&lt;div style="margin-bottom:6px;">
+&lt;div style="font-size:18px;font-weight:700;letter-spacing:-0.3px;">The 8GB cliff&lt;/div>
+&lt;div style="font-size:12px;color:#b7a890;margin-top:4px;">Same RX 9060 XT silicon, 8GB vs 16GB - F1 25, High preset, 1440p with quality upscaling. As the 8GB card's PCIe lanes shrink, its overflowing VRAM spills into system memory and frames step off a ledge. The 16GB card never overflows, so its lanes don't matter.&lt;/div>
+&lt;/div>
+&lt;div style="display:flex;align-items:flex-end;gap:12px;height:200px;margin:20px 0 0;">
+&lt;div style="flex:1 1 0;min-width:0;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;">
+&lt;div style="font-size:15px;font-weight:700;color:#eafff2;margin-bottom:5px;">190&lt;span style="font-size:9px;color:#8f9bb3;font-weight:500;"> fps&lt;/span>&lt;/div>
+&lt;div style="width:100%;max-width:64px;height:170px;background:linear-gradient(180deg,#5fd98a,#3aa862);border-radius:5px 5px 0 0;">&lt;/div>
+&lt;/div>
+&lt;div style="flex:1 1 0;min-width:0;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;">
+&lt;div style="font-size:15px;font-weight:700;color:#f4e2a8;margin-bottom:5px;">169&lt;span style="font-size:9px;color:#8f9bb3;font-weight:500;"> fps&lt;/span>&lt;/div>
+&lt;div style="width:100%;max-width:64px;height:151px;background:linear-gradient(180deg,#e8c766,#d1a63f);border-radius:5px 5px 0 0;">&lt;/div>
+&lt;/div>
+&lt;div style="flex:1 1 0;min-width:0;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;">
+&lt;div style="font-size:15px;font-weight:700;color:#f6cfa6;margin-bottom:5px;">149&lt;span style="font-size:9px;color:#8f9bb3;font-weight:500;"> fps&lt;/span>&lt;/div>
+&lt;div style="width:100%;max-width:64px;height:133px;background:linear-gradient(180deg,#ec9350,#d9733a);border-radius:5px 5px 0 0;">&lt;/div>
+&lt;/div>
+&lt;div style="flex:1 1 0;min-width:0;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;">
+&lt;div style="font-size:15px;font-weight:700;color:#f6b3a6;margin-bottom:5px;">130&lt;span style="font-size:9px;color:#8f9bb3;font-weight:500;"> fps&lt;/span>&lt;/div>
+&lt;div style="width:100%;max-width:64px;height:116px;background:linear-gradient(180deg,#ec6a55,#d94636);border-radius:5px 5px 0 0;">&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;div style="display:flex;gap:12px;margin-top:8px;">
+&lt;div style="flex:1 1 0;min-width:0;text-align:center;font-size:10.5px;color:#cdbfa9;line-height:1.3;font-weight:700;">16GB&lt;div style="color:#8a7d6c;font-size:9.5px;font-weight:500;">any PCIe&lt;/div>&lt;/div>
+&lt;div style="flex:1 1 0;min-width:0;text-align:center;font-size:10.5px;color:#cdbfa9;line-height:1.3;font-weight:700;">8GB&lt;div style="color:#8a7d6c;font-size:9.5px;font-weight:500;">PCIe 5.0&lt;/div>&lt;/div>
+&lt;div style="flex:1 1 0;min-width:0;text-align:center;font-size:10.5px;color:#cdbfa9;line-height:1.3;font-weight:700;">8GB&lt;div style="color:#8a7d6c;font-size:9.5px;font-weight:500;">PCIe 4.0&lt;/div>&lt;/div>
+&lt;div style="flex:1 1 0;min-width:0;text-align:center;font-size:10.5px;color:#cdbfa9;line-height:1.3;font-weight:700;">8GB&lt;div style="color:#8a7d6c;font-size:9.5px;font-weight:500;">PCIe 3.0&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div style="margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.08);font-size:11px;color:#b7a890;line-height:1.6;">Even on PCIe 5.0 the 8GB card gives up ~11%; on an older PCIe 3.0 board it loses &lt;strong style="color:#f0d9c0;">nearly a third of its frames&lt;/strong> versus the 16GB card - and in Monster Hunter Wilds its 1% lows fall to 2 fps regardless of the slot. The 16GB card is flat because it never has to touch system memory.&lt;/div>
+&lt;div style="text-align:right;margin-top:8px;font-size:10px;color:#b7a890;">techfuelhq.com &amp;middot; source: TechSpot, RX 9060 XT PCIe benchmark (8GB vs 16GB), 1440p&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;p>The community verdict tracks the benchmarks. Across the r/buildapc threads I read for this update, the pattern is consistent: the 8GB card is defensible &lt;em>only&lt;/em> if you truly stay at 1080p esports and never overflow the buffer, and it&amp;rsquo;s a trap the instant you point it at 1440p AAA. One buyer speccing a 300 Hz 1080p-only competitive build got told the cheaper 8GB card was fine for that exact use case — the honest exception that proves the rule.&lt;/p>
+&lt;p>&lt;strong>The call:&lt;/strong> at 1440p, buy the 16GB version of whichever card you choose. The $50–80 you pocket on an 8GB SKU buys you a card that stutters in the exact modern titles you bought it to play. If your budget genuinely only reaches an 8GB card, a used 16GB last-gen card (an RX 6800 or RTX 3080 12GB) is the smarter 1440p pickup than a brand-new 8GB one.&lt;/p>
+&lt;h2 id="ray-tracing-reality-check">Ray tracing reality check&lt;/h2>
+&lt;p>This is where NVIDIA&amp;rsquo;s architectural lead shows. The 5060 Ti&amp;rsquo;s 4th-gen RT plus 5th-gen Tensor units beat the 9060 XT&amp;rsquo;s 3rd-gen RT silicon in every demanding RT title. &lt;a href="https://www.techspot.com/review/3019-nvidia-5060-ti-vs-amd-9060-xt-with-dlss-fsr/" rel="noopener">TechSpot&amp;rsquo;s RT Cyberpunk numbers&lt;/a> put the 5060 Ti 14% ahead at 1440p with upscaling; in path tracing on Alan Wake 2 the gap widens past 25%. RDNA 4 narrowed the deficit RDNA 3 had against Ada, but it&amp;rsquo;s not parity.&lt;/p>
+&lt;p>The 9060 XT still runs Cyberpunk Ultra RT at 1440p with FSR 4 Quality at a &lt;a href="https://www.techspot.com/review/3019-nvidia-5060-ti-vs-amd-9060-xt-with-dlss-fsr/" rel="noopener">stable 75 fps average&lt;/a> — playable for AAA single-player. If you only fire up RT once a year, the 9060 XT is fine. If you live in path-traced games, the 5060 Ti is the right card.&lt;/p>
+&lt;h2 id="dlss-4-vs-fsr-4">DLSS 4 vs FSR 4&lt;/h2>
+&lt;p>The upscaling gap shrank dramatically in 2026. FSR 4 moved to a proper ML model and the jump from FSR 3 is real. &lt;a href="https://dropreference.com/en/blog/guide/dlss-4-vs-fsr-4-comparison-2026" rel="noopener">DropReference&amp;rsquo;s blind tests&lt;/a> show DLSS 4 still leads FSR 4 by ~14% on average performance and 12–18% on motion clarity, with cleaner RT denoising. &lt;a href="https://www.techtimes.com/articles/314365/20260129/dlss-vs-fsr-2026-which-gpu-upscaling-tech-delivers-better-fps-image-quality.htm" rel="noopener">Tech Times measured&lt;/a> Alan Wake 2 at 172 fps DLSS 4.5 versus 148 fps FSR 4 — a 12% gap.&lt;/p>
+&lt;p>Two caveats. FSR 4 Quality at 1440p is hard to distinguish from DLSS 4 Quality without freezing frames and zooming in. And DLSS 4&amp;rsquo;s Multi Frame Generation only matters if your monitor can display the extra frames — on a 144 Hz panel with Reflex, both cards feel responsive at native rates. MFG buys you something on a 240 Hz OLED, not the 1440p 144 Hz IPS most builders pair with these cards.&lt;/p>
+&lt;p>High-refresh OLED with DLSS 4 + MFG titles? 5060 Ti pulls a meaningful lead. Otherwise, functional parity. If you want the full picture on image quality and which upscaler wins on which GPU, our &lt;a href="https://techfuelhq.com/articles/dlss-vs-fsr-2026/">DLSS vs FSR breakdown&lt;/a> goes deeper than a single benchmark row can.&lt;/p>
+&lt;h2 id="power-thermals-and-noise">Power, thermals, and noise&lt;/h2>
+&lt;p>The 9060 XT is rated at &lt;a href="https://www.techspot.com/review/2996-amd-radeon-9060-xt/" rel="noopener">160W TBP versus the 5060 Ti&amp;rsquo;s 180W&lt;/a> — sounds like an AMD win. In real testing, &lt;a href="https://www.club386.com/amd-radeon-rx-9060-xt-16gb-review/" rel="noopener">Club386 measured the 9060 XT pulling 24W more than the 5060 Ti at the wall&lt;/a>, and &lt;a href="https://www.techspot.com/review/2996-amd-radeon-9060-xt/" rel="noopener">TechSpot saw the 9060 XT use 26W more in Starfield and 27W more in Star Wars Outlaws&lt;/a>. TBP labels and real draw are different stories.&lt;/p>
+&lt;p>Over a year of 4-hour daily sessions, the 25W delta is ~$13 on the power bill at $0.13/kWh. Both cards run cool by 2026 standards: my Sapphire Pulse 9060 XT idles 38°C, peaks 67°C; my PNY 5060 Ti sits at 36°C idle, 64°C load. Acoustic difference is below every other fan in the case. AMD&amp;rsquo;s 0 RPM idle means silent at desktop.&lt;/p>
+&lt;h2 id="drivers-and-linux-support">Drivers and Linux support&lt;/h2>
+&lt;p>This used to be the AMD trump card and it still is, slightly. AMD&amp;rsquo;s open-source amdgpu supports the 9060 XT out of the box on Linux 6.10+, no DKMS, no firmware chase. NVIDIA&amp;rsquo;s open kernel modules (575 series) shipped a year ago and Blackwell support is stable, but proprietary userspace remains the norm and Wayland edge cases still bite on multi-monitor setups. Windows 11 gaming-only: both are fine. Linux daily driver: 9060 XT is friendlier.&lt;/p>
+&lt;p>On Windows, NVIDIA&amp;rsquo;s driver cadence is faster — game-day updates and &lt;a href="https://www.nvidia.com/en-us/geforce/news/rtx-5060-desktop-family-laptop-5060-coming-soon/" rel="noopener">DLSS 4 model updates pushed via the NVIDIA App&lt;/a>. AMD&amp;rsquo;s Adrenalin is meaningfully better than three years ago. I haven&amp;rsquo;t seen a crash on either driver in three months.&lt;/p>
+&lt;h2 id="stepping-up-rtx-5060-ti-vs-rtx-5070">Stepping up: RTX 5060 Ti vs RTX 5070&lt;/h2>
+&lt;p>A lot of people cross-shopping these two are also eyeing one rung up — the RTX 5070. It&amp;rsquo;s worth knowing exactly what the extra money buys, because the VRAM math is genuinely counterintuitive.&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Spec&lt;/th>
+&lt;th scope="col">RTX 5060 Ti 16GB&lt;/th>
+&lt;th scope="col">RTX 5070 12GB&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Architecture&lt;/td>
+&lt;td>Blackwell GB206&lt;/td>
+&lt;td>Blackwell GB205&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Shaders&lt;/td>
+&lt;td>4,608&lt;/td>
+&lt;td>6,144&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Memory&lt;/td>
+&lt;td>16 GB GDDR7&lt;/td>
+&lt;td>12 GB GDDR7&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Bus&lt;/td>
+&lt;td>128-bit&lt;/td>
+&lt;td>192-bit&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Bandwidth&lt;/td>
+&lt;td>448 GB/s&lt;/td>
+&lt;td>~672 GB/s&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>TGP&lt;/td>
+&lt;td>180 W&lt;/td>
+&lt;td>250 W&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MSRP&lt;/td>
+&lt;td>$429&lt;/td>
+&lt;td>$549&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>The RTX 5070 is the faster gaming card — roughly 15-25% ahead at 1440p depending on the title, on the back of ~33% more shaders and 50% more memory bandwidth. If your only job is frames at 1440p high-refresh and the budget stretches another ~$120, the 5070 is the upgrade.&lt;/p>
+&lt;p>But notice the line that trips people up: &lt;strong>the cheaper 5060 Ti carries &lt;em>more&lt;/em> VRAM than the pricier 5070 — 16 GB versus 12 GB.&lt;/strong> That&amp;rsquo;s not a typo. The 5070 sits on a 192-bit bus (12 GB), while NVIDIA doubled the narrower 128-bit 5060 Ti to a 16 GB configuration. For pure raster today, 12 GB is still enough at 1440p. But the extra 4 GB matters in three cases:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Local AI (LLMs, Stable Diffusion):&lt;/strong> model size is gated by VRAM, not shaders. The 16 GB 5060 Ti can hold models the 12 GB 5070 can&amp;rsquo;t — which is why it&amp;rsquo;s the better &lt;em>inference&lt;/em> card despite being slower in games. Our &lt;a href="https://techfuelhq.com/articles/local-llm-by-gpu-vram-2026/">VRAM-tier guide to which local LLM fits your GPU&lt;/a> maps what those 4 extra gigabytes buy you, model by model.&lt;/li>
+&lt;li>&lt;strong>4K textures and heavy mods:&lt;/strong> modded games and 4K texture packs can push past 12 GB; the 16 GB buffer ages better.&lt;/li>
+&lt;li>&lt;strong>Future-proofing:&lt;/strong> VRAM is the spec that most often forces an upgrade before raw horsepower does.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>The call:&lt;/strong> game-first at 1440p with room in the budget → RTX 5070. VRAM-bound work or a tighter budget → the 16 GB 5060 Ti is the smarter buy, and that&amp;rsquo;s exactly why this comparison stays relevant a tier down.&lt;/p>
+&lt;h2 id="verdict-by-use-case">Verdict by use case&lt;/h2>
+&lt;p>This isn&amp;rsquo;t one card or the other. It&amp;rsquo;s a question of what you actually do.&lt;/p>
+&lt;p>&lt;strong>Esports and competitive shooters (Valorant, CS2, Apex):&lt;/strong> Either. Both push 240+ fps at 1440p Ultra. The 5060 Ti has a 2–5% edge in raw frame rate; the 9060 XT has a ~$115 street price advantage in mid-2026 that buys you a better monitor. Pick on price.&lt;/p>
+&lt;p>&lt;strong>AAA single-player at 1440p (Cyberpunk, Stellar Blade, Wukong):&lt;/strong> Edge to the 5060 Ti for ray tracing and DLSS 4 with MFG. If you turn RT off and play with FSR Quality, the 9060 XT is within 5% on average and saves you ~$115 at 2026 street prices.&lt;/p>
+&lt;p>&lt;strong>Content creation (video editing, streaming, light Blender):&lt;/strong> 5060 Ti. NVIDIA&amp;rsquo;s NVENC encoder remains better than AMD&amp;rsquo;s AMF for streaming at low bitrates, and CUDA support in the Adobe stack is universal. If you&amp;rsquo;re streaming, the 5060 Ti is worth the premium.&lt;/p>
+&lt;p>&lt;strong>Light AI workloads (local LLM inference, Stable Diffusion):&lt;/strong> 5060 Ti, decisively. CUDA&amp;rsquo;s ecosystem dominance means &lt;a href="https://techfuelhq.com/tutorials/self-host-local-llm-rtx-5060-2026/">running Llama 3.1 8B in Ollama&lt;/a> or Stable Diffusion XL works on the 5060 Ti with one driver install. AMD&amp;rsquo;s ROCm has improved on Linux, but the experience is still rougher and many tools still ship NVIDIA-first. The 16GB on either card is enough VRAM for daily LLM work — but the software stack is the deciding factor.&lt;/p>
+&lt;p>&lt;strong>Pure 1440p high-refresh gaming budget build:&lt;/strong> 9060 XT. The ~$115 street saving in mid-2026 covers most of the gap between 165 Hz IPS and 240 Hz OLED, or upgrades the CPU a tier, or buys 32 GB of RAM. The raster gap is invisible during play. Pair it with a &lt;a href="https://techfuelhq.com/pc-builds/1500-dollar-rtx-5060-ti-1440p-build-2026/">solid mid-range build&lt;/a> and you save without giving up anything you&amp;rsquo;ll notice.&lt;/p>
+&lt;h2 id="so-which-one-did-i-buy">So which one did I buy?&lt;/h2>
+&lt;p>The 5060 Ti 16GB. Not for gaming reasons — for the side workloads. I run a &lt;a href="https://techfuelhq.com/tutorials/self-host-local-llm-rtx-5060-2026/">local Llama and Qwen stack&lt;/a> on the same box, occasionally hand it Stable Diffusion jobs, and stream over &lt;a href="https://techfuelhq.com/networking/10gbe-home-networking-budget-2026/">my homelab 10G link&lt;/a> to a NAS. CUDA wins those. If I were building a pure gaming box for a friend, I&amp;rsquo;d hand them a 9060 XT every time.&lt;/p>
+&lt;p>In 2026 the mid-range is no longer a one-card answer. Pick the card that matches the workloads beyond gaming — the gaming numbers are within 5% on most titles. The bad cards are gone. That&amp;rsquo;s the actual story.&lt;/p>
+&lt;h2 id="build-it-yourself">Build it yourself&lt;/h2>
+&lt;p>Want to see what a complete build around either card costs in June 2026? The &lt;a href="https://techfuelhq.com/tools/pc-builder/">TechFuelHQ PC Builder&lt;/a> is a free, open-source picker with real compatibility checks: socket match, RAM type, PSU sizing with 20% margin, GPU-length clearance. Pick the 5060 Ti or 9060 XT, drop in a CPU, and see the full bill. Parts dataset is published under CC BY 4.0 at &lt;a href="https://techfuelhq.com/data/pc-builder-parts.json">/data/pc-builder-parts.json&lt;/a>.&lt;/p>
+&lt;p>If you want to see what the next tier up looks like, the &lt;a href="https://techfuelhq.com/gpu-reviews/rog-astral-rtx-5080-oc-review-2026/">ROG Astral RTX 5080 OC review&lt;/a> has full first-party bench data — five-test synthetic ladder across three tune profiles, 4K gaming with 1% lows, DLSS 4 MFG ladder with latency on Cyberpunk path tracing, and power &amp;amp; thermal comparisons. The &lt;a href="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/">raw dataset&lt;/a> is open for inspection.&lt;/p>
+&lt;h2 id="related-guides">Related guides&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://techfuelhq.com/pc-builds/1500-dollar-rtx-5060-ti-1440p-build-2026/">The $1,500 RTX 5060 Ti Mid-Range 1440p Build for 2026&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/tutorials/self-host-local-llm-rtx-5060-2026/">Self-Host a Local LLM on a Single RTX 5060 in 2026&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/networking/10gbe-home-networking-budget-2026/">10Gbps Home Networking on a Budget&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/tools/pc-builder/">TechFuelHQ PC Builder — free compatibility-checked picker&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/">RTX 5080 Astral OC bench dataset — CC BY 4.0&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/pc-builds/">PC Builds Hub&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/tutorials/">Tutorials Hub&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="sources">Sources&lt;/h2>
+&lt;ul>
+&lt;li>NVIDIA Investor Relations, RTX 5060 family launch pricing: &lt;a href="https://investor.nvidia.com/news/press-release-details/2025/NVIDIA-Blackwell-GeForce-RTX-Arrives-for-Every-Gamer-Starting-at-299/default.aspx" rel="noopener">https://investor.nvidia.com/news/press-release-details/2025/NVIDIA-Blackwell-GeForce-RTX-Arrives-for-Every-Gamer-Starting-at-299/default.aspx&lt;/a>&lt;/li>
+&lt;li>NVIDIA, RTX 5060 desktop family announcement: &lt;a href="https://www.nvidia.com/en-us/geforce/news/rtx-5060-desktop-family-laptop-5060-coming-soon/" rel="noopener">https://www.nvidia.com/en-us/geforce/news/rtx-5060-desktop-family-laptop-5060-coming-soon/&lt;/a>&lt;/li>
+&lt;li>Tom&amp;rsquo;s Hardware, &amp;ldquo;AMD Radeon RX 9060 XT launches on June 5&amp;rdquo; (full spec table, MSRP): &lt;a href="https://www.tomshardware.com/pc-components/gpus/amd-radeon-rx-9060-xt-launches-on-june-5-starting-at-usd299" rel="noopener">https://www.tomshardware.com/pc-components/gpus/amd-radeon-rx-9060-xt-launches-on-june-5-starting-at-usd299&lt;/a>&lt;/li>
+&lt;li>Tom&amp;rsquo;s Hardware, &amp;ldquo;AMD Radeon RX 9060 XT 16GB review&amp;rdquo; (1440p Ultra benchmarks across 23 games): &lt;a href="https://www.tomshardware.com/pc-components/gpus/amd-radeon-rx-9060-xt-16gb-review/4" rel="noopener">https://www.tomshardware.com/pc-components/gpus/amd-radeon-rx-9060-xt-16gb-review/4&lt;/a>&lt;/li>
+&lt;li>Tom&amp;rsquo;s Hardware, &amp;ldquo;16GB Radeon RX 9060 XT for $419&amp;rdquo; (May 2026 street pricing): &lt;a href="https://www.tomshardware.com/pc-components/gpus/beef-up-your-gaming-rig-with-this-16gb-radeon-rx-9060-xt-for-just-usd419-save-usd50-on-this-1440p-champion" rel="noopener">https://www.tomshardware.com/pc-components/gpus/beef-up-your-gaming-rig-with-this-16gb-radeon-rx-9060-xt-for-just-usd419-save-usd50-on-this-1440p-champion&lt;/a>&lt;/li>
+&lt;li>TechSpot, &amp;ldquo;AMD Radeon RX 9060 XT 16GB Review&amp;rdquo; (day-one 1440p tests, power consumption): &lt;a href="https://www.techspot.com/review/2996-amd-radeon-9060-xt/" rel="noopener">https://www.techspot.com/review/2996-amd-radeon-9060-xt/&lt;/a>&lt;/li>
+&lt;li>TechSpot, &amp;ldquo;Nvidia RTX 5060 Ti vs AMD Radeon 9060 XT with DLSS 4 vs FSR 4&amp;rdquo;: &lt;a href="https://www.techspot.com/review/3019-nvidia-5060-ti-vs-amd-9060-xt-with-dlss-fsr/" rel="noopener">https://www.techspot.com/review/3019-nvidia-5060-ti-vs-amd-9060-xt-with-dlss-fsr/&lt;/a>&lt;/li>
+&lt;li>TechSpot, &amp;ldquo;AMD Radeon RX 9060 XT PCIe Benchmark: 8GB vs. 16GB&amp;rdquo; (1440p VRAM-overflow across PCIe 3.0/4.0/5.0): &lt;a href="https://www.techspot.com/review/3003-amd-radeon-9060-xt-pcie-benchmark/" rel="noopener">https://www.techspot.com/review/3003-amd-radeon-9060-xt-pcie-benchmark/&lt;/a>&lt;/li>
+&lt;li>Best Value GPU, live RTX 5060 Ti 16GB &amp;amp; RX 9060 XT 16GB US price trackers (checked July 12–13, 2026): &lt;a href="https://bestvaluegpu.com/history/new-and-used-rtx-5060-ti-16gb-price-history-and-specs/" rel="noopener">https://bestvaluegpu.com/history/new-and-used-rtx-5060-ti-16gb-price-history-and-specs/&lt;/a>&lt;/li>
+&lt;li>Club386, &amp;ldquo;AMD Radeon RX 9060 XT 16GB review&amp;rdquo; (power, thermals, value-per-frame): &lt;a href="https://www.club386.com/amd-radeon-rx-9060-xt-16gb-review/" rel="noopener">https://www.club386.com/amd-radeon-rx-9060-xt-16gb-review/&lt;/a>&lt;/li>
+&lt;li>Club386, &amp;ldquo;RX 9060 XT 16GB vs RTX 5060 Ti 16GB&amp;rdquo; (architecture comparison): &lt;a href="https://www.club386.com/amd-radeon-rx-9060-xt-16gb-vs-nvidia-geforce-rtx-5060-ti-16gb/" rel="noopener">https://www.club386.com/amd-radeon-rx-9060-xt-16gb-vs-nvidia-geforce-rtx-5060-ti-16gb/&lt;/a>&lt;/li>
+&lt;li>AMD, official RX 9060 XT 16GB product page (clocks, RA/AI counts): &lt;a href="https://www.amd.com/en/products/graphics/desktops/radeon/9000-series/amd-radeon-rx-9060xt.html" rel="noopener">https://www.amd.com/en/products/graphics/desktops/radeon/9000-series/amd-radeon-rx-9060xt.html&lt;/a>&lt;/li>
+&lt;li>DropReference, &amp;ldquo;DLSS 4 vs FSR 4: AI upscaling comparison 2026&amp;rdquo;: &lt;a href="https://dropreference.com/en/blog/guide/dlss-4-vs-fsr-4-comparison-2026" rel="noopener">https://dropreference.com/en/blog/guide/dlss-4-vs-fsr-4-comparison-2026&lt;/a>&lt;/li>
+&lt;li>Tech Times, &amp;ldquo;DLSS vs FSR in 2026&amp;rdquo; (Alan Wake 2 head-to-head FPS): &lt;a href="https://www.techtimes.com/articles/314365/20260129/dlss-vs-fsr-2026-which-gpu-upscaling-tech-delivers-better-fps-image-quality.htm" rel="noopener">https://www.techtimes.com/articles/314365/20260129/dlss-vs-fsr-2026-which-gpu-upscaling-tech-delivers-better-fps-image-quality.htm&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>RTX 4080 vs RTX 4090: Is the Flagship Tax Worth $700 More?</title><link>https://techfuelhq.com/gpu-reviews/rtx-4080-vs-rtx-4090/</link><pubDate>Sun, 26 Apr 2026 00:00:00 -0500</pubDate><guid>https://techfuelhq.com/gpu-reviews/rtx-4080-vs-rtx-4090/</guid><description>&lt;!-- INTRO -->
+&lt;section>
+&lt;p>The RTX 50-series is on shelves, which means the 40-series is now the smart-money tier. The 4080 and 4090 went from "halo product flexes" to "the cards used builders actually buy when they want flagship-class performance without paying flagship-class taxes." And right now, on the used and clearance market, that gap between them is where the real conversation lives.&lt;/p>
+&lt;p>The 4090 is still the faster card. Nobody is arguing that. The question is whether it's faster &lt;em>enough&lt;/em> to justify a price tag that is, depending on where you look, $500 to $700 above what an RTX 4080 Super costs. For most people, the answer is no. For a small slice of buyers, the answer is absolutely yes. This is the breakdown.&lt;/p>
+&lt;/section>
+&lt;img src="https://techfuelhq.com/images/gpu-reviews/hero-rtx-4080-vs-4090.svg" alt="RTX 4080 vs RTX 4090 spec comparison: 9,728 vs 16,384 CUDA cores, 16GB vs 24GB GDDR6X, and 320W vs 450W board power" width="1200" height="630" loading="eager" fetchpriority="high" />
+&lt;!-- SPECS SECTION -->
+&lt;section>
+&lt;h2>The Specs That Actually Matter&lt;/h2>
+&lt;p>The &lt;strong>RTX 4080&lt;/strong> ships with 9,728 CUDA cores, 16GB of GDDR6X on a 256-bit bus, and a 320W board power target. The 4080 Super (functionally the same card with a 5% core bump and a $200 MSRP cut) sits at the same TBP. New retail is around &lt;strong>$999–$1,199&lt;/strong> when you can find one. Used 4080 Supers on eBay run &lt;strong>$700–$880&lt;/strong>.&lt;/p>
+&lt;p>The &lt;strong>RTX 4090&lt;/strong> packs 16,384 CUDA cores — that's 68% more shader hardware — paired with 24GB of GDDR6X on a 384-bit bus. Power draw jumps to 450W. New 4090s, where they exist, run &lt;strong>$1,599 MSRP and up&lt;/strong> (street pricing has been brutal). Used 4090s have stayed weirdly expensive — &lt;strong>$1,400–$1,700&lt;/strong> — because the 5090 is even more expensive and the used 4090 became the "I need 24GB of VRAM but won't pay 5090 money" card.&lt;/p>
+&lt;p>That VRAM number is the single most important spec on this page. 16GB vs 24GB doesn't matter for any current game at 4K. It matters enormously if you're touching local AI, large-scale 3D work, or any workload where your model has to fit in memory or it doesn't run at all. If you're a gamer, this spec is irrelevant for the next 2–3 years. If you're not just a gamer, this spec is the reason the 4090 still costs what it costs.&lt;/p>
+&lt;/section>
+&lt;!-- SPEC COMPARISON CARD -->
+&lt;div class="visual-block">
+&lt;div style="background:#0a0a23;padding:28px 24px 20px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#e8e8f0;border-radius:8px;">
+&lt;div style="text-align:center;margin-bottom:24px;">
+&lt;div style="font-size:18px;font-weight:600;letter-spacing:-0.3px;">RTX 4080 vs RTX 4090 — specs at a glance&lt;/div>
+&lt;div style="font-size:12px;color:#9a9ab5;margin-top:5px;">Street pricing as of April 2026&lt;/div>
+&lt;/div>
+&lt;div style="display:grid;grid-template-columns:1fr 40px 1fr;gap:0;align-items:start;max-width:680px;margin:0 auto;">
+&lt;!-- 4080 COLUMN -->
+&lt;div>
+&lt;div style="text-align:center;margin-bottom:18px;">
+&lt;div style="font-size:15px;font-weight:600;color:#76b900;">RTX 4080 / Super&lt;/div>
+&lt;div style="font-size:11px;color:#555570;margin-top:2px;">NVIDIA · Ada Lovelace&lt;/div>
+&lt;/div>
+&lt;div style="background:rgba(118,185,0,0.06);border:1px solid rgba(118,185,0,0.15);border-radius:10px;padding:14px 16px;">
+&lt;div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.04);">&lt;span style="font-size:12px;color:#7a7a96;">CUDA cores&lt;/span>&lt;span style="font-size:13px;font-weight:500;color:#c8c8dc;">9,728&lt;/span>&lt;/div>
+&lt;div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.04);">&lt;span style="font-size:12px;color:#7a7a96;">VRAM&lt;/span>&lt;span style="font-size:13px;font-weight:500;color:#c8c8dc;">16 GB GDDR6X&lt;/span>&lt;/div>
+&lt;div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.04);">&lt;span style="font-size:12px;color:#7a7a96;">Memory bus&lt;/span>&lt;span style="font-size:13px;font-weight:500;color:#c8c8dc;">256-bit&lt;/span>&lt;/div>
+&lt;div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.04);">&lt;span style="font-size:12px;color:#7a7a96;">Bandwidth&lt;/span>&lt;span style="font-size:13px;font-weight:500;color:#c8c8dc;">717 GB/s&lt;/span>&lt;/div>
+&lt;div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.04);">&lt;span style="font-size:12px;color:#7a7a96;">TDP&lt;/span>&lt;span style="font-size:13px;font-weight:500;color:#76b900;">320W&lt;/span>&lt;/div>
+&lt;div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.04);">&lt;span style="font-size:12px;color:#7a7a96;">PCIe&lt;/span>&lt;span style="font-size:13px;font-weight:500;color:#c8c8dc;">4.0 x16&lt;/span>&lt;/div>
+&lt;div style="display:flex;justify-content:space-between;padding:9px 0;">&lt;span style="font-size:12px;color:#7a7a96;">Used street&lt;/span>&lt;span style="font-size:15px;font-weight:600;color:#76b900;">~$800&lt;/span>&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;!-- VS DIVIDER -->
+&lt;div style="display:flex;flex-direction:column;align-items:center;padding-top:58px;">
+&lt;div style="width:1px;height:100%;min-height:320px;background:linear-gradient(180deg,transparent 0%,rgba(255,255,255,0.08) 15%,rgba(255,255,255,0.08) 85%,transparent 100%);position:relative;">
+&lt;div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#0a0a23;border:1px solid rgba(255,255,255,0.12);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;">
+&lt;span style="font-size:11px;font-weight:700;color:#9a9ab5;letter-spacing:0.5px;">VS&lt;/span>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;!-- 4090 COLUMN -->
+&lt;div>
+&lt;div style="text-align:center;margin-bottom:18px;">
+&lt;div style="font-size:15px;font-weight:600;color:#c8ff00;">RTX 4090&lt;/div>
+&lt;div style="font-size:11px;color:#555570;margin-top:2px;">NVIDIA · Ada Lovelace&lt;/div>
+&lt;/div>
+&lt;div style="background:rgba(200,255,0,0.06);border:1px solid rgba(200,255,0,0.18);border-radius:10px;padding:14px 16px;">
+&lt;div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.04);">&lt;span style="font-size:12px;color:#7a7a96;">CUDA cores&lt;/span>&lt;span style="font-size:13px;font-weight:500;color:#c8ff00;">16,384&lt;/span>&lt;/div>
+&lt;div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.04);">&lt;span style="font-size:12px;color:#7a7a96;">VRAM&lt;/span>&lt;span style="font-size:13px;font-weight:500;color:#c8ff00;">24 GB GDDR6X&lt;/span>&lt;/div>
+&lt;div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.04);">&lt;span style="font-size:12px;color:#7a7a96;">Memory bus&lt;/span>&lt;span style="font-size:13px;font-weight:500;color:#c8ff00;">384-bit&lt;/span>&lt;/div>
+&lt;div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.04);">&lt;span style="font-size:12px;color:#7a7a96;">Bandwidth&lt;/span>&lt;span style="font-size:13px;font-weight:500;color:#c8ff00;">1,008 GB/s&lt;/span>&lt;/div>
+&lt;div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.04);">&lt;span style="font-size:12px;color:#7a7a96;">TDP&lt;/span>&lt;span style="font-size:13px;font-weight:500;color:#c8c8dc;">450W&lt;/span>&lt;/div>
+&lt;div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.04);">&lt;span style="font-size:12px;color:#7a7a96;">PCIe&lt;/span>&lt;span style="font-size:13px;font-weight:500;color:#c8c8dc;">4.0 x16&lt;/span>&lt;/div>
+&lt;div style="display:flex;justify-content:space-between;padding:9px 0;">&lt;span style="font-size:12px;color:#7a7a96;">Used street&lt;/span>&lt;span style="font-size:15px;font-weight:600;color:#c8ff00;">~$1,500&lt;/span>&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;!-- BENCHMARKS -->
+&lt;section>
+&lt;h2>Performance: The Numbers Are What They Are&lt;/h2>
+&lt;p>Aggregated across a 20-game benchmark suite, the &lt;strong>RTX 4090 is roughly 27–28% faster than the RTX 4080 at 4K&lt;/strong> (broader review aggregates put the 4K average closer to 30–34%). That figure is consistent across published third-party testing — &lt;a href="https://www.pcworld.com/article/1441779/nvidia-rtx-4090-vs-rtx-4080.html" rel="noopener nofollow">PCWorld&lt;/a>, Technical City, and NanoReview all land in the same range. It is not a controversial number. To be clear about sourcing: neither card is on the TechFuelHQ bench, so every performance figure on this page is aggregated from named third-party testing rather than first-party measurement.&lt;/p>
+&lt;p>What changes is which games get hit hardest by that gap:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>4K, max settings, no upscaling:&lt;/strong> 4090 is 25–40% faster, depending on title. Cyberpunk 2077 with path tracing on, Alan Wake 2, MSFS 2024 — all show the 4090 stretching its legs. The 4080 is hitting 100 FPS, the 4090 is hitting 130.&lt;/li>
+&lt;li>&lt;strong>1440p, max settings:&lt;/strong> The gap collapses to 12–18%. The 4080 is already so fast at 1440p that the 4090's extra silicon spends a chunk of its time waiting on the CPU. If you have a high-refresh 1440p monitor, the 4090's premium is mostly invisible.&lt;/li>
+&lt;li>&lt;strong>1080p:&lt;/strong> Don't buy either of these for 1080p. You're CPU-bound by frame 2.&lt;/li>
+&lt;li>&lt;strong>Ray tracing, 4K:&lt;/strong> Biggest 4090 wins. The 24GB VRAM headroom and the 191 RT cores (vs the 4080's 113) mean the 4090 can sustain RT at 4K in titles where the 4080 has to drop settings or lean on DLSS Performance.&lt;/li>
+&lt;/ul>
+&lt;p>The math nobody likes: at 4K with DLSS Quality on, the 4080 is fast enough for everything currently shipped. The 4090 is fast enough for everything currently shipped, with a buffer for whatever lands in the next 24 months. That buffer is the entire pitch.&lt;/p>
+&lt;/section>
+&lt;img src="https://techfuelhq.com/images/gpu-reviews/benchmark-fps-4080-vs-4090.svg" alt="RTX 4080 vs RTX 4090 benchmark FPS chart across 6 games at 4K resolution showing 25-40% performance gap" width="1100" height="520" loading="lazy" style="display:block;margin:1.5rem auto;max-width:100%;" />
+&lt;!-- VALUE -->
+&lt;section>
+&lt;h2>Cost Per Frame Is the Most Honest Metric&lt;/h2>
+&lt;p>Hardware Times' 4K benchmark suite worked out to &lt;strong>0.089 FPS per dollar for the 4080 Super&lt;/strong> (at $999) and &lt;strong>0.066 FPS per dollar for the 4090&lt;/strong> (at $1,699). The 4080 Super is roughly 35% better value per frame.&lt;/p>
+&lt;p>Used market shifts the math but doesn't flip it. Used 4080 Super at $800 lands around 0.111 FPS/$. Used 4090 at $1,500 lands around 0.075 FPS/$. The 4090's premium narrows on the used market, but it doesn't disappear.&lt;/p>
+&lt;p>Power costs add insult. Over a 3-year ownership window with 4 hours/day of gaming load at average US electricity rates, the 4090 will burn roughly &lt;strong>$130–$170 more in electricity&lt;/strong> than the 4080. That's not life-changing money, but it's a meaningful chunk of the price gap if you measure it.&lt;/p>
+&lt;/section>
+&lt;img src="https://techfuelhq.com/images/gpu-reviews/cost-per-frame-4080-vs-4090.svg" alt="RTX 4080 vs RTX 4090 cost per frame analysis showing 4080 Super delivers 35% better value per frame" width="1100" height="520" loading="lazy" style="display:block;margin:1.5rem auto;max-width:100%;" />
+&lt;!-- VERDICT -->
+&lt;section>
+&lt;h2>The Verdict&lt;/h2>
+&lt;p>&lt;strong>Buy the RTX 4080 (or 4080 Super) if:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>You game at 1440p, even high-refresh 1440p — the 4090 is wasted on you&lt;/li>
+&lt;li>You game at 4K and you're fine with DLSS Quality being part of your playbook&lt;/li>
+&lt;li>You don't run local AI workloads, large-scale 3D, or 8K video timelines&lt;/li>
+&lt;li>You want lower temps, less noise, and a power budget under 700W PSU territory&lt;/li>
+&lt;li>You found a clean used 4080 Super under $800&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Buy the RTX 4090 if:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>You run local LLMs, Stable Diffusion at scale, or Blender renders that need 24GB&lt;/li>
+&lt;li>You game at native 4K, max settings, no upscaling, and you refuse to touch DLSS&lt;/li>
+&lt;li>You're a content creator where render time directly trades against billable hours&lt;/li>
+&lt;li>You already own a 1000W+ PSU and a case that can dissipate 450W comfortably&lt;/li>
+&lt;li>You want a card that won't feel slow for 3+ years and the price gap doesn't change your life&lt;/li>
+&lt;/ul>
+&lt;p>Everyone else: the 4080 is the answer. The 4090 is faster, but it's not 60% more card for 60% more money. It's about 28% more frames for double the price, and that math only works if VRAM, AI workloads, or "I need the best, period" is part of your buying criteria.&lt;/p>
+&lt;p>Both cards aged into a sweet spot. The 4080 Super is the smart-money flagship. The 4090 is the prosumer card that happens to also game. Pick the one that matches your actual use case, not your wishlist.&lt;/p>
+&lt;p>If 1440p is your target resolution, the newer generation has moved the budget options forward considerably — see the &lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5060-ti-vs-rx-9060-xt-1440p-showdown-2026/">RTX 5060 Ti vs RX 9060 XT — 1440p showdown 2026&lt;/a> for the current contenders at that tier. And if you're ready to build around the 5060 Ti class, the &lt;a href="https://techfuelhq.com/pc-builds/1500-dollar-rtx-5060-ti-1440p-build-2026/">$1500 RTX 5060 Ti 1440p build (2026)&lt;/a> covers a complete system at that budget.&lt;/p>
+&lt;/section></description></item></channel></rss>

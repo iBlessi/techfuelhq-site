@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Dell PowerEdge R720 vs Beelink N150 mini PC homelab comparison</title>
+  <desc>Side-by-side spec comparison of a used Dell PowerEdge R720 enterprise server against a Beelink N150 mini PC for homelab use, covering idle power, load power, 3-year electricity cost, idle noise, max RAM, drive bays, remote management and 3-year total cost of ownership. The mini PC wins on power, noise and cost; the server wins on RAM ceiling, drive bays and iDRAC management.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="760" fill="#0a0a23"/>
+  <rect width="1200" height="760" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">HOMELAB SHOWDOWN · ENTERPRISE SERVER vs MINI PC</text>
+  <text x="70" y="132" fill="#e8e8f0" font-size="48" font-weight="900">Dell R720 vs Beelink N150</text>
+  <text x="70" y="168" fill="#6b6b8a" font-size="20">Used enterprise rack server against a modern N150 mini PC — the honest 3-year math</text>
+
+  <!-- Column headers -->
+  <g transform="translate(70,210)">
+    <!-- Left product column header (server) -->
+    <rect x="430" y="0" width="320" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="430" y="0" width="6" height="64" rx="3" fill="#5090e0"/>
+    <text x="456" y="28" fill="#5090e0" font-size="13" letter-spacing="2" font-weight="700">ENTERPRISE SERVER</text>
+    <text x="456" y="52" fill="#e8e8f0" font-size="20" font-weight="800">Dell PowerEdge R720</text>
+
+    <!-- Right product column header (mini PC) -->
+    <rect x="770" y="0" width="290" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="770" y="0" width="6" height="64" rx="3" fill="#c8ff00"/>
+    <text x="796" y="28" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">MINI PC</text>
+    <text x="796" y="52" fill="#e8e8f0" font-size="20" font-weight="800">Beelink N150</text>
+  </g>
+
+  <!-- Spec rows: x range 70..1130, metric label left, two value cols -->
+  <!-- Row geometry: each row 50 tall, starting y=294 -->
+  <g font-size="17">
+    <!-- Row 1: Idle power -->
+    <rect x="70" y="294" width="1060" height="50" fill="#13132e"/>
+    <text x="92" y="325" fill="#c0c0d8">Idle power</text>
+    <text x="685" y="325" text-anchor="end" fill="#e8e8f0" font-weight="600">80–120W</text>
+    <text x="1110" y="325" text-anchor="end" fill="#c8ff00" font-weight="700">10–18W</text>
+
+    <!-- Row 2: Load power -->
+    <rect x="70" y="344" width="1060" height="50" fill="#0d0d28"/>
+    <text x="92" y="375" fill="#c0c0d8">Load power (moderate)</text>
+    <text x="685" y="375" text-anchor="end" fill="#e8e8f0" font-weight="600">150–250W</text>
+    <text x="1110" y="375" text-anchor="end" fill="#c8ff00" font-weight="700">25–55W</text>
+
+    <!-- Row 3: 3-year electricity -->
+    <rect x="70" y="394" width="1060" height="50" fill="#13132e"/>
+    <text x="92" y="425" fill="#c0c0d8">3-year electricity ($0.13/kWh)</text>
+    <text x="685" y="425" text-anchor="end" fill="#e8e8f0" font-weight="600">$273–408</text>
+    <text x="1110" y="425" text-anchor="end" fill="#c8ff00" font-weight="700">$33–60</text>
+
+    <!-- Row 4: Idle noise -->
+    <rect x="70" y="444" width="1060" height="50" fill="#0d0d28"/>
+    <text x="92" y="475" fill="#c0c0d8">Idle noise (1 meter)</text>
+    <text x="685" y="475" text-anchor="end" fill="#e08828" font-weight="600">50–55 dBA</text>
+    <text x="1110" y="475" text-anchor="end" fill="#c8ff00" font-weight="700">&lt;30 dBA</text>
+
+    <!-- Row 5: Max RAM -->
+    <rect x="70" y="494" width="1060" height="50" fill="#13132e"/>
+    <text x="92" y="525" fill="#c0c0d8">Max RAM (DIMM type)</text>
+    <text x="685" y="525" text-anchor="end" fill="#5dca7a" font-weight="700">384–768GB DDR3</text>
+    <text x="1110" y="525" text-anchor="end" fill="#e8e8f0" font-weight="600">16GB DDR5</text>
+
+    <!-- Row 6: Drive bays -->
+    <rect x="70" y="544" width="1060" height="50" fill="#0d0d28"/>
+    <text x="92" y="575" fill="#c0c0d8">Drive bays (hot-swap)</text>
+    <text x="685" y="575" text-anchor="end" fill="#5dca7a" font-weight="700">8 (SAS/SATA)</text>
+    <text x="1110" y="575" text-anchor="end" fill="#e8e8f0" font-weight="600">1–2 internal</text>
+
+    <!-- Row 7: Remote management -->
+    <rect x="70" y="594" width="1060" height="50" fill="#13132e"/>
+    <text x="92" y="625" fill="#c0c0d8">Out-of-band management</text>
+    <text x="685" y="625" text-anchor="end" fill="#5dca7a" font-weight="700">iDRAC (dedicated)</text>
+    <text x="1110" y="625" text-anchor="end" fill="#6b6b8a" font-weight="600">None</text>
+
+    <!-- Row 8: 3-year TCO -->
+    <rect x="70" y="644" width="1060" height="54" fill="#101028" stroke="#1e1e3a"/>
+    <text x="92" y="678" fill="#e8e8f0" font-size="18" font-weight="800">3-year total cost of ownership</text>
+    <text x="685" y="678" text-anchor="end" fill="#e8e8f0" font-size="18" font-weight="800">$541–741+</text>
+    <text x="1110" y="678" text-anchor="end" fill="#c8ff00" font-size="18" font-weight="900">$541 (3-node)</text>
+  </g>
+
+  <!-- divider lines between the two value columns -->
+  <line x1="700" y1="294" x2="700" y2="698" stroke="#1e1e3a" stroke-width="1"/>
+
+  <!-- Footer -->
+  <text x="70" y="730" fill="#4a4a6a" font-size="13">TechFuel HQ · Homelab Comparison · Power, noise &amp; RAM figures per TechFuel HQ measured/typical-config tables</text>
+  <text x="1130" y="730" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

@@ -1,0 +1,24 @@
+{
+  "schema": "techfuelhq:pagefind-build:1",
+  "pagefind_version": "1.5.2",
+  "page_count": 226,
+  "marked_page_count": 226,
+  "unique_canonical_count": 226,
+  "duplicate_canonical_count": 0,
+  "scanned_html_count": 386,
+  "search_page_indexed": false,
+  "legacy_json_index_present": false,
+  "type_counts": {
+    "Dataset": 6,
+    "Guide": 167,
+    "Hub": 13,
+    "Page": 8,
+    "Review": 12,
+    "Tool": 20
+  },
+  "file_count": 282,
+  "total_bytes": 3239484,
+  "entry_bytes": 45740,
+  "core_search_bytes": 159204,
+  "largest_file_bytes": 72209
+}

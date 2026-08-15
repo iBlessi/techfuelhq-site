@@ -1,0 +1,75 @@
+<svg viewBox="0 0 1200 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tailscale vs Cloudflare Tunnel for homelab remote access in 2026, shown as two paths side by side. On the left, the Tailscale path: a laptop or phone running the Tailscale client connects through NAT or CGNAT with no port forwarding, encrypted end to end with WireGuard, to a home server also running the Tailscale client; if a direct connection fails it falls back to a DERP relay, and those relays only carry packets that are already encrypted, so only your own devices ever hold plaintext. On the right, the Cloudflare Tunnel path: any unmodified browser with no software installed reaches Cloudflare's edge over HTTPS using an edge certificate, TLS is terminated there because Cloudflare must decrypt traffic in order to cache and filter it, then a second encrypted leg using an origin certificate runs down to an outbound-only cloudflared connector on the home server. Neither path opens an inbound port on your router and both survive CGNAT, which is the only reason the two are compared at all. The most common real answer is to run both: public browser-facing apps through the Cloudflare Tunnel, and management surfaces such as Proxmox, SSH and Portainer over Tailscale only.">
+  <rect width="1200" height="760" fill="#0e0e1a"/>
+
+  <text x="60" y="62" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="33" font-weight="700">Tailscale vs Cloudflare Tunnel 2026</text>
+  <text x="60" y="94" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="18">Not rivals. One joins a network, the other publishes a service &#8212; and they split on who holds plaintext.</text>
+
+  <!-- ============ LEFT: Tailscale ============ -->
+  <rect x="60" y="116" width="520" height="440" rx="10" fill="#16162a" stroke="#3a4a2a" stroke-width="1.5"/>
+  <rect x="60" y="116" width="520" height="50" rx="10" fill="#26301c"/>
+  <text x="82" y="148" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700">Tailscale &#8212; reach your own machines</text>
+
+  <text x="320" y="190" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="13.5" font-weight="700" text-anchor="middle">CLIENT REQUIRED ON EVERY DEVICE</text>
+
+  <rect x="110" y="200" width="420" height="54" rx="7" fill="#22301c" stroke="#3a4a2a" stroke-width="1.5"/>
+  <text x="320" y="222" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="16.5" font-weight="600" text-anchor="middle">Your laptop / phone</text>
+  <text x="320" y="243" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14" text-anchor="middle">Tailscale client installed</text>
+
+  <path d="M320 254 L320 296" stroke="#c8ff00" stroke-width="2" fill="none"/>
+  <path d="M314 290 L320 298 L326 290" stroke="#c8ff00" stroke-width="2" fill="none"/>
+  <text x="336" y="278" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="13.5">encrypted end to end (WireGuard)</text>
+
+  <rect x="110" y="302" width="420" height="38" rx="6" fill="#191930" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="320" y="326" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14.5" text-anchor="middle">NAT / CGNAT &#8212; traversed, no port forward</text>
+
+  <path d="M320 340 L320 382" stroke="#c8ff00" stroke-width="2" fill="none"/>
+  <path d="M314 376 L320 384 L326 376" stroke="#c8ff00" stroke-width="2" fill="none"/>
+
+  <rect x="110" y="388" width="420" height="54" rx="7" fill="#22301c" stroke="#3a4a2a" stroke-width="1.5"/>
+  <text x="320" y="410" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="16.5" font-weight="600" text-anchor="middle">Home server</text>
+  <text x="320" y="431" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14" text-anchor="middle">Tailscale client installed</text>
+
+  <text x="82" y="474" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">Falls back to a DERP relay if direct fails &#8212; relays only</text>
+  <text x="82" y="496" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">carry packets that are already encrypted.</text>
+  <rect x="82" y="512" width="476" height="32" rx="6" fill="#22301c"/>
+  <text x="320" y="533" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" text-anchor="middle">Only your own devices ever hold plaintext</text>
+
+  <!-- ============ RIGHT: Cloudflare Tunnel ============ -->
+  <rect x="620" y="116" width="520" height="440" rx="10" fill="#16162a" stroke="#2a2a4a" stroke-width="1.5"/>
+  <rect x="620" y="116" width="520" height="50" rx="10" fill="#2a2010"/>
+  <text x="642" y="148" fill="#ffb020" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700">Cloudflare Tunnel &#8212; publish a service</text>
+
+  <text x="880" y="190" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="13.5" font-weight="700" text-anchor="middle">NO CLIENT &#8212; ANY UNMODIFIED BROWSER</text>
+
+  <rect x="670" y="200" width="420" height="54" rx="7" fill="#22223c" stroke="#2a2a4a" stroke-width="1.5"/>
+  <text x="880" y="222" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="16.5" font-weight="600" text-anchor="middle">Any browser</text>
+  <text x="880" y="243" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14" text-anchor="middle">nothing installed &#183; HTTP/HTTPS only</text>
+
+  <path d="M880 254 L880 296" stroke="#ffb020" stroke-width="2" fill="none"/>
+  <path d="M874 290 L880 298 L886 290" stroke="#ffb020" stroke-width="2" fill="none"/>
+  <text x="896" y="278" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="13.5">HTTPS &#183; edge certificate</text>
+
+  <rect x="670" y="302" width="420" height="38" rx="6" fill="#2a2010" stroke="#ffb020" stroke-width="1.5"/>
+  <text x="880" y="326" fill="#ffb020" font-family="Segoe UI, Arial, sans-serif" font-size="14.5" font-weight="700" text-anchor="middle">Cloudflare edge &#8212; TLS TERMINATED HERE</text>
+
+  <path d="M880 340 L880 382" stroke="#ffb020" stroke-width="2" fill="none"/>
+  <path d="M874 376 L880 384 L886 376" stroke="#ffb020" stroke-width="2" fill="none"/>
+  <text x="896" y="364" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="13.5">second leg &#183; origin certificate</text>
+
+  <rect x="670" y="388" width="420" height="54" rx="7" fill="#22223c" stroke="#2a2a4a" stroke-width="1.5"/>
+  <text x="880" y="410" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="16.5" font-weight="600" text-anchor="middle">Home server</text>
+  <text x="880" y="431" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14" text-anchor="middle">cloudflared &#8212; outbound-only connector</text>
+
+  <text x="642" y="474" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">Cloudflare decrypts to cache and filter &#8212; that is also</text>
+  <text x="642" y="496" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">what makes Access, WAF and bot filtering possible.</text>
+  <rect x="642" y="512" width="476" height="32" rx="6" fill="#2a2010"/>
+  <text x="880" y="533" fill="#ffb020" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" text-anchor="middle">A third party holds plaintext at the edge</text>
+
+  <!-- Footer strip -->
+  <rect x="60" y="584" width="1080" height="100" rx="10" fill="#14140f" stroke="#3a4a2a" stroke-width="1.5"/>
+  <text x="84" y="614" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">They overlap on exactly one thing &#8212; and that is why people compare them</text>
+  <text x="84" y="642" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">Neither opens an inbound port on your router, and both survive CGNAT. Everything past that point diverges.</text>
+  <text x="84" y="668" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">The most common real answer is <tspan fill="#c8ff00" font-weight="700">both</tspan>: browser-facing apps via the Tunnel, Proxmox / SSH / Portainer via Tailscale only.</text>
+
+  <text x="60" y="722" fill="#5a5a72" font-family="Segoe UI, Arial, sans-serif" font-size="13">Architecture and free-tier terms from Cloudflare and Tailscale documentation read live on 2026-07-20; vendor terms move. TechFuelHQ.</text>
+</svg>

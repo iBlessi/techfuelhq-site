@@ -1,0 +1,54 @@
+<svg viewBox="0 0 1200 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Seagate NAS drive tiers for 2026: IronWolf for a home 1-8 bay NAS (2-16TB, 180TB/year workload, 3-year warranty, ~43 dollars per TB new); IronWolf Pro for heavier 24-7 or larger arrays (2-32TB, 550TB/year, 5-year warranty plus 3-year Rescue, ~44 dollars per TB new); and enterprise Exos (10-30TB, 0.35% rated failure rate, 5-year warranty, ~31 dollars per TB recertified). All three share the same base mechanical platform and differ mainly in firmware, validation grade, and warranty channel; for a quiet 2-4 bay home NAS the cheapest CMR drive that fits your bays usually wins, and that is often a recertified Exos.">
+  <rect width="1200" height="760" fill="#0e0e1a"/>
+  <text x="60" y="70" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700">Seagate NAS drives 2026: which tier?</text>
+  <text x="60" y="104" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="19">IronWolf &#183; IronWolf Pro &#183; Exos &#8212; same base platform, different firmware, validation grade &amp; warranty</text>
+
+  <!-- Card 1: IronWolf -->
+  <rect x="60" y="140" width="345" height="440" rx="10" fill="#16162a" stroke="#2a2a4a" stroke-width="1.5"/>
+  <rect x="60" y="140" width="345" height="56" rx="10" fill="#1e2a1e"/>
+  <text x="82" y="177" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">IronWolf</text>
+  <text x="82" y="230" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="600">Home / SOHO NAS, 1&#8211;8 bays</text>
+  <text x="82" y="272" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="17">Capacities: 2&#8211;16 TB</text>
+  <text x="82" y="306" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="17">Workload: 180 TB/year</text>
+  <text x="82" y="340" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="17">MTBF: 1.0M hours</text>
+  <text x="82" y="374" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="17">Warranty: 3 yr + 3 yr Rescue</text>
+  <text x="82" y="408" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="17">RV sensors: yes (all)</text>
+  <text x="82" y="510" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="600">Buy when</text>
+  <text x="82" y="540" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">a light-duty 2&#8211;8 bay home box,</text>
+  <text x="82" y="562" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">cheapest new NAS-rated CMR.</text>
+
+  <!-- Card 2: IronWolf Pro -->
+  <rect x="428" y="140" width="345" height="440" rx="10" fill="#16162a" stroke="#3a4a2a" stroke-width="1.5"/>
+  <rect x="428" y="140" width="345" height="56" rx="10" fill="#26301c"/>
+  <text x="450" y="177" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">IronWolf Pro</text>
+  <text x="450" y="230" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="600">24-7 / larger arrays</text>
+  <text x="450" y="272" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="17">Capacities: 2&#8211;32 TB</text>
+  <text x="450" y="306" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="17">Workload: 550 TB/year</text>
+  <text x="450" y="340" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="17">MTBF: 2.5M hrs (12TB+)</text>
+  <text x="450" y="374" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="17">Warranty: 5 yr + 3 yr Rescue</text>
+  <text x="450" y="408" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="17">RV sensors: yes (all)</text>
+  <text x="450" y="510" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="600">Buy when</text>
+  <text x="450" y="540" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">heavy 24-7 use, big RAID,</text>
+  <text x="450" y="562" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">or you want retail + Rescue.</text>
+
+  <!-- Card 3: Exos -->
+  <rect x="796" y="140" width="345" height="440" rx="10" fill="#16162a" stroke="#2a2a4a" stroke-width="1.5"/>
+  <rect x="796" y="140" width="345" height="56" rx="10" fill="#1c2630"/>
+  <text x="818" y="177" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Exos (enterprise)</text>
+  <text x="818" y="230" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="600">Datacenter-grade, $/TB king</text>
+  <text x="818" y="272" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="17">Capacities: 10&#8211;30 TB</text>
+  <text x="818" y="306" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="17">Rated AFR: 0.35%</text>
+  <text x="818" y="340" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="17">MTBF: 2.5M hours</text>
+  <text x="818" y="374" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="17">Warranty: 5 yr, no Rescue</text>
+  <text x="818" y="408" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="17">Watch: some are SAS, not SATA</text>
+  <text x="818" y="510" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="600">Buy when</text>
+  <text x="818" y="540" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">chasing $/TB &#8212; recertified</text>
+  <text x="818" y="562" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">Exos is the cheapest per TB.</text>
+
+  <!-- Footer strip -->
+  <rect x="60" y="620" width="1081" height="86" rx="10" fill="#14140f" stroke="#3a4a2a" stroke-width="1.5"/>
+  <text x="84" y="658" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">The one rule for a home NAS</text>
+  <text x="84" y="688" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="16.5">All three are CMR and share a base platform. Buy the cheapest CMR drive that fits your bay count and noise tolerance &#8212; for most homelabs that is a recertified Exos, with redundancy and a real backup.</text>
+
+  <text x="60" y="742" fill="#5a5a72" font-family="Segoe UI, Arial, sans-serif" font-size="13">Specs from Seagate data sheets (2025). New/recertified $/TB from a live Amazon snapshot 2026-07-20 &#8212; prices move weekly. TechFuelHQ.</text>
+</svg>

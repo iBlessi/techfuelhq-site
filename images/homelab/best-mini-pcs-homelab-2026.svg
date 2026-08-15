@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Best Mini PC for a Homelab 2026 — picks by budget tier</title>
+  <desc>Buying guide summary ranking four homelab mini PC picks: Minisforum MS-01 networking pick at $423 barebone with dual SFP+ 10GbE; ASUS NUC 14 Pro+ low-idle pick at 8 to 15 watts; Geekom A8 AMD alternative; and the used Dell OptiPlex 7060 Micro value pick under $200.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">HOMELAB BUYING GUIDE · 2026</text>
+  <text x="70" y="132" fill="#e8e8f0" font-size="50" font-weight="900">Best Mini PC for a Homelab</text>
+  <text x="70" y="168" fill="#6b6b8a" font-size="20">MS-01, NUC 14, Geekom A8, and the used SFF sweet spot — picked by budget tier</text>
+
+  <!-- Pick 1: MS-01 networking -->
+  <g transform="translate(70,210)">
+    <rect width="1060" height="78" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="78" rx="3" fill="#c8ff00"/>
+    <text x="28" y="32" fill="#c8ff00" font-size="12" letter-spacing="2" font-weight="700">NETWORKING PICK · NEW</text>
+    <text x="28" y="60" fill="#e8e8f0" font-size="24" font-weight="800">Minisforum MS-01</text>
+    <text x="430" y="36" fill="#c0c0d8" font-size="15">i5-12600H · 12C/16T · 64GB DDR5</text>
+    <text x="430" y="60" fill="#c8ff00" font-size="15" font-weight="700">2× SFP+ 10G + 2× 2.5G · ~25–29W idle</text>
+    <text x="1032" y="36" text-anchor="end" fill="#6b6b8a" font-size="13" letter-spacing="1" font-weight="700">FROM</text>
+    <text x="1032" y="62" text-anchor="end" fill="#e8e8f0" font-size="26" font-weight="900">$423</text>
+  </g>
+
+  <!-- Pick 2: NUC 14 Pro+ low idle -->
+  <g transform="translate(70,300)">
+    <rect width="1060" height="78" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="78" rx="3" fill="#5dca7a"/>
+    <text x="28" y="32" fill="#5dca7a" font-size="12" letter-spacing="2" font-weight="700">LOW-IDLE PICK · NEW</text>
+    <text x="28" y="60" fill="#e8e8f0" font-size="24" font-weight="800">ASUS NUC 14 Pro+</text>
+    <text x="430" y="36" fill="#c0c0d8" font-size="15">Core Ultra 7 155H · 16C/22T · 96GB DDR5</text>
+    <text x="430" y="60" fill="#5dca7a" font-size="15" font-weight="700">1× 2.5G (i226) · ~8–15W idle</text>
+    <text x="1032" y="36" text-anchor="end" fill="#6b6b8a" font-size="13" letter-spacing="1" font-weight="700">FROM</text>
+    <text x="1032" y="62" text-anchor="end" fill="#e8e8f0" font-size="26" font-weight="900">~$700</text>
+  </g>
+
+  <!-- Pick 3: Geekom A8 AMD -->
+  <g transform="translate(70,390)">
+    <rect width="1060" height="78" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="78" rx="3" fill="#e63946"/>
+    <text x="28" y="32" fill="#e63946" font-size="12" letter-spacing="2" font-weight="700">AMD ALTERNATIVE · NEW</text>
+    <text x="28" y="60" fill="#e8e8f0" font-size="24" font-weight="800">Geekom A8</text>
+    <text x="430" y="36" fill="#c0c0d8" font-size="15">Ryzen 9 8945HS · 8C/16T · 64GB DDR5</text>
+    <text x="430" y="60" fill="#c0c0d8" font-size="15">1× 2.5G (Realtek) · USB4 · ~10–14W idle</text>
+    <text x="1032" y="36" text-anchor="end" fill="#6b6b8a" font-size="13" letter-spacing="1" font-weight="700">FROM</text>
+    <text x="1032" y="62" text-anchor="end" fill="#e8e8f0" font-size="26" font-weight="900">~$650</text>
+  </g>
+
+  <!-- Pick 4: Used OptiPlex value -->
+  <g transform="translate(70,480)">
+    <rect width="1060" height="78" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="78" rx="3" fill="#5090e0"/>
+    <text x="28" y="32" fill="#5090e0" font-size="12" letter-spacing="2" font-weight="700">VALUE PICK · USED</text>
+    <text x="28" y="60" fill="#e8e8f0" font-size="24" font-weight="800">Dell OptiPlex 7060 Micro</text>
+    <text x="430" y="36" fill="#c0c0d8" font-size="15">i5-8500T · 6C/6T · 32GB DDR4</text>
+    <text x="430" y="60" fill="#c0c0d8" font-size="15">1× 1GbE · HP EliteDesk 800 G4 alt · ~6–10W</text>
+    <text x="1032" y="36" text-anchor="end" fill="#6b6b8a" font-size="13" letter-spacing="1" font-weight="700">USED</text>
+    <text x="1032" y="62" text-anchor="end" fill="#e8e8f0" font-size="26" font-weight="900">$130–180</text>
+  </g>
+
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · Homelab Buying Guide · Specs per manufacturer pages and cited third-party reviews</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

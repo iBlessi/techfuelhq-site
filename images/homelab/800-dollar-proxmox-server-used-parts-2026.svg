@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>$800 Proxmox Server from Used Parts — Three Build Options</title>
+  <desc>Buying guide comparing three Proxmox homelab builds under $800: a used Dell PowerEdge T430 enterprise tower, a used Ryzen 5 5600X consumer tower, and a three-node Beelink mini PC cluster — with their total cost, idle power draw, and three-year electricity cost.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">HOMELAB BUYING GUIDE · USED &amp; REFURBISHED</text>
+  <text x="70" y="132" fill="#e8e8f0" font-size="50" font-weight="900">The $800 Proxmox Server</text>
+  <text x="70" y="168" fill="#c0c0d8" font-size="20">Three viable builds at or under $800 — pick by what you're optimizing for</text>
+
+  <!-- Column headers row -->
+  <g transform="translate(70,210)">
+    <text x="0" y="0" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">CONFIGURATION</text>
+    <text x="700" y="0" text-anchor="end" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">TOTAL</text>
+    <text x="870" y="0" text-anchor="end" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">IDLE</text>
+    <text x="1060" y="0" text-anchor="end" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">3-YR POWER</text>
+  </g>
+
+  <!-- Build 1: Enterprise tower -->
+  <g transform="translate(70,228)">
+    <rect width="1060" height="106" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="5" height="106" rx="2.5" fill="#5090e0"/>
+    <text x="28" y="40" fill="#e8e8f0" font-size="22" font-weight="800">Enterprise Tower</text>
+    <text x="28" y="68" fill="#c0c0d8" font-size="15">Dell PowerEdge T430 · Xeon E5-2680 v4 (14C/28T) · 128GB DDR4 RDIMM</text>
+    <text x="28" y="91" fill="#6b6b8a" font-size="14">Optimized for RAM capacity &amp; storage density · 10GbE X550-T2</text>
+    <text x="700" y="48" text-anchor="end" fill="#c8ff00" font-size="24" font-weight="900">$360–630</text>
+    <text x="870" y="48" text-anchor="end" fill="#e08828" font-size="20" font-weight="700">90W</text>
+    <text x="1032" y="48" text-anchor="end" fill="#e08828" font-size="20" font-weight="700">~$307</text>
+  </g>
+
+  <!-- Build 2: Consumer tower -->
+  <g transform="translate(70,346)">
+    <rect width="1060" height="106" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="5" height="106" rx="2.5" fill="#e63946"/>
+    <text x="28" y="40" fill="#e8e8f0" font-size="22" font-weight="800">Consumer Tower</text>
+    <text x="28" y="68" fill="#c0c0d8" font-size="15">Ryzen 5 5600X (6C/12T) · B550 · 64GB DDR4-3200 · RTX 3060 12GB</text>
+    <text x="28" y="91" fill="#6b6b8a" font-size="14">Optimized for efficiency &amp; GPU passthrough / AI inference</text>
+    <text x="700" y="48" text-anchor="end" fill="#c8ff00" font-size="24" font-weight="900">$575–755</text>
+    <text x="870" y="48" text-anchor="end" fill="#5dca7a" font-size="20" font-weight="700">55W</text>
+    <text x="1032" y="48" text-anchor="end" fill="#5dca7a" font-size="20" font-weight="700">~$188</text>
+  </g>
+
+  <!-- Build 3: Mini PC cluster -->
+  <g transform="translate(70,464)">
+    <rect width="1060" height="106" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="5" height="106" rx="2.5" fill="#c8ff00"/>
+    <text x="28" y="40" fill="#e8e8f0" font-size="22" font-weight="800">3× Mini PC Cluster</text>
+    <text x="28" y="68" fill="#c0c0d8" font-size="15">2× Beelink SEi12 N150 + 1× N100 · 16GB/500GB each · 2.5GbE switch</text>
+    <text x="28" y="91" fill="#6b6b8a" font-size="14">Optimized for resilience &amp; silence · 3-node HA, one node can fail</text>
+    <text x="700" y="48" text-anchor="end" fill="#c8ff00" font-size="24" font-weight="900">$580–620</text>
+    <text x="870" y="48" text-anchor="end" fill="#5dca7a" font-size="20" font-weight="700">50W</text>
+    <text x="1032" y="48" text-anchor="end" fill="#5dca7a" font-size="20" font-weight="700">~$170</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="600" fill="#4a4a6a" font-size="13">TechFuel HQ · Homelab Buying Guide · 3-yr power per Power &amp; Cost Calculator at $0.13/kWh</text>
+  <text x="1130" y="600" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

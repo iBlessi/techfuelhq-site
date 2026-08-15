@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>RTX 5080 vs RTX 5060 Ti 16GB for 24/7 local AI inference</title>
+  <desc>Side-by-side specification table comparing the NVIDIA RTX 5080 and RTX 5060 Ti 16GB for always-on large language model inference, covering VRAM, memory bandwidth, total board power, estimated 24B-class interactive inference power and throughput, price, and three-year electricity cost. The RTX 5080 wins on bandwidth and throughput; the RTX 5060 Ti wins on power draw, price, and running cost.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="760" fill="#0a0a23"/>
+  <rect width="1200" height="760" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">GPU COMPARISON · 24/7 AI INFERENCE</text>
+  <text x="70" y="134" fill="#e8e8f0" font-size="50" font-weight="900">RTX 5080 vs RTX 5060 Ti 16GB</text>
+  <text x="70" y="172" fill="#6b6b8a" font-size="20">Performance-per-watt for an always-on local LLM inference node</text>
+
+  <!-- Column header band -->
+  <g transform="translate(70,210)">
+    <!-- Spec label column header -->
+    <rect x="0" y="0" width="430" height="62" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="24" y="38" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">SPECIFICATION</text>
+
+    <!-- RTX 5080 column header -->
+    <rect x="446" y="0" width="300" height="62" rx="10" fill="#101028" stroke="#c8ff00" stroke-width="1.5"/>
+    <text x="596" y="30" text-anchor="middle" fill="#c8ff00" font-size="22" font-weight="900">RTX 5080</text>
+    <text x="596" y="50" text-anchor="middle" fill="#6b6b8a" font-size="13">Max throughput</text>
+
+    <!-- RTX 5060 Ti column header -->
+    <rect x="762" y="0" width="300" height="62" rx="10" fill="#101028" stroke="#5090e0" stroke-width="1.5"/>
+    <text x="912" y="30" text-anchor="middle" fill="#5090e0" font-size="22" font-weight="900">RTX 5060 Ti 16GB</text>
+    <text x="912" y="50" text-anchor="middle" fill="#6b6b8a" font-size="13">Max tokens-per-dollar</text>
+  </g>
+
+  <!-- Spec rows -->
+  <g transform="translate(70,288)" font-size="17">
+    <!-- Row 1: VRAM -->
+    <rect x="0" y="0" width="1062" height="56" fill="#0d0d28"/>
+    <text x="24" y="34" fill="#c0c0d8">VRAM</text>
+    <text x="596" y="34" text-anchor="middle" fill="#e8e8f0" font-weight="600">16GB GDDR7</text>
+    <text x="912" y="34" text-anchor="middle" fill="#e8e8f0" font-weight="600">16GB GDDR7</text>
+
+    <!-- Row 2: Memory bandwidth (5080 wins) -->
+    <rect x="0" y="56" width="1062" height="56" fill="#13132e"/>
+    <text x="24" y="90" fill="#c0c0d8">Memory bandwidth</text>
+    <text x="596" y="90" text-anchor="middle" fill="#c8ff00" font-weight="700">~960 GB/s</text>
+    <text x="912" y="90" text-anchor="middle" fill="#e8e8f0" font-weight="600">448 GB/s</text>
+
+    <!-- Row 3: TBP (5060 Ti wins) -->
+    <rect x="0" y="112" width="1062" height="56" fill="#0d0d28"/>
+    <text x="24" y="146" fill="#c0c0d8">Total board power (TBP)</text>
+    <text x="596" y="146" text-anchor="middle" fill="#e8e8f0" font-weight="600">360W</text>
+    <text x="912" y="146" text-anchor="middle" fill="#5090e0" font-weight="700">180W</text>
+
+    <!-- Row 4: 24B-class interactive inference power (5060 Ti lower) -->
+    <rect x="0" y="168" width="1062" height="56" fill="#13132e"/>
+    <text x="24" y="202" fill="#c0c0d8">Est. 24B-class interactive inference power</text>
+    <text x="596" y="202" text-anchor="middle" fill="#e8e8f0" font-weight="600">180–250W</text>
+    <text x="912" y="202" text-anchor="middle" fill="#5090e0" font-weight="700">110–160W</text>
+
+    <!-- Row 5: 24B-class tok/sec (5080 wins) -->
+    <rect x="0" y="224" width="1062" height="56" fill="#0d0d28"/>
+    <text x="24" y="258" fill="#c0c0d8">Est. 24B-class throughput (interactive)</text>
+    <text x="596" y="258" text-anchor="middle" fill="#c8ff00" font-weight="700">30–45 tok/s</text>
+    <text x="912" y="258" text-anchor="middle" fill="#e8e8f0" font-weight="600">14–21 tok/s</text>
+
+    <!-- Row 6: Price (5060 Ti wins) -->
+    <rect x="0" y="280" width="1062" height="56" fill="#13132e"/>
+    <text x="24" y="314" fill="#c0c0d8">Street price</text>
+    <text x="596" y="314" text-anchor="middle" fill="#e8e8f0" font-weight="600">~$1,100</text>
+    <text x="912" y="314" text-anchor="middle" fill="#5090e0" font-weight="700">~$480</text>
+
+    <!-- Row 7: 3-year electricity (5060 Ti wins) -->
+    <rect x="0" y="336" width="1062" height="56" fill="#0d0d28"/>
+    <text x="24" y="370" fill="#c0c0d8">3-yr electricity, interactive ($0.13/kWh)</text>
+    <text x="596" y="370" text-anchor="middle" fill="#e8e8f0" font-weight="600">~$200–275</text>
+    <text x="912" y="370" text-anchor="middle" fill="#5090e0" font-weight="700">~$125–175</text>
+  </g>
+
+  <!-- Takeaway strip -->
+  <g transform="translate(70,700)">
+    <rect x="0" y="0" width="1062" height="34" rx="8" fill="#101028" stroke="#1e1e3a"/>
+    <circle cx="22" cy="17" r="5" fill="#c8ff00"/>
+    <text x="36" y="22" fill="#c0c0d8" font-size="14">5080: ~60–65% more throughput</text>
+    <circle cx="560" cy="17" r="5" fill="#5090e0"/>
+    <text x="574" y="22" fill="#c0c0d8" font-size="14">5060 Ti: same efficiency ratio, half the power and price</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="752" fill="#4a4a6a" font-size="13">TechFuel HQ · GPU Comparison · Specs per NVIDIA; inference ranges from author testing &amp; community benchmarks</text>
+  <text x="1130" y="752" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

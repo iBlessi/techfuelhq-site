@@ -1,0 +1,38 @@
+# TechFuelHQ robots.txt - traditional + AI-answer crawlers welcomed (AEO strategy, 2026-07-13).
+# Everything is open; the explicit AI-search blocks below document intent and survive any future
+# tightening of the wildcard rule. Search/citation bots are allowed; we do not block model-training
+# bots either, to keep brand presence across AI surfaces.
+User-agent: *
+Allow: /
+
+# AI answer / search engines - explicitly welcomed so TechFuelHQ can be surfaced and cited.
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Anthropic/Claude agents - explicitly welcomed (our own tooling crawls here, and Claude surfaces cite us).
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+Sitemap: https://techfuelhq.com/sitemap.xml
+# index.xml (RSS) submitted as a SECOND sitemap - search engines accept a feed as a sitemap, and it
+# surfaces the newest posts first for faster discovery (indexing-hardening cycle, plan §4).
+# 2026-08-01: the feed is now capped at 18 items (rssLimit, articles-only), so GSC's URL count
+# for THIS sitemap drops ~220 -> 18. That is the intended shape, not lost coverage: a short feed
+# is a sharper "what is new" signal, sitemap.xml above carries the full 231-URL corpus, and
+# dropping a URL from a sitemap never deindexes it (sitemaps are hints, not directives).
+Sitemap: https://techfuelhq.com/index.xml

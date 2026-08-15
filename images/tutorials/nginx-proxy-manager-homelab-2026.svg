@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Nginx Proxy Manager homelab topology</title>
+  <desc>Architecture diagram showing internet and LAN clients reaching Nginx Proxy Manager on ports 80, 443 and 81, with a wildcard Let's Encrypt certificate, routing subdomains over the proxy Docker network to backend services Jellyfin, Portainer, Uptime Kuma, Vaultwarden, Nextcloud, Grafana and AdGuard, with a homelab-only access list.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#5090e0"/>
+    </marker>
+    <marker id="arrowlime" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#c8ff00"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <text x="70" y="62" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">HOMELAB TUTORIAL · REVERSE PROXY TOPOLOGY</text>
+  <text x="70" y="104" fill="#e8e8f0" font-size="40" font-weight="900">Nginx Proxy Manager for the Homelab</text>
+  <text x="70" y="134" fill="#6b6b8a" font-size="18">One proxy on ports 80 / 443 routes every subdomain to the right container, with wildcard SSL</text>
+
+  <!-- CLIENTS column -->
+  <text x="70" y="186" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">CLIENTS</text>
+
+  <g transform="translate(70,200)">
+    <rect width="200" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="30" fill="#e8e8f0" font-size="16" font-weight="700">Internet</text>
+    <text x="20" y="50" fill="#6b6b8a" font-size="13">*.yourdomain.com → home IP</text>
+  </g>
+  <g transform="translate(70,290)">
+    <rect width="200" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="30" fill="#e8e8f0" font-size="16" font-weight="700">LAN client</text>
+    <text x="20" y="50" fill="#6b6b8a" font-size="13">split DNS via AdGuard</text>
+  </g>
+  <g transform="translate(70,380)">
+    <rect width="200" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="30" fill="#e8e8f0" font-size="16" font-weight="700">Tailscale</text>
+    <text x="20" y="50" fill="#6b6b8a" font-size="13">100.64.0.0/10</text>
+  </g>
+
+  <!-- arrows clients -> NPM -->
+  <line x1="270" y1="232" x2="356" y2="290" stroke="#5090e0" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="270" y1="322" x2="356" y2="322" stroke="#5090e0" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="270" y1="412" x2="356" y2="354" stroke="#5090e0" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="282" y="300" fill="#6b6b8a" font-size="12">:443</text>
+
+  <!-- NPM core node -->
+  <g transform="translate(360,196)">
+    <rect width="244" height="252" rx="12" fill="#101028" stroke="#c8ff00" stroke-width="2"/>
+    <text x="22" y="34" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">REVERSE PROXY</text>
+    <text x="22" y="64" fill="#e8e8f0" font-size="20" font-weight="900">Nginx Proxy</text>
+    <text x="22" y="88" fill="#e8e8f0" font-size="20" font-weight="900">Manager</text>
+    <text x="22" y="112" fill="#6b6b8a" font-size="13">jc21/nginx-proxy-manager</text>
+
+    <rect x="22" y="128" width="60" height="26" rx="6" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="52" y="146" text-anchor="middle" fill="#5dca7a" font-size="13" font-weight="700">:80</text>
+    <rect x="90" y="128" width="60" height="26" rx="6" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="120" y="146" text-anchor="middle" fill="#5dca7a" font-size="13" font-weight="700">:443</text>
+    <rect x="158" y="128" width="64" height="26" rx="6" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="190" y="146" text-anchor="middle" fill="#e08828" font-size="13" font-weight="700">:81 UI</text>
+
+    <rect x="22" y="166" width="200" height="30" rx="6" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="32" y="186" fill="#c0c0d8" font-size="13">SSL · </text>
+    <text x="68" y="186" fill="#c8ff00" font-size="13" font-weight="700">*.yourdomain.com</text>
+    <text x="32" y="222" fill="#6b6b8a" font-size="12">Let's Encrypt wildcard (DNS challenge)</text>
+  </g>
+
+  <!-- access list badge -->
+  <g transform="translate(360,468)">
+    <rect width="244" height="58" rx="10" fill="#101028" stroke="#e08828"/>
+    <text x="18" y="26" fill="#e08828" font-size="13" letter-spacing="1" font-weight="700">ACCESS LIST · homelab-only</text>
+    <text x="18" y="46" fill="#c0c0d8" font-size="13">Allow 192.168.1.0/24 · else 403</text>
+  </g>
+
+  <!-- proxy network label -->
+  <text x="650" y="186" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">BACKEND SERVICES · proxy Docker network</text>
+
+  <!-- arrow NPM -> proxy network bus -->
+  <line x1="604" y1="322" x2="648" y2="322" stroke="#c8ff00" stroke-width="2"/>
+
+  <!-- vertical bus -->
+  <line x1="648" y1="216" x2="648" y2="436" stroke="#c8ff00" stroke-width="2"/>
+
+  <g transform="translate(666,200)">
+    <rect width="244" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="16" y="28" fill="#e8e8f0" font-size="16" font-weight="700">Jellyfin</text>
+    <text x="16" y="50" fill="#6b6b8a" font-size="13">jellyfin · :8096 · websockets</text>
+    <line x1="-18" y1="32" x2="0" y2="32" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrowlime)"/>
+  </g>
+  <g transform="translate(926,200)">
+    <rect width="244" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="16" y="28" fill="#e8e8f0" font-size="16" font-weight="700">Portainer</text>
+    <text x="16" y="50" fill="#6b6b8a" font-size="13">portainer · :9000</text>
+  </g>
+
+  <g transform="translate(666,278)">
+    <rect width="244" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="16" y="28" fill="#e8e8f0" font-size="16" font-weight="700">Vaultwarden</text>
+    <text x="16" y="50" fill="#6b6b8a" font-size="13">vaultwarden · :80</text>
+    <line x1="-18" y1="32" x2="0" y2="32" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrowlime)"/>
+  </g>
+  <g transform="translate(926,278)">
+    <rect width="244" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="16" y="28" fill="#e8e8f0" font-size="16" font-weight="700">Uptime Kuma</text>
+    <text x="16" y="50" fill="#6b6b8a" font-size="13">uptime-kuma · :3001</text>
+  </g>
+
+  <g transform="translate(666,356)">
+    <rect width="244" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="16" y="28" fill="#e8e8f0" font-size="16" font-weight="700">Nextcloud</text>
+    <text x="16" y="50" fill="#6b6b8a" font-size="13">nextcloud · :443 · HTTPS</text>
+    <line x1="-18" y1="32" x2="0" y2="32" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrowlime)"/>
+  </g>
+  <g transform="translate(926,356)">
+    <rect width="244" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="16" y="28" fill="#e8e8f0" font-size="16" font-weight="700">Grafana</text>
+    <text x="16" y="50" fill="#6b6b8a" font-size="13">grafana · :3000</text>
+  </g>
+
+  <g transform="translate(666,434)">
+    <rect width="504" height="56" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="16" y="24" fill="#e8e8f0" font-size="16" font-weight="700">AdGuard Home <tspan fill="#6b6b8a" font-weight="400">(LXC, not Docker)</tspan></text>
+    <text x="16" y="44" fill="#6b6b8a" font-size="13">192.168.1.5 · :80 — referenced by LAN IP, not container name</text>
+    <line x1="-18" y1="28" x2="0" y2="28" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrowlime)"/>
+  </g>
+
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · Tutorial · Topology per the NPM homelab setup guide (jc21/nginx-proxy-manager)</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

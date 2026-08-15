@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Immich self-hosted photo stack and Google Photos migration architecture</title>
+  <desc>Topology diagram: Google Takeout zip exports feed the immich-go importer into the Immich Docker stack (server, microservices, machine-learning, redis, PostgreSQL with pgvecto-rs), with hardware ML acceleration via CUDA or Intel Quick Sync, mobile backup apps, and an Nginx Proxy Manager reverse proxy on port 2283.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#5090e0"/>
+    </marker>
+    <marker id="arrowLime" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#c8ff00"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="62" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">SETUP TUTORIAL · SELF-HOSTED PHOTOS</text>
+  <text x="70" y="104" fill="#e8e8f0" font-size="40" font-weight="900">Immich Stack &amp; Google Photos Migration</text>
+  <text x="70" y="134" fill="#6b6b8a" font-size="17">Docker Compose topology, Takeout import path, and hardware ML acceleration</text>
+
+  <!-- ===== LEFT: Migration source ===== -->
+  <text x="70" y="184" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">MIGRATION SOURCE</text>
+
+  <!-- Google Takeout -->
+  <g transform="translate(70,200)">
+    <rect width="240" height="76" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="32" fill="#e8e8f0" font-size="18" font-weight="700">Google Takeout</text>
+    <text x="20" y="56" fill="#c0c0d8" font-size="14">.zip + .json sidecars</text>
+  </g>
+
+  <!-- immich-go importer -->
+  <g transform="translate(70,316)">
+    <rect width="240" height="92" rx="12" fill="#101028" stroke="#c8ff00" stroke-width="1.5"/>
+    <text x="20" y="32" fill="#c8ff00" font-size="18" font-weight="700">immich-go</text>
+    <text x="20" y="56" fill="#c0c0d8" font-size="13.5">--google-photos</text>
+    <text x="20" y="76" fill="#c0c0d8" font-size="13.5">--create-albums · keeps metadata</text>
+  </g>
+
+  <!-- Mobile apps -->
+  <g transform="translate(70,448)">
+    <rect width="240" height="80" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="30" fill="#e8e8f0" font-size="17" font-weight="700">Mobile App (iOS / Android)</text>
+    <text x="20" y="54" fill="#c0c0d8" font-size="14">Background backup → uploads</text>
+  </g>
+
+  <!-- Takeout -> immich-go arrow -->
+  <line x1="190" y1="276" x2="190" y2="312" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrowLime)"/>
+
+  <!-- ===== CENTER: Immich Docker stack ===== -->
+  <g transform="translate(360,178)">
+    <rect width="470" height="350" rx="14" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="22" y="34" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">IMMICH DOCKER COMPOSE STACK</text>
+    <text x="448" y="34" text-anchor="end" fill="#5dca7a" font-size="13" font-weight="700">PORT 2283</text>
+
+    <!-- immich-server -->
+    <g transform="translate(22,52)">
+      <rect width="210" height="74" rx="10" fill="#101028" stroke="#5090e0" stroke-width="1.5"/>
+      <text x="18" y="30" fill="#e8e8f0" font-size="16" font-weight="700">immich-server</text>
+      <text x="18" y="54" fill="#c0c0d8" font-size="13">Web UI + API</text>
+    </g>
+
+    <!-- immich-microservices -->
+    <g transform="translate(238,52)">
+      <rect width="210" height="74" rx="10" fill="#101028" stroke="#1e1e3a"/>
+      <text x="18" y="30" fill="#e8e8f0" font-size="16" font-weight="700">microservices</text>
+      <text x="18" y="54" fill="#c0c0d8" font-size="13">Thumbnails + jobs</text>
+    </g>
+
+    <!-- immich-machine-learning -->
+    <g transform="translate(22,140)">
+      <rect width="210" height="86" rx="10" fill="#101028" stroke="#c8ff00" stroke-width="1.5"/>
+      <text x="18" y="30" fill="#c8ff00" font-size="16" font-weight="700">machine-learning</text>
+      <text x="18" y="52" fill="#c0c0d8" font-size="13">Face detection · CLIP</text>
+      <text x="18" y="71" fill="#c0c0d8" font-size="13">2–3 GB RAM at index</text>
+    </g>
+
+    <!-- redis -->
+    <g transform="translate(238,140)">
+      <rect width="210" height="40" rx="10" fill="#101028" stroke="#1e1e3a"/>
+      <text x="18" y="26" fill="#e8e8f0" font-size="15" font-weight="700">redis</text>
+    </g>
+
+    <!-- database -->
+    <g transform="translate(238,188)">
+      <rect width="210" height="38" rx="10" fill="#101028" stroke="#1e1e3a"/>
+      <text x="18" y="25" fill="#e8e8f0" font-size="14" font-weight="700">PostgreSQL · pgvecto-rs</text>
+    </g>
+
+    <!-- storage row -->
+    <g transform="translate(22,240)">
+      <rect width="426" height="86" rx="10" fill="#101028" stroke="#1e1e3a"/>
+      <text x="18" y="30" fill="#e8e8f0" font-size="15" font-weight="700">Storage</text>
+      <text x="18" y="54" fill="#c0c0d8" font-size="13">UPLOAD_LOCATION — originals never modified</text>
+      <text x="18" y="74" fill="#c0c0d8" font-size="13">External Library — read-only archive index</text>
+    </g>
+  </g>
+
+  <!-- importer/mobile -> stack arrows -->
+  <line x1="310" y1="362" x2="380" y2="290" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrowLime)"/>
+  <line x1="310" y1="488" x2="378" y2="300" stroke="#5090e0" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ===== RIGHT: accel + proxy ===== -->
+  <text x="868" y="184" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">HARDWARE ML ACCELERATION</text>
+  <g transform="translate(868,200)">
+    <rect width="262" height="150" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="32" fill="#e8e8f0" font-size="16" font-weight="700">80K-photo initial index</text>
+    <text x="20" y="64" fill="#c0c0d8" font-size="14">CPU only</text><text x="242" y="64" text-anchor="end" fill="#e08828" font-size="14" font-weight="700">8–12 h</text>
+    <text x="20" y="92" fill="#c0c0d8" font-size="14">Intel QSV / VAAPI</text><text x="242" y="92" text-anchor="end" fill="#5090e0" font-size="14" font-weight="700">4–6 h</text>
+    <text x="20" y="120" fill="#c0c0d8" font-size="14">NVIDIA CUDA</text><text x="242" y="120" text-anchor="end" fill="#c8ff00" font-size="14" font-weight="700">2–4 h</text>
+  </g>
+
+  <!-- Reverse proxy -->
+  <text x="868" y="392" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">ACCESS</text>
+  <g transform="translate(868,408)">
+    <rect width="262" height="120" rx="12" fill="#101028" stroke="#5dca7a" stroke-width="1.5"/>
+    <text x="20" y="32" fill="#5dca7a" font-size="16" font-weight="700">Nginx Proxy Manager</text>
+    <text x="20" y="58" fill="#c0c0d8" font-size="14">photos.yourdomain.com</text>
+    <text x="20" y="80" fill="#c0c0d8" font-size="14">SSL · client_max_body_size 0</text>
+    <text x="20" y="102" fill="#6b6b8a" font-size="13">forwards → :2283</text>
+  </g>
+
+  <!-- stack -> accel arrow (ML feeds GPU) -->
+  <line x1="592" y1="318" x2="862" y2="276" stroke="#5090e0" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- stack -> proxy arrow -->
+  <line x1="830" y1="430" x2="862" y2="455" stroke="#5dca7a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Footer -->
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · Setup Tutorial · Components per Immich official documentation (immich.app)</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

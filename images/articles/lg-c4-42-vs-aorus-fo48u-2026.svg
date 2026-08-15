@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>LG C4 42-inch vs Gigabyte AORUS FO48U 4K OLED spec comparison</title>
+  <desc>Side-by-side specification table comparing the LG C4 42-inch (OLED evo, 144Hz, HDMI 2.1 only) against the Gigabyte AORUS FO48U (48-inch WOLED, 120Hz, DisplayPort 1.4 and KVM) for PC desk use in 2026, with per-row winners marked.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="760" fill="#0a0a23"/>
+  <rect width="1200" height="760" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">HEAD-TO-HEAD · 4K OLED FOR A PC DESK</text>
+  <text x="70" y="128" fill="#e8e8f0" font-size="48" font-weight="900">LG C4 42-inch <tspan fill="#6b6b8a" font-weight="700">vs</tspan> AORUS FO48U</text>
+  <text x="70" y="162" fill="#c0c0d8" font-size="19">Same 4K resolution, same WOLED family — the call comes down to inputs, size, and stock.</text>
+
+  <!-- Column header strip -->
+  <g transform="translate(70,196)">
+    <!-- Spec label column header (spacer) -->
+    <text x="0" y="34" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">SPECIFICATION</text>
+
+    <!-- LG C4 column header -->
+    <rect x="430" y="0" width="300" height="48" rx="8" fill="#101028" stroke="#c8ff00" stroke-width="1.5"/>
+    <text x="580" y="24" text-anchor="middle" fill="#e8e8f0" font-size="18" font-weight="900">LG C4 42-inch</text>
+    <text x="580" y="40" text-anchor="middle" fill="#c8ff00" font-size="11" letter-spacing="2" font-weight="700">OLED EVO · 4TH GEN</text>
+
+    <!-- AORUS column header -->
+    <rect x="745" y="0" width="300" height="48" rx="8" fill="#101028" stroke="#5090e0" stroke-width="1.5"/>
+    <text x="895" y="24" text-anchor="middle" fill="#e8e8f0" font-size="18" font-weight="900">AORUS FO48U</text>
+    <text x="895" y="40" text-anchor="middle" fill="#5090e0" font-size="11" letter-spacing="2" font-weight="700">WOLED · DESK HUB</text>
+  </g>
+
+  <!-- Spec rows. Each row: 70px tall block starting y=260. Winner value colored. -->
+  <g transform="translate(70,260)" font-size="16">
+    <!-- Row 1 Diagonal / Panel -->
+    <rect x="0" y="0" width="1045" height="42" rx="6" fill="#13132e"/>
+    <text x="16" y="27" fill="#c0c0d8">Panel &amp; diagonal</text>
+    <text x="510" y="27" text-anchor="middle" fill="#e8e8f0" font-weight="600">OLED evo · 42"</text>
+    <text x="825" y="27" text-anchor="middle" fill="#e8e8f0" font-weight="600">WOLED · 48"</text>
+
+    <!-- Row 2 Resolution -->
+    <rect x="0" y="46" width="1045" height="42" rx="6" fill="#0d0d28"/>
+    <text x="16" y="73" fill="#c0c0d8">Resolution</text>
+    <text x="510" y="73" text-anchor="middle" fill="#e8e8f0" font-weight="600">3840 × 2160</text>
+    <text x="825" y="73" text-anchor="middle" fill="#e8e8f0" font-weight="600">3840 × 2160</text>
+
+    <!-- Row 3 Refresh rate -->
+    <rect x="0" y="92" width="1045" height="42" rx="6" fill="#13132e"/>
+    <text x="16" y="119" fill="#c0c0d8">Refresh rate</text>
+    <text x="510" y="119" text-anchor="middle" fill="#c8ff00" font-weight="700">144 Hz</text>
+    <text x="825" y="119" text-anchor="middle" fill="#e8e8f0" font-weight="600">120 Hz</text>
+
+    <!-- Row 4 Response time -->
+    <rect x="0" y="138" width="1045" height="42" rx="6" fill="#0d0d28"/>
+    <text x="16" y="165" fill="#c0c0d8">Response time</text>
+    <text x="510" y="165" text-anchor="middle" fill="#e8e8f0" font-weight="600">1 ms GtG (Game Mode)</text>
+    <text x="825" y="165" text-anchor="middle" fill="#e8e8f0" font-weight="600">1 ms GtG</text>
+
+    <!-- Row 5 Video inputs -->
+    <rect x="0" y="184" width="1045" height="42" rx="6" fill="#13132e"/>
+    <text x="16" y="211" fill="#c0c0d8">Video inputs</text>
+    <text x="510" y="211" text-anchor="middle" fill="#e8e8f0" font-weight="600">4× HDMI 2.1</text>
+    <text x="825" y="211" text-anchor="middle" fill="#5090e0" font-weight="700">DP 1.4 + 2× HDMI 2.1 + USB-C</text>
+
+    <!-- Row 6 USB hub / KVM -->
+    <rect x="0" y="230" width="1045" height="42" rx="6" fill="#0d0d28"/>
+    <text x="16" y="257" fill="#c0c0d8">USB hub / KVM</text>
+    <text x="510" y="257" text-anchor="middle" fill="#e8e8f0" font-weight="600">2× USB-A 2.0</text>
+    <text x="825" y="257" text-anchor="middle" fill="#5090e0" font-weight="700">2× USB-A 3.0 + KVM</text>
+
+    <!-- Row 7 Speakers -->
+    <rect x="0" y="276" width="1045" height="42" rx="6" fill="#13132e"/>
+    <text x="16" y="303" fill="#c0c0d8">Speakers</text>
+    <text x="510" y="303" text-anchor="middle" fill="#e8e8f0" font-weight="600">40W (2× 20W)</text>
+    <text x="825" y="303" text-anchor="middle" fill="#5090e0" font-weight="700">50W (2× 15W + sub)</text>
+
+    <!-- Row 8 Smart platform -->
+    <rect x="0" y="322" width="1045" height="42" rx="6" fill="#0d0d28"/>
+    <text x="16" y="349" fill="#c0c0d8">Smart platform</text>
+    <text x="510" y="349" text-anchor="middle" fill="#c8ff00" font-weight="700">WebOS 24</text>
+    <text x="825" y="349" text-anchor="middle" fill="#e8e8f0" font-weight="600">Monitor OSD only</text>
+
+    <!-- Row 9 VESA mount -->
+    <rect x="0" y="368" width="1045" height="42" rx="6" fill="#13132e"/>
+    <text x="16" y="395" fill="#c0c0d8">VESA mount</text>
+    <text x="510" y="395" text-anchor="middle" fill="#e8e8f0" font-weight="600">200 × 200</text>
+    <text x="825" y="395" text-anchor="middle" fill="#e8e8f0" font-weight="600">300 × 300</text>
+
+    <!-- Row 10 Street price -->
+    <rect x="0" y="414" width="1045" height="42" rx="6" fill="#0d0d28"/>
+    <text x="16" y="441" fill="#c0c0d8">Street price (mid-2026 new)</text>
+    <text x="510" y="441" text-anchor="middle" fill="#c8ff00" font-weight="700">~$700–$900</text>
+    <text x="825" y="441" text-anchor="middle" fill="#e08828" font-weight="700">~$999–$1,199 (limited)</text>
+
+    <!-- Row 11 Availability -->
+    <rect x="0" y="460" width="1045" height="42" rx="6" fill="#13132e"/>
+    <text x="16" y="487" fill="#c0c0d8">Availability</text>
+    <text x="510" y="487" text-anchor="middle" fill="#5dca7a" font-weight="700">Wide — major retailers</text>
+    <text x="825" y="487" text-anchor="middle" fill="#e08828" font-weight="700">Spotty — NOS / used</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="742" fill="#4a4a6a" font-size="13">TechFuel HQ · Monitor Comparison · Specs per LG &amp; Gigabyte AORUS official product pages</text>
+  <text x="1130" y="742" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

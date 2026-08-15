@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a23"/>
+      <stop offset="100%" stop-color="#12123a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <text x="600" y="58" text-anchor="middle" fill="#c8ff00" font-size="30" font-weight="800">SAFE CPU TEMPERATURES · 2026</text>
+  <text x="600" y="90" text-anchor="middle" fill="#9999bb" font-size="15">What's normal, what's too hot — modern CPUs are built to run hot</text>
+
+  <!-- Healthy zone -->
+  <rect x="50" y="120" width="340" height="400" rx="14" fill="#13132e" stroke="#5dca7a" stroke-width="1"/>
+  <text x="220" y="158" text-anchor="middle" fill="#5dca7a" font-size="15" font-weight="700">HEALTHY ZONE</text>
+  <text x="220" y="205" text-anchor="middle" fill="#ffffff" font-size="40" font-weight="800">30–85°C</text>
+  <text x="220" y="235" text-anchor="middle" fill="#9999bb" font-size="13">idle + gaming target</text>
+  <line x1="80" y1="255" x2="360" y2="255" stroke="#2a2a4a" stroke-width="1"/>
+  <text x="220" y="290" text-anchor="middle" fill="#bbbbcc" font-size="13">Idle: 30–50°C (high-end warmer)</text>
+  <text x="220" y="320" text-anchor="middle" fill="#bbbbcc" font-size="13">Gaming: 60–85°C</text>
+  <text x="220" y="350" text-anchor="middle" fill="#5dca7a" font-size="13">Under 80°C keeps boost high</text>
+  <text x="220" y="392" text-anchor="middle" fill="#bbbbcc" font-size="13">Where you want sustained temps</text>
+
+  <!-- Designed to run hot -->
+  <rect x="430" y="105" width="340" height="415" rx="16" fill="#171735" stroke="#c8ff00" stroke-width="3"/>
+  <text x="600" y="146" text-anchor="middle" fill="#c8ff00" font-size="15" font-weight="800">DESIGNED TO RUN HOT</text>
+  <text x="600" y="196" text-anchor="middle" fill="#ffffff" font-size="50" font-weight="800">95°C</text>
+  <text x="600" y="226" text-anchor="middle" fill="#9999bb" font-size="13">Ryzen 7000/9000 TjMax</text>
+  <line x1="460" y1="246" x2="740" y2="246" stroke="#2a2a4a" stroke-width="1"/>
+  <text x="600" y="282" text-anchor="middle" fill="#c8ff00" font-size="13">✓ AMD engineered it to boost to 95°C</text>
+  <text x="600" y="312" text-anchor="middle" fill="#c8ff00" font-size="13">✓ 95°C in a render = normal, not damage</text>
+  <text x="600" y="342" text-anchor="middle" fill="#c8ff00" font-size="13">✓ Brief spikes to TjMax are fine</text>
+  <text x="600" y="384" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Judge the temp vs the workload</text>
+
+  <!-- Exceptions: X3D + Intel -->
+  <rect x="810" y="120" width="340" height="400" rx="14" fill="#13132e" stroke="#5090e0" stroke-width="1"/>
+  <text x="980" y="158" text-anchor="middle" fill="#5090e0" font-size="15" font-weight="700">THE EXCEPTIONS</text>
+  <text x="980" y="200" text-anchor="middle" fill="#ffffff" font-size="34" font-weight="800">~89°C / 100°C</text>
+  <text x="980" y="228" text-anchor="middle" fill="#9999bb" font-size="13">Zen 4 X3D cap · Intel TjMax</text>
+  <line x1="840" y1="248" x2="1120" y2="248" stroke="#2a2a4a" stroke-width="1"/>
+  <text x="980" y="284" text-anchor="middle" fill="#ffb020" font-size="13">Zen 4 X3D (7800X3D): ~89°C · 9800X3D: 95°C</text>
+  <text x="980" y="314" text-anchor="middle" fill="#bbbbcc" font-size="13">— keep it under ~85°C</text>
+  <text x="980" y="344" text-anchor="middle" fill="#bbbbcc" font-size="13">Intel 12–15th gen: 100–105°C</text>
+  <text x="980" y="386" text-anchor="middle" fill="#e63946" font-size="13">90°C+ at IDLE = a cooling fault</text>
+
+  <text x="600" y="565" text-anchor="middle" fill="#667" font-size="13">95°C in a render is fine · 95°C while browsing is a dead pump or bad paste · techfuelhq.com</text>
+</svg>

@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>OPNsense mini PC firewall router topology</title>
+  <desc>Network topology for an OPNsense firewall router on a mini PC: the ISP modem in bridge mode feeds a public IP into the OPNsense WAN port (igc0), where Suricata IDS/IPS inspects inbound traffic and the default rule blocks all inbound. Inside the mini PC, OPNsense runs the Unbound DNS resolver, a DHCP server, and the firewall engine. The LAN port (igc1) at 192.168.0.1 serves DHCP and DNS to homelab devices including Proxmox nodes and a NAS.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#5090e0"/>
+    </marker>
+    <marker id="arrowlime" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#c8ff00"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="62" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">SETUP TUTORIAL · FIREWALL ROUTER TOPOLOGY</text>
+  <text x="70" y="106" fill="#e8e8f0" font-size="44" font-weight="900">OPNsense on a Mini PC</text>
+  <text x="70" y="138" fill="#6b6b8a" font-size="18">FreeBSD firewall on a 2-NIC box — WAN, Suricata IDS/IPS, Unbound DNS, DHCP, and LAN</text>
+
+  <!-- Column labels -->
+  <text x="135" y="186" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700" text-anchor="middle">ISP · WAN</text>
+  <text x="600" y="186" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700" text-anchor="middle">OPNSENSE MINI PC · PROTECTLI VP2420</text>
+  <text x="1045" y="186" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700" text-anchor="middle">LAN · HOMELAB</text>
+
+  <!-- ISP / WAN column -->
+  <g transform="translate(50,210)">
+    <rect width="170" height="250" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="34" fill="#e8e8f0" font-size="17" font-weight="700">ISP Modem</text>
+    <text x="20" y="56" fill="#6b6b8a" font-size="12">In bridge mode</text>
+
+    <rect x="20" y="74" width="130" height="58" rx="7" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="34" y="98" fill="#c0c0d8" font-size="13">DOCSIS / PPPoE</text>
+    <text x="34" y="118" fill="#6b6b8a" font-size="11">passes public IP</text>
+
+    <rect x="20" y="142" width="130" height="58" rx="7" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="34" y="166" fill="#c0c0d8" font-size="13">Internet</text>
+    <text x="34" y="186" fill="#6b6b8a" font-size="11">cable / fiber</text>
+
+    <text x="20" y="232" fill="#5090e0" font-size="12" font-weight="700">→ WAN: DHCP / static</text>
+  </g>
+
+  <!-- Arrow ISP -> OPNsense WAN -->
+  <line x1="222" y1="335" x2="298" y2="335" stroke="#5090e0" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="260" y="324" fill="#6b6b8a" font-size="11" text-anchor="middle">igc0</text>
+
+  <!-- OPNsense mini PC -->
+  <g transform="translate(302,200)">
+    <rect width="500" height="290" rx="14" fill="#0d0d28" stroke="#1e1e3a" stroke-dasharray="5 4"/>
+    <text x="20" y="30" fill="#e08828" font-size="13" letter-spacing="1" font-weight="700">FreeBSD · Intel i225/i226 NICs (igc) · 4GB RAM · N100/N6005</text>
+
+    <!-- WAN edge: Suricata IDS/IPS -->
+    <rect x="18" y="46" width="220" height="100" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="34" y="72" fill="#e8e8f0" font-size="16" font-weight="800">WAN · igc0</text>
+    <rect x="34" y="84" width="188" height="28" rx="6" fill="#0d0d28" stroke="#e63946"/>
+    <text x="46" y="103" fill="#e63946" font-size="12" font-weight="700">Suricata IDS/IPS · ET Open</text>
+    <rect x="34" y="116" width="188" height="22" rx="5" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="46" y="132" fill="#c0c0d8" font-size="11">Block all inbound (default)</text>
+
+    <!-- Core services -->
+    <rect x="18" y="158" width="464" height="50" rx="10" fill="#101028" stroke="#c8ff00" stroke-width="1.5"/>
+    <text x="34" y="180" fill="#e8e8f0" font-size="15" font-weight="800">Firewall engine</text>
+    <text x="34" y="198" fill="#6b6b8a" font-size="11">pf rules · NAT · RFC1918 blocked on WAN</text>
+
+    <!-- LAN edge: DNS + DHCP -->
+    <rect x="262" y="46" width="220" height="100" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="278" y="72" fill="#e8e8f0" font-size="16" font-weight="800">LAN · igc1</text>
+    <rect x="278" y="84" width="188" height="28" rx="6" fill="#0d0d28" stroke="#5dca7a"/>
+    <text x="290" y="103" fill="#5dca7a" font-size="12" font-weight="700">Unbound DNS · :53 · DNSSEC</text>
+    <rect x="278" y="116" width="188" height="22" rx="5" fill="#0d0d28" stroke="#5dca7a"/>
+    <text x="290" y="132" fill="#5dca7a" font-size="11" font-weight="600">DHCPv4 · .100–.199 pool</text>
+
+    <!-- LAN gateway line -->
+    <rect x="18" y="220" width="464" height="52" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="34" y="244" fill="#c8ff00" font-size="14" font-weight="800">LAN gateway · 192.168.0.1/24</text>
+    <text x="34" y="263" fill="#6b6b8a" font-size="11">Host overrides: pve01.lan · pve02.lan · nas01.lan</text>
+  </g>
+
+  <!-- Arrow OPNsense LAN -> homelab -->
+  <line x1="802" y1="335" x2="888" y2="335" stroke="#c8ff00" stroke-width="2.5" marker-end="url(#arrowlime)"/>
+  <text x="845" y="324" fill="#6b6b8a" font-size="11" text-anchor="middle">igc1</text>
+
+  <!-- HOMELAB column -->
+  <g transform="translate(892,210)">
+    <rect width="258" height="250" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="34" fill="#e8e8f0" font-size="17" font-weight="700">Homelab devices</text>
+    <text x="20" y="56" fill="#6b6b8a" font-size="12">DHCP static mappings</text>
+
+    <rect x="20" y="74" width="218" height="42" rx="7" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="34" y="100" fill="#c0c0d8" font-size="14">Proxmox pve01 · .10</text>
+
+    <rect x="20" y="124" width="218" height="42" rx="7" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="34" y="150" fill="#c0c0d8" font-size="14">Proxmox pve02 · .11</text>
+
+    <rect x="20" y="174" width="218" height="42" rx="7" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="34" y="200" fill="#c0c0d8" font-size="14">NAS nas01 · .20</text>
+
+    <text x="20" y="234" fill="#c8ff00" font-size="12" font-weight="700">→ gateway 192.168.0.1</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · Tutorial · Topology per the OPNsense install, DHCP, Unbound, and Suricata steps in this guide</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

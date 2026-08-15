@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>RTX 5080 undervolt workflow: five-step voltage-frequency curve method</title>
+  <desc>A step-by-step flow diagram for undervolting the ASUS ROG Astral RTX 5080 OC using the MSI Afterburner voltage-frequency curve editor: baseline measurement, open curve editor, apply undervolt, stress test and validate, and make settings persistent. Tools, stock 360W TBP, and 20 to 70 watt power savings are noted.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6b6b8a"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="74" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">SETUP TUTORIAL · GPU UNDERVOLT</text>
+  <text x="70" y="124" fill="#e8e8f0" font-size="46" font-weight="900">RTX 5080 Voltage-Frequency Curve Method</text>
+  <text x="70" y="158" fill="#6b6b8a" font-size="19">Lock a lower-voltage point for the same clock — on the ROG Astral RTX 5080 OC</text>
+
+  <!-- Top stat strip -->
+  <g transform="translate(70,184)">
+    <rect width="332" height="56" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="26" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">STOCK TBP</text>
+    <text x="20" y="47" fill="#5090e0" font-size="20" font-weight="900">360W <tspan fill="#6b6b8a" font-size="13" font-weight="600">· 400W Astral OC BIOS</tspan></text>
+  </g>
+  <g transform="translate(422,184)">
+    <rect width="332" height="56" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="26" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">SAME-CLOCK SAVINGS</text>
+    <text x="20" y="47" fill="#c8ff00" font-size="20" font-weight="900">30–70W <tspan fill="#6b6b8a" font-size="13" font-weight="600">· 20–50W on AI inference</tspan></text>
+  </g>
+  <g transform="translate(774,184)">
+    <rect width="356" height="56" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="26" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">TOOLS</text>
+    <text x="20" y="47" fill="#5dca7a" font-size="17" font-weight="900">MSI Afterburner <tspan fill="#6b6b8a" font-size="13" font-weight="600">· GPU Tweak III · HWiNFO64</tspan></text>
+  </g>
+
+  <!-- Step boxes row -->
+  <g font-family="Inter, system-ui, sans-serif">
+    <!-- Step 1 -->
+    <g transform="translate(70,278)">
+      <rect width="200" height="148" rx="12" fill="#101028" stroke="#1e1e3a"/>
+      <circle cx="30" cy="34" r="16" fill="#0a0a23" stroke="#c8ff00" stroke-width="1.5"/>
+      <text x="30" y="40" text-anchor="middle" fill="#c8ff00" font-size="17" font-weight="900">1</text>
+      <text x="58" y="32" fill="#e8e8f0" font-size="16" font-weight="800">Baseline</text>
+      <text x="58" y="50" fill="#e8e8f0" font-size="16" font-weight="800">measurements</text>
+      <text x="20" y="84" fill="#c0c0d8" font-size="13">Run HWiNFO64 under</text>
+      <text x="20" y="103" fill="#c0c0d8" font-size="13">15 min load. Record</text>
+      <text x="20" y="122" fill="#c0c0d8" font-size="13">clock, voltage, power,</text>
+      <text x="20" y="141" fill="#c0c0d8" font-size="13">junction temp.</text>
+    </g>
+    <!-- Step 2 -->
+    <g transform="translate(294,278)">
+      <rect width="200" height="148" rx="12" fill="#101028" stroke="#1e1e3a"/>
+      <circle cx="30" cy="34" r="16" fill="#0a0a23" stroke="#c8ff00" stroke-width="1.5"/>
+      <text x="30" y="40" text-anchor="middle" fill="#c8ff00" font-size="17" font-weight="900">2</text>
+      <text x="58" y="32" fill="#e8e8f0" font-size="16" font-weight="800">Open curve</text>
+      <text x="58" y="50" fill="#e8e8f0" font-size="16" font-weight="800">editor</text>
+      <text x="20" y="84" fill="#c0c0d8" font-size="13">Afterburner</text>
+      <text x="20" y="103" fill="#c8ff00" font-size="13" font-weight="700">Ctrl+F</text>
+      <text x="20" y="122" fill="#c0c0d8" font-size="13">Voltage (mV) vs clock</text>
+      <text x="20" y="141" fill="#c0c0d8" font-size="13">(MHz) scatter plot.</text>
+    </g>
+    <!-- Step 3 -->
+    <g transform="translate(518,278)">
+      <rect width="200" height="148" rx="12" fill="#101028" stroke="#1e1e3a"/>
+      <circle cx="30" cy="34" r="16" fill="#0a0a23" stroke="#c8ff00" stroke-width="1.5"/>
+      <text x="30" y="40" text-anchor="middle" fill="#c8ff00" font-size="17" font-weight="900">3</text>
+      <text x="58" y="32" fill="#e8e8f0" font-size="16" font-weight="800">Apply</text>
+      <text x="58" y="50" fill="#e8e8f0" font-size="16" font-weight="800">undervolt</text>
+      <text x="20" y="84" fill="#c0c0d8" font-size="13">Drag target point up</text>
+      <text x="20" y="103" fill="#c0c0d8" font-size="13">to stock clock; flatten</text>
+      <text x="20" y="122" fill="#c0c0d8" font-size="13">points to the right.</text>
+      <text x="20" y="141" fill="#c0c0d8" font-size="13">Apply checkmark.</text>
+    </g>
+    <!-- Step 4 -->
+    <g transform="translate(742,278)">
+      <rect width="200" height="148" rx="12" fill="#101028" stroke="#1e1e3a"/>
+      <circle cx="30" cy="34" r="16" fill="#0a0a23" stroke="#c8ff00" stroke-width="1.5"/>
+      <text x="30" y="40" text-anchor="middle" fill="#c8ff00" font-size="17" font-weight="900">4</text>
+      <text x="58" y="32" fill="#e8e8f0" font-size="16" font-weight="800">Stress test</text>
+      <text x="58" y="50" fill="#e8e8f0" font-size="16" font-weight="800">&amp; validate</text>
+      <text x="20" y="84" fill="#c0c0d8" font-size="13">30+ min: TimeSpy,</text>
+      <text x="20" y="103" fill="#c0c0d8" font-size="13">FurMark or llama.cpp.</text>
+      <text x="20" y="122" fill="#c0c0d8" font-size="13">Crash? +25–50mV.</text>
+      <text x="20" y="141" fill="#c0c0d8" font-size="13">Throttle? -50MHz.</text>
+    </g>
+    <!-- Step 5 -->
+    <g transform="translate(966,278)">
+      <rect width="200" height="148" rx="12" fill="#101028" stroke="#1e1e3a"/>
+      <circle cx="30" cy="34" r="16" fill="#0a0a23" stroke="#5dca7a" stroke-width="1.5"/>
+      <text x="30" y="40" text-anchor="middle" fill="#5dca7a" font-size="17" font-weight="900">5</text>
+      <text x="58" y="32" fill="#e8e8f0" font-size="16" font-weight="800">Make it</text>
+      <text x="58" y="50" fill="#e8e8f0" font-size="16" font-weight="800">persistent</text>
+      <text x="20" y="84" fill="#c0c0d8" font-size="13">Save to Profile 1.</text>
+      <text x="20" y="103" fill="#c0c0d8" font-size="13">Enable "apply OC at</text>
+      <text x="20" y="122" fill="#c0c0d8" font-size="13">system startup".</text>
+      <text x="20" y="141" fill="#5dca7a" font-size="13" font-weight="700">Locked every boot.</text>
+    </g>
+
+    <!-- Connecting arrows between steps -->
+    <line x1="272" y1="352" x2="292" y2="352" stroke="#6b6b8a" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="496" y1="352" x2="516" y2="352" stroke="#6b6b8a" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="720" y1="352" x2="740" y2="352" stroke="#6b6b8a" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="944" y1="352" x2="964" y2="352" stroke="#6b6b8a" stroke-width="2" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- Silicon lottery target panel -->
+  <g transform="translate(70,450)">
+    <rect width="1060" height="104" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="24" y="32" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">SILICON LOTTERY — STABLE UNDERVOLT TARGETS</text>
+
+    <g transform="translate(24,46)">
+      <rect width="328" height="42" rx="8" fill="#0d0d28"/>
+      <text x="16" y="20" fill="#5dca7a" font-size="13" font-weight="700">LUCKY</text>
+      <text x="16" y="36" fill="#e8e8f0" font-size="15" font-weight="600">2850+ MHz @ 900–925 mV</text>
+    </g>
+    <g transform="translate(366,46)">
+      <rect width="328" height="42" rx="8" fill="#13132e"/>
+      <text x="16" y="20" fill="#5090e0" font-size="13" font-weight="700">TYPICAL</text>
+      <text x="16" y="36" fill="#e8e8f0" font-size="15" font-weight="600">2700–2800 MHz @ 950–975 mV</text>
+    </g>
+    <g transform="translate(708,46)">
+      <rect width="328" height="42" rx="8" fill="#0d0d28"/>
+      <text x="16" y="20" fill="#e08828" font-size="13" font-weight="700">CONSERVATIVE</text>
+      <text x="16" y="36" fill="#e8e8f0" font-size="15" font-weight="600">2600–2700 MHz @ 900 mV</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · Setup Tutorial · TBP per NVIDIA spec &amp; ASUS ROG Astral OC product page</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

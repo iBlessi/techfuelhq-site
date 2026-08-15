@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PC Gaming Performance, Errors &amp; Optimization on TechFuel HQ</title><link>https://techfuelhq.com/gaming/</link><description>Recent content in PC Gaming Performance, Errors &amp; Optimization on TechFuel HQ</description><generator>Hugo</generator><language>en-us</language><managingEditor>LK Wood IV</managingEditor><lastBuildDate>Sun, 28 Jun 2026 00:00:00 -0500</lastBuildDate><atom:link href="https://techfuelhq.com/gaming/index.xml" rel="self" type="application/rss+xml"/><atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/><item><title>DX12 vs DX11: Which Gives More FPS (and When to Switch)</title><link>https://techfuelhq.com/gaming/dx12-vs-dx11-fps-2026/</link><pubDate>Sun, 28 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/gaming/dx12-vs-dx11-fps-2026/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · 2026-06-28 · ~9 min read · St. Louis County, MO&lt;/p>
+&lt;div class="verdict-card" style="border:1px solid #c8ff00;border-left:4px solid #c8ff00;border-radius:6px;padding:1.25rem 1.5rem;margin:1.5rem 0 2rem 0;background:rgba(200,255,0,0.04);">
+&lt;p style="margin:0 0 0.5rem 0;font-weight:700;color:#c8ff00;letter-spacing:0.04em;text-transform:uppercase;font-size:0.85rem;">TL;DR · DX12 vs DX11&lt;/p>
+&lt;ul style="margin:0.25rem 0 0 0;padding-left:1.25rem;line-height:1.55;">
+&lt;li>&lt;strong>DX12 wins when your CPU is the limit&lt;/strong> on a modern multi-core PC and the game's DX12 path is well made -- typically &lt;strong>10-20% more FPS&lt;/strong> because it spreads render work across cores.&lt;/li>
+&lt;li>&lt;strong>DX11 can win when DX12 is poorly implemented&lt;/strong> -- steadier frame pacing, fewer hitches, better on older or thermally limited machines.&lt;/li>
+&lt;li>&lt;strong>DX12's weakness is shader-compilation stutter&lt;/strong> when a studio doesn't pre-compile shaders properly.&lt;/li>
+&lt;li>&lt;strong>Ray tracing requires DX12.&lt;/strong> If you want it, you're on DX12.&lt;/li>
+&lt;li>&lt;strong>The rule:&lt;/strong> try both, keep whichever gives better &lt;em>1% lows&lt;/em> -- not the higher average FPS counter.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;p>&amp;ldquo;DX12 vs DX11, which gives more FPS?&amp;rdquo; has a frustrating but honest answer: it depends on what is bottlenecking your frame rate, and on how well the studio built the game&amp;rsquo;s DX12 mode. The good news is that once you understand the &lt;em>one&lt;/em> real difference between them, you can predict which will help &amp;ndash; and test it yourself in two minutes. This guide gives you both.&lt;/p>
+&lt;h2 id="the-one-real-difference-how-they-use-your-cpu">The one real difference: how they use your CPU&lt;/h2>
+&lt;p>Everything else follows from this. DirectX is the layer that turns &amp;ldquo;draw this scene&amp;rdquo; into instructions for your GPU, and the two versions hand that work to your CPU very differently.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>DX11&lt;/strong> routes most of its render commands through a &lt;strong>single main CPU thread&lt;/strong>. If that one thread maxes out, your frame rate sags &amp;ndash; even if the rest of your CPU cores are sitting nearly idle. The driver does a lot of the heavy lifting for you, which keeps things simple and stable, but it is a one-lane road.&lt;/li>
+&lt;li>&lt;strong>DX12&lt;/strong> spreads those render commands across &lt;strong>multiple CPU cores&lt;/strong> at once. On a modern six-core-or-more processor, that removes the single-thread choke point, which is exactly why it helps when your CPU is the limit. The trade-off: it moves responsibility from the driver to the game, so a lazy or rushed DX12 implementation can perform &lt;em>worse&lt;/em> than DX11.&lt;/li>
+&lt;/ul>
+&lt;div class="visual-block">
+&lt;div style="background:#0a0a23;padding:28px 16px 22px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#e8e8f0;">
+&lt;div style="text-align:center;margin-bottom:14px;">
+&lt;div style="font-size:18px;font-weight:600;letter-spacing:-0.3px;">One lane vs many: how each uses your CPU&lt;/div>
+&lt;div style="font-size:12px;color:#9a9ab5;margin-top:4px;">Relative render load per CPU core (illustrative)&lt;/div>
+&lt;/div>
+&lt;svg viewBox="0 0 760 340" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;" role="img" aria-label="DX11 piles render work onto one CPU core that maxes out while the others sit idle. DX12 spreads the same work evenly across all cores, so a modern multi-core CPU is not bottlenecked by a single thread.">
+&lt;text x="195" y="34" font-size="15" font-weight="600" fill="#5090e0" text-anchor="middle">DX11: one core does the work&lt;/text>
+&lt;rect x="58" y="120" width="34" height="150" rx="3" fill="#ed6a5a">&lt;/rect>
+&lt;rect x="108" y="240" width="34" height="30" rx="3" fill="#33335a">&lt;/rect>
+&lt;rect x="158" y="240" width="34" height="30" rx="3" fill="#33335a">&lt;/rect>
+&lt;rect x="208" y="240" width="34" height="30" rx="3" fill="#33335a">&lt;/rect>
+&lt;rect x="258" y="240" width="34" height="30" rx="3" fill="#33335a">&lt;/rect>
+&lt;rect x="308" y="240" width="34" height="30" rx="3" fill="#33335a">&lt;/rect>
+&lt;text x="75" y="112" font-size="10" font-weight="700" fill="#ed6a5a" text-anchor="middle">maxed&lt;/text>
+&lt;line x1="50" y1="270" x2="350" y2="270" stroke="rgba(255,255,255,0.16)" stroke-width="1">&lt;/line>
+&lt;text x="200" y="292" font-size="11" fill="#7a7a96" text-anchor="middle">6 CPU cores -- 5 sit nearly idle&lt;/text>
+&lt;line x1="380" y1="60" x2="380" y2="290" stroke="rgba(255,255,255,0.08)" stroke-width="1">&lt;/line>
+&lt;text x="565" y="34" font-size="15" font-weight="600" fill="#5dca7a" text-anchor="middle">DX12: work spread across cores&lt;/text>
+&lt;rect x="428" y="180" width="34" height="90" rx="3" fill="#5dca7a">&lt;/rect>
+&lt;rect x="478" y="186" width="34" height="84" rx="3" fill="#5dca7a">&lt;/rect>
+&lt;rect x="528" y="178" width="34" height="92" rx="3" fill="#5dca7a">&lt;/rect>
+&lt;rect x="578" y="190" width="34" height="80" rx="3" fill="#5dca7a">&lt;/rect>
+&lt;rect x="628" y="184" width="34" height="86" rx="3" fill="#5dca7a">&lt;/rect>
+&lt;rect x="678" y="188" width="34" height="82" rx="3" fill="#5dca7a">&lt;/rect>
+&lt;line x1="420" y1="270" x2="720" y2="270" stroke="rgba(255,255,255,0.16)" stroke-width="1">&lt;/line>
+&lt;text x="570" y="292" font-size="11" fill="#7a7a96" text-anchor="middle">6 CPU cores -- all share the load&lt;/text>
+&lt;text x="380" y="322" font-size="12" fill="#b8b8cc" text-anchor="middle">When the single DX11 thread maxes out, FPS sags with cores to spare. DX12 removes that choke point.&lt;/text>
+&lt;/svg>
+&lt;/div>
+&lt;/div>
+&lt;h2 id="so-which-is-faster">So which is faster?&lt;/h2>
+&lt;p>The honest rule, in one line: &lt;strong>DX12 has the upside when your CPU is the bottleneck and the game&amp;rsquo;s DX12 path is well built; otherwise the two are close, and a bad DX12 port can lose to DX11.&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>CPU-bound + modern multi-core CPU + good DX12 port&lt;/strong> -&amp;gt; DX12 typically gives &lt;strong>10-20% more FPS&lt;/strong>. This is the scenario DX12 was built for.&lt;/li>
+&lt;li>&lt;strong>GPU-bound&lt;/strong> (you are at high resolution/settings and the graphics card is the limit) -&amp;gt; the API barely matters; both feed the same GPU. Pick on stability.&lt;/li>
+&lt;li>&lt;strong>Poorly optimized DX12 mode&lt;/strong> -&amp;gt; DX11 can be &lt;em>faster&lt;/em> and smoother. A messy DX12 implementation can create the very CPU bottleneck DX12 is supposed to remove.&lt;/li>
+&lt;/ul>
+&lt;p>That last point is why you cannot just declare &amp;ldquo;DX12 is newer, so use DX12.&amp;rdquo; Newer is only better when the studio did the work. And since the whole question turns on whether your CPU is the limiter, it helps to know that first: the &lt;a href="https://techfuelhq.com/tools/pc-bottleneck-calculator/">PC Bottleneck Calculator&lt;/a> estimates whether your CPU or GPU is the bottleneck at your resolution.&lt;/p>
+&lt;h2 id="dx12s-real-weakness-shader-compilation-stutter">DX12&amp;rsquo;s real weakness: shader-compilation stutter&lt;/h2>
+&lt;p>If you have heard people complain about &amp;ldquo;DX12 stutter,&amp;rdquo; this is it. Because DX12 gives developers direct control of the graphics pipeline, the &lt;em>game&lt;/em> is responsible for compiling shaders ahead of time. When a studio does not pre-compile them well, shaders get compiled on the fly during gameplay &amp;ndash; and each one is a brief hitch. DX11&amp;rsquo;s driver handled more of this automatically behind the scenes, which is why some DX11 games feel smoother even when the average FPS is the same.&lt;/p>
+&lt;p>This is the single biggest reason to actually test both rather than trust the average frame rate: DX12 can show a higher average FPS while feeling worse, because the stutters live in the &lt;strong>1% lows&lt;/strong>, not the average.&lt;/p>
+&lt;h2 id="when-to-use-which">When to use which&lt;/h2>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Situation&lt;/th>
+&lt;th scope="col">Pick&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Modern 6+ core CPU, CPU-limited, good DX12 port&lt;/td>
+&lt;td>&lt;strong>DX12&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>You want ray tracing / mesh shaders&lt;/td>
+&lt;td>&lt;strong>DX12&lt;/strong> (required)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>The game&amp;rsquo;s DX12 mode stutters or crashes&lt;/td>
+&lt;td>&lt;strong>DX11&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Older CPU, or a thermally limited laptop&lt;/td>
+&lt;td>&lt;strong>DX11&lt;/strong> (often steadier)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GPU-bound at high resolution&lt;/td>
+&lt;td>Either &amp;ndash; pick the steadier one&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;h2 id="how-to-test-it-yourself-two-minutes">How to test it yourself (two minutes)&lt;/h2>
+&lt;p>Do not trust a forum verdict for &lt;em>your&lt;/em> hardware and &lt;em>your&lt;/em> game. Test it:&lt;/p>
+&lt;ol>
+&lt;li>In the game&amp;rsquo;s graphics/display settings, find the &lt;strong>Graphics API / Renderer / DirectX version&lt;/strong> dropdown (some games use a &lt;code>-dx11&lt;/code> / &lt;code>-dx12&lt;/code> launch option instead). Switching usually needs a game restart.&lt;/li>
+&lt;li>Pick a demanding, repeatable scene &amp;ndash; a busy area, not an empty menu.&lt;/li>
+&lt;li>Turn on a frame-time overlay (your GPU software&amp;rsquo;s overlay, or a tool that shows &lt;strong>1% lows&lt;/strong> and frame-time, not just average FPS).&lt;/li>
+&lt;li>Run the same scene on each API and compare the &lt;strong>1% lows and frame-time consistency.&lt;/strong> Keep whichever is steadier, even if its average FPS is a touch lower. Smooth beats a higher number that hitches.&lt;/li>
+&lt;/ol>
+&lt;h2 id="a-note-on-the-cpu-that-drives-this">A note on the CPU that drives this&lt;/h2>
+&lt;p>Because DX12&amp;rsquo;s whole advantage is spreading work across cores, the API conversation is really a CPU conversation. A strong modern gaming CPU &amp;ndash; lots of fast cores and large cache &amp;ndash; is what lets DX12 pull ahead, and it is also what carries you in the CPU-bound games where the API matters most. That is a big part of why the &lt;a href="https://techfuelhq.com/pc-builds/2500-dollar-7800x3d-rtx-5080-4k-build-2026/">$2,500 4K build&lt;/a> is built around a Ryzen 7 7800X3D, and why the &lt;a href="https://techfuelhq.com/gpu-reviews/">GPU reviews&lt;/a> pair cards with CPUs that can keep them fed. If a specific game stutters under DX12, that is also worth checking against the &lt;a href="https://techfuelhq.com/gaming/easy-anti-cheat-fix-guide-2026/">anti-cheat and launch fixes&lt;/a> before blaming the API &amp;ndash; sometimes the &amp;ldquo;DX12 problem&amp;rdquo; is something else entirely.&lt;/p>
+&lt;h2 id="the-bottom-line">The bottom line&lt;/h2>
+&lt;p>DX12 is not automatically better than DX11 &amp;ndash; it is better &lt;em>at one job&lt;/em>: getting more frames out of a modern multi-core CPU when that CPU is the limit and the game was built properly. DX11 is the steadier, simpler path that still wins in messy DX12 ports and on older hardware. Ray tracing forces DX12. For everything else, switch between them in the settings, watch your 1% lows, and keep the one that feels smooth. The right API is the one your specific game and PC actually run best &amp;ndash; and now you can prove which that is.&lt;/p>
+&lt;h2 id="sources">Sources&lt;/h2>
+&lt;ul>
+&lt;li>Hardware Times &amp;ndash; difference between DirectX 11 and DirectX 12: &lt;a href="https://hardwaretimes.com/what-is-the-difference-between-directx-11-and-directx-12/" rel="noopener">https://hardwaretimes.com/what-is-the-difference-between-directx-11-and-directx-12/&lt;/a>&lt;/li>
+&lt;li>Overclock.net &amp;ndash; DX11 vs DX12 multi-thread performance (Ashes of the Singularity): &lt;a href="https://www.overclock.net/threads/directx-11-vs-directx-12-multi-thread-performance-ashes-of-the-singularity.1584528/" rel="noopener">https://www.overclock.net/threads/directx-11-vs-directx-12-multi-thread-performance-ashes-of-the-singularity.1584528/&lt;/a>&lt;/li>
+&lt;li>Community analysis on DX12 CPU overhead and shader-compilation stutter (AnandTech, Beyond3D forums): &lt;a href="https://forums.anandtech.com/threads/how-does-a-directx-11-game-has-a-lower-overhead-cpu-limited-scenario-than-dx12.2568366/" rel="noopener">https://forums.anandtech.com/threads/how-does-a-directx-11-game-has-a-lower-overhead-cpu-limited-scenario-than-dx12.2568366/&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Easy Anti-Cheat Errors: The Complete Fix Guide (2026)</title><link>https://techfuelhq.com/gaming/easy-anti-cheat-fix-guide-2026/</link><pubDate>Sun, 28 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/gaming/easy-anti-cheat-fix-guide-2026/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · 2026-06-28 · ~11 min read · St. Louis County, MO&lt;/p>
+&lt;div class="verdict-card" style="border:1px solid #c8ff00;border-left:4px solid #c8ff00;border-radius:6px;padding:1.25rem 1.5rem;margin:1.5rem 0 2rem 0;background:rgba(200,255,0,0.04);">
+&lt;p style="margin:0 0 0.5rem 0;font-weight:700;color:#c8ff00;letter-spacing:0.04em;text-transform:uppercase;font-size:0.85rem;">TL;DR · Fix Easy Anti-Cheat&lt;/p>
+&lt;ul style="margin:0.25rem 0 0 0;padding-left:1.25rem;line-height:1.55;">
+&lt;li>&lt;strong>Start here:&lt;/strong> run the game's own &lt;strong>EasyAntiCheat_Setup.exe&lt;/strong> as administrator and click &lt;strong>Repair Service&lt;/strong>. This fixes most "not installed" errors.&lt;/li>
+&lt;li>&lt;strong>If it still fails:&lt;/strong> reinstall EAC with that same tool, verify game files, and run the game as administrator.&lt;/li>
+&lt;li>&lt;strong>Windows 11 "untrusted system file" / won't launch:&lt;/strong> enable &lt;strong>Secure Boot + TPM 2.0&lt;/strong> (EAC now requires them), and check &lt;strong>Memory Integrity&lt;/strong>.&lt;/li>
+&lt;li>&lt;strong>The cause almost no guide mentions:&lt;/strong> Windows 11 &lt;strong>Smart App Control&lt;/strong> can silently block an unsigned launcher or anti-cheat module. &lt;strong>Confirm it first&lt;/strong> (Event Viewer), then disable it as a last resort -- it lowers security for your whole PC.&lt;/li>
+&lt;li>&lt;strong>Never&lt;/strong> download a third-party "EAC fixer." Every real fix is a Windows setting or the official tool already inside your game.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;p>Easy Anti-Cheat (EAC) runs underneath a huge share of online PC games &amp;ndash; Star Citizen, Apex Legends, Fortnite, Lords of the Fallen, Elden Ring, and dozens more &amp;ndash; and when it breaks, the game simply will not start. The errors come in a few flavors (&amp;ldquo;Easy Anti-Cheat is not installed,&amp;rdquo; &amp;ldquo;Easy Anti-Cheat failed to start,&amp;rdquo; &amp;ldquo;untrusted system file,&amp;rdquo; or a launcher that just bounces back to desktop), but they share a small set of real causes. This guide ranks the fixes by how often they actually work, and it covers one cause &amp;ndash; Windows 11 Smart App Control &amp;ndash; that I ran into on my own machine and that nearly every other guide misses.&lt;/p>
+&lt;p>The one rule before you start: &lt;strong>fix the cause, not the symptom.&lt;/strong> Reinstalling a 100 GB game because a service failed to register is the slow, wrong move. Work down this list in order and stop at the one that applies to you.&lt;/p>
+&lt;h2 id="what-easy-anti-cheat-actually-is-and-why-it-fails">What Easy Anti-Cheat actually is (and why it fails)&lt;/h2>
+&lt;p>EAC is a kernel-level anti-cheat service that each game installs alongside itself. Because it runs at a low level and has to trust the code around it, it is unusually sensitive to four things: whether its own service is registered correctly, whether it has permission to run, whether Windows&amp;rsquo; platform-security features (Secure Boot, TPM) are on, and whether anything on the system is &lt;em>blocking&lt;/em> it from loading. Almost every EAC error traces back to one of those four. Knowing which one is the whole game.&lt;/p>
+&lt;h2 id="the-fixes-ranked-by-what-actually-works">The fixes, ranked by what actually works&lt;/h2>
+&lt;h3 id="1-repair-the-easy-anti-cheat-service-fixes-most-not-installed-errors">1. Repair the Easy Anti-Cheat service (fixes most &amp;ldquo;not installed&amp;rdquo; errors)&lt;/h3>
+&lt;p>EAC ships a small installer &lt;em>inside every game that uses it&lt;/em>, and it has a one-click repair. This is the first thing to try and it resolves the majority of &amp;ldquo;not installed&amp;rdquo; / &amp;ldquo;failed to start&amp;rdquo; errors.&lt;/p>
+&lt;ol>
+&lt;li>Open the game&amp;rsquo;s install folder. For Steam that is usually &lt;code>C:\Program Files (x86)\Steam\steamapps\common\[Game Name]&lt;/code>; other launchers have their own path.&lt;/li>
+&lt;li>Find the &lt;strong>EasyAntiCheat&lt;/strong> (or &lt;strong>EasyAntiCheat_EOS&lt;/strong>) subfolder and open it.&lt;/li>
+&lt;li>Right-click &lt;strong>EasyAntiCheat_Setup.exe&lt;/strong> and choose &lt;strong>Run as administrator&lt;/strong> (accept the UAC prompt).&lt;/li>
+&lt;li>Pick your game from the dropdown, then click &lt;strong>Repair Service&lt;/strong>.&lt;/li>
+&lt;li>&lt;strong>Restart your PC&lt;/strong> and launch the game again.&lt;/li>
+&lt;/ol>
+&lt;p>If repair does not do it, run the same tool, choose &lt;strong>Uninstall&lt;/strong>, let it finish, then run it again and choose &lt;strong>Install&lt;/strong>. This rebuilds the service from scratch. (&lt;a href="https://www.drivereasy.com/knowledge/easy-anti-cheat-not-installed/" rel="noopener">Driver Easy&lt;/a>, &lt;a href="https://appuals.com/easy-anti-cheat-is-not-installed/" rel="noopener">Appuals&lt;/a>)&lt;/p>
+&lt;h3 id="2-run-the-game-and-the-repair-tool-as-administrator">2. Run the game (and the repair tool) as administrator&lt;/h3>
+&lt;p>EAC needs to register and start a Windows service, which requires elevated rights. If it lacks them, you get a &amp;ldquo;not installed&amp;rdquo; or &amp;ldquo;failed to start&amp;rdquo; error even when the files are fine. Right-click the game&amp;rsquo;s launcher (or the EAC setup) and &lt;strong>Run as administrator&lt;/strong>. To make it permanent, open the launcher&amp;rsquo;s Properties, go to Compatibility, and tick &lt;strong>Run this program as an administrator&lt;/strong>.&lt;/p>
+&lt;h3 id="3-verify-the-game-files">3. Verify the game files&lt;/h3>
+&lt;p>A single corrupted EAC file will break the service. Use your launcher&amp;rsquo;s repair: on Steam, right-click the game, Properties, Installed Files, &lt;strong>Verify integrity of game files&lt;/strong>; other launchers have an equivalent &amp;ldquo;verify&amp;rdquo; or &amp;ldquo;scan.&amp;rdquo; This re-downloads only what is broken, not the whole game.&lt;/p>
+&lt;h3 id="4-turn-on-secure-boot-and-tpm-the-untrusted-system-file--windows-11-cause">4. Turn on Secure Boot and TPM (the &amp;ldquo;untrusted system file&amp;rdquo; / Windows 11 cause)&lt;/h3>
+&lt;p>Modern Easy Anti-Cheat enforces &lt;strong>Secure Boot&lt;/strong> and &lt;strong>TPM 2.0&lt;/strong> as part of its &amp;ldquo;additional security requirements.&amp;rdquo; If Secure Boot is disabled, newer EAC titles can refuse to start or report an &lt;strong>untrusted system file&lt;/strong>. (&lt;a href="https://www.easy.ac/support/articles/additional-security-requirements" rel="noopener">Easy Anti-Cheat additional security requirements&lt;/a>)&lt;/p>
+&lt;ol>
+&lt;li>Reboot into your &lt;strong>BIOS/UEFI&lt;/strong> (usually Del or F2 at boot).&lt;/li>
+&lt;li>Under &lt;strong>Boot&lt;/strong> or &lt;strong>Security&lt;/strong>, set &lt;strong>Secure Boot&lt;/strong> to &lt;strong>Enabled&lt;/strong>, and confirm &lt;strong>TPM&lt;/strong> (often labeled PTT on Intel or fTPM on AMD) is &lt;strong>on&lt;/strong>.&lt;/li>
+&lt;li>Save and reboot.&lt;/li>
+&lt;li>If a game still complains, open &lt;strong>Windows Security &amp;gt; Device security &amp;gt; Core isolation&lt;/strong> and try enabling &lt;strong>Memory Integrity&lt;/strong> (note it can cost a little performance on some systems). (&lt;a href="https://learn.microsoft.com/en-us/answers/questions/3929849/i-cant-play-any-game-that-uses-anti-cheat" rel="noopener">Microsoft Q&amp;amp;A&lt;/a>)&lt;/li>
+&lt;/ol>
+&lt;p>A caution worth stating: enabling Secure Boot on a PC that was installed in Legacy/CSM mode can stop Windows from booting. If your install is older, confirm it is using UEFI/GPT before flipping Secure Boot on.&lt;/p>
+&lt;h3 id="5-update-windows-gpu-drivers-and-the-visual-c-runtimes">5. Update Windows, GPU drivers, and the Visual C++ runtimes&lt;/h3>
+&lt;p>EAC leans on current platform components. Install pending &lt;strong>Windows Updates&lt;/strong>, update your &lt;strong>GPU driver&lt;/strong>, and install the latest &lt;strong>Microsoft Visual C++ Redistributables&lt;/strong> (x64 and x86). Outdated runtimes are a quiet cause of &amp;ldquo;failed to start.&amp;rdquo;&lt;/p>
+&lt;h3 id="6-whitelist-eac-in-your-antivirus">6. Whitelist EAC in your antivirus&lt;/h3>
+&lt;p>Because EAC injects at a low level, third-party antivirus sometimes quarantines or locks its files mid-launch. Add the game&amp;rsquo;s folder and &lt;code>EasyAntiCheat_Setup.exe&lt;/code> to your antivirus &lt;strong>exclusions&lt;/strong> (preferred), or pause real-time protection only long enough to test. Whitelisting beats fully disabling your antivirus.&lt;/p>
+&lt;h3 id="7-the-cause-almost-no-guide-covers-windows-11-smart-app-control">7. The cause almost no guide covers: Windows 11 Smart App Control&lt;/h3>
+&lt;p>This is the one I hit personally, on a clean Windows 11 install on my own 7800X3D / RTX 5080 build: the game would not launch, no fix above changed anything, and there was no useful error &amp;ndash; because the thing blocking it was a Windows security feature, not the game.&lt;/p>
+&lt;p>&lt;strong>Smart App Control (SAC)&lt;/strong> is a Windows 11 (22H2 and newer) feature that blocks apps it does not recognize or that are unsigned &amp;ndash; &lt;strong>system-wide, with no per-app allowlist.&lt;/strong> It is separate from Microsoft Defender. When SAC is enforced, it can silently block an &lt;strong>unsigned game launcher or an anti-cheat component&lt;/strong> from loading, and the result looks exactly like a generic EAC or launch failure with no message pointing at the real cause.&lt;/p>
+&lt;p>It is a &lt;strong>real but uncommon&lt;/strong> cause, which is why it belongs near the bottom of this list &amp;ndash; but if every other fix has failed and you are on Windows 11, check it.&lt;/p>
+&lt;p>&lt;strong>Confirm SAC is actually the cause first.&lt;/strong> Do not disable a security feature on a guess:&lt;/p>
+&lt;ul>
+&lt;li>Look for a notification that reads &lt;strong>&amp;ldquo;Smart App Control blocked an app,&amp;rdquo;&lt;/strong> or&lt;/li>
+&lt;li>Open &lt;strong>Event Viewer &amp;gt; Applications and Services Logs &amp;gt; Microsoft &amp;gt; Windows&lt;/strong>, and check the &lt;strong>CodeIntegrity&lt;/strong> / &lt;strong>AppLocker&lt;/strong> logs around the time the game failed for a block on the launcher or EAC executable.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>If, and only if, SAC is confirmed as the cause&lt;/strong>, you can turn it off:&lt;/p>
+&lt;ol>
+&lt;li>Open &lt;strong>Windows Security &amp;gt; App &amp;amp; browser control &amp;gt; Smart App Control settings&lt;/strong>.&lt;/li>
+&lt;li>If it reads &lt;strong>On&lt;/strong> or &lt;strong>Evaluation&lt;/strong>, set it to &lt;strong>Off&lt;/strong>.&lt;/li>
+&lt;li>Restart and launch the game.&lt;/li>
+&lt;/ol>
+&lt;p>Two honest caveats you should know before you do this:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>It lowers security for your whole PC&lt;/strong>, not just the game. SAC blocks unsigned and unknown software across the system, so turning it off removes that layer everywhere.&lt;/li>
+&lt;li>&lt;strong>Historically, turning SAC off was a one-way door&lt;/strong> &amp;ndash; re-enabling it required reinstalling Windows. An &lt;strong>April 2026 Windows 11 update&lt;/strong> is changing this so you can re-enable SAC from Windows Security without a reinstall, but it is rolling out gradually and your PC may not have it yet. Treat disabling SAC as a deliberate choice, and re-enable it once your game&amp;rsquo;s anti-cheat is trusted.&lt;/li>
+&lt;/ul>
+&lt;div class="visual-block">
+&lt;div style="background:#0a0a23;padding:28px 16px 22px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#e8e8f0;">
+&lt;div style="text-align:center;margin-bottom:14px;">
+&lt;div style="font-size:18px;font-weight:600;letter-spacing:-0.3px;">Work the fixes in order -- stop at yours&lt;/div>
+&lt;div style="font-size:12px;color:#9a9ab5;margin-top:4px;">Most common at the top; the security-lowering step is deliberately last&lt;/div>
+&lt;/div>
+&lt;svg viewBox="0 0 760 396" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;" role="img" aria-label="Ordered checklist of Easy Anti-Cheat fixes from safest and most common to last resort: 1 repair the EAC service, 2 run as administrator, 3 verify game files, 4 enable Secure Boot and TPM, 5 update Windows GPU drivers and Visual C plus plus, 6 whitelist antivirus, 7 last resort and only after confirming the cause, disable Smart App Control which lowers system security.">
+&lt;line x1="42" y1="40" x2="42" y2="332" stroke="rgba(255,255,255,0.12)" stroke-width="2">&lt;/line>
+&lt;g>
+&lt;circle cx="42" cy="48" r="13" fill="#5dca7a">&lt;/circle>&lt;text x="42" y="53" font-size="13" font-weight="700" fill="#0a0a23" text-anchor="middle">1&lt;/text>
+&lt;text x="68" y="44" font-size="14" font-weight="600" fill="#e8e8f0">Repair the EAC service&lt;/text>
+&lt;text x="68" y="62" font-size="12" fill="#9090a8">EasyAntiCheat_Setup.exe (as admin) -&amp;gt; Repair Service -- fixes most cases&lt;/text>
+&lt;/g>
+&lt;g>
+&lt;circle cx="42" cy="98" r="13" fill="#5dca7a">&lt;/circle>&lt;text x="42" y="103" font-size="13" font-weight="700" fill="#0a0a23" text-anchor="middle">2&lt;/text>
+&lt;text x="68" y="94" font-size="14" font-weight="600" fill="#e8e8f0">Run as administrator&lt;/text>
+&lt;text x="68" y="112" font-size="12" fill="#9090a8">EAC needs elevated rights to register its service&lt;/text>
+&lt;/g>
+&lt;g>
+&lt;circle cx="42" cy="148" r="13" fill="#5dca7a">&lt;/circle>&lt;text x="42" y="153" font-size="13" font-weight="700" fill="#0a0a23" text-anchor="middle">3&lt;/text>
+&lt;text x="68" y="144" font-size="14" font-weight="600" fill="#e8e8f0">Verify game files&lt;/text>
+&lt;text x="68" y="162" font-size="12" fill="#9090a8">Repairs one corrupted file without re-downloading the game&lt;/text>
+&lt;/g>
+&lt;g>
+&lt;circle cx="42" cy="198" r="13" fill="#5090e0">&lt;/circle>&lt;text x="42" y="203" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">4&lt;/text>
+&lt;text x="68" y="194" font-size="14" font-weight="600" fill="#e8e8f0">Enable Secure Boot + TPM&lt;/text>
+&lt;text x="68" y="212" font-size="12" fill="#9090a8">Required by modern EAC; fixes "untrusted system file"&lt;/text>
+&lt;/g>
+&lt;g>
+&lt;circle cx="42" cy="248" r="13" fill="#5090e0">&lt;/circle>&lt;text x="42" y="253" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">5&lt;/text>
+&lt;text x="68" y="244" font-size="14" font-weight="600" fill="#e8e8f0">Update Windows, GPU driver, VC++&lt;/text>
+&lt;text x="68" y="262" font-size="12" fill="#9090a8">Outdated runtimes cause "failed to start"&lt;/text>
+&lt;/g>
+&lt;g>
+&lt;circle cx="42" cy="298" r="13" fill="#c8a03c">&lt;/circle>&lt;text x="42" y="303" font-size="13" font-weight="700" fill="#0a0a23" text-anchor="middle">6&lt;/text>
+&lt;text x="68" y="294" font-size="14" font-weight="600" fill="#e8e8f0">Whitelist your antivirus&lt;/text>
+&lt;text x="68" y="312" font-size="12" fill="#9090a8">Exclude the game folder + EAC setup (don't fully disable)&lt;/text>
+&lt;/g>
+&lt;g>
+&lt;circle cx="42" cy="348" r="13" fill="#ed6a5a">&lt;/circle>&lt;text x="42" y="353" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">7&lt;/text>
+&lt;text x="68" y="344" font-size="14" font-weight="600" fill="#ed6a5a">LAST RESORT: disable Smart App Control&lt;/text>
+&lt;text x="68" y="362" font-size="12" fill="#c89090">Only after confirming it (Event Viewer) -- it lowers security PC-wide&lt;/text>
+&lt;/g>
+&lt;/svg>
+&lt;/div>
+&lt;/div>
+&lt;h2 id="what-not-to-do">What not to do&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Do not download a third-party &amp;ldquo;EAC fixer&amp;rdquo; or &amp;ldquo;anti-cheat repair&amp;rdquo; tool.&lt;/strong> Every real fix is either a Windows setting or the official &lt;code>EasyAntiCheat_Setup.exe&lt;/code> already inside your game. A downloaded program that changes system or security settings is exactly the kind of unsigned software Windows SmartScreen and Smart App Control exist to block &amp;ndash; and ironically, running one can trigger the very problem you are trying to fix.&lt;/li>
+&lt;li>&lt;strong>Do not reinstall the whole game first.&lt;/strong> It is the slowest fix and rarely the right one; it only helps if file verification (step 3) finds damage it cannot repair.&lt;/li>
+&lt;li>&lt;strong>Do not disable Smart App Control or your antivirus &amp;ldquo;just to see.&amp;rdquo;&lt;/strong> Confirm the cause first. Lowering a security layer should be a decision, not a shot in the dark.&lt;/li>
+&lt;/ul>
+&lt;h2 id="game-specific-notes">Game-specific notes&lt;/h2>
+&lt;p>EAC behaves the same across titles, but a few have their own quirks. &lt;strong>Star Citizen&lt;/strong> is the one I see trip people up most, because its launcher is unsigned and its errors (like the generic &amp;ldquo;5007&amp;rdquo;) hide the real cause &amp;ndash; it has its own ranked, log-first walkthrough here: &lt;strong>&lt;a href="https://techfuelhq.com/gaming/star-citizen/star-citizen-error-5007-fix/">Star Citizen Error 5007: read your log first&lt;/a>&lt;/strong>. If you are building or upgrading a rig for EAC-heavy games, Secure Boot and TPM are now effectively mandatory, which is one more reason the &lt;a href="https://techfuelhq.com/pc-builds/2500-dollar-7800x3d-rtx-5080-4k-build-2026/">modern AM5 build&lt;/a> ships them on by default, and the &lt;a href="https://techfuelhq.com/gpu-reviews/">GPU reviews&lt;/a> cover the cards that actually carry these games.&lt;/p>
+&lt;h2 id="the-bottom-line">The bottom line&lt;/h2>
+&lt;p>Easy Anti-Cheat errors look scary but come from a short list of causes. Repair the service, give it admin rights, verify your files, and &amp;ndash; on Windows 11 &amp;ndash; make sure Secure Boot and TPM are on. If you have exhausted those and you are still stuck, check whether Smart App Control is silently blocking the launcher before you reach for anything drastic, and disable it only with eyes open. Fix the cause that applies to you, in order, and you will spend ten minutes on this instead of an evening.&lt;/p>
+&lt;h2 id="sources">Sources&lt;/h2>
+&lt;ul>
+&lt;li>Easy Anti-Cheat &amp;ndash; additional security requirements (Secure Boot, TPM): &lt;a href="https://www.easy.ac/support/articles/additional-security-requirements" rel="noopener">https://www.easy.ac/support/articles/additional-security-requirements&lt;/a>&lt;/li>
+&lt;li>Roberts Space Industries &amp;ndash; Easy Anti-Cheat troubleshooting: &lt;a href="https://support.robertsspaceindustries.com/hc/en-us/articles/4412276152343-Easy-Anti-Cheat-Troubleshooting" rel="noopener">https://support.robertsspaceindustries.com/hc/en-us/articles/4412276152343-Easy-Anti-Cheat-Troubleshooting&lt;/a>&lt;/li>
+&lt;li>Microsoft Q&amp;amp;A &amp;ndash; can&amp;rsquo;t play games that use anti-cheat (Secure Boot / Memory Integrity): &lt;a href="https://learn.microsoft.com/en-us/answers/questions/3929849/i-cant-play-any-game-that-uses-anti-cheat" rel="noopener">https://learn.microsoft.com/en-us/answers/questions/3929849/i-cant-play-any-game-that-uses-anti-cheat&lt;/a>&lt;/li>
+&lt;li>Driver Easy &amp;ndash; &amp;ldquo;Easy Anti-Cheat is not installed&amp;rdquo; repair steps: &lt;a href="https://www.drivereasy.com/knowledge/easy-anti-cheat-not-installed/" rel="noopener">https://www.drivereasy.com/knowledge/easy-anti-cheat-not-installed/&lt;/a>&lt;/li>
+&lt;li>Appuals &amp;ndash; Easy Anti-Cheat is not installed: &lt;a href="https://appuals.com/easy-anti-cheat-is-not-installed/" rel="noopener">https://appuals.com/easy-anti-cheat-is-not-installed/&lt;/a>&lt;/li>
+&lt;li>Microsoft &amp;ndash; Smart App Control overview: &lt;a href="https://support.microsoft.com/en-us/topic/what-is-smart-app-control-285ea03d-fa88-4d56-882e-6698afdb7003" rel="noopener">https://support.microsoft.com/en-us/topic/what-is-smart-app-control-285ea03d-fa88-4d56-882e-6698afdb7003&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Xbox Controller Not Connecting to PC? The Fix Ladder (2026)</title><link>https://techfuelhq.com/gaming/xbox-controller-not-connecting-to-pc-fix-2026/</link><pubDate>Sun, 28 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/gaming/xbox-controller-not-connecting-to-pc-fix-2026/</guid><description>&lt;div class="verdict-card" style="border:1px solid #c8ff00;border-left:4px solid #c8ff00;border-radius:6px;padding:1.25rem 1.5rem;margin:1.5rem 0 2rem 0;background:rgba(200,255,0,0.04);">
+&lt;p style="margin:0 0 0.5rem 0;font-weight:700;color:#c8ff00;letter-spacing:0.04em;text-transform:uppercase;font-size:0.85rem;">TL;DR · Fix an Xbox controller on PC&lt;/p>
+&lt;ul style="margin:0.25rem 0 0 0;padding-left:1.25rem;line-height:1.55;">
+&lt;li>&lt;strong>Start wired.&lt;/strong> Plug in a known-good &lt;strong>USB-C cable&lt;/strong>. If it works wired, the controller and the game are fine and the problem is your wireless path.&lt;/li>
+&lt;li>&lt;strong>Check if your controller even has Bluetooth.&lt;/strong> Only newer models do -- the giveaway is whether the plastic around the Xbox button is part of the &lt;strong>faceplate&lt;/strong> (has Bluetooth) or the &lt;strong>top by the bumpers&lt;/strong> (no Bluetooth).&lt;/li>
+&lt;li>&lt;strong>One Bluetooth controller at a time.&lt;/strong> Windows only allows a single Bluetooth game controller. For more, use USB or the &lt;strong>Xbox Wireless Adapter for Windows&lt;/strong>.&lt;/li>
+&lt;li>&lt;strong>Update firmware&lt;/strong> in the Xbox Accessories app (over USB or the adapter -- it will not see a Bluetooth-connected pad), then &lt;strong>reinstall the driver&lt;/strong> in Device Manager.&lt;/li>
+&lt;li>&lt;strong>Then the basics:&lt;/strong> fresh batteries, move off other 2.4 GHz gear, get closer to the PC.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;p>An Xbox controller is the default gamepad for Windows &amp;ndash; Steam, the Xbox app, and almost every controller-friendly game expect it &amp;ndash; so when it will not connect, it stops play cold. The frustrating part is that &amp;ldquo;not connecting&amp;rdquo; covers several very different problems: a controller that has no Bluetooth radio at all, a Windows limit you have never heard of, dead batteries, stale firmware, or a driver that needs rebuilding. This guide ranks the fixes by what actually clears the most cases, and it is honest about the one thing most guides skip: a lot of Xbox controllers simply cannot do Bluetooth, and Windows only lets you run one Bluetooth pad at a time anyway.&lt;/p>
+&lt;p>The rule before you start is the same one I use for every connection problem: &lt;strong>confirm what works before you change what does not.&lt;/strong> A USB cable rules out half the possible causes in thirty seconds, so that is rung one. (If Windows does not recognize the controller over USB at all &amp;ndash; or throws a generic &amp;ldquo;USB device not recognized&amp;rdquo; &amp;ndash; that is a separate host-side problem; work the &lt;a href="https://techfuelhq.com/articles/usb-device-not-recognized-2026/">USB device not recognized fixes&lt;/a> first.)&lt;/p>
+&lt;h2 id="the-three-connection-paths-side-by-side">The three connection paths, side by side&lt;/h2>
+&lt;p>Most &amp;ldquo;won&amp;rsquo;t connect&amp;rdquo; problems are really &amp;ldquo;this path cannot do what I am asking.&amp;rdquo; Verified against Xbox Support&amp;rsquo;s connection documentation, July 25, 2026:&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Connection&lt;/th>
+&lt;th scope="col">Works with&lt;/th>
+&lt;th scope="col">Controllers at once&lt;/th>
+&lt;th scope="col">Needs extra hardware&lt;/th>
+&lt;th scope="col">Firmware updates?&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>USB-C cable&lt;/td>
+&lt;td>Every Xbox controller&lt;/td>
+&lt;td>One per port&lt;/td>
+&lt;td>No — any data-capable USB-C cable&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Bluetooth&lt;/td>
+&lt;td>Only controllers with the faceplate-style Xbox button&lt;/td>
+&lt;td>&lt;strong>One&lt;/strong> (a Windows limit)&lt;/td>
+&lt;td>No&lt;/td>
+&lt;td>No — the Xbox Accessories app cannot see a Bluetooth-connected pad&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Xbox Wireless Adapter&lt;/td>
+&lt;td>Every Xbox controller, including pre-Bluetooth models&lt;/td>
+&lt;td>Up to &lt;strong>eight&lt;/strong>&lt;/td>
+&lt;td>Yes — the adapter dongle&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Read the Bluetooth row twice. The one-controller ceiling is a Windows limitation rather than a fault in your hardware, and it is the single most common reason a second pad &amp;ldquo;connects&amp;rdquo; but never works in a game.&lt;/p>
+&lt;h2 id="how-an-xbox-controller-talks-to-a-pc">How an Xbox controller talks to a PC&lt;/h2>
+&lt;p>There are exactly three supported ways to connect an Xbox controller to a Windows device: a &lt;strong>USB cable&lt;/strong>, the &lt;strong>Xbox Wireless Adapter for Windows&lt;/strong>, or &lt;strong>Bluetooth&lt;/strong> on controllers that support it. (&lt;a href="https://support.xbox.com/en-US/help/hardware-network/controller/connect-xbox-wireless-controller-to-pc" rel="noopener">Xbox Support &amp;ndash; connect to PC&lt;/a>) Each path has different requirements, and most &amp;ldquo;won&amp;rsquo;t connect&amp;rdquo; problems are really &amp;ldquo;I picked a path my controller or my PC can&amp;rsquo;t do.&amp;rdquo; Knowing which of the three you are on tells you which fixes even apply.&lt;/p>
+&lt;h2 id="the-fixes-ranked-by-what-actually-works">The fixes, ranked by what actually works&lt;/h2>
+&lt;h3 id="1-connect-with-a-usb-c-cable-first-rules-out-everything-wireless">1. Connect with a USB-C cable first (rules out everything wireless)&lt;/h3>
+&lt;p>A wired connection skips radio entirely, so it is both the fastest fix and the best diagnostic. Plug a &lt;strong>known-good USB-C cable&lt;/strong> (data-capable, not a charge-only cable) into the back of the controller and into your PC. (&lt;a href="https://support.xbox.com/en-US/help/hardware-network/controller/connect-xbox-wireless-controller-to-pc" rel="noopener">Xbox Support&lt;/a>) Windows installs the controller driver automatically and it should work in seconds.&lt;/p>
+&lt;p>What this tells you: if the controller works &lt;strong>wired&lt;/strong>, the controller, the cable port, the game, and Windows are all fine &amp;ndash; your problem is specifically the wireless path, and you can jump to the wireless rungs below. If it does &lt;strong>not&lt;/strong> work even wired, suspect the cable first (swap it), then the USB port, then move on to the driver reinstall in rung 5.&lt;/p>
+&lt;h3 id="2-bluetooth-know-your-model-and-the-one-controller-limit">2. Bluetooth: know your model and the one-controller limit&lt;/h3>
+&lt;p>Bluetooth is where most people get stuck, for two reasons almost no guide states plainly.&lt;/p>
+&lt;p>&lt;strong>First: only newer Xbox controllers have Bluetooth.&lt;/strong> You can identify yours by looking at the plastic around the &lt;strong>Xbox (guide) button&lt;/strong>. On Bluetooth-capable controllers, that plastic is part of the &lt;strong>faceplate&lt;/strong> of the controller. On older controllers without Bluetooth, the plastic around the Xbox button is part of the &lt;strong>top of the controller, where the bumpers are.&lt;/strong> (&lt;a href="https://support.xbox.com/en-US/help/hardware-network/accessories/connect-and-troubleshoot-xbox-one-bluetooth-issues" rel="noopener">Xbox Support &amp;ndash; set up Bluetooth&lt;/a>) If yours is the older style, no amount of pairing will work &amp;ndash; skip to rung 3 (the wireless adapter) or stay wired.&lt;/p>
+&lt;p>&lt;strong>Second: Windows only allows one Bluetooth game controller at a time.&lt;/strong> (&lt;a href="https://learn.microsoft.com/en-us/answers/questions/4301395/windows-multi-controller-support-bluetooth" rel="noopener">Microsoft Q&amp;amp;A&lt;/a>) If you already have one Bluetooth pad bound and try to add a second, it appears to pair but never registers in-game. This is a Windows limitation, not a broken controller. For more than one wireless controller, you need USB cables or the Xbox Wireless Adapter.&lt;/p>
+&lt;p>If your controller does have Bluetooth and you are within the limit, pair it like any Bluetooth device:&lt;/p>
+&lt;ol>
+&lt;li>Hold the &lt;strong>Xbox button&lt;/strong> to turn the controller on, then press and hold the small &lt;strong>Pair button&lt;/strong> on the top until the Xbox button flashes quickly.&lt;/li>
+&lt;li>On the PC, open &lt;strong>Settings &amp;gt; Bluetooth &amp;amp; devices &amp;gt; Add device &amp;gt; Bluetooth&lt;/strong>.&lt;/li>
+&lt;li>Select &lt;strong>Xbox Wireless Controller&lt;/strong> from the list and let it connect. (&lt;a href="https://support.xbox.com/en-US/help/hardware-network/controller/connect-xbox-wireless-controller-to-pc" rel="noopener">Xbox Support&lt;/a>)&lt;/li>
+&lt;/ol>
+&lt;p>If the controller is also paired to an Xbox console, it can fight over which device it joins &amp;ndash; turn the console off, or unpair the controller there, while you set up the PC.&lt;/p>
+&lt;h3 id="3-use-the-xbox-wireless-adapter-for-older-controllers-or-multiple-pads">3. Use the Xbox Wireless Adapter for older controllers (or multiple pads)&lt;/h3>
+&lt;p>If your controller has no Bluetooth, or you want several controllers connected wirelessly, the &lt;strong>Xbox Wireless Adapter for Windows&lt;/strong> is the answer. It is a small USB dongle that uses Xbox&amp;rsquo;s own wireless protocol instead of Bluetooth, works on Windows 10 and 11, and supports up to &lt;strong>eight&lt;/strong> controllers at once. (&lt;a href="https://support.xbox.com/en-US/help/hardware-network/accessories/xbox-wireless-adapter-for-windows-setup" rel="noopener">Xbox Support &amp;ndash; adapter setup&lt;/a>)&lt;/p>
+&lt;ol>
+&lt;li>Plug the adapter into a USB port (front-panel or a short extension can help line-of-sight).&lt;/li>
+&lt;li>Press the &lt;strong>button on the adapter&lt;/strong> until its light flashes.&lt;/li>
+&lt;li>Turn the controller on, hold its &lt;strong>Pair button&lt;/strong> until the Xbox button flashes, and the two will bind. (&lt;a href="https://support.xbox.com/en-US/help/hardware-network/accessories/xbox-wireless-adapter-for-windows-setup" rel="noopener">Xbox Support&lt;/a>)&lt;/li>
+&lt;/ol>
+&lt;p>This path sidesteps the Bluetooth single-controller limit entirely, which is why it is the right call for couch co-op.&lt;/p>
+&lt;h3 id="4-update-the-controller-firmware-fixes-flaky-wireless">4. Update the controller firmware (fixes flaky wireless)&lt;/h3>
+&lt;p>Stale controller firmware is a genuine cause of dropped and refused wireless connections. Update it in the &lt;strong>Xbox Accessories app&lt;/strong> (free in the Microsoft Store): open the app, connect the controller with a &lt;strong>USB-C cable or the Xbox Wireless Adapter&lt;/strong>, and apply any update it offers. (&lt;a href="https://support.xbox.com/en-US/help/hardware-network/controller/update-xbox-wireless-controller" rel="noopener">Xbox Support &amp;ndash; update controller&lt;/a>)&lt;/p>
+&lt;p>One honest catch that trips people up: &lt;strong>the Xbox Accessories app will not detect a controller connected over Bluetooth.&lt;/strong> (&lt;a href="https://support.xbox.com/en-US/help/hardware-network/controller/update-xbox-wireless-controller" rel="noopener">Xbox Support&lt;/a>) So even though your goal is to fix Bluetooth, you have to connect by cable to do the update. Plug in, update, unplug, then try pairing again.&lt;/p>
+&lt;h3 id="5-reinstall-the-controller-driver-in-device-manager">5. Reinstall the controller driver in Device Manager&lt;/h3>
+&lt;p>If Windows recognizes the controller but it behaves badly &amp;ndash; shows up with an error, or refuses to register inputs &amp;ndash; rebuilding its driver often clears it. Microsoft&amp;rsquo;s own guidance is to &lt;strong>unplug the device first&lt;/strong>, because Windows will rediscover it and reinstall the driver automatically. (&lt;a href="https://learn.microsoft.com/en-us/windows-hardware/drivers/install/using-device-manager-to-uninstall-devices-and-driver-packages" rel="noopener">Microsoft Learn &amp;ndash; uninstall via Device Manager&lt;/a>)&lt;/p>
+&lt;ol>
+&lt;li>Open &lt;strong>Device Manager&lt;/strong> (search for it from the Start menu).&lt;/li>
+&lt;li>Expand the node for the controller (look under &lt;strong>Xbox Peripherals&lt;/strong>, &lt;strong>Human Interface Devices&lt;/strong>, or &lt;strong>Bluetooth&lt;/strong>), right-click it, and choose &lt;strong>Uninstall device&lt;/strong>.&lt;/li>
+&lt;li>If offered, you can tick &lt;strong>Delete the driver software for this device&lt;/strong> to remove the package too. (&lt;a href="https://learn.microsoft.com/en-us/windows-hardware/drivers/install/using-device-manager-to-uninstall-devices-and-driver-packages" rel="noopener">Microsoft Learn&lt;/a>)&lt;/li>
+&lt;li>Unplug and replug the controller (or reboot). Windows reinstalls a clean driver. (&lt;a href="https://learn.microsoft.com/en-us/windows-hardware/drivers/install/using-device-manager-to-uninstall-devices-and-driver-packages" rel="noopener">Microsoft Learn&lt;/a>)&lt;/li>
+&lt;/ol>
+&lt;h3 id="6-battery-and-interference-basics-do-not-skip-these">6. Battery and interference basics (do not skip these)&lt;/h3>
+&lt;p>These are last on the list only because the rungs above fix more cases &amp;ndash; but a dead battery or a noisy 2.4 GHz environment will defeat every other step.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Fresh power.&lt;/strong> Replace the AA batteries or fully charge the rechargeable pack. A controller low on power often pairs and then drops.&lt;/li>
+&lt;li>&lt;strong>Reduce 2.4 GHz interference.&lt;/strong> Bluetooth and the Xbox wireless adapter share the crowded 2.4 GHz band with Wi-Fi, USB 3.0 devices, and wireless mice. If your &lt;a href="https://techfuelhq.com/articles/wifi-keeps-disconnecting-2026/">Wi-Fi keeps dropping&lt;/a> at the same times, that band is congested network-wide and worth fixing at the router &amp;ndash; moving other devices to 5 GHz frees up airtime for the controller too. Move the controller and adapter away from those, and get closer to the PC.&lt;/li>
+&lt;li>&lt;strong>Mind the range and line of sight.&lt;/strong> A metal case or a desk between you and the PC weakens the signal. A short USB extension that brings the adapter (or a Bluetooth dongle) onto the desk often fixes &amp;ldquo;connects then disconnects.&amp;rdquo;&lt;/li>
+&lt;/ul>
+&lt;div class="visual-block">
+&lt;div style="background:#0a0a23;padding:28px 16px 22px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#e8e8f0;">
+&lt;div style="text-align:center;margin-bottom:14px;">
+&lt;div style="font-size:18px;font-weight:600;letter-spacing:-0.3px;">Work the fixes in order -- stop at yours&lt;/div>
+&lt;div style="font-size:12px;color:#9a9ab5;margin-top:4px;">Wired first (it diagnoses everything); the basics are last because the rungs above fix more cases&lt;/div>
+&lt;/div>
+&lt;svg viewBox="0 0 760 346" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;" role="img" aria-label="Ordered checklist of fixes for an Xbox controller not connecting to a PC, from fastest and most diagnostic to last: 1 connect with a USB-C cable first to rule out wireless, 2 Bluetooth -- check your model has Bluetooth and remember Windows allows only one Bluetooth controller at a time, 3 use the Xbox Wireless Adapter for older controllers or multiple pads, 4 update controller firmware in the Xbox Accessories app over USB, 5 reinstall the controller driver in Device Manager, 6 battery and 2.4 gigahertz interference basics.">
+&lt;line x1="42" y1="40" x2="42" y2="290" stroke="rgba(255,255,255,0.12)" stroke-width="2">&lt;/line>
+&lt;g>
+&lt;circle cx="42" cy="48" r="13" fill="#5dca7a">&lt;/circle>&lt;text x="42" y="53" font-size="13" font-weight="700" fill="#0a0a23" text-anchor="middle">1&lt;/text>
+&lt;text x="68" y="44" font-size="14" font-weight="600" fill="#e8e8f0">Connect with a USB-C cable first&lt;/text>
+&lt;text x="68" y="62" font-size="12" fill="#9090a8">Wired works = problem is your wireless path. Use a data cable, not charge-only&lt;/text>
+&lt;/g>
+&lt;g>
+&lt;circle cx="42" cy="98" r="13" fill="#5dca7a">&lt;/circle>&lt;text x="42" y="103" font-size="13" font-weight="700" fill="#0a0a23" text-anchor="middle">2&lt;/text>
+&lt;text x="68" y="94" font-size="14" font-weight="600" fill="#e8e8f0">Bluetooth: check model + the 1-controller limit&lt;/text>
+&lt;text x="68" y="112" font-size="12" fill="#9090a8">Plastic on the faceplate = has Bluetooth. Windows allows one BT pad at a time&lt;/text>
+&lt;/g>
+&lt;g>
+&lt;circle cx="42" cy="148" r="13" fill="#5090e0">&lt;/circle>&lt;text x="42" y="153" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">3&lt;/text>
+&lt;text x="68" y="144" font-size="14" font-weight="600" fill="#e8e8f0">Xbox Wireless Adapter for older / multiple pads&lt;/text>
+&lt;text x="68" y="162" font-size="12" fill="#9090a8">Not Bluetooth -- its own protocol, up to 8 controllers, Win 10/11&lt;/text>
+&lt;/g>
+&lt;g>
+&lt;circle cx="42" cy="198" r="13" fill="#5090e0">&lt;/circle>&lt;text x="42" y="203" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">4&lt;/text>
+&lt;text x="68" y="194" font-size="14" font-weight="600" fill="#e8e8f0">Update firmware in the Xbox Accessories app&lt;/text>
+&lt;text x="68" y="212" font-size="12" fill="#9090a8">Over USB or the adapter -- the app can't see a Bluetooth-connected pad&lt;/text>
+&lt;/g>
+&lt;g>
+&lt;circle cx="42" cy="248" r="13" fill="#5090e0">&lt;/circle>&lt;text x="42" y="253" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">5&lt;/text>
+&lt;text x="68" y="244" font-size="14" font-weight="600" fill="#e8e8f0">Reinstall the driver in Device Manager&lt;/text>
+&lt;text x="68" y="262" font-size="12" fill="#9090a8">Unplug first; Windows rediscovers and reinstalls a clean driver&lt;/text>
+&lt;/g>
+&lt;g>
+&lt;circle cx="42" cy="298" r="13" fill="#c8a03c">&lt;/circle>&lt;text x="42" y="303" font-size="13" font-weight="700" fill="#0a0a23" text-anchor="middle">6&lt;/text>
+&lt;text x="68" y="294" font-size="14" font-weight="600" fill="#e8e8f0">Battery + 2.4 GHz interference basics&lt;/text>
+&lt;text x="68" y="312" font-size="12" fill="#9090a8">Fresh power, move off Wi-Fi/USB 3.0 gear, get closer to the PC&lt;/text>
+&lt;/g>
+&lt;/svg>
+&lt;/div>
+&lt;/div>
+&lt;h2 id="what-not-to-do">What not to do&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Do not assume your controller has Bluetooth.&lt;/strong> Plenty of perfectly good Xbox One pads never had it. Check the plastic around the Xbox button before you spend an hour fighting a pairing that was never possible. (&lt;a href="https://support.xbox.com/en-US/help/hardware-network/accessories/connect-and-troubleshoot-xbox-one-bluetooth-issues" rel="noopener">Xbox Support&lt;/a>)&lt;/li>
+&lt;li>&lt;strong>Do not try to run two Bluetooth controllers.&lt;/strong> Windows allows one. (&lt;a href="https://learn.microsoft.com/en-us/answers/questions/4301395/windows-multi-controller-support-bluetooth" rel="noopener">Microsoft Q&amp;amp;A&lt;/a>) The second one will look connected and do nothing in-game &amp;ndash; use USB or the wireless adapter for the others.&lt;/li>
+&lt;li>&lt;strong>Do not download a third-party &amp;ldquo;controller driver&amp;rdquo; or &amp;ldquo;fixer.&amp;rdquo;&lt;/strong> The driver Windows installs on its own is the correct one, and a downloaded driver utility is exactly the kind of unsigned software that causes more problems than it solves. Reinstall the in-box driver through Device Manager instead.&lt;/li>
+&lt;li>&lt;strong>Do not skip the firmware update because pairing &amp;ldquo;should&amp;rdquo; work.&lt;/strong> Outdated firmware is a quiet cause of wireless drops, and the fix is two minutes over a cable. (&lt;a href="https://support.xbox.com/en-US/help/hardware-network/controller/update-xbox-wireless-controller" rel="noopener">Xbox Support&lt;/a>)&lt;/li>
+&lt;/ul>
+&lt;h2 id="where-this-fits">Where this fits&lt;/h2>
+&lt;p>A controller that will not connect is a peripheral problem, but the same habits carry over to the rest of PC gaming troubleshooting on this site: confirm what works, identify your exact cause, then apply the one fix that matches. If the peripheral acting up is a keyboard rather than a pad, the &lt;a href="https://techfuelhq.com/articles/keyboard-not-working-2026/">keyboard-not-working walkthrough&lt;/a> sorts the dead-vs-wrong-input symptoms the same way. If your issue is a game that will not launch rather than a controller that will not pair, the &lt;a href="https://techfuelhq.com/gaming/easy-anti-cheat-fix-guide-2026/">Easy Anti-Cheat fix guide&lt;/a> uses the same ranked approach for launcher and anti-cheat errors, and the rest of the &lt;a href="https://techfuelhq.com/gaming/">gaming section&lt;/a> covers driver crashes, DX12 stutter, and game-specific fixes. If you are putting a new rig together, every machine in our &lt;a href="https://techfuelhq.com/pc-builds/2500-dollar-7800x3d-rtx-5080-4k-build-2026/">build guides&lt;/a> has the USB-C ports and Bluetooth that make all three connection paths available out of the box.&lt;/p>
+&lt;h2 id="the-bottom-line">The bottom line&lt;/h2>
+&lt;p>&amp;ldquo;Xbox controller not connecting to PC&amp;rdquo; almost always comes down to picking the wrong connection path for your specific controller. Go wired first to prove the controller works, then sort the wireless side: confirm your model actually has Bluetooth, respect the one-Bluetooth-controller limit, and reach for the Xbox Wireless Adapter when Bluetooth is not an option. Update the firmware, rebuild the driver if Windows is confused, and rule out dead batteries and 2.4 GHz noise. Work the list in order and you will have the pad in your hands in a few minutes instead of an evening.&lt;/p>
+&lt;h2 id="sources">Sources&lt;/h2>
+&lt;ul>
+&lt;li>Xbox Support &amp;ndash; How do I connect my Xbox controller to PC? (USB, adapter, Bluetooth): &lt;a href="https://support.xbox.com/en-US/help/hardware-network/controller/connect-xbox-wireless-controller-to-pc" rel="noopener">https://support.xbox.com/en-US/help/hardware-network/controller/connect-xbox-wireless-controller-to-pc&lt;/a>&lt;/li>
+&lt;li>Xbox Support &amp;ndash; Set up Bluetooth on your Xbox Wireless Controller (model identification): &lt;a href="https://support.xbox.com/en-US/help/hardware-network/accessories/connect-and-troubleshoot-xbox-one-bluetooth-issues" rel="noopener">https://support.xbox.com/en-US/help/hardware-network/accessories/connect-and-troubleshoot-xbox-one-bluetooth-issues&lt;/a>&lt;/li>
+&lt;li>Microsoft Q&amp;amp;A &amp;ndash; Windows multi-controller Bluetooth support (one controller at a time): &lt;a href="https://learn.microsoft.com/en-us/answers/questions/4301395/windows-multi-controller-support-bluetooth" rel="noopener">https://learn.microsoft.com/en-us/answers/questions/4301395/windows-multi-controller-support-bluetooth&lt;/a>&lt;/li>
+&lt;li>Xbox Support &amp;ndash; Set up the Xbox Wireless Adapter for Windows (up to 8 controllers): &lt;a href="https://support.xbox.com/en-US/help/hardware-network/accessories/xbox-wireless-adapter-for-windows-setup" rel="noopener">https://support.xbox.com/en-US/help/hardware-network/accessories/xbox-wireless-adapter-for-windows-setup&lt;/a>&lt;/li>
+&lt;li>Xbox Support &amp;ndash; Update your Xbox Wireless Controller (Xbox Accessories app, no Bluetooth detection): &lt;a href="https://support.xbox.com/en-US/help/hardware-network/controller/update-xbox-wireless-controller" rel="noopener">https://support.xbox.com/en-US/help/hardware-network/controller/update-xbox-wireless-controller&lt;/a>&lt;/li>
+&lt;li>Microsoft Learn &amp;ndash; Using Device Manager to uninstall devices and driver packages: &lt;a href="https://learn.microsoft.com/en-us/windows-hardware/drivers/install/using-device-manager-to-uninstall-devices-and-driver-packages" rel="noopener">https://learn.microsoft.com/en-us/windows-hardware/drivers/install/using-device-manager-to-uninstall-devices-and-driver-packages&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>How to Overclock Your Monitor (More Hz Safely, 2026)</title><link>https://techfuelhq.com/gaming/how-to-overclock-monitor-2026/</link><pubDate>Sat, 27 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/gaming/how-to-overclock-monitor-2026/</guid><description>&lt;div class="verdict-card" style="border:1px solid #c8ff00;border-left:4px solid #c8ff00;border-radius:6px;padding:1.25rem 1.5rem;margin:1.5rem 0 2rem 0;background:rgba(200,255,0,0.04);">
+&lt;p style="margin:0 0 0.5rem 0;font-weight:700;color:#c8ff00;letter-spacing:0.04em;text-transform:uppercase;font-size:0.85rem;">TL;DR · Overclock your monitor safely&lt;/p>
+&lt;ul style="margin:0.25rem 0 0 0;padding-left:1.25rem;line-height:1.55;">
+&lt;li>&lt;strong>Pick one tool:&lt;/strong> NVIDIA Control Panel (Create Custom Resolution), AMD Adrenalin (Custom Resolution), or &lt;strong>CRU&lt;/strong> for any GPU including Intel.&lt;/li>
+&lt;li>&lt;strong>Go up in small steps&lt;/strong> -- a 60Hz panel often reaches 70-75Hz, but it is panel-dependent and &lt;em>no one can promise a number&lt;/em>.&lt;/li>
+&lt;li>&lt;strong>The mandatory step:&lt;/strong> run the &lt;strong>TestUFO frame-skipping test&lt;/strong>. A monitor will happily report a higher Hz while silently dropping frames -- which is worse than stock.&lt;/li>
+&lt;li>&lt;strong>You cannot beat physics:&lt;/strong> your panel &lt;em>and&lt;/em> your cable/port bandwidth set a hard ceiling. DisplayPort 1.4 carries ~25.92 Gbps; HDMI 2.0 ~18 Gbps.&lt;/li>
+&lt;li>&lt;strong>It is reversible.&lt;/strong> The worst common failure is a black screen, fixed by reverting the setting or booting into safe mode.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;p>Overclocking a monitor means asking it to refresh faster than its rated number &amp;ndash; pushing a 60Hz panel to 75Hz, or a 144Hz panel to 165Hz. It works because manufacturers rate panels conservatively, so there is often a little unlabeled headroom on top. The catch is that &amp;ldquo;often&amp;rdquo; is not &amp;ldquo;always,&amp;rdquo; and a monitor that &lt;em>accepts&lt;/em> a higher rate is not the same as a monitor that &lt;em>delivers&lt;/em> it. This guide gives you the three ways to do it and the one test that separates a real overclock from a fake one.&lt;/p>
+&lt;h2 id="first-the-ceiling-you-cannot-move">First, the ceiling you cannot move&lt;/h2>
+&lt;p>Before you change anything, understand what you are working against, because it explains every failure you will hit. Your maximum refresh rate is capped by the &lt;strong>lower&lt;/strong> of two limits.&lt;/p>
+&lt;p>The first is the &lt;strong>panel itself&lt;/strong> &amp;ndash; the physical electronics that drive the pixels. This is the limit you are probing when you overclock, and it varies unit to unit.&lt;/p>
+&lt;p>The second is &lt;strong>bandwidth&lt;/strong>: how much data your cable and port can carry. A refresh rate is just frames per second, and every frame is a fixed pile of data (pixels x color depth). Push more frames per second through the same pipe and you need more bandwidth. The pipe has a published ceiling:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>DisplayPort 1.4 (HBR3)&lt;/strong> runs at 32.4 Gbps of raw link rate, which delivers about &lt;strong>25.92 Gbps&lt;/strong> of usable video data after encoding overhead, per the &lt;a href="https://en.wikipedia.org/wiki/DisplayPort" rel="noopener">DisplayPort specification&lt;/a>.&lt;/li>
+&lt;li>&lt;strong>DisplayPort 2.1&lt;/strong> raises that sharply with its UHBR modes &amp;ndash; UHBR 10 at 40 Gbps, UHBR 13.5 at 54 Gbps, and UHBR 20 at 80 Gbps of raw link rate, again &lt;a href="https://en.wikipedia.org/wiki/DisplayPort" rel="noopener">per the spec&lt;/a>.&lt;/li>
+&lt;li>&lt;strong>HDMI 2.0&lt;/strong> carries up to &lt;strong>18 Gbps&lt;/strong>, and &lt;strong>HDMI 2.1&lt;/strong> raises the ceiling to &lt;strong>48 Gbps&lt;/strong>, a spec set by the &lt;a href="https://hdmiforum.org/hdmi-forum-releases-version-2-0-hdmi-specification/" rel="noopener">HDMI Forum&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;p>Why this matters in practice: if you hit a flat wall where the monitor simply rejects anything above a certain rate no matter how gently you climb, you are probably bandwidth-limited, not panel-limited. NVIDIA&amp;rsquo;s own documentation notes the refresh rate is bounded by the display&amp;rsquo;s scan capability at the &lt;a href="https://www.nvidia.com/content/Control-Panel-Help/vLatest/en-us/mergedProjects/nvdsp/Custom_Timings_Dialog_Box.htm" rel="noopener">current resolution&lt;/a>. No software trick beats a hardware pipe. The fix is a better cable or a higher-spec port &amp;ndash; not a registry edit.&lt;/p>
+&lt;h2 id="path-1-nvidia-control-panel">Path 1: NVIDIA Control Panel&lt;/h2>
+&lt;p>If you have a GeForce card, the built-in tool is the easiest starting point and it has its own validation step built in.&lt;/p>
+&lt;ol>
+&lt;li>Right-click the desktop and open the &lt;strong>NVIDIA Control Panel&lt;/strong>.&lt;/li>
+&lt;li>Under &lt;strong>Display&lt;/strong>, click &lt;strong>Change resolution&lt;/strong>.&lt;/li>
+&lt;li>Click the &lt;strong>Customize&lt;/strong> button, then check &lt;strong>Enable resolutions not exposed by the display&lt;/strong>, then click &lt;strong>Create Custom Resolution&lt;/strong>.&lt;/li>
+&lt;li>Leave the resolution at your native value and raise only the &lt;strong>Refresh rate (Hz)&lt;/strong> field by a small amount &amp;ndash; say from 60 to 65.&lt;/li>
+&lt;li>Click &lt;strong>Test&lt;/strong>. NVIDIA documents that the panel will &lt;a href="https://nvidia.custhelp.com/app/answers/detail/a_id/759/~/custom-resolutions" rel="noopener">test the new mode&lt;/a> and, if the display accepts it, ask you to confirm before saving.&lt;/li>
+&lt;/ol>
+&lt;p>If the screen goes black, do nothing &amp;ndash; the test reverts automatically after a few seconds. If it holds and looks clean, confirm to save, then climb again in small steps until a rate fails. Then drop back to the last good one. Do not trust it yet; you still have to run the frame-skip test below.&lt;/p>
+&lt;h2 id="path-2-amd-software-adrenalin-edition">Path 2: AMD Software (Adrenalin Edition)&lt;/h2>
+&lt;p>The Radeon equivalent lives inside AMD&amp;rsquo;s driver suite and follows the same logic.&lt;/p>
+&lt;ol>
+&lt;li>Open &lt;strong>AMD Software: Adrenalin Edition&lt;/strong> and type &lt;strong>Custom&lt;/strong> into the search box, then open the &lt;strong>Custom Resolution&lt;/strong> result.&lt;/li>
+&lt;li>Click &lt;strong>Create New&lt;/strong>. The profile opens pre-filled with your current settings.&lt;/li>
+&lt;li>Raise the refresh-rate field by a small increment, leaving resolution and color depth alone, then click &lt;strong>Create&lt;/strong>.&lt;/li>
+&lt;li>AMD checks the new mode for compatibility, and the &lt;a href="https://www.amd.com/en/resources/support-articles/faqs/DH3-032.html" rel="noopener">support article&lt;/a> notes the screen may go momentarily blank during this step &amp;ndash; that is normal.&lt;/li>
+&lt;/ol>
+&lt;p>As with NVIDIA, if the display refuses the mode you will see a blank screen that recovers on its own. Keep the highest rate that applies cleanly, then go verify it.&lt;/p>
+&lt;h2 id="path-3-cru-custom-resolution-utility--any-gpu">Path 3: CRU (Custom Resolution Utility) &amp;ndash; any GPU&lt;/h2>
+&lt;p>&lt;a href="https://www.monitortests.com/forum/Thread-Custom-Resolution-Utility-CRU" rel="noopener">Custom Resolution Utility&lt;/a>, written by ToastyX, is the tool to reach for when the vendor utility refuses a mode, when you want finer control over timing parameters, or when you are on Intel graphics. It is more capable because it works at a lower level: rather than asking the driver for a custom mode, CRU writes a &lt;strong>software EDID override&lt;/strong> into the registry &amp;ndash; effectively rewriting the table of resolutions your monitor advertises to Windows. It changes no hardware.&lt;/p>
+&lt;p>That power is also why CRU demands more respect. Because it overrides what the system believes the monitor can do, a bad entry can leave you with no usable picture until you undo it. So do two things &lt;strong>before&lt;/strong> you start, both straight from the tool&amp;rsquo;s own &lt;a href="https://www.monitortests.com/forum/Thread-Custom-Resolution-Utility-CRU" rel="noopener">documentation&lt;/a>:&lt;/p>
+&lt;ul>
+&lt;li>Know how to boot into &lt;strong>safe mode&lt;/strong> (via a Windows recovery drive, or by holding the power button during boot to reach &lt;strong>Troubleshoot &amp;gt; Advanced options &amp;gt; Startup Settings&lt;/strong>).&lt;/li>
+&lt;li>Know that &lt;strong>reset-all.exe&lt;/strong> (shipped with CRU) wipes every override and restores defaults, and it can be run from safe mode if the screen is unusable.&lt;/li>
+&lt;/ul>
+&lt;p>The workflow itself:&lt;/p>
+&lt;ol>
+&lt;li>Run &lt;strong>CRU.exe&lt;/strong> (accept the UAC prompt &amp;ndash; it needs registry access).&lt;/li>
+&lt;li>Pick your display from the dropdown.&lt;/li>
+&lt;li>Under &lt;strong>Detailed resolutions&lt;/strong>, click &lt;strong>Add&lt;/strong>, set your native resolution, and enter the higher refresh rate.&lt;/li>
+&lt;li>Click &lt;strong>OK&lt;/strong>, then run the included &lt;strong>restart.exe&lt;/strong> to restart the graphics driver and apply the change. CRU requires this restart step to take effect.&lt;/li>
+&lt;/ol>
+&lt;p>If the screen comes back at the new rate, good. If it does not, restart.exe usually recovers on its own after a few seconds; if not, safe mode plus reset-all.exe is your reset button.&lt;/p>
+&lt;h2 id="the-mandatory-step-everyone-skips-testufo-frame-skip-check">The mandatory step everyone skips: TestUFO frame-skip check&lt;/h2>
+&lt;p>Here is the trap that makes most &amp;ldquo;I overclocked to 75Hz&amp;rdquo; claims meaningless. A monitor will frequently &lt;strong>accept&lt;/strong> a higher refresh rate, report it proudly in Windows display settings, and then quietly &lt;strong>skip frames&lt;/strong> &amp;ndash; displaying, say, only 60 unique frames inside a 75Hz cycle. You get the higher number with none of the smoothness, and in some cases worse pacing than stock. The reported Hz is a promise the panel did not keep.&lt;/p>
+&lt;p>The only way to catch this is to look at actual frames, and the standard tool is the free &lt;a href="https://testufo.com/frameskipping" rel="noopener">TestUFO Frame Skipping Checker&lt;/a> from Blur Busters. It scrolls a row of numbered squares across the screen at your refresh rate. You photograph that motion with a phone camera set to a &lt;strong>long exposure&lt;/strong> &amp;ndash; around 1/10 second or longer &amp;ndash; and inspect the result:&lt;/p>
+&lt;ul>
+&lt;li>A &lt;strong>clean run&lt;/strong> shows an unbroken sequence of squares with no gaps. Per the Blur Busters method, a ~200ms exposure on a 144Hz display should capture roughly 28 successive squares.&lt;/li>
+&lt;li>&lt;strong>Gaps in the sequence mean frame skipping.&lt;/strong> Any gap, even one, means the overclock is fake at that rate.&lt;/li>
+&lt;/ul>
+&lt;p>Close other apps and browser tabs before testing, and dim screen brightness so the camera can use a longer exposure. If your overclock skips, step the rate back down and retest until you find the highest rate that captures &lt;strong>zero&lt;/strong> gaps. &lt;em>That&lt;/em> rate &amp;ndash; not the highest one the monitor accepted &amp;ndash; is your real overclock.&lt;/p>
+&lt;p>This is the entire point of the exercise. An overclock that drops frames is worse than useless; a verified, gap-free overclock is free smoothness. The test is what tells them apart.&lt;/p>
+&lt;h2 id="realistic-expectations">Realistic expectations&lt;/h2>
+&lt;p>Numbers vary so much that anyone quoting you a guaranteed figure is guessing. A 60Hz panel commonly lands somewhere in the 70-75Hz range, and many go no higher; a handful reach further. Two of the same model can disagree because of normal manufacturing tolerances. So the honest framing is a method, not a number: climb in small steps, run the frame-skip test at each one, and keep the best rate that passes clean. Whatever you get is a bonus.&lt;/p>
+&lt;p>A few practical notes worth keeping in mind. Higher-refresh OLEDs and TVs-as-monitors behave differently from cheap LCD panels &amp;ndash; if you are running something like the &lt;a href="https://techfuelhq.com/articles/aorus-fo48u-review/">Aorus FO48U&lt;/a> or a desktop LCD covered in our &lt;a href="https://techfuelhq.com/articles/best-27-32-inch-monitor-homelab-2026/">27-to-32-inch monitor guide&lt;/a>, the same step-and-test method applies, but the bandwidth ceiling bites sooner at 4K because each frame is far larger. And remember that more frames only help if your PC can produce them &amp;ndash; a smooth overclock pairs naturally with the frame-rate fundamentals we cover in &lt;a href="https://techfuelhq.com/gaming/dx12-vs-dx11-fps-2026/">DX12 vs DX11&lt;/a>.&lt;/p>
+&lt;p>Overclock in small steps, verify with TestUFO every single time, and never trust the number the monitor reports over the frames your camera sees.&lt;/p></description></item><item><title>Resizable BAR / Smart Access Memory: On or Off? (2026)</title><link>https://techfuelhq.com/gaming/resizable-bar-on-or-off-2026/</link><pubDate>Fri, 26 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/gaming/resizable-bar-on-or-off-2026/</guid><description>&lt;div class="verdict-card" style="border:1px solid #c8ff00;border-left:4px solid #c8ff00;border-radius:6px;padding:1.25rem 1.5rem;margin:1.5rem 0 2rem 0;background:rgba(200,255,0,0.04);">
+&lt;p style="margin:0 0 0.5rem 0;font-weight:700;color:#c8ff00;letter-spacing:0.04em;text-transform:uppercase;font-size:0.85rem;">Verdict · Resizable BAR / SAM&lt;/p>
+&lt;ul style="margin:0.25rem 0 0 0;padding-left:1.25rem;line-height:1.55;">
+&lt;li>&lt;strong>Turn it ON&lt;/strong> on any modern build: GeForce RTX 30-series or newer, Radeon RX 6000-series or newer, on a UEFI install.&lt;/li>
+&lt;li>&lt;strong>What it does:&lt;/strong> lets the CPU map your GPU's &lt;strong>entire VRAM at once&lt;/strong> instead of through a small 256 MB window.&lt;/li>
+&lt;li>&lt;strong>Honest payoff:&lt;/strong> a few percent in some games, no change in most, a small number of older titles regress. NVIDIA and AMD both default it &lt;strong>on&lt;/strong>.&lt;/li>
+&lt;li>&lt;strong>How:&lt;/strong> in BIOS enable &lt;strong>Above 4G Decoding&lt;/strong> + &lt;strong>Re-Size BAR Support&lt;/strong>, with &lt;strong>CSM disabled&lt;/strong> (UEFI/GPT required). Update BIOS and driver first.&lt;/li>
+&lt;li>&lt;strong>One real risk:&lt;/strong> disabling CSM on an old Legacy/MBR Windows install can stop it booting. Confirm you are on UEFI/GPT before you touch it.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;p>Resizable BAR (ReBAR), which AMD markets as Smart Access Memory (SAM), is one of those BIOS toggles that gets talked about like a secret performance cheat. It is not. It is a small, legitimate, mostly-free improvement that you should enable on a modern system and then stop thinking about. This guide explains what it actually changes at the hardware level, gives you the honest performance picture from primary sources, and walks the exact BIOS steps to turn it on without breaking your boot.&lt;/p>
+&lt;h2 id="what-resizable-bar-actually-is">What Resizable BAR actually is&lt;/h2>
+&lt;p>A &amp;ldquo;BAR&amp;rdquo; is a Base Address Register, the PCI Express mechanism that maps a slice of a device&amp;rsquo;s memory into the CPU&amp;rsquo;s address space so the processor can read and write it. Historically, a graphics card only exposed a small portion of its memory this way. As Microsoft&amp;rsquo;s own driver documentation puts it, &amp;ldquo;discrete GPUs usually claim a 256 MB I/O region for their frame buffers&amp;rdquo; for &amp;ldquo;compatibility with 32-bit operating systems.&amp;rdquo; (&lt;a href="https://learn.microsoft.com/en-us/windows-hardware/drivers/display/resizable-bar-support" rel="noopener">Microsoft Learn&lt;/a>)&lt;/p>
+&lt;p>That 256 MB window is the whole story. Your card might have 12 or 16 GB of VRAM, but the CPU could only &amp;ldquo;see&amp;rdquo; a 256 MB slice of it at any instant. To touch a different region, the system had to keep re-pointing that little window around the framebuffer while the GPU worked. It is a holdover from the 32-bit era that survived long into 64-bit computing.&lt;/p>
+&lt;p>Resizable BAR removes the limit. It is a capability defined in the PCI Express specification by PCI-SIG, and on a card that supports it, Microsoft says &amp;ldquo;Windows renegotiates the size of a GPU&amp;rsquo;s BAR after firmware initialization,&amp;rdquo; after which &amp;ldquo;the GPU BAR is resized to its maximum size to expose the entire VRAM of the discrete GPU.&amp;rdquo; The driver then presents &amp;ldquo;a single CPUVisible memory segment&amp;rdquo; the CPU can address directly. (&lt;a href="https://learn.microsoft.com/en-us/windows-hardware/drivers/display/resizable-bar-support" rel="noopener">Microsoft Learn&lt;/a>)&lt;/p>
+&lt;p>In plain terms: the CPU can now reach all of the GPU&amp;rsquo;s memory in one continuous mapping instead of peeking through a 256 MB porthole. When a game streams large assets, that can mean fewer round trips and better-fed transfers, which is where the occasional frame-rate gain comes from.&lt;/p>
+&lt;p>Resizable BAR and Smart Access Memory are the same feature. ReBAR is the vendor-neutral PCI-SIG name; SAM is AMD&amp;rsquo;s brand for its version. NVIDIA and Intel use the generic term. The BIOS settings are identical regardless of whose GPU you run.&lt;/p>
+&lt;h2 id="the-honest-performance-picture">The honest performance picture&lt;/h2>
+&lt;p>Here is the part the &amp;ldquo;free FPS&amp;rdquo; headlines skip. The gains are real but small, and they are not universal.&lt;/p>
+&lt;p>NVIDIA is refreshingly direct about this in its own announcement. The company states: &amp;ldquo;In our testing, we&amp;rsquo;ve found some titles benefit from a few percent, up to 12%. However, there are also titles that see a decrease in performance.&amp;rdquo; (&lt;a href="https://www.nvidia.com/en-us/geforce/news/geforce-rtx-30-series-resizable-bar-support/" rel="noopener">NVIDIA&lt;/a>) That is the whole shape of it from the vendor itself: some up, most flat, a few down.&lt;/p>
+&lt;p>This is exactly why NVIDIA does not just switch it on for everything. It &amp;ldquo;pre-tests titles and uses game profiles to enable Resizable BAR only when it has a positive performance impact,&amp;rdquo; so that &amp;ldquo;you won&amp;rsquo;t have to worry about bugs or performance decreases.&amp;rdquo; (&lt;a href="https://www.nvidia.com/en-us/geforce/news/geforce-rtx-30-series-resizable-bar-support/" rel="noopener">NVIDIA&lt;/a>) The feature is enabled per-game on the driver side, not blindly across your whole library.&lt;/p>
+&lt;p>AMD set higher expectations at launch, claiming SAM with RDNA 2 cards could deliver roughly 5 to 15 percent depending on the game. Independent testing landed lower. PCWorld&amp;rsquo;s explainer, written by Whitson Gordon, notes that while &amp;ldquo;AMD promises up to 16 percent&amp;rdquo; and &amp;ldquo;NVIDIA claims up to 12 percent,&amp;rdquo; their own testing showed &amp;ldquo;uplifts between 2 and 8 percent,&amp;rdquo; and warns plainly that &amp;ldquo;results can vary by game, resolution, and the hardware you&amp;rsquo;re using&amp;rdquo; and that &amp;ldquo;in some cases, Resizable BAR can actually decrease performance.&amp;rdquo; That piece also points to Hardware Unboxed finding measurable performance penalties in a few of NVIDIA&amp;rsquo;s own supported titles. (&lt;a href="https://www.pcworld.com/article/394720/faster-gaming-frame-rates-for-free-resizable-bar-explained.html" rel="noopener">PCWorld&lt;/a>)&lt;/p>
+&lt;p>So the verified verdict is consistent across vendor and independent sources: &lt;strong>enable it, expect a few percent in the games that respond, expect nothing in most, and accept that a small number of older or lighter titles tick slightly down.&lt;/strong> Both NVIDIA and AMD ship it on by default on supported cards, which is the clearest signal of where the trade-off settles.&lt;/p>
+&lt;div class="visual-block">
+&lt;div style="background:#0a0a23;padding:28px 16px 22px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#e8e8f0;">
+&lt;div style="text-align:center;margin-bottom:14px;">
+&lt;div style="font-size:18px;font-weight:600;letter-spacing:-0.3px;">256 MB window vs. full-VRAM mapping&lt;/div>
+&lt;div style="font-size:12px;color:#9a9ab5;margin-top:4px;">Resizable BAR lets the CPU address all of the GPU's memory at once&lt;/div>
+&lt;/div>
+&lt;svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;" role="img" aria-label="Diagram comparing two states. Off: the CPU reaches GPU VRAM through a small 256 megabyte window and must move it around the framebuffer. On with Resizable BAR: the CPU maps the entire VRAM as one continuous CPU-visible segment.">
+&lt;text x="190" y="28" font-size="14" font-weight="700" fill="#ed6a5a" text-anchor="middle">OFF -- 256 MB window&lt;/text>
+&lt;rect x="60" y="44" width="260" height="150" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)">&lt;/rect>
+&lt;text x="190" y="64" font-size="11" fill="#9090a8" text-anchor="middle">GPU VRAM (e.g. 16 GB)&lt;/text>
+&lt;rect x="76" y="78" width="52" height="100" rx="3" fill="rgba(237,106,90,0.35)" stroke="#ed6a5a">&lt;/rect>
+&lt;text x="102" y="132" font-size="10" fill="#ffd2cc" text-anchor="middle" transform="rotate(-90 102 132)">256 MB&lt;/text>
+&lt;text x="225" y="120" font-size="11" fill="#9090a8" text-anchor="middle">CPU re-points the&lt;/text>
+&lt;text x="225" y="136" font-size="11" fill="#9090a8" text-anchor="middle">small window around&lt;/text>
+&lt;text x="570" y="28" font-size="14" font-weight="700" fill="#5dca7a" text-anchor="middle">ON -- full VRAM&lt;/text>
+&lt;rect x="440" y="44" width="260" height="150" rx="6" fill="rgba(93,202,122,0.10)" stroke="#5dca7a">&lt;/rect>
+&lt;text x="570" y="64" font-size="11" fill="#9090a8" text-anchor="middle">GPU VRAM (e.g. 16 GB)&lt;/text>
+&lt;rect x="456" y="78" width="228" height="100" rx="3" fill="rgba(93,202,122,0.25)" stroke="#5dca7a">&lt;/rect>
+&lt;text x="570" y="132" font-size="11" fill="#d6f5de" text-anchor="middle">One CPUVisible segment&lt;/text>
+&lt;text x="380" y="232" font-size="11" fill="#9a9ab5" text-anchor="middle">Source: Microsoft WDDM Resizable BAR documentation&lt;/text>
+&lt;/svg>
+&lt;/div>
+&lt;/div>
+&lt;h2 id="how-to-enable-resizable-bar--smart-access-memory">How to enable Resizable BAR / Smart Access Memory&lt;/h2>
+&lt;p>Do the prep first, because most &amp;ldquo;ReBAR won&amp;rsquo;t turn on&amp;rdquo; problems are stale firmware.&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Update your motherboard BIOS — back up first, and do not shut down or reset mid-flash.&lt;/strong> An interrupted BIOS update can leave the board unable to boot, which is a far worse problem than ReBAR being off; ASUS states both requirements outright in its own &lt;a href="https://www.asus.com/support/faq/1012815/" rel="noopener">EZ Flash 3 instructions&lt;/a> (&amp;ldquo;Before updating the BIOS version, please back up all hard disk data&amp;rdquo; and &amp;ldquo;When updating the BIOS, do not shut down or reset the system to avoid system boot failure&amp;rdquo;), and every vendor&amp;rsquo;s flashing tool carries the same rule. Take the latest version from your board vendor, and &lt;strong>update your GPU driver&lt;/strong> too. ASUS notes that working Resize BAR needs &amp;ldquo;motherboard BIOS, graphics card VBIOS and driver support&amp;rdquo; all current. (&lt;a href="https://www.asus.com/us/support/faq/1046107/" rel="noopener">ASUS Support&lt;/a>) Older RTX 30 cards may also need a one-time &lt;strong>VBIOS&lt;/strong> update via NVIDIA&amp;rsquo;s firmware tool — the same do-not-interrupt rule applies, and an interrupted VBIOS flash takes the graphics card down with it.&lt;/li>
+&lt;li>&lt;strong>Confirm you are on UEFI/GPT.&lt;/strong> Press Win+R, type &lt;code>msinfo32&lt;/code>, and check that &lt;strong>BIOS Mode&lt;/strong> reads &lt;strong>UEFI&lt;/strong>. If it says Legacy, your install is MBR and the next step can stop it booting. Convert to GPT first (or do not proceed).&lt;/li>
+&lt;li>&lt;strong>Enter BIOS&lt;/strong> (usually Del or F2 at boot).&lt;/li>
+&lt;li>&lt;strong>Disable CSM.&lt;/strong> ASUS states outright that the &amp;ldquo;Launch CSM option must set to Disabled to support Resize BAR.&amp;rdquo; (&lt;a href="https://www.asus.com/us/support/faq/1046107/" rel="noopener">ASUS Support&lt;/a>) It typically lives under a CSM (Compatibility Support Module) submenu.&lt;/li>
+&lt;li>&lt;strong>Enable the two PCI settings.&lt;/strong> Under PCI Subsystem Settings (the wording varies by board), set &lt;strong>Above 4G Decoding&lt;/strong> to &lt;strong>Enabled&lt;/strong> and &lt;strong>Re-Size BAR Support&lt;/strong> to &lt;strong>Enabled&lt;/strong> or &lt;strong>Auto&lt;/strong>. ASUS&amp;rsquo;s own walkthrough places both there and calls for Above 4G Decoding enabled with Re-Size BAR Support set accordingly. (&lt;a href="https://edgeup.asus.com/2021/guide-how-to-enable-resizable-bar-on-your-asus-powered-gaming-pc/" rel="noopener">ASUS Edge Up&lt;/a>)&lt;/li>
+&lt;li>&lt;strong>Save (F10) and reboot.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Verify.&lt;/strong> On NVIDIA, open the NVIDIA Control Panel, go to System Information, and look for &lt;strong>Resizable BAR: Yes&lt;/strong>. On AMD, open AMD Software and check that &lt;strong>Smart Access Memory&lt;/strong> reads enabled.&lt;/li>
+&lt;/ol>
+&lt;p>If the Above 4G Decoding option is greyed out or Re-Size BAR refuses to enable, the cause is almost always one of the prep items: CSM still on, a Legacy/MBR install, or an out-of-date BIOS/VBIOS.&lt;/p>
+&lt;h2 id="who-should-leave-it-off">Who should leave it off&lt;/h2>
+&lt;p>The honest exceptions are narrow. If you are on an older system that NVIDIA, AMD, or Intel never qualified for Resizable BAR, leave it alone; forcing it on unsupported hardware is a community-mod path, not a supported one. And if your Windows install is Legacy/MBR and you are not ready to convert it to GPT, do not disable CSM just to chase a couple of percent. The downside risk (an install that will not boot) badly outweighs the upside.&lt;/p>
+&lt;p>For everyone on a current GPU and a UEFI install, there is no good reason to keep it off. If your real question is whether your CPU and GPU are well matched in the first place, that is a different and more impactful tuning question. Our &lt;a href="https://techfuelhq.com/tools/pc-bottleneck-calculator/">PC bottleneck calculator&lt;/a> shows where the actual limiter sits at your resolution, which matters far more than a BAR toggle.&lt;/p>
+&lt;h2 id="where-this-fits-with-your-other-settings">Where this fits with your other settings&lt;/h2>
+&lt;p>Resizable BAR is one of a small cluster of platform-level toggles worth getting right once. Hardware-Accelerated GPU Scheduling (HAGS) is the other big one, and like ReBAR it helps in some scenarios and is neutral in most, so the same &amp;ldquo;enable it, verify, move on&amp;rdquo; mindset applies. If you are also chasing down launch or anti-cheat failures while you are in BIOS, our &lt;a href="https://techfuelhq.com/gaming/easy-anti-cheat-fix-guide-2026/">Easy Anti-Cheat fix guide&lt;/a> covers the Secure Boot and TPM settings that newer games now require. A modern build like our &lt;a href="https://techfuelhq.com/pc-builds/2500-dollar-7800x3d-rtx-5080-4k-build-2026/">7800X3D / RTX 5080 reference rig&lt;/a> ships with Resizable BAR available out of the box, and our &lt;a href="https://techfuelhq.com/gpu-reviews/">GPU reviews&lt;/a> cover the cards that support it.&lt;/p>
+&lt;h2 id="the-bottom-line">The bottom line&lt;/h2>
+&lt;p>Resizable BAR and Smart Access Memory do exactly one thing: they let your CPU map the GPU&amp;rsquo;s full memory at once instead of through a 256 MB porthole. The verified payoff is a few percent in some games, nothing in most, and a slight dip in a small handful. That is a good trade, which is why both major GPU vendors enable it by default. Update your BIOS and driver, confirm you are on UEFI/GPT, switch on Above 4G Decoding and Re-Size BAR Support with CSM off, verify it in your control panel, and leave it on. Then spend your tuning energy on the things that actually move frame rates more.&lt;/p>
+&lt;h2 id="sources">Sources&lt;/h2>
+&lt;ul>
+&lt;li>Microsoft Learn &amp;ndash; System and Driver Support for Resizable BAR (256 MB region, full-VRAM CPUVisible segment): &lt;a href="https://learn.microsoft.com/en-us/windows-hardware/drivers/display/resizable-bar-support" rel="noopener">https://learn.microsoft.com/en-us/windows-hardware/drivers/display/resizable-bar-support&lt;/a>&lt;/li>
+&lt;li>NVIDIA &amp;ndash; GeForce RTX 30 Series Performance Accelerates With Resizable BAR Support (per-game profiles; few percent up to 12%, some titles decrease): &lt;a href="https://www.nvidia.com/en-us/geforce/news/geforce-rtx-30-series-resizable-bar-support/" rel="noopener">https://www.nvidia.com/en-us/geforce/news/geforce-rtx-30-series-resizable-bar-support/&lt;/a>&lt;/li>
+&lt;li>ASUS Support &amp;ndash; How to Enable Resize BAR (CSM must be disabled; BIOS/VBIOS/driver all current): &lt;a href="https://www.asus.com/us/support/faq/1046107/" rel="noopener">https://www.asus.com/us/support/faq/1046107/&lt;/a>&lt;/li>
+&lt;li>ASUS Edge Up &amp;ndash; Guide: How to enable Resizable BAR on your ASUS-powered gaming PC (Above 4G Decoding + Re-Size BAR Support, UEFI/GPT): &lt;a href="https://edgeup.asus.com/2021/guide-how-to-enable-resizable-bar-on-your-asus-powered-gaming-pc/" rel="noopener">https://edgeup.asus.com/2021/guide-how-to-enable-resizable-bar-on-your-asus-powered-gaming-pc/&lt;/a>&lt;/li>
+&lt;li>PCWorld (Whitson Gordon) &amp;ndash; Resizable BAR explained (2-8% measured uplift, game-dependent, can decrease performance; cites Hardware Unboxed penalties): &lt;a href="https://www.pcworld.com/article/394720/faster-gaming-frame-rates-for-free-resizable-bar-explained.html" rel="noopener">https://www.pcworld.com/article/394720/faster-gaming-frame-rates-for-free-resizable-bar-explained.html&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Hardware-Accelerated GPU Scheduling: On or Off? (2026)</title><link>https://techfuelhq.com/gaming/hardware-accelerated-gpu-scheduling-on-or-off-2026/</link><pubDate>Thu, 25 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/gaming/hardware-accelerated-gpu-scheduling-on-or-off-2026/</guid><description>&lt;div class="verdict-card" style="border:1px solid #c8ff00;border-left:4px solid #c8ff00;border-radius:6px;padding:1.25rem 1.5rem;margin:1.5rem 0 2rem 0;background:rgba(200,255,0,0.04);">
+&lt;p style="margin:0 0 0.5rem 0;font-weight:700;color:#c8ff00;letter-spacing:0.04em;text-transform:uppercase;font-size:0.85rem;">TL;DR · HAGS on or off&lt;/p>
+&lt;ul style="margin:0.25rem 0 0 0;padding-left:1.25rem;line-height:1.55;">
+&lt;li>&lt;strong>Modern GPU (RTX 30/40/50, RX 6000+): turn it ON.&lt;/strong> Current drivers assume it, and it is the default on Windows 11.&lt;/li>
+&lt;li>&lt;strong>It is required for frame generation.&lt;/strong> NVIDIA DLSS Frame Generation will not activate with HAGS off, and AMD's frame-gen path expects it on supported hardware.&lt;/li>
+&lt;li>&lt;strong>FPS impact is usually neutral to slightly positive&lt;/strong> -- the real win is less CPU scheduling overhead and lower latency in some titles, not a big frame-rate jump.&lt;/li>
+&lt;li>&lt;strong>Turn it OFF only if you see a regression:&lt;/strong> documented cases include micro-stutter, high DPC latency, and some VR hitching that clear up when it is disabled.&lt;/li>
+&lt;li>&lt;strong>The toggle:&lt;/strong> Settings &amp;gt; System &amp;gt; Display &amp;gt; Graphics &amp;gt; Change default graphics settings. Restart after.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;p>The short answer for almost everyone reading this: if you are on a modern graphics card, turn hardware-accelerated GPU scheduling &lt;strong>on&lt;/strong> and leave it on. It is the default on Windows 11 for a reason, and it is a hard requirement for the frame generation features people most want from RTX 40/50 and recent Radeon cards. The longer answer &amp;ndash; why it exists, what it changes, and the handful of real cases where off still wins &amp;ndash; is what decides whether you ever need to touch the switch.&lt;/p>
+&lt;h2 id="what-hardware-accelerated-gpu-scheduling-actually-changes">What hardware-accelerated GPU scheduling actually changes&lt;/h2>
+&lt;p>&amp;ldquo;HAGS&amp;rdquo; sounds like a performance toggle, but it is really a change to &lt;em>who schedules work onto your GPU&lt;/em>. Microsoft introduced it as part of the Windows graphics driver model, and the mechanism is specific.&lt;/p>
+&lt;p>Before HAGS, Windows scheduled GPU work using a &lt;strong>high-priority thread running on your CPU&lt;/strong>. That thread collected render commands, batched them, and fed them to the GPU. With hardware-accelerated GPU scheduling enabled, Windows &amp;ldquo;can now offload most of GPU scheduling to a dedicated GPU-based scheduling processor,&amp;rdquo; as &lt;a href="https://devblogs.microsoft.com/directx/hardware-accelerated-gpu-scheduling/" rel="noopener">Microsoft&amp;rsquo;s DirectX team describes it&lt;/a>. The GPU&amp;rsquo;s own scheduling processor takes over the high-frequency work &amp;ndash; quanta management and context switching between GPU engines &amp;ndash; using its own memory (VRAM) to manage those queues in batches. Windows still decides which application gets priority; only the moment-to-moment scheduling moves down onto the silicon.&lt;/p>
+&lt;p>Microsoft is blunt that this is &amp;ldquo;a significant and fundamental change to the driver model,&amp;rdquo; which is exactly why it shipped as an opt-in feature that was disabled by default, and why it needs a &lt;strong>WDDM 2.7 or newer driver&lt;/strong> plus a GPU built to support it. It is not a tweak layered on top of the old path; it is a different path.&lt;/p>
+&lt;p>The practical consequence: with the CPU no longer running that scheduling thread, you free up some CPU overhead and can shave latency in the games where that overhead was a factor. That is the upside. It is also why the gains are modest and uneven rather than a universal FPS boost &amp;ndash; more on that below.&lt;/p>
+&lt;h2 id="the-honest-fps-expectation-neutral-to-positive-not-a-magic-button">The honest FPS expectation: neutral-to-positive, not a magic button&lt;/h2>
+&lt;p>This is where a lot of guides oversell it. Hardware-accelerated GPU scheduling does &lt;strong>not&lt;/strong> reliably hand you a big frame-rate increase. The realistic expectation is neutral to slightly positive on average FPS, with the meaningful benefit being reduced CPU scheduling overhead.&lt;/p>
+&lt;p>That framing tells you &lt;em>where&lt;/em> it helps most: CPU-bound situations. If your processor is the limiter, trimming the scheduling work it has to do is more likely to matter. If you are GPU-bound &amp;ndash; pushing high resolution and settings where the graphics card is pegged &amp;ndash; moving the scheduler off the CPU changes very little, because the CPU was not the bottleneck to begin with. If you are not sure which side you are on, the &lt;a href="https://techfuelhq.com/tools/pc-bottleneck-calculator/">PC Bottleneck Calculator&lt;/a> estimates whether your CPU or GPU is the limiter at your resolution, and that is the variable that decides whether HAGS does anything you can feel.&lt;/p>
+&lt;p>So the case for turning it on is not &amp;ldquo;more frames.&amp;rdquo; It is &amp;ldquo;modern drivers are built around it, it costs you nothing on average, and it unlocks the feature below.&amp;rdquo;&lt;/p>
+&lt;h2 id="the-real-reason-it-is-non-negotiable-frame-generation">The real reason it is non-negotiable: frame generation&lt;/h2>
+&lt;p>Here is the part that turns &amp;ldquo;probably leave it on&amp;rdquo; into &amp;ldquo;leave it on.&amp;rdquo; NVIDIA&amp;rsquo;s &lt;strong>DLSS Frame Generation requires hardware-accelerated GPU scheduling to be enabled at the operating-system level.&lt;/strong> This is not a community rumor &amp;ndash; it is stated in official game-vendor documentation. CD PROJEKT RED&amp;rsquo;s support page for DLSS Frame Generation says plainly that &amp;ldquo;DLSS Frame Generation requires a GeForce RTX 40 Series graphics card and Hardware-Accelerated GPU Scheduling being enabled in operating system,&amp;rdquo; and walks players through enabling it (&lt;a href="https://support.cdprojektred.com/en/cyberpunk/pc/sp-technical/issue/2369/how-to-enable-dlss-frame-generation" rel="noopener">CD PROJEKT RED support&lt;/a>).&lt;/p>
+&lt;p>The reason is the mechanism from the first section: frame generation needs the GPU to have direct control over its own scheduling and memory to insert generated frames into the pipeline. If Windows is still running the old CPU-side scheduler, that control is not there, and the feature simply stays unavailable. On Windows 11 this is usually a non-issue because the setting is on by default; on Windows 10 you may have to enable it yourself before Frame Generation appears.&lt;/p>
+&lt;p>AMD&amp;rsquo;s frame generation works differently under the hood &amp;ndash; its FSR 3 / driver-level Fluid Motion Frames path runs on the GPU&amp;rsquo;s shaders via asynchronous compute rather than a dedicated optical-flow hardware block like NVIDIA&amp;rsquo;s RTX 40 cards use, &lt;a href="https://gpuopen.com/fidelityfx-super-resolution-3/" rel="noopener">per AMD&amp;rsquo;s GPUOpen documentation&lt;/a>. The takeaway is the same in practice: on a supported modern Radeon, you want HAGS on and your driver current. If you want the full picture of how interpolated frames, latency, and the base-framerate floor interact, that is the subject of &lt;a href="https://techfuelhq.com/articles/frame-generation-explained-2026/">frame generation explained&lt;/a> &amp;ndash; this article is just the OS switch that lets any of it run.&lt;/p>
+&lt;h2 id="when-off-can-actually-win">When OFF can actually win&lt;/h2>
+&lt;p>A blanket &amp;ldquo;always on&amp;rdquo; would be dishonest, because a minority of setups regress with it enabled. These are real, documented cases &amp;ndash; not invented numbers &amp;ndash; and they share a pattern: the issue appears with HAGS on and clears when you turn it off.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Micro-stutter.&lt;/strong> Some players report frame-pacing micro-stutter that disappears the moment they disable HAGS, with the game running smooth afterward (&lt;a href="https://rog-forum.asus.com/t5/rog-strix-series/quot-if-i-enable-hags-i-get-micro-stutters/td-p/1019715" rel="noopener">ASUS ROG forum thread&lt;/a>).&lt;/li>
+&lt;li>&lt;strong>High DPC latency.&lt;/strong> On some Windows 11 systems, high DPC latency tied to the NVIDIA display driver (nvlddmkm.sys) drops sharply after turning HAGS off (&lt;a href="https://www.nvidia.com/en-us/geforce/forums/game-ready-drivers/13/506279/high-dpc-latency-nvidia-win-11/3341675/" rel="noopener">NVIDIA GeForce forums&lt;/a>). High DPC latency is a classic source of audio crackle and stutter, so this one is worth checking if you have those symptoms.&lt;/li>
+&lt;li>&lt;strong>VR.&lt;/strong> Disabling HAGS is a recommended troubleshooting step for SteamVR stutter on some configurations (&lt;a href="https://steamcommunity.com/app/250820/discussions/3/4036976796097585542/" rel="noopener">Steam community&lt;/a>). VR is latency- and pacing-sensitive in a way flat gaming is not, which is why it shows up disproportionately here.&lt;/li>
+&lt;li>&lt;strong>Older or weaker GPUs, and some Unreal Engine titles.&lt;/strong> If your card barely meets the support bar, or a specific game&amp;rsquo;s engine paces worse with it on, the simpler CPU-scheduled path can feel steadier.&lt;/li>
+&lt;/ul>
+&lt;p>The common thread: none of these are reasons to default to off. They are reasons to &lt;em>test&lt;/em> off if you are seeing a specific problem &amp;ndash; and if you do not use frame generation, you have nothing to lose by trying it.&lt;/p>
+&lt;h2 id="a-simple-decision">A simple decision&lt;/h2>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Your situation&lt;/th>
+&lt;th scope="col">Setting&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Modern GPU (RTX 30/40/50, RX 6000+), no issues&lt;/td>
+&lt;td>&lt;strong>On&lt;/strong> (it is the default)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>You want DLSS / AMD frame generation&lt;/td>
+&lt;td>&lt;strong>On&lt;/strong> (required)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Micro-stutter, audio crackle, or high DPC latency&lt;/td>
+&lt;td>Test &lt;strong>Off&lt;/strong> &amp;ndash; keep whichever is smoother&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>VR stutter you cannot otherwise fix&lt;/td>
+&lt;td>Test &lt;strong>Off&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Older / barely-supported GPU that feels hitchy&lt;/td>
+&lt;td>Test &lt;strong>Off&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;h2 id="how-to-change-it-and-verify">How to change it (and verify)&lt;/h2>
+&lt;p>The toggle lives at &lt;strong>Settings &amp;gt; System &amp;gt; Display &amp;gt; Graphics &amp;gt; Change default graphics settings&lt;/strong>, where you flip the &lt;strong>Hardware-accelerated GPU scheduling&lt;/strong> switch (&lt;a href="https://learn.microsoft.com/en-us/answers/questions/3857947/how-to-open-hardware-accelerated-gpu-scheduling-on" rel="noopener">Microsoft Learn&lt;/a>). If you do not see the option at all, your GPU either does not support it or your driver is older than WDDM 2.7 &amp;ndash; install the latest driver straight from NVIDIA, AMD, or Intel and check again. Restart after changing it so the display driver reloads cleanly.&lt;/p>
+&lt;p>To judge whether it helped or hurt &lt;em>your&lt;/em> machine, do not trust the average FPS counter. Run a demanding, repeatable scene with a frame-time overlay and compare your &lt;strong>1% lows&lt;/strong> and frame-time consistency on and off. As with the &lt;a href="https://techfuelhq.com/gaming/dx12-vs-dx11-fps-2026/">DX12 vs DX11&lt;/a> question, smoothness lives in the lows, not the average &amp;ndash; and if a single game stutters under HAGS, rule out the boring causes first, like a &lt;a href="https://techfuelhq.com/gaming/easy-anti-cheat-fix-guide-2026/">launcher or anti-cheat fault&lt;/a>, before blaming the scheduler.&lt;/p>
+&lt;h2 id="the-bottom-line">The bottom line&lt;/h2>
+&lt;p>Hardware-accelerated GPU scheduling is best understood as plumbing, not a performance cheat &amp;ndash; the same way &lt;a href="https://techfuelhq.com/gaming/resizable-bar-on-or-off-2026/">Resizable BAR / Smart Access Memory&lt;/a> is a small, legitimate gain rather than the free-FPS switch it gets sold as. On a modern GPU it belongs on: it is the Windows 11 default, it moves scheduling overhead off your CPU for a neutral-to-small FPS effect, and &amp;ndash; the deciding factor &amp;ndash; it is a hard requirement for NVIDIA DLSS Frame Generation and the AMD frame-gen path most people on current cards actually want. Turn it off only when you have a concrete regression in front of you: stutter, DPC latency, or VR hitching that demonstrably clears when you disable it. Otherwise, leave the switch where Windows put it and spend your tuning time somewhere it pays off more.&lt;/p>
+&lt;h2 id="sources">Sources&lt;/h2>
+&lt;ul>
+&lt;li>Microsoft DirectX Developer Blog &amp;ndash; Hardware Accelerated GPU Scheduling (mechanism, WDDM 2.7 requirement, opt-in): &lt;a href="https://devblogs.microsoft.com/directx/hardware-accelerated-gpu-scheduling/" rel="noopener">https://devblogs.microsoft.com/directx/hardware-accelerated-gpu-scheduling/&lt;/a>&lt;/li>
+&lt;li>Microsoft Learn &amp;ndash; how to open the Hardware-accelerated GPU scheduling toggle (Settings path): &lt;a href="https://learn.microsoft.com/en-us/answers/questions/3857947/how-to-open-hardware-accelerated-gpu-scheduling-on" rel="noopener">https://learn.microsoft.com/en-us/answers/questions/3857947/how-to-open-hardware-accelerated-gpu-scheduling-on&lt;/a>&lt;/li>
+&lt;li>CD PROJEKT RED Support &amp;ndash; DLSS Frame Generation requires Hardware-Accelerated GPU Scheduling: &lt;a href="https://support.cdprojektred.com/en/cyberpunk/pc/sp-technical/issue/2369/how-to-enable-dlss-frame-generation" rel="noopener">https://support.cdprojektred.com/en/cyberpunk/pc/sp-technical/issue/2369/how-to-enable-dlss-frame-generation&lt;/a>&lt;/li>
+&lt;li>AMD GPUOpen &amp;ndash; FidelityFX Super Resolution 3 frame generation (shader / async-compute mechanism): &lt;a href="https://gpuopen.com/fidelityfx-super-resolution-3/" rel="noopener">https://gpuopen.com/fidelityfx-super-resolution-3/&lt;/a>&lt;/li>
+&lt;li>ASUS ROG Forum &amp;ndash; HAGS micro-stutter regression report: &lt;a href="https://rog-forum.asus.com/t5/rog-strix-series/quot-if-i-enable-hags-i-get-micro-stutters/td-p/1019715" rel="noopener">https://rog-forum.asus.com/t5/rog-strix-series/quot-if-i-enable-hags-i-get-micro-stutters/td-p/1019715&lt;/a>&lt;/li>
+&lt;li>NVIDIA GeForce Forums &amp;ndash; high DPC latency on Windows 11 resolved by disabling HAGS: &lt;a href="https://www.nvidia.com/en-us/geforce/forums/game-ready-drivers/13/506279/high-dpc-latency-nvidia-win-11/3341675/" rel="noopener">https://www.nvidia.com/en-us/geforce/forums/game-ready-drivers/13/506279/high-dpc-latency-nvidia-win-11/3341675/&lt;/a>&lt;/li>
+&lt;li>Steam Community &amp;ndash; SteamVR stutter troubleshooting (disable HAGS): &lt;a href="https://steamcommunity.com/app/250820/discussions/3/4036976796097585542/" rel="noopener">https://steamcommunity.com/app/250820/discussions/3/4036976796097585542/&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

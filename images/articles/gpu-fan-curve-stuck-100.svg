@@ -1,0 +1,25 @@
+<svg viewBox="0 0 1200 640" xmlns="http://www.w3.org/2000/svg" font-family="Inter,system-ui,sans-serif">
+  <desc>Fan speed versus GPU temperature. A healthy curve idles at zero RPM below about 50 degrees C, ramps smoothly through the 60s and 70s, and only reaches 100 percent near 95 degrees. A card stuck at 100 percent draws a flat line across the top at every temperature, which is a control failure, not cooling. The zero-RPM band below 50 degrees is highlighted: silence at idle is by design.</desc>
+  <rect width="1200" height="640" fill="#0d0d28"/>
+  <text x="90" y="42" fill="#e8e8f0" font-size="26" font-weight="700">A fan curve is a slope. Stuck at 100% is a flat line.</text>
+  <text x="90" y="66" fill="#8a8aa5" font-size="15">Fan duty vs GPU temperature &#183; the shapes to recognize before touching anything</text>
+  <line x1="90" y1="570" x2="1150" y2="570" stroke="#1e1e3a"/><text x="78" y="575" text-anchor="end" fill="#8a8aa5" font-size="14">0%</text>
+<line x1="90" y1="456" x2="1150" y2="456" stroke="#1e1e3a"/><text x="78" y="461" text-anchor="end" fill="#8a8aa5" font-size="14">25%</text>
+<line x1="90" y1="341" x2="1150" y2="341" stroke="#1e1e3a"/><text x="78" y="346" text-anchor="end" fill="#8a8aa5" font-size="14">50%</text>
+<line x1="90" y1="227" x2="1150" y2="227" stroke="#1e1e3a"/><text x="78" y="232" text-anchor="end" fill="#8a8aa5" font-size="14">75%</text>
+<line x1="90" y1="113" x2="1150" y2="113" stroke="#1e1e3a"/><text x="78" y="118" text-anchor="end" fill="#8a8aa5" font-size="14">100%</text>
+<text x="90" y="596" text-anchor="middle" fill="#8a8aa5" font-size="14">20&#176;C</text>
+<text x="355" y="596" text-anchor="middle" fill="#8a8aa5" font-size="14">40&#176;C</text>
+<text x="620" y="596" text-anchor="middle" fill="#8a8aa5" font-size="14">60&#176;C</text>
+<text x="885" y="596" text-anchor="middle" fill="#8a8aa5" font-size="14">80&#176;C</text>
+<text x="1150" y="596" text-anchor="middle" fill="#8a8aa5" font-size="14">100&#176;C</text>
+
+  <rect x="90" y="90" width="398" height="480" fill="#c8ff00" opacity="0.06"/>
+  <text x="289" y="341" text-anchor="middle" fill="#9db822" font-size="15" font-weight="600">zero-RPM band</text>
+  <text x="289" y="363" text-anchor="middle" fill="#9db822" font-size="13">silent below ~50&#176;C by design</text>
+  <line x1="90" y1="113" x2="1150" y2="113" stroke="#ff5c5c" stroke-width="3.5"/>
+  <text x="594" y="101" fill="#ff5c5c" font-size="16" font-weight="700">stuck at 100% &#8212; flat at every temperature = control failure</text>
+  <polyline points="90,570 488,570 554,433 686,364 819,273 951,181 1084,113" fill="none" stroke="#5ac8fa" stroke-width="3.5" stroke-linejoin="round"/>
+  <text x="832" y="305" fill="#5ac8fa" font-size="16" font-weight="700">healthy curve &#8212; speed follows heat</text>
+  <text x="90" y="622" fill="#2ab3c0" font-size="14" font-weight="600">TechfuelHQ.com</text>
+</svg>

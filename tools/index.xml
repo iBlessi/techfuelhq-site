@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tools on TechFuel HQ</title><link>https://techfuelhq.com/tools/</link><description>Recent content in Tools on TechFuel HQ</description><generator>Hugo</generator><language>en-us</language><managingEditor>LK Wood IV</managingEditor><lastBuildDate>Mon, 04 May 2026 00:00:00 -0500</lastBuildDate><atom:link href="https://techfuelhq.com/tools/index.xml" rel="self" type="application/rss+xml"/><atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/><item><title>Data Usage Calculator: Estimate Your Monthly Internet GB</title><link>https://techfuelhq.com/tools/data-usage-calculator/</link><pubDate>Tue, 30 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/tools/data-usage-calculator/</guid><description>&lt;p>This tool estimates your &lt;strong>monthly internet data usage in gigabytes&lt;/strong> from how you actually use the connection - streaming, YouTube, music, video calls, gaming, general browsing, and downloads - then tells you whether you&amp;rsquo;re likely to bump into a data cap. Enter your typical hours per day for each activity and your monthly download volume, set how many people share the connection, and you get a monthly GB total, a daily average, and how that compares to the common &lt;strong>1.2 TB&lt;/strong> US cap.&lt;/p>
+&lt;p>The honest framing: &lt;strong>streaming dominates, and resolution is the dial that matters most.&lt;/strong> SD video is about 1 GB/hour, HD about 3, and 4K about 7 - so the difference between a 1080p and a 4K habit can be hundreds of gigabytes a month per person (&lt;a href="https://help.netflix.com/en/node/87" rel="noopener">Netflix&amp;rsquo;s published data-usage figures&lt;/a>). Gameplay itself is light (~0.1 GB/hour); it&amp;rsquo;s the 50-150 GB game &lt;em>downloads&lt;/em> that move the needle, which is why downloads are a separate line. Every rate here is a provider-published approximation - your real usage varies with app settings, codecs, and content - so treat the result as a well-grounded estimate, not a billing meter.&lt;/p>
+&lt;p>To turn a download size into a time estimate at your connection speed, use the &lt;a href="https://techfuelhq.com/tools/transfer-time-calculator/">Transfer Time Calculator&lt;/a>; if you&amp;rsquo;re sizing a home network to carry all this, see the &lt;a href="https://techfuelhq.com/networking/10gbe-home-networking-budget-2026/">10GbE home networking guide&lt;/a>.&lt;/p>
+&lt;h2 id="worked-examples">Worked examples&lt;/h2>
+&lt;p>These are this calculator&amp;rsquo;s own outputs, computed with the same formula the tool runs in your browser — so you can see a real answer without touching a single input.&lt;/p>
+&lt;p>&lt;strong>One person, ordinary HD household — this is the tool&amp;rsquo;s own default state, i.e. exactly what the calculator shows the moment the page loads&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> Streaming 2 hr/day at HD 1080p; YouTube 1 hr/day at 1080p; music 2 hr/day; video calls 1 hr/day; gaming 1 hr/day; web &amp;amp; social 2 hr/day; downloads 50 GB/month; 1 person sharing.&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> 344 GB / month. Daily average 11.5 GB. 28% of a 1.2 TB cap (green bar). Headroom to 1.2 TB: 885 GB. Biggest user: Streaming. Verdict: &amp;ldquo;Moderate use (344 GB). Comfortable under a 1.2 TB cap. Streaming is your biggest line - if you want to trim, that is where to look first.&amp;rdquo;&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Two people who both watch 4K, plus a couple of big game downloads — the household the page&amp;rsquo;s FAQ says will hit the 1.2 TB cap&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> Streaming 3 hr/day at 4K; YouTube 1 hr/day at 1080p; music 1 hr/day; video calls 1 hr/day; gaming 2 hr/day; web &amp;amp; social 2 hr/day; downloads 150 GB/month; 2 people sharing.&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> 1,635 GB / month. Daily average 54.5 GB. &amp;ldquo;over a 1.2 TB cap by 406 GB&amp;rdquo; (bar full and red). Headroom: over cap. Biggest user: Streaming. Verdict: &amp;ldquo;Over a typical cap (1,635 GB). You would exceed a 1.2 TB limit. Compare your provider&amp;rsquo;s unlimited add-on against overage fees - unlimited is usually cheaper at this level. The fastest cut is dropping streaming from 4K to 1080p (more than halves it).&amp;rdquo;&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>One remote worker who is on video calls all day and downloads a lot of games — the case where the tool&amp;rsquo;s Downloads override rule fires and names Downloads as the biggest line even though video calls are the largest hourly activity&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> Streaming 1 hr/day at HD 1080p; YouTube 0.5 hr/day at 1080p; music 3 hr/day; video calls 4 hr/day; gaming 2 hr/day; web &amp;amp; social 3 hr/day; downloads 200 GB/month; 1 person sharing.&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> 530 GB / month. Daily average 17.7 GB. 43% of a 1.2 TB cap. Headroom to 1.2 TB: 699 GB. Biggest user: Downloads (200 GB of downloads beats 180 GB/month of video calls). Verdict: &amp;ldquo;Moderate use (530 GB). Comfortable under a 1.2 TB cap. Downloads is your biggest line - if you want to trim, that is where to look first.&amp;rdquo;&lt;/li>
+&lt;/ul>
+&lt;h2 id="assumptions-and-sources">Assumptions and sources&lt;/h2>
+&lt;ul>
+&lt;li>The streaming rates (about 1 GB/hour SD, 3 GB/hour HD, 7 GB/hour 4K) are &lt;a href="https://help.netflix.com/en/node/87" rel="noopener">Netflix&amp;rsquo;s published data-usage figures&lt;/a>; other services land near them but differ by codec and bitrate ladder.&lt;/li>
+&lt;li>YouTube rates are derived from &lt;a href="https://support.google.com/youtube/answer/78358" rel="noopener">YouTube&amp;rsquo;s recommended sustained speeds&lt;/a> per resolution, converted from Mbps to GB/hour; actual usage varies with the specific video.&lt;/li>
+&lt;li>The 1.2 TB reference cap is the monthly threshold on &lt;a href="https://www.xfinity.com/support/articles/data-usage-plan" rel="noopener">Xfinity&amp;rsquo;s data usage plan&lt;/a>; other providers set different caps or none, so substitute yours.&lt;/li>
+&lt;li>The video-call (1-2.5 GB/hour), music, gaming (~0.1 GB/hour of play), and browsing rates are TechFuelHQ working estimates chosen to sit mid-range of commonly observed values; they are stated here so you can swap in your own measured numbers.&lt;/li>
+&lt;/ul></description></item><item><title>Monitor Size Calculator: Screen Width, Height &amp; Desk Fit</title><link>https://techfuelhq.com/tools/monitor-size-calculator/</link><pubDate>Tue, 30 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/tools/monitor-size-calculator/</guid><description>&lt;p>This tool turns a monitor&amp;rsquo;s &lt;strong>diagonal size and aspect ratio into its real physical dimensions&lt;/strong> - width and height in both inches and centimeters - plus the screen area and a plain-English desk-fit verdict. Enter a diagonal and pick an aspect ratio, or tap a preset for a common screen. It is the answer to &amp;ldquo;how wide is a 34-inch ultrawide, actually?&amp;rdquo; and &amp;ldquo;will this thing fit on my desk?&amp;rdquo;&lt;/p>
+&lt;p>The key insight the diagonal alone hides: &lt;strong>width, not the diagonal, decides whether a screen fits your space&lt;/strong>, and two monitors with the same diagonal can be very different shapes. A 34-inch 21:9 ultrawide is 3.5 inches &lt;em>wider&lt;/em> than a 32-inch 16:9, yet it is also shorter and has slightly &lt;em>less&lt;/em> total screen area - because ultrawides trade height for width. A 49-inch 32:9 is nearly four feet (120 cm) across. The calculator makes those trade-offs concrete before you buy. One knock-on effect worth knowing if you are moving to an ultrawide: the wider field of view changes how a given in-game sensitivity feels, so it is worth re-checking your cm/360 in the &lt;a href="https://techfuelhq.com/tools/mouse-sensitivity-converter/">mouse sensitivity converter&lt;/a> after the swap.&lt;/p>
+&lt;p>To turn the same numbers into pixel sharpness, use the &lt;a href="https://techfuelhq.com/tools/ppi-calculator/">PPI Calculator&lt;/a>; to nail down a screen&amp;rsquo;s exact aspect ratio from its resolution, use the &lt;a href="https://techfuelhq.com/tools/aspect-ratio-calculator/">Aspect Ratio Calculator&lt;/a>; and to convert a game&amp;rsquo;s field of view between a 16:9 and an ultrawide screen, see the &lt;a href="https://techfuelhq.com/tools/fov-calculator/">FOV Calculator&lt;/a>.&lt;/p>
+&lt;h2 id="worked-examples">Worked examples&lt;/h2>
+&lt;p>These are this calculator&amp;rsquo;s own outputs, computed with the same formula the tool runs in your browser — so you can see a real answer without touching a single input.&lt;/p>
+&lt;p>&lt;strong>The mainstream default: a 27-inch 16:9 monitor (the tool&amp;rsquo;s own starting state and the &amp;lsquo;27&amp;quot; 16:9&amp;rsquo; preset). This is also the reference panel the comparison stat is measured against&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> Diagonal D = 27 in; Aspect ratio = ASPECTS[0] &amp;lsquo;16:9&amp;rsquo;, a = 16/9 = 1.7777778 (preset &amp;lsquo;27&amp;quot; 16:9&amp;rsquo; sets d=27, a=0)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> 23.5 x 13.2 in (59.8 x 33.6 cm). Width 23.5 in / 59.8 cm, height 13.2 in / 33.6 cm, screen area 312 in^2 (2.2 ft^2), vs 27-inch 16:9 = &amp;ldquo;same&amp;rdquo;. Verdict: &amp;ldquo;Standard desk. About 60 cm wide - fits a typical 100-120 cm desk with clearance. The mainstream size; little to plan around.&amp;rdquo;&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>The tool&amp;rsquo;s headline question - &amp;lsquo;how wide is a 34-inch ultrawide, actually?&amp;rsquo; Uses the &amp;lsquo;34&amp;quot; UW&amp;rsquo; preset, which maps to the REAL 3440x1440 panel aspect rather than the marketed round 21:9&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> Diagonal D = 34 in; Aspect ratio = ASPECTS[2] &amp;lsquo;21:9 (3440x1440)&amp;rsquo;, a = 3440/1440 = 2.3888889 (preset &amp;lsquo;34&amp;quot; UW&amp;rsquo; sets d=34, a=2)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> 31.4 x 13.1 in (79.7 x 33.3 cm). Width 31.4 in / 79.7 cm, height 13.1 in / 33.3 cm, screen area 412 in^2 (2.9 ft^2), +32% area vs a 27-inch 16:9. Verdict: &amp;ldquo;Wide - check your desk. About 80 cm of panel width. Want a desk at least ~100-120 cm wide, and leave room on the sides. A monitor arm helps you push it back to a proper viewing distance.&amp;rdquo;&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>The comparison shoppers actually agonise over: a 32-inch 16:9 against that 34-inch ultrawide. The smaller diagonal wins on area, and the deskFit rule lands just barely on the friendlier side of a threshold&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> Diagonal D = 32 in; Aspect ratio = ASPECTS[0] &amp;lsquo;16:9&amp;rsquo;, a = 16/9 = 1.7777778 (preset &amp;lsquo;32&amp;quot; 16:9&amp;rsquo; sets d=32, a=0)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> 27.9 x 15.7 in (70.8 x 39.8 cm). Width 27.9 in / 70.8 cm, height 15.7 in / 39.8 cm, screen area 438 in^2 (3.0 ft^2), +40% area vs a 27-inch 16:9. Verdict: &amp;ldquo;Standard desk. About 71 cm wide - fits a typical 100-120 cm desk with clearance. The mainstream size; little to plan around.&amp;rdquo; And the trade-off, straight from the two computed results: the 34-inch ultrawide is 3.5 in wider but 2.6 in shorter and has 26 in^2 LESS screen area (412 vs 438) than the 32-inch 16:9.&lt;/li>
+&lt;/ul>
+&lt;h2 id="assumptions-and-sources">Assumptions and sources&lt;/h2>
+&lt;ul>
+&lt;li>Width, height, and area are exact geometry from the diagonal and aspect ratio (height = diagonal / sqrt((w/h)^2 + 1)); there is no external data in the core result.&lt;/li>
+&lt;li>The 20-30 inch viewing-distance figure behind the desk-depth advice is consistent with &lt;a href="https://www.osha.gov/etools/computer-workstations/components/monitors" rel="noopener">OSHA&amp;rsquo;s computer-workstation guidance on monitor placement&lt;/a>.&lt;/li>
+&lt;li>The bezel allowance (add roughly 0.5-1 inch to the calculated width) and the 8-10 inch stand-footprint figure are TechFuelHQ working assumptions from measuring common monitors, stated so you can check your exact model&amp;rsquo;s spec sheet when clearance is tight.&lt;/li>
+&lt;/ul></description></item><item><title>Aspect Ratio Calculator: Resolutions, Ultrawide &amp; 16:9 (2026)</title><link>https://techfuelhq.com/tools/aspect-ratio-calculator/</link><pubDate>Mon, 29 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/tools/aspect-ratio-calculator/</guid><description>&lt;p>This calculator works two ways. Enter a pixel resolution and it reduces to the exact aspect ratio (with the decimal and the common name). Or set a ratio - type it or tap a preset like 16:9 or 21:9 - and enter one dimension to solve the other. It is built for monitors and gaming resolutions, so the presets and names match real displays.&lt;/p>
+&lt;p>The detail most aspect-ratio tools skip: &lt;strong>advertised ratios are often rounded.&lt;/strong> A &amp;ldquo;21:9&amp;rdquo; 3440x1440 monitor is exactly 43:18, and a 2560x1080 one is 64:27. Neither is truly 21:9. This tool shows the precise reduced ratio, which is the real geometry of the panel - useful when you are matching wallpapers, video, or a game&amp;rsquo;s render target to the actual screen.&lt;/p>
+&lt;p>To size a graphics card for the resolution you land on, see the &lt;a href="https://techfuelhq.com/tools/gpu-comparison/">GPU Comparison Tool&lt;/a> and the &lt;a href="https://techfuelhq.com/tools/pc-bottleneck-calculator/">PC Bottleneck Calculator&lt;/a>.&lt;/p>
+&lt;h2 id="worked-examples">Worked examples&lt;/h2>
+&lt;p>These are this calculator&amp;rsquo;s own outputs, computed with the same formula the tool runs in your browser — so you can see a real answer without touching a single input.&lt;/p>
+&lt;p>&lt;strong>&amp;ldquo;What aspect ratio is a 4K monitor?&amp;rdquo; - reader types the native resolution 3840 x 2160 into the two Resolution (pixels) fields. Both pixel fields are filled, so Direction A fires&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> Pixel width pw = 3840, pixel height ph = 2160 (ratio fields are overwritten by the result, so whatever was in them is irrelevant)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Ratio 16:9 - &amp;ldquo;Widescreen (1080p / 1440p / 4K)&amp;rdquo; - Decimal 1.778 - Resolution 3840 x 2160 - Megapixels 8.3 MP. (The 8,294,400 raw pixel count is the same 8.29 million the page prose cites for 4K.)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>&amp;ldquo;My ultrawide is sold as 21:9 - what is it really?&amp;rdquo; - reader types 3440 x 1440. This is the tool&amp;rsquo;s own headline claim, so it is the example most worth publishing&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> Pixel width pw = 3440, pixel height ph = 1440&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Ratio 43:18 - &amp;ldquo;21:9 ultrawide (3440x1440)&amp;rdquo; - Decimal 2.389 - Resolution 3440 x 1440 - Megapixels 5.0 MP. The tool disagrees with the &amp;ldquo;21:9&amp;rdquo; on the box by design: 2.389 vs 2.333.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Reverse direction - &amp;ldquo;I want to render a 21:9 wallpaper 3440 px wide, how tall?&amp;rdquo; Reader taps the 21:9 preset with 3440 already in the pixel-width box. The preset handler keeps the width, blanks the height, sets lastEdited=&amp;lsquo;pw&amp;rsquo;, and re-runs render(), so Direction B fires&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> Ratio rw = 21, rh = 9 (from the PRESETS entry [&amp;lsquo;21&amp;rsquo;,&amp;lsquo;9&amp;rsquo;]); pixel width pw = 3440; pixel height field empty&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Height solves to 1474 px. Ratio 21:9 - &amp;ldquo;21:9 ultrawide (cinematic)&amp;rdquo; - Decimal 2.333 - Resolution 3440 x 1474 - Megapixels 5.1 MP. Useful contrast for the same page: a real 3440x1440 panel is 43:18, so a true-to-panel canvas is 3440 x 1440, not 3440 x 1474 - the 34 px difference is exactly the &amp;ldquo;21:9 is a rounding&amp;rdquo; point the page makes.&lt;/li>
+&lt;/ul>
+&lt;h2 id="common-resolutions-and-their-real-ratios">Common resolutions and their real ratios&lt;/h2>
+&lt;p>Most PC resolutions reduce to a short list. 1920x1080, 2560x1440, and 3840x2160 are all 16:9, the standard. 1920x1200 and 2560x1600 are 16:10, common on laptops and productivity panels. The ultrawides are where the marketing labels drift from the geometry: 2560x1080 is exactly 64:27, 3440x1440 is 43:18, and both wear a &amp;ldquo;21:9&amp;rdquo; sticker. Super-ultrawide 5120x1440 is 32:9. Going back, 1280x1024 is 5:4 and the classic 1024x768 is 4:3. Enter any native resolution above and the tool reduces it with the greatest common divisor, so you get the exact ratio rather than the rounded one.&lt;/p>
+&lt;h2 id="why-219-is-a-rounding">Why &amp;ldquo;21:9&amp;rdquo; is a rounding&lt;/h2>
+&lt;p>True 21:9 works out to 2.333 wide for every 1 tall. A 3440x1440 monitor divides to about 2.389, which reduces exactly to 43:18; a 2560x1080 one divides to about 2.370, which is exactly 64:27. Neither is really 21:9; the label is just cleaner to advertise. It rarely matters for buying, but it matters when you are matching a wallpaper, a video, or a game&amp;rsquo;s render target to the panel, because using the true ratio avoids the slight stretch or letterbox that a rounded &amp;ldquo;21:9&amp;rdquo; would introduce.&lt;/p>
+&lt;h2 id="how-aspect-ratio-touches-gaming-performance">How aspect ratio touches gaming performance&lt;/h2>
+&lt;p>The ratio itself does not change performance; the pixel count does. A 3440x1440 ultrawide has about 4.95 million pixels, roughly 34 percent more than 2560x1440 but well short of 4K&amp;rsquo;s 8.29 million, so its frame rates usually land between 1440p and 4K. Budget a graphics card accordingly with the &lt;a href="https://techfuelhq.com/tools/gpu-comparison/">GPU Comparison Tool&lt;/a>. A wider screen also changes what you see: ultrawides widen your in-game field of view, which you can convert precisely with the &lt;a href="https://techfuelhq.com/tools/fov-calculator/">FOV Calculator&lt;/a>.&lt;/p>
+&lt;h2 id="assumptions-and-sources">Assumptions and sources&lt;/h2>
+&lt;ul>
+&lt;li>The ratio reduction is exact integer arithmetic: the tool divides width and height by their greatest common divisor, so 3440x1440 reduces to 43:18 with no rounding. There is no external dataset behind the core result - the math is the whole method.&lt;/li>
+&lt;li>Pixel counts and megapixel figures (8.29 million for 3840x2160, 4.95 million for 3440x1440) are computed from the resolution you enter, not looked up from a table.&lt;/li>
+&lt;li>The common-name labels next to each result (&amp;ldquo;Widescreen&amp;rdquo;, &amp;ldquo;21:9 ultrawide&amp;rdquo;) are TechFuelHQ editorial labels matched to how panels are actually marketed; the reduced ratio beside them is the exact geometry, which is why the two can disagree.&lt;/li>
+&lt;/ul></description></item><item><title>CPU Comparison Tool: Compare Any Two Gaming Processors (2026)</title><link>https://techfuelhq.com/tools/cpu-comparison/</link><pubDate>Mon, 29 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/tools/cpu-comparison/</guid><description>&lt;p>This tool compares any two processors for gaming and shows which is faster, by how much. Pick two CPUs. The result is a relative gaming margin based on aggregated 1080p benchmarks, which is the standard way to rank processors against each other because it removes the graphics card as a bottleneck.&lt;/p>
+&lt;p>The honest framing: this is a &lt;strong>1080p gaming ranking, not a productivity score, and not the gap you will feel at every resolution.&lt;/strong> At 1080p and high refresh rates you may see most of the difference; at 1440p and 4K the graphics card usually becomes the limiter and the gap between two capable chips shrinks. For multi-core work like rendering or compiling, core count changes the order, so check those benchmarks separately.&lt;/p>
+&lt;p>Scores come from the &lt;a href="https://www.tomshardware.com/reviews/cpu-hierarchy,4312.html" rel="noopener">Tom&amp;rsquo;s Hardware CPU benchmarks hierarchy&lt;/a> (1080p gaming), current through June 2026. To see whether a given CPU actually bottlenecks a specific graphics card at your resolution, pair this with the &lt;a href="https://techfuelhq.com/tools/pc-bottleneck-calculator/">PC Bottleneck Calculator&lt;/a>; to compare two graphics cards, use the &lt;a href="https://techfuelhq.com/tools/gpu-comparison/">GPU Comparison Tool&lt;/a>.&lt;/p>
+&lt;h2 id="worked-examples">Worked examples&lt;/h2>
+&lt;p>These are this calculator&amp;rsquo;s own outputs, computed with the same formula the tool runs in your browser — so you can see a real answer without touching a single input.&lt;/p>
+&lt;p>&lt;strong>The tool&amp;rsquo;s own default comparison, and the classic cross-brand question: is the older AMD cache chip still ahead of Intel&amp;rsquo;s mainstream K part? (X3D-vs-non-X3D, so the cache explainer rule fires.)&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> A = Ryzen 7 7800X3D, index 85.6 (group &amp;lsquo;AMD Ryzen X3D&amp;rsquo;). B = Core i7-14700K, index 76.4 (group &amp;lsquo;Intel Core 12th-14th Gen&amp;rsquo;). These are the two values hardcoded as the page defaults on lines 142-143.&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Headline: &amp;ldquo;Ryzen 7 7800X3D is 12% faster in gaming&amp;rdquo;.
+Subline: &amp;ldquo;Ryzen 7 7800X3D vs Core i7-14700K - 1080p gaming index&amp;rdquo;.
+Bars: A - Ryzen 7 7800X3D, &amp;ldquo;85.6 / 100&amp;rdquo;, 100% width. B - Core i7-14700K, &amp;ldquo;76.4 / 100&amp;rdquo;, 89% width (dimmed).
+Stats: Winner (gaming) = A | Margin = 12% | Basis = 1080p gaming.
+Recommendation text: &amp;ldquo;Ryzen 7 7800X3D leads by 12% in 1080p gaming.&amp;rdquo; followed by the 3D V-Cache sentence (&amp;ldquo;The Ryzen 7 7800X3D has 3D V-Cache, which is why it leads in games despite raw clocks&amp;hellip;&amp;rdquo;) and the resolution caveat.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>The most-searched upgrade question on this site (it has its own linked article): should a 7800X3D owner move to the 9800X3D? Both are X3D, which demonstrates the cache-explainer rule NOT firing&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> A = Ryzen 7 7800X3D, index 85.6. B = Ryzen 7 9800X3D, index 97.0. Both from the &amp;lsquo;AMD Ryzen X3D&amp;rsquo; group, lines 118-120.&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Headline: &amp;ldquo;Ryzen 7 9800X3D is 13% faster in gaming&amp;rdquo;.
+Bars: A - Ryzen 7 7800X3D, &amp;ldquo;85.6 / 100&amp;rdquo;, 88% width (dimmed). B - Ryzen 7 9800X3D, &amp;ldquo;97.0 / 100&amp;rdquo;, 100% width.
+Stats: Winner (gaming) = B | Margin = 13% | Basis = 1080p gaming.
+Recommendation text: &amp;ldquo;Ryzen 7 9800X3D leads by 13% in 1080p gaming.&amp;rdquo; with NO 3D V-Cache sentence (both chips are X3D), then straight to the resolution and multi-core caveat.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>A real mid-range cross-brand shortlist where the tie rule fires: Ryzen 5 9600X vs Core i5-14600K. This is the case that produces the &amp;rsquo;evenly matched&amp;rsquo; verdict instead of a percentage&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> A = Ryzen 5 9600X, index 72.6 (group &amp;lsquo;AMD Ryzen (non-X3D)&amp;rsquo;, line 122). B = Core i5-14600K, index 72.8 (group &amp;lsquo;Intel Core 12th-14th Gen&amp;rsquo;, line 129).&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Headline (rendered in the muted &amp;rsquo;tie&amp;rsquo; color): &amp;ldquo;Ryzen 5 9600X and Core i5-14600K are evenly matched in gaming&amp;rdquo;.
+Bars: A - Ryzen 5 9600X, &amp;ldquo;72.6 / 100&amp;rdquo;, 100% width (dimmed). B - Core i5-14600K, &amp;ldquo;72.8 / 100&amp;rdquo;, 100% width.
+Stats: Winner (gaming) = Tie | Margin = &amp;lt;2% | Basis = 1080p gaming.
+Recommendation text: &amp;ldquo;Effectively tied for gaming. At 1080p these two land within a couple percent. Decide on price, platform (AM5 vs LGA1851 longevity), power and heat, and how much multi-core work you do outside games.&amp;rdquo;&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to-read-the-result">How to read the result&lt;/h2>
+&lt;p>The number is a 1080p gaming margin, not a general speed score. Testing at 1080p on a fast graphics card removes the card as a limit, so the gap you see is the processor&amp;rsquo;s true gaming ceiling, which is the honest way to rank chips against each other. But it is a ceiling, not the gap you will feel at every resolution. At 1080p and high refresh rates you may see most of it; at 1440p and 4K the graphics card usually becomes the limiter and the difference between two capable chips shrinks, sometimes to nothing. Read the percentage as the maximum gaming gap, then expect less of it the higher you play.&lt;/p>
+&lt;h2 id="why-x3d-chips-win-games">Why X3D chips win games&lt;/h2>
+&lt;p>If a lower-clocked, cheaper AMD chip is beating a pricier one in this ranking, the reason is almost always cache. AMD&amp;rsquo;s X3D processors stack extra L3 cache onto the die. Games constantly request small pieces of data, and a bigger cache serves more of those requests instantly instead of waiting on slower system memory. The payoff shows up most in simulation, strategy, and esports titles that live and die on memory latency. That is how a Ryzen 7 7800X3D or 9800X3D beats higher-clocked, more expensive chips in games while drawing less power, even when those same chips pull ahead in raw multi-core work.&lt;/p>
+&lt;h2 id="gaming-and-productivity-do-not-rank-the-same">Gaming and productivity do not rank the same&lt;/h2>
+&lt;p>This tool ranks gaming, and gaming only. A chip that wins games can lose at rendering, compiling, or video encoding, where core and thread count matter more than the cache and latency that win games. The clean example is the X3D line again: it leads in gaming on cache, but a same-price non-X3D or Intel chip with more cores can finish a render faster. If your machine does real productivity work, treat this as the gaming half of the decision and check multi-core benchmarks for the other half before you buy.&lt;/p>
+&lt;h2 id="the-free-frames-most-people-leave-on-the-table">The free frames most people leave on the table&lt;/h2>
+&lt;p>Two builds with the same processor can differ several percent on memory alone, because gaming is sensitive to memory latency and bandwidth. The index here assumes your memory is running at its rated speed, which means the EXPO profile on AMD or XMP on Intel is switched on in the BIOS. Out of the box it often is not. Enabling it is one of the cheapest ways to close a gaming gap, and a slow-rated kit can quietly cost you frames on even a strong chip.&lt;/p>
+&lt;p>When a gap is small, spend the difference elsewhere. An 8 percent gaming lead at 1080p that mostly vanishes at your real resolution is rarely worth paying up for, and the money is usually better spent on a faster graphics card. The &lt;a href="https://techfuelhq.com/articles/7800x3d-vs-9800x3d-upgrade-2026/">7800X3D vs 9800X3D upgrade guide&lt;/a> works through exactly that math, the &lt;a href="https://techfuelhq.com/reviews/ryzen-7-7800x3d-review-2026/">7800X3D review&lt;/a> covers the value pick most gamers land on, and the &lt;a href="https://techfuelhq.com/tools/pc-builder/">PC Builder&lt;/a> balances a whole system to a budget.&lt;/p>
+&lt;h2 id="assumptions-and-sources">Assumptions and sources&lt;/h2>
+&lt;ul>
+&lt;li>Every CPU index in the menus is drawn from the &lt;a href="https://www.tomshardware.com/reviews/cpu-hierarchy,4312.html" rel="noopener">Tom&amp;rsquo;s Hardware CPU benchmarks hierarchy&lt;/a> (aggregated 1080p gaming on a top-tier graphics card, normalized to 100), current through June 2026; chips without consistent published figures were left out rather than estimated.&lt;/li>
+&lt;li>The &amp;ldquo;evenly matched&amp;rdquo; verdict below a 2% gap is a TechFuelHQ editorial threshold, chosen because a margin that small sits inside the run-to-run noise of game benchmarking.&lt;/li>
+&lt;li>The percentage compares the two chips&amp;rsquo; aggregate indexes directly, with no extra weighting - so it is the 1080p gaming ceiling, and the prose above explains why the felt gap shrinks at higher resolutions.&lt;/li>
+&lt;/ul></description></item><item><title>DisplayPort &amp; HDMI Bandwidth Calculator (2026)</title><link>https://techfuelhq.com/tools/displayport-hdmi-bandwidth-calculator/</link><pubDate>Mon, 29 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/tools/displayport-hdmi-bandwidth-calculator/</guid><description>&lt;p>This calculator tells you whether a given display mode fits over a specific cable standard. Pick your resolution, refresh rate, color depth, and chroma subsampling, and it shows the bandwidth that mode needs and which interfaces can carry it: HDMI 2.0, HDMI 2.1, DisplayPort 1.4, and DisplayPort 2.1 UHBR, both uncompressed and with DSC.&lt;/p>
+&lt;p>The figures it compares against are the &lt;strong>effective&lt;/strong> bandwidths after encoding overhead, not the marketing raw numbers. HDMI 2.0 and DisplayPort 1.4 both lose 20% to 8b/10b encoding, landing at 14.4 and 25.92 Gbps. HDMI 2.1 uses a more efficient scheme for 42.6 Gbps, and DisplayPort 2.1 UHBR is the most efficient of all, up to 77.4 Gbps. That is why a mode can clear the raw headline number but still not fit.&lt;/p>
+&lt;p>The honest caveat: this is a close uncompressed estimate using a standard reduced-blanking timing allowance, and real numbers shift slightly with the exact timing your GPU and monitor negotiate. When a mode only fits with &lt;strong>DSC&lt;/strong>, that is normal and visually lossless on modern hardware. If you are pushing the edge of what a link can do, the &lt;a href="https://techfuelhq.com/gaming/how-to-overclock-monitor-2026/">monitor overclocking guide&lt;/a> covers how to test a custom mode safely, and the &lt;a href="https://techfuelhq.com/tools/aspect-ratio-calculator/">aspect ratio calculator&lt;/a> helps confirm your exact pixel dimensions first.&lt;/p>
+&lt;h2 id="worked-examples">Worked examples&lt;/h2>
+&lt;p>These are this calculator&amp;rsquo;s own outputs, computed with the same formula the tool runs in your browser — so you can see a real answer without touching a single input.&lt;/p>
+&lt;p>&lt;strong>4K 144Hz with HDR color - the tool&amp;rsquo;s own default state on page load, and the mode behind the published &amp;ldquo;37.6 Gbps&amp;rdquo; FAQ answer&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> width 3840, height 2160, refresh 144 Hz, color depth 10-bit (HDR), chroma 4:4:4&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> 37.6 Gbps required uncompressed, about 12.5 Gbps with DSC. HDMI 2.0: No. DP 1.4 (HBR3): Needs DSC. HDMI 2.1: Fits. DP 2.1 UHBR10 / UHBR13.5 / UHBR20: Fits.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>1440p 240Hz esports monitor on standard SDR color - the common &amp;ldquo;will my DisplayPort 1.4 GPU do this without compression?&amp;rdquo; case&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> width 2560, height 1440, refresh 240 Hz, color depth 8-bit (SDR), chroma 4:4:4&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> 22.3 Gbps required uncompressed, about 7.4 Gbps with DSC. HDMI 2.0: No. DP 1.4 (HBR3): Fits uncompressed. HDMI 2.1 and all three DP 2.1 UHBR tiers: Fits.&lt;/li>
+&lt;/ul>
+&lt;h2 id="assumptions-and-sources">Assumptions and sources&lt;/h2>
+&lt;ul>
+&lt;li>HDMI 2.1&amp;rsquo;s 48 Gbps FRL link rate is from the &lt;a href="https://www.hdmi.org/spec/hdmi2_1" rel="noopener">HDMI Forum&amp;rsquo;s HDMI 2.1 specification page&lt;/a>; the 42.6 Gbps effective figure this tool compares against is that raw rate after the standard&amp;rsquo;s 16b/18b encoding overhead.&lt;/li>
+&lt;li>DisplayPort 2.1 UHBR link rates (up to 80 Gbps raw, 77.4 Gbps effective after 128b/132b encoding) are per &lt;a href="https://vesa.org/press/vesa-releases-displayport-2-1-specification/" rel="noopener">VESA&amp;rsquo;s DisplayPort 2.1 announcement&lt;/a>; DP 1.4 and HDMI 2.0 lose 20% to 8b/10b encoding, which is how the tool&amp;rsquo;s 25.92 and 14.4 Gbps figures are derived.&lt;/li>
+&lt;li>DSC&amp;rsquo;s roughly 3:1 compression and its &amp;ldquo;visually lossless&amp;rdquo; certification are per &lt;a href="https://vesa.org/vesa-display-compression-codecs/" rel="noopener">VESA&amp;rsquo;s Display Stream Compression codec page&lt;/a>.&lt;/li>
+&lt;li>The uncompressed bandwidth per mode uses a reduced-blanking timing allowance - a TechFuelHQ modeling choice, stated in the prose above, because the exact figure shifts slightly with the timing your GPU and monitor negotiate.&lt;/li>
+&lt;/ul></description></item><item><title>FOV Calculator: Convert Field of View Between Aspect Ratios (2026)</title><link>https://techfuelhq.com/tools/fov-calculator/</link><pubDate>Mon, 29 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/tools/fov-calculator/</guid><description>&lt;p>This calculator converts a game&amp;rsquo;s field of view between aspect ratios and between horizontal and vertical FOV. Enter your current FOV, say whether it is horizontal or vertical, pick your current aspect ratio, and choose a target - for example converting a 16:9 setting to a 21:9 or 32:9 ultrawide. It uses &lt;strong>Hor+ scaling&lt;/strong>, holding the vertical view constant and widening the horizontal view, which is how most modern PC games behave.&lt;/p>
+&lt;p>The honest caveat: &lt;strong>games define FOV differently.&lt;/strong> Some sliders are horizontal, some vertical, and a few old engines use a 4:3 base. The math here is exact geometry, so if a converted number does not match in-game, the usual reason is that your source game uses a different axis than you assumed - switch the horizontal/vertical type and re-check.&lt;/p>
+&lt;p>To work out a screen&amp;rsquo;s exact aspect ratio first, use the &lt;a href="https://techfuelhq.com/tools/aspect-ratio-calculator/">Aspect Ratio Calculator&lt;/a>; a wider screen also renders more pixels, so size your GPU with the &lt;a href="https://techfuelhq.com/tools/pc-bottleneck-calculator/">PC Bottleneck Calculator&lt;/a>.&lt;/p>
+&lt;h2 id="worked-examples">Worked examples&lt;/h2>
+&lt;p>These are this calculator&amp;rsquo;s own outputs, computed with the same formula the tool runs in your browser — so you can see a real answer without touching a single input.&lt;/p>
+&lt;p>&lt;strong>The page&amp;rsquo;s own default state, and the most common real case: a 16:9 player running 103° horizontal moves to a 2560x1080 ultrawide&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> FOV = 103, type = Horizontal FOV, source aspect = 16:9 (1.7777777778), target aspect = 21:9 ultrawide 2560x1080 (2.3703703704)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Headline reads 118.4° horizontal. Sub-line: &amp;ldquo;horizontal at 21:9 ultrawide (vertical FOV unchanged at 70.5°)&amp;rdquo;. Source box (16:9): 103.0° H / 70.5° V. Target box (21:9 ultrawide): 118.4° H / 70.5° V. Recommendation (Math.round applied): &amp;ldquo;Set your game to about 118° horizontal&amp;hellip; keeps the vertical view at 70.5° and widens the horizontal view to 118.4°. If your game only has a vertical FOV slider, set it to 71° instead.&amp;rdquo;&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>A competitive shooter player at the classic 90° horizontal on 16:9 moving to a 5120x1440 super-ultrawide&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> FOV = 90, type = Horizontal FOV, source aspect = 16:9 (1.7777777778), target aspect = 32:9 super-ultrawide 5120x1440 (3.5555555556)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Headline reads 126.9° horizontal. Sub-line: &amp;ldquo;horizontal at 32:9 super-ultrawide (vertical FOV unchanged at 58.7°)&amp;rdquo;. Source box (16:9): 90.0° H / 58.7° V. Target box (32:9 super-ultrawide): 126.9° H / 58.7° V. Recommendation: &amp;ldquo;Set your game to about 127° horizontal&amp;hellip; keeps the vertical view at 58.7° and widens the horizontal view to 126.9°. If your game only has a vertical FOV slider, set it to 59° instead.&amp;rdquo;&lt;/li>
+&lt;/ul>
+&lt;h2 id="horizontal-versus-vertical-fov">Horizontal versus vertical FOV&lt;/h2>
+&lt;p>A single FOV number is ambiguous unless you know its axis. Horizontal FOV measures the angle across the screen&amp;rsquo;s width, vertical FOV across its height, and for the same scene they are linked by the aspect ratio: the wider the screen, the larger the horizontal figure is relative to the vertical. Many shooters expose horizontal FOV; a lot of newer and console-first engines expose vertical, sometimes labeled just &amp;ldquo;FOV.&amp;rdquo; That mismatch is the single most common reason a converted number does not match in-game, so if it looks off, switch the type and compare again.&lt;/p>
+&lt;h2 id="hor-scaling-and-ultrawide">Hor+ scaling and ultrawide&lt;/h2>
+&lt;p>Most modern PC games use Hor+ (horizontal-plus) scaling: they hold the vertical field of view fixed and extend the horizontal to fill a wider screen. That is why a well-behaved game on an ultrawide shows more of the world at the sides rather than a stretched or zoomed image. The opposite, Vert- scaling, crops the top and bottom instead, which is what you get in games that do not properly support ultrawide. This tool uses Hor+, so converting a 16:9 setting to 21:9 holds the vertical view steady and widens the horizontal, matching how a correct game behaves.&lt;/p>
+&lt;h2 id="what-fov-to-actually-use">What FOV to actually use&lt;/h2>
+&lt;p>There is no single right value, but some anchors help. On 16:9, many players land between 90 and 105 degrees horizontal: higher feels more aware and is popular in competitive shooters, lower feels more cinematic. If you get motion sickness, a higher FOV usually helps by reducing the zoomed-in, swimming feel. Sitting closer to a bigger screen also argues for more FOV. On ultrawide, keep your vertical comfort level and let the horizontal number rise, which this tool does for you. Try a value, play a session, adjust. To confirm your screen&amp;rsquo;s exact ratio first, use the &lt;a href="https://techfuelhq.com/tools/aspect-ratio-calculator/">Aspect Ratio Calculator&lt;/a>.&lt;/p>
+&lt;h2 id="assumptions-and-sources">Assumptions and sources&lt;/h2>
+&lt;ul>
+&lt;li>The conversion is exact trigonometry, not fitted data: horizontal and vertical FOV are linked through the aspect ratio by tan(H/2) = ratio x tan(V/2), and the Hor+ conversion holds the vertical angle constant while re-solving the horizontal one.&lt;/li>
+&lt;li>Hor+ and Vert- scaling behavior, and the fact that games disagree about which axis their FOV slider uses, are documented on &lt;a href="https://www.pcgamingwiki.com/wiki/Field_of_view_%28FOV%29" rel="noopener">PCGamingWiki&amp;rsquo;s field-of-view page&lt;/a>.&lt;/li>
+&lt;li>The 90-105 degree comfort range on 16:9 is a TechFuelHQ editorial guideline reflecting common shooter defaults, not a measured standard - it is stated here so you treat it as a starting point rather than a rule.&lt;/li>
+&lt;/ul></description></item><item><title>GPU Comparison Tool: Compare Any Two Graphics Cards (2026)</title><link>https://techfuelhq.com/tools/gpu-comparison/</link><pubDate>Mon, 29 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/tools/gpu-comparison/</guid><description>&lt;p>This tool compares any two graphics cards head-to-head and shows which is faster, by how much, at the resolution you actually play. Pick two cards and a resolution. The result is a relative performance margin, plus a breakdown at 1080p, 1440p, and 4K so you can see where the gap widens or narrows.&lt;/p>
+&lt;p>One honest caveat up front: these are &lt;strong>rasterized gaming scores, not absolute frame rates,&lt;/strong> and they exclude ray tracing and DLSS/FSR upscaling. They are the fairest like-for-like baseline, but a card&amp;rsquo;s standing can shift in ray-traced titles or with frame generation. The most useful thing the tool surfaces is &lt;em>where the winner changes with resolution&lt;/em> — a card that is a hair ahead at 1080p can fall behind at 4K once its VRAM runs short, and that is exactly the kind of buying mistake worth catching early.&lt;/p>
+&lt;p>Scores come from the &lt;a href="https://www.tomshardware.com/reviews/gpu-hierarchy,4388.html" rel="noopener">Tom&amp;rsquo;s Hardware GPU benchmarks hierarchy&lt;/a> (rasterized gaming, native resolution), current through June 2026. To check whether your processor can keep up with a given card, pair this with the &lt;a href="https://techfuelhq.com/tools/pc-bottleneck-calculator/">PC Bottleneck Calculator&lt;/a>.&lt;/p>
+&lt;h2 id="worked-examples">Worked examples&lt;/h2>
+&lt;p>These are this calculator&amp;rsquo;s own outputs, computed with the same formula the tool runs in your browser — so you can see a real answer without touching a single input.&lt;/p>
+&lt;p>&lt;strong>Budget cross-shop where VRAM genuinely flips the verdict &amp;ndash; GeForce RTX 5060 8GB (A) vs Intel Arc B580 12GB (B). This is the case the whole &amp;ldquo;Where VRAM flips the winner&amp;rdquo; section is about&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> A = GeForce RTX 5060 -&amp;gt; [43.4, 35.8, 19.6, 8GB]. B = Intel Arc B580 -&amp;gt; [35.1, 30.3, 24.9, 12GB]. Resolution stepped through all three; headline shown at the 1440p default.&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> At 1440p the headline reads &amp;ldquo;GeForce RTX 5060 is 18% faster at 1440p&amp;rdquo;. Stats: Winner @ res = A; VRAM = 8 vs 12 GB; Margin = 18%. Table: 1080p 43.4 / 35.1 RTX 5060 +24%; 1440p 35.8 / 30.3 RTX 5060 +18%; 4K 19.6 / 24.9 Arc B580 +27%. Flip note: &amp;ldquo;Note: the winner changes with resolution - the 8GB GeForce RTX 5060 fades at higher resolution as VRAM fills up.&amp;rdquo; Recommendation: &amp;ldquo;GeForce RTX 5060 leads by 18% at 1440p. In raster terms it is the faster card here. The slower Intel Arc B580 carries more VRAM (12GB vs 8GB), which can matter for texture-heavy games and longevity. If the price gap is larger than the performance gap, the slower card can still be the better value.&amp;rdquo;&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>The &amp;ldquo;is the halo card worth it&amp;rdquo; comparison the prose links out to &amp;ndash; GeForce RTX 4090 (A) vs GeForce RTX 4080 (B), a clean one-sided result with no flip, shown at 4K where the gap is widest&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> A = GeForce RTX 4090 -&amp;gt; [90.1, 85.7, 80.4, 24GB]. B = GeForce RTX 4080 -&amp;gt; [77.2, 70.3, 60.9, 16GB]. curRes = &amp;lsquo;4K&amp;rsquo; (RES_KEYS index 3).&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Headline: &amp;ldquo;GeForce RTX 4090 is 32% faster at 4K&amp;rdquo;. Stats: Winner @ res = A; VRAM = 24 vs 16 GB; Margin = 32%. Table: 1080p 90.1 / 77.2 RTX 4090 +17%; 1440p 85.7 / 70.3 RTX 4090 +22%; 4K 80.4 / 60.9 RTX 4090 +32%. No flip note. Recommendation: &amp;ldquo;GeForce RTX 4090 leads by 32% at 4K. In raster terms it is the faster card here. It also has more VRAM (24GB vs 16GB), so it ages better too. If the price gap is larger than the performance gap, the slower card can still be the better value.&amp;rdquo; The widening 17 -&amp;gt; 22 -&amp;gt; 32 spread is a real, computed illustration of the page&amp;rsquo;s claim that the gap changes with resolution.&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to-read-the-result">How to read the result&lt;/h2>
+&lt;p>The number this tool gives you is a relative margin, not a frame rate. If it says one card is 18 percent faster at 1440p, that card&amp;rsquo;s aggregate raster score is 18 percent higher across the benchmark set. In a GPU-bound game that lands close to 18 percent more frames, but it is not a promise for any single title, and it says nothing about the absolute FPS either card hits in the game you actually play. Treat it as the size of the gap. If you have a specific frame-rate target in mind, look up benchmarks for that exact game and settings to turn the gap into real numbers.&lt;/p>
+&lt;p>The scores are rasterized, native-resolution results with no upscaling and no ray tracing. That is the fairest like-for-like baseline, but it is a baseline, not the whole story. Turn on heavy ray tracing and NVIDIA cards usually gain ground. Turn on DLSS or FSR with frame generation and either card can jump well past its native result. If those features are central to how you play, add a mental adjustment on top of what you see here.&lt;/p>
+&lt;h2 id="where-vram-flips-the-winner">Where VRAM flips the winner&lt;/h2>
+&lt;p>The most useful thing this comparison surfaces is the resolution breakdown, because the winner can change between 1080p and 4K. Two cards that trade blows at 1080p can separate hard at 4K, and the usual culprit is video memory. Higher resolutions load bigger textures and frame buffers into VRAM; an 8GB card that was fine at 1080p can run short at 4K and stutter, while a 12GB or 16GB card keeps scaling. Memory bandwidth and cache size matter too, but capacity is the one that produces the obvious, ugly stutters.&lt;/p>
+&lt;p>That is why the tool shows the margin at all three resolutions and flags when the faster card actually changes. If you play at 4K, or plan to within the life of the card, weight the 4K column and the VRAM figure more heavily than a 1080p average that will not reflect your reality.&lt;/p>
+&lt;h2 id="price-per-frame-beats-raw-speed">Price per frame beats raw speed&lt;/h2>
+&lt;p>Raw performance is the wrong number to shop on by itself. The one that matters is price per frame: what you pay for each unit of performance. A card that is 10 percent slower but 25 percent cheaper is usually the better buy, because that 10 percent gap is rarely visible in normal play while the money saved is very real. Run the performance margin here against the actual price gap before you decide.&lt;/p>
+&lt;p>There are three cases where paying up for the faster card is worth it: you are chasing a specific frame-rate target the cheaper card cannot reach, the faster card also carries more VRAM that will extend its useful life, or its efficiency and feature set genuinely matter to you. Absent one of those, the cheaper card with the better price per frame is the smarter pick.&lt;/p>
+&lt;h2 id="matchups-worth-running">Matchups worth running&lt;/h2>
+&lt;p>If you are cross-shopping this generation, the comparisons people run most are the ones where the value line is close. A few worth putting head to head, with full written reviews if you want the detail:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5070-ti-vs-rx-9070-xt-2026/">RTX 5070 Ti vs RX 9070 XT&lt;/a> - the 1440p value fight of the generation.&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5060-ti-vs-rx-9060-xt-1440p-showdown-2026/">RTX 5060 Ti vs RX 9060 XT&lt;/a> - where the 8GB-versus-16GB question bites hardest.&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/gpu-reviews/rtx-4080-vs-rtx-4090/">RTX 4080 vs RTX 4090&lt;/a> - the classic &amp;ldquo;is the halo card worth it&amp;rdquo; call.&lt;/li>
+&lt;/ul>
+&lt;p>Once you have picked a card, check your processor can keep up with the &lt;a href="https://techfuelhq.com/tools/pc-bottleneck-calculator/">PC Bottleneck Calculator&lt;/a>, or price a full system around it with the &lt;a href="https://techfuelhq.com/tools/pc-builder/">PC Builder&lt;/a>.&lt;/p>
+&lt;h2 id="assumptions-and-sources">Assumptions and sources&lt;/h2>
+&lt;ul>
+&lt;li>Every score in the menus is drawn from the &lt;a href="https://www.tomshardware.com/reviews/gpu-hierarchy,4388.html" rel="noopener">Tom&amp;rsquo;s Hardware GPU benchmarks hierarchy&lt;/a> (rasterized gaming at native resolution, normalized to the fastest card per resolution), current through June 2026; cards without consistent published figures were left out rather than estimated.&lt;/li>
+&lt;li>VRAM capacities shown beside each card are the vendors&amp;rsquo; board specifications as recorded in the tool&amp;rsquo;s dataset.&lt;/li>
+&lt;li>Ray tracing and upscaling are excluded by design: the numbers are a raster baseline, and this tool applies no adjustment factors of its own on top of the source data - the resolution breakdown is the source&amp;rsquo;s own per-resolution scores.&lt;/li>
+&lt;/ul></description></item><item><title>Mouse Sensitivity Converter &amp; eDPI Calculator (2026)</title><link>https://techfuelhq.com/tools/mouse-sensitivity-converter/</link><pubDate>Mon, 29 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/tools/mouse-sensitivity-converter/</guid><description>&lt;p>This converter keeps your aim consistent when you switch games. Enter your mouse DPI, your current game, and its in-game sensitivity, then choose the game you want to play. The tool returns the sensitivity that preserves your &lt;strong>cm/360&lt;/strong> - the physical distance you move the mouse to turn a full circle - so your muscle memory transfers intact. It also shows your &lt;strong>eDPI&lt;/strong> and your exact 360 distance in centimeters and inches.&lt;/p>
+&lt;p>The method is the one every serious sensitivity converter uses. Each game has a documented &lt;strong>yaw&lt;/strong>, the degrees your view rotates per mouse count at sensitivity 1. Source-engine games like CS2 and Apex share a yaw of 0.022, so they convert one to one; Valorant uses 0.07; the Overwatch 2 and Call of Duty family uses 0.0066. To match your feel in a new game, the target sensitivity is your sensitivity times your game&amp;rsquo;s yaw divided by the target game&amp;rsquo;s yaw, which holds your cm/360 constant at the same DPI.&lt;/p>
+&lt;p>The honest caveat: a handful of games (Fortnite, some battle royales) use a percentage or per-scope slider rather than a clean linear scale, so their conversion is a close approximation marked with an asterisk - confirm it with an in-game 360 test. Field of view also changes how a given sensitivity feels, so if you are also moving between aspect ratios, set your view with the &lt;a href="https://techfuelhq.com/tools/fov-calculator/">FOV Calculator&lt;/a>, and size the GPU that drives your frame rate with the &lt;a href="https://techfuelhq.com/tools/pc-bottleneck-calculator/">PC Bottleneck Calculator&lt;/a>.&lt;/p>
+&lt;h2 id="worked-examples">Worked examples&lt;/h2>
+&lt;p>These are this calculator&amp;rsquo;s own outputs, computed with the same formula the tool runs in your browser — so you can see a real answer without touching a single input.&lt;/p>
+&lt;p>&lt;strong>A CS2 player moving to Valorant and wanting the same feel (the tool&amp;rsquo;s own default pairing, at a realistic CS2 sensitivity)&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> DPI = 800, Game = CS2 (yaw 0.022), In-game sensitivity = 0.80, Target game = Valorant (yaw 0.07)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> eDPI 640; 64.9 cm / 25.6 inches per 360 degrees; Valorant sensitivity 0.251 at 800 DPI to match the 64.9 cm/360.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>A Valorant player on a high-DPI mouse trying CS2, going the other direction through the same yaw pair&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> DPI = 1600, Game = Valorant (yaw 0.07), In-game sensitivity = 0.35, Target game = CS2 (yaw 0.022)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> eDPI 560; 23.3 cm / 9.2 inches per 360 degrees; CS2 sensitivity 1.11 at 1600 DPI to match the 23.3 cm/360.&lt;/li>
+&lt;/ul>
+&lt;h2 id="assumptions-and-sources">Assumptions and sources&lt;/h2>
+&lt;ul>
+&lt;li>The conversion itself is algebra, not data: holding cm/360 constant gives target sensitivity = your sensitivity x (your game&amp;rsquo;s yaw / target game&amp;rsquo;s yaw), with DPI canceling out because you keep the same mouse.&lt;/li>
+&lt;li>The per-game yaw values (0.022 for Source-engine titles, 0.07 for Valorant, 0.0066 for the Overwatch 2 / Call of Duty family, 0.044 for Deadlock) are community-documented constants used by every major sensitivity converter; no vendor publishes them as official specifications, which is exactly why this page tells you to confirm the result with a physical 360 test on a marked mousepad.&lt;/li>
+&lt;li>Games flagged with an asterisk use percentage or per-scope sliders rather than a clean linear scale, so their single yaw value is a TechFuelHQ approximation rather than an engine constant.&lt;/li>
+&lt;/ul></description></item><item><title>PC Bottleneck Calculator: CPU vs GPU by Resolution (2026)</title><link>https://techfuelhq.com/tools/pc-bottleneck-calculator/</link><pubDate>Mon, 29 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/tools/pc-bottleneck-calculator/</guid><description>&lt;p>A bottleneck is when one part of your PC, the CPU or the GPU, cannot keep up with the other, so the faster part sits partly idle and your frame rate is capped below its potential. This calculator estimates which part limits you at the resolution you actually play, using aggregated gaming benchmarks. Pick your processor, your graphics card, and a resolution.&lt;/p>
+&lt;p>The honest part first: &lt;strong>this is a directional estimate, not a benchmark.&lt;/strong> A real bottleneck depends on the specific game and engine, your settings, your memory speed, your refresh rate, and whether you use upscaling. What the tool is good for is a sanity check before you buy, spotting an obvious mismatch and understanding why the same pair behaves so differently at 1080p versus 4K. Being &lt;em>GPU-bound&lt;/em> at 1440p or 4K is not a fault; it is the efficient, intended state.&lt;/p>
+&lt;p>The processor scores come from the &lt;a href="https://www.tomshardware.com/reviews/cpu-hierarchy,4312.html" rel="noopener">Tom&amp;rsquo;s Hardware CPU benchmarks hierarchy&lt;/a> (1080p gaming) and the graphics-card scores from the &lt;a href="https://www.tomshardware.com/reviews/gpu-hierarchy,4388.html" rel="noopener">Tom&amp;rsquo;s Hardware GPU benchmarks hierarchy&lt;/a> (rasterized gaming), both current through June 2026. The resolution-shifts-the-limiter principle is well established by reviewers and by &lt;a href="https://www.intel.com/content/www/us/en/developer/articles/guide/cpu-bound-vs-gpu-bound.html" rel="noopener">Intel&amp;rsquo;s own developer guidance&lt;/a>.&lt;/p>
+&lt;h2 id="worked-examples">Worked examples&lt;/h2>
+&lt;p>These are this calculator&amp;rsquo;s own outputs, computed with the same formula the tool runs in your browser — so you can see a real answer without touching a single input.&lt;/p>
+&lt;p>&lt;strong>The tool&amp;rsquo;s own default state and a very common balanced 1440p gaming build: Ryzen 7 7800X3D + GeForce RTX 5070 Ti, playing at 1440p&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> CPU index (1080p gaming) = 85.6 (Ryzen 7 7800X3D). GPU raster index at 1440p = 69.8 (GeForce RTX 5070 Ti; its row is 76.2 / 69.8 / 61.9 / 16GB). Resolution = 1440p, so RES scale = 0.72. VRAM = 16 GB.&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Headline: &amp;lsquo;GPU-bound (expected at 1440p)&amp;rsquo; (neutral/accent colour). Stats row: Limiter = GPU, Imbalance = 41%, GPU VRAM = 16 GB. Bars: CPU - Ryzen 7 7800X3D 86 / 100 (100% wide, dimmed), GPU - GeForce RTX 5070 Ti @ 1440p 50 / 100 (59% wide, highlighted as the limiter). Recommendation text: the GPU sets the frame rate and that is normal at 1440p — the CPU is keeping up with headroom to spare; to gain fps, upgrade the GPU, lower a few settings, or turn on DLSS/FSR.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>A classic real upgrade question: an older Alder Lake i5 kept from a 2022 build, paired with a brand-new high-end card, still on a 1080p high-refresh monitor. Core i5-12600K + GeForce RTX 5080 at 1080p&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> CPU index = 60.8 (Core i5-12600K — the lowest CPU index in the dataset). GPU raster index at 1080p = 81.9 (GeForce RTX 5080; row 81.9 / 76.7 / 69.8 / 16GB). Resolution = 1080p, so RES scale = 1.00. VRAM = 16 GB.&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Headline: &amp;lsquo;Moderate CPU bottleneck&amp;rsquo; (amber/warn). Stats row: Limiter = CPU, Imbalance = 26%, GPU VRAM = 16 GB. Bars: CPU - Core i5-12600K 61 / 100 (74% wide, highlighted as the limiter), GPU - GeForce RTX 5080 @ 1080p 82 / 100 (100% wide, dimmed). Recommendation text states roughly 26% of the GPU&amp;rsquo;s potential goes unused at 1080p, and suggests a faster gaming CPU (X3D chips lead), faster RAM, or moving to a higher resolution/settings. Switching the same pair to 4K flips the verdict to &amp;lsquo;GPU-bound (expected at 4K)&amp;rsquo; with Limiter = GPU and Imbalance = 43%.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>A mainstream all-new mid-range build checked at 1080p: Ryzen 7 7700X + Radeon RX 9070 — the case where the tool says stop worrying and just upgrade for performance&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> CPU index = 70.6 (Ryzen 7 7700X). GPU raster index at 1080p = 69.1 (Radeon RX 9070; row 69.1 / 62.1 / 52.1 / 16GB). Resolution = 1080p, so RES scale = 1.00. VRAM = 16 GB.&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Headline: &amp;lsquo;Well balanced&amp;rsquo; (green). Stats row: Limiter = GPU, Imbalance = 2%, GPU VRAM = 16 GB. Bars: CPU - Ryzen 7 7700X 71 / 100 (100% wide), GPU - Radeon RX 9070 @ 1080p 69 / 100 (98% wide, marked as the limiter). Recommendation text: well matched at 1080p, neither part holds the other back much, so spend on whichever you upgrade for performance rather than to fix an imbalance. Note the Limiter stat still reads GPU even though the headline is &amp;lsquo;Well balanced&amp;rsquo; — the under-8% rule short-circuits the severity wording but not the limiter readout.&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to-read-the-result">How to read the result&lt;/h2>
+&lt;p>The tool gives you a limiter, CPU or GPU, and an imbalance percentage. Read it as a direction and a rough size, not a precise measurement. The processor and graphics-card scores come from two different game suites, so the exact number is an approximation; a result within a few points either way is effectively balanced hardware. What it reliably tells you is which part is likely holding you back at the resolution you chose, and how that flips as the resolution changes. Use it to catch an obvious mismatch before you spend money, then confirm with benchmarks for the specific games you play.&lt;/p>
+&lt;h2 id="why-resolution-decides-the-limiter">Why resolution decides the limiter&lt;/h2>
+&lt;p>The processor does the same work every frame no matter the resolution: game logic, physics, AI, and setting up draw calls do not care how many pixels the screen has. The graphics card does far more work as resolution climbs, because there are far more pixels to shade. 1440p has roughly 1.78 times the pixels of 1080p, and 4K has four times as many. Raising the resolution loads up the graphics card while the processor&amp;rsquo;s job stays flat.&lt;/p>
+&lt;p>That is the whole reason the same CPU-and-GPU pair can be CPU-limited at 1080p and clearly GPU-limited at 4K. It is also why reviewers test processors at 1080p, to expose the gaps between chips, and treat 4K as mostly a graphics-card test. If you play at 4K, a mid-range processor paired with a strong card is usually fine; the same processor can hold that card back at 1080p.&lt;/p>
+&lt;h2 id="fixing-a-cpu-bottleneck">Fixing a CPU bottleneck&lt;/h2>
+&lt;p>If the tool flags your processor as the limiter, there are a few real levers. The most direct is a faster gaming chip, and the ones with extra cache (AMD&amp;rsquo;s X3D parts) lead in most games because gaming leans hard on cache. Faster memory with its profile enabled (EXPO on AMD, XMP on Intel) helps too, since game performance is sensitive to memory latency. The free option is to raise the resolution or settings, which shifts work onto the graphics card and often hides a mild CPU limit entirely. Before blaming the hardware, rule out the cheap causes: background apps, a stale chipset driver, or a power plan that parks cores can all make a CPU limit look worse than it is.&lt;/p>
+&lt;h2 id="the-mismatches-that-waste-money">The mismatches that waste money&lt;/h2>
+&lt;p>Two pairings burn money. The first is a top-tier graphics card behind a weak processor at 1080p: the card spends its life waiting on the CPU and you paid for frames you never see. The second is over-buying the processor for a 4K build, where the graphics card is the limiter anyway and the extra CPU headroom does almost nothing. The goal is not zero bottleneck, which is impossible since one part always leads, but a pair that is balanced for your resolution.&lt;/p>
+&lt;p>If you are planning a build rather than diagnosing one, the &lt;a href="https://techfuelhq.com/tools/pc-builder/">PC Builder&lt;/a> picks balanced parts to a budget, and the &lt;a href="https://techfuelhq.com/articles/7800x3d-vs-9800x3d-upgrade-2026/">7800X3D vs 9800X3D upgrade guide&lt;/a> shows how much a cache-heavy gaming chip actually moves the needle. For a worked 1440p example, the &lt;a href="https://techfuelhq.com/pc-builds/1500-dollar-rtx-5060-ti-1440p-build-2026/">$1,500 RTX 5060 Ti build&lt;/a> is balanced by design.&lt;/p>
+&lt;h2 id="assumptions-and-sources">Assumptions and sources&lt;/h2>
+&lt;ul>
+&lt;li>CPU indexes come from the &lt;a href="https://www.tomshardware.com/reviews/cpu-hierarchy,4312.html" rel="noopener">Tom&amp;rsquo;s Hardware CPU benchmarks hierarchy&lt;/a> (1080p gaming) and GPU indexes from the &lt;a href="https://www.tomshardware.com/reviews/gpu-hierarchy,4388.html" rel="noopener">Tom&amp;rsquo;s Hardware GPU benchmarks hierarchy&lt;/a> (rasterized, native resolution), both current through June 2026; parts without consistent figures across the two suites were omitted rather than estimated.&lt;/li>
+&lt;li>The resolution scaling applied to the GPU score (1.00 at 1080p, 0.72 at 1440p, 0.50 at 4K) is a TechFuelHQ approximation of how far a top card&amp;rsquo;s frame rate falls as pixel count rises, stated openly here rather than hidden in the model.&lt;/li>
+&lt;li>The under-8% &amp;ldquo;well balanced&amp;rdquo; band and the severity wording are TechFuelHQ editorial thresholds - the reason the page tells you to read the percentage as direction and rough magnitude, not measurement.&lt;/li>
+&lt;/ul></description></item><item><title>PPI &amp; Pixel Density Calculator: Monitor Sharpness (2026)</title><link>https://techfuelhq.com/tools/ppi-calculator/</link><pubDate>Mon, 29 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/tools/ppi-calculator/</guid><description>&lt;p>This tool calculates the pixel density (PPI, pixels per inch) of any display from its resolution and diagonal size, then tells you what that density means in practice. Enter a width, height, and screen size, or tap a preset for a common monitor. You get the PPI, the pixel pitch in millimeters, the total megapixels, an approximate &amp;ldquo;retina&amp;rdquo; distance, and a plain-English sharpness verdict.&lt;/p>
+&lt;p>The honest framing: &lt;strong>PPI does not decide sharpness on its own - viewing distance does.&lt;/strong> A phone needs far higher density than a monitor because you hold it close. For a desktop screen at arm&amp;rsquo;s length, anything above roughly 90 PPI looks clean and 140-plus is very sharp, so you do not need phone-class numbers on a monitor you sit back from. The &amp;ldquo;retina distance&amp;rdquo; figure is the point beyond which individual pixels get hard to resolve for normal vision.&lt;/p>
+&lt;p>Pixel density also drives GPU load: more pixels means more work per frame. To size a graphics card for a given resolution, see the &lt;a href="https://techfuelhq.com/tools/gpu-comparison/">GPU Comparison Tool&lt;/a>; to work out a screen&amp;rsquo;s exact aspect ratio, use the &lt;a href="https://techfuelhq.com/tools/aspect-ratio-calculator/">Aspect Ratio Calculator&lt;/a>.&lt;/p>
+&lt;h2 id="worked-examples">Worked examples&lt;/h2>
+&lt;p>These are this calculator&amp;rsquo;s own outputs, computed with the same formula the tool runs in your browser — so you can see a real answer without touching a single input.&lt;/p>
+&lt;p>&lt;strong>27-inch 1440p monitor — the tool&amp;rsquo;s default state and the &amp;lsquo;27&amp;quot; 1440p&amp;rsquo; preset (2560x1440 @ 27 in)&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> w = 2560 px, h = 1440 px, d = 27 in&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> 109 PPI. Verdict: &amp;lsquo;Sharp&amp;rsquo; (mid). Pixel pitch 0.233 mm, 3.7 MP, retina distance 32 in (80 cm). Recommendation text: &amp;lsquo;Sharp at 109 PPI. The desktop sweet spot (27&amp;quot; 1440p ~ 109 PPI). Crisp text without needing display scaling. A great balance of sharpness, size, and GPU load.&amp;rsquo;&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>27-inch 4K monitor — the &amp;lsquo;27&amp;quot; 4K&amp;rsquo; preset, the upgrade the page&amp;rsquo;s own prose compares against 27-inch 1440p (3840x2160 @ 27 in)&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> w = 3840 px, h = 2160 px, d = 27 in&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> 163 PPI. Verdict: &amp;lsquo;Retina-class&amp;rsquo; (hi). Pixel pitch 0.156 mm, 8.3 MP, retina distance 21 in (54 cm). Recommendation text: &amp;lsquo;Retina-class at 163 PPI. 27&amp;quot; 4K ~ 163 PPI. Individual pixels are hard to see at desk distance. Plan on display scaling (150-200%) and a stronger GPU - 4K is roughly 2.25x the pixels of 1440p.&amp;rsquo;&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>32-inch 1440p monitor — the &amp;lsquo;32&amp;quot; 1440p&amp;rsquo; preset. Same resolution as example 1, bigger panel, so the tier rule flips from &amp;lsquo;Sharp&amp;rsquo; down to &amp;lsquo;Standard / a bit soft&amp;rsquo; (2560x1440 @ 32 in)&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> w = 2560 px, h = 1440 px, d = 32 in&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> 92 PPI. Verdict: &amp;lsquo;Standard / a bit soft&amp;rsquo; (lo). Pixel pitch 0.277 mm, 3.7 MP, retina distance 37 in (95 cm). Recommendation text: &amp;lsquo;Standard / a bit soft at 92 PPI. This is the classic ~92 PPI of a 24&amp;quot; 1080p or 27&amp;quot; 1440p-on-the-larger-side panel. Usable and common, but text is not crisp; many people enable a little anti-aliasing or sit slightly back.&amp;rsquo;&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-this-pixels-per-inch-calculator-works">How this pixels-per-inch calculator works&lt;/h2>
+&lt;p>This screen PPI calculator uses the standard pixel density formula: the diagonal resolution in pixels divided by the diagonal size in inches. It takes the square root of the width squared plus the height squared to get the diagonal in pixels, then divides by the screen&amp;rsquo;s diagonal in inches. That single number, pixels per inch, is what makes a 27-inch 1440p monitor (about 109 PPI) look crisper than a 32-inch 1440p one (about 92 PPI) even though both have the same resolution. The result also reports pixel pitch in millimetres for the datasheets that list density that way, plus total megapixels and an approximate retina distance, so you can judge sharpness for your actual viewing distance rather than from resolution alone. One disambiguation, since plenty of people land here searching for a &amp;ldquo;DPI calculator&amp;rdquo;: a mouse&amp;rsquo;s DPI is a pointer-sensitivity setting rather than a screen measurement, and that belongs in the &lt;a href="https://techfuelhq.com/tools/mouse-sensitivity-converter/">mouse sensitivity converter&lt;/a> instead.&lt;/p>
+&lt;h2 id="what-ppi-to-aim-for-at-your-distance">What PPI to aim for at your distance&lt;/h2>
+&lt;p>Density only matters relative to how far you sit. For a desktop monitor at arm&amp;rsquo;s length, the useful band is roughly 90 to 160 PPI. Around 90 (a 24-inch 1080p, or a 27-inch 1440p on the larger side) is usable but not crisp. About 109, the density of a 27-inch 1440p panel, is the desktop sweet spot: sharp text with no need for display scaling. Around 140 and up (32-inch 4K and denser) is very sharp but usually wants some operating-system scaling so menus are not tiny. Below about 80 PPI, individual pixels and jagged edges start to show at a desk. Phones and tablets run far higher numbers only because you hold them close.&lt;/p>
+&lt;h2 id="27-inch-1440p-versus-4k-and-scaling">27-inch 1440p versus 4K, and scaling&lt;/h2>
+&lt;p>At 27 inches, 1440p is about 109 PPI and 4K is about 163 PPI, so 4K is visibly sharper, especially on text and fine detail. The trade-offs: 4K is about 2.25 times the pixels, so it needs a stronger graphics card for the same frame rate, and at 27 inches it usually wants around 150 percent display scaling to keep the interface readable. If you mostly game and chase frames, 1440p is the easier target; if you read, code, or design a lot and have the &lt;a href="https://techfuelhq.com/articles/best-gpu-4k-gaming-2026/">GPU for 4K&lt;/a>, 27-inch 4K is a real step up in clarity. To check a panel&amp;rsquo;s exact ratio alongside its density, use the &lt;a href="https://techfuelhq.com/tools/aspect-ratio-calculator/">Aspect Ratio Calculator&lt;/a>.&lt;/p>
+&lt;h2 id="assumptions-and-sources">Assumptions and sources&lt;/h2>
+&lt;ul>
+&lt;li>PPI is pure arithmetic - diagonal pixels (the square root of width squared plus height squared) divided by diagonal inches - and pixel pitch is its inverse, 25.4 mm divided by PPI. No external data enters the core numbers.&lt;/li>
+&lt;li>The &amp;ldquo;retina distance&amp;rdquo; applies the common one-arcminute visual-acuity convention (normal 20/20 vision resolves about 1/60 of a degree); this is a TechFuelHQ implementation of that convention, stated as an approximation for typical eyesight rather than a vendor specification.&lt;/li>
+&lt;li>The sharpness bands (about 90 PPI usable, 109 the desktop sweet spot, 140+ wants scaling) are TechFuelHQ editorial thresholds for arm&amp;rsquo;s-length desktop viewing, stated so you can shift them for your own distance and vision.&lt;/li>
+&lt;/ul></description></item><item><title>Frigate NVR Storage Calculator</title><link>https://techfuelhq.com/tools/frigate-nvr-storage-calculator/</link><pubDate>Wed, 17 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/tools/frigate-nvr-storage-calculator/</guid><description>&lt;h2 id="worked-examples">Worked examples&lt;/h2>
+&lt;p>These are this calculator&amp;rsquo;s own outputs, computed with the same formula the tool runs in your browser — so you can see a real answer without touching a single input.&lt;/p>
+&lt;p>&lt;strong>The mainstream starter setup and the tool&amp;rsquo;s own default state: four 4MP (2560×1440) cameras at 15 fps, H.265, recording continuously 24/7, keeping 14 days&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> Cameras = 4; Resolution = 4MP (1440p, 2560×1440); Recording FPS = 15; Codec = H.265/HEVC; Record mode = Continuous 24/7; Retention = 14 days; Known bitrate = blank (auto-estimate)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Total storage needed: 1.9 TB. All cameras/day: 130 GB. Per camera/day: 32 GB (≈ 3.0 Mbps est.). Recommended drive: 2 TB (surveillance-rated HDD, 24/7 write). Set /dev/shm to: 231 MB.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>A 4K homelab NVR: six 4K (3840×2160) cameras at 15 fps, H.265, continuous 24/7, keeping a full month (30 days)&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> Cameras = 6; Resolution = 4K (8MP, 3840×2160); Recording FPS = 15; Codec = H.265/HEVC; Record mode = Continuous 24/7; Retention = 30 days; Known bitrate = blank (auto-estimate)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Total storage needed: 12.2 TB. All cameras/day: 389 GB. Per camera/day: 65 GB (≈ 6.0 Mbps est.). Recommended drive: 14 TB (surveillance-rated HDD, 24/7 write). Set /dev/shm to: 683 MB.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>A budget motion-only build with off-reference frame rate: eight 1080p cameras at 20 fps, H.264, motion/detect-only with activity 25% of the day, keeping 30 days&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> Cameras = 8; Resolution = 1080p (2MP, 1920×1080); Recording FPS = 20; Codec = H.264; Record mode = Motion / detect only; Active/motion = 25% of day; Retention = 30 days; Known bitrate = blank (auto-estimate)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Total storage needed: 3.6 TB. All cameras/day: 115 GB. Per camera/day: 14 GB (≈ 5.3 Mbps est.). Recommended drive: 4 TB (any reliable HDD/SSD, because the mode is motion). Set /dev/shm to: 256 MB.&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to-use-this-calculator">How to use this calculator&lt;/h2>
+&lt;p>Enter how many cameras you run, pick the resolution, frame rate, and codec, choose continuous or motion-only recording, and set how many days of footage you want to keep. The calculator instantly estimates total storage, daily write volume, a recommended drive size, and the &lt;code>/dev/shm&lt;/code> value Frigate needs.&lt;/p>
+&lt;p>If you already know your camera&amp;rsquo;s bitrate (check its web UI or app), type it into the optional bitrate field — that is the single most accurate input, because &lt;strong>Frigate records the stream your camera sends without re-encoding it.&lt;/strong>&lt;/p>
+&lt;h2 id="what-actually-drives-frigate-storage">What actually drives Frigate storage&lt;/h2>
+&lt;p>Two numbers decide almost everything:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Bitrate&lt;/strong> — the data rate of the recorded stream, in Mbps. Continuous recording at 1 Mbps uses about &lt;strong>10.8 GB/day&lt;/strong>. Everything else (resolution, FPS, codec) matters only because it changes the bitrate.&lt;/li>
+&lt;li>&lt;strong>Retention&lt;/strong> — how many days you keep. Storage is linear: double the days, double the disk.&lt;/li>
+&lt;/ul>
+&lt;p>Because Frigate copies the camera&amp;rsquo;s stream rather than transcoding it, the codec choice here estimates what your camera &lt;em>would&lt;/em> produce on H.264 vs H.265. H.265 (HEVC) is roughly half the bitrate of H.264 at the same quality — the easiest way to halve your storage is to set the camera to H.265, if its hardware and your decoding setup support it.&lt;/p>
+&lt;h2 id="continuous-vs-motion-only">Continuous vs motion-only&lt;/h2>
+&lt;p>Continuous 24/7 recording is the safe default for security footage — no gaps, nothing missed. Motion/detect-only recording stores far less, proportional to how active the scene is, but a missed detection means missed footage. The comparison table above shows both modes side by side for your exact setup so you can see the trade in real gigabytes before you commit.&lt;/p>
+&lt;h2 id="dont-forget-devshm">Don&amp;rsquo;t forget /dev/shm&lt;/h2>
+&lt;p>A storage plan that ignores shared memory is how Frigate setups fail on day one. Frigate buffers decoded frames in &lt;code>/dev/shm&lt;/code>, and the default container allocation is small. The calculator outputs a recommended &lt;code>shm-size&lt;/code> from Frigate&amp;rsquo;s own per-camera formula — set it on your container (for an LXC or Docker run) so Frigate has room to work. For the host underneath it, an &lt;a href="https://techfuelhq.com/homelab/lxc-vs-vm-proxmox-2026/">LXC vs VM decision&lt;/a> and a solid &lt;a href="https://techfuelhq.com/homelab/proxmox-truenas-unraid-storage-backend-2026/">storage backend&lt;/a> round out a reliable NVR build.&lt;/p>
+&lt;h2 id="a-note-on-the-estimates">A note on the estimates&lt;/h2>
+&lt;p>When you don&amp;rsquo;t supply a bitrate, the figures come from typical mainstream-IP-camera bitrates by resolution and codec, scaled by frame rate — good enough to size a drive, but not a substitute for your camera&amp;rsquo;s real number. Storage uses decimal GB/TB (1 TB = 1,000 GB), matching how drives are sold. Always size up: retention you never use is cheap; running out of space mid-incident is not.&lt;/p>
+&lt;h2 id="assumptions-and-sources">Assumptions and sources&lt;/h2>
+&lt;ul>
+&lt;li>The /dev/shm sizing comes from &lt;a href="https://docs.frigate.video/frigate/installation/" rel="noopener">Frigate&amp;rsquo;s installation documentation&lt;/a>, which publishes the per-camera shared-memory formula this calculator sums across your cameras.&lt;/li>
+&lt;li>Frigate recording the camera&amp;rsquo;s existing stream without re-encoding it - the reason bitrate decides everything - is documented in &lt;a href="https://docs.frigate.video/configuration/record/" rel="noopener">Frigate&amp;rsquo;s record configuration docs&lt;/a>.&lt;/li>
+&lt;li>The 10.8 GB/day per 1 Mbps of continuous recording is arithmetic, not an estimate: 1 Mbps x 86,400 seconds / 8 / 1,000.&lt;/li>
+&lt;li>The default bitrates by resolution and codec (for example ~3 Mbps for a 4MP H.265 stream) are TechFuelHQ working estimates of mainstream IP-camera output, stated so you can override them with your camera&amp;rsquo;s real bitrate - which is the accuracy lever this page recommends.&lt;/li>
+&lt;/ul></description></item><item><title>Local LLM Speed Calculator: Estimate Tokens per Second</title><link>https://techfuelhq.com/tools/llm-speed-calculator/</link><pubDate>Wed, 17 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/tools/llm-speed-calculator/</guid><description>&lt;h2 id="worked-examples">Worked examples&lt;/h2>
+&lt;p>These are this calculator&amp;rsquo;s own outputs, computed with the same formula the tool runs in your browser — so you can see a real answer without touching a single input.&lt;/p>
+&lt;p>&lt;strong>Mainstream 2026 gaming/AI desktop running a small everyday chat model — an 8B model (Llama 3.1 8B class) at Q4_K_M on an RTX 5070 Ti, efficiency left at the 70% default&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> Model size = 8 B params; Quantization = Q4_K_M (0.60 bytes/param); GPU = RTX 5070 Ti (896 GB/s); Efficiency = 70%&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Est. generation speed 131 tokens/sec · Model weights 4.8 GB (at 0.60 bytes/param) · Rough VRAM need 5.8 GB · Memory bandwidth 896 GB/s × 70% efficiency. Table: Q8 8.5 GB / 74.0 tok/s / 10.2 GB; Q5_K_M 5.7 GB / 110 tok/s / 6.8 GB; Q4_K_M 4.8 GB / 131 tok/s / 5.8 GB; Q3_K_M 3.9 GB / 160 tok/s / 4.7 GB.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Common homelab box on a used 24 GB card — a 32B model (Qwen2.5 32B / QwQ class) at Q4_K_M on an RTX 3090, efficiency left at 70%&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> Model size = 32 B params; Quantization = Q4_K_M (0.60 bytes/param); GPU = RTX 3090 (936 GB/s); Efficiency = 70%&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Est. generation speed 34.1 tokens/sec · Model weights 19.2 GB (at 0.60 bytes/param) · Rough VRAM need 23.0 GB · Memory bandwidth 936 GB/s × 70% efficiency. Table: Q8 33.9 GB / 19.3 tok/s / 40.7 GB; Q5_K_M 22.7 GB / 28.8 tok/s / 27.3 GB; Q4_K_M 19.2 GB / 34.1 tok/s / 23.0 GB; Q3_K_M 15.7 GB / 41.8 tok/s / 18.8 GB.&lt;/br>Note the 23.0 GB VRAM figure against a 24 GB card — genuinely borderline, which is the useful reader takeaway.&lt;/br>&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to-use-this-calculator">How to use this calculator&lt;/h2>
+&lt;p>Enter the model&amp;rsquo;s size in billions of parameters, pick the quantization you&amp;rsquo;ll run, and choose your GPU (or enter a custom memory bandwidth). The calculator estimates the &lt;strong>generation speed in tokens per second&lt;/strong> — the speed you feel while the model is typing its reply — plus the weights size and a rough VRAM figure. The table compares common quant levels so you can see the speed-vs-quality trade for your exact hardware.&lt;/p>
+&lt;p>If you&amp;rsquo;ve measured your real tokens/sec on a known model, nudge the &lt;strong>efficiency&lt;/strong> slider until the estimate matches — then its predictions for other models and quants on your rig get more accurate.&lt;/p>
+&lt;h2 id="why-bandwidth-not-tflops-decides-speed">Why bandwidth, not TFLOPS, decides speed&lt;/h2>
+&lt;p>Local LLM generation is &lt;strong>memory-bandwidth-bound&lt;/strong>. To produce each token, the GPU streams the model&amp;rsquo;s weights out of VRAM once and does comparatively little arithmetic per byte. So the limiting factor is how fast the card can read memory — its GB/s — not its raw compute. That&amp;rsquo;s why a memory-bandwidth number predicts token speed far better than a TFLOPS rating, and why the formula is simply:&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>tokens/sec ≈ (memory bandwidth ÷ weights size) × efficiency&lt;/strong>&lt;/p>&lt;/blockquote>
+&lt;p>A 70B model at Q4_K_M is 42.0 GB of weights at the 0.60 bytes-per-parameter figure this calculator uses; divide a card&amp;rsquo;s bandwidth by that and you&amp;rsquo;re in the right ballpark. Halve the weights (a lighter quant) and you roughly double the speed.&lt;/p>
+&lt;h2 id="speed-vs-fit-two-different-questions">Speed vs. fit: two different questions&lt;/h2>
+&lt;p>&amp;ldquo;How fast will it run?&amp;rdquo; and &amp;ldquo;will it even fit?&amp;rdquo; are separate problems. This tool answers the first. A model can fit comfortably in VRAM and still be slow (big model, modest bandwidth), or be fast in theory but not fit at all (not enough VRAM, forcing slow CPU offload). For the fit side — VRAM for weights &lt;strong>plus&lt;/strong> the KV cache at your context length — use the &lt;a href="https://techfuelhq.com/tools/llm-vram-calculator/">LLM VRAM Calculator&lt;/a>. Run both before you buy a card or pick a model.&lt;/p>
+&lt;h2 id="picking-a-model-for-your-card">Picking a model for your card&lt;/h2>
+&lt;p>If the estimated speed is comfortable (say 15+ tok/s for chat) and the model fits, you&amp;rsquo;re set. If it&amp;rsquo;s too slow, your levers are: a &lt;strong>lighter quant&lt;/strong> (faster and smaller, slight quality cost), a &lt;strong>smaller model&lt;/strong>, or a card with &lt;strong>more bandwidth&lt;/strong>. For which models actually fit each card in the first place, the &lt;a href="https://techfuelhq.com/articles/local-llm-by-gpu-vram-2026/">VRAM-tier guide to local LLMs by GPU&lt;/a> maps it tier by tier; for build-level guidance, see the &lt;a href="https://techfuelhq.com/tutorials/self-host-local-llm-rtx-5060-2026/">single-RTX-5060 local-LLM walkthrough&lt;/a> and the &lt;a href="https://techfuelhq.com/articles/1000-local-ai-workstation-rtx-5080-2026/">$1,000 local-AI workstation&lt;/a> for a tuned setup.&lt;/p>
+&lt;h2 id="a-note-on-accuracy">A note on accuracy&lt;/h2>
+&lt;p>These are estimates from the bandwidth-bound model, most reliable for larger models and short-to-medium contexts. Real numbers vary with context length (the KV cache grows and gets re-read), the inference backend, and whether the whole model fits in VRAM. Use the figure to compare GPUs and quants and to size expectations — not as a guaranteed benchmark.&lt;/p>
+&lt;h2 id="assumptions-and-sources">Assumptions and sources&lt;/h2>
+&lt;ul>
+&lt;li>GPU memory-bandwidth figures are the vendors&amp;rsquo; published specifications, cross-checked against the TechPowerUp GPU database - for example the &lt;a href="https://www.techpowerup.com/gpu-specs/geforce-rtx-4090.c3889" rel="noopener">RTX 4090&lt;/a> at 1,008 GB/s and the &lt;a href="https://www.techpowerup.com/gpu-specs/geforce-rtx-3090.c3622" rel="noopener">RTX 3090&lt;/a> at 936 GB/s.&lt;/li>
+&lt;li>Bytes-per-parameter for each quantization (0.60 for Q4_K_M, i.e. about 4.83 bits per weight) follow the GGUF quantization sizes implemented in &lt;a href="https://github.com/ggml-org/llama.cpp" rel="noopener">llama.cpp&lt;/a>, the runtime family this model assumes.&lt;/li>
+&lt;li>The 70% default efficiency factor and the ±30% accuracy framing are TechFuelHQ calibration assumptions, stated so you can tune the slider against a tokens/sec figure you have actually measured on your own rig.&lt;/li>
+&lt;li>The rough VRAM figure adds 20% to the weights for KV cache and overhead - a TechFuelHQ planning allowance; for a real fit check use the &lt;a href="https://techfuelhq.com/tools/llm-vram-calculator/">LLM VRAM Calculator&lt;/a>, which models the cache properly.&lt;/li>
+&lt;/ul></description></item><item><title>PoE Power Budget Calculator: Will Your Switch Power It All?</title><link>https://techfuelhq.com/tools/poe-budget-calculator/</link><pubDate>Wed, 17 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/tools/poe-budget-calculator/</guid><description>&lt;h2 id="worked-examples">Worked examples&lt;/h2>
+&lt;p>These are this calculator&amp;rsquo;s own outputs, computed with the same formula the tool runs in your browser — so you can see a real answer without touching a single input.&lt;/p>
+&lt;p>&lt;strong>Small home network on the tool&amp;rsquo;s own defaults: 2 mid-range Wi-Fi access points at 13 W each and 4 fixed IP cameras at 8 W each, 20 m average runs, 20% headroom, switch budget left blank&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> ap-q = 2, ap-w = 13, cam-q = 4, cam-w = 8, ptz-q = 0, phone-q = 0, other-q = 0, len = 20, head = 20, budget = (blank)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Recommended switch budget 72 W (6 devices, +20% headroom); Raw device draw 58 W; Cable loss +2 W (~20m), 3% over the run; Buy a switch with &amp;gt;= 120 W.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Homelab with outdoor PTZ cameras: 3 access points at 13 W, 6 fixed cameras at 8 W, 2 PTZ/IR cameras at 20 W, 30 m average runs, 20% headroom, no budget entered&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> ap-q = 3, ap-w = 13, cam-q = 6, cam-w = 8, ptz-q = 2, ptz-w = 20, phone-q = 0, other-q = 0, len = 30, head = 20, budget = (blank)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Recommended switch budget 159 W (11 devices, +20% headroom); Raw device draw 127 W; Cable loss +6 W (~30m), 5% over the run; Buy a switch with &amp;gt;= 180 W.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Small office checking an existing 250 W PoE switch: 4 access points at 13 W, 8 fixed cameras at 8 W, 4 VoIP phones at 6 W, 25 m average runs, 20% headroom, existing switch budget 250 W&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> ap-q = 4, ap-w = 13, cam-q = 8, cam-w = 8, ptz-q = 0, phone-q = 4, phone-w = 6, other-q = 0, len = 25, head = 20, budget = 250&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Recommended switch budget 174 W (16 devices, +20% headroom); Raw device draw 140 W; Cable loss +5 W (~25m), 4% over the run; Buy a switch with &amp;gt;= 180 W; Your 250W switch: Fits, 76 W to spare.&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to-use-this-calculator">How to use this calculator&lt;/h2>
+&lt;p>Enter how many of each PoE device you have — access points, fixed cameras, PTZ cameras, VoIP phones, and anything else — with the wattage each draws. Set the average cable run length and a headroom percentage, and the calculator returns the &lt;strong>total switch PoE budget you should buy&lt;/strong>. Enter your switch&amp;rsquo;s actual budget too, and it tells you whether it fits with watts to spare or falls short.&lt;/p>
+&lt;p>The defaults are typical values; for an accurate result, set each device&amp;rsquo;s real rated draw (it&amp;rsquo;s on the spec sheet or the device itself).&lt;/p>
+&lt;h2 id="switch-budget-vs-device-draw">Switch budget vs. device draw&lt;/h2>
+&lt;p>A PoE switch advertises a &lt;strong>total PoE budget&lt;/strong> — say 60 W or 250 W — which is the combined wattage it can deliver across all ports at once, measured at the switch (the PSE, power-sourcing equipment). Your devices (PDs, powered devices) are rated by what they consume, and the difference between the two is lost in the cable. So the budget you need isn&amp;rsquo;t just the sum of device labels: it&amp;rsquo;s that sum, plus cable losses, plus headroom. Size for the switch side, not the device side.&lt;/p>
+&lt;h2 id="the-headroom-rule">The headroom rule&lt;/h2>
+&lt;p>Always leave room. Power-on inrush, an AP that ramps up under a full client load, a camera switching on night-vision IR, and underestimated cable loss all push real draw above the nameplate sum. About &lt;strong>20% headroom&lt;/strong> keeps ports reliable and leaves space to add a device later. A switch run at 100% of budget will start dropping power to ports the moment something spikes — usually as a confusing, intermittent outage rather than a clean failure.&lt;/p>
+&lt;h2 id="what-this-pairs-with">What this pairs with&lt;/h2>
+&lt;p>Once you know the budget, the &lt;a href="https://techfuelhq.com/articles/best-homelab-networking-gear-under-200/">budget homelab networking gear guide&lt;/a> covers switches that hit common budget tiers, and the &lt;a href="https://techfuelhq.com/networking/mikrotik-crs305-review-2026/">MikroTik CRS305 review&lt;/a> is worth a look if you&amp;rsquo;re combining PoE with a 10GbE uplink. If your APs are the big draw, the &lt;a href="https://techfuelhq.com/networking/wifi-7-homelab-home-network-2026/">Wi-Fi 7 guide&lt;/a> covers which APs need PoE+/bt versus plain PoE.&lt;/p>
+&lt;h2 id="assumptions-and-sources">Assumptions and sources&lt;/h2>
+&lt;ul>
+&lt;li>The 802.3af/at/bt tier figures (15.4 / 30 / 60-90 W sourced at the switch, 12.95 / 25.5 / 51-71.3 W delivered at the device) are the IEEE PoE standards&amp;rsquo; numbers: 802.3af (Type 1), 802.3at (Type 2), and 802.3bt (Types 3 and 4, published as &lt;a href="https://standards.ieee.org/ieee/802.3bt/6749/" rel="noopener">IEEE 802.3bt-2018&lt;/a>, which the IEEE sells rather than publishes openly). The Fluke explainer previously cited here for the same figures now redirects to Fluke&amp;rsquo;s blog index and no longer carries them, so it was dropped on 2026-08-14 rather than left standing as a source that supports nothing.&lt;/li>
+&lt;li>The default device draws (13 W mid-range AP, 8 W fixed camera, 20 W PTZ, 6 W phone) are TechFuelHQ typical values, stated so you can replace them with your gear&amp;rsquo;s rated draw from its spec sheet - which the page recommends for an accurate budget.&lt;/li>
+&lt;li>The distance-based cable-loss model (rising to roughly 15% near a 100 m run) and the 20% headroom rule are TechFuelHQ working assumptions, chosen conservatively so the recommended budget errs toward reliability.&lt;/li>
+&lt;/ul></description></item><item><title>SSD Endurance Calculator: How Long Will Your SSD Last?</title><link>https://techfuelhq.com/tools/ssd-endurance-calculator/</link><pubDate>Wed, 17 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/tools/ssd-endurance-calculator/</guid><description>&lt;h2 id="worked-examples">Worked examples&lt;/h2>
+&lt;p>These are this calculator&amp;rsquo;s own outputs, computed with the same formula the tool runs in your browser — so you can see a real answer without touching a single input.&lt;/p>
+&lt;p>&lt;strong>The tool&amp;rsquo;s own shipped default state — a mainstream 1 TB consumer TLC NVMe (600 TBW, 5-year warranty) running a homelab VM / container host, no write amplification&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> Drive capacity = 1000 GB; Endurance rated as = TBW; Rated TBW = 600; Warranty = 5 years; Workload preset = Homelab VM / container host (80 GB/day); Daily host writes = 80 GB/day; WAF = 1.0&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Estimated lifespan 20.5 yr | Effective endurance 600 TBW | Your write rate 0.080 DWPD (rated for 0.33 DWPD) | Written per year 29.2 TB (4.9% of rating/yr)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>A 2 TB consumer TLC NVMe (1,200 TBW, 5-year warranty) as a Proxmox + ZFS boot/VM pool — copy-on-write pushes write amplification to 3x. This is the case the page&amp;rsquo;s prose calls &amp;ldquo;the difference between lasts decades and lasts a few years.&amp;rdquo;&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> Drive capacity = 2000 GB; Endurance rated as = TBW; Rated TBW = 1200; Warranty = 5 years; Workload preset = Proxmox + ZFS / heavy logging (150 GB/day); Daily host writes = 150 GB/day; WAF = 3&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Estimated lifespan 7.3 yr | Effective endurance 1200 TBW | Your write rate 0.075 DWPD (rated for 0.33 DWPD) | Written per year 164.3 TB (13.7% of rating/yr)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>DWPD mode — a used 1.92 TB enterprise/datacenter SSD rated 1 DWPD over a 5-year warranty, the classic homelab eBay buy, carrying the same Proxmox + ZFS load at 2x write amplification&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> Drive capacity = 1920 GB; Endurance rated as = DWPD; Rated DWPD = 1; Warranty = 5 years; Workload preset = Proxmox + ZFS / heavy logging (150 GB/day); Daily host writes = 150 GB/day; WAF = 2&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Estimated lifespan 32.0 yr | Effective endurance 3504 TBW (from 1 DWPD x 5 yr) | Your write rate 0.078 DWPD (rated for 1.00 DWPD) | Written per year 109.5 TB (3.1% of rating/yr)&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to-use-this-calculator">How to use this calculator&lt;/h2>
+&lt;p>Enter your drive&amp;rsquo;s &lt;strong>capacity&lt;/strong> and its &lt;strong>endurance rating&lt;/strong> — either as &lt;strong>TBW&lt;/strong> (terabytes written, common on consumer SSDs) or as &lt;strong>DWPD&lt;/strong> (drive writes per day, common on enterprise drives) plus the warranty period. Then set how much you write per day (pick a workload preset or enter your own) and, optionally, a &lt;strong>write amplification factor&lt;/strong>. The calculator returns the &lt;strong>estimated lifespan in years&lt;/strong>, your effective write rate in DWPD, and how much endurance you burn per year.&lt;/p>
+&lt;p>The defaults model a 1 TB TLC SSD (600 TBW) on a moderate homelab load. For an accurate result, use your drive&amp;rsquo;s real rated TBW or DWPD from its spec sheet.&lt;/p>
+&lt;h2 id="tbw-vs-dwpd--same-rating-two-units">TBW vs. DWPD — same rating, two units&lt;/h2>
+&lt;p>Manufacturers express SSD endurance two ways. &lt;strong>TBW&lt;/strong> is the total terabytes you can write over the warranty; &lt;strong>DWPD&lt;/strong> is how many full-capacity overwrites per day the drive tolerates for the warranty period. They&amp;rsquo;re interchangeable:&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>TBW = DWPD × capacity (TB) × 365 × warranty years&lt;/strong>&lt;/p>&lt;/blockquote>
+&lt;p>So a 1 TB drive at 0.3 DWPD over a 5-year warranty is rated for 0.3 × 1 × 365 × 5 ≈ &lt;strong>548 TBW&lt;/strong>. Consumer drives usually quote TBW; datacenter drives quote DWPD because they&amp;rsquo;re built for constant rewriting. This tool accepts either and shows both.&lt;/p>
+&lt;h2 id="write-amplification--the-homelab-multiplier">Write amplification — the homelab multiplier&lt;/h2>
+&lt;p>Your endurance is consumed by what the &lt;strong>NAND flash&lt;/strong> actually writes, not what your OS reports. Because flash erases in large blocks, a small logical write can force a larger physical one — that ratio is the &lt;strong>write amplification factor (WAF)&lt;/strong>. Plain desktop use sits near 1; &lt;strong>copy-on-write filesystems (ZFS, Btrfs), databases, and chatty logging&lt;/strong> push it to 2–10x. A WAF of 3 burns your TBW three times faster, so set it if you run &lt;a href="https://techfuelhq.com/homelab/lxc-vs-vm-proxmox-2026/">ZFS or VM workloads on Proxmox&lt;/a> — it&amp;rsquo;s the difference between &amp;ldquo;lasts decades&amp;rdquo; and &amp;ldquo;lasts a few years.&amp;rdquo;&lt;/p>
+&lt;h2 id="what-this-pairs-with">What this pairs with&lt;/h2>
+&lt;p>If your big write load is video, the &lt;a href="https://techfuelhq.com/tools/frigate-nvr-storage-calculator/">Frigate NVR storage calculator&lt;/a> estimates the GB/day a camera setup writes — plug that number in here to size an endurance-appropriate drive. And if you&amp;rsquo;re protecting that data, the &lt;a href="https://techfuelhq.com/tutorials/proxmox-backup-server-3-2-1-2026/">Proxmox Backup Server 3-2-1 guide&lt;/a> covers doing it right.&lt;/p>
+&lt;h2 id="assumptions-and-sources">Assumptions and sources&lt;/h2>
+&lt;ul>
+&lt;li>The lifespan math and the TBW = DWPD x capacity x 365 x warranty conversion follow the SSD endurance-rating framework standardized in &lt;a href="https://www.jedec.org/standards-documents/docs/jesd218b01" rel="noopener">JEDEC JESD218&lt;/a>, which is what vendor TBW and DWPD ratings are defined against.&lt;/li>
+&lt;li>The 600 TBW default for a 1 TB drive matches the published endurance rating of mainstream consumer TLC drives such as the &lt;a href="https://www.samsung.com/us/computing/memory-storage/solid-state-drives/990-pro-w-heatsink-pcie-4-0-nvme-ssd-1tb-mz-v9p1t0cw/" rel="noopener">Samsung 990 PRO 1 TB&lt;/a>; QLC and enterprise drives differ widely, so use your model&amp;rsquo;s spec-sheet figure.&lt;/li>
+&lt;li>The write-amplification guidance (near 1 for plain desktop use, 2-10x for ZFS/Btrfs, databases, and chatty logging) is a TechFuelHQ working range from homelab experience, stated so you can set the factor from your own host-versus-NAND write data instead.&lt;/li>
+&lt;/ul></description></item><item><title>Subnet &amp; CIDR Calculator: IP Ranges, Masks, Hosts</title><link>https://techfuelhq.com/tools/subnet-cidr-calculator/</link><pubDate>Wed, 17 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/tools/subnet-cidr-calculator/</guid><description>&lt;h2 id="worked-examples">Worked examples&lt;/h2>
+&lt;p>These are this calculator&amp;rsquo;s own outputs, computed with the same formula the tool runs in your browser — so you can see a real answer without touching a single input.&lt;/p>
+&lt;p>&lt;strong>The default home/homelab LAN — a consumer router handing out 192.168.1.x. IP 192.168.1.0, prefix /24, no split. (This is exactly the tool&amp;rsquo;s default state on page load.)&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> IPv4 address = 192.168.1.0, Prefix = /24, Split into = (no split)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Network address 192.168.1.0/24 | Broadcast address 192.168.1.255 | Usable host range 192.168.1.1 - 192.168.1.254 | Usable hosts 254 (256 total addresses) | Subnet mask 255.255.255.0 | Wildcard mask 0.0.0.255 | Address type Private (RFC 1918 - not internet-routable)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Carving the same home /24 into four VLANs (main, IoT, guest, cameras) — IP 192.168.1.0, prefix /24, split into /26. The dropdown option reads &amp;ldquo;/26 (4 subnets)&amp;rdquo;&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> IPv4 address = 192.168.1.0, Prefix = /24, Split into = /26&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Heading &amp;ldquo;Split /24 into 4 x /26 subnets&amp;rdquo;, table rows: 1) 192.168.1.0/26, 192.168.1.1-192.168.1.62, bcast 192.168.1.63, 62 hosts. 2) 192.168.1.64/26, 192.168.1.65-192.168.1.126, bcast 192.168.1.127, 62 hosts. 3) 192.168.1.128/26, 192.168.1.129-192.168.1.190, bcast 192.168.1.191, 62 hosts. 4) 192.168.1.192/26, 192.168.1.193-192.168.1.254, bcast 192.168.1.255, 62 hosts. (Cards above still describe the parent /24.)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>A homelab host address that is NOT the start of its block — a Proxmox node at 10.0.30.75 on a /22 lab network. Shows that the tool snaps the entered address down to its network address&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> IPv4 address = 10.0.30.75, Prefix = /22, Split into = (no split)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Network address 10.0.28.0/22 | Broadcast address 10.0.31.255 | Usable host range 10.0.28.1 - 10.0.31.254 | Usable hosts 1,022 (1,024 total addresses) | Subnet mask 255.255.252.0 | Wildcard mask 0.0.3.255 | Address type Private (RFC 1918 - not internet-routable)&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to-use-this-calculator">How to use this calculator&lt;/h2>
+&lt;p>Type an IPv4 address and choose a CIDR prefix (the &lt;code>/24&lt;/code> part). The calculator instantly shows the &lt;strong>network address&lt;/strong>, &lt;strong>broadcast address&lt;/strong>, the &lt;strong>usable host range&lt;/strong>, total and usable &lt;strong>host counts&lt;/strong>, the &lt;strong>subnet mask&lt;/strong>, and the &lt;strong>wildcard mask&lt;/strong> — and tells you whether the address is private, public, or special-use. To plan VLANs or segments, set a longer &lt;strong>split prefix&lt;/strong> and it lists every child subnet.&lt;/p>
+&lt;p>Everything runs in your browser; nothing is sent anywhere. The result is encoded in the URL, so you can copy a link to a specific calculation.&lt;/p>
+&lt;h2 id="what-cidr-notation-actually-means">What CIDR notation actually means&lt;/h2>
+&lt;p>CIDR (Classless Inter-Domain Routing) describes a network by how many leading bits are fixed. &lt;code>/24&lt;/code> means the first 24 of 32 bits are the network, leaving 8 for hosts — 256 addresses, 254 usable. Each extra bit halves the block: &lt;code>/25&lt;/code> = 128, &lt;code>/26&lt;/code> = 64, &lt;code>/27&lt;/code> = 32. It replaced the rigid Class A/B/C system, so you size a network to what you need instead of jumping in huge steps.&lt;/p>
+&lt;p>The two addresses you never assign to a device are the &lt;strong>network address&lt;/strong> (first, all host bits 0) and the &lt;strong>broadcast address&lt;/strong> (last, all host bits 1) — which is why usable hosts is total minus 2 (except &lt;code>/31&lt;/code> point-to-point links and &lt;code>/32&lt;/code> single hosts).&lt;/p>
+&lt;h2 id="private-vs-public-ranges">Private vs. public ranges&lt;/h2>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Range&lt;/th>
+&lt;th scope="col">CIDR&lt;/th>
+&lt;th scope="col">Use&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>10.0.0.0 – 10.255.255.255&lt;/td>
+&lt;td>&lt;code>10.0.0.0/8&lt;/code>&lt;/td>
+&lt;td>Private (RFC 1918)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>172.16.0.0 – 172.31.255.255&lt;/td>
+&lt;td>&lt;code>172.16.0.0/12&lt;/code>&lt;/td>
+&lt;td>Private (RFC 1918)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>192.168.0.0 – 192.168.255.255&lt;/td>
+&lt;td>&lt;code>192.168.0.0/16&lt;/code>&lt;/td>
+&lt;td>Private (RFC 1918)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>100.64.0.0 – 100.127.255.255&lt;/td>
+&lt;td>&lt;code>100.64.0.0/10&lt;/code>&lt;/td>
+&lt;td>Carrier-grade NAT&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>169.254.0.0 – 169.254.255.255&lt;/td>
+&lt;td>&lt;code>169.254.0.0/16&lt;/code>&lt;/td>
+&lt;td>Link-local (APIPA)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>127.0.0.0 – 127.255.255.255&lt;/td>
+&lt;td>&lt;code>127.0.0.0/8&lt;/code>&lt;/td>
+&lt;td>Loopback&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Home and homelab networks live in the RFC 1918 ranges — most consumer routers default to a &lt;code>192.168.x.0/24&lt;/code>. If you&amp;rsquo;re segmenting a homelab into VLANs, the split feature above makes carving a &lt;code>/24&lt;/code> into per-VLAN &lt;code>/26&lt;/code>s or &lt;code>/27&lt;/code>s straightforward.&lt;/p>
+&lt;h2 id="what-this-pairs-with">What this pairs with&lt;/h2>
+&lt;p>Planning the physical side of the network too? The &lt;a href="https://techfuelhq.com/tools/poe-budget-calculator/">PoE power budget calculator&lt;/a> sizes a switch for your APs and cameras, the &lt;a href="https://techfuelhq.com/networking/wifi-7-homelab-home-network-2026/">Wi-Fi 7 homelab guide&lt;/a> covers the wireless layer, and the &lt;a href="https://techfuelhq.com/articles/best-homelab-networking-gear-under-200/">budget networking gear guide&lt;/a> rounds up switches and routers worth buying.&lt;/p>
+&lt;h2 id="assumptions-and-sources">Assumptions and sources&lt;/h2>
+&lt;ul>
+&lt;li>The private ranges this tool flags (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) are defined in &lt;a href="https://datatracker.ietf.org/doc/html/rfc1918" rel="noopener">RFC 1918&lt;/a>; the carrier-grade NAT range (100.64.0.0/10) is defined in &lt;a href="https://datatracker.ietf.org/doc/html/rfc6598" rel="noopener">RFC 6598&lt;/a>.&lt;/li>
+&lt;li>The /31 exception - two usable addresses on point-to-point links, with no network/broadcast pair - is per &lt;a href="https://datatracker.ietf.org/doc/html/rfc3021" rel="noopener">RFC 3021&lt;/a>.&lt;/li>
+&lt;li>Everything else (network and broadcast addresses, host counts, masks, wildcard masks, splits) is exact 32-bit arithmetic from those definitions; there are no estimates in this tool.&lt;/li>
+&lt;/ul></description></item><item><title>LLM VRAM Calculator</title><link>https://techfuelhq.com/tools/llm-vram-calculator/</link><pubDate>Tue, 16 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/tools/llm-vram-calculator/</guid><description>&lt;p>Pick your GPU, the model size you want to run, a quantization level, and a context length. The calculator estimates total VRAM as three parts: the model weights, the KV cache that holds your context, and a small runtime overhead. Here is how to read those numbers.&lt;/p>
+&lt;p>&lt;strong>Weights are the big, predictable cost.&lt;/strong> A model&amp;rsquo;s weight memory is just its parameter count times the bits-per-weight of the quantization, divided by eight. An 8B model at FP16 is about 16 GB; the same model at Q4_K_M is about 4.8 GB. This is why quantization is the first lever to reach for when a model does not fit.&lt;/p>
+&lt;p>&lt;strong>The KV cache scales with context, not parameters.&lt;/strong> Every token in your context window is cached per layer, so a long context can quietly cost more memory than the weights on a small model. The tool estimates the cache from the attention shape of modern GQA models and lets you quantize it (Q8 or Q4) to claw back room.&lt;/p>
+&lt;p>&lt;strong>Headroom matters.&lt;/strong> The verdict bands leave a margin: a model that needs 92 percent of your VRAM is marked tight, not safe, because runtimes, the desktop, and transient spikes all want a slice. Size for the green band and you avoid out-of-memory errors mid-generation.&lt;/p>
+&lt;p>These are planning estimates that assume a llama.cpp / GGUF-style setup. Your exact numbers depend on the specific model, the runtime, and how much you batch.&lt;/p>
+&lt;h2 id="worked-examples">Worked examples&lt;/h2>
+&lt;p>These are this calculator&amp;rsquo;s own outputs, computed with the same formula the tool runs in your browser — so you can see a real answer without touching a single input.&lt;/p>
+&lt;p>&lt;strong>Mainstream 16 GB gaming/AI desktop — RTX 5080 (16 GB) running Llama 3.1 8B at Q4_K_M with an 8K context and an unquantized FP16 KV cache. This is the calculator&amp;rsquo;s own default state on page load&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> Graphics card = RTX 5080 (16 GB); Number of GPUs = 1; Model size = 7-8B (params_B = 8); Quantization = Q4_K_M (bpw = 4.83); Context length = 8K (8192 tokens); KV cache precision = FP16 (multiplier = 1)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Headline total: 6.7 GB. Weights: 4.8 GB. KV cache: 1.0 GB. Runtime overhead: 0.8 GB. Your VRAM: 16.0 GB. Verdict: Fits on 16.0 GB of VRAM, with 9.3 GB to spare. In the per-quant table every quantization from Q8_0 down fits (Q8_0 10.3 GB, Q6_K 8.4 GB, Q5_K_M 7.5 GB, Q4_K_M 6.7 GB, Q3_K_M 5.7 GB, Q2_K 5.2 GB); only FP16 at 17.8 GB is marked &amp;lsquo;Won&amp;rsquo;t fit&amp;rsquo;.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Single 24 GB card — RTX 3090 or RTX 4090 — trying to run a 27-32B class model (Gemma 2 27B / Qwen2.5 32B) at Q4_K_M with a 32K context and FP16 KV cache. A very common single-card homelab ask, and the interesting result is that it lands just barely over budget&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> Graphics card = RTX 3090 / 3090 Ti (24 GB) [identical result for RTX 4090, also value 24]; Number of GPUs = 1; Model size = 27-32B (params_B = 27); Quantization = Q4_K_M (bpw = 4.83); Context length = 32K (32768 tokens); KV cache precision = FP16 (multiplier = 1)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Headline total: 24.7 GB. Weights: 16.3 GB. KV cache: 7.6 GB. Runtime overhead: 0.8 GB. Your VRAM: 24.0 GB. Verdict: Won&amp;rsquo;t fit on 24.0 GB of VRAM — 0.7 GB over budget. Warning line recommends dropping to Q3_K_M (3.91 bpw), or shortening the context / quantizing the KV cache / adding a second GPU. (Note: selecting Q8 KV instead of FP16 halves the cache to 3.8 GB and brings the total to 20.9 GB, which fits.)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Classic dual-GPU homelab inference box — two used RTX 3090s (24 GB each, pooled by llama.cpp / vLLM) running Llama 3.3 70B at Q4_K_M with an 8K context and FP16 KV cache&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> Graphics card = RTX 3090 / 3090 Ti (24 GB); Number of GPUs = 2; Model size = 70-72B (params_B = 70); Quantization = Q4_K_M (bpw = 4.83); Context length = 8K (8192 tokens); KV cache precision = FP16 (multiplier = 1)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Headline total: 45.6 GB. Weights: 42.3 GB. KV cache: 2.5 GB. Runtime overhead: 0.8 GB. Your VRAM: 48.0 GB. Verdict: Tight on 48.0 GB of VRAM — about 45.6 GB needed, 2.4 GB to spare. No fallback warning is shown because the total is under the available VRAM.&lt;/li>
+&lt;/ul>
+&lt;h2 id="assumptions-and-sources">Assumptions and sources&lt;/h2>
+&lt;ul>
+&lt;li>Bits-per-weight for each quantization level (Q4_K_M at 4.83 down to Q2_K, plus Q8_0 and FP16) follow the GGUF quantization sizes implemented in &lt;a href="https://github.com/ggml-org/llama.cpp" rel="noopener">llama.cpp&lt;/a>, the runtime family this calculator assumes; weights memory is then exact arithmetic (parameters x bits / 8).&lt;/li>
+&lt;li>The KV-cache estimate uses the grouped-query-attention shape of modern models, as described for the Llama 3 family in &lt;a href="https://arxiv.org/abs/2407.21783" rel="noopener">Meta&amp;rsquo;s Llama 3 paper&lt;/a>; the exact cache size varies with each model&amp;rsquo;s layer count, head count, and head dimension, which is why the FAQ calls it an estimate.&lt;/li>
+&lt;li>The 0.8 GB runtime overhead and the fits/tight/won&amp;rsquo;t-fit verdict bands are TechFuelHQ planning allowances, stated so you can judge the margin yourself - the FAQ&amp;rsquo;s &amp;ldquo;plan for 10 to 15 percent on top&amp;rdquo; advice carries the same intent.&lt;/li>
+&lt;/ul></description></item><item><title>Network Transfer Time Calculator</title><link>https://techfuelhq.com/tools/transfer-time-calculator/</link><pubDate>Tue, 16 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/tools/transfer-time-calculator/</guid><description>&lt;p>Enter how much data you&amp;rsquo;re moving, the connection, and the drives at each end. The calculator gives you the realistic transfer time, not the marketing one. Here&amp;rsquo;s the logic behind it.&lt;/p>
+&lt;p>&lt;strong>Effective speed is the slower of the link and the disk, minus overhead.&lt;/strong> A transfer can only go as fast as its slowest part. If your 10GbE link can carry 1,250 MB/s but the source is a single hard drive that reads at 180 MB/s, you move data at 180 MB/s. The tool takes the lower of the two, then trims it by a real-world efficiency factor for protocol overhead.&lt;/p>
+&lt;p>&lt;strong>The bottleneck readout is the useful part.&lt;/strong> It tells you whether spending money on faster networking would actually help. If the drive is the limit, a 10GbE card changes nothing until you add disks or switch to SSDs. If the link is the limit, faster networking pays off directly.&lt;/p>
+&lt;p>&lt;strong>Time is just size divided by speed.&lt;/strong> Once the effective speed is set, the math is exact: a 1 TB file at 280 MB/s takes about an hour. The per-link table shows the same transfer across every common Ethernet speed so you can see where the gains flatten out for your storage.&lt;/p>
+&lt;p>Sizes use decimal units (1 TB = 1,000 GB) to match how both drives and network speeds are quoted.&lt;/p>
+&lt;h2 id="worked-examples">Worked examples&lt;/h2>
+&lt;p>These are this calculator&amp;rsquo;s own outputs, computed with the same formula the tool runs in your browser — so you can see a real answer without touching a single input.&lt;/p>
+&lt;p>&lt;strong>The page&amp;rsquo;s own default state: backing up an 8 TB media library off a single 3.5&amp;quot; hard drive to the NAS over a 2.5GbE link, at typical efficiency. This is the exact result a reader sees the instant the page loads&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> Amount = 8, Unit = TB, Source/target drive = Single 3.5&amp;quot; HDD (180 MB/s), Link speed = 2.5GbE (312.5 MB/s), Efficiency = Typical (0.92)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Headline: 13 h 25 m. Effective speed 166 MB/s, Bottleneck &amp;ldquo;Drive&amp;rdquo;, At line rate 7 h 6 m. The drive warning fires: drive 180 MB/s vs link Math.round(312.5) = 313 MB/s. The table shows 2.5GbE, 5GbE, 10GbE and 25GbE all tied at 13 h 25 m.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Moving a 2 TB project archive between two NVMe Gen4 workstations over 10GbE at typical efficiency — the case where the network, not the storage, is the limit&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> Amount = 2, Unit = TB, Source/target drive = NVMe Gen4 SSD (7000 MB/s), Link speed = 10GbE (1250 MB/s), Efficiency = Typical (0.92)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Headline: 28 m 59 s. Effective speed 1.15 GB/s, Bottleneck &amp;ldquo;Link&amp;rdquo;, At line rate 26 m 40 s. Going from 10GbE to 25GbE would cut it to 11 m 35 s because the NVMe can still feed it.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>The classic homelab question: seeding 4 TB onto a four-bay HDD NAS over a new 10GbE link, at typical efficiency — does the 10GbE card actually earn its money?&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> Amount = 4, Unit = TB, Source/target drive = HDD RAID array, 4-bay (450 MB/s), Link speed = 10GbE (1250 MB/s), Efficiency = Typical (0.92)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Headline: 2 h 41 m. Effective speed 414 MB/s, Bottleneck &amp;ldquo;Drive&amp;rdquo;, At line rate 53 m 20 s. The table flatlines at 2 h 41 m from 5GbE upward, so 10GbE and 25GbE buy nothing over 5GbE for this array.&lt;/li>
+&lt;/ul>
+&lt;h2 id="assumptions-and-sources">Assumptions and sources&lt;/h2>
+&lt;ul>
+&lt;li>Link line rates are the interfaces&amp;rsquo; own definitions converted to decimal bytes (10GbE = 10 Gbps = 1,250 MB/s); the decimal-versus-binary labeling gap the FAQ describes is the drive-industry convention documented in &lt;a href="https://www.seagate.com/support/kb/why-does-my-hard-drive-report-less-capacity-than-indicated-on-the-drives-label-172191en/" rel="noopener">Seagate&amp;rsquo;s capacity explainer&lt;/a>.&lt;/li>
+&lt;li>The efficiency presets (typical = 0.92, reflecting the 8-12% TCP-plus-SMB/NFS overhead the FAQ describes) are TechFuelHQ working estimates from real transfers, stated so you can pick a different preset when your stack does better or worse.&lt;/li>
+&lt;li>The drive-speed presets (180 MB/s single HDD, 450 MB/s 4-bay array, 550 MB/s SATA SSD, 7,000 MB/s Gen4 NVMe) are TechFuelHQ typical sustained figures; your drive&amp;rsquo;s spec sheet, fill level, and file mix all move them.&lt;/li>
+&lt;li>The small-file penalty is deliberately not modeled, as the FAQ states - it is workload-specific and can outweigh every other factor on folders with thousands of tiny files.&lt;/li>
+&lt;/ul></description></item><item><title>PSU Calculator: Power Supply Wattage Calculator</title><link>https://techfuelhq.com/tools/psu-wattage-calculator/</link><pubDate>Sat, 13 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/tools/psu-wattage-calculator/</guid><description>&lt;p>&lt;strong>Short answer:&lt;/strong> most gaming PCs need a 550W to 850W power supply, and the graphics card decides which end you land on. An RTX 5060-class build is comfortable on 550W, an RTX 5070 on 650W, an RTX 5070 Ti on 750W, an RTX 5080 on 850W, and an RTX 5090 on 1000W — NVIDIA&amp;rsquo;s own published minimums. On the AMD side our estimates are 650W for an RX 9070 or RX 9060 XT and 750W for an RX 9070 XT. Pick your exact parts in the power supply calculator below for a number built from your build rather than a category.&lt;/p>
+&lt;h2 id="worked-examples">Worked examples&lt;/h2>
+&lt;p>These are this calculator&amp;rsquo;s own outputs, computed with the same formula the tool runs in your browser — so you can see a real answer without touching a single input.&lt;/p>
+&lt;p>&lt;strong>Mainstream 1440p gaming build — Ryzen 7 7800X3D + RTX 5060 Ti (OC model), 2x DDR5, one Gen3 NVMe, 3 case fans, one AIO, ATX board. (This is the tool&amp;rsquo;s own default state, so it is the number a visitor sees on page load.)&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> CPU = Ryzen 7 7800X3D (120W); GPU = RTX 5060 Ti OC (200W peak); DDR5 sticks = 2; Gen5 NVMe = 0; Gen4 NVMe = 0; Gen3 NVMe = 1; SATA SSDs = 0; HDDs = 0; case fans = 3; AIO = 1; USB/misc = 10W; motherboard = ATX (45W)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Peak draw 409W | Min recommended 550W | Sweet spot 850W. Headline: &amp;ldquo;Recommended PSU: 850W — your build peaks at 409W. A 850W unit runs your load at 48% utilization, which sits in the 80 Plus efficiency sweet spot (40-50%).&amp;rdquo;&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>High-end 4K gaming build — Ryzen 7 9800X3D + RTX 5080 Founders Edition, 2x DDR5, one Gen5 and one Gen4 NVMe, 6 case fans, one AIO, ATX board&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> CPU = Ryzen 7 9800X3D (120W); GPU = RTX 5080 Founders Edition (360W peak); DDR5 sticks = 2; Gen5 NVMe = 1; Gen4 NVMe = 1; Gen3 NVMe = 0; SATA SSDs = 0; HDDs = 0; case fans = 6; AIO = 1; USB/misc = 10W; motherboard = ATX (45W)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Peak draw 587W | Min recommended 750W | Sweet spot 1200W. Headline: &amp;ldquo;Recommended PSU: 1200W — your build peaks at 587W. A 1200W unit runs your load at 49% utilization, which sits in the 80 Plus efficiency sweet spot (40-50%).&amp;rdquo;&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Homelab NAS / Proxmox box — Ryzen 5 5600X on a Micro-ATX board, no dedicated GPU, one NVMe boot drive and six 3.5-inch hard drives, four case fans, air cooler&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Inputs:&lt;/strong> CPU = Ryzen 5 5600X (65W); GPU = No dedicated GPU / integrated only (0W); DDR5 sticks = 2; Gen5 NVMe = 0; Gen4 NVMe = 0; Gen3 NVMe = 1; SATA SSDs = 0; HDDs = 6; case fans = 4; AIO = 0; USB/misc = 10W; motherboard = mATX (35W)&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> Peak draw 206W | Min recommended 550W | Sweet spot 550W. Headline: &amp;ldquo;Recommended PSU: 550W — your build peaks at 206W. A 550W unit runs your load at 37% utilization.&amp;rdquo; (no sweet-spot clause)&lt;/li>
+&lt;/ul>
+&lt;h2 id="psu-wattage-by-graphics-card">PSU wattage by graphics card&lt;/h2>
+&lt;p>In a balanced, gaming-first build the graphics card is the single largest draw — roughly 45% of system peak on an entry card and up to about 75% on a flagship — so it is the fastest way to a starting number. Every row below carries its own source, because two different kinds of number appear in this table and the difference matters.&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Graphics card&lt;/th>
+&lt;th scope="col">Board power&lt;/th>
+&lt;th scope="col">Minimum PSU&lt;/th>
+&lt;th scope="col">Basis for the PSU figure&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>GeForce RTX 5090&lt;/td>
+&lt;td>575W TGP&lt;/td>
+&lt;td>1000W&lt;/td>
+&lt;td>NVIDIA published minimum&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GeForce RTX 5080&lt;/td>
+&lt;td>360W TGP&lt;/td>
+&lt;td>850W&lt;/td>
+&lt;td>NVIDIA published minimum&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GeForce RTX 5070 Ti&lt;/td>
+&lt;td>300W TGP&lt;/td>
+&lt;td>750W&lt;/td>
+&lt;td>NVIDIA published minimum&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GeForce RTX 5070&lt;/td>
+&lt;td>250W TGP&lt;/td>
+&lt;td>650W&lt;/td>
+&lt;td>NVIDIA published minimum&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GeForce RTX 5060 Ti&lt;/td>
+&lt;td>180W TGP&lt;/td>
+&lt;td>600W&lt;/td>
+&lt;td>NVIDIA published minimum&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GeForce RTX 5060&lt;/td>
+&lt;td>145W TGP&lt;/td>
+&lt;td>550W&lt;/td>
+&lt;td>NVIDIA published minimum&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Radeon RX 9070 XT&lt;/td>
+&lt;td>304W TBP&lt;/td>
+&lt;td>750W&lt;/td>
+&lt;td>TechFuelHQ estimate&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Radeon RX 9070&lt;/td>
+&lt;td>220W TBP&lt;/td>
+&lt;td>650W&lt;/td>
+&lt;td>TechFuelHQ estimate&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Radeon RX 9060 XT&lt;/td>
+&lt;td>150W TBP&lt;/td>
+&lt;td>650W&lt;/td>
+&lt;td>TechFuelHQ estimate&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>&lt;strong>Why the two bases differ.&lt;/strong> A vendor minimum is deliberately worst-case: NVIDIA&amp;rsquo;s own note on the RTX 5090 states its 1000W figure is based on a system built around a Ryzen 9 9950X — a flagship CPU, not a mainstream one — so the number carries padding for a processor you may not own. Our estimates are the opposite: the calculator&amp;rsquo;s itemized minimum for a typical mid-range build, stepped up one retail size. Both are floors. Where a vendor publishes a number, we print the vendor&amp;rsquo;s, because that is the configuration the card was validated against.&lt;/p>
+&lt;p>&lt;strong>These are minimums, not the calculator&amp;rsquo;s answer.&lt;/strong> The tool below targets roughly half load rather than a floor, so its headline recommendation will read higher than this table — on a flagship build, considerably higher. That gap is efficiency and upgrade headroom, not a transient-spike requirement. If you want the smallest defensible unit, use this table; if you want the quietest and most efficient one, use the tool&amp;rsquo;s number. Note also that 600W is a size few brands actually sell — where a vendor figure lands between retail steps, buy the next size up. For a worked example of how one card&amp;rsquo;s number changes with the processor beside it, see the &lt;a href="https://techfuelhq.com/articles/what-psu-for-rtx-5080-2026/">RTX 50-series PSU guide&lt;/a> — per-card tables for the 5070 through the 5090, including the one case where the itemized math lands above NVIDIA&amp;rsquo;s own floor.&lt;/p>
+&lt;h2 id="how-this-power-supply-calculator-works">How this power supply calculator works&lt;/h2>
+&lt;p>No vendor&amp;rsquo;s calculator shows you its math. Here is ours, in full.&lt;/p>
+&lt;p>&lt;strong>1. It sums real component draw, not a flat overhead.&lt;/strong> Your CPU and GPU peak figures come from the dropdowns; everything else is itemized and added: motherboard (about 45W for ATX, less for Micro-ATX and Mini-ITX, more for EATX), 5W per stick of RAM, 10W per Gen5 M.2 drive, 8W per Gen4, 6W per Gen3, 3W per SATA SSD, 12W per hard drive, 2W per case fan, 12W for an AIO pump and fans, plus whatever you enter in the miscellaneous field (10W by default, for fan controllers, RGB, capture cards, and similar). That total is your &lt;strong>peak draw&lt;/strong>.&lt;/p>
+&lt;p>&lt;strong>2. The minimum is peak plus 20%.&lt;/strong> The calculator multiplies your peak by 1.2 and rounds up to the next size commonly sold — 550, 650, 750, 850, 1000, 1200, or 1500W; above 1500W it steps in 100W increments, because retail sizes get irregular there. That is the smallest unit it will suggest, and it is a genuine floor: at exactly 1.2x, your peak sits at about 83% of the unit&amp;rsquo;s rating, which is above the 80% line where the table below starts warning. Treat the minimum as &amp;ldquo;this will work,&amp;rdquo; not &amp;ldquo;this is the one to buy.&amp;rdquo;&lt;/p>
+&lt;p>&lt;strong>3. The recommended size targets about half load.&lt;/strong> Power supplies are most efficient, coolest, and quietest loaded near the middle of their range, so the headline recommendation is the size that puts your peak near half the unit&amp;rsquo;s rating, and the tool flags 40-50% as the sweet spot when your build lands there. It is deliberately larger than the minimum: it buys efficiency, quiet, and room for a future graphics card. It is &lt;em>not&lt;/em> a spike requirement — see below.&lt;/p>
+&lt;p>&lt;strong>4. The efficiency table shows every size.&lt;/strong> Rather than hiding the trade-off, the table rates each retail wattage against your build: above 80% load is under-sized and risks shutdowns, 65-80% works but leaves little upgrade room, and 35-65% is the band worth buying into.&lt;/p>
+&lt;h2 id="the-transient-spike-question-answered-honestly">The transient-spike question, answered honestly&lt;/h2>
+&lt;p>Modern graphics cards pull microsecond spikes well above their rated power, and this is where PSU advice usually turns into &amp;ldquo;buy double.&amp;rdquo; It should not.&lt;/p>
+&lt;p>Intel&amp;rsquo;s ATX 3.0 design guide sets explicit excursion brackets a compliant unit must survive, and they are tiered by duration rather than being one blanket number:&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Excursion&lt;/th>
+&lt;th scope="col">Maximum duration&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>200% of rated power&lt;/td>
+&lt;td>100 µs&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>180% of rated power&lt;/td>
+&lt;td>1 ms&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>160% of rated power&lt;/td>
+&lt;td>10 ms&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>120% of rated power&lt;/td>
+&lt;td>100 ms&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>&lt;strong>The qualifier matters as much as the number.&lt;/strong> That 200% bracket applies to units above 450W that ship a native 12VHPWR / 12V-2x6 connector. A smaller unit, or one without that connector, is held to a lower bar — 150% at 100 µs. So &amp;ldquo;my PSU is ATX 3.x, it handles 200% spikes&amp;rdquo; is only true for the larger, natively-connectored units.&lt;/p>
+&lt;p>Where it applies, though, it settles the sizing question: a 750W unit in that class is built to ride out a 1500W spike lasting 100 microseconds. That headroom is already in the standard, so on a qualifying unit you do not buy a bigger PSU to cover transient spikes — you buy a &lt;em>compliant&lt;/em> one. On an older ATX 2.x unit paired with a high-wattage card, leave more room, because it was never designed to these brackets.&lt;/p>
+&lt;p>What ATX 3.1 revised is the connector: the 12V-2x6 design shortens the sense pins so a plug that is not fully seated fails to deliver full power rather than making partial high-resistance contact. We are still not going to tell you whether 3.1 raises or lowers the transient bar relative to 3.0, because we have not read a source that compares the two brackets directly, and we do not publish spec claims we have not read. Buy 3.1 for the connector. (We have since read Intel&amp;rsquo;s ATX v3 design guide for a different figure — the low-load efficiency point it sets at 10W — which is covered in the &lt;a href="https://techfuelhq.com/articles/psu-tier-list/">PSU tier list&lt;/a>.)&lt;/p>
+&lt;p>One more that vendor calculators skip: if your unit is &lt;strong>multi-rail&lt;/strong>, total wattage is not a single pool. A 1000W multi-rail supply may cap one 12V rail well below the card&amp;rsquo;s draw, and a high-wattage GPU fed entirely from that rail can trip over-current protection on a supply that is nominally huge. Follow the rail distribution in your PSU&amp;rsquo;s manual and use separate cables rather than daisy-chaining one pigtail.&lt;/p>
+&lt;h2 id="reading-the-three-numbers">Reading the three numbers&lt;/h2>
+&lt;p>&lt;strong>Continuous vs. peak vs. transient.&lt;/strong> A PSU&amp;rsquo;s headline number is its &lt;em>continuous&lt;/em> rating — what it can deliver all day. Your parts list a &lt;em>peak&lt;/em> draw, which the calculator sums. Transient spikes are the third number, and the standard above covers them. A unit sized only to the raw continuous total, with no margin at all, can trip its over-current protection under load, which shows up as a random shutdown rather than an error message.&lt;/p>
+&lt;p>&lt;strong>Why the sweet spot is roughly half load.&lt;/strong> Efficiency curves peak in the middle of a unit&amp;rsquo;s range, and a supply loafing at half load runs cooler and spins its fan slower — often not at all, on units with a zero-RPM mode. Worth keeping the two measures apart: the calculator&amp;rsquo;s load percentages are measured against your &lt;em>peak&lt;/em>, while the 50-60% figure people quote describes &lt;em>typical&lt;/em> sustained draw, which sits below peak. Size so peak stays under about 80% and typical lands near half, and both are satisfied at once.&lt;/p>
+&lt;p>&lt;strong>80 Plus tiers in plain terms.&lt;/strong> The &lt;a href="https://www.clearesult.com/80plus/" rel="noopener">80 PLUS&lt;/a> badge rates efficiency at fixed load points. At these wattages the bill difference between Gold and Platinum is a dollar or two a month; treat the rating mostly as a signal of build quality, heat, and fan noise. Gold is the floor worth buying for a gaming or always-on homelab box. Our &lt;a href="https://techfuelhq.com/reviews/evga-supernova-1000-gt-review-2026/">EVGA SuperNOVA 1000 GT review&lt;/a> walks through what that looks like in a real unit, and the &lt;a href="https://techfuelhq.com/tools/power-cost-calculator/">power &amp;amp; cost calculator&lt;/a> turns watts into an annual dollar figure.&lt;/p>
+&lt;p>&lt;strong>A lower-power build is a cheaper build.&lt;/strong> Undervolting cuts real wattage — around 100W on a high-end card and roughly 50W on a mid-range one, going by the measured results in our own database — which can drop you a PSU size and lower your bill at the same time. The &lt;a href="https://techfuelhq.com/articles/how-to-undervolt-gpu-2026/">complete GPU undervolting guide&lt;/a> covers the method, and our &lt;a href="https://techfuelhq.com/articles/gpu-undervolt-settings-database/">undervolt results database&lt;/a> lists measured power savings by card.&lt;/p>
+&lt;h2 id="if-your-pc-is-already-shutting-down">If your PC is already shutting down&lt;/h2>
+&lt;p>An undersized or failing supply looks the same from the outside: reboots under load, shutdowns in games, a PC that will not post. &lt;a href="https://techfuelhq.com/articles/psu-failure-symptoms-2026/">PSU failure symptoms&lt;/a> covers how to tell a dying unit from an undersized one, and the FAQ below covers testing a supply and finding out which one you already own.&lt;/p>
+&lt;p>These are conservative component estimates. Real-world idle draw is far lower, and your actual numbers depend on overclocks and the specific models you choose — for a full parts list with compatibility checking, use the &lt;a href="https://techfuelhq.com/tools/pc-builder/">PC Builder&lt;/a>, and for where each card lands on speed, see the &lt;a href="https://techfuelhq.com/articles/gpu-hierarchy-2026/">GPU hierarchy&lt;/a>.&lt;/p>
+&lt;h2 id="corrections">Corrections&lt;/h2>
+&lt;p>&lt;strong>2026-08-15 — Core i7-14700K peak draw corrected from 192W to 253W.&lt;/strong> The CPU dropdown is documented above as carrying &lt;em>peak&lt;/em> figures, and its other Intel entries do exactly that: the i9-14900K and i9-13900K rows both use 253W, which is Intel&amp;rsquo;s published Maximum Turbo Power for those parts. The i7-14700K row carried 192W, which matches neither of Intel&amp;rsquo;s two published power figures for that processor — Intel ARK lists it at &lt;strong>125W Processor Base Power / 253W Maximum Turbo Power&lt;/strong> (read from Intel&amp;rsquo;s own specification page on 2026-08-15). The 61W understatement flowed straight into every calculation a 14700K owner ran, pushing peak draw, the minimum size and the recommended size all low. Corrected to 253W, which restores the table&amp;rsquo;s own Intel convention.&lt;/p>
+&lt;p>&lt;em>Scope note, stated plainly:&lt;/em> this correction covers the one row re-derived from the vendor page. Several other rows in the same dropdown appear to carry base TDP where the page promises peak — AMD entries in particular, whose peak package power (PPT) AMD does not publish on its product pages. Those are recorded as open findings in our audit log rather than changed on a guess; see the caveat below.&lt;/p>
+&lt;p>&lt;strong>Read the AMD rows as base TDP, not peak.&lt;/strong> For AMD processors the dropdown figures match AMD&amp;rsquo;s published &lt;em>Default TDP&lt;/em>, which is a thermal specification, not the package&amp;rsquo;s peak power draw. Real peak on those parts runs meaningfully higher. Until each row is re-derived against a primary source, treat an AMD build&amp;rsquo;s calculated peak as a floor and lean toward the recommended size rather than the minimum.&lt;/p>
+&lt;h2 id="sources">Sources&lt;/h2>
+&lt;ul>
+&lt;li>NVIDIA GeForce RTX 50-series official specifications (total graphics power and minimum system power requirement) — &lt;a href="https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/" rel="noopener">RTX 5090&lt;/a>, &lt;a href="https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5080/" rel="noopener">RTX 5080&lt;/a>, &lt;a href="https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5070-family/" rel="noopener">RTX 5070 family&lt;/a>, &lt;a href="https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5060-family/" rel="noopener">RTX 5060 family&lt;/a> — verified live 2026-07-24; the 5070 and 5060 family pages re-verified 2026-07-25.&lt;/li>
+&lt;li>Intel ATX 3.0 / ATX 3.1 desktop power supply design guides — the 200%-of-rated power-excursion requirement for microsecond transients (&lt;a href="https://edc.intel.com/content/www/us/en/design/ipla/software-development-platforms/client/platforms/alder-lake-desktop/atx-version-3-0-multi-rail-desktop-platform-power-supply-design-guide/2.0/2.01/psu-power-excursion/" rel="noopener">Intel ATX 3.0 PSU power excursion&lt;/a>).&lt;/li>
+&lt;li>AMD board power: RX 9060 XT (150W) from the &lt;a href="https://techfuelhq.com/data/pc-builder-parts.json">TechFuelHQ PC Builder parts dataset&lt;/a> (CC BY 4.0); RX 9070 XT (304W) as cited in our &lt;a href="https://techfuelhq.com/articles/rx-9070-xt-undervolt-2026/">RX 9070 XT undervolt guide&lt;/a>; RX 9070 (220W) as cited in our &lt;a href="https://techfuelhq.com/gpu-reviews/rx-9070-vs-rx-9070-xt-2026/">RX 9070 vs RX 9070 XT&lt;/a> comparison. The PSU sizes on those three rows are our own estimates, not AMD figures — AMD&amp;rsquo;s specification pages did not respond when we checked on 2026-07-24.&lt;/li>
+&lt;li>Intel desktop processor power: &lt;strong>Processor Base Power&lt;/strong> and &lt;strong>Maximum Turbo Power&lt;/strong> from Intel ARK product specification pages — &lt;a href="https://www.intel.com/content/www/us/en/products/sku/236783/x/specifications.html" rel="noopener">Core i7-14700K&lt;/a> (125W base / 253W turbo), read 2026-08-15. The CPU dropdown carries the &lt;em>turbo&lt;/em> figure, because the calculator sums peak draw.&lt;/li>
+&lt;li>Component draw coefficients are this calculator&amp;rsquo;s own published figures, listed in full in the methodology section above.&lt;/li>
+&lt;/ul></description></item></channel></rss>

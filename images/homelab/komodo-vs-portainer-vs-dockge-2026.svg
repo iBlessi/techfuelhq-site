@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Komodo vs Portainer vs Dockge Docker manager comparison for 2026 homelabs</title>
+  <desc>Side-by-side comparison of three self-hosted Docker managers in 2026: Portainer, Komodo, and Dockge, across license, scope, multi-host support, RBAC and SSO, architecture, GitHub stars, and best-fit use case. Portainer is CE open-source with a paid Business Edition; Komodo is GPL-3.0 and fully open with uncapped multi-host and included RBAC at ~11.4k stars; Dockge is MIT-licensed, Compose-only, no RBAC by design, and the most popular at ~23.5k stars.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="800" fill="#0a0a23"/>
+  <rect width="1200" height="800" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">DOCKER MANAGER COMPARISON &#183; SELF-HOSTED HOMELAB</text>
+  <text x="70" y="128" fill="#e8e8f0" font-size="44" font-weight="900">Komodo vs Portainer vs Dockge</text>
+  <text x="70" y="162" fill="#6b6b8a" font-size="19">The three at a glance &#183; 2026 &#183; verified against each project&#8217;s own docs and repositories</text>
+
+  <!-- Column header band -->
+  <g transform="translate(70,198)">
+    <!-- spec label column -->
+    <rect x="0" y="0" width="300" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="29" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">WHAT MATTERS</text>
+    <text x="20" y="50" fill="#6b6b8a" font-size="13" letter-spacing="1">licensing &#183; features &#183; fit</text>
+
+    <!-- Portainer column -->
+    <rect x="314" y="0" width="252" height="64" rx="10" fill="#101028" stroke="#5090e0"/>
+    <rect x="314" y="0" width="252" height="6" rx="3" fill="#5090e0"/>
+    <text x="440" y="33" text-anchor="middle" fill="#e8e8f0" font-size="20" font-weight="900">Portainer</text>
+    <text x="440" y="53" text-anchor="middle" fill="#5090e0" font-size="14" font-weight="600">CE free, BE paid</text>
+
+    <!-- Komodo column -->
+    <rect x="578" y="0" width="252" height="64" rx="10" fill="#101028" stroke="#c8ff00"/>
+    <rect x="578" y="0" width="252" height="6" rx="3" fill="#c8ff00"/>
+    <text x="704" y="33" text-anchor="middle" fill="#e8e8f0" font-size="20" font-weight="900">Komodo</text>
+    <text x="704" y="53" text-anchor="middle" fill="#c8ff00" font-size="14" font-weight="600">open &amp; uncapped</text>
+
+    <!-- Dockge column -->
+    <rect x="842" y="0" width="252" height="64" rx="10" fill="#101028" stroke="#b06bff"/>
+    <rect x="842" y="0" width="252" height="6" rx="3" fill="#b06bff"/>
+    <text x="968" y="33" text-anchor="middle" fill="#e8e8f0" font-size="20" font-weight="900">Dockge</text>
+    <text x="968" y="53" text-anchor="middle" fill="#b06bff" font-size="14" font-weight="600">lightweight Compose</text>
+  </g>
+
+  <!-- Spec rows -->
+  <g transform="translate(70,278)">
+    <!-- Row 1: License -->
+    <rect x="0" y="0" width="1024" height="56" rx="8" fill="#13132e"/>
+    <text x="20" y="34" fill="#c0c0d8" font-size="16" font-weight="600">License</text>
+    <text x="440" y="34" text-anchor="middle" fill="#5090e0" font-size="15" font-weight="700">CE open, BE paid</text>
+    <text x="704" y="34" text-anchor="middle" fill="#c8ff00" font-size="15" font-weight="800">GPL-3.0 (fully open)</text>
+    <text x="968" y="34" text-anchor="middle" fill="#b06bff" font-size="15" font-weight="800">MIT (fully open)</text>
+
+    <!-- Row 2: Scope -->
+    <rect x="0" y="60" width="1024" height="56" rx="8" fill="#0d0d28"/>
+    <text x="20" y="94" fill="#c0c0d8" font-size="16" font-weight="600">Scope</text>
+    <text x="440" y="94" text-anchor="middle" fill="#c0c0d8" font-size="13" font-weight="600">Docker, Swarm, K8s, Podman, edge</text>
+    <text x="704" y="94" text-anchor="middle" fill="#c0c0d8" font-size="14" font-weight="600">Docker + stacks, GitOps</text>
+    <text x="968" y="94" text-anchor="middle" fill="#c0c0d8" font-size="14" font-weight="700">Compose only</text>
+
+    <!-- Row 3: Multi-host -->
+    <rect x="0" y="120" width="1024" height="56" rx="8" fill="#13132e"/>
+    <text x="20" y="154" fill="#c0c0d8" font-size="16" font-weight="600">Multi-host</text>
+    <text x="440" y="154" text-anchor="middle" fill="#c0c0d8" font-size="14" font-weight="600">Yes (governance in BE)</text>
+    <text x="704" y="154" text-anchor="middle" fill="#c8ff00" font-size="15" font-weight="800">Yes, uncapped</text>
+    <text x="968" y="154" text-anchor="middle" fill="#c0c0d8" font-size="14" font-weight="700">Yes (v1.4+)</text>
+
+    <!-- Row 4: RBAC / SSO -->
+    <rect x="0" y="180" width="1024" height="56" rx="8" fill="#0d0d28"/>
+    <text x="20" y="214" fill="#c0c0d8" font-size="16" font-weight="600">RBAC / SSO</text>
+    <text x="440" y="214" text-anchor="middle" fill="#5090e0" font-size="14" font-weight="700">Business Edition only</text>
+    <text x="704" y="214" text-anchor="middle" fill="#c8ff00" font-size="15" font-weight="800">Included</text>
+    <text x="968" y="214" text-anchor="middle" fill="#c0c0d8" font-size="14" font-weight="700">None (by design)</text>
+
+    <!-- Row 5: Architecture -->
+    <rect x="0" y="240" width="1024" height="56" rx="8" fill="#13132e"/>
+    <text x="20" y="274" fill="#c0c0d8" font-size="16" font-weight="600">Architecture</text>
+    <text x="440" y="274" text-anchor="middle" fill="#c0c0d8" font-size="14" font-weight="600">Server + agents</text>
+    <text x="704" y="274" text-anchor="middle" fill="#c0c0d8" font-size="14" font-weight="600">Core + Periphery + database</text>
+    <text x="968" y="274" text-anchor="middle" fill="#c0c0d8" font-size="14" font-weight="700">Single Node service</text>
+
+    <!-- Row 6: GitHub stars -->
+    <rect x="0" y="300" width="1024" height="56" rx="8" fill="#0d0d28"/>
+    <text x="20" y="334" fill="#c0c0d8" font-size="16" font-weight="600">GitHub stars</text>
+    <text x="440" y="334" text-anchor="middle" fill="#6b6b8a" font-size="16" font-weight="700">&#8212;</text>
+    <text x="704" y="334" text-anchor="middle" fill="#c0c0d8" font-size="16" font-weight="700">~11.4k</text>
+    <text x="968" y="334" text-anchor="middle" fill="#b06bff" font-size="16" font-weight="800">~23.5k</text>
+
+    <!-- Row 7: Best for -->
+    <rect x="0" y="360" width="1024" height="56" rx="8" fill="#13132e"/>
+    <text x="20" y="394" fill="#c0c0d8" font-size="16" font-weight="600">Best for</text>
+    <text x="440" y="394" text-anchor="middle" fill="#5090e0" font-size="14" font-weight="700">Breadth / K8s / teams</text>
+    <text x="704" y="394" text-anchor="middle" fill="#c8ff00" font-size="14" font-weight="800">Multi-host fleets</text>
+    <text x="968" y="394" text-anchor="middle" fill="#b06bff" font-size="14" font-weight="800">Single/dual-host Compose</text>
+  </g>
+
+  <!-- Verdict strip -->
+  <g transform="translate(70,680)">
+    <rect x="0" y="0" width="1024" height="66" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="66" rx="3" fill="#c8ff00"/>
+    <text x="26" y="29" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">THE HONEST VERDICT</text>
+    <text x="26" y="52" fill="#c0c0d8" font-size="16">No single winner. Dockge for one or two hosts; Komodo for an uncapped multi-host fleet; Portainer for Kubernetes breadth or BE team features.</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="778" fill="#4a4a6a" font-size="13">TechFuel HQ &#183; Docker Manager Comparison &#183; community sentiment trends Komodo &gt; Dockge &gt; Portainer, but it&#8217;s use-case-dependent</text>
+  <text x="1130" y="778" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

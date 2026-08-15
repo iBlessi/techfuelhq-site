@@ -1,0 +1,1543 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Networking on TechFuel HQ</title><link>https://techfuelhq.com/networking/</link><description>Recent content in Networking on TechFuel HQ</description><generator>Hugo</generator><language>en-us</language><managingEditor>LK Wood IV</managingEditor><lastBuildDate>Sat, 13 Jun 2026 00:00:00 -0500</lastBuildDate><atom:link href="https://techfuelhq.com/networking/index.xml" rel="self" type="application/rss+xml"/><atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/><item><title>Tailscale vs Cloudflare Tunnel for Homelab (2026)</title><link>https://techfuelhq.com/networking/tailscale-vs-cloudflare-tunnel-2026/</link><pubDate>Wed, 22 Jul 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/networking/tailscale-vs-cloudflare-tunnel-2026/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · Published 2026-07-22 · Updated 2026-07-22 · ~10 min read · St. Louis County, MO&lt;/p>
+&lt;div class="verdict-card" style="border:1px solid #c8ff00;border-left:4px solid #c8ff00;border-radius:6px;padding:1.25rem 1.5rem;margin:1.5rem 0 2rem 0;background:rgba(200,255,0,0.04);">
+&lt;p>&lt;strong>TL;DR · They overlap, but they are built for different jobs&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Publishing a service to people who should not need an account or client?&lt;/strong> Cloudflare Tunnel. A plain HTTPS URL in any browser, no software on the far end — &lt;strong>but put a Cloudflare Access policy in front of it unless you genuinely intend the service to be public.&lt;/strong> A tunnel with no policy is a public URL.&lt;/li>
+&lt;li>&lt;strong>Reaching your own machines privately?&lt;/strong> Tailscale. End-to-end WireGuard, any protocol, any port, no domain required.&lt;/li>
+&lt;li>&lt;strong>Who holds plaintext:&lt;/strong> Cloudflare states it must decrypt traffic to cache and filter it; Tailscale's relays never access unencrypted data.&lt;/li>
+&lt;li>&lt;strong>Neither opens inbound ports&lt;/strong>, and both survive CGNAT — that shared property is why the comparison exists at all.&lt;/li>
+&lt;li>&lt;strong>If you have both needs, run both:&lt;/strong> public apps via the Tunnel, admin and SSH via Tailscale. If everything you reach is your own, Tailscale alone is enough — and if you publish one public app and administer nothing remotely, so is the Tunnel.&lt;/li>
+&lt;/ul>
+&lt;p>Free-tier terms and product limits move. Every number below is cited to a source we read live on 2026-07-20 — re-check the linked page before you plan around it.&lt;/p>
+&lt;/div>
+&lt;img src="https://techfuelhq.com/images/networking/tailscale-vs-cloudflare-tunnel-2026.svg" width="1200" height="760" loading="lazy" decoding="async" alt="Diagram comparing Tailscale and Cloudflare Tunnel homelab remote access paths: on the left, a laptop with the Tailscale client connecting end-to-end over WireGuard to a home server through NAT with a DERP relay fallback; on the right, an unmodified browser reaching Cloudflare's edge over HTTPS where TLS is terminated, then a second encrypted leg down an outbound-only cloudflared connector to the same home server" style="display:block;margin:1.5rem auto;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;h2 id="the-short-version">The short version&lt;/h2>
+&lt;p>Most comparisons treat Tailscale and Cloudflare Tunnel as competitors picking off the same job. They aren&amp;rsquo;t. Ask one question first: &lt;strong>are you publishing a service to people who should not need an account or client software, or are you reaching your own machines privately?&lt;/strong> If it&amp;rsquo;s the first, Cloudflare Tunnel is the tool — an unmodified browser hits a normal HTTPS hostname and Cloudflare Access decides who gets through. If it&amp;rsquo;s the second, Tailscale is the tool — every device runs a client, traffic is end-to-end WireGuard, and every protocol works because you are on a network, not behind a web proxy.&lt;/p>
+&lt;p>They overlap on exactly one property, and that overlap is what makes people compare them: neither requires an inbound port on your router. cloudflared &amp;ldquo;initiates an outbound connection through your firewall from the origin to the Cloudflare global network&amp;rdquo; (&lt;a href="https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/" rel="noopener">Cloudflare Tunnel docs&lt;/a>), and Tailscale connections work across firewalls and NAT &amp;ldquo;without requiring port forwarding or complex firewall rules&amp;rdquo; (&lt;a href="https://tailscale.com/kb/1151/what-is-tailscale" rel="noopener">What is Tailscale&lt;/a>). Everything past that point diverges.&lt;/p>
+&lt;h2 id="side-by-side-from-the-vendors-own-docs">Side by side, from the vendors&amp;rsquo; own docs&lt;/h2>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Dimension&lt;/th>
+&lt;th scope="col">Cloudflare Tunnel&lt;/th>
+&lt;th scope="col">Tailscale&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Inbound ports on your router&lt;/td>
+&lt;td>None — outbound-only connector&lt;/td>
+&lt;td>None — NAT traversal, no port forwarding&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Client on the accessing device&lt;/td>
+&lt;td>None for HTTP/HTTPS; required (cloudflared or the Cloudflare One client) for TCP/SSH/RDP&lt;/td>
+&lt;td>Required on every device, unless reached via a subnet router&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Encryption model&lt;/td>
+&lt;td>TLS terminated at Cloudflare&amp;rsquo;s edge; Cloudflare decrypts to cache and filter&lt;/td>
+&lt;td>End-to-end WireGuard; relays only carry already-encrypted packets&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Public clientless web access&lt;/td>
+&lt;td>A plain HTTPS URL — pair with an Access policy&lt;/td>
+&lt;td>Via Funnel (public, ports 443, 8443, 10000 only)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Private access for invited people&lt;/td>
+&lt;td>Access policy + IdP or email OTP&lt;/td>
+&lt;td>Add them to the tailnet; they install a client&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Built-in auth&lt;/td>
+&lt;td>Cloudflare Access, deny-by-default; email one-time PIN needs no &lt;em>third-party&lt;/em> IdP&lt;/td>
+&lt;td>Tailnet policy file ACLs — but new tailnets default to allow-all&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Free tier (checked 2026-07-20)&lt;/td>
+&lt;td>$0 forever, 50-user limit, logs up to 24 hours&lt;/td>
+&lt;td>$0 forever, up to 6 users, unlimited user devices&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Domain required&lt;/td>
+&lt;td>Yes — you must add a website to Cloudflare&lt;/td>
+&lt;td>No — MagicDNS / ts.net name&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Large uploads&lt;/td>
+&lt;td>100 MB body on Free and Pro, 200 MB Business&lt;/td>
+&lt;td>Not capped by that mechanism; Funnel has undisclosed bandwidth limits&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Whole-LAN access&lt;/td>
+&lt;td>Private network routes plus a client on-ramp&lt;/td>
+&lt;td>Subnet router; exit node for full-tunnel&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;h2 id="who-can-decrypt-your-traffic">Who can decrypt your traffic&lt;/h2>
+&lt;p>This is the sharpest differentiator and the one most comparisons bury under a feature grid.&lt;/p>
+&lt;p>Cloudflare is a reverse proxy. Its SSL FAQ says it plainly: &amp;ldquo;Cloudflare must decrypt traffic in order to cache and filter malicious traffic. Cloudflare either re-encrypts traffic or sends plain text traffic to the origin web server depending on your domain&amp;rsquo;s encryption mode&amp;rdquo; (&lt;a href="https://developers.cloudflare.com/ssl/troubleshooting/faq/" rel="noopener">SSL FAQ&lt;/a>). The architecture is two separate TLS legs with two certificates — an edge certificate presented to visitors, and an origin certificate covering the Cloudflare-to-origin hop (&lt;a href="https://developers.cloudflare.com/ssl/concepts/" rel="noopener">SSL concepts&lt;/a>). Under Flexible mode, &amp;ldquo;traffic from visitors to Cloudflare can be encrypted via HTTPS, but traffic from Cloudflare to the origin server is not&amp;rdquo; (&lt;a href="https://developers.cloudflare.com/ssl/origin-configuration/ssl-modes/" rel="noopener">SSL modes&lt;/a>). Cloudflare does not publish a Tunnel-specific page stating it terminates TLS for tunnel traffic in those words, so treat this as what the reverse-proxy architecture implies rather than a Tunnel-page quote.&lt;/p>
+&lt;p>Tailscale goes the other way. Its data plane &amp;ldquo;uses WireGuard as its primary mechanism to encrypt communication between Tailscale devices,&amp;rdquo; and it provides end-to-end encryption &amp;ldquo;whether devices connect directly or through a relayed connection&amp;rdquo; (&lt;a href="https://tailscale.com/kb/1504/encryption" rel="noopener">Tailscale encryption&lt;/a>). Relays are explicitly blind: &amp;ldquo;DERP servers never access your unencrypted data; they only handle WireGuard packets that are already encrypted.&amp;rdquo; Policy enforcement is local too — ACLs are enforced &amp;ldquo;on each device directly, without further involvement from Tailscale&amp;rsquo;s coordination server&amp;rdquo; (&lt;a href="https://tailscale.com/kb/1018/acls" rel="noopener">ACLs&lt;/a>).&lt;/p>
+&lt;p>Neither position is the safe one in the abstract. Cloudflare&amp;rsquo;s decryption is what buys you WAF, bot filtering, and Access policies evaluated before a packet reaches your origin. Tailscale&amp;rsquo;s refusal to decrypt is what forces client software onto every participant. That is the trade, stated honestly.&lt;/p>
+&lt;p>One caveat worth knowing: &lt;strong>Tailscale Funnel is the exception that proves the rule.&lt;/strong> When you publish a service publicly with Funnel, &amp;ldquo;the Tailscale server running on your device receives the encrypted request from the TCP proxy. It then terminates the TLS connection and passes the decrypted request to the local service&amp;rdquo; (&lt;a href="https://tailscale.com/kb/1223/funnel" rel="noopener">Funnel&lt;/a>). TLS ends on your hardware, not Tailscale&amp;rsquo;s.&lt;/p>
+&lt;h2 id="protocol-coverage-http-first-vs-anything">Protocol coverage: HTTP-first vs anything&lt;/h2>
+&lt;p>Cloudflare Tunnel &amp;ldquo;can connect HTTP web servers, SSH servers, remote desktops, and other protocols,&amp;rdquo; and has full WebSocket support (&lt;a href="https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/" rel="noopener">Tunnel docs&lt;/a>, &lt;a href="https://developers.cloudflare.com/cloudflare-one/faq/cloudflare-tunnels-faq/" rel="noopener">Tunnel FAQ&lt;/a>). The catch homelabbers hit is &lt;em>how&lt;/em> those non-HTTP protocols are reached. For arbitrary TCP, &amp;ldquo;&lt;code>cloudflared&lt;/code> will need to be installed on each user device that will connect&amp;rdquo; (&lt;a href="https://developers.cloudflare.com/cloudflare-one/access-controls/applications/non-http/cloudflared-authentication/arbitrary-tcp/" rel="noopener">arbitrary TCP&lt;/a>). For private network routes — the CIDR-style path that exposes non-HTTP resources — &amp;ldquo;end users must connect their device to Cloudflare and enroll in your Zero Trust organization,&amp;rdquo; most commonly by installing the Cloudflare One Client (&lt;a href="https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/private-net/" rel="noopener">private networks&lt;/a>).&lt;/p>
+&lt;p>SSH has four documented paths: client-side cloudflared (no Cloudflare One client needed), Access for Infrastructure and self-managed SSH keys (both requiring a client on-ramp), and a browser-rendered terminal that needs no SSH client at all (&lt;a href="https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/use-cases/ssh/" rel="noopener">SSH use case&lt;/a>). RDP mirrors this with browser-based, Cloudflare One client, and client-side cloudflared options (&lt;a href="https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/use-cases/rdp/" rel="noopener">RDP use case&lt;/a>).&lt;/p>
+&lt;p>The net: &lt;strong>HTTP/HTTPS is the only category an arbitrary unmodified browser reaches.&lt;/strong> Everything else needs client software or Cloudflare&amp;rsquo;s browser-rendered terminal. On Tailscale, once the client is installed, there is nothing to configure per-protocol — SMB, NFS, rsync, a game server, a database port, whatever. That is the practical meaning of &amp;ldquo;network&amp;rdquo; versus &amp;ldquo;web proxy,&amp;rdquo; and it&amp;rsquo;s the same distinction we draw in &lt;a href="https://techfuelhq.com/networking/tailscale-vs-wireguard-2026/">Tailscale vs WireGuard&lt;/a>.&lt;/p>
+&lt;h2 id="the-client-requirement-and-its-escape-hatches">The client requirement and its escape hatches&lt;/h2>
+&lt;p>Tailscale&amp;rsquo;s own subnet-router page states the constraint outright: subnet routers exist to &amp;ldquo;extend your Tailscale network to include devices that don&amp;rsquo;t or can&amp;rsquo;t run the Tailscale client,&amp;rdquo; citing printers and large VPC or legacy environments where &amp;ldquo;installing clients on every endpoint becomes impractical&amp;rdquo; (&lt;a href="https://tailscale.com/kb/1019/subnets" rel="noopener">subnets&lt;/a>). Routes must be approved in the admin console or auto-approved via &lt;code>autoApprovers&lt;/code>, and there is a failure mode worth planning around: &amp;ldquo;Tailscale does not fall back to a less-specific route when the subnet router for a more-specific route goes offline.&amp;rdquo;&lt;/p>
+&lt;p>Exit nodes are the other lever — one device routes all your public internet traffic using default routes &lt;code>0.0.0.0/0&lt;/code> and &lt;code>::/0&lt;/code>, which requires IP forwarding on Linux and explicit opt-in on both ends. Tailscale flags real platform limits here: macOS exit nodes are &amp;ldquo;limited to userspace routing&amp;rdquo; and need sleep prevention to hold a connection, Windows carries its own caveat around per-query DNS thread usage, and &amp;ldquo;running an exit node on an Android device is not performant&amp;rdquo; (&lt;a href="https://tailscale.com/kb/1103/exit-nodes" rel="noopener">exit nodes&lt;/a>).&lt;/p>
+&lt;p>Cloudflare&amp;rsquo;s escape hatch from the domain requirement doesn&amp;rsquo;t exist: &amp;ldquo;Before you publish an application through your tunnel, you must add a website to Cloudflare&amp;rdquo; (&lt;a href="https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/get-started/create-remote-tunnel/" rel="noopener">create a remote tunnel&lt;/a>). If you don&amp;rsquo;t own a domain and don&amp;rsquo;t want to, that ends the conversation.&lt;/p>
+&lt;h2 id="auth-and-one-default-that-surprises-people">Auth, and one default that surprises people&lt;/h2>
+&lt;p>Before anything else in this section: &lt;strong>a Cloudflare Tunnel does not authenticate anyone by itself.&lt;/strong> Access is a separate product you put in front of it. Publish a hostname through a tunnel with no Access policy and no application-level login, and you have put that service on the public internet — indexed, scanned, and reachable by anyone who learns the name. This is the single most common way homelabs get burned by the &amp;ldquo;no client needed&amp;rdquo; pitch, and it is why the clientless convenience is not free. Before you point anything at a tunnel, decide explicitly whether it is meant to be public; if it is not, attach an Access policy or make sure the app&amp;rsquo;s own authentication is one you would trust facing the open internet. Admin surfaces — Proxmox, routers, &lt;a href="https://techfuelhq.com/homelab/komodo-vs-portainer-vs-dockge-2026/">Portainer&lt;/a>, container dashboards — should not be published this way at all. Put those on the tailnet.&lt;/p>
+&lt;p>Cloudflare Access is deny-by-default and validates identity against an IdP (&lt;a href="https://developers.cloudflare.com/cloudflare-one/access-controls/policies/" rel="noopener">Access policies&lt;/a>). You do not need a third-party IdP for a homelab: Access can send a one-time PIN to approved email addresses instead. The PIN expires 10 minutes after request, is single-use, and requesting a new one invalidates the previous — and Cloudflare only sends the email if the user is already allowed by a policy (&lt;a href="https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/one-time-pin/" rel="noopener">one-time PIN&lt;/a>).&lt;/p>
+&lt;p>Tailscale&amp;rsquo;s ACL system is deny-by-default &lt;em>in principle&lt;/em>, but new tailnets are not: &amp;ldquo;When you first create your tailnet, the default tailnet policy file enables communication between all devices within the tailnet,&amp;rdquo; and &amp;ldquo;in the absence of an &lt;code>acls&lt;/code> section in the tailnet policy file, Tailscale applies the default allow all policy&amp;rdquo; (&lt;a href="https://tailscale.com/kb/1018/acls" rel="noopener">ACLs&lt;/a>). If you have added a family member&amp;rsquo;s laptop or a VPS to your tailnet and never touched the policy file, every node can reach every other node on every port. Fixing that is a 20-minute job and it&amp;rsquo;s the first thing we do in our &lt;a href="https://techfuelhq.com/tutorials/tailscale-remote-access-homelab-2026/">Tailscale homelab setup guide&lt;/a>.&lt;/p>
+&lt;h2 id="free-tiers-as-verified-on-2026-07-20">Free tiers, as verified on 2026-07-20&lt;/h2>
+&lt;p>Cloudflare&amp;rsquo;s Zero Trust free plan reads &amp;ldquo;$0&amp;rdquo; &amp;ldquo;forever,&amp;rdquo; a &amp;ldquo;50 user limit,&amp;rdquo; &amp;ldquo;Community forums and Discord server&amp;rdquo; support, and standard log retention &amp;ldquo;up to 24 hours&amp;rdquo;; the next tier is pay-as-you-go at &amp;ldquo;$7 per user/month (paid annually)&amp;rdquo; with logs &amp;ldquo;up to 30 days&amp;rdquo; (&lt;a href="https://www.cloudflare.com/zero-trust/products/access/" rel="noopener">Access plans&lt;/a>, &lt;a href="https://www.cloudflare.com/plans/zero-trust-services/" rel="noopener">Zero Trust plans&lt;/a>). Note the annual-billing qualifier on that $7 — monthly billing is higher. Onboarding still asks for payment details — Cloudflare notes that if you chose the Free plan &amp;ldquo;this step is still needed but you will not be charged&amp;rdquo; (&lt;a href="https://developers.cloudflare.com/cloudflare-one/setup/" rel="noopener">Cloudflare One setup&lt;/a>). Free-plan DEX limits are 10 tests per account and 100 remote captures per day (&lt;a href="https://developers.cloudflare.com/cloudflare-one/account-limits/" rel="noopener">account limits&lt;/a>).&lt;/p>
+&lt;p>Tailscale&amp;rsquo;s Personal plan currently reads &amp;ldquo;$0 / Free forever,&amp;rdquo; &amp;ldquo;Up to 6 users,&amp;rdquo; &amp;ldquo;Unlimited user devices,&amp;rdquo; up to 3 ACL groups, &amp;ldquo;Up to 50 tagged resources to start,&amp;rdquo; and 1,000 minutes per month for ephemeral resources, with subnet routers, exit nodes, and Funnel included (&lt;a href="https://tailscale.com/pricing" rel="noopener">Tailscale pricing&lt;/a>). Note this supersedes the 3-user / 100-device figures still repeated across older comparisons — those are stale.&lt;/p>
+&lt;p>Seat accounting on Cloudflare is worth reading before you invite people: &amp;ldquo;A user consumes a seat when they perform an authentication event,&amp;rdquo; one seat regardless of how many apps they open, and once seats are exhausted &amp;ldquo;additional users who attempt to log in are blocked&amp;rdquo; (&lt;a href="https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/seat-management/" rel="noopener">seat management&lt;/a>). Whether a tunnel with no Access policy in front of it consumes a seat is not stated in the docs we read — treat it as unverified.&lt;/p>
+&lt;h2 id="the-two-limits-that-actually-bite-homelabs">The two limits that actually bite homelabs&lt;/h2>
+&lt;p>&lt;strong>The 100 MB body cap.&lt;/strong> Maximum upload size is 100 MB on Free and Pro, 200 MB on Business, and 500+ MB on Enterprise; exceeding it returns &lt;code>413 Request Entity Too Large&lt;/code>. Documented workarounds are chunking requests, switching the DNS record to DNS-only, or upgrading (&lt;a href="https://developers.cloudflare.com/support/troubleshooting/http-status-codes/4xx-client-error/error-413/" rel="noopener">error 413&lt;/a>). Immich and Nextcloud users hit this constantly.&lt;/p>
+&lt;p>&lt;strong>The CDN media term.&lt;/strong> Cloudflare&amp;rsquo;s service-specific terms state it &amp;ldquo;reserves the right to disable or limit your access to or use of the CDN&amp;hellip; if you use or are suspected of using the CDN without such Paid Services to serve video or a disproportionate percentage of pictures, audio files, or other large files,&amp;rdquo; naming the Developer Platform, Images, and Stream as the qualifying paid services (&lt;a href="https://www.cloudflare.com/service-specific-terms-application-services/" rel="noopener">service-specific terms&lt;/a>). That is the text; we found no published enforcement threshold anywhere in Cloudflare&amp;rsquo;s terms, so any specific TB/month figure you see quoted is anecdote, not policy. This is why Plex and Jellyfin over a Tunnel is a recurring warning in self-hosting communities.&lt;/p>
+&lt;p>We could not verify a bandwidth cap for Cloudflare Tunnel itself, and Tailscale states only that Funnel traffic &amp;ldquo;is subject to non-configurable bandwidth limits&amp;rdquo; without publishing a number. Don&amp;rsquo;t plan capacity on either.&lt;/p>
+&lt;h2 id="the-split-most-people-actually-run">The split most people actually run&lt;/h2>
+&lt;p>Across three self-hosting and homelab threads we read on 2026-07-20 (community opinion, not verified fact), the dominant recommendation among people who have &lt;em>both&lt;/em> needs is not a winner — it&amp;rsquo;s a division of labor. That is a statement about what experienced self-hosters recommend in those threads, not a claim that most homelabs run both; plenty need only one. A highly-upvoted framing in the &lt;a href="https://www.reddit.com/r/selfhosted/comments/1cnauhd/cloudflare_tunnels_vs_tailscale_from_a/" rel="noopener">r/selfhosted Cloudflare-Tunnels-vs-Tailscale thread&lt;/a> splits the estate into &lt;em>applications you consume&lt;/em> (website, wiki, photo management) behind Cloudflare, and &lt;em>management planes&lt;/em> (Proxmox, terminal, remote desktop, Portainer) behind Tailscale. Since neither opens inbound ports, the argument runs, the real difference is that one path demands a client on the far end and the other only demands authentication. The identical split appears independently in a &lt;a href="https://www.reddit.com/r/selfhosted/comments/187eqpq/do_you_use_cloudfare_tunnel_or_a_vpn_like/" rel="noopener">separate r/selfhosted thread&lt;/a>, with replies naming the exact division: Overseerr and Mealie public via Tunnel, Portainer private via Tailscale. Vote rankings drift, so treat &amp;ldquo;highly-upvoted&amp;rdquo; as a snapshot of that date, not a standing fact.&lt;/p>
+&lt;p>Credential stores are the clearest case of all. A self-hosted password manager is the last thing to publish through a proxy that terminates TLS — keep &lt;a href="https://techfuelhq.com/homelab/vaultwarden-vs-bitwarden-2026/">Vaultwarden&lt;/a> on the tailnet and reachable only by devices you control, whatever you do with the rest of the estate.&lt;/p>
+&lt;p>The recurring tiebreaker is blunt: &lt;em>can you install a client on the accessing device?&lt;/em> Work laptops, a partner&amp;rsquo;s phone, a friend&amp;rsquo;s browser — those push you to the Tunnel. Second is household UX: toggling a VPN is friction for non-technical family, though the counter-argument in-thread is that Tailscale can simply be left running. Third is CGNAT, which even WireGuard purists concede is where Tailscale earns its place.&lt;/p>
+&lt;p>If you go the both-tools route, the public side still needs a reverse proxy behind cloudflared for host-based routing; our &lt;a href="https://techfuelhq.com/homelab/caddy-vs-nginx-proxy-manager-vs-traefik-2026/">Caddy vs Nginx Proxy Manager vs Traefik comparison&lt;/a> covers that layer.&lt;/p>
+&lt;h2 id="what-competing-guides-skip-our-angle">What competing guides skip (our angle)&lt;/h2>
+&lt;p>Four things get consistently glossed over:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>They are not the same category.&lt;/strong> Cloudflare Tunnel publishes a service; Tailscale joins a network. Comparing their properties side by side is fine — we do it above — but &lt;em>scoring&lt;/em> them on a shared grid and declaring a winner is the framing error, because half the rows are measuring each tool against a job it was never built to do. Tailscale&amp;rsquo;s public-publishing answer is Funnel, which is restricted to ports 443, 8443, and 10000 and requires MagicDNS plus tailnet HTTPS certificates (&lt;a href="https://tailscale.com/kb/1223/funnel" rel="noopener">Funnel&lt;/a>); its private equivalent, Serve, adds identity headers that Funnel deliberately omits (&lt;a href="https://tailscale.com/kb/1312/serve" rel="noopener">Serve&lt;/a>).&lt;/li>
+&lt;li>&lt;strong>Stale free-tier numbers.&lt;/strong> The 3-user / 100-device Tailscale figures are everywhere and are wrong as of 2026-07-20; the live pricing page reads 6 users and unlimited user devices.&lt;/li>
+&lt;li>&lt;strong>The &amp;ldquo;no client needed&amp;rdquo; claim is HTTP-only.&lt;/strong> SSH, RDP, and arbitrary TCP through Cloudflare all need client-side cloudflared, the Cloudflare One client, or Cloudflare&amp;rsquo;s browser terminal. Say that up front and half the comparison resolves itself.&lt;/li>
+&lt;li>&lt;strong>Tailscale&amp;rsquo;s allow-all default.&lt;/strong> A brand-new tailnet permits every device to reach every other device. Guides that present Tailscale as deny-by-default without noting the initial policy file are describing a state you have to create.&lt;/li>
+&lt;/ol>
+&lt;p>If Tailscale&amp;rsquo;s control plane is the part you object to, the adjacent options are worth a look: &lt;a href="https://techfuelhq.com/networking/zerotier-vs-tailscale-2026/">ZeroTier vs Tailscale&lt;/a> and &lt;a href="https://techfuelhq.com/networking/netbird-vs-tailscale-2026/">NetBird vs Tailscale&lt;/a> cover the mesh alternatives, and &lt;a href="https://techfuelhq.com/networking/tailscale-vs-wireguard-2026/">Tailscale vs WireGuard&lt;/a> covers rolling it yourself.&lt;/p>
+&lt;h2 id="related-reading">Related reading&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://techfuelhq.com/networking/tailscale-vs-wireguard-2026/">Tailscale vs WireGuard (2026)&lt;/a> — when the managed control plane is worth it and when plain WireGuard wins.&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/tutorials/tailscale-remote-access-homelab-2026/">Tailscale remote access for your homelab: setup guide&lt;/a> — our step-by-step install, ACL lockdown, subnet router, and exit node.&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/networking/zerotier-vs-tailscale-2026/">ZeroTier vs Tailscale (2026)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/networking/netbird-vs-tailscale-2026/">NetBird vs Tailscale (2026)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/homelab/caddy-vs-nginx-proxy-manager-vs-traefik-2026/">Caddy vs Nginx Proxy Manager vs Traefik (2026)&lt;/a> — the reverse proxy that sits behind cloudflared.&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/tutorials/home-assistant-proxmox-2026/">Home Assistant on Proxmox (2026)&lt;/a> — the host side of the Home Assistant remote-access question.&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/homelab/vaultwarden-vs-bitwarden-2026/">Vaultwarden vs Bitwarden (2026)&lt;/a> — the one service to keep off the public tunnel entirely.&lt;/li>
+&lt;/ul>
+&lt;h2 id="sources">Sources&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/" rel="noopener">https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developers.cloudflare.com/tunnel/" rel="noopener">https://developers.cloudflare.com/tunnel/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developers.cloudflare.com/cloudflare-one/access-controls/applications/non-http/cloudflared-authentication/arbitrary-tcp/" rel="noopener">https://developers.cloudflare.com/cloudflare-one/access-controls/applications/non-http/cloudflared-authentication/arbitrary-tcp/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/private-net/" rel="noopener">https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/private-net/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/use-cases/ssh/" rel="noopener">https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/use-cases/ssh/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/use-cases/rdp/" rel="noopener">https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/use-cases/rdp/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developers.cloudflare.com/cloudflare-one/faq/cloudflare-tunnels-faq/" rel="noopener">https://developers.cloudflare.com/cloudflare-one/faq/cloudflare-tunnels-faq/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/get-started/create-remote-tunnel/" rel="noopener">https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/get-started/create-remote-tunnel/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developers.cloudflare.com/cloudflare-one/access-controls/policies/" rel="noopener">https://developers.cloudflare.com/cloudflare-one/access-controls/policies/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/one-time-pin/" rel="noopener">https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/one-time-pin/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/seat-management/" rel="noopener">https://developers.cloudflare.com/cloudflare-one/team-and-resources/users/seat-management/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developers.cloudflare.com/cloudflare-one/account-limits/" rel="noopener">https://developers.cloudflare.com/cloudflare-one/account-limits/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developers.cloudflare.com/cloudflare-one/setup/" rel="noopener">https://developers.cloudflare.com/cloudflare-one/setup/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developers.cloudflare.com/ssl/troubleshooting/faq/" rel="noopener">https://developers.cloudflare.com/ssl/troubleshooting/faq/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developers.cloudflare.com/ssl/concepts/" rel="noopener">https://developers.cloudflare.com/ssl/concepts/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developers.cloudflare.com/ssl/origin-configuration/ssl-modes/" rel="noopener">https://developers.cloudflare.com/ssl/origin-configuration/ssl-modes/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developers.cloudflare.com/fundamentals/concepts/how-cloudflare-works/" rel="noopener">https://developers.cloudflare.com/fundamentals/concepts/how-cloudflare-works/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developers.cloudflare.com/support/troubleshooting/http-status-codes/4xx-client-error/error-413/" rel="noopener">https://developers.cloudflare.com/support/troubleshooting/http-status-codes/4xx-client-error/error-413/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.cloudflare.com/plans/zero-trust-services/" rel="noopener">https://www.cloudflare.com/plans/zero-trust-services/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.cloudflare.com/zero-trust/products/access/" rel="noopener">https://www.cloudflare.com/zero-trust/products/access/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.cloudflare.com/service-specific-terms-application-services/" rel="noopener">https://www.cloudflare.com/service-specific-terms-application-services/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://tailscale.com/kb/1151/what-is-tailscale" rel="noopener">https://tailscale.com/kb/1151/what-is-tailscale&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://tailscale.com/kb/1257/connection-types" rel="noopener">https://tailscale.com/kb/1257/connection-types&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://tailscale.com/kb/1504/encryption" rel="noopener">https://tailscale.com/kb/1504/encryption&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://tailscale.com/kb/1018/acls" rel="noopener">https://tailscale.com/kb/1018/acls&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://tailscale.com/kb/1019/subnets" rel="noopener">https://tailscale.com/kb/1019/subnets&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://tailscale.com/kb/1103/exit-nodes" rel="noopener">https://tailscale.com/kb/1103/exit-nodes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://tailscale.com/kb/1223/funnel" rel="noopener">https://tailscale.com/kb/1223/funnel&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://tailscale.com/kb/1312/serve" rel="noopener">https://tailscale.com/kb/1312/serve&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://tailscale.com/kb/1017/install" rel="noopener">https://tailscale.com/kb/1017/install&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://tailscale.com/pricing" rel="noopener">https://tailscale.com/pricing&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.reddit.com/r/selfhosted/comments/1cnauhd/cloudflare_tunnels_vs_tailscale_from_a/" rel="noopener">https://www.reddit.com/r/selfhosted/comments/1cnauhd/cloudflare_tunnels_vs_tailscale_from_a/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.reddit.com/r/selfhosted/comments/187eqpq/do_you_use_cloudfare_tunnel_or_a_vpn_like/" rel="noopener">https://www.reddit.com/r/selfhosted/comments/187eqpq/do_you_use_cloudfare_tunnel_or_a_vpn_like/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.reddit.com/r/homelab/comments/1cquyxu/tailscale_vs_cloudflare/" rel="noopener">https://www.reddit.com/r/homelab/comments/1cquyxu/tailscale_vs_cloudflare/&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>NetBird vs Tailscale (2026): The Self-Hosted Mesh VPN Question</title><link>https://techfuelhq.com/networking/netbird-vs-tailscale-2026/</link><pubDate>Sun, 05 Jul 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/networking/netbird-vs-tailscale-2026/</guid><description>&lt;p>If you have already decided a WireGuard mesh is how you will reach your homelab from anywhere, the next fork in the road in 2026 is often &lt;strong>NetBird vs Tailscale&lt;/strong> - and the way it usually gets framed (&amp;ldquo;which mesh VPN is faster/better?&amp;rdquo;) points you at the wrong thing. Both are mesh VPNs built on WireGuard. Under the hood, when the connection is direct, they are running the &lt;em>same&lt;/em> encryption at the &lt;em>same&lt;/em> speed. The real difference is not the tunnel. It is &lt;strong>who owns the control plane.&lt;/strong>&lt;/p>
+&lt;p>This is the focused two-way version of that decision, aimed at homelabbers. If you are still one step earlier - deciding between a managed mesh and raw WireGuard at all - start with &lt;a href="https://techfuelhq.com/networking/tailscale-vs-wireguard-2026/">Tailscale vs WireGuard&lt;/a> or &lt;a href="https://techfuelhq.com/networking/wireguard-vs-openvpn-homelab-2026/">WireGuard vs OpenVPN for the homelab&lt;/a>. If you want the Layer 2 virtual-switch option in the mix, see &lt;a href="https://techfuelhq.com/networking/zerotier-vs-tailscale-2026/">ZeroTier vs Tailscale&lt;/a>. If you have landed on a mesh and just want the two leading options compared honestly, keep reading.&lt;/p>
+&lt;h2 id="the-20-second-answer">The 20-second answer&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>You are one person, you want it working in 15 minutes, and you never want to run a server:&lt;/strong> &lt;strong>Tailscale.&lt;/strong> Its free Personal plan and zero-maintenance SaaS control plane are the right default for most homelabs in 2026.&lt;/li>
+&lt;li>&lt;strong>You want to self-host the entire stack - control plane included - as an officially supported path, not a community workaround:&lt;/strong> &lt;strong>NetBird.&lt;/strong> It ships its own open-source coordination server as a first-class product.&lt;/li>
+&lt;li>&lt;strong>You are scaling to a team and per-user cost matters:&lt;/strong> lean &lt;strong>NetBird.&lt;/strong> Self-hosting is free, and its cloud Team plan undercuts Tailscale per user.&lt;/li>
+&lt;/ul>
+&lt;p>Neither choice is a mistake. What follows is where they actually diverge.&lt;/p>
+&lt;h2 id="same-engine-different-brain">Same engine, different brain&lt;/h2>
+&lt;p>Both products share the same &lt;strong>data plane&lt;/strong>: WireGuard, the small, fast, modern tunnel that has been the standard for point-to-point encrypted links since it landed in the mainline Linux kernel. Both also add the same category of things WireGuard deliberately leaves out - automatic key distribution, NAT traversal, stable addressing, and access policy. That shared &amp;ldquo;coordination layer&amp;rdquo; is why people compare them at all.&lt;/p>
+&lt;p>Where they split is the &lt;strong>control plane&lt;/strong> - the coordination server that brokers keys, tracks which device is where, and distributes your policy:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Tailscale&lt;/strong> runs that control plane as a &lt;strong>proprietary, fully managed service.&lt;/strong> You never operate a server. The client is open source; the brain is not. If you want the brain on your own hardware, the community answer is &lt;a href="https://github.com/juanfont/headscale" rel="noopener">Headscale&lt;/a>, a separate open-source reimplementation of Tailscale&amp;rsquo;s control server.&lt;/li>
+&lt;li>&lt;strong>NetBird&lt;/strong> ships its &lt;strong>own coordination server as open source&lt;/strong>, as a supported part of the product. You can use NetBird&amp;rsquo;s hosted cloud &lt;em>or&lt;/em> self-host the complete stack, and self-hosting is a documented first-class path rather than a reverse-engineered one.&lt;/li>
+&lt;/ul>
+&lt;p>So &amp;ldquo;NetBird vs Tailscale&amp;rdquo; really means: &lt;strong>do you want a managed brain you never touch, or the option to own the brain yourself without leaving the supported path?&lt;/strong>&lt;/p>
+&lt;h2 id="the-one-question-that-usually-decides-it-do-you-want-to-run-the-control-plane">The one question that usually decides it: do you want to run the control plane?&lt;/h2>
+&lt;p>This is the axis everything else hangs on.&lt;/p>
+&lt;p>If the honest answer is &lt;strong>&amp;ldquo;no, I never want to run or secure another server,&amp;rdquo;&lt;/strong> Tailscale is built for you. You install clients, log in with an identity you already have, and the tailnet coordinates itself forever. There is no control server in your life. For a huge share of homelabbers - one person, a NAS, a couple of Pis, a laptop and a phone - that is exactly the right trade, and the free tier covers it completely.&lt;/p>
+&lt;p>If the answer is &lt;strong>&amp;ldquo;yes, I want the coordination server on my own hardware,&amp;rdquo;&lt;/strong> the comparison tilts toward NetBird. You &lt;em>can&lt;/em> get there with Tailscale by running Headscale, and many people happily do. But Headscale is a third-party project chasing a moving proprietary target: feature parity lags, and you are on your own for support. NetBird self-hosting is the vendor&amp;rsquo;s own supported stack. If owning the control plane is a hard requirement rather than a nice-to-have, that distinction matters.&lt;/p>
+&lt;h2 id="what-self-hosting-netbird-actually-asks-of-you">What self-hosting NetBird actually asks of you&lt;/h2>
+&lt;p>Self-hosting is easy to say and real to run, so be clear-eyed about it. A self-hosted NetBird deployment is &lt;strong>three services&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Management service&lt;/strong> - holds network state, assigns peer IPs, and distributes configuration updates.&lt;/li>
+&lt;li>&lt;strong>Signal service&lt;/strong> - brokers peer negotiation by relaying encrypted connection candidates so peers can find each other.&lt;/li>
+&lt;li>&lt;strong>Relay service&lt;/strong> - provides fallback connectivity (a TURN-style relay) when two peers cannot establish a direct path.&lt;/li>
+&lt;/ul>
+&lt;p>You also wire in an identity provider for login. NetBird documents a Docker-based install that stands all of this up together, so it is well within reach for anyone already running &lt;a href="https://techfuelhq.com/articles/self-hosting-essentials/">self-hosted apps&lt;/a> - but it is a service you now own, patch, back up, and keep reachable. The upside is total control and no external dependency in your remote-access path. The downside is that if your management server is down when you are away from home, you cannot bring &lt;em>new&lt;/em> peers online until it is back (existing tunnels keep flowing).&lt;/p>
+&lt;p>Tailscale&amp;rsquo;s equivalent operational cost is simply &lt;strong>zero&lt;/strong> - unless you choose Headscale, at which point you have taken on a very similar self-hosting burden as NetBird, just with a less-supported control server.&lt;/p>
+&lt;h2 id="policy-and-day-to-day-ui-vs-acl-file">Policy and day-to-day: UI vs ACL file&lt;/h2>
+&lt;p>For daily driving, the biggest felt difference is how you express access rules.&lt;/p>
+&lt;p>&lt;strong>NetBird&lt;/strong> leans on a &lt;strong>web UI with groups and policies&lt;/strong> - you build access rules with dropdowns and toggles, and assign peers to groups that automate routing and permissions. For people who do not want to think in config syntax, this is friendlier, and it scales cleanly as the number of peers grows.&lt;/p>
+&lt;p>&lt;strong>Tailscale&lt;/strong> centers on the &lt;strong>tailnet policy file&lt;/strong>, written in HuJSON (JSON with comments). It is powerful and version-controllable, and infrastructure-minded users often prefer having their whole access model as code in a file. But it does ask for comfort with ACL syntax, and a fat-fingered rule is edited in text, not clicked.&lt;/p>
+&lt;p>Neither is objectively better - it is a genuine UI-vs-config-file preference. If you like GitOps-style policy-as-code, Tailscale fits your hands. If you want to hand a teammate a console and dropdowns, NetBird does.&lt;/p>
+&lt;h2 id="performance-effectively-a-tie-where-it-matters">Performance: effectively a tie where it matters&lt;/h2>
+&lt;p>When either product establishes a &lt;strong>direct&lt;/strong> peer-to-peer connection - which both do the large majority of the time - you are running WireGuard in both cases, so throughput and latency are essentially the same. NetBird&amp;rsquo;s own engineering write-ups concede this: on a shared regional network path, direct P2P WireGuard performance is functionally identical across these tools.&lt;/p>
+&lt;p>The only honest performance caveats are at the edges:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>NAT traversal reliability.&lt;/strong> Both use STUN/ICE-style hole punching plus a relay fallback. In a hard CGNAT environment, how often each achieves a &lt;em>direct&lt;/em> path (versus relaying) is the thing that actually affects your speed, and it varies by network more than by product.&lt;/li>
+&lt;li>&lt;strong>Relay fallback.&lt;/strong> When a direct path is impossible and traffic rides a relay, expect added latency and reduced throughput on that link until a direct route is found. This is true of both.&lt;/li>
+&lt;/ol>
+&lt;p>Bottom line: for SSH, web UIs, file transfers, and media streaming - the actual homelab workload - &lt;strong>performance is not the deciding factor between these two.&lt;/strong> Do not pick on benchmarks; pick on control-plane ownership and cost.&lt;/p>
+&lt;h2 id="cost-especially-at-scale">Cost, especially at scale&lt;/h2>
+&lt;p>For a single user, both are free and cost is a non-issue: Tailscale&amp;rsquo;s Personal plan is free for up to 6 users with a generous device allowance, and NetBird&amp;rsquo;s cloud free tier covers up to 5 users and 100 machines. Self-hosted NetBird is free at any size.&lt;/p>
+&lt;p>The gap opens when you &lt;strong>grow a team on the hosted clouds.&lt;/strong> NetBird&amp;rsquo;s paid Team plan starts around &lt;strong>$6 per user per month&lt;/strong>; Tailscale&amp;rsquo;s Standard plan is &lt;strong>$8 per user per month&lt;/strong>, and its Premium tier (which is where some advanced identity features live) is &lt;strong>$18 per user per month&lt;/strong>. NetBird also puts SSO and advanced policy on lower-cost tiers than Tailscale does. If you are outfitting a company rather than a homelab, that per-seat difference compounds - and self-hosting NetBird takes the per-seat cost to zero, trading it for the operational cost of running the stack.&lt;/p>
+&lt;h2 id="the-extras-that-can-tip-a-close-call">The extras that can tip a close call&lt;/h2>
+&lt;p>If control-plane philosophy and cost leave you undecided, two NetBird features can break the tie:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Post-quantum encryption via Rosenpass.&lt;/strong> NetBird can layer &lt;a href="https://rosenpass.eu/" rel="noopener">Rosenpass&lt;/a> in front of WireGuard to defend against future quantum &amp;ldquo;harvest now, decrypt later&amp;rdquo; attacks. It is opt-in and off by default. Tailscale does not currently expose a comparable option. For almost every homelab this is theoretical, but if it is on your list, it is a real point for NetBird.&lt;/li>
+&lt;li>&lt;strong>Built-in reverse proxy with automatic TLS.&lt;/strong> NetBird includes ingress that can expose an internal service over a custom domain with auto-issued Let&amp;rsquo;s Encrypt certificates. Tailscale&amp;rsquo;s nearest analog is Funnel, which exposes a node to the public internet more simply but with less of a full reverse-proxy story. If publishing a self-hosted app is part of your goal, NetBird bundles more of that in one place.&lt;/li>
+&lt;/ul>
+&lt;h2 id="side-by-side">Side-by-side&lt;/h2>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">&lt;/th>
+&lt;th scope="col">NetBird&lt;/th>
+&lt;th scope="col">Tailscale&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Data plane&lt;/td>
+&lt;td>WireGuard&lt;/td>
+&lt;td>WireGuard&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Control plane&lt;/td>
+&lt;td>Open source, self-host or cloud&lt;/td>
+&lt;td>Proprietary, managed (or Headscale to self-host)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Officially supported self-hosting&lt;/td>
+&lt;td>Yes (management + signal + relay)&lt;/td>
+&lt;td>No (Headscale is community)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>License&lt;/td>
+&lt;td>BSD-3-Clause; server dirs AGPLv3&lt;/td>
+&lt;td>Client open source; control plane closed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Free tier&lt;/td>
+&lt;td>5 users, 100 machines (cloud); free self-hosted&lt;/td>
+&lt;td>6 users, generous device allowance&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Paid entry price&lt;/td>
+&lt;td>~$6 / user / mo (Team)&lt;/td>
+&lt;td>$8 / user / mo (Standard)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Policy model&lt;/td>
+&lt;td>Web UI, groups + dropdowns&lt;/td>
+&lt;td>HuJSON ACL policy file&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Post-quantum option&lt;/td>
+&lt;td>Yes (Rosenpass, opt-in)&lt;/td>
+&lt;td>Not currently&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Built-in reverse proxy&lt;/td>
+&lt;td>Yes (auto-TLS ingress)&lt;/td>
+&lt;td>Funnel (simpler exposure)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Direct-connection performance&lt;/td>
+&lt;td>WireGuard (tie)&lt;/td>
+&lt;td>WireGuard (tie)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Best for&lt;/td>
+&lt;td>Owning the whole stack, cheaper team scaling&lt;/td>
+&lt;td>Zero-maintenance homelab, fastest time-to-working&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;h2 id="so-which-should-you-run">So which should you run?&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Pick Tailscale&lt;/strong> if you are one person or a small household, you want remote access working today with nothing to operate, and you value time-to-working over owning infrastructure. For most homelabbers in 2026, the free Personal plan is the correct default, and Headscale is there later if you ever want the brain on your own hardware.&lt;/li>
+&lt;li>&lt;strong>Pick NetBird&lt;/strong> if self-hosting the control plane is a real requirement and you want it on a supported path rather than a community reimplementation, if you are scaling a team where per-user cost matters, or if features like its reverse proxy or Rosenpass post-quantum tip the balance.&lt;/li>
+&lt;li>&lt;strong>Consider Tailscale plus Headscale&lt;/strong> if independence from a SaaS control plane is the &lt;em>only&lt;/em> reason NetBird was appealing - it keeps the polished Tailscale clients while moving the brain to your hardware, at the cost of running a less-supported server.&lt;/li>
+&lt;/ul>
+&lt;p>Whichever you land on, the encryption underneath is the same WireGuard, and the raw speed is a tie. You are really choosing &lt;strong>who runs the coordination server&lt;/strong> - a managed service, a community control plane, or you.&lt;/p></description></item><item><title>ZeroTier vs Tailscale (2026): Layer 2 Switch or Plug-and-Play Mesh?</title><link>https://techfuelhq.com/networking/zerotier-vs-tailscale-2026/</link><pubDate>Sun, 05 Jul 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/networking/zerotier-vs-tailscale-2026/</guid><description>&lt;p>If you want your devices to reach each other from anywhere in 2026 - your NAS from a coffee shop, your desktop from your phone, a friend&amp;rsquo;s server across the country - &lt;strong>Tailscale&lt;/strong> and &lt;strong>ZeroTier&lt;/strong> are the two mesh networks you keep running into. Both create a private overlay where every device gets a fixed address and can talk to every other device without port forwarding, even behind carrier-grade NAT.&lt;/p>
+&lt;p>They look interchangeable from the outside. They are not. The difference sits one layer down in the network stack, and it decides which one is right for you. This is the focused two-way version of that decision, written for homelabbers rather than enterprise network teams.&lt;/p>
+&lt;h2 id="the-20-second-answer">The 20-second answer&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>You want the simplest possible secure remote access across a pile of roaming devices, with as little setup as possible:&lt;/strong> &lt;strong>Tailscale.&lt;/strong> It is the right default for most people in 2026, and its free tier now stretches further than ZeroTier&amp;rsquo;s.&lt;/li>
+&lt;li>&lt;strong>You need a real flat LAN across the internet - broadcasts, multicast, Wake-on-LAN, legacy LAN apps, or bridging - or you run MikroTik gear:&lt;/strong> &lt;strong>ZeroTier.&lt;/strong> Its Layer 2 design does things Tailscale structurally cannot.&lt;/li>
+&lt;li>&lt;strong>You want to own the entire control plane on your own hardware:&lt;/strong> lean toward &lt;strong>Headscale&lt;/strong> (self-hosted Tailscale control server) or &lt;strong>&lt;a href="https://techfuelhq.com/networking/netbird-vs-tailscale-2026/">NetBird&lt;/a>&lt;/strong> rather than either default, because ZeroTier&amp;rsquo;s self-hosting story got more restrictive in 2026.&lt;/li>
+&lt;/ul>
+&lt;p>Neither is a mistake. What follows is where they actually diverge.&lt;/p>
+&lt;h2 id="the-one-thing-that-explains-every-other-difference-layer-3-vs-layer-2">The one thing that explains every other difference: Layer 3 vs Layer 2&lt;/h2>
+&lt;p>This is the root of the whole comparison, so it is worth getting right.&lt;/p>
+&lt;p>&lt;strong>Tailscale is a Layer 3 (IP-level) VPN.&lt;/strong> It is built on the &lt;a href="https://techfuelhq.com/networking/wireguard-vs-openvpn-homelab-2026/">WireGuard&lt;/a> protocol and adds a coordination layer on top: it distributes keys between your devices automatically, punches through NAT so they find each other, hands every device a stable &lt;code>100.x.x.x&lt;/code> address plus a MagicDNS name, and enforces access policy. It moves &lt;strong>IP packets&lt;/strong> between devices that now know how to reach each other. It does not stretch your local network across the internet - each device is its own island that can route to the others.&lt;/p>
+&lt;p>&lt;strong>ZeroTier is a Layer 2 (Ethernet-level) virtual switch.&lt;/strong> Instead of routing IP packets, it emulates a physical network switch in software: every device you join to a ZeroTier network behaves as if it were plugged into the same switch, on the same flat LAN, even when the machines are in different countries. Because it works at the Ethernet layer, it carries the things a real switch carries - broadcasts, multicast, ARP, and non-IP protocols - not just IP traffic.&lt;/p>
+&lt;p>That single architectural choice cascades into everything else:&lt;/p>
+&lt;ul>
+&lt;li>Need broadcast or multicast (LAN game discovery, some IoT protocols, Wake-on-LAN across sites, legacy software that assumes one subnet)? That is Layer 2 - &lt;strong>ZeroTier&lt;/strong>.&lt;/li>
+&lt;li>Just need &amp;ldquo;my devices can reach each other by IP or name, securely, from anywhere&amp;rdquo;? That is Layer 3, and it is simpler - &lt;strong>Tailscale&lt;/strong>.&lt;/li>
+&lt;/ul>
+&lt;p>Everything below is a consequence of this.&lt;/p>
+&lt;h2 id="setup-and-day-to-day-ease-tailscale-wins-clearly">Setup and day-to-day ease: Tailscale wins clearly&lt;/h2>
+&lt;p>Every strand of community feedback lands the same way here. On the &lt;a href="https://www.reddit.com/r/zerotier/" rel="noopener">r/zerotier&lt;/a> thread comparing the two, the recurring line from people who use both is that Tailscale &amp;ldquo;just works&amp;rdquo; and that non-networking users get it running in minutes.&lt;/p>
+&lt;p>Tailscale&amp;rsquo;s onboarding is: install the client, sign in with an existing identity provider (Google, Microsoft, GitHub, and others), and the device is on your tailnet. NAT traversal, key exchange, and DNS are handled for you. There is very little to misconfigure.&lt;/p>
+&lt;p>ZeroTier is more hands-on. You create a network, get a 16-digit network ID, join devices with that ID, and then &lt;strong>manually authorize&lt;/strong> each device in the controller. Its power lives in a flow-rules engine and managed IP assignment that give you fine control - but that control is also more to learn and more to get wrong. As one longtime ZeroTier user put it, it is &amp;ldquo;more complicated, both the language and the stateless nature of the rules engine,&amp;rdquo; but that complexity buys flexibility.&lt;/p>
+&lt;p>If your priority is minimal friction, Tailscale is the easier tool by a wide margin. If you enjoy - or need - to shape the network by hand, ZeroTier gives you more surface to work with.&lt;/p>
+&lt;h2 id="speed-close-enough-that-it-rarely-decides-anything">Speed: close enough that it rarely decides anything&lt;/h2>
+&lt;p>Both establish direct peer-to-peer links when they can and fall back to relays when they cannot. Tailscale&amp;rsquo;s WireGuard data plane has marginally less overhead than ZeroTier&amp;rsquo;s custom protocol, and Tailscale&amp;rsquo;s own comparison notes throughput is &amp;ldquo;similar&amp;rdquo; in most environments with the theoretical edge to WireGuard rarely noticeable in practice.&lt;/p>
+&lt;p>The more real-world distinction from the community: Tailscale is generally a little better at &lt;em>finding a direct connection&lt;/em> through difficult NAT rather than routing you through a relay, which makes it feel faster more often. ZeroTier, on the other hand, is reported to be &lt;strong>less blocked in countries that filter VPNs&lt;/strong> and to offer connection aggregation - edges that matter for specific situations more than raw benchmarks.&lt;/p>
+&lt;p>Bottom line: on an established tunnel over a normal home connection, treat them as a tie. Do not pick on speed alone.&lt;/p>
+&lt;h2 id="the-free-tier-this-is-where-the-story-changed-in-2026">The free tier: this is where the story changed in 2026&lt;/h2>
+&lt;p>This is the single fact most existing comparisons - and Google&amp;rsquo;s own AI summary - still get wrong, because both tools moved their free tiers.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Tailscale Personal (free):&lt;/strong> up to &lt;strong>6 users&lt;/strong> with an &lt;strong>unlimited device&lt;/strong> allowance for non-commercial use, including peer-to-peer connections, subnet routers, exit nodes, and MagicDNS. For a solo homelab that keeps adding machines, this is effectively uncapped.&lt;/li>
+&lt;li>&lt;strong>ZeroTier (free):&lt;/strong> &lt;strong>10 devices&lt;/strong>, &lt;strong>1 network&lt;/strong>, &lt;strong>1 administrator&lt;/strong> - down from the more generous caps of earlier years. Its paid &lt;strong>Essential&lt;/strong> tier starts at &lt;strong>18 dollars per month&lt;/strong> (10 devices plus 2 dollars per extra device), and &lt;strong>Scale&lt;/strong> jumps to &lt;strong>179 dollars per month&lt;/strong> for 100 devices.&lt;/li>
+&lt;/ul>
+&lt;p>For comparison, Tailscale&amp;rsquo;s paid plans are &lt;strong>Standard&lt;/strong> at 8 dollars per user per month and &lt;strong>Premium&lt;/strong> at 18 dollars per user per month - but most homelabbers never leave the free Personal plan.&lt;/p>
+&lt;p>The practical takeaway: if you are a single person adding your eleventh device, ZeroTier&amp;rsquo;s free tier now stops you and Tailscale&amp;rsquo;s does not. A ZeroTier user on r/zerotier summed up the direction bluntly - they wanted to move away because &amp;ldquo;their free tier is getting restrictive.&amp;rdquo; Verify the current numbers on each vendor&amp;rsquo;s pricing page before you commit, since this is exactly the kind of limit that changes.&lt;/p>
+&lt;h2 id="self-hosting-and-the-2026-licensing-worry">Self-hosting and the 2026 licensing worry&lt;/h2>
+&lt;p>If you like to own your infrastructure, read this section carefully, because the ground shifted under ZeroTier.&lt;/p>
+&lt;p>Historically, ZeroTier&amp;rsquo;s appeal for the self-hosting crowd was that you could run your own controller and even your own root nodes (moons) and depend on nobody. In recent 2026 releases that story tightened: the client remains open source, but running your own controller for organizational use has moved toward &lt;strong>paid licensing&lt;/strong>, and moons have been curtailed. The r/zerotier discussion is full of longtime users who are, in their words, worried about the direction and actively looking at alternatives - NetBird and Netmaker come up repeatedly as the WireGuard-based landing spots.&lt;/p>
+&lt;p>Tailscale&amp;rsquo;s control plane is proprietary as a service, but the escape hatch is healthier: &lt;strong>Headscale&lt;/strong> is a mature open-source implementation of the Tailscale coordination server, so you can keep the polished Tailscale clients and run the brains on your own box. If self-hosting the whole stack matters to you, that combination - or a fully open project like &lt;a href="https://techfuelhq.com/networking/netbird-vs-tailscale-2026/">NetBird&lt;/a> - is currently the more predictable bet than pinning your future to ZeroTier&amp;rsquo;s controller licensing.&lt;/p>
+&lt;h2 id="where-zerotier-still-genuinely-wins">Where ZeroTier still genuinely wins&lt;/h2>
+&lt;p>Do not read the above as &amp;ldquo;just use Tailscale.&amp;rdquo; ZeroTier holds real, structural advantages that Tailscale cannot match by design:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>True Layer 2 features:&lt;/strong> broadcast, multicast, and non-IP traffic ride the ZeroTier network as if every device were on one switch. Wake-on-LAN across sites, LAN-discovery-dependent apps, and bridging a remote device onto your home subnet are ZeroTier&amp;rsquo;s home turf.&lt;/li>
+&lt;li>&lt;strong>MikroTik native support:&lt;/strong> ZeroTier runs natively on MikroTik routers, so the RouterOS crowd can run the controller and client directly on the router. This came up again and again from the &amp;ldquo;full MikroTik&amp;rdquo; homelabbers, and it is a real reason to choose ZeroTier if that is your gear.&lt;/li>
+&lt;li>&lt;strong>No forced identity provider:&lt;/strong> you can sign up with any email. Several people specifically prefer ZeroTier because it does not require linking machines to a Google, Microsoft, or Apple account - a genuine privacy and independence angle that Tailscale&amp;rsquo;s SSO-first model does not offer out of the box.&lt;/li>
+&lt;li>&lt;strong>Simultaneous multi-network membership:&lt;/strong> a device can belong to several ZeroTier networks at once natively; doing the equivalent on Tailscale takes more work.&lt;/li>
+&lt;li>&lt;strong>CGNAT resilience:&lt;/strong> ZeroTier is reliable behind carrier-grade NAT and, per community reports, is sometimes less aggressively blocked in restrictive networks.&lt;/li>
+&lt;/ul>
+&lt;p>If any of those describe your situation - especially the Layer 2 requirements or MikroTik hardware - ZeroTier is not just viable, it is the correct answer.&lt;/p>
+&lt;h2 id="side-by-side">Side-by-side&lt;/h2>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Factor&lt;/th>
+&lt;th scope="col">Tailscale&lt;/th>
+&lt;th scope="col">ZeroTier&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Network layer&lt;/td>
+&lt;td>Layer 3 (IP VPN)&lt;/td>
+&lt;td>Layer 2 (virtual Ethernet switch)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Protocol&lt;/td>
+&lt;td>WireGuard&lt;/td>
+&lt;td>Custom ZeroTier protocol&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Setup ease&lt;/td>
+&lt;td>Very easy, SSO, zero-config&lt;/td>
+&lt;td>More technical, manual authorization + rules&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Free tier (2026)&lt;/td>
+&lt;td>6 users, unlimited devices&lt;/td>
+&lt;td>10 devices, 1 network&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Paid entry&lt;/td>
+&lt;td>8 dollars/user/mo (Standard)&lt;/td>
+&lt;td>18 dollars/mo (Essential)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Broadcast / multicast / WoL&lt;/td>
+&lt;td>No (Layer 3)&lt;/td>
+&lt;td>Yes (Layer 2)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MikroTik native&lt;/td>
+&lt;td>No&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Auth&lt;/td>
+&lt;td>Identity provider (SSO) required&lt;/td>
+&lt;td>Any email; machine keys&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Self-host control plane&lt;/td>
+&lt;td>Headscale (open source)&lt;/td>
+&lt;td>Controller, now more restricted&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Best at&lt;/td>
+&lt;td>Simplest secure remote access&lt;/td>
+&lt;td>Flexible flat-LAN emulation&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;h2 id="who-should-pick-which">Who should pick which&lt;/h2>
+&lt;p>&lt;strong>Choose Tailscale if&lt;/strong> you want secure remote access to your devices with the least possible effort, you are happy signing in through an identity provider, you keep adding devices (that free tier), or you want a clean self-hosting escape hatch via Headscale. For the majority of homelabbers whose goal is &amp;ldquo;reach my stuff from anywhere, securely, without fuss,&amp;rdquo; this is the default. Our &lt;a href="https://techfuelhq.com/tutorials/tailscale-remote-access-homelab-2026/">Tailscale remote-access homelab guide&lt;/a> walks the full setup.&lt;/p>
+&lt;p>&lt;strong>Choose ZeroTier if&lt;/strong> you need Layer 2 behavior (broadcasts, multicast, Wake-on-LAN, legacy LAN apps, bridging), you run MikroTik gear, you want to avoid a forced identity provider, or you specifically want a flat LAN stretched across sites. Just go in aware of the smaller free tier and the tightening self-hosting story.&lt;/p>
+&lt;p>&lt;strong>Choose neither, and look at Headscale or &lt;a href="https://techfuelhq.com/networking/netbird-vs-tailscale-2026/">NetBird&lt;/a>, if&lt;/strong> owning the complete control plane on your own hardware is non-negotiable - that is the cleanest path in 2026.&lt;/p>
+&lt;p>Still weighing the underlying options rather than these two managed meshes? Start with &lt;a href="https://techfuelhq.com/networking/tailscale-vs-wireguard-2026/">Tailscale vs WireGuard&lt;/a> for the raw-protocol-versus-coordination-layer decision, or the broader &lt;a href="https://techfuelhq.com/networking/homelab-firewall-router-stack-2026/">homelab firewall and router stack&lt;/a> if you are planning the whole edge.&lt;/p></description></item><item><title>WireGuard vs OpenVPN for the Homelab (2026): A Self-Hoster's Decision Guide</title><link>https://techfuelhq.com/networking/wireguard-vs-openvpn-homelab-2026/</link><pubDate>Thu, 02 Jul 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/networking/wireguard-vs-openvpn-homelab-2026/</guid><description>&lt;p>If you&amp;rsquo;re comparing WireGuard and OpenVPN, most of what you&amp;rsquo;ll find is written for commercial VPN shoppers — which provider&amp;rsquo;s app is faster, which unblocks more streaming. This is the other version of the question: you&amp;rsquo;re a self-hoster putting a VPN server on your &lt;strong>own&lt;/strong> router, Raspberry Pi, or Proxmox container so you can reach your homelab from anywhere (and maybe link two sites). For that job, the 2026 answer is direct: &lt;strong>WireGuard is the default, and OpenVPN survives for exactly one scenario — networks where UDP is blocked and only TCP on port 443 gets out.&lt;/strong> The rest of this guide is the evidence, the benchmarks from our own hardware, and the configurations where each one earns its place.&lt;/p>
+&lt;p>(If your actual question is &amp;ldquo;WireGuard or Tailscale,&amp;rdquo; that&amp;rsquo;s a different comparison — &lt;a href="https://techfuelhq.com/networking/tailscale-vs-wireguard-2026/">Tailscale is WireGuard plus a coordination layer&lt;/a>. This article is about the raw protocols you host yourself.)&lt;/p>
+&lt;h2 id="protocol-architecture-what-youre-actually-running">Protocol architecture: what you&amp;rsquo;re actually running&lt;/h2>
+&lt;p>&lt;strong>WireGuard&lt;/strong> lives in the Linux kernel (mainlined in 5.6, 2020) and is famously small — about 4,000 lines of code in the original kernel implementation, per its &lt;a href="https://www.wireguard.com/papers/wireguard.pdf" rel="noopener">NDSS 2017 academic paper&lt;/a>. Its cryptography is fixed, not negotiated: ChaCha20-Poly1305 for authenticated encryption, Curve25519 for key exchange, BLAKE2s for hashing, HKDF for key derivation, in a Noise IKpsk2 handshake — all specified on the &lt;a href="https://www.wireguard.com/protocol/" rel="noopener">official protocol page&lt;/a>. Identity is just a key pair, like SSH. It is &lt;strong>UDP-only by design&lt;/strong> (the project &lt;a href="https://www.wireguard.com/known-limitations/" rel="noopener">explicitly avoids TCP tunneling&lt;/a> because TCP-over-TCP degrades badly), and it roams beautifully: when your phone hops from WiFi to LTE, the server just starts replying to the new address — no re-key, no reconnect dance.&lt;/p>
+&lt;p>&lt;strong>OpenVPN&lt;/strong> is the two-decade veteran: a userspace daemon built on TLS via OpenSSL, with negotiated ciphers (AES-256-GCM is typical; ChaCha20-Poly1305 is available in modern builds), a full PKI — CA certificate, server certificate, client certificates — and both &lt;strong>UDP and TCP modes&lt;/strong>. The codebase is roughly 70,000 lines, an order of magnitude larger than WireGuard. That heft buys flexibility: cipher policy compliance, user/password auth options, and the single killer feature WireGuard deliberately lacks — &lt;strong>TCP on port 443&lt;/strong>, where VPN traffic is effectively indistinguishable from ordinary HTTPS at the packet-inspection layer.&lt;/p>
+&lt;h2 id="performance-the-honest-picture-on-homelab-hardware">Performance: the honest picture on homelab hardware&lt;/h2>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Test&lt;/th>
+&lt;th scope="col">WireGuard&lt;/th>
+&lt;th scope="col">OpenVPN&lt;/th>
+&lt;th scope="col">Source&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Netgate 4100, single tunnel&lt;/td>
+&lt;td>941 Mbps&lt;/td>
+&lt;td>not benched&lt;/td>
+&lt;td>our own &lt;a href="https://techfuelhq.com/networking/homelab-firewall-router-stack-2026/">firewall stack bench&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GL.iNet Flint 2 (OpenWrt)&lt;/td>
+&lt;td>~900 Mbps&lt;/td>
+&lt;td>not benched&lt;/td>
+&lt;td>independent reviews, per our gear guide&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>PIA vendor test (US)&lt;/td>
+&lt;td>~180 Mbps&lt;/td>
+&lt;td>~120 Mbps&lt;/td>
+&lt;td>vendor-conducted, conditions undisclosed&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ExpressVPN latency (UK, same server)&lt;/td>
+&lt;td>40 ms&lt;/td>
+&lt;td>113 ms (TCP)&lt;/td>
+&lt;td>vendor-conducted&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>The honest framing: the &amp;ldquo;3–4x faster&amp;rdquo; claim that circulates comes from vendor tests and old benchmarks — &lt;a href="https://www.wireguard.com/performance/" rel="noopener">WireGuard&amp;rsquo;s own performance page&lt;/a> openly calls its published numbers &amp;ldquo;old, crusty, and not super well conducted,&amp;rdquo; and critics have noted the original whitepaper benchmarks used 64KB jumbo frames rather than real ~1500-byte internet packets. The defensible version: on Linux, WireGuard&amp;rsquo;s kernel-space path gives it a real CPU-efficiency edge (roughly 1.3–1.5x in comparable tests, and much lower latency than OpenVPN-over-TCP), while on Windows and macOS it runs in userspace (wireguard-go) and the gap narrows. &lt;strong>For a homelab, both protocols are faster than your WAN link.&lt;/strong> A modest firewall appliance pushes WireGuard at wire speed — 941 Mbps on our Netgate 4100 at 14W. The protocol is not your bottleneck; pick on traversal, config complexity, and use case instead.&lt;/p>
+&lt;h2 id="the-comparison-table">The comparison table&lt;/h2>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">&lt;/th>
+&lt;th scope="col">WireGuard&lt;/th>
+&lt;th scope="col">OpenVPN&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Transport&lt;/td>
+&lt;td>UDP only&lt;/td>
+&lt;td>UDP or TCP (incl. port 443)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Blocked-network traversal&lt;/td>
+&lt;td>Fails if UDP filtered (needs a wrapper)&lt;/td>
+&lt;td>TCP/443 passes almost everything&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Crypto&lt;/td>
+&lt;td>Fixed modern suite (ChaCha20-Poly1305, Curve25519)&lt;/td>
+&lt;td>Negotiated via OpenSSL (agile, misconfigurable)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Codebase&lt;/td>
+&lt;td>~4,000 lines (kernel implementation)&lt;/td>
+&lt;td>~70,000 lines&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Security review&lt;/td>
+&lt;td>Formal verifications (Tamarin, eCK/ACCE, ProVerif, verified Curve25519)&lt;/td>
+&lt;td>Two decades of production use + independent audits&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Setup&lt;/td>
+&lt;td>Key pair + a dozen config lines per peer&lt;/td>
+&lt;td>Full PKI: CA, server cert, client certs, config&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Roaming (WiFi ↔ LTE)&lt;/td>
+&lt;td>Automatic, no reconnect&lt;/td>
+&lt;td>Reconnect required&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Site-to-site&lt;/td>
+&lt;td>Symmetric peer config&lt;/td>
+&lt;td>Server/client model, more moving parts&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Kernel-space (Linux)&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;td>No (userspace + tun driver)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DPI visibility&lt;/td>
+&lt;td>Identifiable as WireGuard&lt;/td>
+&lt;td>TCP/443 mode blends with HTTPS&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;h2 id="road-warrior-reaching-your-homelab-from-anywhere">Road-warrior: reaching your homelab from anywhere&lt;/h2>
+&lt;p>This is the case most self-hosters actually have — laptop or phone out in the world, homelab at home.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>WireGuard wins every normal network&lt;/strong>: home WiFi, coffee shops, cellular. Sub-second connections, silent roaming, a battery-friendly protocol, and clients on every platform. Our &lt;a href="https://techfuelhq.com/tutorials/wireguard-self-hosted-vpn-proxmox-2026/">WireGuard-on-Proxmox guide&lt;/a> gets a road-warrior server running in an afternoon.&lt;/li>
+&lt;li>&lt;strong>OpenVPN wins the hostile networks&lt;/strong>: corporate offices that block outbound UDP, hotel and airport captive portals, ISPs that filter VPN traffic. OpenVPN in TCP mode on port 443 looks like HTTPS and gets through.&lt;/li>
+&lt;li>&lt;strong>The simple test&lt;/strong>: from the restrictive network, check whether you can reach your home IP on UDP 51820. Reachable → WireGuard. Blocked → OpenVPN TCP/443 (or a TCP wrapper like wstunnel around WireGuard, if you&amp;rsquo;d rather carry the complexity than run a second server).&lt;/li>
+&lt;/ul>
+&lt;p>Our own setup, documented in the &lt;a href="https://techfuelhq.com/networking/homelab-firewall-router-stack-2026/">firewall stack article&lt;/a>, is the honest real-world answer: &lt;strong>WireGuard for road-warrior duty, with a small OpenVPN TCP-443 instance kept alive as the fallback&lt;/strong> for the two situations a year where UDP dies. On &lt;a href="https://techfuelhq.com/tutorials/opnsense-mini-pc-setup-2026/">OPNsense&lt;/a> or pfSense, running both side by side is a couple of tabs in the same UI (&lt;a href="https://docs.opnsense.org/manual/vpnet.html" rel="noopener">OPNsense VPN docs&lt;/a> cover both first-class).&lt;/p>
+&lt;h2 id="site-to-site-linking-two-networks">Site-to-site: linking two networks&lt;/h2>
+&lt;p>Connecting your home network to a VPS, a parent&amp;rsquo;s house, or a second site changes the calculus slightly:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>WireGuard&lt;/strong> does site-to-site with a pleasingly symmetric config — each side lists the other as a peer, &lt;code>AllowedIPs&lt;/code> carries the remote subnet, IP forwarding on, done (&lt;a href="https://www.procustodibus.com/blog/2020/12/wireguard-site-to-site-config/" rel="noopener">worked reference config&lt;/a>). The catch: at least one side needs a reachable endpoint (public IP or port forward); WireGuard has no built-in relay for two-sides-behind-CGNAT (that&amp;rsquo;s the problem &lt;a href="https://techfuelhq.com/networking/tailscale-vs-wireguard-2026/">Tailscale exists to solve&lt;/a>).&lt;/li>
+&lt;li>&lt;strong>OpenVPN&lt;/strong> uses a server/client model for site-to-site, with the extra PKI ceremony that entails — but inherits its TCP fallback, which matters if one site sits behind a UDP-hostile ISP.&lt;/li>
+&lt;/ul>
+&lt;p>Default to WireGuard here too; reach for OpenVPN when one end&amp;rsquo;s network conditions demand TCP.&lt;/p>
+&lt;h2 id="what-about-the-criticisms-of-wireguard">What about the criticisms of WireGuard?&lt;/h2>
+&lt;p>Two are worth taking seriously. &lt;strong>No cipher agility&lt;/strong>: if ChaCha20 or Curve25519 is ever weakened, every WireGuard endpoint must upgrade in lockstep — a legitimate enterprise objection that is mostly moot in a homelab where you control all five endpoints. &lt;strong>No obfuscation and UDP-only&lt;/strong>: covered above; that&amp;rsquo;s precisely OpenVPN&amp;rsquo;s remaining lane. The security fundamentals, meanwhile, are unusually strong — WireGuard&amp;rsquo;s protocol carries &lt;a href="https://www.wireguard.com/formal-verification/" rel="noopener">multiple published formal verifications&lt;/a> (symbolic and computational proofs plus formally verified crypto implementations), a level of analysis very few network protocols get. OpenVPN counters with something different but real: twenty years of production hardening and independent audit history.&lt;/p>
+&lt;h2 id="bottom-line">Bottom line&lt;/h2>
+&lt;p>Run WireGuard. It&amp;rsquo;s in the kernel, it&amp;rsquo;s a dozen lines of config, it roams silently, it&amp;rsquo;s formally verified, and it moves at wire speed on a $60 router — while you&amp;rsquo;ll hit your WAN cap long before you hit the protocol&amp;rsquo;s. Keep OpenVPN in your toolkit for the one thing it still does better than anything: escaping UDP-hostile networks over TCP 443, either as a standing fallback server (our setup) or spun up when a work trip demands it. And if what you actually want is WireGuard without thinking about keys and endpoints, that&amp;rsquo;s &lt;a href="https://techfuelhq.com/tutorials/tailscale-remote-access-homelab-2026/">Tailscale&amp;rsquo;s job&lt;/a> — a different trade, covered in a different comparison.&lt;/p></description></item><item><title>OPNsense vs pfSense (2026): Which Firewall Should You Actually Run?</title><link>https://techfuelhq.com/networking/opnsense-vs-pfsense-2026/</link><pubDate>Wed, 01 Jul 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/networking/opnsense-vs-pfsense-2026/</guid><description>&lt;p>If you are standing up a real firewall for a home network or a homelab in 2026, the choice almost always comes down to two FreeBSD-based, open-source platforms: &lt;strong>OPNsense&lt;/strong> and &lt;strong>pfSense&lt;/strong>. They look similar on a feature checklist, they share a common ancestor, and both will happily route, filter, VPN, and inspect traffic for a small network. The interesting differences are not on the spec sheet - they are in licensing direction, interface philosophy, update cadence, and the plugin you happen to depend on.&lt;/p>
+&lt;p>This is the focused two-way version of that decision. If you are trying to pick the &lt;em>hardware&lt;/em> to run either of these on - Netgate boxes, Protectli, MikroTik, or UniFi - that is a different question, and we cover it with real throughput numbers in the &lt;a href="https://techfuelhq.com/networking/homelab-firewall-router-stack-2026/">homelab firewall and router stack comparison&lt;/a>.&lt;/p>
+&lt;h2 id="the-20-second-answer">The 20-second answer&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>New build, commodity hardware, want a modern UI and fast updates:&lt;/strong> &lt;strong>OPNsense.&lt;/strong> It is the better default for most people starting fresh in 2026.&lt;/li>
+&lt;li>&lt;strong>You already run pfSense and it works, or you depend on pfBlockerNG / a pfSense-specific package:&lt;/strong> &lt;strong>stay on pfSense CE.&lt;/strong> It is stable and there is no urgency to move.&lt;/li>
+&lt;li>&lt;strong>You want a paid, vendor-backed appliance with US support and legendary uptime:&lt;/strong> &lt;strong>pfSense Plus on Netgate hardware.&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>Both are genuinely good. Nobody picking either one is making a mistake. What follows is where they actually diverge.&lt;/p>
+&lt;h2 id="common-roots-a-decade-apart">Common roots, a decade apart&lt;/h2>
+&lt;p>OPNsense began as a fork of pfSense and the older m0n0wall project in &lt;strong>2014&lt;/strong>, with its first official release in &lt;strong>January 2015&lt;/strong> (&lt;a href="https://opnsense.org/opnsense/" rel="noopener">OPNsense project history&lt;/a>). That shared lineage is why the two feel familiar - the same FreeBSD packet-filtering core (&lt;code>pf&lt;/code>), the same broad feature set, similar concepts for rules, NAT, and VPN.&lt;/p>
+&lt;p>But a decade of separate development has pulled them apart. OPNsense is maintained by &lt;strong>Deciso&lt;/strong>, a Netherlands-based company, and follows a calendar-versioned release train - the current 2026 series is &lt;strong>26.1 (&amp;ldquo;Witty Woodpecker&amp;rdquo;)&lt;/strong>, with two major releases a year (January and July) and non-breaking updates roughly every two weeks (&lt;a href="https://docs.opnsense.org/releases.html" rel="noopener">OPNsense releases&lt;/a>). pfSense is developed by &lt;strong>Netgate&lt;/strong> in the US and ships as two editions: &lt;strong>pfSense CE&lt;/strong> (Community Edition, free and open source, currently on the 2.8.x line built on FreeBSD 14 - &lt;a href="https://www.pfsense.org/download/" rel="noopener">pfSense download&lt;/a>) and &lt;strong>pfSense Plus&lt;/strong>, the commercial edition that runs on Netgate appliances or registered installations.&lt;/p>
+&lt;h2 id="licensing-the-quiet-reason-a-lot-of-people-moved">Licensing: the quiet reason a lot of people moved&lt;/h2>
+&lt;p>This is the single biggest non-technical driver of the 2026 conversation, and it is worth being clear-eyed about.&lt;/p>
+&lt;p>OPNsense is fully open source under a &lt;strong>2-clause BSD license&lt;/strong>, with no paid tier gating firewall features. pfSense CE is also open source and free - but Netgate&amp;rsquo;s development attention and newest features flow to &lt;strong>pfSense Plus&lt;/strong>, the paid edition, and CE has at times lagged behind it. Community discussion since roughly 2020 has centered on unease about that CE-versus-Plus direction and Netgate&amp;rsquo;s stewardship, and that unease is a real part of why some long-time pfSense users switched. You will find this sentiment stated plainly across &lt;a href="https://www.reddit.com/r/homelab/comments/1ix85pw/pfsense_vs_opnsense/" rel="noopener">r/homelab&lt;/a> and &lt;a href="https://www.reddit.com/r/selfhosted/comments/1h1zvhq/pfsense_vs_opnsense/" rel="noopener">r/selfhosted&lt;/a> threads on the topic.&lt;/p>
+&lt;p>None of that makes pfSense CE a bad firewall - it is still free, capable, and widely run. But if &amp;ldquo;will the free edition keep getting first-class attention&amp;rdquo; is a question you care about, OPNsense&amp;rsquo;s answer is simpler.&lt;/p>
+&lt;h2 id="interface-and-daily-use">Interface and daily use&lt;/h2>
+&lt;p>The most commonly cited difference, and the one you feel every time something breaks at 2 a.m., is the web UI.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>OPNsense&lt;/strong> uses a &lt;strong>collapsible left-side menu with a built-in search bar&lt;/strong>. Menus are grouped logically, inline help is current, and finding a setting you rarely touch is fast. It also ships &lt;strong>built-in two-factor authentication&lt;/strong> for the web UI and a &lt;strong>built-in REST API&lt;/strong>, which is a real advantage if you automate anything.&lt;/li>
+&lt;li>&lt;strong>pfSense&lt;/strong> uses the &lt;strong>traditional top-drop menu&lt;/strong> layout. It is dense, it is what a lot of people learned on, and once you know where things live it is perfectly efficient - but there is no built-in search, and the learning curve is steeper for a newcomer.&lt;/li>
+&lt;/ul>
+&lt;p>If you are new to firewalls, OPNsense&amp;rsquo;s interface is the friendlier place to start. If you have muscle memory for pfSense&amp;rsquo;s menus, that familiarity is worth something real.&lt;/p>
+&lt;h2 id="plugins-and-packages">Plugins and packages&lt;/h2>
+&lt;p>pfSense&amp;rsquo;s &lt;strong>package library is larger and older&lt;/strong>, and its headline package is &lt;strong>pfBlockerNG&lt;/strong> for DNS and IP blocklisting - a genuinely excellent tool that many pfSense users consider load-bearing. Mature packages like HAProxy, ntopng, and ACME are well established.&lt;/p>
+&lt;p>OPNsense takes a &lt;strong>more curated approach&lt;/strong>: a tighter, quality-controlled plugin set, with several things built in that pfSense treats as add-ons (reporting/NetFlow insight, for example). It does not have pfBlockerNG, but it covers the same ground with built-in Unbound DNS blocklists, native alias/GeoIP features, and optional plugins like Zenarmor for next-gen filtering.&lt;/p>
+&lt;p>The practical read: if a specific pfSense package - especially pfBlockerNG - is central to your setup, that is a legitimate reason to stay on pfSense. If you want a clean, curated set that mostly works out of the box, OPNsense&amp;rsquo;s model is less likely to leave you running an abandoned package.&lt;/p>
+&lt;h2 id="security-cadence---with-an-honest-caveat">Security cadence - with an honest caveat&lt;/h2>
+&lt;p>OPNsense&amp;rsquo;s frequent, roughly biweekly release train means new features and fixes generally land faster, and the project publishes security updates on a fast cycle. That cadence is a real advantage.&lt;/p>
+&lt;p>The honest caveat: a faster &lt;em>release&lt;/em> cadence is not automatically a faster &lt;em>patch-for-a-specific-CVE&lt;/em> cadence. There have been &lt;a href="https://forums.lawrencesystems.com/t/opnsense-vs-pfsense-security/19842" rel="noopener">documented community discussions&lt;/a> arguing pfSense has at times shipped certain upstream security fixes sooner, despite its slower release rhythm. Both projects take security seriously; neither is negligent. Do not pick a firewall on a blanket &amp;ldquo;one patches faster&amp;rdquo; claim - the reality is more nuanced than either camp&amp;rsquo;s marketing.&lt;/p>
+&lt;h2 id="performance-effectively-a-tie-where-it-counts">Performance: effectively a tie where it counts&lt;/h2>
+&lt;p>Raw throughput is a function of your CPU and NIC, not which firewall you install. Both OPNsense and pfSense now use &lt;strong>kernel-mode WireGuard&lt;/strong>, which closed the old user-space VPN ceiling.&lt;/p>
+&lt;p>On our own bench, at a 1 Gbps WAN:&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Firewall / hardware&lt;/th>
+&lt;th scope="col">NAT throughput&lt;/th>
+&lt;th scope="col">WireGuard (1 tunnel)&lt;/th>
+&lt;th scope="col">Idle power&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>pfSense Plus, Netgate 4100&lt;/td>
+&lt;td>~938 Mbps&lt;/td>
+&lt;td>~941 Mbps&lt;/td>
+&lt;td>14 W&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>OPNsense, Protectli VP2420 (i3-N305)&lt;/td>
+&lt;td>~941 Mbps&lt;/td>
+&lt;td>~938 Mbps&lt;/td>
+&lt;td>11 W&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>OPNsense, N100 mini-PC&lt;/td>
+&lt;td>~939 Mbps&lt;/td>
+&lt;td>~692 Mbps&lt;/td>
+&lt;td>7 W&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>They are, for practical purposes, tied at line rate. The one place a gap opens is &lt;strong>Suricata IDS on underpowered hardware&lt;/strong>: a single-threaded N100 starts to bottleneck with IDS enabled, while a multi-core box (i3-N305 class or better) keeps up. That is a CPU story, not an OPNsense-versus-pfSense story. Full methodology and the four-way hardware bench are in the &lt;a href="https://techfuelhq.com/networking/homelab-firewall-router-stack-2026/">homelab firewall and router stack piece&lt;/a>.&lt;/p>
+&lt;h2 id="how-to-actually-decide">How to actually decide&lt;/h2>
+&lt;p>Skip the feature-checklist paralysis. Answer these instead:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Do you already run pfSense and is it working?&lt;/strong> Stay. There is no prize for switching.&lt;/li>
+&lt;li>&lt;strong>Do you depend on pfBlockerNG or another pfSense-specific package?&lt;/strong> Stay on pfSense.&lt;/li>
+&lt;li>&lt;strong>Starting fresh, on your own commodity hardware, want the nicer UI and faster updates?&lt;/strong> OPNsense.&lt;/li>
+&lt;li>&lt;strong>Want a paid appliance with vendor support and set-and-forget uptime?&lt;/strong> pfSense Plus on a Netgate box.&lt;/li>
+&lt;li>&lt;strong>Uneasy about the pfSense CE/Plus licensing direction?&lt;/strong> OPNsense removes that question entirely.&lt;/li>
+&lt;/ol>
+&lt;p>Once you have picked, the next step is hardware and setup. For a clean, quiet, low-power box to run either one, see &lt;a href="https://techfuelhq.com/homelab/best-mini-pcs-homelab-2026/">the best mini PCs for a homelab&lt;/a>, and for a step-by-step OPNsense install on a mini PC, our &lt;a href="https://techfuelhq.com/tutorials/opnsense-mini-pc-setup-2026/">OPNsense mini-PC setup guide&lt;/a> walks the whole thing. If you are also planning VLANs behind the firewall, start with the &lt;a href="https://techfuelhq.com/tutorials/vlans-homelab-2026/">homelab VLAN guide&lt;/a>.&lt;/p>
+&lt;h2 id="bottom-line">Bottom line&lt;/h2>
+&lt;p>In 2026, &lt;strong>OPNsense is the better default for a new homelab firewall&lt;/strong> - modern UI, fast updates, commodity-hardware friendly, and free of the licensing question hanging over pfSense CE. &lt;strong>pfSense remains an excellent choice&lt;/strong> if you already run it, value its maturity and stability, or depend on a pfSense-specific package. Both are FreeBSD-grade, both will serve a home network for years, and the &amp;ldquo;wrong&amp;rdquo; choice here is still a very good firewall.&lt;/p></description></item><item><title>Tailscale vs WireGuard (2026): Which One Should You Actually Run?</title><link>https://techfuelhq.com/networking/tailscale-vs-wireguard-2026/</link><pubDate>Wed, 01 Jul 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/networking/tailscale-vs-wireguard-2026/</guid><description>&lt;p>If you want to reach your homelab from anywhere in 2026, the two names you keep hearing are &lt;strong>Tailscale&lt;/strong> and &lt;strong>WireGuard&lt;/strong> - and the way they are usually pitched (&amp;ldquo;which VPN is better?&amp;rdquo;) frames the choice wrong. They are not really rivals. Tailscale is &lt;em>built on&lt;/em> WireGuard. The honest question is not which protocol wins; it is whether you want raw WireGuard or WireGuard wrapped in a coordination layer that handles the tedious parts.&lt;/p>
+&lt;p>This is the focused two-way version of that decision, aimed at homelabbers. If you want the step-by-step builds instead, we have full guides for both: &lt;a href="https://techfuelhq.com/tutorials/tailscale-remote-access-homelab-2026/">Tailscale remote access for the homelab&lt;/a> and a &lt;a href="https://techfuelhq.com/tutorials/wireguard-self-hosted-vpn-proxmox-2026/">self-hosted WireGuard VPN on Proxmox&lt;/a>. Still deciding between the two bare protocols before adding a coordination layer? Start with &lt;a href="https://techfuelhq.com/networking/wireguard-vs-openvpn-homelab-2026/">WireGuard vs OpenVPN for the homelab&lt;/a>.&lt;/p>
+&lt;h2 id="the-20-second-answer">The 20-second answer&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Behind CGNAT, or you just want it to work in 15 minutes across many roaming devices:&lt;/strong> &lt;strong>Tailscale.&lt;/strong> It traverses NAT with no port forwarding and manages keys for you. This is the right default for most people in 2026.&lt;/li>
+&lt;li>&lt;strong>You can port-forward (or have a static-ish IP/DDNS), run a couple of devices, and want zero third-party dependency:&lt;/strong> &lt;strong>self-hosted WireGuard.&lt;/strong> It is minimal, in-kernel, fast, and answers to nobody but you.&lt;/li>
+&lt;li>&lt;strong>You want Tailscale&amp;rsquo;s convenience &lt;em>without&lt;/em> the SaaS:&lt;/strong> run &lt;strong>Headscale&lt;/strong> (self-hosted Tailscale control plane) or plain WireGuard.&lt;/li>
+&lt;/ul>
+&lt;p>Neither choice is a mistake. What follows is where they actually diverge.&lt;/p>
+&lt;h2 id="they-are-not-actually-competitors">They are not actually competitors&lt;/h2>
+&lt;p>WireGuard is a &lt;strong>VPN protocol&lt;/strong> - a small, fast, modern tunnel that landed in the mainline Linux kernel in version &lt;strong>5.6 (2020)&lt;/strong> and is now the standard for point-to-point encrypted links. It does exactly one thing: move encrypted packets between peers that already know each other&amp;rsquo;s public keys and network addresses. It does &lt;strong>not&lt;/strong> distribute keys, discover peers, punch through NAT, or provide names. Those are your job.&lt;/p>
+&lt;p>&lt;strong>Tailscale&lt;/strong> is a &lt;strong>coordination layer that uses WireGuard underneath.&lt;/strong> It keeps the fast WireGuard data plane and adds everything WireGuard deliberately leaves out:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Automatic key distribution&lt;/strong> - devices exchange public keys through Tailscale&amp;rsquo;s control server, so you never hand-copy a key again.&lt;/li>
+&lt;li>&lt;strong>NAT traversal&lt;/strong> - it establishes direct peer-to-peer links through firewalls and NAT, and falls back to an encrypted relay when a direct path is impossible.&lt;/li>
+&lt;li>&lt;strong>Stable addressing + MagicDNS&lt;/strong> - every device gets a fixed &lt;code>100.x.x.x&lt;/code> address and a friendly name (&lt;code>nas.your-tailnet.ts.net&lt;/code>) that works the same on home Wi-Fi or LTE.&lt;/li>
+&lt;li>&lt;strong>Access control&lt;/strong> - a policy file decides which devices can reach which, instead of hand-written &lt;code>iptables&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;p>So &amp;ldquo;Tailscale vs WireGuard&amp;rdquo; really means: &lt;strong>do you want to run the coordination yourself, or let a managed service do it?&lt;/strong>&lt;/p>
+&lt;h2 id="the-one-question-that-usually-decides-it-can-you-port-forward">The one question that usually decides it: can you port-forward?&lt;/h2>
+&lt;p>This is the single most important factor, and it is the reason the &lt;a href="https://www.reddit.com/r/homelab/" rel="noopener">r/homelab&lt;/a> threads on this topic keep landing on Tailscale.&lt;/p>
+&lt;p>A self-hosted WireGuard server has to be &lt;strong>reachable from the internet&lt;/strong>. That means an inbound UDP port forwarded on your router to a public-facing IP (a static IP, or a dynamic-DNS hostname that tracks your changing residential IP). If you can do that, WireGuard is wonderful.&lt;/p>
+&lt;p>If you &lt;strong>cannot&lt;/strong> - and increasingly you cannot - Tailscale wins by default. &lt;strong>Carrier-grade NAT (CGNAT)&lt;/strong> is now common on Starlink, 5G home internet, and plenty of fiber and apartment ISPs. Behind CGNAT you share a public IP with other customers and &lt;strong>there is no port to forward.&lt;/strong> Self-hosted WireGuard simply cannot accept inbound connections in that situation without renting a VPS with a public IP to act as a relay - at which point you have rebuilt a piece of Tailscale by hand.&lt;/p>
+&lt;p>Tailscale is engineered precisely for this world: it brokers a direct connection through the NAT when it can (the majority of the time), and relays encrypted traffic through its DERP servers when it cannot. You open &lt;strong>zero ports&lt;/strong>. For anyone on CGNAT, that is close to a decision-ender.&lt;/p>
+&lt;h2 id="setup-and-day-to-day">Setup and day-to-day&lt;/h2>
+&lt;p>&lt;strong>Tailscale&lt;/strong> is genuinely a 15-minute experience: install the client, log in with an existing identity provider, and the device joins your tailnet. Adding the tenth device is as easy as the first. MagicDNS means you stop memorizing IPs. Subnet routing (to reach non-Tailscale LAN devices) and exit nodes (to route all traffic through one node) are a checkbox and a command.&lt;/p>
+&lt;p>&lt;strong>WireGuard&lt;/strong> takes longer up front and scales by hand. You generate a key pair per peer, write each peer into the server config and the server into each client config, and manage the address plan yourself. For two or three devices this is a pleasant afternoon. For twenty roaming devices with rotating keys it becomes real operational work, which is exactly the gap tools like Tailscale, &lt;a href="https://github.com/juanfont/headscale" rel="noopener">Headscale&lt;/a>, &lt;a href="https://techfuelhq.com/networking/netbird-vs-tailscale-2026/">NetBird&lt;/a>, and &lt;a href="https://techfuelhq.com/networking/zerotier-vs-tailscale-2026/">ZeroTier&lt;/a> exist to fill.&lt;/p>
+&lt;p>One honest Tailscale-side wrinkle from the community: the mobile client can be a &lt;strong>battery draw&lt;/strong>, and on Linux the daemon occasionally tangles with the local networking stack. These are minor and usually fixable, but they are real, and pure WireGuard - being a thin kernel module - has none of that surface.&lt;/p>
+&lt;h2 id="performance-effectively-a-tie-where-it-matters">Performance: effectively a tie where it matters&lt;/h2>
+&lt;p>When Tailscale establishes a &lt;strong>direct&lt;/strong> peer-to-peer connection - which it does the large majority of the time - you are running WireGuard, so throughput and latency are essentially the same as raw WireGuard.&lt;/p>
+&lt;p>Two honest caveats:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Kernel vs userspace.&lt;/strong> Raw WireGuard on Linux runs as a kernel module and is extremely efficient (multi-gigabit with low CPU). Tailscale ships a userspace WireGuard engine, which is modestly slower in raw throughput on very fast links. At the WAN speeds almost every homelab actually runs (well under 1 Gbps to the internet), you will not notice.&lt;/li>
+&lt;li>&lt;strong>Relay fallback.&lt;/strong> If Tailscale cannot punch a direct path and falls back to a DERP relay, expect added latency and reduced throughput on that link until a direct route is found. Raw WireGuard, being direct by definition, never has this failure mode - but it also cannot connect at all in the scenarios where Tailscale is relaying.&lt;/li>
+&lt;/ol>
+&lt;p>Bottom line: for SSH, web UIs, file transfers, and media streaming - the actual homelab workload - &lt;strong>performance is not the deciding factor.&lt;/strong>&lt;/p>
+&lt;h2 id="control-privacy-and-independence">Control, privacy, and independence&lt;/h2>
+&lt;p>This is where self-hosted WireGuard pulls ahead for a specific kind of user.&lt;/p>
+&lt;p>With WireGuard, &lt;strong>no third party exists.&lt;/strong> Your keys never leave your machines; there is no account, no coordination server, no company that could go down, change pricing, or get breached. That independence is the entire point for many homelabbers - the recurring &amp;ldquo;I want to be completely independent&amp;rdquo; motivation you see stated plainly in &lt;a href="https://www.reddit.com/r/homelab/" rel="noopener">r/homelab&lt;/a>.&lt;/p>
+&lt;p>With Tailscale, your traffic is still end-to-end encrypted and flows peer-to-peer (Tailscale cannot read it), but a &lt;strong>proprietary coordination server&lt;/strong> brokers your keys and holds device metadata and your access policy. You are trusting that control plane and your account security. If Tailscale&amp;rsquo;s coordination service is unavailable, existing connections generally keep working but establishing new ones can be affected.&lt;/p>
+&lt;p>The middle path is &lt;strong>Headscale&lt;/strong>: an open-source, self-hostable reimplementation of Tailscale&amp;rsquo;s control server. You keep the excellent Tailscale clients and the mesh/MagicDNS experience while running the brain yourself - no external dependency, at the cost of operating that server. For identity-aware access on top of any of these, a self-hosted SSO layer like &lt;a href="https://techfuelhq.com/tutorials/authentik-sso-self-hosted-2026/">Authentik&lt;/a> is a common companion.&lt;/p>
+&lt;h2 id="side-by-side">Side-by-side&lt;/h2>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">&lt;/th>
+&lt;th scope="col">WireGuard (self-hosted)&lt;/th>
+&lt;th scope="col">Tailscale&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>What it is&lt;/td>
+&lt;td>VPN protocol (kernel module)&lt;/td>
+&lt;td>Coordination layer over WireGuard&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Setup time&lt;/td>
+&lt;td>30-60 min&lt;/td>
+&lt;td>~15 min&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Works behind CGNAT / no port-forward&lt;/td>
+&lt;td>No (needs a VPS relay)&lt;/td>
+&lt;td>Yes, automatic&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Key management&lt;/td>
+&lt;td>Manual, per peer&lt;/td>
+&lt;td>Automatic&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Naming&lt;/td>
+&lt;td>Manual / your own DNS&lt;/td>
+&lt;td>MagicDNS built in&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Access control&lt;/td>
+&lt;td>Hand-written iptables&lt;/td>
+&lt;td>Policy file&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Third-party dependency&lt;/td>
+&lt;td>None&lt;/td>
+&lt;td>Tailscale control plane (or self-host Headscale)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Peak throughput on fast links&lt;/td>
+&lt;td>Highest (kernel)&lt;/td>
+&lt;td>Very high; slightly lower (userspace)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Users on free tier&lt;/td>
+&lt;td>N/A (no accounts)&lt;/td>
+&lt;td>6 users, generous device allowance&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Best for&lt;/td>
+&lt;td>Independence, simple static setups&lt;/td>
+&lt;td>CGNAT, many roaming devices, speed of setup&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;h2 id="so-which-should-you-run">So which should you run?&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Pick Tailscale&lt;/strong> if you are behind CGNAT, you have a lot of roaming devices, you value time-to-working over ideology, or you are new to VPNs. For most homelabbers in 2026, this is the correct default.&lt;/li>
+&lt;li>&lt;strong>Pick self-hosted WireGuard&lt;/strong> if you can accept an inbound connection (port forward or static-ish IP/DDNS), you run a small, mostly-static set of devices, and you want zero external dependency - your keys, your server, nobody else in the loop.&lt;/li>
+&lt;li>&lt;strong>Run both.&lt;/strong> A very common homelab pattern is self-hosted WireGuard on the router for a fast, dependency-free link from your main devices, plus Tailscale on a NAS or Pi as a subnet router for zero-config access from anywhere. Convenience when you want it, independence when you need it - there is no rule that says you must choose only one.&lt;/li>
+&lt;/ul>
+&lt;p>Whichever you land on, the underlying encryption is the same WireGuard either way. You are really choosing &lt;strong>who runs the coordination&lt;/strong> - a service, or you.&lt;/p></description></item><item><title>MikroTik CRS305: The $80 10GbE Homelab Switch, Long Term</title><link>https://techfuelhq.com/networking/mikrotik-crs305-review-2026/</link><pubDate>Tue, 16 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/networking/mikrotik-crs305-review-2026/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · 2026-06-16 · ~9 min read · St. Louis County, MO&lt;/p>
+&lt;img src="https://techfuelhq.com/images/networking/mikrotik-crs305-review-2026.svg" alt="MikroTik CRS305-1G-4S+IN spec card listing key figures: four SFP+ ports at 1/2.5/10 Gbps, one gigabit RJ45 management port, 9.1W max power, 6.5 to 7.1W idle, passive fanless cooling, and RouterOS 7 or SwOS firmware." width="1200" height="630" loading="eager" fetchpriority="high" style="display:block;margin:1.5rem auto;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;p>The CRS305 is the switch that comes up in every homelab 10GbE conversation, consistently, because nothing else at its price point makes as much sense. Four SFP+ ports, one 1GbE copper management port, a MikroTik-documented idle draw of 6.5–7.1W, and an $80–100 street price with no software subscription fees. That&amp;rsquo;s the case for it.&lt;/p>
+&lt;p>The case against: RouterOS has a learning curve that surprises people coming from consumer switches, and the web interface looks like it was designed in 2009 (it was). These are real considerations, not negligible footnotes.&lt;/p>
+&lt;p>Still deciding whether 10GbE is even worth it over 2.5GbE for your homelab? Start with &lt;a href="https://techfuelhq.com/networking/25gbe-vs-10gbe-homelab-2026/">2.5GbE vs 10GbE: which to buy&lt;/a> — this review assumes you&amp;rsquo;ve already landed on 10GbE.&lt;/p>
+&lt;p>Here&amp;rsquo;s the full picture.&lt;/p>
+&lt;h2 id="what-youre-actually-buying">What you&amp;rsquo;re actually buying&lt;/h2>
+&lt;p>&lt;strong>Hardware:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>4× SFP+ ports at 1/2.5/10 Gbps&lt;/li>
+&lt;li>1× RJ45 Gigabit Ethernet (management)&lt;/li>
+&lt;li>Desktop/rack mount (no ears included, MikroTik sells a bracket kit)&lt;/li>
+&lt;li>External 24V passive PoE power supply (included)&lt;/li>
+&lt;li>No fan — passively cooled chassis&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Firmware options:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>RouterOS 7 (default): full networking OS with Winbox GUI, CLI, web interface&lt;/li>
+&lt;li>SwOS: simplified switch-mode firmware, browser-only, for pure Layer 2 operation&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Published specs (MikroTik product page, accessed 2026-06):&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Max power consumption: 9.1W&lt;/li>
+&lt;li>Idle power: 6.5–7.1W (measured by third parties; MikroTik doesn&amp;rsquo;t publish idle separately)&lt;/li>
+&lt;li>Dimensions: 113 × 89 × 28 mm (fits on a shelf, not just in a rack)&lt;/li>
+&lt;li>Operating temperature: 0–55°C&lt;/li>
+&lt;/ul>
+&lt;h2 id="who-this-switch-is-for">Who this switch is for&lt;/h2>
+&lt;p>The CRS305 makes sense if:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>You have 2-4 machines that need 10GbE connectivity.&lt;/strong> The sweet spot: two mini PCs + a NAS. Three SFP+ ports cover all three devices, the fourth port goes to your router or another switch for uplink.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Your runs are under 5 meters.&lt;/strong> Passive DAC cables (SFP+ Direct Attach Copper) work perfectly at this distance, cost $15–20 each, draw less than 0.5W, and have zero transceiver compatibility issues on the CRS305.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>You care about power consumption.&lt;/strong> 7W total for a 10GbE switch is exceptional. The QNap QSW-308S (8× SFP+) pulls 20–25W. The Ubiquiti USW-Pro-Max 16 (16-port 10GbE) pulls 30–40W. The CRS305 is the most efficient 10GbE switch option in 2026 at its port count.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>You don&amp;rsquo;t need PoE on the 10G ports.&lt;/strong> SFP+ ports don&amp;rsquo;t do PoE. If you need PoE (for APs, cameras, phones), you need a separate switch — the CRS305 is pure data.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="setup-path-swos-for-most-homelab-users">Setup path: SwOS for most homelab users&lt;/h2>
+&lt;p>When the switch arrives, it runs RouterOS. For a pure homelab switch (no routing), SwOS is the better choice — it&amp;rsquo;s a simpler web UI that does exactly what you need.&lt;/p>
+&lt;p>Switch to SwOS:&lt;/p>
+&lt;ol>
+&lt;li>Connect a laptop to the 1GbE management port via RJ45&lt;/li>
+&lt;li>Set your laptop&amp;rsquo;s IP to 192.168.88.2 /24 (the CRS305 defaults to 192.168.88.1)&lt;/li>
+&lt;li>Open 192.168.88.1 in a browser → log in as &lt;code>admin&lt;/code>. Depending on the
+RouterOS version the unit shipped with, this is either a blank password or a
+first-login prompt that makes you set one.&lt;/li>
+&lt;li>&lt;strong>Set an admin password before anything else.&lt;/strong> If the unit let you in with a
+blank password, change it now (RouterOS: System → Users; SwOS: the System
+tab) rather than after you finish configuring. A MikroTik left on the default
+blank admin login is the single most exploited MikroTik misconfiguration
+there is, and a management port on a flat LAN is reachable by every device on
+that LAN — including the IoT gear you are about to put on VLAN 20.&lt;/li>
+&lt;li>Go to System → RouterBOOT → Boot OS → select SwOS → Apply → reboot&lt;/li>
+&lt;/ol>
+&lt;p>After reboot, access 192.168.88.1 in a browser — you&amp;rsquo;re now in SwOS. The interface shows all ports and lets you configure VLANs, aggregation, and mirror ports from a single page.&lt;/p>
+&lt;p>&lt;strong>VLAN setup in SwOS&lt;/strong> — for a typical homelab with separate IoT and trusted VLANs:&lt;/p>
+&lt;ol>
+&lt;li>In SwOS → VLANs tab: add VLAN IDs (e.g., 10 for trusted, 20 for IoT, 99 for management)&lt;/li>
+&lt;li>For each port: set VLAN mode (access or trunk), tagged VLANs (for trunk ports to router/Proxmox), and default VLAN ID (for access ports)&lt;/li>
+&lt;li>Port 5 (the 1GbE copper port) becomes the management interface&lt;/li>
+&lt;/ol>
+&lt;p>Full VLAN config walkthrough is in the &lt;a href="https://techfuelhq.com/tutorials/vlans-homelab-2026/">VLANs for the Homelab guide&lt;/a>.&lt;/p>
+&lt;h2 id="the-routeros-path-more-power-more-complexity">The RouterOS path: more power, more complexity&lt;/h2>
+&lt;p>If you want the CRS305 to handle routing alongside switching — running DHCP for your LAN, NAT, or acting as a firewall — RouterOS is appropriate. RouterOS on the CRS305 supports:&lt;/p>
+&lt;ul>
+&lt;li>Full L3 routing between subnets&lt;/li>
+&lt;li>Firewall rules (stateful, connection tracking)&lt;/li>
+&lt;li>DHCP server with static leases&lt;/li>
+&lt;li>OSPF and BGP (yes, on this $80 switch)&lt;/li>
+&lt;li>Traffic shaping and queuing&lt;/li>
+&lt;/ul>
+&lt;p>The Winbox desktop application (Windows/Mac/Linux via Wine) is the most ergonomic way to configure RouterOS — it connects directly over Layer 2 MAC address, so you can configure the switch even if you mess up the IP settings. The web interface is functional but slow. The CLI via SSH is identical to Cisco-style IOS if you&amp;rsquo;re used to that workflow.&lt;/p>
+&lt;p>&lt;strong>Realistic use case for RouterOS:&lt;/strong> a 2-node homelab where the CRS305 handles both 10GbE switching between nodes and routes traffic from a DSL/cable modem to the nodes without a separate router box. Not a configuration I&amp;rsquo;d recommend for complex VLANs or firewall rules — OPNsense on a mini PC handles that better — but it works for minimal setups.&lt;/p>
+&lt;h2 id="power-draw-in-practice">Power draw in practice&lt;/h2>
+&lt;p>The published 9.1W max and community-measured 6.5–7.1W idle figures hold up. In a typical homelab setup with two DAC-connected nodes active:&lt;/p>
+&lt;ul>
+&lt;li>Idle (switch powered, no traffic): 6.5–7W&lt;/li>
+&lt;li>Active traffic (NAS backup, file transfers): 7–8W&lt;/li>
+&lt;li>Max under sustained load: ~8.5W (consistent with the published 9.1W ceiling)&lt;/li>
+&lt;/ul>
+&lt;p>At $0.13/kWh running 24/7, the CRS305 adds ~$8/year to your electricity bill. It&amp;rsquo;s not a consideration. Compare to a used Cisco SG350-28 at 35–50W for a 28-port managed switch — the Cisco costs $35–50/year in electricity for a homelab with 8 active ports.&lt;/p>
+&lt;h2 id="what-the-crs305-doesnt-do-well">What the CRS305 doesn&amp;rsquo;t do well&lt;/h2>
+&lt;p>&lt;strong>Port count.&lt;/strong> Four SFP+ ports means four 10GbE connections plus the 1GbE management. If you need 6+ 10GbE devices, you&amp;rsquo;re looking at the CRS309-1G-8S+ (8× SFP+, ~$180) or the CRS312-4C+8XG (mixed copper + SFP+, ~$280).&lt;/p>
+&lt;p>&lt;strong>PoE.&lt;/strong> None. The SFP+ standard doesn&amp;rsquo;t carry DC power. If your homelab includes Unifi APs, IP cameras, or VoIP phones that need PoE, add a dedicated PoE switch for those devices — a $35 TP-Link TL-SG108PE handles 8 PoE devices at up to 64W total PoE budget.&lt;/p>
+&lt;p>&lt;strong>RouterOS UI.&lt;/strong> If you&amp;rsquo;ve never used MikroTik equipment, RouterOS feels like it predates every modern network management interface. The Winbox application has been the primary configuration tool for 20 years and it shows. Winbox works, it&amp;rsquo;s stable, and the MikroTik documentation is comprehensive — but expect 30–60 minutes of learning before a typical VLAN configuration feels natural.&lt;/p>
+&lt;p>&lt;strong>No SFP (1GbE SFP) ports.&lt;/strong> The CRS305&amp;rsquo;s four ports are SFP+ only. You can plug standard 1GbE SFP modules into SFP+ ports — they negotiate down — but the module costs money and uses a 10GbE slot. The CRS305 is optimized for 10GbE devices.&lt;/p>
+&lt;h2 id="price-and-where-to-buy">Price and where to buy&lt;/h2>
+&lt;p>Street price: $80–100 USD as of mid-2026. Check MikroTik&amp;rsquo;s authorized distributor page for the nearest warehouse-stocked source — resellers in the US include Baltic Networks, Streakwave, and Winncom. Amazon carries it but usually at $95–110 and sold through third parties.&lt;/p>
+&lt;p>There&amp;rsquo;s no used market pricing consideration with MikroTik the way there is with Cisco — MikroTik hardware holds value because there&amp;rsquo;s no licensing distinction between new and used units (RouterOS is perpetually licensed to the hardware, not an account).&lt;/p>
+&lt;h2 id="verdict">Verdict&lt;/h2>
+&lt;p>The CRS305-1G-4S+IN is the correct answer for most homelab 10GbE setups in 2026. The four SFP+ ports cover the typical 2–3 node + NAS topology, the passive cooling and 7W idle make it the most power-efficient 10GbE option at its port count, and the open SFP+ standard means no vendor module lock-in.&lt;/p>
+&lt;p>RouterOS has a learning curve, but it&amp;rsquo;s a one-time investment — once you&amp;rsquo;ve configured your VLAN and port setup, you set it and forget it. The CRS305 doesn&amp;rsquo;t need firmware updates more than a couple of times per year, and MikroTik&amp;rsquo;s release cadence is methodical rather than aggressive.&lt;/p>
+&lt;p>Buy it. If you outgrow four SFP+ ports, the CRS309 is the natural upgrade.&lt;/p>
+&lt;hr>
+&lt;p>&lt;em>For the full 10GbE homelab setup — NIC selection, DAC vs. fiber, and three budget tiers — see the &lt;a href="https://techfuelhq.com/networking/10gbe-home-networking-budget-2026/">10GbE Homelab Networking guide&lt;/a>. For VLAN configuration on this switch (and integration with OPNsense + Proxmox), the &lt;a href="https://techfuelhq.com/tutorials/vlans-homelab-2026/">VLANs for the Homelab guide&lt;/a> has exact commands for MikroTik SwOS. The &lt;a href="https://techfuelhq.com/articles/best-homelab-networking-gear-under-200/">Homelab Networking Gear Under $200 roundup&lt;/a> puts this switch in context alongside routers and wireless APs.&lt;/em>&lt;/p></description></item><item><title>Wi-Fi 7 for the Homelab and Home Network in 2026: Is It Worth It?</title><link>https://techfuelhq.com/networking/wifi-7-homelab-home-network-2026/</link><pubDate>Tue, 16 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/networking/wifi-7-homelab-home-network-2026/</guid><description>&lt;p>Every Wi-Fi 7 router box prints a number that no device on your network will ever hit. The marketing says 46 Gbps. Your laptop will see a few. That gap is the whole story of whether Wi-Fi 7 is worth it in 2026, and the honest answer depends almost entirely on what you actually run.&lt;/p>
+&lt;p>For a homelab the wireless generation barely matters, because the gear you care about is wired. For a busy house with multi-gig internet and a stack of latency-sensitive clients, the new standard earns its price for one feature that has nothing to do with the headline speed. Here is where each case lands.&lt;/p>
+&lt;img src="https://techfuelhq.com/images/networking/wifi-7-homelab-home-network-2026.svg" width="1200" height="720" loading="lazy" decoding="async" alt="Four 2026 Wi-Fi 7 router tiers compared: entry dual-band under $100 that omits 6 GHz and 320 MHz, the mid-range tri-band sweet spot at $200 to $350 with 6 GHz, MLO, and multi-gig ports, traditional flagships at $500 to $600 with dual 10GbE, and Wi-Fi 7 mesh kits at $1,000 to $1,800 that need wired backhaul, with the mid-range tri-band tier flagged as the recommended pick." style="display:block;margin:1.5rem auto;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;h2 id="what-wi-fi-7-80211be-actually-is-and-when-it-shipped">What Wi-Fi 7 (802.11be) actually is, and when it shipped&lt;/h2>
+&lt;h3 id="the-extremely-high-throughput-standard-and-the-january-2024-launch">The &amp;ldquo;Extremely High Throughput&amp;rdquo; standard and the January 2024 launch&lt;/h3>
+&lt;p>Wi-Fi 7 is the IEEE 802.11be standard, branded Extremely High Throughput (EHT). The Wi-Fi Alliance launched its Wi-Fi CERTIFIED 7 interoperability program on January 8, 2024 in Austin, Texas. That date is when the ecosystem got a stamp that one vendor&amp;rsquo;s Wi-Fi 7 router and another vendor&amp;rsquo;s Wi-Fi 7 client are supposed to talk to each other correctly. The Alliance projected 233 million Wi-Fi 7 devices shipping in 2024, growing to 2.1 billion by 2028, so this is the generation most new phones, laptops, and routers ship with now whether or not you went looking for it.&lt;/p>
+&lt;h3 id="the-three-real-upgrades-320-mhz-channels-4k-qam-and-multi-link-operation">The three real upgrades: 320 MHz channels, 4K-QAM, and Multi-Link Operation&lt;/h3>
+&lt;p>There are three headline features over Wi-Fi 6E, and they are worth understanding because two of them are conditional and one of them is the reason to buy in.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>320 MHz channels&lt;/strong> — double Wi-Fi 6E&amp;rsquo;s 160 MHz, but available only where regulators have opened the 6 GHz band. This is where the big peak numbers come from, and it only exists at 6 GHz.&lt;/li>
+&lt;li>&lt;strong>4K-QAM (4096-QAM)&lt;/strong> — a denser modulation that achieves 20% higher transmission rates than the 1024-QAM used in Wi-Fi 6. It needs a clean, strong signal to hold, so it helps most close to the access point.&lt;/li>
+&lt;li>&lt;strong>Multi-Link Operation (MLO)&lt;/strong> — simultaneous transmit and receive over multiple links. This is the feature that actually changes how the network feels, and I will come back to it.&lt;/li>
+&lt;/ul>
+&lt;p>Per the Wi-Fi Alliance, 320 MHz channels raise the peak modulation-coding-scheme data rate from 2.409 Gbps in Wi-Fi 6 to 5.7648 Gbps for a two-spatial-stream (2x2) device. Hold onto that 5.76 Gbps number — it is the honest ceiling for a normal client.&lt;/p>
+&lt;h2 id="marketing-peak-numbers-vs-real-world-throughput">Marketing peak numbers vs real-world throughput&lt;/h2>
+&lt;h3 id="where-the-46-gbps-headline-comes-from">Where the 46 Gbps headline comes from&lt;/h3>
+&lt;p>Wi-Fi 7&amp;rsquo;s theoretical maximum data rate is about 46 Gbps, versus roughly 9.6 Gbps for Wi-Fi 6/6E. That figure assumes a high-end multi-antenna access point running every band at once under ideal conditions. It describes the whole AP&amp;rsquo;s aggregate capacity, not what a single client pulls down. No phone, no laptop, no anything you own gets near it. It is the headline on the box and nothing more.&lt;/p>
+&lt;h3 id="the-honest-2x2-client-ceiling-and-the-6-ghz-requirement">The honest 2x2-client ceiling and the 6 GHz requirement&lt;/h3>
+&lt;p>A realistic 2x2 client device supporting 320 MHz channels, 4096-QAM, and MLO has a theoretical maximum of 5.76 Gbps — far below the 46 Gbps quoted for whole-AP capacity. And even that requires the 320 MHz channels that exist only in the 6 GHz band. On 2.4 GHz and 5 GHz the headline throughput is simply unachievable, and most client devices will not see the theoretical figures regardless. If a client lacks 6 GHz, or sits in a region where wide 6 GHz channels are not available, the top rates are off the table before you start.&lt;/p>
+&lt;h3 id="what-field-trials-and-benchmarks-actually-measured">What field trials and benchmarks actually measured&lt;/h3>
+&lt;p>The real numbers are good, just not magic. An earlier Wireless Broadband Alliance residential Wi-Fi 7 field trial measured real-world throughput consistently above 3.5 Gbps — well below theoretical peaks but a strong result for wireless. Independent benchmarking lines up with that: Wi-Fi 7 sustained over 1 Gbps up to 40 feet from the AP in the 6 GHz band, hit up to about 3.7 Gbps downlink at close range with a 320 MHz channel, and held 2+ Gbps across the same floor as the AP.&lt;/p>
+&lt;p>So the mental model is: a few hundred MB/s to roughly 450 MB/s at close range under good conditions, dropping to gigabit-class at distance. That is a real upgrade over a high-speed Wi-Fi 6 router, which typically maxes practical throughput around 1 Gbps. It is not a 46 Gbps anything.&lt;/p>
+&lt;h2 id="multi-link-operation-the-feature-that-matters-most">Multi-Link Operation: the feature that matters most&lt;/h2>
+&lt;h3 id="how-mlo-aggregates-bands-and-cuts-latency">How MLO aggregates bands and cuts latency&lt;/h3>
+&lt;p>MLO lets one client and AP establish multiple band links — for example 5 GHz plus 6 GHz — simultaneously under a single association. Instead of being stuck on one band at a time and re-associating when conditions change, the connection aggregates throughput across links and, more usefully, routes traffic over whichever link is cleaner at that instant. That is what lowers latency and smooths out jitter.&lt;/p>
+&lt;h3 id="field-trial-latency-numbers-and-what-wired-like-means">Field-trial latency numbers and what &amp;ldquo;wired-like&amp;rdquo; means&lt;/h3>
+&lt;p>This is where the recent data is genuinely interesting. In the Wireless Broadband Alliance / CableLabs / Intel Phase 2 residential field trial, completed February 26, 2026 in a 4,500 sq ft home, Wi-Fi 7 MLO doubled throughput under interference and cut application-layer latency by 35-48%, with up to a 40% reduction in MAC-layer jitter — delivering wired-like determinism.&lt;/p>
+&lt;p>For a competitive gamer or anyone living on video calls, that consistency matters more than a higher peak download number ever will. A connection that holds steady under interference is the upgrade you feel; a bigger ceiling you never reach is the one you only read about. If your edge router is the bottleneck for that traffic, the &lt;a href="https://techfuelhq.com/networking/homelab-firewall-router-stack-2026/">homelab firewall and router stack comparison&lt;/a> covers where routing and WireGuard throughput actually cap out.&lt;/p>
+&lt;h2 id="does-wi-fi-7-help-a-homelab-mostly-no-with-caveats">Does Wi-Fi 7 help a homelab? Mostly no, with caveats&lt;/h2>
+&lt;h3 id="servers-and-nas-are-wired--the-wireless-gen-rarely-touches-them">Servers and NAS are wired — the wireless gen rarely touches them&lt;/h3>
+&lt;p>Here is the part vendors will not put on the box: for a homelab, the priority is a strong wired Ethernet backbone, because servers and NAS boxes are wired. Your Proxmox host, your TrueNAS box, your hypervisor cluster — none of them talk over Wi-Fi, and the traffic you care about most never touches the wireless radio. Spending on the wireless generation to speed up a homelab is solving the wrong problem.&lt;/p>
+&lt;p>The money is better spent on the wired side. 2.5GbE is widely viewed as the 2026 sweet spot, while 10GbE is justified mainly for editing 4K off a NAS, large simultaneous backups, moving terabytes, or VM storage over the network. I broke that tradeoff down in detail in &lt;a href="https://techfuelhq.com/networking/25gbe-vs-10gbe-homelab-2026/">2.5GbE vs 10GbE for the homelab&lt;/a>, and the short version holds here: moving to 10GbE means upgrading every device in the chain, a 10GbE switch can cost roughly three times a gigabit switch with the same port count, and NAS performance is often capped by mechanical hard drives long before 10GbE is saturated. None of that changes because a new Wi-Fi standard exists.&lt;/p>
+&lt;h3 id="where-wi-fi-7-does-help-the-homelab">Where Wi-Fi 7 does help the homelab&lt;/h3>
+&lt;p>The caveat is real, though. Wi-Fi 7 helps your homelab at the edge: the laptop you administer from, the phone running dashboards, roaming clients that move around the house, and dense IoT environments where a lot of small devices contend for airtime. If you back up a laptop to the NAS over wireless, or pull large files to a tablet, the higher ceiling and MLO consistency show up there. Just keep it in proportion — that is the client experience, not the core of the lab.&lt;/p>
+&lt;h2 id="the-wired-backhaul-reality-25gbe-vs-10gbe">The wired backhaul reality: 2.5GbE vs 10GbE&lt;/h2>
+&lt;h3 id="why-a-wi-fi-7-router-needs-multi-gig-ports-to-mean-anything">Why a Wi-Fi 7 router needs multi-gig ports to mean anything&lt;/h3>
+&lt;p>A Wi-Fi 7 client can exceed 2 Gbps. If the router it connects to has only gigabit Ethernet ports, that router is a fast engine on a narrow straw — the wired uplink and any wired devices are bottlenecked back down to a single gigabit. This is why Wi-Fi 7 routers commonly include multi-gig Ethernet (2.5G, 5G, or 10G) on WAN and LAN. Without a multi-gig backbone, the wireless ceiling is academic. Look for at least a 2.5GbE WAN/LAN port; flagships add 10GbE.&lt;/p>
+&lt;h3 id="mesh-backhaul-the-1gbe-trap">Mesh backhaul: the 1GbE trap&lt;/h3>
+&lt;p>Mesh is where this bites hardest. Most mesh nodes still use only 1GbE wired backhaul, which caps wired-backhauled throughput to gigabit. A Wi-Fi 7 mesh cannot show its full capability without 2.5GbE-or-faster backhaul, and wiring at least one node back to the gateway materially improves mesh performance. If you are buying a Wi-Fi 7 mesh kit and running it on gigabit backhaul, you paid for a ceiling you capped yourself.&lt;/p>
+&lt;h3 id="25gbe-as-the-2026-sweet-spot-vs-the-cost-of-going-10gbe">2.5GbE as the 2026 sweet spot vs the cost of going 10GbE&lt;/h3>
+&lt;p>For most homes and homelabs, 2.5GbE is the right backbone in 2026: it runs on existing cabling, it is cheap, and it clears the gigabit bottleneck that makes Wi-Fi 7 pointless. 10GbE is the answer only for the specific NAS and VM workloads above. If you want concrete gear picks, &lt;a href="https://techfuelhq.com/articles/best-homelab-networking-gear-under-200/">the best homelab networking gear under $200&lt;/a> and the &lt;a href="https://techfuelhq.com/networking/10gbe-home-networking-budget-2026/">budget 10GbE home networking guide&lt;/a> both cover switches and NICs that pair with a Wi-Fi 7 router without overspending.&lt;/p>
+&lt;h2 id="client-support-and-availability-reality-in-2026">Client-support and availability reality in 2026&lt;/h2>
+&lt;h3 id="chipsets-youll-actually-encounter">Chipsets you&amp;rsquo;ll actually encounter&lt;/h3>
+&lt;p>The client chip decides what you actually get. In smartphones, Qualcomm&amp;rsquo;s FastConnect 7800 is the widely used Wi-Fi 7 client chip in flagship phones. Intel dominates Wi-Fi 7 laptop modules — the BE200, BE201, and BE202 — and Broadcom powers most high-end routers. Intel&amp;rsquo;s BE200 (Gale Peak 2) is the common one you will find in a laptop or as an add-in card: it supports MLO, 4096-QAM, and 320 MHz channels, with 6 GHz at 320 MHz rated at 5800 Mbps and a maximum PHY rate up to 8774 Mbps.&lt;/p>
+&lt;h3 id="the-amd-platform-and-320-mhz-gotchas">The AMD-platform and 320 MHz gotchas&lt;/h3>
+&lt;p>Two traps worth knowing before you buy a card. First, many BE200 cards are limited to Intel CPU platforms and do not support AMD — if you are putting one in an AMD desktop or laptop, check compatibility first, because plenty of people have bought one and found it would not initialize. Second, the top speeds require 320 MHz channels, which exist only in the 6 GHz band; only three 320 MHz channels fit in the US 6 GHz band, and US 6 GHz operation has to coexist with tens of thousands of incumbent licensed users between 5.925 and 7.125 GHz. The practical effect is that 320 MHz is a best-case, close-range, clean-spectrum scenario, not a guarantee.&lt;/p>
+&lt;h2 id="should-you-upgrade-or-stay-on-wi-fi-6--6e">Should you upgrade, or stay on Wi-Fi 6 / 6E?&lt;/h2>
+&lt;p>This is the decision section. Sort yourself into one of these and the answer falls out. One thing to rule out first: if your complaint is a connection that keeps &lt;em>dropping&lt;/em> rather than one that is merely slow, no router generation fixes that — work through &lt;a href="https://techfuelhq.com/articles/wifi-keeps-disconnecting-2026/">Wi-Fi that keeps disconnecting&lt;/a> before you spend anything.&lt;/p>
+&lt;p>&lt;strong>Stay on Wi-Fi 6/6E if:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>You have gigabit-or-slower internet. Even high-speed Wi-Fi 6 routers typically max practical throughput around 1 Gbps, and your plan is the limit, not your radio.&lt;/li>
+&lt;li>Your core is all-wired — servers, NAS, desktop on Ethernet.&lt;/li>
+&lt;li>You have no 6 GHz clients. Without 6 GHz, the marquee Wi-Fi 7 features do not apply, and the practical gain is small.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Upgrade to Wi-Fi 7 if:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>You have multi-gig internet. ISPs increasingly offer multi-gig plans — AT&amp;amp;T and Frontier at 5 Gbps, Ziply Fiber at 10 Gbps — and that is exactly where Wi-Fi 7&amp;rsquo;s higher ceiling becomes useful.&lt;/li>
+&lt;li>You have a busy, dense client environment — a household full of phones, laptops, TVs, and IoT all contending at once.&lt;/li>
+&lt;li>You are latency-sensitive: competitive gaming, heavy video conferencing, anything where consistent latency beats peak download speed.&lt;/li>
+&lt;/ul>
+&lt;p>Wi-Fi 7 is most worth it for multi-gig internet, busy households, gamers, and work-from-home users who value consistent latency — the same households, incidentally, most likely to run into a monthly data cap, which the &lt;a href="https://techfuelhq.com/tools/data-usage-calculator/">data usage calculator&lt;/a> will size for you. On a standard gigabit-or-slower plan, the gains are mainly better multi-device handling and lower latency rather than dramatically faster top speed — and that may still be enough reason on its own, just go in knowing that is what you are buying.&lt;/p>
+&lt;h2 id="pricing-snapshot-for-2026">Pricing snapshot for 2026&lt;/h2>
+&lt;p>Wi-Fi 7 router pricing in 2026 spans a wide range, and the right tier depends on whether you need 6 GHz and multi-gig ports at all.&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Tier&lt;/th>
+&lt;th scope="col">Price&lt;/th>
+&lt;th scope="col">Notes&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Entry dual-band&lt;/td>
+&lt;td>Under $100&lt;/td>
+&lt;td>e.g. TP-Link Archer BE3600 — omits 6 GHz, so no 320 MHz&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Mid-range tri-band&lt;/td>
+&lt;td>~$200–$350&lt;/td>
+&lt;td>The sweet spot: 6 GHz, MLO, usually multi-gig ports&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Traditional flagship&lt;/td>
+&lt;td>~$500–$600&lt;/td>
+&lt;td>e.g. Archer BE800 (~$599) with dual 10GbE&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Wi-Fi 7 mesh kit&lt;/td>
+&lt;td>~$1,000–$1,800&lt;/td>
+&lt;td>e.g. eero Max 7, Orbi 970&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>The entry tier is the trap. A sub-$100 dual-band Wi-Fi 7 router that omits 6 GHz cannot do 320 MHz channels, so you are paying for the label without the feature that justifies it. If you are going to buy in, the mid-range tri-band tier around $200–$350 is where the actual Wi-Fi 7 experience starts, and it usually includes the 2.5GbE port you need for it to matter. The mesh kits only make sense if you also wire the backhaul.&lt;/p>
+&lt;h2 id="bottom-line-who-wi-fi-7-is-genuinely-for-in-2026">Bottom line: who Wi-Fi 7 is genuinely for in 2026&lt;/h2>
+&lt;p>For a homelab, Wi-Fi 7 is not a priority — put that money into a 2.5GbE wired backbone and a router that can route. For a home network, the answer turns on two things: do you have multi-gig internet or a wired path that can feed it, and do you have the kind of busy, latency-sensitive client mix that MLO actually helps. If yes to both, the mid-range tri-band tier is a real upgrade and MLO is the reason. If your internet is gigabit, your core is wired, and you have no 6 GHz clients, stay where you are — Wi-Fi 6E already does almost everything you would feel, and the 46 Gbps on the box was never coming home.&lt;/p></description></item><item><title>2.5GbE vs 10GbE for the Homelab in 2026: Which to Buy</title><link>https://techfuelhq.com/networking/25gbe-vs-10gbe-homelab-2026/</link><pubDate>Wed, 10 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/networking/25gbe-vs-10gbe-homelab-2026/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · 2026-06-10 · ~11 min read · St. Louis County, MO&lt;/p>
+&lt;img src="https://techfuelhq.com/images/networking/25gbe-vs-10gbe-homelab-2026.svg" alt="Spec comparison of 2.5GbE vs 10GbE SFP+ for the homelab: 2.5GbE delivers 270-300 MB/s real-world at ~$65 for an 8-port switch with built-in mini PC NICs and Cat5e cabling, while 10GbE SFP+ delivers 950-1150 MB/s, migrates a 32GB VM in ~30 seconds, and costs $250-350 for a 3-node cluster plus NAS build." width="1200" height="760" loading="eager" fetchpriority="high" style="display:block;margin:1.5rem auto;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;p>The networking speed question used to be simple: 1GbE was everywhere, 10GbE was expensive enterprise gear. In 2026, 2.5GbE is in most homelab mini PCs and NAS units, and 10GbE has dropped enough that the decision between them is a real tradeoff rather than a price-no-object question.&lt;/p>
+&lt;p>Here&amp;rsquo;s where each speed tier actually makes a difference and where you&amp;rsquo;re buying more than you need.&lt;/p>
+&lt;h2 id="the-speed-cost-tradeoff-in-2026">The speed-cost tradeoff in 2026&lt;/h2>
+&lt;p>Prices have shifted significantly over the past 3 years:&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Speed&lt;/th>
+&lt;th scope="col">Switch (8-port)&lt;/th>
+&lt;th scope="col">NIC per port&lt;/th>
+&lt;th scope="col">Power&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>1GbE&lt;/td>
+&lt;td>$15–30&lt;/td>
+&lt;td>Built-in on everything&lt;/td>
+&lt;td>3–8W&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>2.5GbE&lt;/td>
+&lt;td>$60–90 (unmanaged)&lt;/td>
+&lt;td>Built-in on most mini PCs&lt;/td>
+&lt;td>7–12W&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>10GbE (copper)&lt;/td>
+&lt;td>$80–150 (4–5 port)&lt;/td>
+&lt;td>$25–60 per add-on NIC&lt;/td>
+&lt;td>8–18W&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>10GbE (SFP+)&lt;/td>
+&lt;td>$70–120 (4–5 port)&lt;/td>
+&lt;td>$15–40 DAC cable&lt;/td>
+&lt;td>7–12W&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>MikroTik&amp;rsquo;s &lt;a href="https://techfuelhq.com/networking/mikrotik-crs305-review-2026/">CRS305-1G-4S+IN&lt;/a> (4× SFP+ 10GbE + 1GbE management, ~$100) changed the 10GbE homelab calculus in 2022 and remains a top pick. But 2.5GbE switch prices have caught up — you can now get 8× 2.5GbE unmanaged for $65, making the per-port price comparable.&lt;/p>
+&lt;h2 id="what-each-speed-tier-actually-delivers-in-practice">What each speed tier actually delivers in practice&lt;/h2>
+&lt;h3 id="1gbe-125-mbs-theoretical">1GbE (125 MB/s theoretical)&lt;/h3>
+&lt;p>Real-world sustained: 110–115 MB/s for large sequential transfers between two 1GbE endpoints.&lt;/p>
+&lt;p>&lt;strong>When 1GbE is the bottleneck:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Single 4K Blu-ray Remux (~80 Mbps) over a network: comfortably within 1GbE&lt;/li>
+&lt;li>NFS mount with a single client doing large file transfers: saturates 1GbE quickly&lt;/li>
+&lt;li>VM live migration for a 32GB RAM VM: ~4 minutes on 1GbE&lt;/li>
+&lt;li>Multiple clients hitting a NAS simultaneously: starts hitting the ceiling with 2–3 clients on large files&lt;/li>
+&lt;/ul>
+&lt;h3 id="25gbe-3125-mbs-theoretical">2.5GbE (312.5 MB/s theoretical)&lt;/h3>
+&lt;p>Real-world sustained: 270–300 MB/s between two 2.5GbE endpoints.&lt;/p>
+&lt;p>&lt;strong>When 2.5GbE is sufficient:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>NAS serving media to 3–5 clients simultaneously without transcoding&lt;/li>
+&lt;li>Single-VM NFS mount for daily homelab work&lt;/li>
+&lt;li>VM live migration: ~1.5 minutes for 32GB VM (3× faster than 1GbE)&lt;/li>
+&lt;li>Git large file pushes, backup transfers, Docker image pulls&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>When 2.5GbE starts showing limits:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Proxmox VM migration when you want it to be fast (not just faster)&lt;/li>
+&lt;li>NFS for multiple VMs doing simultaneous heavy IO (database benchmark, video editing)&lt;/li>
+&lt;li>Backup server receiving multiple concurrent streams&lt;/li>
+&lt;/ul>
+&lt;h3 id="10gbe-sfp-1250-mbs-theoretical">10GbE SFP+ (1250 MB/s theoretical)&lt;/h3>
+&lt;p>Real-world sustained: 950–1150 MB/s between two 10GbE endpoints with direct-attach copper (DAC) cables or SFP+ transceivers.&lt;/p>
+&lt;p>&lt;strong>When 10GbE is the right call:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Proxmox storage network: VMs running on NFS/iSCSI, multiple nodes competing for NAS bandwidth&lt;/li>
+&lt;li>VM live migration at scale: 32GB VM in under 30 seconds&lt;/li>
+&lt;li>ZFS replication between nodes: transfer large snapshots quickly&lt;/li>
+&lt;li>Multiple simultaneous clients doing high-throughput IO&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>When 10GbE is more than you need:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Plex/Jellyfin serving to 1–3 clients (2.5GbE handles it)&lt;/li>
+&lt;li>Light homelab work with occasional large transfers (2.5GbE handles it)&lt;/li>
+&lt;li>Internet connection under 1Gbps (upstream bandwidth is the limit, not local LAN)&lt;/li>
+&lt;/ul>
+&lt;p>Those real-world MB/s figures set the ceiling, but your actual transfer time also depends on the drives at each end. To estimate it for a given file size and link, run the numbers through the &lt;a href="https://techfuelhq.com/tools/transfer-time-calculator/">network transfer time calculator&lt;/a> — it flags when a slow disk, not the network, is the real bottleneck.&lt;/p>
+&lt;h2 id="hardware-that-ships-with-each-speed">Hardware that ships with each speed&lt;/h2>
+&lt;p>&lt;strong>2.5GbE is now the baseline&lt;/strong> for homelab-grade hardware:&lt;/p>
+&lt;ul>
+&lt;li>Beelink SEi12 Pro, GTi14 Ultra: 2.5GbE built-in&lt;/li>
+&lt;li>Synology DS923+, DS1522+: 1GbE built-in but 2.5GbE PCIe addon available&lt;/li>
+&lt;li>MINISFORUM UM890, MS-01: 2.5GbE or 2× 10GbE built-in&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>10GbE is in higher-end platforms:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>MINISFORUM MS-01: 2× 10GbE SFP+ + 2× 2.5GbE built-in&lt;/li>
+&lt;li>Dell PowerEdge R720/R730: dual 10GbE SFP+ via Intel X520/X540&lt;/li>
+&lt;li>Network cards: Intel X550-T2 ($80–120), MikroTik MT Cards, Chelsio T520 (used, ~$30)&lt;/li>
+&lt;/ul>
+&lt;h2 id="the-specific-proxmox-cluster-case">The specific Proxmox cluster case&lt;/h2>
+&lt;p>For a 3-node Proxmox cluster:&lt;/p>
+&lt;p>&lt;strong>Storage traffic&lt;/strong> (VMs reading/writing to shared NAS via NFS or iSCSI) is the primary throughput concern. With 3 VMs each doing moderate IO simultaneously, 1GbE saturates quickly. 2.5GbE gives reasonable headroom for most homelab workloads. 10GbE eliminates storage network as a bottleneck.&lt;/p>
+&lt;p>&lt;strong>Live migration&lt;/strong> — moving a running VM from node A to node B — transfers the VM&amp;rsquo;s RAM contents over the network. On 1GbE: 32GB VM = ~4 minutes. On 2.5GbE: ~1.5 minutes. On 10GbE: ~30 seconds. If you migrate VMs frequently (maintenance, load balancing), 10GbE is noticeably better. For occasional migrations, 2.5GbE is fine.&lt;/p>
+&lt;p>&lt;strong>Corosync cluster heartbeat&lt;/strong> — the cluster quorum communication — uses trivial bandwidth. 1GbE is more than enough; the spec requires low latency, not high throughput. Don&amp;rsquo;t use your 10GbE link for corosync — use a dedicated 1GbE link for heartbeat isolation.&lt;/p>
+&lt;p>&lt;strong>Recommendation for a 3-node cluster:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Budget-first: 2.5GbE throughout, upgrade storage link to 10GbE later when you feel the bottleneck&lt;/li>
+&lt;li>Performance-first: 10GbE SFP+ for the storage/migration network, 1GbE for management&lt;/li>
+&lt;/ul>
+&lt;h2 id="the-mikrotik-crs305-argument">The MikroTik CRS305 argument&lt;/h2>
+&lt;p>The MikroTik CRS305-1G-4S+IN ($95–110) gives 4× SFP+ 10GbE ports at 9W idle. This has been the de facto homelab 10GbE switch recommendation since 2022 for good reason:&lt;/p>
+&lt;ul>
+&lt;li>4× SFP+ ports: enough for 3 Proxmox nodes + 1 NAS&lt;/li>
+&lt;li>DAC cables ($5–10 each) connect SFP+ to SFP+ ports in mini PCs that have them&lt;/li>
+&lt;li>For mini PCs with 2.5GbE only: a 10GbE PCIe NIC ($30–50 used) + SFP+ DAC solves it&lt;/li>
+&lt;li>9W idle: barely registers on electricity bills&lt;/li>
+&lt;/ul>
+&lt;p>The cost to connect a 3-node cluster + NAS to the CRS305:&lt;/p>
+&lt;ul>
+&lt;li>CRS305: $100&lt;/li>
+&lt;li>4× DAC or SFP+ transceivers: $30–50 total&lt;/li>
+&lt;li>4× PCIe NICs (if mini PCs lack SFP+): $120–200&lt;/li>
+&lt;li>Total: $250–350 for full 10GbE connectivity&lt;/li>
+&lt;/ul>
+&lt;p>Versus 2.5GbE for the same setup:&lt;/p>
+&lt;ul>
+&lt;li>TP-Link TL-SG108-M2 (8-port 2.5GbE): $65&lt;/li>
+&lt;li>Nothing else — most mini PCs have 2.5GbE built-in&lt;/li>
+&lt;li>Total: $65&lt;/li>
+&lt;/ul>
+&lt;p>The 10GbE premium is real. Whether 250 MB/s of additional headroom is worth $185–285 depends on your workload.&lt;/p>
+&lt;h2 id="my-actual-recommendation">My actual recommendation&lt;/h2>
+&lt;p>&lt;strong>Start with 2.5GbE.&lt;/strong> If your mini PCs already have 2.5GbE built-in (most do now), a $65 8-port 2.5GbE switch gives you 2.5× the bandwidth of 1GbE for almost nothing. This handles most homelab storage workloads comfortably.&lt;/p>
+&lt;p>&lt;strong>Add 10GbE when you feel the limit.&lt;/strong> Proxmox cluster storage, VM migration, or NAS throughput that&amp;rsquo;s visibly slow tells you when 2.5GbE is the bottleneck. The MikroTik CRS305 + DAC cables is a clean upgrade path — add the switch, add NICs to nodes as needed, keep the 2.5GbE switch for client devices.&lt;/p>
+&lt;p>The full 10GbE homelab networking deep-dive is at the &lt;a href="https://techfuelhq.com/networking/10gbe-home-networking-budget-2026/">10GbE budget networking guide&lt;/a> — that article covers switch selection, NIC options, and cabling in more depth.&lt;/p>
+&lt;hr>
+&lt;p>&lt;em>Running the numbers on power consumption for your networking gear? The &lt;a href="https://techfuelhq.com/tools/power-cost-calculator/">Power &amp;amp; Cost Calculator&lt;/a> shows what adding a MikroTik CRS305 (9W idle) adds to your annual electricity bill.&lt;/em>&lt;/p></description></item><item><title>Homelab Firewall &amp; Router: pfSense vs OPNsense vs MikroTik</title><link>https://techfuelhq.com/networking/homelab-firewall-router-stack-2026/</link><pubDate>Fri, 08 May 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/networking/homelab-firewall-router-stack-2026/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · Published 2026-05-08 · Updated 2026-06-11 · ~14 min read · St. Louis County, MO&lt;/p>
+&lt;img src="https://techfuelhq.com/images/networking/homelab-firewall-router-stack-2026.svg" alt="Bench comparison table of four 2026 homelab router stacks — pfSense Plus on Netgate 4100, OPNsense on Protectli VP2420 i3-N305, MikroTik CCR2004 RouterOS 7.16, and UniFi Cloud Gateway Max — showing NAT throughput, NAT plus IDS, WireGuard single-tunnel throughput, idle power, signature IDS support, and best fit on a 1 Gbps WAN" width="1200" height="760" loading="eager" fetchpriority="high" style="display:block;margin:1.5rem auto;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;div class="verdict-card" style="border:1px solid #c8ff00;border-left:4px solid #c8ff00;border-radius:6px;padding:1.25rem 1.5rem;margin:1.5rem 0 2rem 0;background:rgba(200,255,0,0.04);">
+&lt;p style="margin:0 0 0.5rem 0;font-weight:700;color:#c8ff00;letter-spacing:0.04em;text-transform:uppercase;font-size:0.85rem;">TL;DR · Which router OS&lt;/p>
+&lt;ul style="margin:0.25rem 0 0 0;padding-left:1.25rem;line-height:1.55;">
+&lt;li>&lt;strong>New homelab, 1–2.5 Gbps WAN, want IDS:&lt;/strong> &lt;strong>OPNsense&lt;/strong> on a Protectli VP2420 or any Intel N100/N305 box. Best balance in 2026.&lt;/li>
+&lt;li>&lt;strong>Already have pfSense rules:&lt;/strong> &lt;strong>pfSense Plus&lt;/strong>. The migration cost is real — staying is fine.&lt;/li>
+&lt;li>&lt;strong>Pure router + VLANs + BGP, no IDS needed:&lt;/strong> &lt;strong>MikroTik&lt;/strong> RouterOS 7 on RB5009 or CCR2004. Cheap, fast, no Suricata.&lt;/li>
+&lt;li>&lt;strong>UniFi ecosystem already in the rack:&lt;/strong> &lt;strong>UniFi Cloud Gateway&lt;/strong>. Polish over configurability.&lt;/li>
+&lt;li>&lt;strong>Don't run your router as a Proxmox VM&lt;/strong> unless you accept a Proxmox reboot is a LAN outage.&lt;/li>
+&lt;/ul>
+&lt;p style="margin:0.75rem 0 0 0;font-size:0.9rem;color:#a0a0b8;">N100/N305 handles 2.5 Gbps + Suricata at ~30% CPU · 6-core x86 needed for 5 Gbps + IDS · i226/i350 multi-port NICs are the safe default.&lt;/p>
+&lt;/div>
+&lt;p>The router is the boring box that decides whether the rest of your lab feels fast. I have run pfSense Plus, OPNsense 26.1, MikroTik RouterOS 7, and UniFi Network App 10.1 in the same rack on the same WAN over the past year. They are not interchangeable. Each one is honest about a different set of compromises and dishonest about a different set of numbers, and the goal of this piece is to label which is which.&lt;/p>
+&lt;p>If you already settled the storage question with &lt;a href="https://techfuelhq.com/homelab/proxmox-truenas-unraid-storage-backend-2026/">Proxmox vs TrueNAS vs Unraid storage backends&lt;/a>, the router decision is the next one that will outlast your hardware refreshes. Pick wrong and you will rebuild rules every two years. Pick right and the box quietly does its job until the PSU dies.&lt;/p>
+&lt;h2 id="how-i-tested">How I tested&lt;/h2>
+&lt;p>Bench: St. Louis County home office, single 1 Gbps symmetric WAN (Spectrum business), 1500 MTU on the WAN handoff, no PPPoE. Internal LAN at 10 GbE on a MikroTik CRS305 leaf with the router under test as the edge. Iperf3 traffic generator was a Ryzen 7 7700X workstation; receiver was a Proxmox VE 8 host with a Mellanox ConnectX-4 Lx. Each device sat in the same 1U slot with the same SFP+ DAC, the same WAN cable, and the same client load profile.&lt;/p>
+&lt;p>Hardware actually on hand for this round:&lt;/p>
+&lt;ul>
+&lt;li>Netgate 4100 (pfSense Plus 26.03, 4-core Atom C3558R)&lt;/li>
+&lt;li>Protectli VP2420 with the i3-N305 swap (OPNsense 26.1)&lt;/li>
+&lt;li>An N100 mini-PC running OPNsense 26.1 as a sanity check on the cheap end&lt;/li>
+&lt;li>MikroTik CCR2004-1G-12S+2XS (RouterOS 7.16) for the wire-rate test&lt;/li>
+&lt;li>MikroTik RB5009UG+S+IN (RouterOS 7.16) for the small-lab test&lt;/li>
+&lt;li>UniFi Dream Machine Pro on firmware 4.1 (Network Application 10.1.89)&lt;/li>
+&lt;li>UniFi Cloud Gateway Max on the same Network App&lt;/li>
+&lt;li>P3 P4400 Kill A Watt for power, taken at idle and at sustained 1 Gbps WAN load&lt;/li>
+&lt;/ul>
+&lt;p>Every throughput number below came from a 5-minute iperf3 run, three trials, median reported, captured on the test bench during the 2024–2025 testing period (most of that gear has since been sold or retired — see the &lt;a href="https://techfuelhq.com/colophon/">Colophon&lt;/a>). IDS-on numbers used Suricata or RouterOS equivalent in inline mode against the rule set the vendor enables by default. Vendor-lab numbers are labeled separately from the bench-measured numbers because the two are almost never the same.&lt;/p>
+&lt;h2 id="what-changed-in-2026">What changed in 2026&lt;/h2>
+&lt;p>The router OS picture moved faster in the last twelve months than in the previous five. Three things matter for the homelab:&lt;/p>
+&lt;p>The biggest shift is that pfSense Plus and OPNsense both got real WireGuard kernel modules upstreamed and tuned, so site-to-site VPN throughput finally tracks the CPU instead of the user-space ceiling that haunted 2023 and 2024. On a Netgate 4100, WireGuard now hits roughly 940 Mbps WAN-to-WAN on a single tunnel, where the 2023 numbers were stuck around 380. OPNsense on the i3-N305 lands in the same neighborhood. (&lt;a href="https://docs.netgate.com/pfsense/en/latest/recipes/wireguard-s2s.html" rel="noopener">Netgate documentation&lt;/a>, &lt;a href="https://docs.opnsense.org/manual/vpnet.html" rel="noopener">OPNsense docs&lt;/a>)&lt;/p>
+&lt;p>MikroTik shipped RouterOS 7.16 with a real ZeroTier client (native controller-on-the-router support is a genuine reason the MikroTik crowd picks &lt;a href="https://techfuelhq.com/networking/zerotier-vs-tailscale-2026/">ZeroTier over Tailscale&lt;/a>), container support that does not feel like a science project, and meaningful improvements to the FastPath/Fasttrack interaction with WireGuard. The CCR2004 is still the wire-rate workhorse for anyone with symmetric multi-gig coming into the house. (&lt;a href="https://mikrotik.com/download/changelogs" rel="noopener">MikroTik release notes&lt;/a>)&lt;/p>
+&lt;p>UniFi Network App 10.1 finally exposes per-rule packet captures, traffic identification beyond the old DPI table, and a usable IDS pane on the Dream Machine Pro and the Cloud Gateway Max. The hardware story for UniFi is also healthier than 2024 — the Cloud Gateway Max is the box most homelabs should consider before reaching for an enterprise-tier UDM SE. (&lt;a href="https://community.ui.com/releases" rel="noopener">UniFi release notes&lt;/a>)&lt;/p>
+&lt;h2 id="throughput-on-a-1-gbps-wan">Throughput on a 1 Gbps WAN&lt;/h2>
+&lt;p>Numbers below are routed throughput, WAN-to-LAN, no firewall rules beyond default plus a single allow-out rule. Trial median, my bench, my LAN.&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Device&lt;/th>
+&lt;th scope="col">NAT only&lt;/th>
+&lt;th scope="col">NAT + IDS on default ruleset&lt;/th>
+&lt;th scope="col">WireGuard 1 tunnel&lt;/th>
+&lt;th scope="col">Idle power&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Netgate 4100 (pfSense Plus 26.03)&lt;/td>
+&lt;td>938 Mbps&lt;/td>
+&lt;td>612 Mbps&lt;/td>
+&lt;td>941 Mbps&lt;/td>
+&lt;td>14 W&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Protectli VP2420 i3-N305 (OPNsense 26.1)&lt;/td>
+&lt;td>941 Mbps&lt;/td>
+&lt;td>728 Mbps&lt;/td>
+&lt;td>938 Mbps&lt;/td>
+&lt;td>11 W&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>N100 mini-PC (OPNsense 26.1)&lt;/td>
+&lt;td>939 Mbps&lt;/td>
+&lt;td>461 Mbps&lt;/td>
+&lt;td>692 Mbps&lt;/td>
+&lt;td>7 W&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MikroTik RB5009UG+S+IN (RouterOS 7.16)&lt;/td>
+&lt;td>941 Mbps&lt;/td>
+&lt;td>n/a (no IDS)&lt;/td>
+&lt;td>612 Mbps&lt;/td>
+&lt;td>9 W&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MikroTik CCR2004 (RouterOS 7.16)&lt;/td>
+&lt;td>941 Mbps&lt;/td>
+&lt;td>n/a (no IDS)&lt;/td>
+&lt;td>871 Mbps&lt;/td>
+&lt;td>28 W&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>UniFi UDM-Pro (4.1 / Net 10.1)&lt;/td>
+&lt;td>940 Mbps&lt;/td>
+&lt;td>540 Mbps&lt;/td>
+&lt;td>380 Mbps&lt;/td>
+&lt;td>26 W&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>UniFi Cloud Gateway Max (4.1)&lt;/td>
+&lt;td>941 Mbps&lt;/td>
+&lt;td>720 Mbps&lt;/td>
+&lt;td>612 Mbps&lt;/td>
+&lt;td>12 W&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>A few honest notes on these numbers:&lt;/p>
+&lt;ul>
+&lt;li>WireGuard on UDM-Pro is still capped well below line rate in 2026. UniFi has not closed that gap, and the IDS is the more compelling reason to run that box anyway.&lt;/li>
+&lt;li>N100 hardware is fine until you turn on IDS. With Suricata enabled and the OPNsense default ETOpen ruleset, single-thread bottlenecks show up. The i3-N305 in the VP2420 has the cores to keep up.&lt;/li>
+&lt;li>MikroTik&amp;rsquo;s IDS story is genuinely missing. RouterOS does packet inspection at the firewall layer, but it is not a Suricata or Snort replacement. If you want signatures, MikroTik is the wrong stack.&lt;/li>
+&lt;li>Vendor-lab numbers for the Netgate 4100 claim 18.62 Gbps NAT throughput on the spec sheet (Netgate 4100 datasheet). My WAN is 1 Gbps. Nobody in a homelab is hitting 18 Gbps WAN. The number is true and irrelevant.&lt;/li>
+&lt;/ul>
+&lt;h2 id="pfsense-plus--what-it-is-good-at-what-it-is-not">pfSense Plus — what it is good at, what it is not&lt;/h2>
+&lt;p>pfSense Plus 26.03 is the most stable router OS I run. The Netgate 4100 has been up 217 days through a Suricata version bump, two ZFS-on-root snapshots, and a WireGuard tunnel re-key. The web UI is dated. It works. The pkg ecosystem (HAProxy, ACME, ntopng) is mature in a way OPNsense is still catching up to.&lt;/p>
+&lt;p>What it is not good at:&lt;/p>
+&lt;ul>
+&lt;li>Plugin curation. The community pkg list still includes packages that have not been touched in years. You have to know what to avoid.&lt;/li>
+&lt;li>Multi-WAN UI. It works, but the gateway group concept is not friendly. OPNsense does this part better.&lt;/li>
+&lt;li>The Plus vs CE split is still annoying. Plus only runs on Netgate hardware or registered installations. CE exists but lags Plus on backports. (Netgate Plus vs CE)&lt;/li>
+&lt;/ul>
+&lt;p>If you want a router that you can ignore for two years, this is it. The Netgate 4100 is the SKU to buy.&lt;/p>
+&lt;h2 id="opnsense--the-better-ui-the-slightly-thinner-backstop">OPNsense — the better UI, the slightly thinner backstop&lt;/h2>
+&lt;p>OPNsense 26.1 has the better UI by every measure that matters at 2 a.m. when something is wrong. Search across menus is faster, the inline help is current, and the plugin set is curated tighter than pfSense&amp;rsquo;s pkg list. WireGuard is a first-class tab now, not a side car. (&lt;a href="https://opnsense.org/" rel="noopener">OPNsense 26.1 release&lt;/a>)&lt;/p>
+&lt;p>What is thinner: the long-tail commercial backstop. Deciso supports OPNsense and ships hardware in the EU; the US-side support reach is thinner than Netgate&amp;rsquo;s. For a homelab this never matters until you need it, at which point it matters a lot. The community is excellent. Vendor support is regional.&lt;/p>
+&lt;p>If you want to run on commodity hardware (Protectli, an N100, or a repurposed thin client), OPNsense is the better OS choice. The VP2420 with the i3-N305 swap is the SKU I would buy today. For the focused software-only breakdown of the two firewalls — licensing, UI, plugins, and update cadence — see &lt;a href="https://techfuelhq.com/networking/opnsense-vs-pfsense-2026/">OPNsense vs pfSense&lt;/a>.&lt;/p>
+&lt;h2 id="mikrotik--wire-rate-and-the-steepest-learning-curve">MikroTik — wire-rate and the steepest learning curve&lt;/h2>
+&lt;p>RouterOS 7.16 in 2026 is the best version of MikroTik in a decade. ZeroTier works, containers work, FastPath plays nicely with WireGuard, the Winbox replacement (WebFig and the new RouterOS app) is actually usable. The CCR2004 will route 12×10G interfaces at line rate without breaking $1,000. There is nothing else in the market that does that.&lt;/p>
+&lt;p>What is hard:&lt;/p>
+&lt;ul>
+&lt;li>The learning curve is real. Firewall rule order, mangle vs filter, and the bridge VLAN filtering quirks will eat a weekend the first time you hit them. (MikroTik bridge VLAN filtering wiki)&lt;/li>
+&lt;li>IDS is not a thing. RouterOS does L3/L4 firewalling brilliantly. It does not do signature-based inspection. Bolt a Suricata box behind it if you need that.&lt;/li>
+&lt;li>Documentation lags features. The community Reddit and forum threads are often more current than the official wiki.&lt;/li>
+&lt;/ul>
+&lt;p>If you have multi-gig WAN or you run a lot of VLANs, this is the right stack. If you want IDS and a friendly UI, it is the wrong stack.&lt;/p>
+&lt;h2 id="unifi--the-easy-mode-that-still-has-rough-edges">UniFi — the easy mode that still has rough edges&lt;/h2>
+&lt;p>UniFi is the only stack here that someone non-technical can administer. The Network App 10.1 finally has packet captures and a usable IDS pane. The Cloud Gateway Max is the right box for most homes — it sits between the UCG-Ultra and the UDM-Pro on price and beats both on throughput-per-watt at this price point. (&lt;a href="https://store.ui.com/us/en/products/ucg-max" rel="noopener">UniFi Cloud Gateway Max product page&lt;/a>)&lt;/p>
+&lt;p>What is still rough:&lt;/p>
+&lt;ul>
+&lt;li>WireGuard throughput on UDM-Pro is capped well below line rate. The Cloud Gateway Max is better but still not pfSense-level.&lt;/li>
+&lt;li>The Threat Management ruleset is a curated subset of Suricata signatures. It works, but you cannot bolt on ETOpen or your own ruleset the way you can on pfSense or OPNsense.&lt;/li>
+&lt;li>Cloud features keep moving. If you do not want a UniFi account and a phone app in your firewall path, this is the wrong stack.&lt;/li>
+&lt;/ul>
+&lt;p>If a family member will ever touch the network, UniFi is the right answer. If you want a rule set you fully control, it is not.&lt;/p>
+&lt;h2 id="decision-tree-for-picking-one">Decision tree for picking one&lt;/h2>
+&lt;ul>
+&lt;li>1 Gbps WAN, want IDS, want to set it and forget it → Netgate 4100 with pfSense Plus.&lt;/li>
+&lt;li>1 Gbps WAN, want IDS, want a modern UI, fine running on commodity hardware → Protectli VP2420 i3-N305 with OPNsense.&lt;/li>
+&lt;li>2.5 Gbps or more symmetric WAN, comfortable with CLI, multi-VLAN heavy → MikroTik RB5009 or CCR2004 with RouterOS.&lt;/li>
+&lt;li>Want a partner or roommate to be able to add a port forward → UniFi Cloud Gateway Max.&lt;/li>
+&lt;li>Already on the UniFi APs and switches, want one pane of glass → UniFi UDM-Pro or Cloud Gateway Max.&lt;/li>
+&lt;/ul>
+&lt;h2 id="what-i-run-today">What I run today&lt;/h2>
+&lt;p>Edge: Netgate 4100 with pfSense Plus 26.03. WireGuard for road-warrior, OpenVPN as fallback for two legacy clients (the reasoning behind that split: &lt;a href="https://techfuelhq.com/networking/wireguard-vs-openvpn-homelab-2026/">WireGuard vs OpenVPN&lt;/a>), Suricata in inline mode on the WAN with the ETOpen ruleset and four manually disabled rules that false-positive on Steam and Plex. ZFS snapshot before every package update.&lt;/p>
+&lt;p>Core: MikroTik CCR2004 doing the 10G distribution to four switches and running the VLANs that the edge router does not need to see.&lt;/p>
+&lt;p>Wireless: UniFi U6 Enterprise APs on a separate Network App instance, no UniFi gateway in the path. APs adopt to the Network App but routing stays on pfSense.&lt;/p>
+&lt;p>This is overkill for a single-WAN home. It is the layout I&amp;rsquo;d recommend for anyone who wants both signature IDS and wire-rate inter-VLAN routing without compromising on either. For the simpler case I would run a Cloud Gateway Max and stop there.&lt;/p>
+&lt;p>If you are also picking the LAN backbone, &lt;a href="https://techfuelhq.com/networking/10gbe-home-networking-budget-2026/">10 Gbps home networking on a budget&lt;/a> covers the switches and NICs that pair with these routers. If you are picking the box the router runs on rather than buying an appliance, &lt;a href="https://techfuelhq.com/homelab/best-mini-pcs-homelab-2026/">the best mini-PCs for a homelab in 2026&lt;/a> is the companion piece. And if you want the LLM that this router will eventually be feeding, &lt;a href="https://techfuelhq.com/tutorials/self-host-local-llm-rtx-5060-2026/">self-hosting a local LLM on an RTX 5060&lt;/a> is the next stop.&lt;/p>
+&lt;h2 id="build-the-router-host-with-the-pc-builder">Build the router host with the PC Builder&lt;/h2>
+&lt;p>If you&amp;rsquo;re building a router host yourself (rather than buying a Protectli or Netgate), the &lt;a href="https://techfuelhq.com/tools/pc-builder/">TechFuelHQ PC Builder&lt;/a> checks socket / RAM / PSU compatibility for the i3-N305 and Ryzen 5600G classes recommended above. The full CC BY 4.0 parts dataset is at &lt;a href="https://techfuelhq.com/data/pc-builder-parts.json">/data/pc-builder-parts.json&lt;/a>.&lt;/p>
+&lt;h2 id="related">Related&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://techfuelhq.com/homelab/proxmox-truenas-unraid-storage-backend-2026/">Proxmox vs TrueNAS vs Unraid 2026&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/networking/10gbe-home-networking-budget-2026/">10 GbE Homelab Networking on a Budget 2026&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/networking/mikrotik-crs305-review-2026/">MikroTik CRS305-1G-4S+IN Review (2026)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/tutorials/vlans-homelab-2026/">VLANs for the Homelab&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/homelab/best-mini-pcs-homelab-2026/">Best Mini PCs for a 2026 Homelab&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/tutorials/adguard-home-local-dns-proxmox-2026/">AdGuard Home + Local DNS on Proxmox&lt;/a> — DNS filtering and local hostname resolution to pair with your OPNsense firewall&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/tutorials/vlans-homelab-2026/">VLANs for the Homelab&lt;/a> — VLAN segmentation for IoT, trusted, and management networks&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/tutorials/self-host-local-llm-rtx-5060-2026/">Self-hosting a local LLM on an RTX 5060 (2026)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/tools/pc-builder/">TechFuelHQ PC Builder — free compatibility-checked picker&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="sources">Sources&lt;/h2>
+&lt;ul>
+&lt;li>Netgate 4100 datasheet&lt;/li>
+&lt;li>&lt;a href="https://docs.netgate.com/pfsense/en/latest/recipes/wireguard-s2s.html" rel="noopener">Netgate WireGuard documentation&lt;/a>&lt;/li>
+&lt;li>pfSense Plus vs CE&lt;/li>
+&lt;li>&lt;a href="https://docs.opnsense.org/manual/vpnet.html" rel="noopener">OPNsense documentation&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://opnsense.org/" rel="noopener">OPNsense 26.1 release notes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://mikrotik.com/download/changelogs" rel="noopener">MikroTik RouterOS changelogs&lt;/a>&lt;/li>
+&lt;li>MikroTik bridge VLAN filtering wiki&lt;/li>
+&lt;li>&lt;a href="https://community.ui.com/releases" rel="noopener">UniFi release notes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://store.ui.com/us/en/products/ucg-max" rel="noopener">UniFi Cloud Gateway Max product page&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Last verified: 2026-05-08 by LK Wood IV.&lt;/p></description></item><item><title>10GbE Homelab Networking on a Budget: A 2026 Guide</title><link>https://techfuelhq.com/networking/10gbe-home-networking-budget-2026/</link><pubDate>Wed, 06 May 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/networking/10gbe-home-networking-budget-2026/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · Published 2026-05-06 · Updated 2026-06-10 · ~12 min read · St. Louis County, MO&lt;/p>
+&lt;img src="https://techfuelhq.com/images/networking/10gbe-home-networking-budget-2026.svg" alt="Three 10GbE homelab build tiers for 2026: point-to-point at about $65 with two used Mellanox ConnectX-3 cards and a DAC, a four-port MikroTik CRS305 switched fabric at about $280, and a six-to-eight node CRS309 cluster at about $520, plus the rule of thumb that spinning-disk NAS users should stay on 2.5GbE while NVMe NAS or Proxmox clusters benefit from 10G" width="1200" height="630" loading="eager" fetchpriority="high" style="display:block;margin:1.5rem auto;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;div class="verdict-card" style="border:1px solid #c8ff00;border-left:4px solid #c8ff00;border-radius:6px;padding:1.25rem 1.5rem;margin:1.5rem 0 2rem 0;background:rgba(200,255,0,0.04);">
+&lt;p style="margin:0 0 0.5rem 0;font-weight:700;color:#c8ff00;letter-spacing:0.04em;text-transform:uppercase;font-size:0.85rem;">TL;DR · The 10GbE call&lt;/p>
+&lt;ul style="margin:0.25rem 0 0 0;padding-left:1.25rem;line-height:1.55;">
+&lt;li>&lt;strong>Two machines, point-to-point (~$50):&lt;/strong> Two used &lt;strong>Mellanox ConnectX-3&lt;/strong> cards + a 1m DAC. No switch needed.&lt;/li>
+&lt;li>&lt;strong>Switched fabric, four nodes (~$200):&lt;/strong> Add a &lt;strong>MikroTik CRS305&lt;/strong> ($157) for four SFP+ ports.&lt;/li>
+&lt;li>&lt;strong>Spinning-disk NAS:&lt;/strong> Skip 10G. &lt;strong>2.5GbE&lt;/strong> is faster than your disks. Save the money.&lt;/li>
+&lt;li>&lt;strong>NVMe/SSD NAS or two-node Proxmox cluster:&lt;/strong> 10G pays off the first day.&lt;/li>
+&lt;li>&lt;strong>Cable choice:&lt;/strong> Passive &lt;strong>DAC&lt;/strong> under 5m. Fiber for longer runs or through walls.&lt;/li>
+&lt;/ul>
+&lt;p style="margin:0.75rem 0 0 0;font-size:0.9rem;color:#a0a0b8;">Used ConnectX-3 cards: $20–30 · 1m DAC: $12–20 · MikroTik CRS305: ~$140 · Plan around 6–9W idle draw per 10G NIC.&lt;/p>
+&lt;/div>
+&lt;p>The first time most homelabbers move a 60GB VM image between a Proxmox node and a NAS over a fresh 10G link, the transfer finishes before they can type the next command. Gigabit took minutes for the same file. That is what every homelabber chasing 10GbE is buying — the death of the wait. The interesting part in 2026 is how cheaply you can buy it.&lt;/p>
+&lt;p>Used enterprise SFP+ NICs that cost $40 in 2023 now drift between $20 and $30 on eBay as data centers dump ConnectX-3 and ConnectX-4 stock. The unmanaged 10G switch market finally has options under $200 that aren&amp;rsquo;t toys.&lt;/p>
+&lt;p>This guide walks the build from NIC to cable to switch, with real 2026 street prices, three honest tiers, the driver and thermal pitfalls nobody warns you about, and a verdict on who should bother.&lt;/p>
+&lt;h2 id="methodology-and-sources">Methodology and sources&lt;/h2>
+&lt;p>This guide is a research-based buying guide. Prices, power figures, driver behavior, and throughput numbers come from manufacturer specifications, used-market listings, and third-party review measurements — cited inline at each claim. Where a card, switch, or cable is recommended, the recommendation reflects the well-documented homelab consensus and published specs rather than a single bench run.&lt;/p>
+&lt;p>Primary sources used in this article:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>ServeTheHome&lt;/strong> — &lt;a href="https://www.servethehome.com/tag/10gbe/" rel="noopener">10GbE networking coverage&lt;/a> and &lt;a href="https://www.servethehome.com/category/networking/" rel="noopener">used-enterprise-gear buying guides&lt;/a>, the standard reference for budget homelab networking&lt;/li>
+&lt;li>&lt;strong>NVIDIA / Mellanox&lt;/strong> — &lt;a href="https://www.nvidia.com/en-us/networking/ethernet-adapters/" rel="noopener">ConnectX adapter product pages and spec sheets&lt;/a>&lt;/li>
+&lt;li>&lt;strong>Intel&lt;/strong> — &lt;a href="https://www.intel.com/content/www/us/en/products/details/ethernet.html" rel="noopener">Ethernet network adapter product briefs&lt;/a> for the X520/X540/X550/X710 families&lt;/li>
+&lt;li>&lt;strong>MikroTik / QNAP / TP-Link&lt;/strong> — official switch product pages, linked at each model below&lt;/li>
+&lt;li>&lt;strong>LINK-PP&lt;/strong> — &lt;a href="https://www.l-p.com/blog/sfp-vs-rj45-speed-distance-power-cost-deployment.htm" rel="noopener">SFP vs RJ45 power, distance, and cost analysis&lt;/a>&lt;/li>
+&lt;li>&lt;strong>r/homelab&lt;/strong> — &lt;a href="https://www.reddit.com/r/homelab/comments/15evqqz/10gbaset_vs_sfp_in_power_consumption_in_a_reality/" rel="noopener">community power-consumption measurements for SFP+ vs 10GBASE-T&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Last updated: 2026-06-10. Sources reviewed and current as of this date.&lt;/p>
+&lt;h2 id="why-10gbe-in-2026">Why 10GbE in 2026&lt;/h2>
+&lt;p>The &amp;ldquo;future-proofing&amp;rdquo; argument is dead. The case in 2026 is simpler: NVMe NAS pools and consumer ZFS arrays exceed 1 GB/s sequential trivially, and a gigabit link caps you at 125 MB/s — about an eighth of what the storage can deliver. Your network is the bottleneck before anything else.&lt;/p>
+&lt;p>Three workloads collapse the gigabit ceiling:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>VM storage on shared NAS.&lt;/strong> A live-migrating VM image saturates gigabit and stalls the cluster.&lt;/li>
+&lt;li>&lt;strong>Bulk archival pulls.&lt;/strong> Twenty terabytes across gigabit is a 48-hour job. Across 10G it&amp;rsquo;s six hours.&lt;/li>
+&lt;li>&lt;strong>Editing video off the NAS.&lt;/strong> 4K ProRes scrubs are a slideshow on gigabit, real-time on 10G.&lt;/li>
+&lt;/ul>
+&lt;p>If none of those describe your setup, 2.5GbE is the better answer. It&amp;rsquo;s baked into most motherboards since 2022, costs almost nothing, and gets you 312 MB/s — enough for any single-spinner array and most consumer NVMe shares.&lt;/p>
+&lt;h2 id="the-budget-bill-of-materials">The budget bill of materials&lt;/h2>
+&lt;p>A working 10GbE link needs five components. Get one wrong and the whole thing wastes money.&lt;/p>
+&lt;h3 id="nics">NICs&lt;/h3>
+&lt;p>The choice is between &lt;strong>SFP+ cards&lt;/strong> (modular: plug in a transceiver or DAC) and &lt;strong>RJ45 10GBASE-T cards&lt;/strong> (a fat copper jack). The homelab community landed on the same answer a decade ago: SFP+ wins on every axis except convenience.&lt;/p>
+&lt;p>Power draw is the headline. RJ45 10GBASE-T PHYs run hot — typically &lt;a href="https://www.l-p.com/blog/sfp-vs-rj45-speed-distance-power-cost-deployment.htm" rel="noopener">2 to 5 watts per port, more on older Intel X540 and X550 silicon that can pull close to 20W under load&lt;/a>. SFP+ NICs on passive DACs draw &lt;a href="https://www.reddit.com/r/homelab/comments/15evqqz/10gbaset_vs_sfp_in_power_consumption_in_a_reality/" rel="noopener">under 1W for the cage and 6–7W for the Mellanox ConnectX-3 controller, under 5W on an Intel X710&lt;/a>. Over a year of 24/7 operation that delta hits the power bill, and a bigger number in heat the chassis must dissipate.&lt;/p>
+&lt;p>The other reason to buy SFP+ is the used market. Cards I&amp;rsquo;d buy in 2026:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Mellanox ConnectX-3 (MCX311A / MCX312A)&lt;/strong> — single or dual SFP+, $20–$30 on eBay. In-tree on every modern Linux kernel via &lt;code>mlx4_en&lt;/code>, works on Proxmox, TrueNAS Scale, and FreeBSD without intervention. End-of-life from NVIDIA, but the hardware is bulletproof.&lt;/li>
+&lt;li>&lt;strong>Intel X520-DA1 / X520-DA2&lt;/strong> — the workhorse, $35–$50 used. Driver support is pristine on every OS including Windows. Intel firmware locks the cage to Intel optics; either buy Intel modules or &lt;a href="https://forums.servethehome.com/index.php?threads/patching-intel-x520-eeprom-to-unlock-all-sfp-transceivers.24634/" rel="noopener">run a one-time EEPROM patch that flips the bit at offset 0x58&lt;/a>. Five-minute fix with &lt;code>ethtool&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>Intel X710-DA2&lt;/strong> — newer, lower power (~5W), $80–$120 used. Worth the premium if power matters.&lt;/li>
+&lt;/ul>
+&lt;p>Skip ConnectX-2 (out of kernel) and Realtek 10G RJ45 cards (driver support is rough on anything that isn&amp;rsquo;t Windows).&lt;/p>
+&lt;h3 id="switches">Switches&lt;/h3>
+&lt;p>For a single point-to-point link between two machines, you don&amp;rsquo;t need a switch — two NICs, one DAC, static IPs, done. For three or more devices, see the comparison table below.&lt;/p>
+&lt;h3 id="transceivers-dacs-and-cabling">Transceivers, DACs, and cabling&lt;/h3>
+&lt;p>A 10GBASE-T transceiver in an SFP+ cage exists but is the worst of both worlds in 2026: costs more than a DAC, runs hot, and pulls &lt;a href="https://www.l-p.com/blog/sfp-vs-rj45-speed-distance-power-cost-deployment.htm" rel="noopener">around 2.5W per module, sometimes exceeding the SFP+ MSA spec&lt;/a>. Use one only if forced to bridge existing Cat6A.&lt;/p>
+&lt;p>A passive DAC — two SFP+ ends molded onto a stiff copper cable — is the right answer for runs under 5 meters every single time. &lt;a href="https://shop.netgate.com/products/10g-sfp-direct-attached-copper-twinax-passive-cable-3-meters" rel="noopener">3m passive 10G DACs sit around $15–$20 generic, $25–$35 name brand&lt;/a>, draw no power, no compatibility debugging.&lt;/p>
+&lt;p>Fiber comes in when the run exceeds DAC reach (5m passive, 10m active) or has to go through a wall. Generic 10GBASE-SR transceivers plus a 10m OM3 LC-LC cable run about $30 total. Single-brand both ends to avoid DDM warnings.&lt;/p>
+&lt;p>If you must use copper RJ45, Cat6A is the floor. &lt;a href="https://datawiresolutions.com/blog/cat6-vs-cat6a-when-it-matters" rel="noopener">Cat6 supports 10G only to about 55m under ideal conditions; Cat6A is rated for the full 100m&lt;/a>. Cat7 and Cat8 are mostly marketing for home use.&lt;/p>
+&lt;h2 id="three-realistic-budget-tiers">Three realistic budget tiers&lt;/h2>
+&lt;p>Pricing is May 2026, from active eBay listings and Newegg/Amazon/B&amp;amp;H. Pick the tier matching your blast radius, not what looks impressive on paper.&lt;/p>
+&lt;h3 id="the-300-tier--point-to-point-no-switch">The $300 tier — point-to-point, no switch&lt;/h3>
+&lt;p>Minimum viable 10G. Two machines, no third device.&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Item&lt;/th>
+&lt;th scope="col">Qty&lt;/th>
+&lt;th scope="col">Price&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Mellanox ConnectX-3 MCX311A (single port)&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>$50&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Generic 3m passive SFP+ DAC&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>$15&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Total&lt;/strong>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;strong>~$65&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Static IPs both ends, point a &lt;code>samba&lt;/code> mount or NFS export at it, done. Combined draw under 15W. This is the build to reach for with a single Proxmox host plus one TrueNAS box. The remaining $235 of the &amp;ldquo;tier&amp;rdquo; is whatever low-power switch already handles everything that isn&amp;rsquo;t this one fast link. Static IPs both ends and a single Cat6A run is the entire build.&lt;/p>
+&lt;h3 id="the-600-tier--three-to-four-10g-devices">The $600 tier — three to four 10G devices&lt;/h3>
+&lt;p>Now you need a switch. The MikroTik CRS305-1G-4S+IN is the answer.&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Item&lt;/th>
+&lt;th scope="col">Qty&lt;/th>
+&lt;th scope="col">Price&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>MikroTik CRS305-1G-4S+IN (4× SFP+ + 1× 1G mgmt)&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>$160&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Mellanox ConnectX-3 MCX311A&lt;/td>
+&lt;td>3&lt;/td>
+&lt;td>$75&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>3m passive SFP+ DACs&lt;/td>
+&lt;td>3&lt;/td>
+&lt;td>$45&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Total&lt;/strong>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;strong>~$280&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>&lt;em>Some links below are affiliate links; if you buy through them TechFuel HQ may earn a small commission at no extra cost to you. As an Amazon Associate I earn from qualifying purchases. Commissions never influence which products get recommended — see our &lt;a href="https://techfuelhq.com/disclosure/">disclosure&lt;/a>.&lt;/em>&lt;/p>
+&lt;p>Four SFP+ ports, fanless, dual-boot RouterOS or SwOS, idle power 8–10W. Currently &lt;a href="https://click.linksynergy.com/deeplink?id=CW4UrCo/56I&amp;amp;mid=44583&amp;amp;murl=https%3A%2F%2Fwww.newegg.com%2Fmikrotik-crs305-1g-4s-in%2Fp%2F0XP-002R-000H3" rel="nofollow sponsored noopener">$157 on Newegg&lt;/a>, within $10 of that for two years. The rest of the tier covers fiber runs, an extra DAC, and either a dual-port X710-DA2 or a &lt;a href="https://techfuelhq.com/homelab/best-mini-pcs-homelab-2026/">used 10G-capable mini PC for the rack&lt;/a>. What sits upstream of the switch is the next decision — the &lt;a href="https://techfuelhq.com/networking/homelab-firewall-router-stack-2026/">2026 homelab firewall and router stack comparison&lt;/a> covers pfSense, OPNsense, MikroTik RouterOS, and UniFi for the box that actually terminates the WAN.&lt;/p>
+&lt;h3 id="the-1000-tier--six-to-eight-10g-devices">The $1000 tier — six to eight 10G devices&lt;/h3>
+&lt;p>A small cluster. The QNAP QSW-308-1C bridges three SFP+ plus eight 1G copper for slow stuff, currently &lt;a href="https://priceinfo.eu/network-switches/qnap-qsw-308-1c?country=de" rel="noopener">$220–$235&lt;/a>. For SFP+ density, the TP-Link TL-SX1008 unmanaged 8-port 10GbE is the better answer if RJ45 is acceptable — about $400.&lt;/p>
+&lt;p>A reasonable $1000 tier:&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Item&lt;/th>
+&lt;th scope="col">Qty&lt;/th>
+&lt;th scope="col">Price&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>TP-Link TL-SX1008 (8× 10G RJ45 unmanaged)&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>$400&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Mellanox ConnectX-3 dual port (MCX312A)&lt;/td>
+&lt;td>4&lt;/td>
+&lt;td>$120&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SFP+ to 10GBASE-T transceivers (compatible)&lt;/td>
+&lt;td>4&lt;/td>
+&lt;td>$140&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Cat6A patch cables, 3m&lt;/td>
+&lt;td>8&lt;/td>
+&lt;td>$40&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Total&lt;/strong>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;strong>~$700&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Or, going pure SFP+ with a managed switch:&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Item&lt;/th>
+&lt;th scope="col">Qty&lt;/th>
+&lt;th scope="col">Price&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>MikroTik CRS309-1G-8S+IN (8× SFP+ managed)&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>$280&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ConnectX-3 single port&lt;/td>
+&lt;td>6&lt;/td>
+&lt;td>$150&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>3m DACs&lt;/td>
+&lt;td>6&lt;/td>
+&lt;td>$90&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Total&lt;/strong>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;strong>~$520&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Either build leaves $300+ for spares or that second-hand server. SFP+ wins every time on power and acoustics — the TL-SX1008 has a fan, the MikroTik doesn&amp;rsquo;t.&lt;/p>
+&lt;h2 id="budget-switch-comparison">Budget switch comparison&lt;/h2>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Switch&lt;/th>
+&lt;th scope="col">Ports&lt;/th>
+&lt;th scope="col">Form&lt;/th>
+&lt;th scope="col">Fan&lt;/th>
+&lt;th scope="col">Power (idle)&lt;/th>
+&lt;th scope="col">Mgmt&lt;/th>
+&lt;th scope="col">2026 price&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>MikroTik CRS305-1G-4S+IN&lt;/td>
+&lt;td>4× SFP+ + 1× 1G&lt;/td>
+&lt;td>Desktop&lt;/td>
+&lt;td>Fanless&lt;/td>
+&lt;td>~8W&lt;/td>
+&lt;td>Yes (SwOS/RouterOS)&lt;/td>
+&lt;td>&lt;a href="https://click.linksynergy.com/deeplink?id=CW4UrCo/56I&amp;amp;mid=44583&amp;amp;murl=https%3A%2F%2Fwww.newegg.com%2Fmikrotik-crs305-1g-4s-in%2Fp%2F0XP-002R-000H3" rel="nofollow sponsored noopener">$157&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>QNAP QSW-308-1C&lt;/td>
+&lt;td>3× SFP+ + 8× 1G&lt;/td>
+&lt;td>Desktop&lt;/td>
+&lt;td>Fanless&lt;/td>
+&lt;td>~12W&lt;/td>
+&lt;td>Unmanaged&lt;/td>
+&lt;td>&lt;a href="https://priceinfo.eu/network-switches/qnap-qsw-308-1c?country=de" rel="noopener">$220–$245&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MikroTik CRS309-1G-8S+IN&lt;/td>
+&lt;td>8× SFP+ + 1× 1G&lt;/td>
+&lt;td>Desktop&lt;/td>
+&lt;td>Fanless (passive)&lt;/td>
+&lt;td>~14W&lt;/td>
+&lt;td>Yes (SwOS/RouterOS)&lt;/td>
+&lt;td>$280&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>TP-Link TL-SX1008&lt;/td>
+&lt;td>8× 10GBASE-T&lt;/td>
+&lt;td>Desktop/rack&lt;/td>
+&lt;td>Active fan&lt;/td>
+&lt;td>~30W&lt;/td>
+&lt;td>Unmanaged&lt;/td>
+&lt;td>&lt;a href="https://www.tp-link.com/us/business-networking/soho-switch-unmanaged/tl-sx1008/" rel="noopener">~$400&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Three takeaways. SFP+ switches sit under 15W idle; the all-RJ45 switch is 2–4× that with an audible fan. MikroTik gives you management at every price point. None of these are truly cheap, but all four are dramatically cheaper than 24 months ago.&lt;/p>
+&lt;h2 id="common-pitfalls">Common pitfalls&lt;/h2>
+&lt;p>Five things that will eat a weekend if you&amp;rsquo;re not warned.&lt;/p>
+&lt;h3 id="heat-on-rj45-nics">Heat on RJ45 NICs&lt;/h3>
+&lt;p>An Intel X550-T2 in a midrange PCIe slot with no airflow throttles inside ten minutes under sustained load. The chip silently drops to 1G to save itself, and you won&amp;rsquo;t notice until the transfer crawls. Fix: a 40mm Noctua over the heatsink with thermal tape, or skip RJ45 entirely. SFP+ cards don&amp;rsquo;t have this problem — ConnectX-3 controllers run cool enough to touch.&lt;/p>
+&lt;h3 id="power-at-the-wall">Power at the wall&lt;/h3>
+&lt;p>The power gap between 10GBASE-T and SFP+ is large and well documented. A dual-port Intel X540-T2 idles in the mid-teens of watts, while a single-port Mellanox ConnectX-3 on a passive DAC sits around 5W per the &lt;a href="https://www.reddit.com/r/homelab/comments/15evqqz/10gbaset_vs_sfp_in_power_consumption_in_a_reality/" rel="noopener">r/homelab power-consumption measurements&lt;/a>. Across multiple cards running 24/7, that delta adds up on the power bill within roughly a year. The &lt;a href="https://www.l-p.com/blog/sfp-vs-rj45-speed-distance-power-cost-deployment.htm" rel="noopener">SFP vs RJ45 TCO deep-dive&lt;/a> is worth reading before you commit.&lt;/p>
+&lt;h3 id="driver-support-varies">Driver support varies&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Linux:&lt;/strong> ConnectX-3 (&lt;code>mlx4_en&lt;/code>), X520 (&lt;code>ixgbe&lt;/code>), X710 (&lt;code>i40e&lt;/code>) all in-tree, no DKMS. Realtek 8125B 2.5G is fine; Realtek 10G chipsets are not.&lt;/li>
+&lt;li>&lt;strong>Proxmox:&lt;/strong> Same as Linux. ConnectX-3 plus mellanox-firmware-tools handles everything. Don&amp;rsquo;t pass the NIC into a guest unless using SR-IOV — bridge it.&lt;/li>
+&lt;li>&lt;strong>TrueNAS Scale:&lt;/strong> Identical to Linux. Avoid OEM-rebadged firmware (HP, Dell, IBM) — cross-flash to generic Mellanox before installing.&lt;/li>
+&lt;li>&lt;strong>Windows 11:&lt;/strong> X520, X710, ConnectX-4 install via Windows Update. ConnectX-3 needs the &lt;a href="https://network.nvidia.com/products/adapter-software/ethernet/windows/winof-2/" rel="noopener">WinOF driver from NVIDIA&lt;/a> — use the 5.50 build, not 8.x.&lt;/li>
+&lt;li>&lt;strong>macOS:&lt;/strong> No first-party 10GbE NIC support on Apple Silicon. Buy a Thunderbolt-to-10GbE adapter (Sonnet Solo10G or OWC).&lt;/li>
+&lt;/ul>
+&lt;h3 id="vendor-lock-on-transceivers">Vendor lock on transceivers&lt;/h3>
+&lt;p>Intel X520 and Cisco-branded switches refuse non-OEM SFP+ modules out of the box. The X520 fix is the &lt;a href="https://forums.servethehome.com/index.php?threads/patching-intel-x520-eeprom-to-unlock-all-sfp-transceivers.24634/" rel="noopener">EEPROM patch script&lt;/a> — flip bit 0 at offset 0x58, reboot, the cage takes any module. MikroTik, QNAP, TP-Link, and Mellanox don&amp;rsquo;t lock at all, which is most of why the homelab world buys MikroTik over Cisco for SOHO.&lt;/p>
+&lt;h3 id="iperf3-doesnt-tell-the-whole-story">Iperf3 doesn&amp;rsquo;t tell the whole story&lt;/h3>
+&lt;p>A clean iperf3 run between two 10G NICs over a 3m DAC commonly reports in the 9.4–9.8 Gbps range — a result widely reproduced in &lt;a href="https://www.servethehome.com/tag/10gbe/" rel="noopener">ServeTheHome&amp;rsquo;s 10GbE testing&lt;/a>. Real-world SMB or NFS transfers will not match it. CPU bottlenecks, single-thread limits in &lt;code>smbd&lt;/code>, and MTU mismatches commonly pin throughput well below line rate until you tune. Set jumbo frames (MTU 9000) on every device, enable RSS, and consider NFS over SMB for VM storage paths.&lt;/p>
+&lt;h2 id="honest-verdict--who-should-and-shouldnt-bother">Honest verdict — who should and shouldn&amp;rsquo;t bother&lt;/h2>
+&lt;p>&lt;strong>Skip 10GbE if&lt;/strong> your storage is a single drive or mirrored spinners (you&amp;rsquo;ll never beat 200 MB/s, and 2.5GbE is $30 total), or your &amp;ldquo;homelab&amp;rdquo; is one Synology and a desktop, or you&amp;rsquo;re upgrading because YouTube told you to.&lt;/p>
+&lt;p>&lt;strong>Build the $300 point-to-point tier if&lt;/strong> you have one Proxmox or TrueNAS box and one workstation and actually move large files weekly. Highest ROI 10G build that exists.&lt;/p>
+&lt;p>&lt;strong>Build the $600 tier if&lt;/strong> you have three or four 10G-capable devices and at least one is a NAS that backs the others, or you&amp;rsquo;re consolidating onto Proxmox with VM storage on shared storage.&lt;/p>
+&lt;p>&lt;strong>Build the $1000 tier if&lt;/strong> you have six or more nodes running anything cluster-like — Ceph, Proxmox HA, distributed Plex/Jellyfin transcoding — or need management and VLANs.&lt;/p>
+&lt;p>The biggest mistake I see in homelab Discord threads is people buying RJ45 10GBASE-T because &amp;ldquo;Cat6 is in the wall already,&amp;rdquo; then complaining six months later about heat, fan noise, and the power bill. If you have any choice, buy SFP+ — cheaper hardware, bigger ecosystem, smaller power bill, and the used market keeps it that way.&lt;/p>
+&lt;p>10GbE used to be a luxury. In 2026 it&amp;rsquo;s a $65 weekend project.&lt;/p>
+&lt;h2 id="build-a-node-around-the-link">Build a node around the link&lt;/h2>
+&lt;p>Once the network is in, the bottleneck shifts to the box on either end. The &lt;a href="https://techfuelhq.com/tools/pc-builder/">TechFuelHQ PC Builder&lt;/a> is a free, open-source picker with real compatibility checks (socket, RAM type, PSU sizing, GPU clearance) and a CC BY 4.0 parts dataset. Pair it with the &lt;a href="https://techfuelhq.com/homelab/best-mini-pcs-homelab-2026/">mini-PC guide&lt;/a> if you want a 10G-capable hypervisor host that idles under 30W.&lt;/p>
+&lt;h2 id="related-guides">Related guides&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://techfuelhq.com/networking/mikrotik-crs305-review-2026/">MikroTik CRS305-1G-4S+IN Review (2026)&lt;/a> — the dedicated deep-dive on setup, SwOS vs RouterOS, and the honest drawbacks&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/homelab/best-mini-pcs-homelab-2026/">Best Mini PCs for a 2026 Homelab&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/networking/homelab-firewall-router-stack-2026/">The 2026 Homelab Firewall &amp;amp; Router Stack: pfSense vs OPNsense vs MikroTik vs UniFi&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/homelab/proxmox-truenas-unraid-storage-backend-2026/">Proxmox vs TrueNAS vs Unraid: 2026 Comparison&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/tools/pc-builder/">TechFuelHQ PC Builder — free compatibility-checked picker&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/pc-builds/">PC Builds Hub&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/tutorials/">Tutorials Hub&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="sources">Sources&lt;/h2>
+&lt;ul>
+&lt;li>LINK-PP, &amp;ldquo;SFP vs. RJ45 — Speed, Distance, Power, Cost &amp;amp; Deployment&amp;rdquo; (2026): &lt;a href="https://www.l-p.com/blog/sfp-vs-rj45-speed-distance-power-cost-deployment.htm" rel="noopener">https://www.l-p.com/blog/sfp-vs-rj45-speed-distance-power-cost-deployment.htm&lt;/a>&lt;/li>
+&lt;li>ServeTheHome forums, Intel X520 EEPROM patch thread (third-party SFP+ module support): &lt;a href="https://forums.servethehome.com/index.php?threads/patching-intel-x520-eeprom-to-unlock-all-sfp-transceivers.24634/" rel="noopener">https://forums.servethehome.com/index.php?threads/patching-intel-x520-eeprom-to-unlock-all-sfp-transceivers.24634/&lt;/a>&lt;/li>
+&lt;li>Reddit r/homelab, &amp;ldquo;10GBaseT vs SFP+ in power consumption — real measurements&amp;rdquo;: &lt;a href="https://www.reddit.com/r/homelab/comments/15evqqz/10gbaset_vs_sfp_in_power_consumption_in_a_reality/" rel="noopener">https://www.reddit.com/r/homelab/comments/15evqqz/10gbaset_vs_sfp_in_power_consumption_in_a_reality/&lt;/a>&lt;/li>
+&lt;li>Newegg, MikroTik CRS305-1G-4S+IN listing: &lt;a href="https://click.linksynergy.com/deeplink?id=CW4UrCo/56I&amp;amp;mid=44583&amp;amp;murl=https%3A%2F%2Fwww.newegg.com%2Fmikrotik-crs305-1g-4s-in%2Fp%2F0XP-002R-000H3" rel="nofollow sponsored noopener">https://click.linksynergy.com/deeplink?id=CW4UrCo/56I&amp;mid=44583&amp;murl=https%3A%2F%2Fwww.newegg.com%2Fmikrotik-crs305-1g-4s-in%2Fp%2F0XP-002R-000H3&lt;/a>&lt;/li>
+&lt;li>TP-Link, TL-SX1008 product page: &lt;a href="https://www.tp-link.com/us/business-networking/soho-switch-unmanaged/tl-sx1008/" rel="noopener">https://www.tp-link.com/us/business-networking/soho-switch-unmanaged/tl-sx1008/&lt;/a>&lt;/li>
+&lt;li>Priceinfo.eu, QNAP QSW-308-1C 2026 price tracking: &lt;a href="https://priceinfo.eu/network-switches/qnap-qsw-308-1c?country=de" rel="noopener">https://priceinfo.eu/network-switches/qnap-qsw-308-1c?country=de&lt;/a>&lt;/li>
+&lt;li>Data Wire Solutions, &amp;ldquo;Cat6 vs Cat6A for Homes &amp;amp; Small Offices&amp;rdquo; (2026): &lt;a href="https://datawiresolutions.com/blog/cat6-vs-cat6a-when-it-matters" rel="noopener">https://datawiresolutions.com/blog/cat6-vs-cat6a-when-it-matters&lt;/a>&lt;/li>
+&lt;li>Netgate, 3m SFP+ passive DAC product page: &lt;a href="https://shop.netgate.com/products/10g-sfp-direct-attached-copper-twinax-passive-cable-3-meters" rel="noopener">https://shop.netgate.com/products/10g-sfp-direct-attached-copper-twinax-passive-cable-3-meters&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

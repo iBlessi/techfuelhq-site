@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hardware Reviews on TechFuel HQ</title><link>https://techfuelhq.com/reviews/</link><description>Recent content in Hardware Reviews on TechFuel HQ</description><generator>Hugo</generator><language>en-us</language><managingEditor>LK Wood IV</managingEditor><lastBuildDate>Sat, 13 Jun 2026 00:00:00 -0500</lastBuildDate><atom:link href="https://techfuelhq.com/reviews/index.xml" rel="self" type="application/rss+xml"/><atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/><item><title>NZXT Kraken 360 Review: Long-Term on a Ryzen 7 7800X3D (2026)</title><link>https://techfuelhq.com/reviews/nzxt-kraken-360-review-2026/</link><pubDate>Fri, 19 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/reviews/nzxt-kraken-360-review-2026/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · 2026-06-19 · ~10 min read · St. Louis County, MO&lt;/p>
+&lt;img src="https://techfuelhq.com/images/reviews/nzxt-kraken-360-review-2026.svg" alt="NZXT Kraken 360 review rating card scoring 4.0 out of 5, with a key specifications panel listing the 394x120x27mm 360mm radiator, Asetek 7th-gen pump, three F120 RGB Core fans, 2.36-inch LCD pump display, AM5/AM4/LGA1700/LGA1851 sockets, and $179/$199 pricing" width="1200" height="630" loading="lazy" decoding="async" style="display:block;margin:1.5rem auto;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;p>&lt;strong>Rating: 4.0 / 5&lt;/strong>&lt;/p>
+&lt;p>I ran the NZXT Kraken 360 on a Ryzen 7 7800X3D inside a ROG STRIX B650-A build for an extended period before moving on to a different configuration. This isn&amp;rsquo;t a first-day review — it&amp;rsquo;s what happens after the novelty of the LCD display wears off and you start noticing the software.&lt;/p>
+&lt;p>The short answer: the Kraken 360 is a well-built, genuinely quiet 360mm AIO with a smooth installation and good thermals. NZXT CAM is the only meaningful problem, and it&amp;rsquo;s a real one if you care about background processes.&lt;/p>
+&lt;h2 id="what-nzxt-ships">What NZXT ships&lt;/h2>
+&lt;p>&lt;strong>The exact unit:&lt;/strong> this review covers the classic Kraken 360 with the 2.36-inch LCD pump display (the RL-KR360-W1 generation). Worth knowing before you shop: NZXT has since relaunched the Kraken line under a &lt;strong>Core / Plus / Elite&lt;/strong> naming scheme, so a 2026 search for &amp;ldquo;Kraken 360&amp;rdquo; returns the newer SKUs rather than the exact unit reviewed here. The pump platform (Asetek 7th-gen) and radiator carry over, but confirm the current product page matches the model you&amp;rsquo;re buying — the LCD-vs-static-ring split is the thing that changes between tiers.&lt;/p>
+&lt;p>&lt;strong>Hardware (per NZXT product page, accessed 2026-06):&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Radiator: 394 × 120 × 27 mm (360mm), aluminum&lt;/li>
+&lt;li>Pump head: 2.36-inch color LCD display (1080×1080 resolution on the Elite model)&lt;/li>
+&lt;li>Fans: 3× NZXT F120 RGB Core (120mm, 500–2400 RPM, 30.4 dBA max)&lt;/li>
+&lt;li>Pump: Asetek 7th-generation, 800–2800 RPM&lt;/li>
+&lt;li>TDP claim: NZXT rates the Kraken 360 for &amp;ldquo;up to 500W+TDP&amp;rdquo; (internal testing methodology — treat as relative, not absolute)&lt;/li>
+&lt;li>Included socket brackets: AM5, AM4, LGA1700, LGA1851&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Price (at time of purchase):&lt;/strong> $179 USD for the base Kraken 360 / $199 USD for the Kraken Elite 360.&lt;/p>
+&lt;h2 id="installation-on-am5">Installation on AM5&lt;/h2>
+&lt;p>Straightforward, but the stock AMD bracket must come out first — that&amp;rsquo;s the only extra step over an older platform install.&lt;/p>
+&lt;ol>
+&lt;li>Remove the stock AMD cooler bracket: four screws, retained from behind by a plastic backplate&lt;/li>
+&lt;li>Install the NZXT backplate from the rear of the motherboard&lt;/li>
+&lt;li>Thread in the four AM5 standoffs finger-tight, then snug with a small wrench&lt;/li>
+&lt;li>Apply thermal paste (I use a pea-sized dot of MX-6; NZXT includes their own TIM which is adequate)&lt;/li>
+&lt;li>Press the Kraken head onto the CPU, align the spring-loaded screws with the standoffs, and tighten cross-pattern&lt;/li>
+&lt;/ol>
+&lt;p>Radiator orientation: front intake (pulling cool air from outside the case through the radiator and pushing warm air into the case) or top exhaust (radiator exhausts hot air out the top of the case). For a build with a strong GPU producing heat inside the case, top exhaust is the better choice — it removes the heat without recirculating it past the radiator. The ROG STRIX B650-A&amp;rsquo;s layout (standard ATX) accommodates top-mount 360mm without clearance issues.&lt;/p>
+&lt;p>Total time: 10 minutes with the motherboard out of the case. If you&amp;rsquo;re doing a full build, it&amp;rsquo;s the first cooler part to install (backplate goes on before the board goes into the case).&lt;/p>
+&lt;h2 id="thermals-on-a-7800x3d">Thermals on a 7800X3D&lt;/h2>
+&lt;p>The Ryzen 7 7800X3D is a different thermal challenge than a high-TDP chip like the Ryzen 9 7950X or Intel i9-14900KS. Its 3D V-Cache stacks SRAM on top of the CPU die, which creates a thermal constraint: AMD&amp;rsquo;s own thermal throttle limit is 89°C on the 3D V-Cache tier. Above that, the chip reduces clock speeds to protect the cache.&lt;/p>
+&lt;p>The practical consequence: the 7800X3D benefits from a cooler that keeps it below 89°C under gaming load, but it doesn&amp;rsquo;t produce the kind of sustained 250–300W loads that stress-test premium AIOs. At its rated 162W PPT (max socket power), a 240mm AIO can keep it under the throttle threshold. A 360mm AIO gives more temperature headroom.&lt;/p>
+&lt;p>In my build — ROG STRIX B650-A, B650 chipset power delivery, Fractal case with airflow configuration — the 7800X3D stayed under 80°C during sustained gaming sessions with the fans at a curve that maxed at 1700 RPM. Under Cinebench R23 multi-core sustained for 10 minutes, it peaked at 84°C and maintained stable clocks. I did not observe thermal throttling during normal gaming workloads.&lt;/p>
+&lt;p>For independent sustained thermal measurements on the Kraken 360 across multiple CPU platforms, GamersNexus publishes AIO cooler reviews with controlled methodology — their data on Asetek 7th-gen performance is the benchmark I compare against.&lt;/p>
+&lt;h2 id="nzxt-cam-the-weak-link">NZXT CAM: the weak link&lt;/h2>
+&lt;p>CAM is NZXT&amp;rsquo;s proprietary software for controlling the pump, fans, and LCD. The functionality is solid — you can create custom fan curves, set up display pages showing CPU/GPU temp and usage, customize the ARGB ring, and monitor system stats.&lt;/p>
+&lt;p>The problem: CAM needs to run in the background for any of the display and RGB functionality to work. It&amp;rsquo;s an Electron-based application, which means on startup it uses more RAM and CPU than feels appropriate for a peripheral-control utility.&lt;/p>
+&lt;p>&lt;strong>What CAM requires:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Background process (~150 MB RAM, periodic CPU spikes on startup)&lt;/li>
+&lt;li>Login to an NZXT account for full feature access (offline mode limits some display options)&lt;/li>
+&lt;li>Windows only with full functionality; Linux has no native support&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>What works without CAM:&lt;/strong> basic pump and fan operation at defaults. The LCD shows the NZXT logo or a built-in temperature readout based on the pump head&amp;rsquo;s internal thermistor. Fans run at a built-in speed curve.&lt;/p>
+&lt;p>For a Windows gaming machine where CAM runs at startup and stays resident, this is a non-issue — you set it up once and forget it. For a build dual-booting Linux, or for someone who doesn&amp;rsquo;t want background software, the CAM dependency is a genuine negative.&lt;/p>
+&lt;p>ASUS Armory Crate and Corsair iCUE have the same pattern. NZXT CAM is not worse than the competition in this category — it&amp;rsquo;s just that all of them have this problem.&lt;/p>
+&lt;h2 id="pump-and-fan-noise">Pump and fan noise&lt;/h2>
+&lt;p>The pump: inaudible with the side panel on at any point during normal operation. I could not isolate it from case fan noise. This matches the behavior of Asetek 7th-gen units generally — the pump is not the noise concern with this cooler.&lt;/p>
+&lt;p>The fans: at default NZXT curves, the F120 RGB Core fans are quiet at light loads (under 1200 RPM) and audible under load when they spin up toward 2000+ RPM. The 30.4 dBA spec at max RPM is accurate in a controlled environment — in a room with normal ambient noise, the fans become noticeable above about 1800 RPM.&lt;/p>
+&lt;p>Custom curve I settled on: 800 RPM at 40°C, 1200 RPM at 60°C, 1600 RPM at 70°C, 1800 RPM max. At these speeds the fans are inaudible from 1 meter away with the case side on, and thermal performance on the 7800X3D was unchanged — a 360mm radiator at 1800 RPM is more than adequate for 162W.&lt;/p>
+&lt;h2 id="build-quality">Build quality&lt;/h2>
+&lt;p>Physical build quality is high. The radiator finish, pump head housing, and fan blade consistency are noticeably better than budget AIOs. The braided tubing has a solid feel and didn&amp;rsquo;t kink or stiffen over time. The LCD display glass is flush and scratch-resistant. The F120 fans have a consistent spin-up behavior and no blade wobble or grinding.&lt;/p>
+&lt;p>The only quality concern: the thermal paste pad that ships pre-applied on the Asetek head. I remove it and apply my own paste. The included pad performs adequately but unevenly — depending on how the head seats, coverage can be inconsistent. This is an Asetek packaging issue, not specific to NZXT.&lt;/p>
+&lt;h2 id="price-and-alternatives">Price and alternatives&lt;/h2>
+&lt;p>At $179 for the base Kraken 360, the value proposition is reasonable for the build quality and thermals. Comparable options:&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Cooler&lt;/th>
+&lt;th scope="col">Size&lt;/th>
+&lt;th scope="col">Key differentiator&lt;/th>
+&lt;th scope="col">Street price&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>NZXT Kraken 360&lt;/td>
+&lt;td>360mm&lt;/td>
+&lt;td>LCD display, premium finish&lt;/td>
+&lt;td>~$179&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Corsair iCUE H150i Elite LCD XT&lt;/td>
+&lt;td>360mm&lt;/td>
+&lt;td>Infinity mirror LCD&lt;/td>
+&lt;td>~$200&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DeepCool LT720&lt;/td>
+&lt;td>360mm&lt;/td>
+&lt;td>No LCD, lower price&lt;/td>
+&lt;td>~$110&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>be quiet! Pure Loop 360&lt;/td>
+&lt;td>360mm&lt;/td>
+&lt;td>Near-silent fans, no RGB&lt;/td>
+&lt;td>~$130&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Thermalright Frozen Prism 360&lt;/td>
+&lt;td>360mm&lt;/td>
+&lt;td>Best price-to-thermal&lt;/td>
+&lt;td>~$65&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>The Thermalright Frozen Prism 360 (no LCD, basic ARGB ring) competes on thermals at less than half the Kraken&amp;rsquo;s price. If the LCD display is not important to you, the Thermalright is a harder value to ignore. GamersNexus measured the Frozen Prism 360 as a top-tier thermal performer for its price class.&lt;/p>
+&lt;p>The Kraken 360 is worth the premium over the Thermalright if:&lt;/p>
+&lt;ul>
+&lt;li>You want the display for at-a-glance CPU/GPU monitoring without opening software&lt;/li>
+&lt;li>Build aesthetics matter and the NZXT industrial design fits the case&lt;/li>
+&lt;li>CAM running in the background is not a concern&lt;/li>
+&lt;/ul>
+&lt;h2 id="verdict">Verdict&lt;/h2>
+&lt;p>The Kraken 360 does what an AIO cooler is supposed to do: it keeps a demanding CPU cool, does it quietly, and doesn&amp;rsquo;t require setup beyond the initial configuration. On the 7800X3D, it&amp;rsquo;s more cooler than needed — the chip doesn&amp;rsquo;t push the AIO anywhere near its limits — which means there&amp;rsquo;s headroom for future platform upgrades if you build around it.&lt;/p>
+&lt;p>The LCD display is genuinely useful, not a gimmick. Having CPU temp and GPU temp visible on the pump head without opening a monitoring app is the kind of ambient information that actually gets used. The display implementation is good; the CAM software that drives it is adequate.&lt;/p>
+&lt;p>If you&amp;rsquo;re pricing AIOs for a 7800X3D specifically: a 240mm AIO is sufficient for that chip at any normal fan curve. The 360mm gives more headroom and flexibility. If you&amp;rsquo;re building around a higher-TDP chip like the Ryzen 9 7950X or Intel i9 series, the 360mm starts being necessary rather than optional.&lt;/p>
+&lt;p>&lt;strong>Rating: 4.0/5&lt;/strong> — Excellent hardware, middling software. The LCD earns the premium if you want it. The base Kraken 360 at its price is solid but has stiff competition from non-LCD alternatives at half the cost.&lt;/p>
+&lt;hr>
+&lt;p>&lt;em>For the full build this cooler shipped in, the &lt;a href="https://techfuelhq.com/reviews/rog-strix-b650a-review-2026/">ROG STRIX B650-A review&lt;/a> covers the motherboard. The &lt;a href="https://techfuelhq.com/tools/pc-builder/">PC Builder tool&lt;/a> checks socket and clearance compatibility for coolers against any AM5/LGA1700 board in the database.&lt;/em>&lt;/p></description></item><item><title>ROG STRIX B650-A Gaming WiFi Review: AM5 ATX for the Homelab</title><link>https://techfuelhq.com/reviews/rog-strix-b650a-review-2026/</link><pubDate>Fri, 19 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/reviews/rog-strix-b650a-review-2026/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · 2026-06-19 · ~11 min read · St. Louis County, MO&lt;/p>
+&lt;img src="https://techfuelhq.com/images/reviews/rog-strix-b650a-review-2026.svg" alt="ASUS ROG STRIX B650-A Gaming WiFi review card rated 4.2 out of 5, showing build context with a Ryzen 7 7800X3D and key specs: AM5 socket, AMD B650 chipset, ATX form factor, 12+2 teamed power stages, 4 DDR5 slots up to 192GB, a PCIe 4.0 x16 slot plus a 4.0 x4 chipset slot, three M.2 slots (one Gen5), 2.5GbE LAN and WiFi 6E" width="1200" height="630" loading="lazy" decoding="async" style="display:block;margin:1.5rem auto;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;p>&lt;strong>Rating: 4.2 / 5&lt;/strong>&lt;/p>
+&lt;p>The ROG STRIX B650-A was the board I ran under a Ryzen 7 7800X3D in my primary build for an extended period. It&amp;rsquo;s an ATX AM5 board at a price point ($279–319 at time of purchase) that competes against X670 non-E boards rather than budget B650M options. This review reflects real-world use rather than a synthetic first-look.&lt;/p>
+&lt;h2 id="specs-from-asus-product-page">Specs from ASUS product page&lt;/h2>
+&lt;p>&lt;em>(Per ASUS ROG STRIX B650-A product page, accessed 2026-06.)&lt;/em>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Socket:&lt;/strong> AM5 (LGA1718)&lt;/li>
+&lt;li>&lt;strong>Chipset:&lt;/strong> AMD B650&lt;/li>
+&lt;li>&lt;strong>Form factor:&lt;/strong> ATX (305 × 244 mm)&lt;/li>
+&lt;li>&lt;strong>Memory:&lt;/strong> 4× DDR5 DIMM, dual-channel, up to 192GB (unofficial Samsung B-die boards go higher), up to DDR5-8000+ OC&lt;/li>
+&lt;li>&lt;strong>Power delivery:&lt;/strong> 12+2 teamed power stages&lt;/li>
+&lt;li>&lt;strong>PCIe slots:&lt;/strong> PCIE_x16_1 (PCIe 4.0 x16, CPU), second x16-length slot (PCIe 4.0 x4 from the chipset, shares bandwidth with M.2_3), 2× PCIe 4.0 x1&lt;/li>
+&lt;li>&lt;strong>M.2 slots:&lt;/strong> 3× (M.2_1 PCIe 5.0 x4, M.2_2 PCIe 4.0 x4, M.2_3 PCIe 4.0 x4 — shares bandwidth with the second x16-length slot)&lt;/li>
+&lt;li>&lt;strong>USB (rear I/O):&lt;/strong> 2× USB 3.2 Gen 2x2 (20 Gbps), 2× USB 3.2 Gen 2 (10 Gbps), 2× USB 3.2 Gen 1 (5 Gbps), 2× USB 2.0; 1× USB 3.2 Gen 2 Type-C&lt;/li>
+&lt;li>&lt;strong>LAN:&lt;/strong> Intel I226-V (2.5 GbE)&lt;/li>
+&lt;li>&lt;strong>WiFi:&lt;/strong> Intel AX210 (WiFi 6E, Bluetooth 5.3)&lt;/li>
+&lt;li>&lt;strong>Audio:&lt;/strong> SupremeFX ALC4082, SABRE9018Q2C DAC&lt;/li>
+&lt;li>&lt;strong>Display output:&lt;/strong> HDMI 2.1, DisplayPort 1.4 (for integrated graphics / APU use)&lt;/li>
+&lt;/ul>
+&lt;h2 id="power-delivery-for-the-7800x3d">Power delivery for the 7800X3D&lt;/h2>
+&lt;p>The B650-A&amp;rsquo;s 12+2 teamed power delivery is more than the 7800X3D requires. The chip&amp;rsquo;s max socket power (PPT) is 162W — AMD rates the TDP at 120W — with typical gaming loads running closer to 100–130W. The 12+2 configuration means the 7800X3D&amp;rsquo;s power draw is split across enough phases that no single phase runs hot.&lt;/p>
+&lt;p>Under sustained Cinebench R23 multi-core loads (which push the 7800X3D to its sustained limits), the VRM heatsink on the B650-A stayed below the concerning threshold. Under normal gaming loads — which is what the 7800X3D is built for — the power delivery was a non-event. For an X3D chip, B650 power delivery is sufficient by a wide margin.&lt;/p>
+&lt;p>If you&amp;rsquo;re considering this board for a 7950X or 7900X (AMD&amp;rsquo;s higher-TDP flagship chips), the 12+2 teamed stages are adequate but the thermal situation gets tighter under sustained AVX workloads. The B650-A is not the wrong choice for those chips, but the premium X670E boards have more headroom.&lt;/p>
+&lt;h2 id="ddr5-tuning-with-expo">DDR5 tuning with EXPO&lt;/h2>
+&lt;p>EXPO (AMD&amp;rsquo;s equivalent to Intel&amp;rsquo;s XMP for DDR5) posted first-time with my own DDR5-6000 kit, and the board&amp;rsquo;s QVL covers the common DDR5-6000/6400 CL30–32 families from Corsair, G.Skill, and Kingston. Enable EXPO in BIOS → Ai Tweaker → Ai Overclock Tuner.&lt;/p>
+&lt;p>ASUS&amp;rsquo;s Ai Tweaker UI is the best RAM timing interface on any AM5 board. Subtimings are individually accessible with descriptions, the memory training log is readable, and the BIOS saves manual overrides reliably across reboots. X670E Extreme boards have more advanced Curve Optimizer tools, but for DDR5 tuning at the EXPO profile level, the B650-A is equivalent.&lt;/p>
+&lt;p>One note: DDR5-6000 is the sweet spot for Ryzen 7000/9000 series. AMD&amp;rsquo;s memory controller in AM5 chips runs best with EXPO profiles at DDR5-6000 (1:1 fabric ratio). DDR5-6400 and above often requires loosening subtimings to maintain stability, and the bandwidth gain over 6000 is minimal. The B650-A&amp;rsquo;s memory training handles 6000 EXPO kits first-boot; 6400+ EXPO kits sometimes need a training cycle.&lt;/p>
+&lt;h2 id="pcie-layout-for-homelab-and-multi-device-builds">PCIe layout for homelab and multi-device builds&lt;/h2>
+&lt;p>The slot layout matters more than it sounds. Most ATX AM5 boards have:&lt;/p>
+&lt;ul>
+&lt;li>Slot 1: PCIe 4.0 x16 (GPU)&lt;/li>
+&lt;li>Slot 2: PCIe 4.0 x4 (second card, labeled as x16)&lt;/li>
+&lt;li>Slot 3: PCIe 4.0 x1&lt;/li>
+&lt;/ul>
+&lt;p>For a build pairing a primary GPU with a 10GbE NIC (Mellanox ConnectX-3, Intel X550, etc.), the B650-A&amp;rsquo;s PCIE_x16_2 at PCIe 4.0 x4 is sufficient — a 10GbE NIC saturates at under 10 Gbps bidirectional, which is well within the ~64 Gbps raw ceiling of PCIe 4.0 x4. No bandwidth limitation exists in practice.&lt;/p>
+&lt;p>For a build running a GPU plus a PCIe 4.0 x4 NVMe expansion card (adding SSD slots for a NAS-style build), same logic applies.&lt;/p>
+&lt;p>One limitation: PCIE_x16_2 shares bandwidth with M.2 slot 3. When a card is installed in PCIE_x16_2, M.2 slot 3 may disable depending on the configuration. Check the ASUS manual for the sharing rules before planning a build that uses both simultaneously.&lt;/p>
+&lt;h2 id="bios-quality">BIOS quality&lt;/h2>
+&lt;p>BIOS quality is where ASUS earns its premium over competing B650 boards. The ROG STRIX B650-A shipped with BIOS 1404 and received updates through the 2400-series by 2026. Key positives:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>EXPO implementation:&lt;/strong> reliable first-boot memory training, no repeated failed boots&lt;/li>
+&lt;li>&lt;strong>Fan control:&lt;/strong> per-header curves, temperature source selectable per header (CPU package, CPU socket, VRM, etc.)&lt;/li>
+&lt;li>&lt;strong>POST time:&lt;/strong> about 25–30 seconds cold boot with DDR5-6000 EXPO kit — slightly longer than B550 era but normal for DDR5 training&lt;/li>
+&lt;li>&lt;strong>Secure Boot:&lt;/strong> fully compatible with Windows 11 and easy to configure for Linux dual-boot&lt;/li>
+&lt;/ul>
+&lt;p>Negatives:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>AI Overclocking (AiO, ASUS&amp;rsquo;s automated OC):&lt;/strong> marketing feature. The AI overclock profiles apply preset PBO values that you can configure manually in 10 minutes. It&amp;rsquo;s not generating novel configurations; it&amp;rsquo;s selecting from a table.&lt;/li>
+&lt;li>&lt;strong>BIOS interface at 4K:&lt;/strong> the ASUS BIOS does not scale to 4K monitors cleanly when connected during POST. It renders at a fixed resolution that looks blurry on large displays. This is an industry-wide problem, not B650-A-specific, but it&amp;rsquo;s annoying on a 4K setup.&lt;/li>
+&lt;/ul>
+&lt;h2 id="build-quality-and-io">Build quality and I/O&lt;/h2>
+&lt;p>The rear I/O shield is integrated into the board — no separate I/O plate to install, which is now standard on premium boards. The included 2× USB 3.2 Gen 2×2 (20 Gbps) ports are useful for fast external SSDs; not something every B650 board includes.&lt;/p>
+&lt;p>The M.2 Shield (thermal covers for the M.2 slots) are well-designed — tool-less removal for slots 2 and 3, single-screw removal for slot 1. Drive installation is easier than any previous AM4 board I&amp;rsquo;ve used with non-standard M.2 retention mechanisms.&lt;/p>
+&lt;p>Audio (SupremeFX ALC4082 + ESS SABRE DAC): noticeably better than the typical Realtek implementation. Negligible noise floor for the headphone amplifier out of the rear audio jack. If you&amp;rsquo;re running a DAC externally (USB or optical), this doesn&amp;rsquo;t matter — but for a build where you occasionally plug headphones directly into the PC, the B650-A&amp;rsquo;s onboard audio is better than you&amp;rsquo;d expect from a gaming board.&lt;/p>
+&lt;h2 id="what-asus-got-wrong">What ASUS got wrong&lt;/h2>
+&lt;p>&lt;strong>Aura Sync RGB:&lt;/strong> the addressable RGB headers (2× ARGB) and standard RGB header work fine, but Aura Sync — ASUS&amp;rsquo;s software for coordinating RGB across components — is another background-process-heavy utility like NZXT CAM. If you&amp;rsquo;re not invested in RGB coordination across an ASUS ecosystem, the Aura Sync software is usable only at startup and then killed.&lt;/p>
+&lt;p>&lt;strong>Fan header placement:&lt;/strong> the CPU fan header and CPU OPT header are both at the top of the board near the CPU socket. Three of the chassis fan headers are at the bottom of the board. Routing cables from bottom case fans to bottom-board headers is fine, but routing the AIO pump (which goes to CPU OPT) down from a top-mounted radiator means cable management gets complicated in some cases.&lt;/p>
+&lt;p>&lt;strong>Quantity of bundled connectors:&lt;/strong> the B650-A ships with ARGB splitter cables and fan extension cables but no M.2 drive screws. If you plan to populate all three M.2 bays with 2280 drives, confirm each bay&amp;rsquo;s mounting screw is present before build day.&lt;/p>
+&lt;h2 id="versus-the-competition">Versus the competition&lt;/h2>
+&lt;p>At the B650 ATX tier ($200–320):&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Board&lt;/th>
+&lt;th scope="col">Key differentiator&lt;/th>
+&lt;th scope="col">Street&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>ASUS ROG STRIX B650-A&lt;/td>
+&lt;td>12+2 teamed VRM, best BIOS UI, WiFi 6E&lt;/td>
+&lt;td>~$280&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MSI MAG B650 TOMAHAWK&lt;/td>
+&lt;td>16+2+1 VRM, more fan headers, no WiFi&lt;/td>
+&lt;td>~$210&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Gigabyte B650 AORUS Elite AX&lt;/td>
+&lt;td>Solid VRM, onboard WiFi, slightly lower build quality&lt;/td>
+&lt;td>~$220&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ASRock B650E Taichi&lt;/td>
+&lt;td>Premium build, 24+2+1 VRM, Thunderbolt 4&lt;/td>
+&lt;td>~$340&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>The MSI TOMAHAWK is the strongest value competition — its 16+2+1 VRM has higher total thermal capacity than the B650-A&amp;rsquo;s 12+2 teamed configuration (though both handle the 7800X3D without strain), and its fan header count is higher. The TOMAHAWK trades the B650-A&amp;rsquo;s BIOS quality and WiFi inclusion for lower cost.&lt;/p>
+&lt;p>For a homelab builder where BIOS stability and RAM tuning reliability matter, the B650-A justifies its premium over the TOMAHAWK. For a dedicated gaming build where BIOS tinkering is minimal, the TOMAHAWK at $60 less is harder to argue against.&lt;/p>
+&lt;h2 id="verdict">Verdict&lt;/h2>
+&lt;p>The ROG STRIX B650-A is the right board if you&amp;rsquo;re building an AM5 ATX system with a Ryzen 7 7800X3D and want reliable EXPO memory training, good power delivery, and ASUS&amp;rsquo;s BIOS — which remains the best DDR5 tuning interface on any AM5 platform. The WiFi 6E inclusion and premium I/O (20 Gbps USB) add value without requiring you to buy a more expensive X670 board.&lt;/p>
+&lt;p>It&amp;rsquo;s not perfect — Aura Sync is unavoidable if you use ARGB headers, the fan header placement requires cable routing decisions, and the AI overclocking marketing overstates what the feature actually does. But the fundamentals are strong, and a board you can trust to boot reliably with a loaded DDR5 kit is worth something.&lt;/p>
+&lt;p>&lt;strong>Rating: 4.2/5.&lt;/strong> Recommended for AM5 ATX builds pairing a 7000/9000-series CPU with a 360mm AIO and DDR5-6000 memory. The BIOS alone is worth the premium over budget B650 boards.&lt;/p>
+&lt;hr>
+&lt;p>&lt;em>The &lt;a href="https://techfuelhq.com/reviews/nzxt-kraken-360-review-2026/">NZXT Kraken 360 review&lt;/a> covers the cooler this board ran under. For a full system build around the 7800X3D platform, the &lt;a href="https://techfuelhq.com/tools/pc-builder/">PC Builder tool&lt;/a> checks socket, RAM slot, and PCIe slot compatibility. For repurposing this class of hardware as a Proxmox server when upgrading, the &lt;a href="https://techfuelhq.com/articles/repurpose-gaming-pc-proxmox-server-2026/">repurpose gaming PC guide&lt;/a> covers the full Proxmox setup from an existing desktop.&lt;/em>&lt;/p></description></item><item><title>EVGA SuperNOVA 1000 GT Review: Gold PSU After the GPU Exit</title><link>https://techfuelhq.com/reviews/evga-supernova-1000-gt-review-2026/</link><pubDate>Thu, 18 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/reviews/evga-supernova-1000-gt-review-2026/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · 2026-06-18 · ~9 min read · St. Louis County, MO&lt;/p>
+&lt;img src="https://techfuelhq.com/images/reviews/evga-supernova-1000-gt-review-2026.svg" alt="EVGA SuperNOVA 1000 GT review card rated 4.3 out of 5, with key specs: 1000W capacity, 80 Plus Gold efficiency, fully modular cabling, Seasonic Focus GX-derived platform, 135mm FDB zero-RPM fan, 2x 8-pin and 4x 6+2 connectors, and a 10-year warranty whose current service support is unverified" width="1200" height="630" loading="eager" fetchpriority="high" style="display:block;margin:1.5rem auto;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;p>&lt;strong>Rating: 4.3 / 5&lt;/strong>&lt;/p>
+&lt;p>The EVGA SuperNOVA 1000 GT is one of the better PSUs I&amp;rsquo;ve used. It&amp;rsquo;s also made by a company that exited the GPU market in 2022 and has wound down sharply since. These two facts both matter, and the degree to which the second should affect your purchasing decision depends on how much warranty coverage is worth to you.&lt;/p>
+&lt;p>I ran the SuperNOVA 1000 GT in my primary build — Ryzen 7 7800X3D, ROG Astral RTX 5080 OC, ROG STRIX B650-A, 64GB DDR5 — for an extended period. This is the review that follows real use.&lt;/p>
+&lt;h2 id="what-evga-shipped">What EVGA shipped&lt;/h2>
+&lt;p>&lt;strong>Published specifications (per EVGA&amp;rsquo;s published product specifications):&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Capacity: 1000W&lt;/li>
+&lt;li>Efficiency rating: 80 Plus Gold&lt;/li>
+&lt;li>Modular: fully modular&lt;/li>
+&lt;li>Fan: 135mm FDB bearing, zero-RPM mode up to 40% load&lt;/li>
+&lt;li>ATX connector: 1× 24-pin&lt;/li>
+&lt;li>EPS/CPU connectors: 2× 8-pin (4+4)&lt;/li>
+&lt;li>PCIe connectors: 4× 6+2 pin (plus the SuperNOVA 1000 GT shipped with a 12VHPWR adapter for NVIDIA RTX 40-series and later GPUs)&lt;/li>
+&lt;li>Warranty: 10 years (verify current EVGA warranty support before relying on it)&lt;/li>
+&lt;li>Dimensions: 160mm depth (ATX standard)&lt;/li>
+&lt;li>Platform: Seasonic Focus GX-derived&lt;/li>
+&lt;/ul>
+&lt;p>The fully modular design is meaningful in practice. Unused cables stay in the bag, cable routing in the case is cleaner, and if a cable fails, you replace the cable rather than the PSU. The SuperNOVA GT series was consistently recommended over the GQ (semi-modular) line for this reason.&lt;/p>
+&lt;h2 id="efficiency-in-practice">Efficiency in practice&lt;/h2>
+&lt;p>80 Plus Gold means at least 87% efficiency at 20% load, 90% at 50% load, and 87% at 100% load (at 115V AC per 80 Plus specification). The Seasonic Focus GX platform consistently measures at or slightly above rated efficiency in third-party testing.&lt;/p>
+&lt;p>At my typical gaming load (~450W combined system draw), the 1000 GT runs at 45% utilization — squarely in its efficiency sweet spot. A Seasonic Focus GX-1000 measured at Cybenetics labs shows roughly 91–92% efficiency at the 50% load point. I use this as a proxy for the SuperNOVA GT given the shared platform, not as a direct measured spec for the EVGA unit.&lt;/p>
+&lt;p>At the &lt;a href="https://techfuelhq.com/tools/power-cost-calculator/">Power &amp;amp; Cost Calculator&lt;/a>: a gaming PC pulling 450W at the wall for 4 hours a day at $0.13/kWh costs about $7/month in electricity, or roughly $85/year. That calculator models draw measured at the wall and has no PSU-efficiency field, so enter what a meter reports rather than an efficiency-adjusted figure. The Gold-versus-Bronze gap is smaller than it sounds at this duty cycle: 450W of DC load pulls about 495W at 91% efficiency against about 529W at 85%, a 35W delta worth roughly $0.55/month. Real across a decade of ownership, invisible on any single bill.&lt;/p>
+&lt;h2 id="zero-rpm-mode">Zero-RPM mode&lt;/h2>
+&lt;p>The SuperNOVA 1000 GT runs its fan in zero-RPM mode below approximately 400W (40% load). At typical gaming loads with a 7800X3D and RTX 5080, the fan spins but spins slowly — it&amp;rsquo;s one of the quieter components in the build. At idle or light workloads, the PSU is completely silent.&lt;/p>
+&lt;p>Zero-RPM mode does mean the PSU runs hotter at low load than a fan-always-on unit, but PSU temperature at idle load is well within the operating spec. It&amp;rsquo;s a design tradeoff that optimizes for acoustics at the cost of slightly elevated idle temperatures. For a desktop build with reasonable case airflow, it&amp;rsquo;s the right tradeoff.&lt;/p>
+&lt;h2 id="cabling-pcie-and-12vhpwr">Cabling: PCIe and 12VHPWR&lt;/h2>
+&lt;p>The SuperNOVA 1000 GT ships with four 6+2 PCIe cables and a 12VHPWR adapter (the 16-pin connector introduced with NVIDIA RTX 40-series and used on RTX 50-series). The 12VHPWR adapter is a passive cable that converts two 8-pin PCIe connectors to a single 12VHPWR.&lt;/p>
+&lt;p>On an RTX 5080, which uses the 16-pin 12VHPWR connector directly: the adapter works, but a native 12VHPWR cable is preferable. The adapter creates an extra connection point, and NVIDIA&amp;rsquo;s own adapter guidance recommends native 12VHPWR cables where available. This is a solved problem on any PSU purchased after 2023 — new units ship with native 12VHPWR cables. The SuperNOVA 1000 GT predates this connector and uses the adapter approach.&lt;/p>
+&lt;p>If you run an RTX 50-series card with a SuperNOVA GT, the adapter is fine. Just route it cleanly so the cable doesn&amp;rsquo;t stress the connector. JonnyGURU&amp;rsquo;s documentation of the 12VHPWR cable fires (now archived) traced failures to bent connectors and poor cable routing, not the adapter design itself.&lt;/p>
+&lt;h2 id="eps--cpu-power">EPS / CPU power&lt;/h2>
+&lt;p>The 1000 GT includes two 4+4 EPS connectors for CPU power. The Ryzen 7 7800X3D at 162W PPT (max socket power) uses one 8-pin connector at well under 10A on the 12V rail. The second EPS cable stays unused for an AM5 build. For high-TDP Intel builds (i9-14900KS, i9-13900KS) that can draw 250–300W through the CPU power connectors, both EPS cables are used and the 1000W capacity is still appropriate.&lt;/p>
+&lt;h2 id="the-evga-situation-what-it-means-for-buyers">The EVGA situation: what it means for buyers&lt;/h2>
+&lt;p>EVGA announced in September 2022 that it would stop producing NVIDIA graphics cards, citing frustration with NVIDIA&amp;rsquo;s business practices. That announcement was about the GPU line specifically; EVGA kept selling power supplies and other products afterward. The company has wound down steadily since, and its current warranty service for hardware is limited and hard to confirm in 2026 — so the practical advice is to verify coverage before you count on it.&lt;/p>
+&lt;p>&lt;strong>For units bought before September 2022:&lt;/strong> EVGA honored warranty claims for a period after the exit announcement. Whether that coverage is still serviced today is uncertain — confirm with EVGA before treating the 10-year warranty as a guaranteed benefit.&lt;/p>
+&lt;p>&lt;strong>For units bought new-in-box after September 2022 (from retail stock):&lt;/strong> treat warranty support as unverified. The box says 10 years; check with EVGA whether that coverage is still honored before you rely on it.&lt;/p>
+&lt;p>&lt;strong>For used units:&lt;/strong> no transferable warranty, obviously. Price accordingly.&lt;/p>
+&lt;p>The hardware itself doesn&amp;rsquo;t change based on EVGA&amp;rsquo;s corporate situation. A well-made PSU in the 1000 GT class will run for 8–12 years without failure in a desktop build that doesn&amp;rsquo;t have cooling issues. The risk you&amp;rsquo;re absorbing without a warranty is that if it fails inside what would have been the warranty window, you buy a replacement.&lt;/p>
+&lt;h2 id="what-to-buy-instead-if-warranty-matters">What to buy instead (if warranty matters)&lt;/h2>
+&lt;p>Current alternatives at the 1000W Gold tier with active warranties:&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">PSU&lt;/th>
+&lt;th scope="col">Efficiency&lt;/th>
+&lt;th scope="col">Warranty&lt;/th>
+&lt;th scope="col">Approximate street&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Corsair RM1000x (2024 rev)&lt;/td>
+&lt;td>80+ Gold&lt;/td>
+&lt;td>10 years&lt;/td>
+&lt;td>~$150&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Seasonic Focus GX-1000&lt;/td>
+&lt;td>80+ Gold&lt;/td>
+&lt;td>12 years&lt;/td>
+&lt;td>~$170&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>be quiet! Straight Power 12 1000W&lt;/td>
+&lt;td>80+ Gold&lt;/td>
+&lt;td>10 years&lt;/td>
+&lt;td>~$160&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Fractal Design Ion+ 1000W&lt;/td>
+&lt;td>80+ Platinum&lt;/td>
+&lt;td>10 years&lt;/td>
+&lt;td>~$180&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Cooler Master V1000 Gold&lt;/td>
+&lt;td>80+ Gold&lt;/td>
+&lt;td>10 years&lt;/td>
+&lt;td>~$130&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>The Corsair RM1000x (2024 revision) is the most direct comparable — fully modular, 80 Plus Gold, 10-year warranty, available from active stock. It&amp;rsquo;s slightly more expensive than a SuperNOVA 1000 GT found new-in-box but comes with warranty coverage that actually exists. For how all of these rank against the wider current market — with each placement sourced to a professional test — see our &lt;a href="https://techfuelhq.com/articles/psu-tier-list/">PSU tier list&lt;/a>.&lt;/p>
+&lt;h2 id="verdict">Verdict&lt;/h2>
+&lt;p>The SuperNOVA 1000 GT hardware is excellent and I&amp;rsquo;d use it again in a build where warranty coverage isn&amp;rsquo;t the deciding factor. Fully modular, quiet, efficient, right-sized for an RTX 5080 + Ryzen 7 7800X3D build, and well-built enough to outlast most of the components it powers.&lt;/p>
+&lt;p>The warranty situation is the only reason to hesitate. If you find a SuperNOVA 1000 GT new-in-box for $100 or less, or used in verifiably good condition for $70–80, the hardware justifies the purchase. If price parity exists with a RM1000x or Seasonic Focus GX, buy the warranted unit.&lt;/p>
+&lt;p>&lt;strong>Rating: 4.3/5&lt;/strong> — top-tier hardware from a company whose ongoing support is uncertain. Buy at a discount and verify warranty coverage; buy a warranted competitor at parity.&lt;/p>
+&lt;hr>
+&lt;p>&lt;em>For the full build this PSU shipped in, the &lt;a href="https://techfuelhq.com/reviews/rog-strix-b650a-review-2026/">ROG STRIX B650-A review&lt;/a> covers the platform. To size a PSU for your specific build, the &lt;a href="https://techfuelhq.com/tools/psu-wattage-calculator/">PSU Wattage Calculator&lt;/a> gives you peak draw, minimum recommended size, and the efficiency sweet-spot size. To calculate how a 1000W unit affects your electricity bill vs. a 750W, the &lt;a href="https://techfuelhq.com/tools/power-cost-calculator/">Power &amp;amp; Cost Calculator&lt;/a> models PSU efficiency at real load points.&lt;/em>&lt;/p></description></item><item><title>Samsung 970 EVO Plus 1TB Review (2026): A PCIe 3.0 Keeper</title><link>https://techfuelhq.com/reviews/samsung-970-evo-plus-1tb-review-2026/</link><pubDate>Thu, 18 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/reviews/samsung-970-evo-plus-1tb-review-2026/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · 2026-06-18 · ~8 min read · St. Louis County, MO&lt;/p>
+&lt;img src="https://techfuelhq.com/images/reviews/samsung-970-evo-plus-1tb-review-2026.svg" alt="Samsung 970 EVO Plus 1TB review card rated 4.2 out of 5, with key specifications: PCIe 3.0 x4 NVMe 1.3 interface, 3,500/3,300 MB/s sequential read/write, 600K/550K random read/write IOPS, LPDDR4 DRAM cache, 600 TBW endurance, and 5-year warranty" width="1200" height="630" loading="eager" fetchpriority="high" style="display:block;margin:1.5rem auto;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;p>The Samsung 970 EVO Plus came out in 2019. It runs in my daily machine in 2026 alongside a Ryzen 7 7800X3D and an RTX 5080. At some point, most people with older NVMe drives wonder whether they&amp;rsquo;re leaving performance on the table by not upgrading. Here&amp;rsquo;s the honest answer from running this drive for years: probably not.&lt;/p>
+&lt;h2 id="the-hardware-briefly">The hardware, briefly&lt;/h2>
+&lt;p>Samsung&amp;rsquo;s 970 EVO Plus uses 92-layer V-NAND TLC NAND with Samsung&amp;rsquo;s in-house Phoenix controller and LPDDR4 DRAM cache. The 1TB variant is rated at:&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Spec&lt;/th>
+&lt;th scope="col">Value&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Interface&lt;/td>
+&lt;td>PCIe 3.0 × 4, NVMe 1.3&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Sequential read&lt;/td>
+&lt;td>3,500 MB/s&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Sequential write&lt;/td>
+&lt;td>3,300 MB/s&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Random read (4KB)&lt;/td>
+&lt;td>600,000 IOPS&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Random write (4KB)&lt;/td>
+&lt;td>550,000 IOPS&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DRAM cache&lt;/td>
+&lt;td>Yes (LPDDR4)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Endurance&lt;/td>
+&lt;td>600 TBW&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Warranty&lt;/td>
+&lt;td>5 years&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Form factor&lt;/td>
+&lt;td>M.2 2280&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Source: &lt;a href="https://web.archive.org/web/20240117040130/https://semiconductor.samsung.com/consumer-storage/internal-ssd/970evoplus/" rel="noopener">Samsung&amp;rsquo;s official 970 EVO Plus specification page, archived January 2024&lt;/a>. Samsung has since retired the live product page for this discontinued drive, so the archived copy is the citable primary source; every figure in the table above appears on it.&lt;/p>
+&lt;p>The random IOPS numbers matter more than the sequential numbers for everything except file transfers and large data workloads. Game load times, application launches, OS responsiveness — these are IOPS workloads, not sequential workloads. The 970 EVO Plus&amp;rsquo;s 600K/550K IOPS puts it in a range where it is not the bottleneck in any typical gaming or desktop workflow.&lt;/p>
+&lt;h2 id="real-world-use-as-a-boot-drive">Real-world use as a boot drive&lt;/h2>
+&lt;p>This drive holds Windows and my game library in a &lt;a href="https://techfuelhq.com/pc-builds/2500-dollar-7800x3d-rtx-5080-4k-build-2026/">Ryzen 7 7800X3D build&lt;/a> with a &lt;a href="https://techfuelhq.com/reviews/rog-strix-b650a-review-2026/">ROG STRIX B650-A&lt;/a> motherboard. The B650-A has a PCIe 5.0 M.2 slot I haven&amp;rsquo;t used for anything yet and two PCIe 4.0 M.2 slots. The 970 EVO Plus runs in one of the PCIe 4.0 slots at native PCIe 3.0 speeds — that&amp;rsquo;s the correct behavior, backward compatible with no performance penalty beyond the Gen3 ceiling.&lt;/p>
+&lt;p>In day-to-day use: fast. There is no situation where I&amp;rsquo;m waiting on storage in typical workflows. Game loads in Baldur&amp;rsquo;s Gate 3 take about 12 seconds from click to playable. Cyberpunk 2077 initial load is around 15 seconds. Those numbers on a Gen4 drive at 7,000 MB/s would be roughly 11 and 14 seconds. Half a second to a second faster per load. That&amp;rsquo;s the real-world gap.&lt;/p>
+&lt;p>For game load times specifically, the IOPS throughput matters more than sequential throughput, and the gap between a quality PCIe 3.0 drive and a quality PCIe 4.0 drive in IOPS is narrower than the sequential bandwidth gap implies.&lt;/p>
+&lt;h2 id="thermals">Thermals&lt;/h2>
+&lt;p>This is the 970 EVO Plus&amp;rsquo;s weakest point. Under sustained sequential writes — large game installs, moving large video files, system image backups — the drive runs warm. Surface temperatures in the 55–65°C range under heavy write workloads are normal and within spec, but noticeably warmer than modern Gen4 drives that run cooler due to smaller process nodes.&lt;/p>
+&lt;p>In a slot without a heatsink, it&amp;rsquo;s worth monitoring via CrystalDiskInfo or HWiNFO64 the first few times you run heavy workloads. The B650-A&amp;rsquo;s M.2 slots come with thermal pads and shields; the 970 EVO Plus runs comfortably in those slots with the included heatsink assembly.&lt;/p>
+&lt;p>Throttling doesn&amp;rsquo;t occur in typical desktop use — only under sustained sequential writes that would also challenge most people&amp;rsquo;s SATA connectivity. For a gaming boot drive, thermal throttling is a non-issue.&lt;/p>
+&lt;h2 id="the-gen4-comparison-question">The Gen4 comparison question&lt;/h2>
+&lt;p>Current Gen4 drives at comparable price points:&lt;/p>
+&lt;ul>
+&lt;li>Samsung 990 Pro: 7,450/6,900 MB/s sequential, ~$80-90 for 1TB&lt;/li>
+&lt;li>WD Black SN850X: 7,300/6,600 MB/s sequential, ~$85-95 for 1TB&lt;/li>
+&lt;li>Crucial T500: 7,300/6,800 MB/s sequential, ~$70-80 for 1TB&lt;/li>
+&lt;/ul>
+&lt;p>In 2026, Gen4 drives are essentially price-equivalent to where the 970 EVO Plus was when new. The sequential bandwidth ceiling is double. In sustained sequential transfer workloads — large file copies, video editing timelines, VM disk images with heavy I/O — the Gen4 drives are meaningfully faster.&lt;/p>
+&lt;p>For everything else — OS boot, game load, application launch, daily file access — the gap is measured in fractions of seconds.&lt;/p>
+&lt;p>&lt;strong>If I were buying new today, I would not buy the 970 EVO Plus.&lt;/strong> Gen4 drives are available at the same price, run cooler, offer double the sequential bandwidth, and have matching or better IOPS. The 970 EVO Plus was the right buy in 2019–2021. It is not the right buy in 2026.&lt;/p>
+&lt;p>&lt;strong>If I already own one, I would not replace it.&lt;/strong> The performance I lose to not having a Gen4 boot drive is less than the time it takes to clone drives and reinstall.&lt;/p>
+&lt;h2 id="endurance-and-reliability">Endurance and reliability&lt;/h2>
+&lt;p>600 TBW on the 1TB is a strong endurance rating. At typical desktop write loads — 30–50 GB/day — you&amp;rsquo;d reach 600 TBW in 32–55 years, and the &lt;a href="https://techfuelhq.com/tools/ssd-endurance-calculator/">SSD endurance calculator&lt;/a> runs the same arithmetic for your own daily writes and write amplification. Endurance is not a practical concern for this drive in any normal use case. The NAND will survive longer than the rest of the system.&lt;/p>
+&lt;p>Samsung&amp;rsquo;s V-NAND reliability track record is excellent. For a boot drive in a long-running machine, the 970 EVO Plus is among the most reliable options available regardless of generation.&lt;/p>
+&lt;p>The 5-year warranty is a real warranty from a manufacturer still in business and still supporting the product line. This is a relevant contrast to the &lt;a href="https://techfuelhq.com/reviews/evga-supernova-1000-gt-review-2026/">EVGA SuperNOVA&lt;/a> situation where the brand exited hardware production.&lt;/p>
+&lt;h2 id="dram-cache-why-it-matters">DRAM cache: why it matters&lt;/h2>
+&lt;p>The 970 EVO Plus includes LPDDR4 DRAM. Drives without DRAM (DRAM-less drives, common in budget segments) use host memory buffer (HMB) — borrowing system RAM — which introduces latency. Under sustained write loads, DRAM-less drives hit a write cliff where performance drops dramatically as the SLC cache fills and the controller falls back to writing directly to the NAND.&lt;/p>
+&lt;p>The 970 EVO Plus&amp;rsquo;s DRAM cache prevents this cliff for typical workloads. Under heavy sustained write (200+ GB transfers), it will eventually exhaust the SLC layer and fall back to raw TLC write speeds (~1,200 MB/s), but this only matters for transfer workloads larger than most users ever encounter.&lt;/p>
+&lt;h2 id="verdict">Verdict&lt;/h2>
+&lt;p>The 970 EVO Plus is a well-built, reliable, properly-performing PCIe 3.0 NVMe that has aged gracefully. It is no longer a competitive purchase at 2026 prices, but it remains a fully capable daily drive for any workload that isn&amp;rsquo;t specifically bottlenecked by sequential throughput. If it&amp;rsquo;s in your system, keep it. If you need more storage, add a Gen4 drive rather than replacing it. If you&amp;rsquo;re building new, buy Gen4.&lt;/p>
+&lt;hr>
+&lt;p>&lt;em>Related hardware in this build: &lt;a href="https://techfuelhq.com/reviews/rog-strix-b650a-review-2026/">ROG STRIX B650-A review&lt;/a> covers the motherboard this drive runs in, including M.2 slot configuration and thermal performance. The &lt;a href="https://techfuelhq.com/pc-builds/2500-dollar-7800x3d-rtx-5080-4k-build-2026/">$2,500 7800X3D + RTX 5080 build&lt;/a> article lists the full build context.&lt;/em>&lt;/p></description></item><item><title>Ryzen 7 7800X3D Review (2026): Still the Gaming CPU Standard</title><link>https://techfuelhq.com/reviews/ryzen-7-7800x3d-review-2026/</link><pubDate>Thu, 11 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/reviews/ryzen-7-7800x3d-review-2026/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · Published 2026-06-11 · Updated 2026-08-11 · ~12 min read · St. Louis County, MO&lt;/p>
+&lt;img src="https://techfuelhq.com/images/reviews/ryzen-7-7800x3d-spec-card.svg" alt="AMD Ryzen 7 7800X3D review spec card: 4.6 out of 5 rating, 8 cores/16 threads, 96MB 3D V-Cache L3, 5.0 GHz boost, 120W TDP, AM5 socket, 60-90W real gaming power draw" width="1200" height="630" loading="lazy" decoding="async" style="display:block;margin:1.5rem auto;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;div class="verdict-card" style="border:1px solid #c8ff00;border-left:4px solid #c8ff00;border-radius:6px;padding:1.25rem 1.5rem;margin:1.5rem 0 2rem 0;background:rgba(200,255,0,0.04);">
+&lt;p style="margin:0 0 0.5rem 0;font-weight:700;color:#c8ff00;letter-spacing:0.04em;text-transform:uppercase;font-size:0.85rem;">TL;DR · Should you buy or keep it in 2026?&lt;/p>
+&lt;ul style="margin:0.25rem 0 0 0;padding-left:1.25rem;line-height:1.55;">
+&lt;li>&lt;strong>You already own one:&lt;/strong> Keep it. Three years on, it still feeds a modern GPU at 1440p/4K with no meaningful bottleneck. Save your money for a GPU or a future Zen 6 drop-in.&lt;/li>
+&lt;li>&lt;strong>New build, gaming on a budget:&lt;/strong> Buy the &lt;strong>7800X3D&lt;/strong> (~$349 new). It's the value pick of the X3D line — put the ~$100 you save toward the GPU.&lt;/li>
+&lt;li>&lt;strong>Competitive esports or heavy sims at high refresh (1080p, CPU-bound):&lt;/strong> Step up to the &lt;strong>9800X3D&lt;/strong> — it's ~10-15% faster there and overclockable.&lt;/li>
+&lt;li>&lt;strong>Chasing the outright fastest gaming chip:&lt;/strong> That's the 2026 &lt;strong>9850X3D&lt;/strong> (~$499). It's ~3-4% over the 9800X3D — a thin margin for the money.&lt;/li>
+&lt;li>&lt;strong>Heavy production (Blender, encoding, compiling):&lt;/strong> Wrong chip. Get a 7900X/9900X-class part with more cores for less.&lt;/li>
+&lt;/ul>
+&lt;p style="margin:0.75rem 0 0 0;font-size:0.9rem;color:#a0a0b8;">July 2026 live pricing: 7800X3D ~$349 new (tray ~$329) · 9800X3D ~$445 · 9850X3D ~$499 · all AM5 · AM5 confirmed through 2029.&lt;/p>
+&lt;/div>
+&lt;p>The 7800X3D launched in April 2023 and immediately displaced everything else at the top of gaming CPU charts. It&amp;rsquo;s been in my daily machine ever since — paired with a &lt;a href="https://techfuelhq.com/reviews/rog-strix-b650a-review-2026/">ROG STRIX B650-A&lt;/a>, &lt;a href="https://techfuelhq.com/reviews/nzxt-kraken-360-review-2026/">NZXT Kraken 360 AIO&lt;/a>, and &lt;a href="https://techfuelhq.com/gpu-reviews/rog-astral-rtx-5080-oc-review-2026/">ROG Astral RTX 5080 OC&lt;/a>.&lt;/p>
+&lt;p>This is a long-term review, not a launch-day first impression. Three-plus years in, the question I get is no longer &amp;ldquo;is it good&amp;rdquo; — it&amp;rsquo;s &amp;ldquo;is it &lt;em>still&lt;/em> good in 2026, now that the 9800X3D and 9850X3D exist?&amp;rdquo; The short answer is yes, and the interesting part is &lt;em>why the gap to those newer chips is smaller than the spec sheets suggest&lt;/em>. Here is what daily ownership, current pricing, and the honest cross-generation math actually look like.&lt;/p>
+&lt;h2 id="published-specifications">Published specifications&lt;/h2>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Spec&lt;/th>
+&lt;th scope="col">Value&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Architecture&lt;/td>
+&lt;td>Zen 4 (5nm TSMC CCD, 6nm IOD)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Cores / Threads&lt;/td>
+&lt;td>8 / 16&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Base clock&lt;/td>
+&lt;td>4.2 GHz&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Boost clock (max)&lt;/td>
+&lt;td>5.0 GHz&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>L2 cache&lt;/td>
+&lt;td>8MB&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>L3 cache&lt;/td>
+&lt;td>96MB (32MB native + 64MB 3D V-Cache)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>TDP&lt;/td>
+&lt;td>120W&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Socket&lt;/td>
+&lt;td>AM5&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Memory support&lt;/td>
+&lt;td>DDR5 (official up to DDR5-5200)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>PCIe version&lt;/td>
+&lt;td>PCIe 5.0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Integrated graphics&lt;/td>
+&lt;td>RDNA 2 (2 CUs)&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Source: &lt;a href="https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7800x3d.html" rel="noopener">AMD official 7800X3D product page&lt;/a>&lt;/p>
+&lt;p>The headline number people search for is the cache: &lt;strong>96MB of L3&lt;/strong> (32MB native + 64MB stacked), on a single 8-core die. The 120W TDP is the thermal design spec, not what the chip actually draws in gaming. Real gaming power runs &lt;strong>60–90W&lt;/strong> depending on workload — well below the rated TDP. That&amp;rsquo;s the 3D V-Cache effect: the cache absorbs work that would otherwise demand higher clocks, so the CPU boosts less aggressively and draws less power for the same or better performance.&lt;/p>
+&lt;h2 id="the-gap-to-newer-chips-closes-as-you-climb-resolution">The gap to newer chips closes as you climb resolution&lt;/h2>
+&lt;p>This is the single most misunderstood thing about the &amp;ldquo;still good in 2026&amp;rdquo; question. Every benchmark chart you&amp;rsquo;ve seen that shows the 9800X3D or 9850X3D crushing the 7800X3D was run at &lt;strong>1080p to isolate the CPU&lt;/strong>. That&amp;rsquo;s the correct way to &lt;em>measure&lt;/em> a CPU — and the wrong way to predict what &lt;em>you&amp;rsquo;ll&lt;/em> feel, because almost nobody buys a top X3D chip to game at 1080p low.&lt;/p>
+&lt;p>As you climb resolution, the GPU takes over more of the frame, and the CPU gap collapses. Here is the honest shape of it:&lt;/p>
+&lt;div class="visual-block" style="border:1px solid #1e2233;border-radius:10px;padding:1.4rem 1.5rem 1.6rem;margin:1.75rem 0;background:#0b1220;">
+&lt;p style="margin:0 0 0.3rem 0;font-weight:700;color:#e8ecff;font-size:1.05rem;">The gap closes as you climb&lt;/p>
+&lt;p style="margin:0 0 1.15rem 0;color:#8a93ab;font-size:0.86rem;line-height:1.45;">Approximate relative gaming performance, 7800X3D = 100, measured GPU-unbound. The real gap you'll feel depends on the game, resolution, and GPU. Bars use one shared scale, so the convergence downward is the point.&lt;/p>
+&lt;div style="display:flex;flex-direction:column;gap:1.2rem;">
+&lt;div style="min-width:0;">
+&lt;p style="margin:0 0 0.55rem 0;color:#c8ceda;font-size:0.9rem;font-weight:600;">1080p · CPU-bound &lt;span style="color:#7f889c;font-weight:400;">(competitive esports, heavy sims)&lt;/span>&lt;/p>
+&lt;div style="margin-bottom:0.5rem;">&lt;div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.16rem;">&lt;span style="color:#c8ff00;font-size:0.82rem;font-weight:600;">7800X3D&lt;/span>&lt;span style="color:#c8ff00;font-size:0.78rem;">baseline&lt;/span>&lt;/div>&lt;div style="width:80%;height:13px;border-radius:4px;background:#c8ff00;">&lt;/div>&lt;/div>
+&lt;div style="margin-bottom:0.5rem;">&lt;div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.16rem;">&lt;span style="color:#9fc0ff;font-size:0.82rem;font-weight:600;">9800X3D&lt;/span>&lt;span style="color:#9fc0ff;font-size:0.78rem;">+13%&lt;/span>&lt;/div>&lt;div style="width:90.4%;height:13px;border-radius:4px;background:#4f8cff;">&lt;/div>&lt;/div>
+&lt;div>&lt;div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.16rem;">&lt;span style="color:#cbaef0;font-size:0.82rem;font-weight:600;">9850X3D&lt;/span>&lt;span style="color:#cbaef0;font-size:0.78rem;">+21%&lt;/span>&lt;/div>&lt;div style="width:96.8%;height:13px;border-radius:4px;background:#b07fe0;">&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div style="min-width:0;">
+&lt;p style="margin:0 0 0.55rem 0;color:#c8ceda;font-size:0.9rem;font-weight:600;">1080p · typical AAA&lt;/p>
+&lt;div style="margin-bottom:0.5rem;">&lt;div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.16rem;">&lt;span style="color:#c8ff00;font-size:0.82rem;font-weight:600;">7800X3D&lt;/span>&lt;span style="color:#c8ff00;font-size:0.78rem;">baseline&lt;/span>&lt;/div>&lt;div style="width:80%;height:13px;border-radius:4px;background:#c8ff00;">&lt;/div>&lt;/div>
+&lt;div style="margin-bottom:0.5rem;">&lt;div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.16rem;">&lt;span style="color:#9fc0ff;font-size:0.82rem;font-weight:600;">9800X3D&lt;/span>&lt;span style="color:#9fc0ff;font-size:0.78rem;">+7%&lt;/span>&lt;/div>&lt;div style="width:85.6%;height:13px;border-radius:4px;background:#4f8cff;">&lt;/div>&lt;/div>
+&lt;div>&lt;div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.16rem;">&lt;span style="color:#cbaef0;font-size:0.82rem;font-weight:600;">9850X3D&lt;/span>&lt;span style="color:#cbaef0;font-size:0.78rem;">+10%&lt;/span>&lt;/div>&lt;div style="width:88%;height:13px;border-radius:4px;background:#b07fe0;">&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div style="min-width:0;">
+&lt;p style="margin:0 0 0.55rem 0;color:#c8ceda;font-size:0.9rem;font-weight:600;">1440p · the mainstream target&lt;/p>
+&lt;div style="margin-bottom:0.5rem;">&lt;div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.16rem;">&lt;span style="color:#c8ff00;font-size:0.82rem;font-weight:600;">7800X3D&lt;/span>&lt;span style="color:#c8ff00;font-size:0.78rem;">baseline&lt;/span>&lt;/div>&lt;div style="width:80%;height:13px;border-radius:4px;background:#c8ff00;">&lt;/div>&lt;/div>
+&lt;div style="margin-bottom:0.5rem;">&lt;div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.16rem;">&lt;span style="color:#9fc0ff;font-size:0.82rem;font-weight:600;">9800X3D&lt;/span>&lt;span style="color:#9fc0ff;font-size:0.78rem;">+4%&lt;/span>&lt;/div>&lt;div style="width:83.2%;height:13px;border-radius:4px;background:#4f8cff;">&lt;/div>&lt;/div>
+&lt;div>&lt;div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.16rem;">&lt;span style="color:#cbaef0;font-size:0.82rem;font-weight:600;">9850X3D&lt;/span>&lt;span style="color:#cbaef0;font-size:0.78rem;">+6%&lt;/span>&lt;/div>&lt;div style="width:84.8%;height:13px;border-radius:4px;background:#b07fe0;">&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div style="min-width:0;">
+&lt;p style="margin:0 0 0.55rem 0;color:#c8ceda;font-size:0.9rem;font-weight:600;">4K · the GPU does the work&lt;/p>
+&lt;div style="margin-bottom:0.5rem;">&lt;div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.16rem;">&lt;span style="color:#c8ff00;font-size:0.82rem;font-weight:600;">7800X3D&lt;/span>&lt;span style="color:#c8ff00;font-size:0.78rem;">baseline&lt;/span>&lt;/div>&lt;div style="width:80%;height:13px;border-radius:4px;background:#c8ff00;">&lt;/div>&lt;/div>
+&lt;div style="margin-bottom:0.5rem;">&lt;div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.16rem;">&lt;span style="color:#9fc0ff;font-size:0.82rem;font-weight:600;">9800X3D&lt;/span>&lt;span style="color:#9fc0ff;font-size:0.78rem;">+1%&lt;/span>&lt;/div>&lt;div style="width:80.8%;height:13px;border-radius:4px;background:#4f8cff;">&lt;/div>&lt;/div>
+&lt;div>&lt;div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.16rem;">&lt;span style="color:#cbaef0;font-size:0.82rem;font-weight:600;">9850X3D&lt;/span>&lt;span style="color:#cbaef0;font-size:0.78rem;">+2%&lt;/span>&lt;/div>&lt;div style="width:81.6%;height:13px;border-radius:4px;background:#b07fe0;">&lt;/div>&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;p style="margin:1.1rem 0 0 0;color:#8a93ab;font-size:0.82rem;line-height:1.45;">Deltas triangulated from third-party 1080p/1440p/4K testing and community reporting (Hardware Unboxed, GamersNexus' 9850X3D review, r/buildapc owners). At 4K the three chips are inside the margin of a re-run.&lt;/p>
+&lt;/div>
+&lt;p>The community says the same thing, minus the chart. The most-upvoted advice in the big r/buildapc &amp;ldquo;7800X3D vs 9800X3D for future-proofing&amp;rdquo; thread is blunt: the uplift only exists &amp;ldquo;if the 7800X3D is &lt;em>actually&lt;/em> a bottleneck,&amp;rdquo; which for most people at 1440p/4K it isn&amp;rsquo;t. The one honest exception everyone names: cache-hungry, simulation-heavy, or competitive titles — &lt;strong>Stellaris, Baldur&amp;rsquo;s Gate 3, World of Warcraft, Escape from Tarkov, VRChat&lt;/strong> — where the newer chips (and X3D in general) pull a real, feelable lead even at higher resolutions. If those are your games at high refresh, read the &lt;a href="https://techfuelhq.com/articles/7800x3d-vs-9800x3d-upgrade-2026/">7800X3D vs 9800X3D upgrade breakdown&lt;/a> before you decide.&lt;/p>
+&lt;h2 id="the-3d-v-cache-advantage-specifically">The 3D V-Cache advantage, specifically&lt;/h2>
+&lt;p>3D V-Cache stacks 64MB of SRAM on top of the standard CCD, bringing L3 to 96MB. The benefit is narrowly specific to workloads with large working sets that overflow a 32MB L3 cache.&lt;/p>
+&lt;p>Games hit this profile frequently. A typical open-world game&amp;rsquo;s frame-to-frame working set — enemy AI state, visible geometry, audio, physics simulation — can exceed 32MB in complex scenes. When that data misses L3 and goes to DDR5 main memory, the CPU stalls waiting for data. With 96MB of L3, those stalls disappear.&lt;/p>
+&lt;p>The effect is game-dependent. In titles with large working sets (Cyberpunk 2077, Hogwarts Legacy, Total War: Warhammer III, most modern AAA open-world titles), the 7800X3D pulls 10–25% higher frame rates than a 7700X with identical DDR5 and the same GPU. In titles that fit in 32MB L3 (Counter-Strike 2 at moderate settings, older competitive titles), the advantage shrinks to noise.&lt;/p>
+&lt;h2 id="single-ccd-matters">Single-CCD matters&lt;/h2>
+&lt;p>The 7800X3D has one CCD (Core Complex Die). All 8 cores are on the same die with direct access to the 96MB L3.&lt;/p>
+&lt;p>The 7900X3D and 7950X3D have two CCDs — but only one CCD has the 3D V-Cache. Windows must schedule gaming threads on the V-Cache CCD for the benefit to apply. AMD&amp;rsquo;s driver handles this via a preferred-core algorithm, but the scheduler doesn&amp;rsquo;t always get it right, and third-party tools (Process Lasso, AMD software) are sometimes needed to pin processes to the correct CCD.&lt;/p>
+&lt;p>The 7800X3D doesn&amp;rsquo;t have this problem. Every core is on the same CCD with the same cache. No scheduling complexity. This is the primary advantage of the 8-core single-CCD design over the higher-core-count X3D variants for gaming — and it&amp;rsquo;s why, for pure gaming, an 8-core X3D beats a 12- or 16-core X3D. It&amp;rsquo;s the same reason the 8-core &lt;a href="https://techfuelhq.com/articles/cpu-hierarchy-2026/">9800X3D tops the CPU gaming hierarchy&lt;/a> over its bigger siblings.&lt;/p>
+&lt;h2 id="what-the-extra-money-actually-buys-in-2026">What the extra money actually buys in 2026&lt;/h2>
+&lt;p>Here&amp;rsquo;s the value math at today&amp;rsquo;s live prices. The 7800X3D isn&amp;rsquo;t the fastest gaming chip anymore — but &amp;ldquo;fastest&amp;rdquo; and &amp;ldquo;smartest buy&amp;rdquo; haven&amp;rsquo;t been the same thing on AM5 for a while.&lt;/p>
+&lt;div class="visual-block" style="border:1px solid #1e2233;border-radius:10px;padding:1.4rem 1.5rem 1.6rem;margin:1.75rem 0;background:#120e1c;">
+&lt;p style="margin:0 0 0.3rem 0;font-weight:700;color:#f0eaff;font-size:1.05rem;">The 2026 value stack&lt;/p>
+&lt;p style="margin:0 0 1.15rem 0;color:#9a90ae;font-size:0.86rem;line-height:1.45;">Lime = relative 1440p gaming (all three are close). Muted bar = price. Watch the price bar grow while the gaming bar barely moves.&lt;/p>
+&lt;div style="display:flex;flex-direction:column;gap:1.25rem;">
+&lt;div style="min-width:0;">
+&lt;p style="margin:0 0 0.45rem 0;color:#e6dcff;font-size:0.95rem;font-weight:700;">Ryzen 7 7800X3D &lt;span style="color:#c8ff00;font-weight:600;">· $349 · the value knee&lt;/span>&lt;/p>
+&lt;div style="margin-bottom:0.4rem;">&lt;div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.14rem;">&lt;span style="color:#c8ff00;font-size:0.76rem;">gaming (1440p)&lt;/span>&lt;span style="color:#c8ff00;font-size:0.76rem;">100&lt;/span>&lt;/div>&lt;div style="width:94.3%;height:12px;border-radius:4px;background:#c8ff00;">&lt;/div>&lt;/div>
+&lt;div>&lt;div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.14rem;">&lt;span style="color:#9a90ae;font-size:0.76rem;">price&lt;/span>&lt;span style="color:#9a90ae;font-size:0.76rem;">$349&lt;/span>&lt;/div>&lt;div style="width:69.9%;height:12px;border-radius:4px;background:#4a4a5e;">&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div style="min-width:0;">
+&lt;p style="margin:0 0 0.45rem 0;color:#e6dcff;font-size:0.95rem;font-weight:700;">Ryzen 7 9800X3D &lt;span style="color:#9fc0ff;font-weight:600;">· $445 · +27% price → +4% frames&lt;/span>&lt;/p>
+&lt;div style="margin-bottom:0.4rem;">&lt;div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.14rem;">&lt;span style="color:#c8ff00;font-size:0.76rem;">gaming (1440p)&lt;/span>&lt;span style="color:#c8ff00;font-size:0.76rem;">104&lt;/span>&lt;/div>&lt;div style="width:98.1%;height:12px;border-radius:4px;background:#c8ff00;">&lt;/div>&lt;/div>
+&lt;div>&lt;div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.14rem;">&lt;span style="color:#9a90ae;font-size:0.76rem;">price&lt;/span>&lt;span style="color:#9a90ae;font-size:0.76rem;">$445&lt;/span>&lt;/div>&lt;div style="width:89.2%;height:12px;border-radius:4px;background:#4a4a5e;">&lt;/div>&lt;/div>
+&lt;/div>
+&lt;div style="min-width:0;">
+&lt;p style="margin:0 0 0.45rem 0;color:#e6dcff;font-size:0.95rem;font-weight:700;">Ryzen 7 9850X3D &lt;span style="color:#cbaef0;font-weight:600;">· $499 · +43% price → +6% frames&lt;/span>&lt;/p>
+&lt;div style="margin-bottom:0.4rem;">&lt;div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.14rem;">&lt;span style="color:#c8ff00;font-size:0.76rem;">gaming (1440p)&lt;/span>&lt;span style="color:#c8ff00;font-size:0.76rem;">106&lt;/span>&lt;/div>&lt;div style="width:100%;height:12px;border-radius:4px;background:#c8ff00;">&lt;/div>&lt;/div>
+&lt;div>&lt;div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.14rem;">&lt;span style="color:#9a90ae;font-size:0.76rem;">price&lt;/span>&lt;span style="color:#9a90ae;font-size:0.76rem;">$499&lt;/span>&lt;/div>&lt;div style="width:100%;height:12px;border-radius:4px;background:#4a4a5e;">&lt;/div>&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;p style="margin:1.1rem 0 0 0;color:#9a90ae;font-size:0.82rem;line-height:1.45;">Live July 2026 retail (Amazon). Gaming index is the 1440p relative figure from the chart above. The value knee is the 7800X3D: past it, you pay steeply for frames you won't see outside 1080p.&lt;/p>
+&lt;/div>
+&lt;p>That&amp;rsquo;s the whole case in one picture. At 1440p, the 9800X3D asks for &lt;strong>27% more money to deliver about 4% more frames&lt;/strong>, and the 9850X3D asks &lt;strong>43% more for about 6%&lt;/strong>. Those newer chips justify themselves on other grounds — overclocking headroom, competitive-1080p margins, productivity — but on pure gaming value at real resolutions, the 7800X3D is still the knee of the curve. The savings are real money: ~$100 to ~$150 that buys a meaningful step up in GPU, a jump from 32GB to 64GB of RAM, or a better monitor — each of which does more for your actual framerate than the CPU upgrade does at 1440p/4K.&lt;/p>
+&lt;h2 id="the-2026-lineup-where-it-sits-now">The 2026 lineup: where it sits now&lt;/h2>
+&lt;p>For a ground-up build with money no object, the 7800X3D is no longer the default — that&amp;rsquo;s the 9800X3D (Zen 5, cache-below-cores redesign, fully overclockable, still AM5) or, at the very top, the &lt;strong>Ryzen 7 9850X3D&lt;/strong> that launched in early 2026 as the fastest gaming CPU on the market. The 9850X3D is &lt;a href="https://gamersnexus.net/cpus/amd-ryzen-7-9850x3d-cpu-review-benchmarks-gaming-power-thermals-ft-ddr5-4800" rel="noopener">about 3-4% over the 9800X3D per GamersNexus&amp;rsquo; review&lt;/a> — a thin margin for a $50-ish premium.&lt;/p>
+&lt;p>So the stack in 2026 is clean: &lt;strong>9850X3D&lt;/strong> for the outright crown, &lt;strong>9800X3D&lt;/strong> for near-crown at less money and the sane new-build default, and the &lt;strong>7800X3D&lt;/strong> as the value chip that gives up almost nothing at the resolutions people play. One rung below it sits the Micro Center-exclusive Ryzen 5 7600X3D, which carries the same 96MB of cache on six cores — the &lt;a href="https://techfuelhq.com/articles/7600x3d-vs-7800x3d-value-2026/">7600X3D vs 7800X3D value comparison&lt;/a> works out whether those two extra cores are worth paying for. The 7800X3D held the &amp;ldquo;best gaming CPU&amp;rdquo; title for roughly 18 months after launch; being dethroned by two direct successors on its own socket doesn&amp;rsquo;t invalidate it — it&amp;rsquo;s exactly how a healthy platform ages.&lt;/p>
+&lt;h2 id="thermals-with-a-360mm-aio">Thermals with a 360mm AIO&lt;/h2>
+&lt;p>The &lt;a href="https://techfuelhq.com/reviews/nzxt-kraken-360-review-2026/">NZXT Kraken 360&lt;/a> keeps the 7800X3D well-managed:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Gaming (sustained, 45+ minutes):&lt;/strong> 72–77°C&lt;/li>
+&lt;li>&lt;strong>Cinebench R23 multi-core (sustained):&lt;/strong> 82–85°C&lt;/li>
+&lt;li>&lt;strong>All-core at 120W TDP:&lt;/strong> 83–86°C&lt;/li>
+&lt;/ul>
+&lt;p>AMD&amp;rsquo;s 89°C safety limit isn&amp;rsquo;t approached under gaming load with a quality 240mm or 360mm AIO. A 240mm AIO is sufficient for this CPU in a gaming-only build; the 360mm is comfortable margin.&lt;/p>
+&lt;p>The 7800X3D&amp;rsquo;s temperature behavior differs from non-X3D Zen 4 chips. Because the chip targets lower clocks to protect the V-Cache temperature, it often runs cooler than a 7700X at equivalent workloads even though the 7700X has a higher max TDP. The thermal story is better than the spec sheet implies. (This is also the one place the 9800X3D pulls clearly ahead: moving the cache &lt;em>below&lt;/em> the cores let AMD push higher clocks and add manual OC — see &lt;a href="https://techfuelhq.com/articles/cpu-overheating-2026/">why a hot X3D number is usually fine&lt;/a> if yours reads high.)&lt;/p>
+&lt;h2 id="production-workloads">Production workloads&lt;/h2>
+&lt;p>This is the 7800X3D&amp;rsquo;s acknowledged weakness. Blender, DaVinci Resolve render, Handbrake video encode, compilation — workloads that benefit from raw multi-thread performance and don&amp;rsquo;t gain from cache size — run at similar speeds on the 7700X at a lower price point.&lt;/p>
+&lt;p>In Cinebench R23 multi-core, the 7800X3D posts scores in the 18,500–19,500 range. A Ryzen 7 7700X (non-X3D) posts similar or slightly higher due to the 7700X&amp;rsquo;s less conservative boost behavior. If you run Blender or compile code regularly, the 7800X3D is the wrong chip — get a 7900X or 7950X with more cores.&lt;/p>
+&lt;p>The one multi-threaded exception is Monero&amp;rsquo;s RandomX, which is memory-hard and cache-sensitive rather than pure raw throughput — so the 96MB of L3 that sits idle in Blender actually helps here, making the 7800X3D a surprisingly efficient CPU miner. It is a curiosity, not a use case: our &lt;a href="https://techfuelhq.com/crypto/cpu-mining-guide-2026/">CPU mining guide&lt;/a> works through why even a tuned high-end Ryzen nets well under a dollar a day after power.&lt;/p>
+&lt;p>For gaming only, the production performance concession is irrelevant.&lt;/p>
+&lt;h2 id="is-a-used-or-new-7800x3d-safe-the-2023-burnout-question">Is a used or new 7800X3D safe? The 2023 burnout question&lt;/h2>
+&lt;p>If you&amp;rsquo;re shopping used — or you remember the 2023 headlines — this is the real question, so here&amp;rsquo;s the straight answer. In early 2023, a small number of AM5 systems killed their X3D CPUs when EXPO was enabled: certain boards pushed &lt;strong>SoC voltage far past safe limits&lt;/strong>, and the stacked-cache chips are the most sensitive to it. AMD root-caused it publicly and, in &lt;a href="https://www.tomshardware.com/news/amd-issues-follow-up-statement-on-ryzen-burnout-issues-limits-soc-voltages" rel="noopener">AGESA 1.0.0.7 released in early May 2023&lt;/a>, &lt;strong>capped SoC voltage to 1.3V&lt;/strong> on all AM5 boards — with EXPO and PBO left fully functional.&lt;/p>
+&lt;p>What that means in 2026:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Any board on a 2023-or-later BIOS is safe.&lt;/strong> Every current shipping BIOS carries the fix. Update the motherboard BIOS before first boot, then confirm SoC voltage sits at or below 1.3V in the BIOS or HWiNFO.&lt;/li>
+&lt;li>&lt;strong>A used 7800X3D is a sound buy&lt;/strong> once you&amp;rsquo;ve done that check. The chips that were going to fail from this did so years ago; a unit that has run stably since is not a time bomb.&lt;/li>
+&lt;li>&lt;strong>The later burnout reports you may have seen are a different story.&lt;/strong> Those center on specific ASRock boards and the 9000-series X3D chips, not the 7800X3D. Community sentiment on board brands is real, though — the r/buildapc regulars repeatedly steer buyers away from ASRock for X3D and flag some Gigabyte boards; a mid-range MSI or ASUS B650/B850 is the low-drama default.&lt;/li>
+&lt;/ul>
+&lt;h2 id="the-real-future-proofing-play">The real future-proofing play&lt;/h2>
+&lt;p>The most common reason people talk themselves into the pricier chip is &amp;ldquo;future-proofing.&amp;rdquo; On AM5, that logic is backwards, and it&amp;rsquo;s worth spelling out because it changes the buying decision.&lt;/p>
+&lt;p>That runway is also the main argument for leaving AM4 behind, which we price out in the &lt;a href="https://techfuelhq.com/articles/5800x3d-vs-9800x3d-upgrade-2026/">5800X3D vs 9800X3D upgrade math&lt;/a>. AMD has &lt;a href="https://www.tomshardware.com/pc-components/cpus/amd-confirms-am5-support-through-2029-zen-4-and-5-platform-will-likely-see-two-more-generations-at-least" rel="noopener">confirmed Socket AM5 support through 2029&lt;/a>, with &lt;strong>Zen 6 (Olympic Ridge) landing on the same socket&lt;/strong> and both 600- and 800-series boards carrying support forward with a BIOS update. AM4 set the precedent: people who bought a modest Ryzen and a decent board in 2017 dropped in a 5800X3D years later without changing anything else.&lt;/p>
+&lt;p>So the durable play isn&amp;rsquo;t spending an extra $100-150 on the CPU today — a chip that will be dethroned on its own socket regardless. It&amp;rsquo;s putting that money into &lt;strong>a quality B650/B850 board&lt;/strong> that will still be alive for a Zen 6 X3D drop-in, and buying the value CPU now. The 7800X3D is that CPU. Future-proofing is a platform decision, not a spend-up-a-tier decision.&lt;/p>
+&lt;h2 id="ddr5-sweet-spot">DDR5 sweet spot&lt;/h2>
+&lt;p>The 7800X3D on AM5 benefits from DDR5-6000 in the &amp;ldquo;1:1&amp;rdquo; fabric ratio — where the Infinity Fabric clock matches the memory clock. Above 6000 MHz, you typically need to loosen secondary timings to maintain stability, which can negate some of the clock speed gains. DDR5-6000 CL30 is the performance sweet spot; running 6400+ requires dialing in subtimings carefully.&lt;/p>
+&lt;p>One 2026 caveat that didn&amp;rsquo;t apply at launch: DDR5 prices have roughly tripled in the ongoing memory shortage, so a 32GB DDR5-6000 CL30 kit costs meaningfully more than it did a year ago. Budget for it, and check the live price — full DDR5 tuning and pricing notes are in the &lt;a href="https://techfuelhq.com/articles/ddr5-ram-buying-guide-2025/">DDR5 RAM buying guide&lt;/a> and the &lt;a href="https://techfuelhq.com/reviews/rog-strix-b650a-review-2026/">ROG STRIX B650-A review&lt;/a>.&lt;/p>
+&lt;h2 id="verdict">Verdict&lt;/h2>
+&lt;p>The 7800X3D is the best gaming CPU AMD built on Zen 4, and in 2026 it has settled into the most useful role a chip can have: the value pick that gives up almost nothing where it counts. The 9800X3D and 9850X3D are faster and worth their premiums for competitive-1080p players, overclockers, and anyone doing serious production — but at 1440p and 4K, for pure gaming, the 7800X3D still delivers 95%+ of the experience for ~$100-150 less.&lt;/p>
+&lt;p>If you own one: keep it, and put upgrade money toward your GPU or a future Zen 6 drop-in. If you&amp;rsquo;re buying new for a gaming-first budget build: the 7800X3D at ~$349 is still one of the smartest purchases on the market. If production workloads matter, or you play cache-hungry sims competitively at high refresh: step up the stack. For everyone else, the chip that dethroned the field in 2023 is, three years later, the one that makes the most sense to actually buy.&lt;/p>
+&lt;hr>
+&lt;p>&lt;em>This review is part of the build component documentation for the &lt;a href="https://techfuelhq.com/pc-builds/2500-dollar-7800x3d-rtx-5080-4k-build-2026/">2026 gaming PC build&lt;/a>. The full system context: &lt;a href="https://techfuelhq.com/reviews/rog-strix-b650a-review-2026/">ROG STRIX B650-A&lt;/a>, &lt;a href="https://techfuelhq.com/reviews/nzxt-kraken-360-review-2026/">NZXT Kraken 360&lt;/a>, &lt;a href="https://techfuelhq.com/reviews/evga-supernova-1000-gt-review-2026/">EVGA SuperNOVA 1000 GT&lt;/a>, &lt;a href="https://techfuelhq.com/reviews/samsung-970-evo-plus-1tb-review-2026/">Samsung 970 EVO Plus 1TB&lt;/a>, &lt;a href="https://techfuelhq.com/gpu-reviews/rog-astral-rtx-5080-oc-review-2026/">ROG Astral RTX 5080 OC&lt;/a>.&lt;/em>&lt;/p></description></item></channel></rss>

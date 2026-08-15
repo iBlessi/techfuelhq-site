@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>2.5GbE vs 10GbE for the homelab in 2026 spec comparison</title>
+  <desc>Side-by-side comparison of 2.5GbE and 10GbE SFP+ networking for a homelab: theoretical and real-world throughput, 8-port switch price, NIC cost, idle power, 32GB VM live migration time, cabling, and a full 3-node cluster plus NAS build cost. 2.5GbE wins on price; 10GbE wins on throughput and migration speed.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="760" fill="#0a0a23"/>
+  <rect width="1200" height="760" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="74" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">HOMELAB NETWORKING · HEAD TO HEAD · 2026</text>
+  <text x="70" y="128" fill="#e8e8f0" font-size="50" font-weight="900">2.5GbE vs 10GbE for the Homelab</text>
+  <text x="70" y="162" fill="#6b6b8a" font-size="20">Which speed tier to buy — price gap, real throughput, and when 10GbE earns it</text>
+
+  <!-- Column headers -->
+  <g transform="translate(0,200)">
+    <!-- 2.5GbE column header -->
+    <rect x="500" y="0" width="320" height="56" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="500" y="0" width="6" height="56" rx="3" fill="#c8ff00"/>
+    <text x="660" y="30" text-anchor="middle" fill="#c8ff00" font-size="24" font-weight="900">2.5GbE</text>
+    <text x="660" y="48" text-anchor="middle" fill="#6b6b8a" font-size="12" letter-spacing="1">2.5GBASE-T copper</text>
+
+    <!-- 10GbE column header -->
+    <rect x="840" y="0" width="320" height="56" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="840" y="0" width="6" height="56" rx="3" fill="#5090e0"/>
+    <text x="1000" y="30" text-anchor="middle" fill="#5090e0" font-size="24" font-weight="900">10GbE SFP+</text>
+    <text x="1000" y="48" text-anchor="middle" fill="#6b6b8a" font-size="12" letter-spacing="1">SFP+ DAC / fiber</text>
+  </g>
+
+  <!-- Spec rows -->
+  <!-- Row geometry: x label area 70..490, col A 500..820 (center 660), col B 840..1160 (center 1000) -->
+  <g transform="translate(0,272)" font-size="16">
+    <!-- Row 1 -->
+    <rect x="70" y="0" width="1090" height="46" fill="#13132e"/>
+    <text x="86" y="29" fill="#c0c0d8">Theoretical throughput</text>
+    <text x="660" y="29" text-anchor="middle" fill="#e8e8f0" font-weight="600">312.5 MB/s</text>
+    <text x="1000" y="29" text-anchor="middle" fill="#5090e0" font-weight="700">1250 MB/s</text>
+
+    <!-- Row 2 -->
+    <rect x="70" y="46" width="1090" height="46" fill="#0d0d28"/>
+    <text x="86" y="75" fill="#c0c0d8">Real-world sustained</text>
+    <text x="660" y="75" text-anchor="middle" fill="#e8e8f0" font-weight="600">270–300 MB/s</text>
+    <text x="1000" y="75" text-anchor="middle" fill="#5090e0" font-weight="700">950–1150 MB/s</text>
+
+    <!-- Row 3 -->
+    <rect x="70" y="92" width="1090" height="46" fill="#13132e"/>
+    <text x="86" y="121" fill="#c0c0d8">8-port switch price</text>
+    <text x="660" y="121" text-anchor="middle" fill="#c8ff00" font-weight="700">$60–90</text>
+    <text x="1000" y="121" text-anchor="middle" fill="#e8e8f0" font-weight="600">$70–150</text>
+
+    <!-- Row 4 -->
+    <rect x="70" y="138" width="1090" height="46" fill="#0d0d28"/>
+    <text x="86" y="167" fill="#c0c0d8">NIC / cable per port</text>
+    <text x="660" y="167" text-anchor="middle" fill="#c8ff00" font-weight="700">Built-in on most mini PCs</text>
+    <text x="1000" y="167" text-anchor="middle" fill="#e8e8f0" font-weight="600">$15–40 DAC · $25–60 NIC</text>
+
+    <!-- Row 5 -->
+    <rect x="70" y="184" width="1090" height="46" fill="#13132e"/>
+    <text x="86" y="213" fill="#c0c0d8">Idle / port power</text>
+    <text x="660" y="213" text-anchor="middle" fill="#c8ff00" font-weight="700">7–12W</text>
+    <text x="1000" y="213" text-anchor="middle" fill="#e8e8f0" font-weight="600">7–18W</text>
+
+    <!-- Row 6 -->
+    <rect x="70" y="230" width="1090" height="46" fill="#0d0d28"/>
+    <text x="86" y="259" fill="#c0c0d8">32GB VM live migration</text>
+    <text x="660" y="259" text-anchor="middle" fill="#e8e8f0" font-weight="600">~1.5 min</text>
+    <text x="1000" y="259" text-anchor="middle" fill="#5090e0" font-weight="700">~30 sec</text>
+
+    <!-- Row 7 -->
+    <rect x="70" y="276" width="1090" height="46" fill="#13132e"/>
+    <text x="86" y="305" fill="#c0c0d8">Cabling</text>
+    <text x="660" y="305" text-anchor="middle" fill="#c8ff00" font-weight="700">Cat5e to 100m, no rewire</text>
+    <text x="1000" y="305" text-anchor="middle" fill="#e8e8f0" font-weight="600">SFP+ DAC / Cat6 to 100m</text>
+
+    <!-- Row 8 -->
+    <rect x="70" y="322" width="1090" height="46" fill="#0d0d28"/>
+    <text x="86" y="351" fill="#c0c0d8">3-node cluster + NAS build</text>
+    <text x="660" y="351" text-anchor="middle" fill="#c8ff00" font-weight="700">~$65 total</text>
+    <text x="1000" y="351" text-anchor="middle" fill="#e8e8f0" font-weight="600">$250–350 total</text>
+
+    <!-- Row 9 -->
+    <rect x="70" y="368" width="1090" height="46" fill="#13132e"/>
+    <text x="86" y="397" fill="#c0c0d8">Best fit</text>
+    <text x="660" y="397" text-anchor="middle" fill="#c8ff00" font-weight="700">Plex, NAS to 3–5 clients</text>
+    <text x="1000" y="397" text-anchor="middle" fill="#5090e0" font-weight="700">Proxmox storage, ZFS sync</text>
+  </g>
+
+  <!-- Verdict strip -->
+  <g transform="translate(70,696)">
+    <rect x="0" y="0" width="1090" height="34" rx="8" fill="#101028" stroke="#1e1e3a"/>
+    <text x="16" y="22" fill="#6b6b8a" font-size="13" letter-spacing="1" font-weight="700">VERDICT</text>
+    <text x="110" y="22" fill="#c0c0d8" font-size="15">Start with 2.5GbE (built-in, ~$65). Add a MikroTik CRS305 10GbE link when Proxmox storage or VM migration becomes the bottleneck.</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="748" fill="#4a4a6a" font-size="13">TechFuel HQ · Networking Comparison · Prices &amp; throughput per TP-Link and MikroTik spec pages</text>
+  <text x="1130" y="748" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

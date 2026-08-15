@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Repurpose a gaming PC into a Proxmox VE 9.2 server: the build flow</title>
+  <desc>A left-to-right topology diagram. An old 65W-class gaming PC with virtualization and optional passthrough BIOS settings boots a Ventoy USB carrying the Proxmox VE 9.2 ISO, installs Proxmox VE 9.2 to a 256GB SSD on a static IP, and hosts a first Ubuntu VM and a Pi-hole LXC container. A Kill-A-Watt idle reading validates the build: under 55 watts is a keeper, over 75 watts headless means part it out for a mini PC.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#5090e0"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="58" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">SETUP TUTORIAL · HOMELAB · PROXMOX VE 9.2</text>
+  <text x="70" y="100" fill="#e8e8f0" font-size="40" font-weight="900">Old Gaming PC to Proxmox Server</text>
+  <text x="70" y="130" fill="#6b6b8a" font-size="18">The build path: BIOS toggles, Ventoy install, first VM, and the idle-wattage gate</text>
+
+  <!-- STAGE 1: Gaming PC chassis -->
+  <g transform="translate(70,180)">
+    <rect width="250" height="280" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="34" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">STAGE 1 · HARDWARE</text>
+    <text x="20" y="66" fill="#e8e8f0" font-size="22" font-weight="800">2018-era Gaming PC</text>
+    <text x="20" y="90" fill="#c0c0d8" font-size="15">65W-class CPU · 16-32GB RAM</text>
+    <text x="20" y="111" fill="#6b6b8a" font-size="14">i7-8700K · Ryzen 3600 · 5600X</text>
+
+    <!-- Four BIOS toggles -->
+    <text x="20" y="146" fill="#c8ff00" font-size="13" letter-spacing="1" font-weight="700">FLIP 4 BIOS TOGGLES</text>
+    <rect x="20" y="156" width="210" height="26" rx="5" fill="#0d0d28" stroke="#2a2a4a"/>
+    <text x="32" y="174" fill="#c0c0d8" font-size="13">VT-x / AMD-V (run VMs)</text>
+    <rect x="20" y="187" width="210" height="26" rx="5" fill="#0d0d28" stroke="#2a2a4a"/>
+    <text x="32" y="205" fill="#c0c0d8" font-size="13">VT-d / IOMMU (pass HW)</text>
+    <rect x="20" y="218" width="210" height="26" rx="5" fill="#0d0d28" stroke="#2a2a4a"/>
+    <text x="32" y="236" fill="#c0c0d8" font-size="13">Above 4G + ReBAR (GPU)</text>
+    <rect x="20" y="249" width="210" height="26" rx="5" fill="#0d0d28" stroke="#2a2a4a"/>
+    <text x="32" y="267" fill="#c0c0d8" font-size="13">SR-IOV / UEFI-only boot</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <line x1="330" y1="320" x2="372" y2="320" stroke="#5090e0" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- STAGE 2: Ventoy USB + install -->
+  <g transform="translate(382,180)">
+    <rect width="230" height="280" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="34" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">STAGE 2 · INSTALL</text>
+
+    <!-- Ventoy USB -->
+    <rect x="20" y="52" width="190" height="64" rx="8" fill="#0d0d28" stroke="#c8ff00" stroke-width="1.5"/>
+    <text x="34" y="78" fill="#c8ff00" font-size="16" font-weight="800">Ventoy USB</text>
+    <text x="34" y="100" fill="#c0c0d8" font-size="13">Proxmox VE 9.2 ISO · 8GB stick</text>
+
+    <!-- Boot arrow down -->
+    <line x1="115" y1="120" x2="115" y2="142" stroke="#5090e0" stroke-width="3" marker-end="url(#arrow)"/>
+
+    <!-- Proxmox host -->
+    <rect x="20" y="148" width="190" height="112" rx="8" fill="#0d0d28" stroke="#5dca7a" stroke-width="1.5"/>
+    <text x="34" y="176" fill="#5dca7a" font-size="20" font-weight="900">PVE</text>
+    <text x="74" y="176" fill="#e8e8f0" font-size="16" font-weight="700">Proxmox VE 9.2</text>
+    <text x="34" y="200" fill="#c0c0d8" font-size="13">ext4 on 256GB SSD</text>
+    <text x="34" y="220" fill="#c0c0d8" font-size="13">Static IP 192.168.1.50</text>
+    <text x="34" y="240" fill="#c0c0d8" font-size="13">No-subscription repo</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <line x1="622" y1="320" x2="664" y2="320" stroke="#5090e0" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- STAGE 3: Guests -->
+  <g transform="translate(674,180)">
+    <rect width="230" height="280" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="34" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">STAGE 3 · GUESTS</text>
+
+    <!-- VM 100 -->
+    <rect x="20" y="52" width="190" height="78" rx="8" fill="#0d0d28" stroke="#5dca7a" stroke-width="1.5"/>
+    <text x="34" y="78" fill="#5dca7a" font-size="15" font-weight="800">VM 100 · KVM</text>
+    <text x="34" y="100" fill="#c0c0d8" font-size="13">Ubuntu 24.04 LTS</text>
+    <text x="34" y="120" fill="#6b6b8a" font-size="13">2 cores · 4GB · 32GB disk</text>
+
+    <!-- LXC -->
+    <rect x="20" y="142" width="190" height="78" rx="8" fill="#0d0d28" stroke="#c8ff00" stroke-width="1.5"/>
+    <text x="34" y="168" fill="#c8ff00" font-size="15" font-weight="800">CT · LXC</text>
+    <text x="34" y="190" fill="#c0c0d8" font-size="13">Pi-hole · Uptime Kuma</text>
+    <text x="34" y="210" fill="#6b6b8a" font-size="13">Kernel-shared, low overhead</text>
+
+    <!-- Bridge -->
+    <rect x="20" y="232" width="190" height="30" rx="6" fill="#0d0d28" stroke="#5090e0" stroke-width="1.5"/>
+    <text x="115" y="252" text-anchor="middle" fill="#5090e0" font-size="13" font-weight="700">vmbr0 bridge to LAN</text>
+  </g>
+
+  <!-- Arrow 3 to decision gate -->
+  <line x1="914" y1="320" x2="956" y2="320" stroke="#5090e0" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- STAGE 4: Kill-A-Watt decision gate -->
+  <g transform="translate(966,180)">
+    <rect width="164" height="280" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="34" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">THE GATE</text>
+    <text x="20" y="62" fill="#e8e8f0" font-size="17" font-weight="800">Kill-A-Watt</text>
+    <text x="20" y="82" fill="#c0c0d8" font-size="13">idle reading</text>
+
+    <!-- Keep -->
+    <rect x="20" y="100" width="124" height="74" rx="8" fill="#0d0d28" stroke="#5dca7a" stroke-width="1.5"/>
+    <text x="34" y="126" fill="#5dca7a" font-size="22" font-weight="900">&lt; 55W</text>
+    <text x="34" y="148" fill="#c0c0d8" font-size="13">Keeper build</text>
+    <text x="34" y="166" fill="#6b6b8a" font-size="12">~$50-70 / yr</text>
+
+    <!-- Part out -->
+    <rect x="20" y="184" width="124" height="74" rx="8" fill="#0d0d28" stroke="#e08828" stroke-width="1.5"/>
+    <text x="34" y="210" fill="#e08828" font-size="22" font-weight="900">&gt; 75W</text>
+    <text x="34" y="232" fill="#c0c0d8" font-size="13">Part it out</text>
+    <text x="34" y="250" fill="#6b6b8a" font-size="12">Buy a mini PC</text>
+  </g>
+
+  <!-- Bottom note strip -->
+  <rect x="70" y="492" width="1060" height="62" rx="10" fill="#101028" stroke="#1e1e3a"/>
+  <text x="92" y="520" fill="#6b6b8a" font-size="13" letter-spacing="1" font-weight="700">WHY IT MATTERS</text>
+  <text x="92" y="542" fill="#c0c0d8" font-size="15">Idle watts run 24/7: 65W desktop idles 25-40W headless; a 105W+ enthusiast chip can hit 55-80W and lose to an N100 mini PC inside 18-24 months.</text>
+
+  <!-- Footer -->
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · Setup Tutorial · Procedure refreshed against Proxmox VE 9.2 docs on 2026-08-07</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

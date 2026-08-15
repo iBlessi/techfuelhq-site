@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>restic to Backblaze B2 off-site backup architecture</title>
+  <desc>Data flow diagram: a systemd timer triggers restic on the homelab host at 3am, which reads /opt/stacks, /etc and /home, encrypts and deduplicates client-side, uploads over the network to a Backblaze B2 bucket, applies a 7-daily / 4-weekly / 6-monthly retention policy, and pings a monitor on success.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#5090e0"/>
+    </marker>
+    <marker id="arrowlime" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#c8ff00"/>
+    </marker>
+    <marker id="arrowmuted" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#6b6b8a"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="62" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">SETUP TUTORIAL · OFF-SITE BACKUP PIPELINE</text>
+  <text x="70" y="108" fill="#e8e8f0" font-size="44" font-weight="900">restic &#8594; Backblaze B2</text>
+  <text x="70" y="140" fill="#6b6b8a" font-size="19">Encrypted, deduplicated homelab backups, scheduled with systemd and monitored</text>
+
+  <!-- Column labels -->
+  <text x="180" y="186" text-anchor="middle" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">HOMELAB HOST</text>
+  <text x="600" y="186" text-anchor="middle" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">restic CLIENT</text>
+  <text x="1010" y="186" text-anchor="middle" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">OFF-SITE · BACKBLAZE B2</text>
+
+  <!-- Source data box -->
+  <g transform="translate(70,210)">
+    <rect width="220" height="150" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="34" fill="#e8e8f0" font-size="17" font-weight="700">Source data</text>
+    <text x="20" y="64" fill="#c0c0d8" font-size="15" font-family="monospace">/opt/stacks</text>
+    <text x="20" y="88" fill="#c0c0d8" font-size="15" font-family="monospace">/etc</text>
+    <text x="20" y="112" fill="#c0c0d8" font-size="15" font-family="monospace">/home</text>
+    <text x="20" y="138" fill="#6b6b8a" font-size="13">excludes: tmp, cache, node_modules</text>
+  </g>
+
+  <!-- systemd timer box -->
+  <g transform="translate(70,380)">
+    <rect width="220" height="130" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="34" fill="#e8e8f0" font-size="17" font-weight="700">systemd timer</text>
+    <text x="20" y="62" fill="#c8ff00" font-size="15" font-family="monospace">OnCalendar 03:00</text>
+    <text x="20" y="86" fill="#c0c0d8" font-size="14">RandomizedDelaySec 900</text>
+    <text x="20" y="110" fill="#c0c0d8" font-size="14">Persistent · daily oneshot</text>
+  </g>
+
+  <!-- restic client center box -->
+  <g transform="translate(480,210)">
+    <rect width="240" height="300" rx="12" fill="#101028" stroke="#c8ff00" stroke-width="1.5"/>
+    <text x="120" y="38" text-anchor="middle" fill="#c8ff00" font-size="20" font-weight="800">restic backup</text>
+    <line x1="20" y1="54" x2="220" y2="54" stroke="#1e1e3a"/>
+    <text x="20" y="86" fill="#5dca7a" font-size="15" font-weight="600">1. Client-side encrypt</text>
+    <text x="20" y="108" fill="#6b6b8a" font-size="13">RESTIC_PASSWORD · AES</text>
+    <text x="20" y="142" fill="#5dca7a" font-size="15" font-weight="600">2. Chunk dedup</text>
+    <text x="20" y="164" fill="#6b6b8a" font-size="13">unchanged data stored once</text>
+    <text x="20" y="198" fill="#5dca7a" font-size="15" font-weight="600">3. Incremental upload</text>
+    <text x="20" y="220" fill="#6b6b8a" font-size="13">b2.env credentials</text>
+    <text x="20" y="254" fill="#e08828" font-size="15" font-weight="600">4. forget --prune</text>
+    <text x="20" y="276" fill="#6b6b8a" font-size="13">retention policy below</text>
+  </g>
+
+  <!-- B2 bucket box -->
+  <g transform="translate(910,210)">
+    <rect width="220" height="150" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="34" fill="#e8e8f0" font-size="17" font-weight="700">B2 bucket</text>
+    <text x="20" y="62" fill="#c0c0d8" font-size="14" font-family="monospace">homelab-restic-</text>
+    <text x="20" y="82" fill="#c0c0d8" font-size="14" font-family="monospace">backups</text>
+    <text x="20" y="112" fill="#5090e0" font-size="14">Private · Object Lock opt.</text>
+    <text x="20" y="138" fill="#6b6b8a" font-size="13">encrypted chunks + index</text>
+  </g>
+
+  <!-- Retention box -->
+  <g transform="translate(910,380)">
+    <rect width="220" height="130" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="34" fill="#e8e8f0" font-size="17" font-weight="700">Retention</text>
+    <text x="20" y="62" fill="#c0c0d8" font-size="14">keep-daily <tspan fill="#c8ff00" font-weight="700">7</tspan></text>
+    <text x="20" y="86" fill="#c0c0d8" font-size="14">keep-weekly <tspan fill="#c8ff00" font-weight="700">4</tspan></text>
+    <text x="20" y="110" fill="#c0c0d8" font-size="14">keep-monthly <tspan fill="#c8ff00" font-weight="700">6</tspan> &#8594; &#8804;17 snaps</text>
+  </g>
+
+  <!-- Arrows: timer -> restic -->
+  <path d="M 290 445 C 380 445, 400 360, 478 360" fill="none" stroke="#6b6b8a" stroke-width="2" marker-end="url(#arrowmuted)"/>
+  <text x="340" y="425" fill="#6b6b8a" font-size="12">triggers</text>
+
+  <!-- Arrow: source -> restic -->
+  <path d="M 290 285 L 476 300" fill="none" stroke="#6b6b8a" stroke-width="2" marker-end="url(#arrowmuted)"/>
+  <text x="345" y="285" fill="#6b6b8a" font-size="12">reads</text>
+
+  <!-- Arrow: restic -> B2 (upload) -->
+  <path d="M 720 300 L 906 290" fill="none" stroke="#c8ff00" stroke-width="2.5" marker-end="url(#arrowlime)"/>
+  <text x="772" y="282" fill="#c8ff00" font-size="13" font-weight="600">encrypted upload</text>
+  <text x="772" y="300" fill="#6b6b8a" font-size="12">$0 ingress &#183; HTTPS</text>
+
+  <!-- Arrow: restic -> retention -->
+  <path d="M 720 430 C 800 440, 840 445, 906 445" fill="none" stroke="#5090e0" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Monitor box (bottom strip) -->
+  <g transform="translate(480,540)">
+    <rect width="240" height="44" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <circle cx="26" cy="22" r="6" fill="#5dca7a"/>
+    <text x="44" y="20" fill="#e8e8f0" font-size="14" font-weight="700">Monitor on success</text>
+    <text x="44" y="37" fill="#6b6b8a" font-size="12">Uptime Kuma / healthchecks.io ping</text>
+  </g>
+  <path d="M 600 510 L 600 538" fill="none" stroke="#5dca7a" stroke-width="2" marker-end="url(#arrowmuted)"/>
+
+  <!-- 3-2-1 mini badge -->
+  <g transform="translate(70,540)">
+    <rect width="360" height="44" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="18" y="20" fill="#c8ff00" font-size="13" font-weight="800" letter-spacing="1">3-2-1 STACK</text>
+    <text x="18" y="37" fill="#c0c0d8" font-size="12">live VMs &#183; PBS local &#183; restic &#8594; B2 (off-site copy 3)</text>
+  </g>
+
+  <!-- cost badge -->
+  <g transform="translate(910,540)">
+    <rect width="220" height="44" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="18" y="20" fill="#5dca7a" font-size="14" font-weight="800">~$1.40/mo</text>
+    <text x="18" y="37" fill="#6b6b8a" font-size="12">200GB @ $0.00695/GB/month</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="614" fill="#4a4a6a" font-size="13">TechFuel HQ &#183; Tutorial &#183; Pipeline per restic + Backblaze B2 official docs</text>
+  <text x="1130" y="614" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

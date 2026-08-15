@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>The Proxmox VE 9 install sequence, the skipped repository fix, and routine update vs major upgrade</title>
+  <desc>A five-step Proxmox VE 9.2-1 install flow: download and verify the ISO with SHA256, write the USB installer, boot the installer and pick a filesystem (ext4 default), reach the web UI at https://your-ip:8006, then the first-fifteen-minutes repository fix that most guides skip (disable the enterprise repo, enable pve-no-subscription, run apt full-upgrade). A footer strip contrasts routine updates within a major version against deliberate major version upgrades.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="720" fill="#0a0a23"/>
+  <rect width="1200" height="720" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">PROXMOX VE 9 &#183; INSTALL + UPDATE REFERENCE</text>
+  <text x="70" y="128" fill="#e8e8f0" font-size="42" font-weight="900">From ISO to a Working Hypervisor</text>
+  <text x="70" y="162" fill="#6b6b8a" font-size="18">Five steps on any hardware &#183; VE 9.2-1 on Debian 13 "Trixie" &#183; the repo fix is the part most guides skip</text>
+
+  <!-- Step cards -->
+  <!-- Step 1 -->
+  <g transform="translate(70,200)">
+    <rect x="0" y="0" width="212" height="200" rx="10" fill="#101028" stroke="#5090e0"/>
+    <rect x="0" y="0" width="212" height="6" rx="3" fill="#5090e0"/>
+    <circle cx="34" cy="46" r="18" fill="#5090e0"/>
+    <text x="34" y="52" text-anchor="middle" fill="#0a0a23" font-size="20" font-weight="900">1</text>
+    <text x="64" y="44" fill="#e8e8f0" font-size="17" font-weight="800">Download</text>
+    <text x="64" y="64" fill="#e8e8f0" font-size="17" font-weight="800">&amp; verify ISO</text>
+    <text x="20" y="100" fill="#c0c0d8" font-size="13">VE 9.2-1, about</text>
+    <text x="20" y="120" fill="#c0c0d8" font-size="13">1.7 GB installer.</text>
+    <text x="20" y="148" fill="#6b6b8a" font-size="13">Compare SHA256 to</text>
+    <text x="20" y="166" fill="#6b6b8a" font-size="13">the published value.</text>
+    <text x="20" y="188" fill="#5090e0" font-size="12" font-weight="700">DO NOT SKIP THE HASH</text>
+  </g>
+
+  <!-- Step 2 -->
+  <g transform="translate(302,200)">
+    <rect x="0" y="0" width="212" height="200" rx="10" fill="#101028" stroke="#5090e0"/>
+    <rect x="0" y="0" width="212" height="6" rx="3" fill="#5090e0"/>
+    <circle cx="34" cy="46" r="18" fill="#5090e0"/>
+    <text x="34" y="52" text-anchor="middle" fill="#0a0a23" font-size="20" font-weight="900">2</text>
+    <text x="64" y="44" fill="#e8e8f0" font-size="17" font-weight="800">Write the</text>
+    <text x="64" y="64" fill="#e8e8f0" font-size="17" font-weight="800">USB installer</text>
+    <text x="20" y="100" fill="#c0c0d8" font-size="13">Linux: dd</text>
+    <text x="20" y="120" fill="#c0c0d8" font-size="13">Windows: Etcher or</text>
+    <text x="20" y="138" fill="#c0c0d8" font-size="13">Rufus in DD mode</text>
+    <text x="20" y="166" fill="#6b6b8a" font-size="13">Confirm the device.</text>
+    <text x="20" y="188" fill="#5090e0" font-size="12" font-weight="700">NOT UNETBOOTIN</text>
+  </g>
+
+  <!-- Step 3 -->
+  <g transform="translate(534,200)">
+    <rect x="0" y="0" width="212" height="200" rx="10" fill="#101028" stroke="#5090e0"/>
+    <rect x="0" y="0" width="212" height="6" rx="3" fill="#5090e0"/>
+    <circle cx="34" cy="46" r="18" fill="#5090e0"/>
+    <text x="34" y="52" text-anchor="middle" fill="#0a0a23" font-size="20" font-weight="900">3</text>
+    <text x="64" y="44" fill="#e8e8f0" font-size="17" font-weight="800">Boot &amp; pick</text>
+    <text x="64" y="64" fill="#e8e8f0" font-size="17" font-weight="800">filesystem</text>
+    <text x="20" y="100" fill="#c0c0d8" font-size="13">Graphical wizard.</text>
+    <text x="20" y="120" fill="#c0c0d8" font-size="13">Target disk, hostname,</text>
+    <text x="20" y="138" fill="#c0c0d8" font-size="13">static IP, password.</text>
+    <text x="20" y="166" fill="#6b6b8a" font-size="13">ext4 default; ZFS for</text>
+    <text x="20" y="184" fill="#6b6b8a" font-size="13">2+ raw drives.</text>
+  </g>
+
+  <!-- Step 4 -->
+  <g transform="translate(766,200)">
+    <rect x="0" y="0" width="212" height="200" rx="10" fill="#101028" stroke="#5090e0"/>
+    <rect x="0" y="0" width="212" height="6" rx="3" fill="#5090e0"/>
+    <circle cx="34" cy="46" r="18" fill="#5090e0"/>
+    <text x="34" y="52" text-anchor="middle" fill="#0a0a23" font-size="20" font-weight="900">4</text>
+    <text x="64" y="44" fill="#e8e8f0" font-size="17" font-weight="800">Reach the</text>
+    <text x="64" y="64" fill="#e8e8f0" font-size="17" font-weight="800">web UI</text>
+    <text x="20" y="100" fill="#c0c0d8" font-size="13">Browse to:</text>
+    <text x="20" y="122" fill="#e8e8f0" font-size="13" font-weight="700">https://your-ip</text>
+    <text x="20" y="140" fill="#e8e8f0" font-size="13" font-weight="700">:8006</text>
+    <text x="20" y="168" fill="#6b6b8a" font-size="13">Accept self-signed</text>
+    <text x="20" y="186" fill="#6b6b8a" font-size="13">cert; log in as root.</text>
+  </g>
+
+  <!-- Step 5 (the skipped step, lime winner accent) -->
+  <g transform="translate(998,200)">
+    <rect x="0" y="0" width="212" height="200" rx="10" fill="#101028" stroke="#c8ff00"/>
+    <rect x="0" y="0" width="212" height="6" rx="3" fill="#c8ff00"/>
+    <circle cx="34" cy="46" r="18" fill="#c8ff00"/>
+    <text x="34" y="52" text-anchor="middle" fill="#0a0a23" font-size="20" font-weight="900">5</text>
+    <text x="64" y="44" fill="#e8e8f0" font-size="17" font-weight="800">Repository</text>
+    <text x="64" y="64" fill="#e8e8f0" font-size="17" font-weight="800">fix</text>
+    <text x="20" y="100" fill="#c0c0d8" font-size="13">Disable enterprise repo</text>
+    <text x="20" y="120" fill="#c0c0d8" font-size="13">(Enabled: no), enable</text>
+    <text x="20" y="138" fill="#c0c0d8" font-size="13">pve-no-subscription.</text>
+    <text x="20" y="166" fill="#e8e8f0" font-size="13" font-weight="700">apt full-upgrade</text>
+    <text x="20" y="188" fill="#c8ff00" font-size="12" font-weight="700">THE STEP GUIDES SKIP</text>
+  </g>
+
+  <!-- Arrows between steps -->
+  <g fill="#6b6b8a">
+    <text x="291" y="306" text-anchor="middle" font-size="22" font-weight="700">&#8594;</text>
+    <text x="523" y="306" text-anchor="middle" font-size="22" font-weight="700">&#8594;</text>
+    <text x="755" y="306" text-anchor="middle" font-size="22" font-weight="700">&#8594;</text>
+    <text x="987" y="306" text-anchor="middle" font-size="22" font-weight="700">&#8594;</text>
+  </g>
+
+  <!-- Update vs upgrade band -->
+  <text x="70" y="452" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">PART 3 &#183; "UPDATE" MEANS TWO DIFFERENT THINGS</text>
+
+  <g transform="translate(70,470)">
+    <!-- Routine update -->
+    <rect x="0" y="0" width="556" height="118" rx="10" fill="#101028" stroke="#5dca7a"/>
+    <rect x="0" y="0" width="6" height="118" rx="3" fill="#5dca7a"/>
+    <text x="26" y="34" fill="#5dca7a" font-size="15" letter-spacing="1" font-weight="800">ROUTINE UPDATE</text>
+    <text x="26" y="58" fill="#c0c0d8" font-size="14">Within a major version (9.1 &#8594; 9.2). Low-risk, do it often.</text>
+    <text x="26" y="84" fill="#e8e8f0" font-size="14" font-weight="700">apt update &#183; apt full-upgrade</text>
+    <text x="26" y="106" fill="#6b6b8a" font-size="13">full-upgrade, not plain upgrade &#8211; or the kernel gets held back.</text>
+
+    <!-- Major upgrade -->
+    <rect x="580" y="0" width="556" height="118" rx="10" fill="#101028" stroke="#e08828"/>
+    <rect x="580" y="0" width="6" height="118" rx="3" fill="#e08828"/>
+    <text x="606" y="34" fill="#e08828" font-size="15" letter-spacing="1" font-weight="800">MAJOR UPGRADE</text>
+    <text x="606" y="58" fill="#c0c0d8" font-size="14">Across major versions (VE 8 &#8594; VE 9). Higher-risk, deliberate.</text>
+    <text x="606" y="84" fill="#e8e8f0" font-size="14" font-weight="700">Back up &#183; run pve8to9 --full &#183; pin NIC names</text>
+    <text x="606" y="106" fill="#6b6b8a" font-size="13">A planned event with its own checklist &#8211; not routine maintenance.</text>
+  </g>
+
+  <!-- Verdict strip -->
+  <g transform="translate(70,608)">
+    <rect x="0" y="0" width="1066" height="60" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="60" rx="3" fill="#c8ff00"/>
+    <text x="26" y="27" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">THE CALL</text>
+    <text x="26" y="48" fill="#c0c0d8" font-size="15">The install is the easy part. The repository fix is what makes updates work, and knowing routine update vs major upgrade is what keeps the box healthy.</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="700" fill="#4a4a6a" font-size="13">TechFuel HQ &#183; Proxmox VE 9 Install Reference &#183; steps and commands per official Proxmox documentation</text>
+  <text x="1130" y="700" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

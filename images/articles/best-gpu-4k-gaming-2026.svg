@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Best GPU for 4K Gaming 2026 — tier-by-tier buying guide</title>
+  <desc>A TechFuel HQ buying guide ranking five 4K gaming GPU picks for 2026 by budget: RX 9070 XT at ~$599, RTX 5070 Ti at ~$749, RTX 5080 FE at ~$999, ROG Astral 5080 OC at ~$1,100-1,200, and RTX 5090 at ~$1,999, each with its core spec and rationale.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <text x="70" y="84" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">BUYING GUIDE · GPU · 4K GAMING 2026</text>
+  <text x="70" y="142" fill="#e8e8f0" font-size="50" font-weight="900">Best GPU for 4K Gaming, by Tier</text>
+  <text x="70" y="180" fill="#6b6b8a" font-size="20">Where each pick fits — VRAM floor is 16GB, DLSS 4 MFG / FSR 4 change the math</text>
+
+  <g transform="translate(70,212)">
+    <text x="0" y="0" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">BUDGET</text>
+    <text x="206" y="0" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">PICK</text>
+    <text x="640" y="0" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">KEY SPEC</text>
+    <text x="1060" y="0" text-anchor="end" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">FIT</text>
+  </g>
+
+  <g transform="translate(70,228)">
+    <rect x="0" y="0" width="1060" height="62" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="5" height="62" rx="2" fill="#e63946"/>
+    <text x="24" y="38" fill="#e63946" font-size="22" font-weight="900">~$599</text>
+    <text x="206" y="32" fill="#e8e8f0" font-size="21" font-weight="700">RX 9070 XT</text>
+    <text x="206" y="52" fill="#6b6b8a" font-size="14">AMD RDNA 4 · 304W TBP</text>
+    <text x="640" y="32" fill="#c0c0d8" font-size="16">16GB GDDR6</text>
+    <text x="640" y="52" fill="#6b6b8a" font-size="14">FSR 4 Quality + AFMF 2</text>
+    <text x="1060" y="38" text-anchor="end" fill="#c8ff00" font-size="15" font-weight="700">Best value 4K</text>
+  </g>
+
+  <g transform="translate(70,300)">
+    <rect x="0" y="0" width="1060" height="62" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="5" height="62" rx="2" fill="#5090e0"/>
+    <text x="24" y="38" fill="#5090e0" font-size="22" font-weight="900">~$749</text>
+    <text x="206" y="32" fill="#e8e8f0" font-size="21" font-weight="700">RTX 5070 Ti</text>
+    <text x="206" y="52" fill="#6b6b8a" font-size="14">GB205 · 285W TDP · 30 TFLOPS</text>
+    <text x="640" y="32" fill="#c0c0d8" font-size="16">16GB GDDR7</text>
+    <text x="640" y="52" fill="#6b6b8a" font-size="14">DLSS 4 Quality + MFG</text>
+    <text x="1060" y="38" text-anchor="end" fill="#5dca7a" font-size="15" font-weight="700">Practical 4K</text>
+  </g>
+
+  <g transform="translate(70,372)">
+    <rect x="0" y="0" width="1060" height="62" rx="10" fill="#13132e" stroke="#c8ff00"/>
+    <rect x="0" y="0" width="5" height="62" rx="2" fill="#c8ff00"/>
+    <text x="24" y="38" fill="#c8ff00" font-size="22" font-weight="900">~$999</text>
+    <text x="206" y="32" fill="#e8e8f0" font-size="21" font-weight="700">RTX 5080 (FE)</text>
+    <text x="206" y="52" fill="#6b6b8a" font-size="14">GB203 · 360W TDP · ~48 TFLOPS</text>
+    <text x="640" y="32" fill="#c8ff00" font-size="16" font-weight="600">16GB GDDR7</text>
+    <text x="640" y="52" fill="#6b6b8a" font-size="14">60+ fps native, best MFG benefit</text>
+    <text x="1060" y="38" text-anchor="end" fill="#c8ff00" font-size="15" font-weight="700">Comfortable 4K ★</text>
+  </g>
+
+  <g transform="translate(70,444)">
+    <rect x="0" y="0" width="1060" height="62" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="5" height="62" rx="2" fill="#e08828"/>
+    <text x="24" y="38" fill="#e08828" font-size="20" font-weight="900">~$1.1–1.2k</text>
+    <text x="206" y="32" fill="#e8e8f0" font-size="21" font-weight="700">ROG Astral 5080 OC</text>
+    <text x="206" y="52" fill="#6b6b8a" font-size="14">AIB · ~420W peak · custom cooler</text>
+    <text x="640" y="32" fill="#c0c0d8" font-size="16">16GB GDDR7</text>
+    <text x="640" y="52" fill="#6b6b8a" font-size="14">Factory OC headroom, runs hotter</text>
+    <text x="1060" y="38" text-anchor="end" fill="#e08828" font-size="15" font-weight="700">AIB premium</text>
+  </g>
+
+  <g transform="translate(70,516)">
+    <rect x="0" y="0" width="1060" height="62" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="5" height="62" rx="2" fill="#5dca7a"/>
+    <text x="24" y="38" fill="#5dca7a" font-size="22" font-weight="900">~$1,999</text>
+    <text x="206" y="32" fill="#e8e8f0" font-size="21" font-weight="700">RTX 5090</text>
+    <text x="206" y="52" fill="#6b6b8a" font-size="14">GB202 · 575W TDP · ~30–35% &gt; 5080</text>
+    <text x="640" y="32" fill="#5dca7a" font-size="16" font-weight="600">32GB GDDR7</text>
+    <text x="640" y="52" fill="#6b6b8a" font-size="14">Native 4K, AI/compute headroom</text>
+    <text x="1060" y="38" text-anchor="end" fill="#5dca7a" font-size="15" font-weight="700">Native 4K 120fps</text>
+  </g>
+
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · GPU Buying Guide · MSRPs and specs per article decision framework</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

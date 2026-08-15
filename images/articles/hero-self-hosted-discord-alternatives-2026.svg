@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif">
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <text x="600" y="55" text-anchor="middle" fill="#c8ff00" font-size="28" font-weight="800">SELF-HOSTED DISCORD ALTERNATIVES</text>
+  <text x="600" y="85" text-anchor="middle" fill="#9999bb" font-size="15">The 2026 Comparison — Text, Voice, Video, and the Honest Trade-offs</text>
+  <!-- Row 1 -->
+  <rect x="50" y="110" width="350" height="130" rx="12" fill="#13132e" stroke="#c8ff00" stroke-width="2"/>
+  <text x="65" y="135" fill="#c8ff00" font-size="12" font-weight="700">CLOSEST DISCORD CLONE</text>
+  <text x="225" y="165" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="800">Stoat (ex-Revolt)</text>
+  <text x="225" y="190" text-anchor="middle" fill="#9999bb" font-size="12">Pre-1.0 • 2 vCPU / 2 GB min</text>
+  <text x="225" y="215" text-anchor="middle" fill="#c8ff00" font-size="11">Best UX match, weakest maturity</text>
+  <rect x="425" y="110" width="350" height="130" rx="12" fill="#13132e" stroke="#c8ff00" stroke-width="1"/>
+  <text x="440" y="135" fill="#c8ff00" font-size="12" font-weight="700">BEST NATIVE GROUP VOICE</text>
+  <text x="600" y="165" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="800">Matrix + Element</text>
+  <text x="600" y="190" text-anchor="middle" fill="#9999bb" font-size="12">Synapse v1.155 • Element Call</text>
+  <text x="600" y="215" text-anchor="middle" fill="#c8ff00" font-size="11">Federated, up to 500 in a call</text>
+  <rect x="800" y="110" width="350" height="130" rx="12" fill="#13132e" stroke="#667" stroke-width="1"/>
+  <text x="815" y="135" fill="#778" font-size="12" font-weight="700">TEAM / SLACK REPLACEMENT</text>
+  <text x="975" y="165" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="800">Mattermost</text>
+  <text x="975" y="190" text-anchor="middle" fill="#9999bb" font-size="12">v11.8 • MIT Team Edition</text>
+  <text x="975" y="215" text-anchor="middle" fill="#bbbbcc" font-size="11">Group voice needs a paid tier</text>
+  <!-- Row 2 -->
+  <rect x="50" y="260" width="350" height="130" rx="12" fill="#13132e" stroke="#667" stroke-width="1"/>
+  <text x="65" y="285" fill="#778" font-size="12" font-weight="700">CHAT + JITSI VIDEO</text>
+  <text x="225" y="315" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="800">Rocket.Chat</text>
+  <text x="225" y="340" text-anchor="middle" fill="#9999bb" font-size="12">v8.5 • MIT + enterprise split</text>
+  <text x="225" y="365" text-anchor="middle" fill="#bbbbcc" font-size="11">Video via external Jitsi</text>
+  <rect x="425" y="260" width="350" height="130" rx="12" fill="#13132e" stroke="#667" stroke-width="1"/>
+  <text x="440" y="285" fill="#778" font-size="12" font-weight="700">THREADED TEXT ONLY</text>
+  <text x="600" y="315" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="800">Zulip</text>
+  <text x="600" y="340" text-anchor="middle" fill="#9999bb" font-size="12">v12.1 • Apache 2.0 (cleanest)</text>
+  <text x="600" y="365" text-anchor="middle" fill="#bbbbcc" font-size="11">No native voice/video at all</text>
+  <rect x="800" y="260" width="350" height="130" rx="12" fill="#13132e" stroke="#667" stroke-width="1"/>
+  <text x="815" y="285" fill="#778" font-size="12" font-weight="700">VOICE-ONLY, LOW LATENCY</text>
+  <text x="975" y="315" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="800">Mumble</text>
+  <text x="975" y="340" text-anchor="middle" fill="#9999bb" font-size="12">Opus up to 510 kbps</text>
+  <text x="975" y="365" text-anchor="middle" fill="#bbbbcc" font-size="11">Tiny footprint, dated UI, no chat</text>
+  <!-- Reality banner -->
+  <rect x="50" y="420" width="1100" height="80" rx="12" fill="#13132e" stroke="#c8ff00" stroke-width="1"/>
+  <text x="600" y="450" text-anchor="middle" fill="#c8ff00" font-size="16" font-weight="700">THE HONEST VERDICT</text>
+  <text x="600" y="475" text-anchor="middle" fill="#ffffff" font-size="14">There is no drop-in Discord replacement. The stack people actually keep is text (Matrix/Zulip) + voice (Mumble/Element Call).</text>
+  <text x="600" y="495" text-anchor="middle" fill="#9999bb" font-size="11">Voice/video is the real differentiator — most guides never benchmark it.</text>
+  <!-- Bottom -->
+  <rect x="50" y="530" width="1100" height="70" rx="12" fill="#0d0d28"/>
+  <text x="230" y="560" text-anchor="middle" fill="#c8ff00" font-size="13" font-weight="600">Match the tool to text vs voice</text>
+  <text x="600" y="560" text-anchor="middle" fill="#c8ff00" font-size="13" font-weight="600">Plan RAM/CPU before you deploy</text>
+  <text x="960" y="560" text-anchor="middle" fill="#e63946" font-size="13" font-weight="600">Expect onboarding friction</text>
+  <text x="600" y="590" text-anchor="middle" fill="#556" font-size="11">techfuelhq.com | Self-Hosted Discord Alternatives 2026</text>
+</svg>

@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Proxmox homelab hardware requirements by workload in 2026</title>
+  <desc>Four Proxmox homelab workload tiers and the hardware each needs: a light file server or NAS (Intel N100/N150, 8 to 16 GB RAM); a handful of VMs and containers (4-core mini PC, 16 GB floor, 32 GB for breathing room); Plex or Jellyfin with Intel Quick Sync hardware transcoding (N100 iGPU handling roughly 3 to 4 simultaneous 4K-to-1080p transcodes or about 8 streams at 1080p); and the most RAM-hungry build, a ZFS NAS plus VMs on one box (32 GB minimum, happier at 64 GB). RAM is the main lever that scales with workload.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="720" fill="#0a0a23"/>
+  <rect width="1200" height="720" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">PROXMOX HARDWARE REQUIREMENTS &#183; BY WORKLOAD</text>
+  <text x="70" y="128" fill="#e8e8f0" font-size="44" font-weight="900">What You Actually Need to Run</text>
+  <text x="70" y="162" fill="#6b6b8a" font-size="18">Homelab-oriented targets &#183; RAM is the lever that scales, not core count &#183; ZFS RAM sits on top of guest RAM</text>
+
+  <!-- Column header band -->
+  <g transform="translate(70,200)">
+    <rect x="0" y="0" width="300" height="56" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="26" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">WORKLOAD</text>
+    <text x="20" y="46" fill="#6b6b8a" font-size="13" letter-spacing="1">(what you plan to run)</text>
+
+    <rect x="312" y="0" width="262" height="56" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="332" y="26" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">CPU</text>
+    <text x="332" y="46" fill="#6b6b8a" font-size="13" letter-spacing="1">(64-bit, VT-x / AMD-V)</text>
+
+    <rect x="586" y="0" width="222" height="56" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="606" y="26" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">RAM TARGET</text>
+    <text x="606" y="46" fill="#6b6b8a" font-size="13" letter-spacing="1">(host + guests)</text>
+
+    <rect x="820" y="0" width="288" height="56" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="840" y="26" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">THE KEY DETAIL</text>
+    <text x="840" y="46" fill="#6b6b8a" font-size="13" letter-spacing="1">(what to size for)</text>
+  </g>
+
+  <!-- Tier 1: File server / NAS -->
+  <g transform="translate(70,272)">
+    <rect x="0" y="0" width="1038" height="86" rx="10" fill="#101028" stroke="#5090e0"/>
+    <rect x="0" y="0" width="6" height="86" rx="3" fill="#5090e0"/>
+    <text x="26" y="36" fill="#e8e8f0" font-size="20" font-weight="900">File server / NAS</text>
+    <text x="26" y="62" fill="#6b6b8a" font-size="14">a few shares, light use</text>
+    <text x="332" y="40" fill="#c0c0d8" font-size="16" font-weight="700">Intel N100 / N150</text>
+    <text x="332" y="62" fill="#6b6b8a" font-size="13">one mini PC</text>
+    <text x="606" y="40" fill="#5090e0" font-size="20" font-weight="900">8&#8211;16 GB</text>
+    <text x="606" y="62" fill="#6b6b8a" font-size="13">push to 16 GB on ZFS</text>
+    <text x="840" y="40" fill="#c0c0d8" font-size="15" font-weight="600">Size ZFS ARC, not cores</text>
+    <text x="840" y="62" fill="#6b6b8a" font-size="13">1 or 2 drives; CPU load trivial</text>
+  </g>
+
+  <!-- Tier 2: VMs + containers (the typical first homelab) -->
+  <g transform="translate(70,366)">
+    <rect x="0" y="0" width="1038" height="86" rx="10" fill="#101028" stroke="#c8ff00"/>
+    <rect x="0" y="0" width="6" height="86" rx="3" fill="#c8ff00"/>
+    <text x="26" y="36" fill="#e8e8f0" font-size="20" font-weight="900">A few VMs &amp; containers</text>
+    <text x="26" y="62" fill="#c8ff00" font-size="14" font-weight="600">the typical first homelab</text>
+    <text x="332" y="40" fill="#c0c0d8" font-size="16" font-weight="700">4-core mini PC</text>
+    <text x="332" y="62" fill="#6b6b8a" font-size="13">most services idle</text>
+    <text x="606" y="40" fill="#c8ff00" font-size="20" font-weight="900">16 GB &#8594; 32 GB</text>
+    <text x="606" y="62" fill="#6b6b8a" font-size="13">floor &#8594; breathing room</text>
+    <text x="840" y="40" fill="#c0c0d8" font-size="15" font-weight="600">Lean on LXC over VMs</text>
+    <text x="840" y="62" fill="#6b6b8a" font-size="13">30&#8211;60 MB vs 200&#8211;400 MB each</text>
+  </g>
+
+  <!-- Tier 3: Plex / Jellyfin transcoding -->
+  <g transform="translate(70,460)">
+    <rect x="0" y="0" width="1038" height="86" rx="10" fill="#101028" stroke="#e08828"/>
+    <rect x="0" y="0" width="6" height="86" rx="3" fill="#e08828"/>
+    <text x="26" y="36" fill="#e8e8f0" font-size="20" font-weight="900">Plex / Jellyfin transcode</text>
+    <text x="26" y="62" fill="#6b6b8a" font-size="14">hardware transcoding</text>
+    <text x="332" y="40" fill="#c0c0d8" font-size="16" font-weight="700">N100 iGPU + Quick Sync</text>
+    <text x="332" y="62" fill="#6b6b8a" font-size="13">no discrete GPU</text>
+    <text x="606" y="40" fill="#c0c0d8" font-size="16" font-weight="700">light for transcode</text>
+    <text x="606" y="62" fill="#6b6b8a" font-size="13">size RAM for the rest</text>
+    <text x="840" y="40" fill="#e08828" font-size="15" font-weight="700">~3&#8211;4 &#215; 4K&#8594;1080p</text>
+    <text x="840" y="62" fill="#6b6b8a" font-size="13">or ~8 streams at 1080p</text>
+  </g>
+
+  <!-- Tier 4: ZFS NAS + VMs (most RAM-hungry) -->
+  <g transform="translate(70,554)">
+    <rect x="0" y="0" width="1038" height="86" rx="10" fill="#101028" stroke="#b06bff"/>
+    <rect x="0" y="0" width="6" height="86" rx="3" fill="#b06bff"/>
+    <text x="26" y="36" fill="#e8e8f0" font-size="20" font-weight="900">ZFS NAS + VMs, one box</text>
+    <text x="26" y="62" fill="#b06bff" font-size="14" font-weight="600">most RAM-hungry pattern</text>
+    <text x="332" y="40" fill="#c0c0d8" font-size="16" font-weight="700">higher-RAM mini PC</text>
+    <text x="332" y="62" fill="#6b6b8a" font-size="13">or used enterprise box</text>
+    <text x="606" y="40" fill="#b06bff" font-size="20" font-weight="900">32 GB &#8594; 64 GB</text>
+    <text x="606" y="62" fill="#6b6b8a" font-size="13">4 TB pool + ~6 VMs</text>
+    <text x="840" y="40" fill="#c0c0d8" font-size="15" font-weight="600">You pay for both</text>
+    <text x="840" y="62" fill="#6b6b8a" font-size="13">~2 GB OS + ARC + every guest</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="690" fill="#4a4a6a" font-size="13">TechFuel HQ &#183; Proxmox Hardware Requirements 2026 &#183; homelab workload targets, not enterprise sizing</text>
+  <text x="1138" y="690" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>AudioBookshelf Docker self-hosted architecture</title>
+  <desc>Topology diagram of an AudioBookshelf Docker deployment: a single container on host port 13378 mapped to internal port 80, four mounted volumes (audiobooks, podcasts, config, metadata), external metadata sources, podcast RSS auto-download, and remote client access over Tailscale or Nginx Proxy Manager.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#5090e0"/>
+    </marker>
+    <marker id="arrowlime" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#c8ff00"/>
+    </marker>
+    <marker id="arrowgreen" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#5dca7a"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="62" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">SETUP TUTORIAL · DOCKER ARCHITECTURE</text>
+  <text x="70" y="104" fill="#e8e8f0" font-size="44" font-weight="900">AudioBookshelf · Self-Hosted Audio Server</text>
+  <text x="70" y="134" fill="#6b6b8a" font-size="18">One container, one volume set — your Audible replacement for audiobooks and podcasts</text>
+
+  <!-- ===== CLIENTS column (left) ===== -->
+  <text x="70" y="186" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">CLIENTS</text>
+
+  <g transform="translate(70,200)">
+    <rect width="230" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="28" fill="#e8e8f0" font-size="17" font-weight="700">Web Browser</text>
+    <text x="20" y="50" fill="#c0c0d8" font-size="13">Browse &amp; stream, any device</text>
+  </g>
+  <g transform="translate(70,280)">
+    <rect width="230" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="28" fill="#e8e8f0" font-size="17" font-weight="700">iOS / Android App</text>
+    <text x="20" y="50" fill="#c0c0d8" font-size="13">Official · per-user sync</text>
+  </g>
+
+  <!-- Remote access node -->
+  <g transform="translate(70,378)">
+    <rect width="230" height="92" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="28" fill="#5090e0" font-size="13" letter-spacing="2" font-weight="700">REMOTE ACCESS</text>
+    <text x="20" y="54" fill="#c0c0d8" font-size="14">Tailscale · 100.x.x.x mesh</text>
+    <text x="20" y="76" fill="#c0c0d8" font-size="14">or Nginx Proxy Manager + SSL</text>
+  </g>
+
+  <!-- Arrows clients -> container -->
+  <line x1="300" y1="232" x2="392" y2="300" stroke="#5dca7a" stroke-width="2" marker-end="url(#arrowgreen)"/>
+  <line x1="300" y1="312" x2="392" y2="318" stroke="#5dca7a" stroke-width="2" marker-end="url(#arrowgreen)"/>
+  <line x1="300" y1="412" x2="392" y2="342" stroke="#5090e0" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+
+  <!-- ===== CONTAINER (center) ===== -->
+  <text x="402" y="186" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">DOCKER HOST</text>
+  <g transform="translate(402,200)">
+    <rect width="356" height="270" rx="14" fill="#0d0d28" stroke="#c8ff00" stroke-width="2"/>
+    <text x="22" y="34" fill="#c8ff00" font-size="15" letter-spacing="1" font-weight="700">audiobookshelf container</text>
+    <text x="22" y="56" fill="#6b6b8a" font-size="12">ghcr.io/advplyr/audiobookshelf:latest</text>
+
+    <!-- port mapping -->
+    <g transform="translate(22,74)">
+      <rect width="312" height="50" rx="8" fill="#101028" stroke="#1e1e3a"/>
+      <text x="16" y="22" fill="#c0c0d8" font-size="14">Port mapping</text>
+      <text x="296" y="22" text-anchor="end" fill="#c8ff00" font-size="15" font-weight="700">13378 → 80</text>
+      <text x="16" y="40" fill="#6b6b8a" font-size="12">restart: unless-stopped · SQLite · ~100 MB idle RAM</text>
+    </g>
+
+    <!-- internal services -->
+    <g transform="translate(22,136)">
+      <rect width="150" height="44" rx="8" fill="#101028" stroke="#1e1e3a"/>
+      <text x="14" y="20" fill="#e8e8f0" font-size="14" font-weight="600">Library scanner</text>
+      <text x="14" y="36" fill="#6b6b8a" font-size="11">M4B chapter detection</text>
+    </g>
+    <g transform="translate(184,136)">
+      <rect width="150" height="44" rx="8" fill="#101028" stroke="#1e1e3a"/>
+      <text x="14" y="20" fill="#e8e8f0" font-size="14" font-weight="600">Progress sync</text>
+      <text x="14" y="36" fill="#6b6b8a" font-size="11">per-user accounts</text>
+    </g>
+    <g transform="translate(22,190)">
+      <rect width="150" height="44" rx="8" fill="#101028" stroke="#1e1e3a"/>
+      <text x="14" y="20" fill="#e8e8f0" font-size="14" font-weight="600">Metadata match</text>
+      <text x="14" y="36" fill="#6b6b8a" font-size="11">cover · narrator · ISBN</text>
+    </g>
+    <g transform="translate(184,190)">
+      <rect width="150" height="44" rx="8" fill="#101028" stroke="#1e1e3a"/>
+      <text x="14" y="20" fill="#e8e8f0" font-size="14" font-weight="600">Podcast fetcher</text>
+      <text x="14" y="36" fill="#6b6b8a" font-size="11">RSS · every 24h</text>
+    </g>
+  </g>
+
+  <!-- ===== VOLUMES (right) ===== -->
+  <text x="800" y="186" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">MOUNTED VOLUMES</text>
+  <g transform="translate(800,200)">
+    <rect width="330" height="50" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="18" y="22" fill="#e8e8f0" font-size="15" font-weight="700">/audiobooks</text>
+    <text x="18" y="40" fill="#6b6b8a" font-size="12">Author / Book / file.m4b · source of truth</text>
+  </g>
+  <g transform="translate(800,260)">
+    <rect width="330" height="50" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="18" y="22" fill="#e8e8f0" font-size="15" font-weight="700">/podcasts</text>
+    <text x="18" y="40" fill="#6b6b8a" font-size="12">auto-downloaded episodes</text>
+  </g>
+  <g transform="translate(800,320)">
+    <rect width="330" height="50" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="18" y="22" fill="#e8e8f0" font-size="15" font-weight="700">/config</text>
+    <text x="18" y="40" fill="#6b6b8a" font-size="12">audiobookshelf.db · server settings</text>
+  </g>
+  <g transform="translate(800,380)">
+    <rect width="330" height="50" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="18" y="22" fill="#e8e8f0" font-size="15" font-weight="700">/metadata</text>
+    <text x="18" y="40" fill="#6b6b8a" font-size="12">cover art cache · chapter data</text>
+  </g>
+
+  <!-- container -> volumes arrows -->
+  <line x1="758" y1="270" x2="794" y2="225" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrowlime)"/>
+  <line x1="758" y1="300" x2="794" y2="285" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrowlime)"/>
+  <line x1="758" y1="320" x2="794" y2="345" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrowlime)"/>
+  <line x1="758" y1="350" x2="794" y2="405" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrowlime)"/>
+
+  <!-- ===== External metadata sources (bottom) ===== -->
+  <text x="402" y="512" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">EXTERNAL SOURCES</text>
+  <g transform="translate(402,522)">
+    <rect width="110" height="40" rx="8" fill="#101028" stroke="#1e1e3a"/>
+    <text x="55" y="25" text-anchor="middle" fill="#c0c0d8" font-size="14">Audible</text>
+  </g>
+  <g transform="translate(525,522)">
+    <rect width="118" height="40" rx="8" fill="#101028" stroke="#1e1e3a"/>
+    <text x="59" y="25" text-anchor="middle" fill="#c0c0d8" font-size="14">Open Library</text>
+  </g>
+  <g transform="translate(656,522)">
+    <rect width="118" height="40" rx="8" fill="#101028" stroke="#1e1e3a"/>
+    <text x="59" y="25" text-anchor="middle" fill="#c0c0d8" font-size="14">Google Books</text>
+  </g>
+  <g transform="translate(788,522)">
+    <rect width="160" height="40" rx="8" fill="#101028" stroke="#1e1e3a"/>
+    <text x="80" y="25" text-anchor="middle" fill="#c0c0d8" font-size="14">Podcast RSS feeds</text>
+  </g>
+  <!-- metadata up-arrow into container -->
+  <line x1="540" y1="520" x2="560" y2="474" stroke="#5090e0" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+
+  <!-- Footer -->
+  <text x="70" y="600" fill="#4a4a6a" font-size="13">TechFuel HQ · Setup Tutorial · Topology per AudioBookshelf (advplyr) Docker deployment</text>
+  <text x="1130" y="600" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

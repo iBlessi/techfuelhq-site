@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 736" width="1200" height="736" role="img" aria-label="RTX 5080 local LLM throughput, measured 2026-08-12 with ollama 0.32.1 at temperature 0, median of 3 runs: Llama 3.2 3B Q4_K_M decodes at 312 tokens per second, gpt-oss 20B MXFP4 at 190, Qwen 2.5 14B Q4_K_M at 97. Rates hold from 4k to 16k context. CC BY 4.0 open dataset.">
+  <rect width="1200" height="736" fill="#0e0e1a"/>
+  <text x="60" y="66" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700">RTX 5080 local LLM throughput &#8212; measured, not estimated</text>
+  <text x="60" y="102" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="18">decode tokens/second &#183; ollama 0.32.1 &#183; temp 0, seed 42 &#183; median of 3 fresh-prefill runs &#183; 2026-08-12 &#183; CC BY 4.0</text>
+
+  <!-- axis -->
+  <line x1="300" y1="150" x2="300" y2="560" stroke="#5a5a72" stroke-width="1" opacity="0.6"/>
+  <g stroke="#5a5a72" stroke-width="1" opacity="0.25">
+    <line x1="475" y1="150" x2="475" y2="560"/>
+    <line x1="650" y1="150" x2="650" y2="560"/>
+    <line x1="825" y1="150" x2="825" y2="560"/>
+    <line x1="1000" y1="150" x2="1000" y2="560"/>
+  </g>
+  <g fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15">
+    <text x="470" y="585" text-anchor="middle">100</text>
+    <text x="645" y="585" text-anchor="middle">200</text>
+    <text x="820" y="585" text-anchor="middle">300</text>
+    <text x="995" y="585" text-anchor="middle">400 tok/s</text>
+  </g>
+
+  <!-- Llama 3.2 3B : 312 tok/s -> width 312*1.75 = 546 -->
+  <text x="285" y="215" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="19" text-anchor="end">Llama 3.2 3B &#183; Q4_K_M</text>
+  <rect x="300" y="190" width="546" height="42" fill="#c8ff00" opacity="0.9"/>
+  <text x="856" y="218" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="700">312</text>
+
+  <!-- gpt-oss 20B : 190 tok/s -> width 332 -->
+  <text x="285" y="335" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="19" text-anchor="end">gpt-oss 20B &#183; MXFP4</text>
+  <rect x="300" y="310" width="332" height="42" fill="#7dd3fc" opacity="0.9"/>
+  <text x="642" y="338" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="700">190</text>
+
+  <!-- Qwen 2.5 14B : 97 tok/s -> width 170 -->
+  <text x="285" y="455" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="19" text-anchor="end">Qwen 2.5 14B &#183; Q4_K_M</text>
+  <rect x="300" y="430" width="170" height="42" fill="#c084fc" opacity="0.9"/>
+  <text x="480" y="458" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="700">97</text>
+
+  <g fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="16">
+    <text x="60" y="642">The 20.9B MXFP4 model decodes 2x faster than the dense 14B at Q4_K_M &#8212; quantization and architecture beat parameter count.</text>
+    <text x="60" y="672">Decode speed holds flat from 4k to 16k context. gpt-oss:20b runs fully resident in ~14.1 GiB of the card's 16 GiB.</text>
+    <text x="60" y="708" fill="#5a5a72">techfuelhq.com/data/rtx-5080-llm-throughput/ &#8212; single retail unit, driver 610.88; per-row digests in the CSV</text>
+  </g>
+</svg>

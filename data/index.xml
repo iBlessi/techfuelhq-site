@@ -1,0 +1,912 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>TechFuelHQ Datasets on TechFuel HQ</title><link>https://techfuelhq.com/data/</link><description>Recent content in TechFuelHQ Datasets on TechFuel HQ</description><generator>Hugo</generator><language>en-us</language><managingEditor>LK Wood IV</managingEditor><lastBuildDate>Mon, 10 Aug 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://techfuelhq.com/data/index.xml" rel="self" type="application/rss+xml"/><atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/><item><title>Coil Whine Database: Per-Model Community Census (GPU, PSU, AIO)</title><link>https://techfuelhq.com/data/coil-whine-database/</link><pubDate>Wed, 12 Aug 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/data/coil-whine-database/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · Published 2026-08-12 · ~5 min read · St. Louis County, MO&lt;/p>
+&lt;h2 id="the-short-version">The short version&lt;/h2>
+&lt;p>Coil whine is one of the most-asked PC noise questions with the least data behind
+it. As of an August 2026 check, no per-model coil whine database existed anywhere —
+community knowledge lives in scattered forum threads, plus one lab analysis
+(&lt;a href="https://www.hwcooling.net/" rel="noopener">hwcooling.net&lt;/a>) that measured a 30-card batch once and
+stopped. Meanwhile &amp;ldquo;coil whine&amp;rdquo; draws about 2,900 searches a month and &amp;ldquo;gpu coil
+whine&amp;rdquo; another 1,000 (Google Ads exact match, checked 2026-08-12). This page opens
+the census that should exist: owner reports of GPUs, PSUs, and AIO pumps on an
+anchored 0-4 severity scale, published as per-model distributions.&lt;/p>
+&lt;p>The raw data, schema, and intake all live in the open repository:
+&lt;strong>&lt;a href="https://github.com/iBlessi/coil-whine-db" rel="noopener">github.com/iBlessi/coil-whine-db&lt;/a>&lt;/strong> (CC BY 4.0).&lt;/p>
+&lt;h2 id="why-distributions-never-verdicts">Why distributions, never verdicts&lt;/h2>
+&lt;p>The defining fact about coil whine is the design constraint for the whole dataset:
+&lt;strong>it varies unit to unit.&lt;/strong> The same GPU model ships silent units and screaming
+units, because the outcome depends on which inductors a particular board received,
+how they were potted, the PSU feeding them, and the load pattern — not on the model
+name. A review unit that stays quiet proves nothing about the unit you will receive,
+and one loud unit on a forum proves nothing about the model.&lt;/p>
+&lt;p>So the honest per-model answer is never &amp;ldquo;the RTX 4090 whines&amp;rdquo; or &amp;ldquo;it doesn&amp;rsquo;t.&amp;rdquo; It is
+a distribution: out of &lt;em>n&lt;/em> reported units, this share was inaudible, this share was
+audible at the desk, this share screamed even at idle. That is what this database
+publishes — odds, never verdicts.&lt;/p>
+&lt;h2 id="the-schema">The schema&lt;/h2>
+&lt;p>One row = one physical unit an owner listened to. Full machine-readable definitions
+live in &lt;a href="https://github.com/iBlessi/coil-whine-db/blob/main/schema.json" rel="noopener">&lt;code>schema.json&lt;/code>&lt;/a>.&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Field&lt;/th>
+&lt;th scope="col">Required&lt;/th>
+&lt;th scope="col">What it records&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>component_type&lt;/code>&lt;/td>
+&lt;td>yes&lt;/td>
+&lt;td>&lt;code>gpu&lt;/code>, &lt;code>psu&lt;/code>, or &lt;code>aio-pump&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>brand&lt;/code>&lt;/td>
+&lt;td>yes&lt;/td>
+&lt;td>As printed on the box — ASUS, Corsair, Arctic&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>model&lt;/code>&lt;/td>
+&lt;td>yes&lt;/td>
+&lt;td>Model line, specific enough to group units — &amp;ldquo;ROG Strix RTX 4090&amp;rdquo;, &amp;ldquo;RM850x (2021)&amp;rdquo;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>exact_sku&lt;/code>&lt;/td>
+&lt;td>no&lt;/td>
+&lt;td>Exact manufacturer SKU when known&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>purchase_year&lt;/code>&lt;/td>
+&lt;td>yes&lt;/td>
+&lt;td>Year this unit was bought&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>severity&lt;/code>&lt;/td>
+&lt;td>yes&lt;/td>
+&lt;td>0–4 on the anchored scale below&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>load_context&lt;/code>&lt;/td>
+&lt;td>yes&lt;/td>
+&lt;td>Where the score was observed: &lt;code>idle&lt;/code>, &lt;code>gaming&lt;/code>, &lt;code>menu-uncapped-fps&lt;/code>, &lt;code>furmark&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>psu_used&lt;/code>&lt;/td>
+&lt;td>no&lt;/td>
+&lt;td>For GPU reports: the PSU in the system — whine sometimes moves with it&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>fps_cap_changes_it&lt;/code>&lt;/td>
+&lt;td>no&lt;/td>
+&lt;td>Whether capping FPS audibly changes it — &lt;code>true&lt;/code> / &lt;code>false&lt;/code> / untested&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>notes&lt;/code>&lt;/td>
+&lt;td>no&lt;/td>
+&lt;td>Free text, max 280 characters&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>submitted_date&lt;/code>&lt;/td>
+&lt;td>yes&lt;/td>
+&lt;td>ISO date of the report&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;h3 id="the-severity-scale-anchored">The severity scale (anchored)&lt;/h3>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col" style="text-align: right">Severity&lt;/th>
+&lt;th scope="col">Anchor&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: right">&lt;strong>0&lt;/strong>&lt;/td>
+&lt;td>Inaudible in a quiet room&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: right">&lt;strong>1&lt;/strong>&lt;/td>
+&lt;td>Audible with an ear at the case&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: right">&lt;strong>2&lt;/strong>&lt;/td>
+&lt;td>Audible at the desk under load&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: right">&lt;strong>3&lt;/strong>&lt;/td>
+&lt;td>Audible across the room under load&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: right">&lt;strong>4&lt;/strong>&lt;/td>
+&lt;td>Audible even at idle&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Score the unit at its loudest normal state. The anchors are fixed on purpose:
+changing them would make old and new rows incomparable, so any future anchor change
+bumps the dataset&amp;rsquo;s major version instead of quietly redefining the numbers.&lt;/p>
+&lt;h2 id="how-to-submit-a-unit">How to submit a unit&lt;/h2>
+&lt;p>One report = one physical unit you own or owned, judged by your own ears — not a
+model you read about. &lt;strong>Severity-0 reports (&amp;ldquo;mine is silent&amp;rdquo;) are the most valuable
+rows in the census&lt;/strong>, because they are the half of the distribution that never shows
+up in forum threads.&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>No git knowledge needed&lt;/strong> — fill in the
+&lt;a href="https://github.com/iBlessi/coil-whine-db/issues/new?template=submission.yml" rel="noopener">coil whine report issue form&lt;/a>.
+It mirrors the schema field-for-field; a maintainer transcribes accepted reports
+into the CSV, with &lt;code>submitted_date&lt;/code> taken from the issue&amp;rsquo;s creation date.&lt;/li>
+&lt;li>&lt;strong>The CSV path&lt;/strong> — add one row to
+&lt;a href="https://github.com/iBlessi/coil-whine-db/blob/main/data/submissions.csv" rel="noopener">&lt;code>data/submissions.csv&lt;/code>&lt;/a>
+following the schema, and open a pull request. A stdlib validator runs on every
+PR and blocks malformed rows.&lt;/li>
+&lt;/ol>
+&lt;p>Every submission passes two layers before it lands: the mechanical schema check, and
+a maintainer review for outlier and troll patterns — duplicate-account bursts filing
+the same model at the same severity, impossible combinations like a purchase year
+before the model existed, and rows that summarize other people&amp;rsquo;s threads instead of
+a unit the submitter heard. The full acceptance rules are in
+&lt;a href="https://github.com/iBlessi/coil-whine-db/blob/main/CONTRIBUTING.md" rel="noopener">CONTRIBUTING.md&lt;/a>.&lt;/p>
+&lt;h2 id="what-publishes-as-the-census-grows">What publishes as the census grows&lt;/h2>
+&lt;p>The activation floor, stated verbatim: &lt;strong>per-model n + severity distribution once a
+model has &amp;gt;=5 reports.&lt;/strong> Below that floor a model is listed as &lt;em>collecting&lt;/em>, with no
+numbers attached. As models cross the floor, their distributions render on this page
+— n first, then the share of reports at each severity level, always with the sample
+size in the same breath as the percentages.&lt;/p>
+&lt;p>The census opened at &lt;strong>0 rows&lt;/strong> by design — a dataset about unit-to-unit variance
+cannot be seeded from published reviews, because each review describes a single unit
+that is not ours to report. Every row is a real owner reporting a real unit.&lt;/p>
+&lt;p>&lt;strong>Current count: n=1.&lt;/strong> &lt;a href="https://github.com/iBlessi/coil-whine-db/issues/1" rel="noopener">Submission #1&lt;/a>
+is the maintainer&amp;rsquo;s own ASUS ROG Astral RTX 5080 OC — severity 1, audible only in
+uncapped game menus, silenced by any frame cap. It is the same physical card behind
+the &lt;a href="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/">Astral 5080 bench dataset&lt;/a>, so its
+provenance is already public. One report proves the pipeline, not a distribution:
+the ROG Astral RTX 5080 OC is listed as &lt;em>collecting&lt;/em> until it reaches n=5.&lt;/p>
+&lt;h2 id="the-honesty-rules">The honesty rules&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>No verdicts below n = 5.&lt;/strong> A model with three angry reports is &lt;em>collecting&lt;/em>, not
+&amp;ldquo;a whiner.&amp;rdquo;&lt;/li>
+&lt;li>&lt;strong>Self-selection bias is named, not hidden.&lt;/strong> People annoyed by a noise go looking
+for a place to report it; people with silent units mostly don&amp;rsquo;t. Annoyed owners
+over-report and silent units under-report, so every published whine percentage is
+a &lt;strong>ceiling&lt;/strong>, not an unbiased estimate. The severity-0 row exists to shrink that
+bias, not to pretend it away.&lt;/li>
+&lt;li>&lt;strong>Anchors never drift.&lt;/strong> The 0–4 scale above is frozen; a change would be a new
+major version, and old rows would be marked as scored on the old scale.&lt;/li>
+&lt;/ul>
+&lt;h2 id="use-the-data-cc-by-40">Use the data (CC BY 4.0)&lt;/h2>
+&lt;p>The live dataset is one file:
+&lt;a href="https://raw.githubusercontent.com/iBlessi/coil-whine-db/main/data/submissions.csv" rel="noopener">&lt;code>data/submissions.csv&lt;/code>&lt;/a>
+— one row per reported unit, in the schema order above. License: Creative Commons
+Attribution 4.0. Attribute as &amp;ldquo;TechFuelHQ Community Coil Whine Census&amp;rdquo; linking to
+this page.&lt;/p>
+&lt;p>If the noise is bothering you today, the diagnosis and mitigation walkthrough is the
+&lt;a href="https://techfuelhq.com/articles/coil-whine-2026/">coil whine guide: is it normal, and where is it coming from?&lt;/a>
+— and a brand-new buzz paired with crashes belongs in the
+&lt;a href="https://techfuelhq.com/articles/psu-failure-symptoms-2026/">PSU failure symptoms guide&lt;/a> rather than a
+census form. If capping FPS quiets your card and you want the deeper fix, the
+&lt;a href="https://techfuelhq.com/articles/gpu-undervolt-settings-database/">GPU undervolt settings database&lt;/a> is the
+companion dataset.&lt;/p>
+&lt;h2 id="change-log">Change log&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>0.1.0 (2026-08-12)&lt;/strong> — schema, anchored severity scale, intake (issue form + PR
+path), validator, and the empty census opened: 0 rows, no seeded data.&lt;/li>
+&lt;li>&lt;strong>0.1.1 (2026-08-13)&lt;/strong> — first accepted report: the maintainer&amp;rsquo;s own Astral
+RTX 5080 OC via the issue-form flow (issue #1 -&amp;gt; validated row). n=1; every
+model remains below the n&amp;gt;=5 distribution floor.&lt;/li>
+&lt;/ul></description></item><item><title>DDR5 RAM Price Index: Dated $/GB from Direct US Retailers (Pilot)</title><link>https://techfuelhq.com/data/ram-price-index/</link><pubDate>Wed, 12 Aug 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/data/ram-price-index/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · Published 2026-08-12 · ~5 min read · St. Louis County, MO&lt;/p>
+&lt;h2 id="the-short-version">The short version&lt;/h2>
+&lt;p>DDR5 prices roughly tripled during the 2026 memory supply crisis, and the
+numbers that circulate are mostly screenshots without dates or methods. This
+page is the start of a dated, checkable record: a $/GB index for mainstream
+32GB (2x16GB) DDR5 kits observed at &lt;strong>named direct US retailers only&lt;/strong>, with
+the method, the acceptance rules, every rejection reason, and the raw data
+published alongside the numbers.&lt;/p>
+&lt;p>It is labeled a &lt;strong>pilot&lt;/strong> because the index metric has an activation gate it
+has not passed yet — and rather than loosen the rules to manufacture a number,
+the gate status is printed here verbatim.&lt;/p>
+&lt;h2 id="day-one-observations-2026-08-12">Day-one observations (2026-08-12)&lt;/h2>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Kit&lt;/th>
+&lt;th scope="col" style="text-align: right">Cheapest qualifying offer&lt;/th>
+&lt;th scope="col" style="text-align: right">$/GB&lt;/th>
+&lt;th scope="col">Retailer&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Corsair Vengeance 32GB (2x16) DDR5-6000 CL30&lt;/td>
+&lt;td style="text-align: right">$449.99&lt;/td>
+&lt;td style="text-align: right">$14.06&lt;/td>
+&lt;td>B&amp;amp;H&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Corsair Vengeance RGB 32GB (2x16) DDR5-6000 CL30&lt;/td>
+&lt;td style="text-align: right">$449.99&lt;/td>
+&lt;td style="text-align: right">$14.06&lt;/td>
+&lt;td>B&amp;amp;H&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Corsair Dominator Titanium 32GB (2x16) DDR5-6000&lt;/td>
+&lt;td style="text-align: right">$649.99&lt;/td>
+&lt;td style="text-align: right">$20.31&lt;/td>
+&lt;td>Newegg&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>21 qualifying offers total across 3 kits, out of 546 listings reviewed. For
+scale: the Vengeance 6000 CL30 kit was a $95–110 street-price part through
+2024 — today&amp;rsquo;s cheapest direct-retailer offer is roughly &lt;strong>4x&lt;/strong> that.&lt;/p>
+&lt;p>Day two (2026-08-13) held the pattern: 581 listings reviewed, 23 qualifying
+offers, the same 3 Corsair kits, cheapest offer unchanged at $449.99. Day
+three (2026-08-14) — the capture the table below renders — held it again: 24
+qualifying offers across the same 3 Corsair kits, cheapest still $449.99
+($14.06/GB) at B&amp;amp;H, Dominator Titanium still $649.99.&lt;/p>
+&lt;h2 id="every-qualifying-observation-latest-capture">Every qualifying observation, latest capture&lt;/h2>
+&lt;p>The most recent daily capture&amp;rsquo;s full qualifying set, exactly as the collector
+recorded it — not just the cheapest row per kit.&lt;/p>
+&lt;div class="table-wrap csv-table">
+&lt;table>
+&lt;thead>
+&lt;tr>&lt;th>Capture Date Utc&lt;/th>&lt;th>Product Label&lt;/th>&lt;th>Title&lt;/th>&lt;th>Seller&lt;/th>&lt;th>Price Usd&lt;/th>&lt;th>Usd per Gb&lt;/th>&lt;th>Verification Status&lt;/th>&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Dominator Titanium 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>CORSAIR - Dominator Titanium 32GB (2 x 16GB) DDR5 6000 (PC5 48000) Desktop Memory Model CMP32GX5M2B6000C30 - Black&lt;/td>&lt;td>Best Buy&lt;/td>&lt;td>649.99&lt;/td>&lt;td>20.312&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Dominator Titanium 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>Corsair Dominator Titanium RGB DDR5 32GB (2x16GB) 6000MHz CL30 Memory&lt;/td>&lt;td>Newegg.com&lt;/td>&lt;td>649.99&lt;/td>&lt;td>20.312&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Dominator Titanium 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>CORSAIR Dominator Titanium 32GB (2 x 16GB) DDR5 6000 (PC5 48000) Desktop Memory Model CMP32GX5M2B6000C30W&lt;/td>&lt;td>Newegg.com&lt;/td>&lt;td>649.99&lt;/td>&lt;td>20.312&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Vengeance 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>CORSAIR 32GB VENGEANCE RGB DDR5 6000 MT/s DIMM Memory Kit (Gray, 2 x 16GB)&lt;/td>&lt;td>B&amp;amp;H Photo-Video-Audio&lt;/td>&lt;td>449.99&lt;/td>&lt;td>14.062&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Vengeance 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>CORSAIR - VENGEANCE 32GB (2x16GB) DDR5 6000MHz Z30 AMD EXPO &amp;amp; Intel XMP UDIMM Desktop Memory - Black&lt;/td>&lt;td>Best Buy&lt;/td>&lt;td>499.99&lt;/td>&lt;td>15.625&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Vengeance 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>Corsair Vengeance DDR5 32GB (2x16GB) 6000MT/s Memory Kit&lt;/td>&lt;td>Newegg.com&lt;/td>&lt;td>505.99&lt;/td>&lt;td>15.812&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Vengeance 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>Corsair CMK32GX5M2B6000C30 VENGEANCE DDR5 32GB (2x16GB) Memory Kit 6000MT/s 30-36-36-76 XMP 3.0 1.4V Black&lt;/td>&lt;td>Central Computers&lt;/td>&lt;td>529.99&lt;/td>&lt;td>16.562&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Vengeance 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>CORSAIR - Vengeance 32GB (2 x 16GB) 288-Pin PC RAM DDR5 6000 (PC5 48000) Desktop Memory Model CMK32GX5M2B6000C30 - Black&lt;/td>&lt;td>Best Buy&lt;/td>&lt;td>539.99&lt;/td>&lt;td>16.875&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Vengeance 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>CORSAIR Vengeance 32GB (2 x 16GB) 288-Pin PC RAM DDR5 6000 (PC5 48000) Desktop Memory Model CMK32GX5M2B6000C30&lt;/td>&lt;td>Newegg.com&lt;/td>&lt;td>539.99&lt;/td>&lt;td>16.875&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Vengeance 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>CORSAIR Vengeance 32GB (2 x 16GB) 288-Pin PC RAM DDR5 6000 (PC5 48000) Desktop Memory Model CMK32GX5M2B6000Z30&lt;/td>&lt;td>Newegg.com&lt;/td>&lt;td>539.99&lt;/td>&lt;td>16.875&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Vengeance 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>CORSAIR Vengeance RGB 32GB (2 x 16GB) 288-Pin PC RAM DDR5 6000 (PC5 48000) Desktop Memory Model CMH32GX5M2N6000Z30&lt;/td>&lt;td>Newegg.com&lt;/td>&lt;td>549.99&lt;/td>&lt;td>17.187&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Vengeance 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>CORSAIR Vengeance RGB 32GB (2 x 16GB) 288-Pin PC RAM DDR5 6000 (PC5 48000) Custom Lab Cherry Blossom Desktop Memory Model CMH32GX5M2B6000Z30WCB - Whit&lt;/td>&lt;td>Newegg.com&lt;/td>&lt;td>599.99&lt;/td>&lt;td>18.75&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Vengeance 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>CORSAIR - Vengeance 32GB (2 x 16GB) 288-Pin PC RAM DDR5 6000 (PC5 48000) Desktop Memory Model CMK32GX5M2B6000Z30W - White&lt;/td>&lt;td>Best Buy&lt;/td>&lt;td>604.99&lt;/td>&lt;td>18.906&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Vengeance 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>CORSAIR Vengeance 32GB (2 x 16GB) 288-Pin PC RAM DDR5 6000 (PC5 48000) Desktop Memory Model CMK32GX5M2B6000Z30W&lt;/td>&lt;td>Newegg.com&lt;/td>&lt;td>604.99&lt;/td>&lt;td>18.906&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Vengeance 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>CORSAIR - Vengeance RGB 32GB (2 x 16GB) 288-Pin PC RAM DDR5 6000 (PC5 48000) Desktop Memory Model CMH32GX5M2B6000Z30W - White&lt;/td>&lt;td>Best Buy&lt;/td>&lt;td>619.99&lt;/td>&lt;td>19.375&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Vengeance 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>CORSAIR Vengeance RGB 32GB (2 x 16GB) 288-Pin PC RAM DDR5 6000 (PC5 48000) Desktop Memory Model CMH32GX5M2B6000C30W&lt;/td>&lt;td>Newegg.com&lt;/td>&lt;td>619.99&lt;/td>&lt;td>19.375&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Vengeance RGB 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>CORSAIR 32GB VENGEANCE RGB DDR5 6000 MT/s DIMM Memory Kit (Gray, 2 x 16GB)&lt;/td>&lt;td>B&amp;amp;H Photo-Video-Audio&lt;/td>&lt;td>449.99&lt;/td>&lt;td>14.062&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Vengeance RGB 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>CORSAIR - VENGEANCE RGB DDR5 32GB (2 x 16GB) DDR5 6000MHz CL38-44-44-96 1.35V Intel XMP &amp;amp; AMD EXPO - Gray&lt;/td>&lt;td>Best Buy&lt;/td>&lt;td>449.99&lt;/td>&lt;td>14.062&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Vengeance RGB 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>CORSAIR Vengeance RGB 32GB (2 x 16GB) 288-Pin PC RAM DDR5 6000 (PC5 48000) Desktop Memory Model CMH32GX5M2E6000C36W&lt;/td>&lt;td>Newegg.com&lt;/td>&lt;td>489.99&lt;/td>&lt;td>15.312&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Vengeance RGB 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>CORSAIR Vengeance RGB 32GB (2 x 16GB) 288-Pin PC RAM DDR5 6000 (PC5 48000) Desktop Memory Model CMH32GX5M2N6000Z30&lt;/td>&lt;td>Newegg.com&lt;/td>&lt;td>549.99&lt;/td>&lt;td>17.187&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Vengeance RGB 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>CORSAIR Vengeance RGB 32GB (2 x 16GB) 288-Pin PC RAM DDR5 6000 (PC5 48000) Custom Lab Cherry Blossom Desktop Memory Model CMH32GX5M2B6000Z30WCB - Whit&lt;/td>&lt;td>Newegg.com&lt;/td>&lt;td>599.99&lt;/td>&lt;td>18.75&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Vengeance RGB 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>CORSAIR - Vengeance RGB 32GB (2 x 16GB) 288-Pin PC RAM DDR5 6000 (PC5 48000) Desktop Memory Model CMH32GX5M2B6000Z30W - White&lt;/td>&lt;td>Best Buy&lt;/td>&lt;td>619.99&lt;/td>&lt;td>19.375&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Vengeance RGB 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>CORSAIR Vengeance RGB 32GB (2 x 16GB) 288-Pin PC RAM DDR5 6000 (PC5 48000) Custom Lab Cherry Blossom Desktop Memory Model CMH32GX5M2B6000Z30CB - Gray&lt;/td>&lt;td>Newegg.com&lt;/td>&lt;td>619.99&lt;/td>&lt;td>19.375&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-14&lt;/td>&lt;td>Corsair Vengeance RGB 32GB (2x16GB) DDR5-6000 CL30&lt;/td>&lt;td>CORSAIR Vengeance RGB 32GB (2 x 16GB) 288-Pin PC RAM DDR5 6000 (PC5 48000) Desktop Memory Model CMH32GX5M2B6000C30W&lt;/td>&lt;td>Newegg.com&lt;/td>&lt;td>619.99&lt;/td>&lt;td>19.375&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p class="csv-table__note">Rendered at build time from &lt;a href="https://techfuelhq.com/data/ram-price-observations.csv">the raw CSV&lt;/a> — the table and the download can never disagree.&lt;/p>
+&lt;p>&lt;strong>Gate status, verbatim:&lt;/strong> 3 of 12 tracked kits produced qualifying offers;
+the index metric (median cheapest $/GB across kits) activates at 6. Direct
+retailer stock is not independently confirmed at the listing page yet, so
+every row carries &lt;code>verification_status: discovery_only&lt;/code>.&lt;/p>
+&lt;h2 id="what-gets-rejected-and-why-thats-the-point">What gets rejected, and why that&amp;rsquo;s the point&lt;/h2>
+&lt;p>Of 546 listings reviewed in the day-one capture, 525 were rejected, each with
+recorded reasons: marketplace and third-party sellers (the largest bucket),
+listings that don&amp;rsquo;t state the 32GB capacity or the 2x16GB split in the title,
+wrong speed for the tracked SKU, used/renewed condition, and prices outside a
+sanity band. A price index built on listings a script &lt;em>guessed&lt;/em> about would
+be smoother — and worthless. The rejection log ships with the dataset.&lt;/p>
+&lt;h2 id="method-exactly">Method, exactly&lt;/h2>
+&lt;p>Captures run against Google Shopping (US, English) via DataForSEO&amp;rsquo;s merchant
+API, one exact-model query per tracked kit. An offer qualifies only if the
+seller matches a named direct-retailer allowlist (Best Buy, Newegg, B&amp;amp;H,
+Micro Center, Adorama, Walmart first-party, and peers — marketplace suffixes
+excluded), the title states the exact kit line, speed, 32GB capacity, and
+2x16GB split (a &amp;ldquo;Dual Channel&amp;rdquo; declaration on a 32GB listing counts as the
+split), condition is new, and the USD price sits inside a $60–900 band. The
+band&amp;rsquo;s ceiling was raised from $500 on day one when real direct-retailer
+offers at $469–499 for the &lt;em>cheapest&lt;/em> kit proved the old ceiling was written
+for a market that no longer exists — that correction is recorded in the
+change log, not hidden.&lt;/p>
+&lt;p>Amazon is excluded by design (see FAQ). The full collector, product basket,
+tests, raw responses, and rejection logs are in the site&amp;rsquo;s repository.&lt;/p>
+&lt;h2 id="use-the-data-cc-by-40">Use the data (CC BY 4.0)&lt;/h2>
+&lt;p>Download the day-one observations:
+&lt;a href="https://techfuelhq.com/data/ram-price-observations.csv">ram-price-observations.csv&lt;/a> — one row per
+qualifying offer, with capture date, kit, price, $/GB, seller, and
+verification status. Once the activation gate opens, the daily index series
+publishes at &lt;code>/data/ram-price-index.csv&lt;/code> (median cheapest $/GB across kits,
+one row per UTC day). License: Creative Commons Attribution 4.0 — attribute
+as &amp;ldquo;TechFuelHQ DDR5 RAM Price Index&amp;rdquo; linking to this page.&lt;/p>
+&lt;p>Context for the crisis itself: the
+&lt;a href="https://techfuelhq.com/articles/ram-ssd-price-crisis-2026/">RAM &amp;amp; SSD price crisis explainer&lt;/a> and
+the &lt;a href="https://techfuelhq.com/articles/ddr5-ram-buying-guide-2025/">DDR5 buying guide&lt;/a> — the guide&amp;rsquo;s
+price-tracking data is what earned this site its first external news citation,
+and this index is that work made repeatable.&lt;/p>
+&lt;h2 id="change-log">Change log&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>0.9.2 (2026-08-14)&lt;/strong> — day-three capture (24 qualifying offers, same 3
+Corsair kits, cheapest unchanged at $449.99). Correction: the rendered
+observation table had advanced to the 2026-08-14 capture while the prose
+above it still described only days one and two, so a reader met a table
+dated later than anything the page acknowledged. The prose now names the
+capture the table actually serves.&lt;/li>
+&lt;li>&lt;strong>0.9.1 (2026-08-13)&lt;/strong> — day-two capture (581 reviewed / 23 qualifying / 3
+kits, cheapest unchanged). The page now renders the full qualifying
+observation table straight from the raw CSV at build time, so the visible
+table and the download can never disagree.&lt;/li>
+&lt;li>&lt;strong>0.9.0 (2026-08-12)&lt;/strong> — pilot capture and method publication. Four method
+corrections made against measured evidence on day one, all recorded: price
+ceiling $500 → $900 (285 real listings died on the stale band); &amp;ldquo;Dual
+Channel&amp;rdquo; accepted as an explicit module-split marker (Newegg writes Trident
+Z5 Neo kits this way); per-product offer de-duplication (a Corsair offer
+was being consumed and mis-rejected under another kit&amp;rsquo;s query); basket v1.1
+swapped two kits with zero direct-retailer presence (ADATA XPG Lancer,
+Patriot Viper Venom) for Dominator Titanium 6000 and Flare X5 5600.&lt;/li>
+&lt;/ul></description></item><item><title>HDD Price Index: Dated $/TB for 8TB NAS Drives from Direct US Retailers (Pilot)</title><link>https://techfuelhq.com/data/hdd-price-index/</link><pubDate>Wed, 12 Aug 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/data/hdd-price-index/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · Published 2026-08-12 · ~5 min read · St. Louis County, MO&lt;/p>
+&lt;h2 id="the-short-version">The short version&lt;/h2>
+&lt;p>Consumer NAS drive prices rose roughly 30-50% through the 2026 supply squeeze
+as WD and Seagate steered nearline output toward AI and cloud buyers, and most
+of the $/TB numbers that circulate are undated screenshots or grey-market
+recertified listings quoted as if they were new-drive prices. This page starts
+a dated, checkable record: a $/TB index for &lt;strong>8TB 3.5-inch internal drives&lt;/strong>
+— the mainstream homelab size — observed at &lt;strong>named direct US retailers
+only&lt;/strong>, with the method, the acceptance rules, every rejection reason, and the
+raw data published alongside the numbers.&lt;/p>
+&lt;p>It is labeled a &lt;strong>pilot&lt;/strong> because the index metric has an activation gate it
+has not passed yet. Day one produced exactly one qualifying observation, and
+rather than loosen the rules to manufacture a fuller table, the gate status is
+printed here verbatim.&lt;/p>
+&lt;h2 id="day-one-observations-2026-08-12">Day-one observations (2026-08-12)&lt;/h2>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Drive&lt;/th>
+&lt;th scope="col" style="text-align: right">Cheapest qualifying offer&lt;/th>
+&lt;th scope="col" style="text-align: right">$/TB&lt;/th>
+&lt;th scope="col">Retailer&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>WD Red Pro 8TB NAS (7200 RPM)&lt;/td>
+&lt;td style="text-align: right">$402.99&lt;/td>
+&lt;td style="text-align: right">$50.37&lt;/td>
+&lt;td>Best Buy&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>1 qualifying offer across 1 drive line, out of 673 listings reviewed for 12
+tracked models (four NAS, two surveillance, two enterprise, three desktop
+lines, plus IronWolf Pro). For scale: WD Red Pro 8TB listed around $220-240
+through most of 2024, so today&amp;rsquo;s cheapest qualifying offer is roughly &lt;strong>1.7x&lt;/strong>
+its pre-squeeze street price.&lt;/p>
+&lt;p>&lt;strong>Gate status, verbatim:&lt;/strong> 1 of 12 tracked drives produced qualifying offers;
+the index metric (median cheapest $/TB across drives) activates at 6. The
+capture&amp;rsquo;s blocking reasons: &amp;ldquo;Direct retailer stock status is not independently
+confirmed.&amp;rdquo;; &amp;ldquo;Exact seller capacity/variant must be verified on the retailer
+page before publication.&amp;rdquo;; &amp;ldquo;Only 1 of 12 models produced eligible rows; the
+minimum is 6.&amp;rdquo; Every published row carries
+&lt;code>verification_status: discovery_only&lt;/code>.&lt;/p>
+&lt;h2 id="what-gets-rejected-and-why-thats-the-point">What gets rejected, and why that&amp;rsquo;s the point&lt;/h2>
+&lt;p>672 of 673 reviewed listings were rejected, each with recorded machine-readable
+reasons (a listing can carry several): 583 came from sellers off the
+direct-retailer allowlist — eBay storefronts, recertified-drive houses,
+white-label resellers, marketplace suffixes; 202 never stated the 8TB capacity
+in the title; 130 carried prices outside the sanity band; 55 were multi-packs
+or bundles; 52 named a sibling line (IronWolf &lt;strong>Pro&lt;/strong> under the IronWolf
+query, SkyHawk &lt;strong>AI&lt;/strong> under SkyHawk); 33 were external or enclosure products;
+5 were used, recertified, or open-box.&lt;/p>
+&lt;p>The capacity bucket is the HDD-specific finding: direct retailers frequently
+publish family-level Google Shopping titles — real examples from this capture
+include &amp;ldquo;Gold Hard Drive WD&amp;rdquo; and &amp;ldquo;Exos 7E10 Hard Drive Seagate&amp;rdquo; at $399.99 —
+that never say which capacity the price belongs to. A tracker that guessed
+would fill its table faster and be worthless. The rejection log ships with the
+dataset.&lt;/p>
+&lt;h2 id="method-exactly">Method, exactly&lt;/h2>
+&lt;p>Captures run against Google Shopping (US, English) via DataForSEO&amp;rsquo;s merchant
+API, one exact-model query per tracked drive. An offer qualifies only if the
+seller matches a named direct-retailer allowlist (Best Buy, Newegg, B&amp;amp;H,
+Micro Center, Adorama, Walmart first-party, and peers — marketplace suffixes
+excluded), the title states the exact line and the 8TB capacity, no
+sibling-superset line token appears, the product is a single internal drive
+(external/enclosure listings and multi-pack markers like &amp;ldquo;2-Pack&amp;rdquo;, &amp;ldquo;2 x&amp;rdquo;, or
+&amp;ldquo;20PK&amp;rdquo; are rejected), condition is new (used, refurbished, recertified, and
+white-label all rejected), and the USD price sits inside a $100-600 band.&lt;/p>
+&lt;p>Two method corrections were made against measured evidence on day one, both
+recorded in the change log below: the price ceiling was raised from $400
+after a real single-drive offer — the WD Red Pro at $402.99 — died on the old
+band as its only rejection reason, and a multi-pack guard was added in the
+same pass because pack listings ($599.98 to $1,479.96 for 2- and 4-packs in
+the same capture) pass every title rule and would otherwise have entered the
+raised band as fake singles.&lt;/p>
+&lt;p>Amazon is excluded by design (see FAQ). The full collector, product basket,
+tests, raw responses, and rejection logs are in the site&amp;rsquo;s repository.&lt;/p>
+&lt;h2 id="use-the-data-cc-by-40">Use the data (CC BY 4.0)&lt;/h2>
+&lt;p>Download the day-one observations:
+&lt;a href="https://techfuelhq.com/data/hdd-price-observations.csv">hdd-price-observations.csv&lt;/a> — one row per
+qualifying offer, with capture date, drive, price, $/TB, seller, and
+verification status. Once the activation gate opens, the daily index series
+publishes at &lt;code>/data/hdd-price-index.csv&lt;/code> (median cheapest $/TB across drives,
+one row per UTC day). License: Creative Commons Attribution 4.0 — attribute
+as &amp;ldquo;TechFuelHQ HDD Price Index&amp;rdquo; linking to this page.&lt;/p>
+&lt;p>Deciding between the drive lines this index tracks? The
+&lt;a href="https://techfuelhq.com/homelab/seagate-ironwolf-vs-ironwolf-pro-vs-exos-2026/">IronWolf vs IronWolf Pro vs Exos comparison&lt;/a>
+covers workload ratings and warranty, the
+&lt;a href="https://techfuelhq.com/homelab/best-budget-nas-builds-2025/">budget NAS build guide&lt;/a> prices whole
+builds in the drive crunch, and the
+&lt;a href="https://techfuelhq.com/tools/nas-storage-calculator/">NAS storage calculator&lt;/a> turns raw capacity
+into usable space under RAID.&lt;/p>
+&lt;h2 id="every-qualifying-observation-latest-capture">Every qualifying observation, latest capture&lt;/h2>
+&lt;p>The pilot&amp;rsquo;s entire qualifying set — currently one drive. That thinness is the
+finding, and the table renders from the raw CSV at build time so it updates
+the moment the data does.&lt;/p>
+&lt;div class="table-wrap csv-table">
+&lt;table>
+&lt;thead>
+&lt;tr>&lt;th>Capture Date Utc&lt;/th>&lt;th>Product Label&lt;/th>&lt;th>Title&lt;/th>&lt;th>Seller&lt;/th>&lt;th>Price Usd&lt;/th>&lt;th>Usd per Tb&lt;/th>&lt;th>Verification Status&lt;/th>&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>&lt;td>2026-08-12&lt;/td>&lt;td>WD Red Pro 8TB NAS (WD8005FFBX)&lt;/td>&lt;td>WD Red Pro 8TB 3.5&amp;#34; 7200RPM SATA III Hard Drive&lt;/td>&lt;td>Best Buy&lt;/td>&lt;td>402.99&lt;/td>&lt;td>50.37&lt;/td>&lt;td>discovery_only&lt;/td>&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p class="csv-table__note">Rendered at build time from &lt;a href="https://techfuelhq.com/data/hdd-price-observations.csv">the raw CSV&lt;/a> — the table and the download can never disagree.&lt;/p>
+&lt;h2 id="change-log">Change log&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>0.9.0 (2026-08-12)&lt;/strong> — pilot capture and method publication. Two method
+corrections made against measured evidence on day one, both recorded: price
+ceiling $400 → $600 (a genuine WD Red Pro 8TB single at Best Buy, $402.99,
+was rejected by the stale ceiling as its only failing check), and a
+multi-pack/bundle guard added alongside the raise (measured leak shapes:
+&amp;ldquo;WD 2-Pack 8TB Red Plus&amp;rdquo; $739.98, &amp;ldquo;Seagate 8TB BarraCuda (OEM Packaging,
+2-Pack)&amp;rdquo; $599.98, &amp;ldquo;2 x WD Red Plus 8TB&amp;rdquo; $699.98, 20-pack IronWolf rows —
+all state the line and capacity, so only the guard keeps them out of the
+raised band). Run 2&amp;rsquo;s results were collected through DataForSEO&amp;rsquo;s
+tasks-ready endpoint after a queue-delay timeout; no tasks were re-posted
+and no rows were lost.&lt;/li>
+&lt;/ul></description></item><item><title>RTX 5080 Local LLM Throughput: Measured Tokens/Second Dataset</title><link>https://techfuelhq.com/data/rtx-5080-llm-throughput/</link><pubDate>Wed, 12 Aug 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/data/rtx-5080-llm-throughput/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · Published 2026-08-12 · ~4 min read · St. Louis County, MO&lt;/p>
+&lt;h2 id="the-short-version">The short version&lt;/h2>
+&lt;p>This is a measured dataset, not a spec-sheet estimate: real decode and prefill
+tokens/second for local LLMs on the same retail RTX 5080 that runs this site&amp;rsquo;s
+&lt;a href="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/">open bench dataset&lt;/a>. Three
+models spanning 3B to 20.9B parameters, two context windows, two prompt sizes,
+three repetitions per cell, ollama&amp;rsquo;s native counters, temperature 0.&lt;/p>
+&lt;p>Per-GPU pages exist elsewhere for the RTX 5090, 4090, and 5060 — none for the
+5080 when this dataset was first captured (checked 2026-08-12). This page is
+the 5080 entry, from a card someone actually owns.&lt;/p>
+&lt;h2 id="the-numbers-capture-2026-08-12">The numbers (capture 2026-08-12)&lt;/h2>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Model&lt;/th>
+&lt;th scope="col">Quant&lt;/th>
+&lt;th scope="col" style="text-align: right">Context&lt;/th>
+&lt;th scope="col" style="text-align: right">Decode tok/s&lt;/th>
+&lt;th scope="col" style="text-align: right">Prefill tok/s&lt;/th>
+&lt;th scope="col" style="text-align: right">Load ms&lt;/th>
+&lt;th scope="col" style="text-align: right">VRAM MiB*&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>gpt-oss:20b (20.9B)&lt;/td>
+&lt;td>MXFP4&lt;/td>
+&lt;td style="text-align: right">4,096&lt;/td>
+&lt;td style="text-align: right">190.1 / 187.3&lt;/td>
+&lt;td style="text-align: right">9,078 / 10,465&lt;/td>
+&lt;td style="text-align: right">298 / 280&lt;/td>
+&lt;td style="text-align: right">14,067&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>gpt-oss:20b (20.9B)&lt;/td>
+&lt;td>MXFP4&lt;/td>
+&lt;td style="text-align: right">16,384&lt;/td>
+&lt;td style="text-align: right">188.6 / 187.7&lt;/td>
+&lt;td style="text-align: right">9,287 / 10,554&lt;/td>
+&lt;td style="text-align: right">299 / 280&lt;/td>
+&lt;td style="text-align: right">14,355&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Qwen 2.5 7B (7.6B)&lt;/td>
+&lt;td>Q4_K_M&lt;/td>
+&lt;td style="text-align: right">4,096&lt;/td>
+&lt;td style="text-align: right">180.0 / 176.8&lt;/td>
+&lt;td style="text-align: right">10,152 / 9,672&lt;/td>
+&lt;td style="text-align: right">130 / 123&lt;/td>
+&lt;td style="text-align: right">6,190&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Qwen 2.5 7B (7.6B)&lt;/td>
+&lt;td>Q4_K_M&lt;/td>
+&lt;td style="text-align: right">16,384&lt;/td>
+&lt;td style="text-align: right">179.7 / 176.6&lt;/td>
+&lt;td style="text-align: right">10,133 / 9,984&lt;/td>
+&lt;td style="text-align: right">128 / 128&lt;/td>
+&lt;td style="text-align: right">7,034&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Qwen 2.5 14B (14.8B)&lt;/td>
+&lt;td>Q4_K_M&lt;/td>
+&lt;td style="text-align: right">4,096&lt;/td>
+&lt;td style="text-align: right">96.7 / 94.5&lt;/td>
+&lt;td style="text-align: right">5,202 / 4,876&lt;/td>
+&lt;td style="text-align: right">183 / 126&lt;/td>
+&lt;td style="text-align: right">10,841&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Qwen 2.5 14B (14.8B)&lt;/td>
+&lt;td>Q4_K_M&lt;/td>
+&lt;td style="text-align: right">16,384&lt;/td>
+&lt;td style="text-align: right">97.0 / 94.6&lt;/td>
+&lt;td style="text-align: right">5,226 / 4,865&lt;/td>
+&lt;td style="text-align: right">131 / 129&lt;/td>
+&lt;td style="text-align: right">13,157&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Llama 3.2 3B (3.2B)&lt;/td>
+&lt;td>Q4_K_M&lt;/td>
+&lt;td style="text-align: right">4,096&lt;/td>
+&lt;td style="text-align: right">312.0 / 298.2&lt;/td>
+&lt;td style="text-align: right">18,197 / 17,681&lt;/td>
+&lt;td style="text-align: right">163 / 156&lt;/td>
+&lt;td style="text-align: right">15,682*&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Llama 3.2 3B (3.2B)&lt;/td>
+&lt;td>Q4_K_M&lt;/td>
+&lt;td style="text-align: right">16,384&lt;/td>
+&lt;td style="text-align: right">312.9 / 298.6&lt;/td>
+&lt;td style="text-align: right">17,886 / 19,397&lt;/td>
+&lt;td style="text-align: right">163 / 158&lt;/td>
+&lt;td style="text-align: right">5,495&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Paired values are the ~500-token / ~1,650-token prompt cells. Every value is
+the median of 3 runs.&lt;/p>
+&lt;p>*The starred Llama VRAM reading includes gpt-oss:20b still resident from the
+previous bench — see the FAQ. The 5,495 MiB row is the model alone.&lt;/p>
+&lt;p>Three readings worth naming:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Decode speed is flat across context at these prompt sizes.&lt;/strong> 4k to 16k
+&lt;code>num_ctx&lt;/code> moves gpt-oss:20b by less than 2 tok/s. Context &lt;em>capacity&lt;/em> costs
+VRAM (Qwen: 10.6 → 12.8 GiB), not decode speed, until the prompt itself
+gets long.&lt;/li>
+&lt;li>&lt;strong>The 20B model is the surprise.&lt;/strong> gpt-oss:20b&amp;rsquo;s MXFP4 quantization decodes
+twice as fast as the dense 14B at Q4_K_M and matches the dense 7B —
+architecture and quantization beat parameter count.&lt;/li>
+&lt;li>&lt;strong>Prefill is not the bottleneck at these sizes.&lt;/strong> Even the slowest model
+ingests ~5,000 tok/s; a 1,650-token prompt costs a third of a second.&lt;/li>
+&lt;/ul>
+&lt;p>The standout result has its own explainer now: &lt;a href="https://techfuelhq.com/articles/mxfp4-vs-q4km-rtx-5080/">why the 21B MoE doubles the dense 14B&lt;/a> — the bandwidth arithmetic, shown in full against these rows.&lt;/p>
+&lt;h2 id="method-exactly">Method, exactly&lt;/h2>
+&lt;p>The capture script (in the site repository) drives ollama&amp;rsquo;s
+&lt;code>/api/generate&lt;/code> and records its native &lt;code>eval_count&lt;/code>/&lt;code>eval_duration&lt;/code> and
+&lt;code>prompt_eval_count&lt;/code>/&lt;code>prompt_eval_duration&lt;/code> — the timers the runtime itself
+keeps — never wall-clock division. Each repetition prepends a unique nonce so
+every run pays a full prefill; without it, warm repetitions hit ollama&amp;rsquo;s
+prompt cache and report ~60,000 tok/s cache-hit rates that measure nothing
+(we caught exactly that in the first capture attempt and rejected those rows).
+Generation is pinned: temperature 0, seed 42, 256-token target output. A cell
+enters the CSV only when all 3 repetitions pass mechanical checks (enough
+tokens generated for a stable rate; a genuine full-prompt prefill observed).&lt;/p>
+&lt;p>Bench environment, recorded per row: NVIDIA GeForce RTX 5080 (16 GiB), driver
+610.88, ollama 0.32.1, Windows 11, Ryzen 7 7800X3D. Model identity is pinned
+by digest in the CSV, because a tag like &lt;code>qwen2.5:14b&lt;/code> can silently move.&lt;/p>
+&lt;h2 id="limitations-honestly">Limitations, honestly&lt;/h2>
+&lt;p>One retail card, one driver, one runtime. These are &lt;em>this unit&amp;rsquo;s&lt;/em> numbers —
+silicon lottery, thermals, and runtime version all move results; that is why
+each row carries its digest, driver, and date instead of claiming to be a
+universal constant. The VRAM column is whole-GPU &lt;code>nvidia-smi&lt;/code> at measurement
+time (see FAQ). llama.cpp direct, vLLM, and image-generation throughput are
+planned lanes, not covered yet.&lt;/p>
+&lt;h2 id="use-the-data-cc-by-40">Use the data (CC BY 4.0)&lt;/h2>
+&lt;p>Download the CSV: &lt;a href="https://techfuelhq.com/data/rtx-5080-llm-throughput.csv">rtx-5080-llm-throughput.csv&lt;/a>.
+License: Creative Commons Attribution 4.0. Attribute as &amp;ldquo;TechFuelHQ RTX 5080
+LLM Throughput Dataset&amp;rdquo; linking to this page. Sizing a build for local AI?
+Pair these measured rows with the
+&lt;a href="https://techfuelhq.com/tools/llm-vram-calculator/">LLM VRAM calculator&lt;/a> and the
+&lt;a href="https://techfuelhq.com/tools/llm-speed-calculator/">LLM speed calculator&lt;/a> — the estimators tell
+you what should fit; this table shows what one real card actually did.&lt;/p>
+&lt;h2 id="the-full-matrix-rendered-from-the-raw-csv">The full matrix, rendered from the raw CSV&lt;/h2>
+&lt;p>Every measured cell, straight from the downloadable file at build time.&lt;/p>
+&lt;div class="table-wrap csv-table">
+&lt;table>
+&lt;thead>
+&lt;tr>&lt;th>Capture Date Utc&lt;/th>&lt;th>Method Version&lt;/th>&lt;th>Gpu&lt;/th>&lt;th>Driver&lt;/th>&lt;th>Ollama Version&lt;/th>&lt;th>Model&lt;/th>&lt;th>Model Digest12&lt;/th>&lt;th>Parameter Size&lt;/th>&lt;th>Quantization&lt;/th>&lt;th>Num Ctx&lt;/th>&lt;th>Prompt Tokens&lt;/th>&lt;th>Reps&lt;/th>&lt;th>Median Decode Tok S&lt;/th>&lt;th>Median Prefill Tok S&lt;/th>&lt;th>Median Load Ms&lt;/th>&lt;th>Vram Resident Mib&lt;/th>&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>&lt;td>2026-08-12&lt;/td>&lt;td>llm-throughput-ollama-v1&lt;/td>&lt;td>NVIDIA GeForce RTX 5080&lt;/td>&lt;td>610.88&lt;/td>&lt;td>0.32.1&lt;/td>&lt;td>gpt-oss:20b&lt;/td>&lt;td>17052f91a42e&lt;/td>&lt;td>20.9B&lt;/td>&lt;td>MXFP4&lt;/td>&lt;td>4096&lt;/td>&lt;td>503&lt;/td>&lt;td>3&lt;/td>&lt;td>190.14&lt;/td>&lt;td>9078.28&lt;/td>&lt;td>297.7&lt;/td>&lt;td>14067&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-12&lt;/td>&lt;td>llm-throughput-ollama-v1&lt;/td>&lt;td>NVIDIA GeForce RTX 5080&lt;/td>&lt;td>610.88&lt;/td>&lt;td>0.32.1&lt;/td>&lt;td>gpt-oss:20b&lt;/td>&lt;td>17052f91a42e&lt;/td>&lt;td>20.9B&lt;/td>&lt;td>MXFP4&lt;/td>&lt;td>4096&lt;/td>&lt;td>1658&lt;/td>&lt;td>3&lt;/td>&lt;td>187.27&lt;/td>&lt;td>10464.66&lt;/td>&lt;td>279.5&lt;/td>&lt;td>14060&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-12&lt;/td>&lt;td>llm-throughput-ollama-v1&lt;/td>&lt;td>NVIDIA GeForce RTX 5080&lt;/td>&lt;td>610.88&lt;/td>&lt;td>0.32.1&lt;/td>&lt;td>gpt-oss:20b&lt;/td>&lt;td>17052f91a42e&lt;/td>&lt;td>20.9B&lt;/td>&lt;td>MXFP4&lt;/td>&lt;td>16384&lt;/td>&lt;td>503&lt;/td>&lt;td>3&lt;/td>&lt;td>188.63&lt;/td>&lt;td>9286.61&lt;/td>&lt;td>299.2&lt;/td>&lt;td>14355&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-12&lt;/td>&lt;td>llm-throughput-ollama-v1&lt;/td>&lt;td>NVIDIA GeForce RTX 5080&lt;/td>&lt;td>610.88&lt;/td>&lt;td>0.32.1&lt;/td>&lt;td>gpt-oss:20b&lt;/td>&lt;td>17052f91a42e&lt;/td>&lt;td>20.9B&lt;/td>&lt;td>MXFP4&lt;/td>&lt;td>16384&lt;/td>&lt;td>1658&lt;/td>&lt;td>3&lt;/td>&lt;td>187.73&lt;/td>&lt;td>10554.32&lt;/td>&lt;td>280.2&lt;/td>&lt;td>14355&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-12&lt;/td>&lt;td>llm-throughput-ollama-v1&lt;/td>&lt;td>NVIDIA GeForce RTX 5080&lt;/td>&lt;td>610.88&lt;/td>&lt;td>0.32.1&lt;/td>&lt;td>qwen2.5:14b&lt;/td>&lt;td>7cdf5a0187d5&lt;/td>&lt;td>14.8B&lt;/td>&lt;td>Q4_K_M&lt;/td>&lt;td>4096&lt;/td>&lt;td>488&lt;/td>&lt;td>3&lt;/td>&lt;td>96.65&lt;/td>&lt;td>5202.23&lt;/td>&lt;td>182.5&lt;/td>&lt;td>10841&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-12&lt;/td>&lt;td>llm-throughput-ollama-v1&lt;/td>&lt;td>NVIDIA GeForce RTX 5080&lt;/td>&lt;td>610.88&lt;/td>&lt;td>0.32.1&lt;/td>&lt;td>qwen2.5:14b&lt;/td>&lt;td>7cdf5a0187d5&lt;/td>&lt;td>14.8B&lt;/td>&lt;td>Q4_K_M&lt;/td>&lt;td>4096&lt;/td>&lt;td>1674&lt;/td>&lt;td>3&lt;/td>&lt;td>94.48&lt;/td>&lt;td>4876.41&lt;/td>&lt;td>125.8&lt;/td>&lt;td>10855&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-12&lt;/td>&lt;td>llm-throughput-ollama-v1&lt;/td>&lt;td>NVIDIA GeForce RTX 5080&lt;/td>&lt;td>610.88&lt;/td>&lt;td>0.32.1&lt;/td>&lt;td>qwen2.5:14b&lt;/td>&lt;td>7cdf5a0187d5&lt;/td>&lt;td>14.8B&lt;/td>&lt;td>Q4_K_M&lt;/td>&lt;td>16384&lt;/td>&lt;td>488&lt;/td>&lt;td>3&lt;/td>&lt;td>97.02&lt;/td>&lt;td>5225.96&lt;/td>&lt;td>131.3&lt;/td>&lt;td>13157&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-12&lt;/td>&lt;td>llm-throughput-ollama-v1&lt;/td>&lt;td>NVIDIA GeForce RTX 5080&lt;/td>&lt;td>610.88&lt;/td>&lt;td>0.32.1&lt;/td>&lt;td>qwen2.5:14b&lt;/td>&lt;td>7cdf5a0187d5&lt;/td>&lt;td>14.8B&lt;/td>&lt;td>Q4_K_M&lt;/td>&lt;td>16384&lt;/td>&lt;td>1674&lt;/td>&lt;td>3&lt;/td>&lt;td>94.58&lt;/td>&lt;td>4864.67&lt;/td>&lt;td>128.9&lt;/td>&lt;td>13159&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-12&lt;/td>&lt;td>llm-throughput-ollama-v1&lt;/td>&lt;td>NVIDIA GeForce RTX 5080&lt;/td>&lt;td>610.88&lt;/td>&lt;td>0.32.1&lt;/td>&lt;td>llama3.2:3b&lt;/td>&lt;td>a80c4f17acd5&lt;/td>&lt;td>3.2B&lt;/td>&lt;td>Q4_K_M&lt;/td>&lt;td>4096&lt;/td>&lt;td>471&lt;/td>&lt;td>3&lt;/td>&lt;td>311.96&lt;/td>&lt;td>18196.57&lt;/td>&lt;td>162.8&lt;/td>&lt;td>15682&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-12&lt;/td>&lt;td>llm-throughput-ollama-v1&lt;/td>&lt;td>NVIDIA GeForce RTX 5080&lt;/td>&lt;td>610.88&lt;/td>&lt;td>0.32.1&lt;/td>&lt;td>llama3.2:3b&lt;/td>&lt;td>a80c4f17acd5&lt;/td>&lt;td>3.2B&lt;/td>&lt;td>Q4_K_M&lt;/td>&lt;td>4096&lt;/td>&lt;td>1657&lt;/td>&lt;td>3&lt;/td>&lt;td>298.21&lt;/td>&lt;td>17681.08&lt;/td>&lt;td>156.2&lt;/td>&lt;td>15682&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-12&lt;/td>&lt;td>llm-throughput-ollama-v1&lt;/td>&lt;td>NVIDIA GeForce RTX 5080&lt;/td>&lt;td>610.88&lt;/td>&lt;td>0.32.1&lt;/td>&lt;td>llama3.2:3b&lt;/td>&lt;td>a80c4f17acd5&lt;/td>&lt;td>3.2B&lt;/td>&lt;td>Q4_K_M&lt;/td>&lt;td>16384&lt;/td>&lt;td>471&lt;/td>&lt;td>3&lt;/td>&lt;td>312.89&lt;/td>&lt;td>17885.62&lt;/td>&lt;td>162.9&lt;/td>&lt;td>5495&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-12&lt;/td>&lt;td>llm-throughput-ollama-v1&lt;/td>&lt;td>NVIDIA GeForce RTX 5080&lt;/td>&lt;td>610.88&lt;/td>&lt;td>0.32.1&lt;/td>&lt;td>llama3.2:3b&lt;/td>&lt;td>a80c4f17acd5&lt;/td>&lt;td>3.2B&lt;/td>&lt;td>Q4_K_M&lt;/td>&lt;td>16384&lt;/td>&lt;td>1657&lt;/td>&lt;td>3&lt;/td>&lt;td>298.59&lt;/td>&lt;td>19397.36&lt;/td>&lt;td>158.0&lt;/td>&lt;td>5501&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-12&lt;/td>&lt;td>llm-throughput-ollama-v1&lt;/td>&lt;td>NVIDIA GeForce RTX 5080&lt;/td>&lt;td>610.88&lt;/td>&lt;td>0.32.1&lt;/td>&lt;td>qwen2.5:7b&lt;/td>&lt;td>845dbda0ea48&lt;/td>&lt;td>7.6B&lt;/td>&lt;td>Q4_K_M&lt;/td>&lt;td>4096&lt;/td>&lt;td>488&lt;/td>&lt;td>3&lt;/td>&lt;td>180.02&lt;/td>&lt;td>10152.28&lt;/td>&lt;td>129.8&lt;/td>&lt;td>6190&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-12&lt;/td>&lt;td>llm-throughput-ollama-v1&lt;/td>&lt;td>NVIDIA GeForce RTX 5080&lt;/td>&lt;td>610.88&lt;/td>&lt;td>0.32.1&lt;/td>&lt;td>qwen2.5:7b&lt;/td>&lt;td>845dbda0ea48&lt;/td>&lt;td>7.6B&lt;/td>&lt;td>Q4_K_M&lt;/td>&lt;td>4096&lt;/td>&lt;td>1674&lt;/td>&lt;td>3&lt;/td>&lt;td>176.79&lt;/td>&lt;td>9672.39&lt;/td>&lt;td>123.4&lt;/td>&lt;td>6190&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-12&lt;/td>&lt;td>llm-throughput-ollama-v1&lt;/td>&lt;td>NVIDIA GeForce RTX 5080&lt;/td>&lt;td>610.88&lt;/td>&lt;td>0.32.1&lt;/td>&lt;td>qwen2.5:7b&lt;/td>&lt;td>845dbda0ea48&lt;/td>&lt;td>7.6B&lt;/td>&lt;td>Q4_K_M&lt;/td>&lt;td>16384&lt;/td>&lt;td>488&lt;/td>&lt;td>3&lt;/td>&lt;td>179.66&lt;/td>&lt;td>10133.1&lt;/td>&lt;td>127.9&lt;/td>&lt;td>7022&lt;/td>&lt;/tr>
+&lt;tr>&lt;td>2026-08-12&lt;/td>&lt;td>llm-throughput-ollama-v1&lt;/td>&lt;td>NVIDIA GeForce RTX 5080&lt;/td>&lt;td>610.88&lt;/td>&lt;td>0.32.1&lt;/td>&lt;td>qwen2.5:7b&lt;/td>&lt;td>845dbda0ea48&lt;/td>&lt;td>7.6B&lt;/td>&lt;td>Q4_K_M&lt;/td>&lt;td>16384&lt;/td>&lt;td>1674&lt;/td>&lt;td>3&lt;/td>&lt;td>176.61&lt;/td>&lt;td>9984.37&lt;/td>&lt;td>127.7&lt;/td>&lt;td>7034&lt;/td>&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p class="csv-table__note">Rendered at build time from &lt;a href="https://techfuelhq.com/data/rtx-5080-llm-throughput.csv">the raw CSV&lt;/a> — the table and the download can never disagree.&lt;/p>
+&lt;h2 id="change-log">Change log&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>1.0.2 (2026-08-14)&lt;/strong> — VRAM correction, no re-measurement. The prose and FAQ were
+converting the CSV&amp;rsquo;s &lt;code>vram_resident_mib&lt;/code> column by 1000 and calling the result GiB;
+every narrative footprint was ~2.4% high. Recomputed at 1024 (gpt-oss:20b is
+13.7–14.0 GiB resident, not 14.0–14.4). The measured table was already correct.&lt;/li>
+&lt;li>&lt;strong>1.0.1 (2026-08-12)&lt;/strong> — added Qwen 2.5 7B (Q4_K_M): 176.6-180.0 tok/s
+decode, ~10k tok/s prefill, 6.0-6.9 GiB resident measured alone — four
+models now span 3B-20.9B.&lt;/li>
+&lt;li>&lt;strong>1.0.0 (2026-08-12)&lt;/strong> — first capture: gpt-oss:20b, Qwen 2.5 14B,
+Llama 3.2 3B × 4k/16k context × ~500/~1,650-token prompts, 3 reps per cell,
+ollama 0.32.1, driver 610.88. First-capture defect worth recording: warm-run
+prompt-cache contamination was detected and eliminated by per-rep nonces
+before any row entered the dataset.&lt;/li>
+&lt;/ul></description></item><item><title>PC Builder Parts Dataset 2026: Verified Specs, Honestly Dated</title><link>https://techfuelhq.com/data/pc-part-prices-2026/</link><pubDate>Fri, 24 Jul 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/data/pc-part-prices-2026/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · Published 2026-07-24 · Updated 2026-08-01 · ~5 min read · St. Louis County, MO&lt;/p>
+&lt;div class="verdict-card" style="border:1px solid #c8ff00;border-left:4px solid #c8ff00;border-radius:6px;padding:1.25rem 1.5rem;margin:1.5rem 0 2rem 0;background:rgba(200,255,0,0.04);">
+&lt;p>&lt;strong>What this is — the PC Builder parts dataset, verified and honestly dated&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>126 parts, 7 categories&lt;/strong> — CPU, GPU, motherboard, RAM, storage, PSU, case — with the specification and compatibility fields the &lt;a href="https://techfuelhq.com/tools/pc-builder/">PC Builder&lt;/a> runs on.&lt;/li>
+&lt;li>&lt;strong>Every row added in the 2026-07-29 expansion cites its source&lt;/strong> — the manufacturer, Newegg, or B&amp;amp;H specification page its specs were read from.&lt;/li>
+&lt;li>&lt;strong>Prices were removed on 2026-08-01.&lt;/strong> They were Amazon-observed street prices, and our Amazon Associates participation means Amazon price data only appears through Amazon's approved mechanisms. The change log below has the full story.&lt;/li>
+&lt;li>&lt;strong>Open data (CC BY 4.0).&lt;/strong> Fork it, remix it, build on it — attribution required.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;img src="https://techfuelhq.com/images/data/pc-part-prices-2026.svg" width="1200" height="736" loading="lazy" decoding="async" alt="PC Builder parts dataset v2.1.0: 126 parts by category — CPU 30, GPU 25, Motherboard 16, Storage 15, Case 15, RAM 13, PSU 12. Prices removed 2026-08-01; specs and compatibility data under CC BY 4.0. 97 rows verified 2026-07-29, 23 rows 2026-07-24, 6 rows 2026-06-09." style="display:block;margin:1.5rem auto;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;h2 id="the-short-version">The short version&lt;/h2>
+&lt;p>This page is the canonical home of the &lt;a href="https://techfuelhq.com/data/pc-builder-parts.json">TechFuelHQ PC Builder parts dataset&lt;/a> — 126 off-the-shelf components with verified specifications and the compatibility fields that make a build checker possible: socket, supported chipsets, RAM type, TDP, GPU length, PSU wattage, case clearance. The &lt;a href="https://techfuelhq.com/tools/pc-builder/">interactive PC Builder&lt;/a> is built directly on this file and does the compatibility math for you.&lt;/p>
+&lt;p>The dataset&amp;rsquo;s founding rule is &lt;em>freshness honesty&lt;/em>: every row carries the date it was last verified, and a date only moves when the row is actually re-confirmed. Numbers we cannot stand behind do not ship — rows have been retired under that rule, and on 2026-08-01 the same rule retired an entire field. The details are below, stated plainly, because a dataset that documents its own corrections is worth more than one that pretends it never needed any.&lt;/p>
+&lt;h2 id="why-the-prices-left-in-plain-language">Why the prices left, in plain language&lt;/h2>
+&lt;p>Until 2026-08-01 this dataset also carried street prices. The 97 rows added in the 2026-07-29 expansion each recorded a price observed on Amazon.com, attributed to the exact listing it was read from. That attribution was the honest way to publish an observed number — and it is also what made the arrangement untenable: TechFuelHQ participates in the Amazon Associates program, and the program&amp;rsquo;s policies only permit showing Amazon price data through Amazon&amp;rsquo;s own mechanisms, which keep displayed prices current. A dated public snapshot, openly licensed for reuse, is not that.&lt;/p>
+&lt;p>So the price fields came out — &lt;code>price_usd&lt;/code>, &lt;code>price_source&lt;/code>, and &lt;code>price_asin&lt;/code> on all 97 expansion rows. The 29 pre-expansion rows went through the same review the same day, and the same reading reached them: their original methodology note lists Amazon among the retailer sources, and without per-row attribution there is no way to clear any individual figure as non-Amazon. Their prices came out too. The dataset now carries no prices at all — and nothing else changed: the specifications, the compatibility fields, and the per-row &lt;code>source&lt;/code> specification pages are exactly as verified.&lt;/p>
+&lt;p>Re-pricing from sources that carry no such restrictions — manufacturer MSRPs, other retailers — is planned. When prices return, they will return with the same per-row provenance discipline the specs already have.&lt;/p>
+&lt;h2 id="what-the-dataset-covers">What the dataset covers&lt;/h2>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Category&lt;/th>
+&lt;th scope="col">Parts&lt;/th>
+&lt;th scope="col">Spec highlights&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>CPU&lt;/td>
+&lt;td>30&lt;/td>
+&lt;td>cores, threads, boost clock, TDP, socket, supported chipsets&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GPU&lt;/td>
+&lt;td>25&lt;/td>
+&lt;td>VRAM, board power, length, recommended PSU&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Motherboard&lt;/td>
+&lt;td>16&lt;/td>
+&lt;td>socket, chipset, RAM type, form factor&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>RAM (DDR5)&lt;/td>
+&lt;td>13&lt;/td>
+&lt;td>capacity, speed, timings, rank&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Storage (SSD)&lt;/td>
+&lt;td>15&lt;/td>
+&lt;td>interface, rated speeds, endurance&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Power supply&lt;/td>
+&lt;td>12&lt;/td>
+&lt;td>wattage, efficiency rating, connectors&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Case&lt;/td>
+&lt;td>15&lt;/td>
+&lt;td>form factor, max GPU length&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>97 of the 126 rows were verified on 2026-07-29; 23 carry 2026-07-24 and 6 carry 2026-06-09, kept because their exact SKU could not be re-confirmed on the later pass. Each row&amp;rsquo;s &lt;code>last_verified&lt;/code> field tells you which is which.&lt;/p>
+&lt;h2 id="how-verification-works">How verification works&lt;/h2>
+&lt;p>Verification is a deliberate pass, not a scrape. In the 2026-07-29 expansion, any candidate part whose specifications could not be confirmed against a page that actually loaded was dropped rather than estimated — 41 candidates went that way, including every part from several vendors whose sites refuse automated retrieval. That constraint is visible in the data: NVIDIA add-in-board rows skew toward ASUS because it was the one board partner whose specification pages could be read. PCIe lane counts appear only where a retrieved page stated them explicitly.&lt;/p>
+&lt;p>One row was retired in the same pass: a DDR5-7200 kit whose stored figure had drifted far from anything observable in the market. Rather than leave a number we could not stand behind in an openly licensed dataset, the row came out. The 2026-08-01 price removal is that same rule applied at field scale.&lt;/p>
+&lt;h2 id="where-the-specs-come-from">Where the specs come from&lt;/h2>
+&lt;p>&lt;em>Some links below are affiliate links; if you buy through them TechFuel HQ may earn a small commission at no extra cost to you. As an Amazon Associate I earn from qualifying purchases. Commissions never influence which products get recommended — see our &lt;a href="https://techfuelhq.com/disclosure/">disclosure&lt;/a>.&lt;/em>&lt;/p>
+&lt;p>Expansion rows (2026-07-29) cite the manufacturer, &lt;a href="https://click.linksynergy.com/deeplink?id=CW4UrCo/56I&amp;amp;mid=44583&amp;amp;murl=https%3A%2F%2Fwww.newegg.com%2F" rel="nofollow sponsored noopener">Newegg&lt;/a>, or B&amp;amp;H specification page each was read from, in the row&amp;rsquo;s &lt;code>source&lt;/code> field. Pre-expansion rows were compiled from manufacturer pages, &lt;a href="https://www.techpowerup.com/" rel="noopener">TechPowerUp&lt;/a>, Tom&amp;rsquo;s Hardware, and verified retailer listings. Performance-tier labels are TechFuelHQ editorial assessments based on aggregate review consensus — except where a part appears in a TechFuelHQ open bench dataset, in which case its tier is anchored to first-party measurements. Treat them as rough tiering, not head-to-head benchmark claims.&lt;/p>
+&lt;h2 id="use-the-data-cc-by-40">Use the data (CC BY 4.0)&lt;/h2>
+&lt;p>The &lt;a href="https://techfuelhq.com/data/pc-builder-parts.json">PC Builder parts dataset&lt;/a> is released under &lt;a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">Creative Commons Attribution 4.0&lt;/a>. You may share and adapt it, including commercially, as long as you attribute TechFuelHQ and link back.&lt;/p>
+&lt;p>Attribution line (copy-paste):&lt;/p>
+&lt;blockquote>
+&lt;p>TechFuelHQ PC Builder Parts Dataset (CC BY 4.0). &lt;a href="https://techfuelhq.com/tools/pc-builder/" rel="noopener">https://techfuelhq.com/tools/pc-builder/&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>The raw JSON carries the per-row &lt;code>last_verified&lt;/code> dates and the full methodology note in &lt;code>_meta&lt;/code>, so downstream projects can key off both directly.&lt;/p>
+&lt;h2 id="change-log">Change log&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>2026-08-01 — v2.1.0.&lt;/strong> Prices removed from the 29 pre-expansion rows after the same policy review: their original methodology note lists Amazon among the retailer sources and no per-row attribution exists to separate the figures. The dataset is now entirely price-free. Three dollar-band part notes retiered to plain tier language.&lt;/li>
+&lt;li>&lt;strong>2026-08-01 — v2.0.0.&lt;/strong> Price fields (&lt;code>price_usd&lt;/code>, &lt;code>price_source&lt;/code>, &lt;code>price_asin&lt;/code>) removed from the 97 expansion rows for Amazon Associates program-policy compliance; three part notes that referenced observed prices rewritten. Specs, compatibility fields, and source pages unchanged. Re-pricing from non-restricted sources planned.&lt;/li>
+&lt;li>&lt;strong>2026-07-29 — v1.2.0.&lt;/strong> Expansion from 30 parts to 126; per-row &lt;code>source&lt;/code> provenance introduced; one stale row retired; 41 unconfirmable candidates dropped rather than estimated.&lt;/li>
+&lt;li>&lt;strong>2026-07-24 — v1.0.&lt;/strong> Initial public release, 30 parts.&lt;/li>
+&lt;/ul>
+&lt;p>The dataset version at each change is recorded in the raw JSON&amp;rsquo;s &lt;code>_meta&lt;/code>, and &lt;code>dataset_version&lt;/code> above always matches the file being served.&lt;/p>
+&lt;h2 id="related-reading">Related reading&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://techfuelhq.com/tools/pc-builder/">PC Builder — interactive parts picker&lt;/a> — this dataset, with interactive compatibility and PSU-wattage checks&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/data/">TechFuelHQ Datasets&lt;/a> — the dataset home, license posture, and provenance&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/articles/ddr5-ram-buying-guide-2025/">DDR5 RAM buying guide&lt;/a> — why RAM sits expensive in 2026&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/pc-builds/2500-dollar-7800x3d-rtx-5080-4k-build-2026/">$2,500 7800X3D + RTX 5080 4K build&lt;/a> — where these parts land in a real build&lt;/li>
+&lt;/ul></description></item><item><title>ASUS ROG Astral RTX 5080 OC — First-Party Bench Dataset</title><link>https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/</link><pubDate>Tue, 09 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/</guid><description>&lt;h2 id="asus-rog-astral-rtx-5080-oc--techfuelhq-open-bench-dataset">ASUS ROG Astral RTX 5080 OC — TechFuelHQ Open Bench Dataset&lt;/h2>
+&lt;p>&lt;strong>Dataset ID:&lt;/strong> &lt;code>rog-astral-rtx-5080-oc-2026-06-09&lt;/code>
+&lt;strong>Version:&lt;/strong> 1.3.0 · &lt;strong>Published:&lt;/strong> 2026-06-09 · &lt;strong>Last updated:&lt;/strong> 2026-08-01
+&lt;strong>License:&lt;/strong> &lt;a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0&lt;/a> · &lt;strong>Publisher:&lt;/strong> TechFuelHQ
+&lt;strong>Author:&lt;/strong> Lowell K. Wood IV (LK Wood IV) · &lt;strong>Location:&lt;/strong> St. Louis County, MO, USA&lt;/p>
+&lt;p>This is the first first-party bench dataset published in the TechFuelHQ Bench Datasets series. &lt;strong>Every measurement on this page was captured by TechFuelHQ on Lowell K. Wood IV&amp;rsquo;s own ASUS ROG Astral RTX 5080 OC rig.&lt;/strong> No values on this page are reproduced, paraphrased, or derived from any third-party publication.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>About this dataset.&lt;/strong> All benchmark data on this page was measured on hardware owned and operated by Lowell K. Wood IV / TechFuelHQ. These numbers are not reproduced, paraphrased, or derived from any third-party publication. The dataset is open under CC BY 4.0: reuse is allowed with the attribution in &lt;a href="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/LICENSE.txt">LICENSE.txt&lt;/a>.&lt;/p>&lt;/blockquote>
+&lt;p>&lt;strong>Updated 2026-06-11:&lt;/strong> synthetic-bench coverage expanded from a single Time Spy snapshot to the full 5-test ladder (Time Spy, Time Spy Extreme, Port Royal, Speed Way, Steel Nomad), each captured stock / factory OC / hand-tuned manual OC. The 4K gaming chart adds 1% lows. The DLSS 4 MFG ladder now includes PC Latency (Reflex on) alongside FPS, so the latency story is visible directly. The Power &amp;amp; Thermal chart is a side-by-side comparison of Astral Stock profile vs Astral Manual OC, both TechFuelHQ measured.&lt;/p>
+&lt;h2 id="system-under-test">System under test&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>GPU:&lt;/strong> ASUS ROG Astral GeForce RTX 5080 OC Edition (NVIDIA GB203 Blackwell, 16 GB GDDR7)&lt;/li>
+&lt;li>&lt;strong>CPU:&lt;/strong> AMD Ryzen 7 7800X3D&lt;/li>
+&lt;li>&lt;strong>Memory:&lt;/strong> 64 GB DDR5-6000&lt;/li>
+&lt;li>&lt;strong>Storage:&lt;/strong> 1 TB Samsung M.2 NVMe (boot)&lt;/li>
+&lt;li>&lt;strong>PSU:&lt;/strong> 1000 W&lt;/li>
+&lt;li>&lt;strong>Cooling:&lt;/strong> Quad-fan + vapor chamber on the GPU; NZXT Kraken AIO on the CPU&lt;/li>
+&lt;li>&lt;strong>OC tuning:&lt;/strong> ASUS GPU Tweak III (no shunt mods, no LN2, no driver hacks)&lt;/li>
+&lt;li>&lt;strong>OC profiles measured:&lt;/strong> Stock (out-of-box defaults), Factory OC (the ASUS-shipped silent BIOS OC profile), and Manual OC (hand-tuned offsets in GPU Tweak III, User Mode 2: +328 MHz core, +2996 MHz memory, +12% power target)&lt;/li>
+&lt;/ul>
+&lt;h2 id="card-under-test">Card under test&lt;/h2>
+&lt;figure style="margin:1.5rem 0;">
+&lt;picture>
+&lt;source srcset="https://techfuelhq.com/images/data/rtx-5080-astral/asus-rog-astral-rtx-5080-installed-1600w.webp 1600w, https://techfuelhq.com/images/data/rtx-5080-astral/asus-rog-astral-rtx-5080-installed-800w.webp 800w, https://techfuelhq.com/images/data/rtx-5080-astral/asus-rog-astral-rtx-5080-installed-400w.webp 400w" sizes="(max-width: 800px) 100vw, 800px" type="image/webp">
+&lt;img
+src="https://techfuelhq.com/images/data/rtx-5080-astral/asus-rog-astral-rtx-5080-installed-800w.jpg"
+srcset="https://techfuelhq.com/images/data/rtx-5080-astral/asus-rog-astral-rtx-5080-installed-1600w.jpg 1600w, https://techfuelhq.com/images/data/rtx-5080-astral/asus-rog-astral-rtx-5080-installed-800w.jpg 800w, https://techfuelhq.com/images/data/rtx-5080-astral/asus-rog-astral-rtx-5080-installed-400w.jpg 400w"
+sizes="(max-width: 800px) 100vw, 800px"
+alt="ASUS ROG Astral RTX 5080 OC installed in TechFuelHQ test bench: quad-fan cooler visible, ROG ARGB strip lit pink, T-Force RGB DDR5 modules behind, AIO pump cap visible above"
+width="1600" height="2133" loading="eager" fetchpriority="high" decoding="async"
+style="display:block;margin:0 auto;max-width:100%;height:auto;border-radius:6px;">
+&lt;/picture>
+&lt;figcaption style="text-align:center;font-size:0.9rem;color:#a0a0b8;margin-top:0.5rem;">TechFuelHQ first-party photo: ASUS ROG Astral RTX 5080 OC installed in the author's current test system, St. Louis County, MO. T-Force DDR5, ASUS ROG STRIX motherboard, AIO loop with display block. Captured 2026-06-09. Original image, no AI processing, EXIF stripped for privacy.&lt;/figcaption>
+&lt;/figure>
+&lt;ul>
+&lt;li>&lt;strong>Card:&lt;/strong> ASUS ROG Astral GeForce RTX 5080 OC Edition&lt;/li>
+&lt;li>&lt;strong>Chip:&lt;/strong> NVIDIA GB203 (Blackwell), 16 GB GDDR7&lt;/li>
+&lt;li>&lt;strong>Cooler:&lt;/strong> Quad-fan + vapor chamber&lt;/li>
+&lt;li>&lt;strong>First-party comparison baselines:&lt;/strong> RTX 4080, RTX 4080 Super, and RTX 5080 Founders Edition — all measured on the author&amp;rsquo;s retired 2024–2025 bench (see &lt;a href="https://techfuelhq.com/colophon/">colophon&lt;/a>)&lt;/li>
+&lt;/ul>
+&lt;h2 id="more-first-party-photos-and-a-short-clip-of-the-card-running">More first-party photos and a short clip of the card running&lt;/h2>
+&lt;p>Added 2026-06-10 evening. All photos and video EXIF-stripped, no AI processing, no color grading.&lt;/p>
+&lt;figure style="margin:1.5rem 0;">
+&lt;picture>
+&lt;source srcset="https://techfuelhq.com/images/data/rtx-5080-astral/asus-rog-astral-rtx-5080-fans-detail-1600w.webp 1600w, https://techfuelhq.com/images/data/rtx-5080-astral/asus-rog-astral-rtx-5080-fans-detail-800w.webp 800w, https://techfuelhq.com/images/data/rtx-5080-astral/asus-rog-astral-rtx-5080-fans-detail-400w.webp 400w" sizes="(max-width: 1000px) 100vw, 1000px" type="image/webp">
+&lt;img
+src="https://techfuelhq.com/images/data/rtx-5080-astral/asus-rog-astral-rtx-5080-fans-detail-800w.jpg"
+srcset="https://techfuelhq.com/images/data/rtx-5080-astral/asus-rog-astral-rtx-5080-fans-detail-1600w.jpg 1600w, https://techfuelhq.com/images/data/rtx-5080-astral/asus-rog-astral-rtx-5080-fans-detail-800w.jpg 800w, https://techfuelhq.com/images/data/rtx-5080-astral/asus-rog-astral-rtx-5080-fans-detail-400w.jpg 400w"
+sizes="(max-width: 1000px) 100vw, 1000px"
+alt="Close-up of the ASUS ROG Astral RTX 5080 OC quad-fan shroud: three exposed fans with center and offset ROG hubs, dial markings visible on the right-most fan, ARGB top bar lit purple, NZXT Kraken AIO display showing in background"
+width="1600" height="1200" loading="lazy" decoding="async"
+style="display:block;margin:0 auto;max-width:100%;height:auto;border-radius:6px;">
+&lt;/picture>
+&lt;figcaption style="text-align:center;font-size:0.9rem;color:#a0a0b8;margin-top:0.5rem;">First-party photo. Quad-fan close-up: the ROG hub on the center fan and dial markings on the right fan are visible. ARGB top bar lit purple. Captured on the TechFuelHQ bench 2026-06-10.&lt;/figcaption>
+&lt;/figure>
+&lt;figure style="margin:1.5rem 0;">
+&lt;picture>
+&lt;source srcset="https://techfuelhq.com/images/data/rtx-5080-astral/asus-rog-astral-rtx-5080-rgb-signature-ram-1600w.webp 1600w, https://techfuelhq.com/images/data/rtx-5080-astral/asus-rog-astral-rtx-5080-rgb-signature-ram-800w.webp 800w, https://techfuelhq.com/images/data/rtx-5080-astral/asus-rog-astral-rtx-5080-rgb-signature-ram-400w.webp 400w" sizes="(max-width: 1000px) 100vw, 1000px" type="image/webp">
+&lt;img
+src="https://techfuelhq.com/images/data/rtx-5080-astral/asus-rog-astral-rtx-5080-rgb-signature-ram-800w.jpg"
+srcset="https://techfuelhq.com/images/data/rtx-5080-astral/asus-rog-astral-rtx-5080-rgb-signature-ram-1600w.jpg 1600w, https://techfuelhq.com/images/data/rtx-5080-astral/asus-rog-astral-rtx-5080-rgb-signature-ram-800w.jpg 800w, https://techfuelhq.com/images/data/rtx-5080-astral/asus-rog-astral-rtx-5080-rgb-signature-ram-400w.jpg 400w"
+sizes="(max-width: 1000px) 100vw, 1000px"
+alt="Wider in-case view of the ASUS ROG Astral RTX 5080 OC with GeForce RTX badge lit blue, T-Force RGB DDR5 with an inked signature on the heatspreader, NZXT Kraken AIO above"
+width="1600" height="1200" loading="lazy" decoding="async"
+style="display:block;margin:0 auto;max-width:100%;height:auto;border-radius:6px;">
+&lt;/picture>
+&lt;figcaption style="text-align:center;font-size:0.9rem;color:#a0a0b8;margin-top:0.5rem;">First-party photo. The same card from a wider angle. The inked signature on the T-Force RGB DDR5 modules is the operator's own — one of the unfakeable identity signals on the rig.&lt;/figcaption>
+&lt;/figure>
+&lt;figure style="margin:1.5rem 0;">
+&lt;video
+controls preload="metadata" playsinline muted
+width="1920" height="1080"
+poster="/videos/data/rtx-5080-astral/asus-rog-astral-rtx-5080-rgb-fans-running-poster.jpg"
+style="display:block;margin:0 auto;max-width:100%;height:auto;border-radius:6px;background:#000;">
+&lt;source src="https://techfuelhq.com/videos/data/rtx-5080-astral/asus-rog-astral-rtx-5080-rgb-fans-running-1080p.webm" type="video/webm">
+&lt;source src="https://techfuelhq.com/videos/data/rtx-5080-astral/asus-rog-astral-rtx-5080-rgb-fans-running-1080p.mp4" type="video/mp4">
+Your browser does not support the video tag. &lt;a href="https://techfuelhq.com/videos/data/rtx-5080-astral/asus-rog-astral-rtx-5080-rgb-fans-running-1080p.mp4">Download the MP4&lt;/a> instead.
+&lt;/video>
+&lt;figcaption style="text-align:center;font-size:0.9rem;color:#a0a0b8;margin-top:0.5rem;">First-party video, 7 seconds, 1920×1080. The card running in the case: three Axial-tech fans spinning, ARGB top bar pulsing blue→purple→white, NZXT Kraken AIO showing "Liquid 25°C" in the background. Original capture was 4K from the operator's phone; transcoded to 1080p H.264 and VP9 for web embed.&lt;/figcaption>
+&lt;/figure>
+&lt;h2 id="charts-and-findings">Charts and findings&lt;/h2>
+&lt;h3 id="1-generational-positioning--4k-raster">1. Generational Positioning — 4K Raster&lt;/h3>
+&lt;img src="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/01-generational-positioning-4k-raster.jpeg" alt="Generational Positioning — 4K Raster, bar chart. RTX 4080 = 96, RTX 4080 Super = 100 (baseline), RTX 5080 FE = 114, Astral 5080 OC = 123." width="2000" height="1306" loading="lazy" decoding="async" style="display:block;margin:1rem auto;max-width:100%;height:auto;">
+&lt;p>Index normalized to the RTX 4080 Super = 100 baseline. The Astral 5080 OC lands at 123 — about 23% over the 4080 Super, ~8% over the 5080 FE, and ~28% over the stock 4080.&lt;/p>
+&lt;p>All four data points on this index are TechFuelHQ first-party measurements normalized to the RTX 4080 Super = 100 baseline established from prior TechFuelHQ test-bench runs.&lt;/p>
+&lt;h3 id="2-3dmark-time-spy-graphics--stock--factory-oc--manual-oc">2. 3DMark Time Spy Graphics — Stock / Factory OC / Manual OC&lt;/h3>
+&lt;img src="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/02-3dmark-time-spy-stock-vs-oc.jpeg" alt="3DMark Time Spy Graphics bar chart, 3-tier comparison. Stock 32,350, Factory OC 33,200 (+2.6%), Manual OC 34,500 (+6.6%). Captured on ASUS ROG Astral RTX 5080 OC with Ryzen 7 7800X3D and 64GB DDR5-6000." width="1960" height="1317" loading="lazy" decoding="async" style="display:block;margin:1rem auto;max-width:100%;height:auto;">
+&lt;p>Three tune profiles compared on the same card. The factory OC profile that ships with the Astral adds about +2.6% over stock for free. Hand-tuning in ASUS GPU Tweak III adds another +4% on top, for a total of +6.6% over stock. The gains are real but modest — this silicon is power-limited, not clock-starved. Lifting the 450 W VBIOS power cap is what would surface more headroom; the factory and manual profiles both leave the card under its hard ceiling.&lt;/p>
+&lt;h3 id="2b-3dmark-time-spy-extreme--stock--factory-oc--manual-oc">2b. 3DMark Time Spy Extreme — Stock / Factory OC / Manual OC&lt;/h3>
+&lt;img src="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/02b-3dmark-time-spy-extreme.jpeg" alt="3DMark Time Spy Extreme bar chart. Stock 16,244, Factory OC 16,961 (+4.4%), Manual OC 17,600 (+8.3%). Same 3-tier comparison on Astral OC bench." width="1960" height="1317" loading="lazy" decoding="async" style="display:block;margin:1rem auto;max-width:100%;height:auto;">
+&lt;p>Time Spy Extreme is the 4K-relevant Time Spy. The Astral OC scales harder here than in the base Time Spy — manual tuning pushes +8.3% over stock, vs +6.6% in the lighter test. That tracks: 4K leans harder on memory bandwidth and shader throughput, both of which respond to a clock bump.&lt;/p>
+&lt;h3 id="2c-3dmark-port-royal--stock--factory-oc--manual-oc">2c. 3DMark Port Royal — Stock / Factory OC / Manual OC&lt;/h3>
+&lt;img src="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/02c-3dmark-port-royal.jpeg" alt="3DMark Port Royal bar chart. Stock 20,300, Factory OC 21,673 (+6.8%), Manual OC 22,500 (+10.8%). RT-focused synthetic." width="2000" height="1278" loading="lazy" decoding="async" style="display:block;margin:1rem auto;max-width:100%;height:auto;">
+&lt;p>Port Royal is ray-tracing-heavy by design. Blackwell scales further on RT than on raster — +10.8% manual-over-stock on Port Royal vs +6.6% on base Time Spy. That gap is exactly what the Blackwell RT engine improvements are supposed to deliver, and it shows up clearly here.&lt;/p>
+&lt;h3 id="2d-3dmark-speed-way--stock--factory-oc--manual-oc">2d. 3DMark Speed Way — Stock / Factory OC / Manual OC&lt;/h3>
+&lt;img src="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/02d-3dmark-speed-way.jpeg" alt="3DMark Speed Way bar chart. Stock 9,010, Factory OC 9,100 (+1.0%), Manual OC 9,900 (+9.9%). DX12 Ultimate raytraced GI plus reflections." width="2000" height="1278" loading="lazy" decoding="async" style="display:block;margin:1rem auto;max-width:100%;height:auto;">
+&lt;p>Speed Way is the newest of the synthetic suite — DX12 Ultimate with mesh shaders, raytraced global illumination, and raytraced reflections. The factory OC barely moves the needle here (+1.0%), but manual tuning lands +9.9% over stock. This is the test where hand-tuning earns its keep.&lt;/p>
+&lt;h3 id="2e-3dmark-steel-nomad--stock--factory-oc--manual-oc">2e. 3DMark Steel Nomad — Stock / Factory OC / Manual OC&lt;/h3>
+&lt;img src="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/02e-3dmark-steel-nomad.jpeg" alt="3DMark Steel Nomad bar chart. Stock 8,150, Factory OC 8,400 (+3.1%), Manual OC 9,200 (+12.9%). Current heavy-raster standard, replacing Fire Strike Extreme." width="2000" height="1278" loading="lazy" decoding="async" style="display:block;margin:1rem auto;max-width:100%;height:auto;">
+&lt;p>Steel Nomad is the current heavy-raster reference test — the successor to Fire Strike Extreme as the canonical &amp;ldquo;how does this card do on demanding rasterized loads&amp;rdquo; benchmark. Manual OC nets the biggest gain in the synthetic ladder here: +12.9% over stock. Steel Nomad happens to scale almost linearly with clock and memory speed on Blackwell, which is why the manual profile pulls ahead so cleanly.&lt;/p>
+&lt;h3 id="3-clock-headroom--fe-vs-astral-oc">3. Clock Headroom — FE vs Astral OC&lt;/h3>
+&lt;img src="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/03-clock-headroom-fe-vs-astral-oc.jpeg" alt="Clock Headroom bar chart. RTX 5080 FE 2671 MHz, Astral OC Default 2784 MHz, Astral OC Mode (BIOS) 2885 MHz, Astral OC Manual 2918 MHz." width="2000" height="1278" loading="lazy" decoding="async" style="display:block;margin:1rem auto;max-width:100%;height:auto;">
+&lt;p>Factory OC adds about 113 MHz over the FE reference boost. The &amp;ldquo;OC Mode&amp;rdquo; BIOS profile pushes another 101 MHz on top. Manual tuning on air adds a final 33 MHz over OC Mode — a total of 247 MHz beyond the FE reference. Worth doing if you have the time, not transformative if you don&amp;rsquo;t.&lt;/p>
+&lt;h3 id="4-power--thermal--astral-stock-vs-astral-manual-oc-techfuelhq-measured">4. Power &amp;amp; Thermal — Astral Stock vs Astral Manual OC (TechFuelHQ measured)&lt;/h3>
+&lt;img src="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/04-thermals-power.png" alt="Power and thermal comparison table. Astral Stock profile vs Astral Manual OC side-by-side for idle power, gaming power, max stress power, transient spikes, idle temp, gaming core temp, stress core temp, memory junction temp, and load noise. All values TechFuelHQ measured." width="2153" height="1350" loading="lazy" decoding="async" style="display:block;margin:1rem auto;max-width:100%;height:auto;">
+&lt;p>Moving from Stock to Manual OC on the Astral changes the power and thermal envelope in measurable ways. Gaming temps stay tight at around 58 °C even at the +328 MHz / +12% power target offsets, and memory junction temperatures stay in the 60–72 °C window. The 51 dBA load noise figure is honest — the quad-fan curve runs the fans audible under sustained stress, the trade for the thermal headroom. Both columns are TechFuelHQ-measured on the same rig; the Stock column is what the card does on out-of-box defaults, the Manual OC column is the User Mode 2 profile captured in GPU Tweak III with HWiNFO64 logging board power throughout.&lt;/p>
+&lt;h3 id="5-dlss-4-multi-frame-gen--cyberpunk-4k-path-tracing">5. DLSS 4 Multi-Frame Gen — Cyberpunk 4K Path Tracing&lt;/h3>
+&lt;img src="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/05-dlss4-mfg-cyberpunk-4k.jpeg" alt="DLSS 4 MFG ladder, dual-axis chart. Cyberpunk 4K Path Tracing on Astral OC. Native PT 19 FPS at 95 ms PC latency, DLSS-Q no FG 40 FPS at 45 ms, MFG 2x 90 FPS at 55 ms, MFG 4x 135 FPS at 62 ms." width="2000" height="1309" loading="lazy" decoding="async" style="display:block;margin:1rem auto;max-width:100%;height:auto;">
+&lt;p>This is the chart that matters for Blackwell. Native path tracing at 4K on the 5080 is 19 FPS and 95 ms of PC latency — unplayable. Add DLSS 4 Quality (no frame gen) and FPS climbs to 40 &lt;em>while latency drops to 45 ms&lt;/em>, because Reflex is doing aggressive scheduling on the smaller render workload. Add MFG 2x and FPS doubles again to 90 with only a 10 ms latency penalty; MFG 4x lands at 135 FPS / 62 ms. Across the full ladder, FPS climbs 7× while latency stays well below the native baseline. The story Multi-Frame Gen sells — actual playable path tracing at 4K — holds up under measurement.&lt;/p>
+&lt;h3 id="6-4k-gaming--avg-fps-and-1-lows">6. 4K Gaming — Avg FPS and 1% Lows&lt;/h3>
+&lt;img src="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/06-4k-native-gaming-8-game.png" alt="4K gaming chart, 5 titles with avg FPS and 1% lows. Cyberpunk Ultra raster 58/49, Cyberpunk RT-Ultra DLSS-Q 50/41, Cyberpunk Path Tracing native 19/15, Alan Wake 2 RT DLSS-Q 49/38, Black Myth Wukong Cinematic 34/27." width="2247" height="1461" loading="lazy" decoding="async" style="display:block;margin:1rem auto;max-width:100%;height:auto;">
+&lt;p>Five 4K titles with both average FPS and 1% lows shown side by side. The 1% lows are roughly 80–85% of the average across the rasterized and DLSS-Quality runs, which is a healthy frame-time consistency profile. Path tracing native (Cyberpunk PT at 19/15) is the only run where the average and 1% low are essentially the same — the card is bottlenecked hard, every frame is the slowest frame. Add DLSS Quality and you go from 19 to 40 average (chart 5) and the 1% lows track up with it.&lt;/p>
+&lt;h2 id="methodology">Methodology&lt;/h2>
+&lt;ul>
+&lt;li>All Astral OC measurements are first-party runs on the operator&amp;rsquo;s home test bench in St. Louis County, MO.&lt;/li>
+&lt;li>Thermals and board power captured with HWiNFO64 during sustained-load runs.&lt;/li>
+&lt;li>Board power is read at the GPU sensor (board power, not wall power).&lt;/li>
+&lt;li>OC tuning done in ASUS GPU Tweak III; no shunt mods, no LN2, no driver hacks.&lt;/li>
+&lt;li>The three tune profiles per synthetic test are: &lt;strong>Stock&lt;/strong> (out-of-box defaults), &lt;strong>Factory OC&lt;/strong> (the ASUS-shipped OC profile / silent BIOS), and &lt;strong>Manual OC&lt;/strong> (hand-tuned offsets in GPU Tweak III).&lt;/li>
+&lt;li>Cyberpunk 2077 runs use the in-game benchmark scene at 3840×2160 native, max preset, RT Overdrive where indicated.&lt;/li>
+&lt;li>DLSS 4 MFG runs are on the in-game benchmark scene with DLSS Quality, Reflex on, and Multi-Frame Gen 2x / 4x as labeled.&lt;/li>
+&lt;li>Power &amp;amp; Thermal is a side-by-side comparison of two TechFuelHQ-measured profiles: Astral Stock (out-of-box defaults) and Astral Manual OC (User Mode 2 in GPU Tweak III). Both columns first-party.&lt;/li>
+&lt;li>The Generational Positioning chart is normalized to the RTX 4080 Super = 100 baseline from prior TechFuelHQ test-bench runs. All points first-party.&lt;/li>
+&lt;/ul>
+&lt;h2 id="files">Files&lt;/h2>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">File&lt;/th>
+&lt;th scope="col">Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/dataset.json">dataset.json&lt;/a>&lt;/td>
+&lt;td>Machine-readable structured dataset, per-chart and per-point source attribution&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/dataset.csv">dataset.csv&lt;/a>&lt;/td>
+&lt;td>Flat CSV, one row per data point&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/LICENSE.txt">LICENSE.txt&lt;/a>&lt;/td>
+&lt;td>Full license text — Creative Commons Attribution 4.0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/MANIFEST.txt">MANIFEST.txt&lt;/a>&lt;/td>
+&lt;td>Manifest, file listing, sourcing summary, change log&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;h2 id="license-and-attribution">License and attribution&lt;/h2>
+&lt;p>&lt;strong>Open data — CC BY 4.0.&lt;/strong> This dataset is released under &lt;a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">Creative Commons Attribution 4.0&lt;/a>. You may share and adapt it, including commercially, as long as you attribute TechFuelHQ and link back. Every value stays TechFuelHQ first-party measurement; the license asks only that reuse says where the numbers came from. Full terms in &lt;a href="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/LICENSE.txt">LICENSE.txt&lt;/a>.&lt;/p>
+&lt;p>Required attribution:&lt;/p>
+&lt;blockquote>
+&lt;p>TechFuelHQ — ASUS ROG Astral RTX 5080 OC First-Party Bench Dataset (CC BY 4.0). &lt;a href="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/" rel="noopener">https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;h2 id="reproducibility">Reproducibility&lt;/h2>
+&lt;p>3DMark Time Spy result URLs and HWiNFO64 telemetry logs can be supplied on request. Email &lt;strong>&lt;a href="mailto:hello@techfuelhq.com">hello@techfuelhq.com&lt;/a>&lt;/strong> with the data point in question.&lt;/p>
+&lt;p>Last updated: 2026-08-01 by LK Wood IV (v1.3.0 — license reverted to CC BY 4.0; the v1.2.0 proprietary change was made without operator sanction and open licensing is what a citable bench dataset runs on. No data values changed.) Prior: 2026-06-11 PR N — every value recited to TechFuelHQ first-party, Power &amp;amp; Thermal relabeled, About callout added.&lt;/p></description></item></channel></rss>

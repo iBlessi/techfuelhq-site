@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" font-family="Inter, system-ui, sans-serif">
+  <rect width="1200" height="700" fill="#0a0a23"/>
+  <text x="600" y="45" text-anchor="middle" fill="#c8ff00" font-size="24" font-weight="800">1080p GAMING BENCHMARKS — ESTIMATED FPS</text>
+  <text x="600" y="70" text-anchor="middle" fill="#667" font-size="13">RTX 5060 vs RX 9060 XT | High Settings | Sources: Leaked benchmarks &amp; projections</text>
+  <!-- Legend -->
+  <rect x="420" y="85" width="16" height="16" rx="3" fill="#c8ff00"/>
+  <text x="442" y="97" fill="#ccc" font-size="13">RTX 5060</text>
+  <rect x="540" y="85" width="16" height="16" rx="3" fill="#e63946"/>
+  <text x="562" y="97" fill="#ccc" font-size="13">RX 9060 XT</text>
+  <!-- Game 1: Cyberpunk 2077 -->
+  <text x="50" y="145" fill="#ffffff" font-size="14" font-weight="600">Cyberpunk 2077</text>
+  <rect x="220" y="130" width="540" height="24" rx="4" fill="#c8ff00" opacity="0.9"/>
+  <text x="770" y="147" fill="#c8ff00" font-size="14" font-weight="700">72 FPS</text>
+  <rect x="220" y="160" width="500" height="24" rx="4" fill="#e63946" opacity="0.9"/>
+  <text x="730" y="177" fill="#e63946" font-size="14" font-weight="700">67 FPS</text>
+  <!-- Game 2: Hogwarts Legacy -->
+  <text x="50" y="225" fill="#ffffff" font-size="14" font-weight="600">Hogwarts Legacy</text>
+  <rect x="220" y="210" width="480" height="24" rx="4" fill="#c8ff00" opacity="0.9"/>
+  <text x="710" y="227" fill="#c8ff00" font-size="14" font-weight="700">64 FPS</text>
+  <rect x="220" y="240" width="510" height="24" rx="4" fill="#e63946" opacity="0.9"/>
+  <text x="740" y="257" fill="#e63946" font-size="14" font-weight="700">68 FPS</text>
+  <!-- Game 3: Spider-Man 2 -->
+  <text x="50" y="305" fill="#ffffff" font-size="14" font-weight="600">Spider-Man 2</text>
+  <rect x="220" y="290" width="555" height="24" rx="4" fill="#c8ff00" opacity="0.9"/>
+  <text x="785" y="307" fill="#c8ff00" font-size="14" font-weight="700">74 FPS</text>
+  <rect x="220" y="320" width="525" height="24" rx="4" fill="#e63946" opacity="0.9"/>
+  <text x="755" y="337" fill="#e63946" font-size="14" font-weight="700">70 FPS</text>
+  <!-- Game 4: Starfield -->
+  <text x="50" y="385" fill="#ffffff" font-size="14" font-weight="600">Starfield</text>
+  <rect x="220" y="370" width="450" height="24" rx="4" fill="#c8ff00" opacity="0.9"/>
+  <text x="680" y="387" fill="#c8ff00" font-size="14" font-weight="700">60 FPS</text>
+  <rect x="220" y="400" width="435" height="24" rx="4" fill="#e63946" opacity="0.9"/>
+  <text x="665" y="417" fill="#e63946" font-size="14" font-weight="700">58 FPS</text>
+  <!-- Game 5: Black Myth Wukong -->
+  <text x="50" y="465" fill="#ffffff" font-size="14" font-weight="600">Black Myth: Wukong</text>
+  <rect x="220" y="450" width="495" height="24" rx="4" fill="#c8ff00" opacity="0.9"/>
+  <text x="725" y="467" fill="#c8ff00" font-size="14" font-weight="700">66 FPS</text>
+  <rect x="220" y="480" width="518" height="24" rx="4" fill="#e63946" opacity="0.9"/>
+  <text x="748" y="497" fill="#e63946" font-size="14" font-weight="700">69 FPS</text>
+  <!-- Game 6: Alan Wake 2 -->
+  <text x="50" y="545" fill="#ffffff" font-size="14" font-weight="600">Alan Wake 2</text>
+  <rect x="220" y="530" width="413" height="24" rx="4" fill="#c8ff00" opacity="0.9"/>
+  <text x="643" y="547" fill="#c8ff00" font-size="14" font-weight="700">55 FPS</text>
+  <rect x="220" y="560" width="398" height="24" rx="4" fill="#e63946" opacity="0.9"/>
+  <text x="628" y="577" fill="#e63946" font-size="14" font-weight="700">53 FPS</text>
+  <!-- Note -->
+  <text x="600" y="630" text-anchor="middle" fill="#c8ff00" font-size="14" font-weight="600">RTX 5060 wins in RT-heavy titles | RX 9060 XT wins in raster-heavy titles</text>
+  <text x="600" y="660" text-anchor="middle" fill="#556" font-size="11">*Based on pre-release estimates. Actual performance may vary. | techfuelhq.com</text>
+</svg>

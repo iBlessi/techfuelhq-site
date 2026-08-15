@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Ryzen 7 7800X3D vs Ryzen 9 9800X3D specification comparison</title>
+  <desc>Side-by-side spec table comparing the AMD Ryzen 7 7800X3D (Zen 4, 5nm) and Ryzen 9 9800X3D (Zen 5, 4nm), covering architecture, clocks, L3 cache, manual overclocking, socket, and 2026 pricing, with per-row winners highlighted.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="760" fill="#0a0a23"/>
+  <rect width="1200" height="760" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">CPU COMPARISON · AM5 UPGRADE</text>
+  <text x="70" y="132" fill="#e8e8f0" font-size="50" font-weight="900">7800X3D vs 9800X3D</text>
+  <text x="70" y="170" fill="#6b6b8a" font-size="20">Zen 4 to Zen 5 on the same AM5 platform — should you upgrade?</text>
+
+  <!-- Column headers -->
+  <g transform="translate(70,210)">
+    <!-- Spec column header spacer -->
+    <text x="0" y="38" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">SPECIFICATION</text>
+
+    <!-- Left product card -->
+    <g transform="translate(470,0)">
+      <rect width="290" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+      <rect x="0" y="0" width="6" height="64" rx="3" fill="#c8ff00"/>
+      <text x="24" y="28" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">RYZEN 7</text>
+      <text x="24" y="51" fill="#e8e8f0" font-size="22" font-weight="900">7800X3D</text>
+    </g>
+
+    <!-- Right product card -->
+    <g transform="translate(780,0)">
+      <rect width="290" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+      <rect x="0" y="0" width="6" height="64" rx="3" fill="#e63946"/>
+      <text x="24" y="28" fill="#e63946" font-size="13" letter-spacing="2" font-weight="700">RYZEN 9</text>
+      <text x="24" y="51" fill="#e8e8f0" font-size="22" font-weight="900">9800X3D</text>
+    </g>
+  </g>
+
+  <!-- Spec rows -->
+  <g transform="translate(70,290)" font-size="17">
+    <!-- Row 1: Architecture -->
+    <rect x="0" y="0" width="1060" height="46" fill="#13132e"/>
+    <text x="20" y="30" fill="#c0c0d8">Architecture</text>
+    <text x="490" y="30" fill="#e8e8f0" font-weight="600">Zen 4 (5nm)</text>
+    <text x="800" y="30" fill="#c8ff00" font-weight="700">Zen 5 (4nm)</text>
+
+    <!-- Row 2: Cores / Threads -->
+    <rect x="0" y="46" width="1060" height="46" fill="#0d0d28"/>
+    <text x="20" y="76" fill="#c0c0d8">Cores / Threads</text>
+    <text x="490" y="76" fill="#e8e8f0" font-weight="600">8C / 16T</text>
+    <text x="800" y="76" fill="#e8e8f0" font-weight="600">8C / 16T</text>
+
+    <!-- Row 3: Base clock -->
+    <rect x="0" y="92" width="1060" height="46" fill="#13132e"/>
+    <text x="20" y="122" fill="#c0c0d8">Base clock</text>
+    <text x="490" y="122" fill="#e8e8f0" font-weight="600">4.2 GHz</text>
+    <text x="800" y="122" fill="#c8ff00" font-weight="700">4.7 GHz</text>
+
+    <!-- Row 4: Boost clock -->
+    <rect x="0" y="138" width="1060" height="46" fill="#0d0d28"/>
+    <text x="20" y="168" fill="#c0c0d8">Boost clock</text>
+    <text x="490" y="168" fill="#e8e8f0" font-weight="600">5.0 GHz</text>
+    <text x="800" y="168" fill="#c8ff00" font-weight="700">5.2 GHz</text>
+
+    <!-- Row 5: L3 cache -->
+    <rect x="0" y="184" width="1060" height="46" fill="#13132e"/>
+    <text x="20" y="214" fill="#c0c0d8">L3 cache (3D V-Cache)</text>
+    <text x="490" y="214" fill="#e8e8f0" font-weight="600">96MB (cache on top)</text>
+    <text x="800" y="214" fill="#c8ff00" font-weight="700">96MB (cache below CCD)</text>
+
+    <!-- Row 6: TDP -->
+    <rect x="0" y="230" width="1060" height="46" fill="#0d0d28"/>
+    <text x="20" y="260" fill="#c0c0d8">TDP</text>
+    <text x="490" y="260" fill="#e8e8f0" font-weight="600">120W</text>
+    <text x="800" y="260" fill="#e8e8f0" font-weight="600">120W</text>
+
+    <!-- Row 7: Manual OC -->
+    <rect x="0" y="276" width="1060" height="46" fill="#13132e"/>
+    <text x="20" y="306" fill="#c0c0d8">Manual overclocking</text>
+    <text x="490" y="306" fill="#e08828" font-weight="600">No (locked)</text>
+    <text x="800" y="306" fill="#c8ff00" font-weight="700">Yes (unlocked)</text>
+
+    <!-- Row 8: Socket -->
+    <rect x="0" y="322" width="1060" height="46" fill="#0d0d28"/>
+    <text x="20" y="352" fill="#c0c0d8">Socket</text>
+    <text x="490" y="352" fill="#5090e0" font-weight="600">AM5</text>
+    <text x="800" y="352" fill="#5090e0" font-weight="600">AM5</text>
+
+    <!-- Row 9: 2026 price (new) -->
+    <rect x="0" y="368" width="1060" height="46" fill="#13132e"/>
+    <text x="20" y="398" fill="#c0c0d8">2026 price (new)</text>
+    <text x="490" y="398" fill="#5dca7a" font-weight="700">$320–370</text>
+    <text x="800" y="398" fill="#e8e8f0" font-weight="600">$450–500</text>
+  </g>
+
+  <!-- Verdict strip -->
+  <g transform="translate(70,690)">
+    <rect width="1060" height="44" rx="8" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="28" fill="#c0c0d8" font-size="15">Gaming gap <tspan fill="#c8ff00" font-weight="700">~10–20%</tspan> at 1080p/1440p · shrinks to <tspan fill="#5090e0" font-weight="700">2–5%</tspan> at 4K · net upgrade cost <tspan fill="#e08828" font-weight="700">~$180–250</tspan></text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="752" fill="#4a4a6a" font-size="13">TechFuel HQ · CPU Comparison · Specs per AMD official product pages</text>
+  <text x="1130" y="752" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

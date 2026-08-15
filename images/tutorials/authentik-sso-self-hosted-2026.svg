@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Authentik self-hosted SSO architecture topology</title>
+  <desc>Topology diagram of an Authentik identity provider homelab stack: clients reach Nginx Proxy Manager over HTTPS at auth.yourdomain.com, which forwards to the authentik-server container on port 9000. The server and worker containers share a PostgreSQL 16 database and a Redis cache. Connected apps include Nextcloud over OIDC and BookStack over LDAP on port 3389.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#6b6b8a"/>
+    </marker>
+    <marker id="arrowlime" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#c8ff00"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="60" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">SETUP TUTORIAL · IDENTITY PROVIDER TOPOLOGY</text>
+  <text x="70" y="104" fill="#e8e8f0" font-size="44" font-weight="900">Authentik Self-Hosted SSO</text>
+  <text x="70" y="136" fill="#6b6b8a" font-size="19">Four Docker containers, one login — ghcr.io/goauthentik/server, pinned to a YEAR.MONTH tag</text>
+
+  <!-- Client -->
+  <g transform="translate(70,210)">
+    <rect width="150" height="110" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="75" y="34" text-anchor="middle" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">USER</text>
+    <text x="75" y="66" text-anchor="middle" fill="#e8e8f0" font-size="17" font-weight="700">Browser</text>
+    <text x="75" y="90" text-anchor="middle" fill="#c0c0d8" font-size="14">SSO portal</text>
+  </g>
+
+  <!-- HTTPS arrow client -> NPM -->
+  <line x1="220" y1="265" x2="294" y2="265" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrowlime)"/>
+  <text x="257" y="255" text-anchor="middle" fill="#c8ff00" font-size="11" letter-spacing="1" font-weight="700">HTTPS</text>
+
+  <!-- NPM reverse proxy -->
+  <g transform="translate(300,200)">
+    <rect width="180" height="130" rx="12" fill="#101028" stroke="#5090e0" stroke-width="1.5"/>
+    <text x="90" y="32" text-anchor="middle" fill="#5090e0" font-size="12" letter-spacing="2" font-weight="700">REVERSE PROXY</text>
+    <text x="90" y="62" text-anchor="middle" fill="#e8e8f0" font-size="17" font-weight="700">Nginx Proxy Mgr</text>
+    <text x="90" y="88" text-anchor="middle" fill="#c0c0d8" font-size="14">auth.yourdomain.com</text>
+    <text x="90" y="112" text-anchor="middle" fill="#6b6b8a" font-size="13">Let's Encrypt TLS</text>
+  </g>
+
+  <!-- forward arrow NPM -> server :9000 -->
+  <line x1="480" y1="265" x2="554" y2="265" stroke="#6b6b8a" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="517" y="255" text-anchor="middle" fill="#6b6b8a" font-size="11" font-weight="700">:9000</text>
+
+  <!-- Authentik stack container group -->
+  <rect x="560" y="170" width="570" height="290" rx="14" fill="#0d0d28" stroke="#1e1e3a" stroke-dasharray="5 4"/>
+  <text x="582" y="196" fill="#c8ff00" font-size="12" letter-spacing="2" font-weight="700">AUTHENTIK STACK · DOCKER COMPOSE · ~420 MB IDLE</text>
+
+  <!-- authentik-server -->
+  <g transform="translate(582,212)">
+    <rect width="240" height="100" rx="10" fill="#101028" stroke="#c8ff00" stroke-width="1.5"/>
+    <text x="16" y="30" fill="#c8ff00" font-size="11" letter-spacing="1" font-weight="700">CONTAINER</text>
+    <text x="16" y="56" fill="#e8e8f0" font-size="18" font-weight="700">authentik-server</text>
+    <text x="16" y="80" fill="#c0c0d8" font-size="13">Web UI · API · flows · :9000 / :9443</text>
+    <text x="224" y="30" text-anchor="end" fill="#6b6b8a" font-size="12">~200 MB</text>
+  </g>
+
+  <!-- authentik-worker -->
+  <g transform="translate(582,328)">
+    <rect width="240" height="100" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="16" y="30" fill="#6b6b8a" font-size="11" letter-spacing="1" font-weight="700">CONTAINER</text>
+    <text x="16" y="56" fill="#e8e8f0" font-size="18" font-weight="700">authentik-worker</text>
+    <text x="16" y="80" fill="#c0c0d8" font-size="13">Email · cleanup · LDAP outpost :3389</text>
+    <text x="224" y="30" text-anchor="end" fill="#6b6b8a" font-size="12">~150 MB</text>
+  </g>
+
+  <!-- authentik-db -->
+  <g transform="translate(862,212)">
+    <rect width="246" height="100" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="16" y="30" fill="#5090e0" font-size="11" letter-spacing="1" font-weight="700">DATA STORE</text>
+    <text x="16" y="56" fill="#e8e8f0" font-size="18" font-weight="700">authentik-db</text>
+    <text x="16" y="80" fill="#c0c0d8" font-size="13">PostgreSQL 16 · users · sessions</text>
+    <text x="230" y="30" text-anchor="end" fill="#6b6b8a" font-size="12">~60 MB</text>
+  </g>
+
+  <!-- authentik-redis -->
+  <g transform="translate(862,328)">
+    <rect width="246" height="100" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="16" y="30" fill="#5090e0" font-size="11" letter-spacing="1" font-weight="700">CACHE</text>
+    <text x="16" y="56" fill="#e8e8f0" font-size="18" font-weight="700">authentik-redis</text>
+    <text x="16" y="80" fill="#c0c0d8" font-size="13">Redis 7 · task queue · cache</text>
+    <text x="230" y="30" text-anchor="end" fill="#6b6b8a" font-size="12">~10 MB</text>
+  </g>
+
+  <!-- internal links: server<->db, server<->redis, worker<->db, worker<->redis -->
+  <line x1="822" y1="248" x2="862" y2="248" stroke="#6b6b8a" stroke-width="1.5"/>
+  <line x1="822" y1="290" x2="862" y2="364" stroke="#6b6b8a" stroke-width="1.5"/>
+  <line x1="822" y1="372" x2="862" y2="290" stroke="#6b6b8a" stroke-width="1.5"/>
+  <line x1="822" y1="378" x2="862" y2="378" stroke="#6b6b8a" stroke-width="1.5"/>
+  <line x1="702" y1="312" x2="702" y2="328" stroke="#6b6b8a" stroke-width="1.5"/>
+
+  <!-- Connected apps row -->
+  <text x="70" y="512" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">CONNECTED APPS — ONE ACCOUNT ACROSS THE STACK</text>
+
+  <!-- Nextcloud OIDC -->
+  <g transform="translate(70,524)">
+    <rect width="300" height="48" rx="9" fill="#101028" stroke="#1e1e3a"/>
+    <text x="16" y="30" fill="#e8e8f0" font-size="15" font-weight="700">Nextcloud</text>
+    <text x="284" y="30" text-anchor="end" fill="#c8ff00" font-size="13" font-weight="700">OIDC / OAuth2</text>
+  </g>
+
+  <!-- BookStack LDAP -->
+  <g transform="translate(390,524)">
+    <rect width="300" height="48" rx="9" fill="#101028" stroke="#1e1e3a"/>
+    <text x="16" y="30" fill="#e8e8f0" font-size="15" font-weight="700">BookStack</text>
+    <text x="284" y="30" text-anchor="end" fill="#5090e0" font-size="13" font-weight="700">LDAP :3389</text>
+  </g>
+
+  <!-- Others SAML/Proxy -->
+  <g transform="translate(710,524)">
+    <rect width="420" height="48" rx="9" fill="#101028" stroke="#1e1e3a"/>
+    <text x="16" y="30" fill="#c0c0d8" font-size="15" font-weight="700">Grafana · Portainer · Proxmox · Gitea · Immich</text>
+    <text x="404" y="30" text-anchor="end" fill="#e08828" font-size="13" font-weight="700">SAML · Proxy</text>
+  </g>
+
+  <!-- arrow from stack down to apps -->
+  <line x1="845" y1="460" x2="845" y2="506" stroke="#6b6b8a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Footer -->
+  <text x="70" y="600" fill="#4a4a6a" font-size="13">TechFuel HQ · Setup Tutorial · Components per Authentik Docker Compose config</text>
+  <text x="1130" y="600" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

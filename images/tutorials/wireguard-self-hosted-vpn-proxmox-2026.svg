@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>WireGuard self-hosted VPN topology on Proxmox</title>
+  <desc>Network topology: remote phone and laptop clients on VPN subnet 10.10.0.0/24 connect over UDP 51820 through a DuckDNS endpoint and router port forward to a WireGuard LXC container (192.168.1.7) on a Proxmox VE 8 host, reaching the home LAN 192.168.1.0/24 including AdGuard Home DNS.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#c8ff00"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <text x="70" y="58" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">SETUP TUTORIAL · NETWORK TOPOLOGY</text>
+  <text x="70" y="100" fill="#e8e8f0" font-size="40" font-weight="900">WireGuard Self-Hosted VPN on Proxmox</text>
+  <text x="70" y="132" fill="#6b6b8a" font-size="18">Remote clients to homelab over UDP 51820 — split tunnel or full tunnel</text>
+
+  <!-- ===== Remote clients column ===== -->
+  <text x="70" y="186" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">REMOTE CLIENTS</text>
+
+  <g transform="translate(70,200)">
+    <rect width="200" height="86" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="34" fill="#e8e8f0" font-size="18" font-weight="700">Phone</text>
+    <text x="20" y="58" fill="#c0c0d8" font-size="14">WireGuard app</text>
+    <text x="20" y="76" fill="#c8ff00" font-size="13" font-weight="600">10.10.0.2/32</text>
+  </g>
+  <g transform="translate(70,308)">
+    <rect width="200" height="86" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="34" fill="#e8e8f0" font-size="18" font-weight="700">Laptop</text>
+    <text x="20" y="58" fill="#c0c0d8" font-size="14">wg-quick client</text>
+    <text x="20" y="76" fill="#c8ff00" font-size="13" font-weight="600">10.10.0.3/32</text>
+  </g>
+
+  <!-- DDNS endpoint pill -->
+  <g transform="translate(70,432)">
+    <rect width="200" height="64" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="28" fill="#5090e0" font-size="13" letter-spacing="1" font-weight="700">DDNS ENDPOINT</text>
+    <text x="20" y="50" fill="#c0c0d8" font-size="14">your-home.duckdns.org</text>
+  </g>
+
+  <!-- ===== Internet / port forward ===== -->
+  <g transform="translate(330,236)">
+    <rect width="180" height="120" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="90" y="34" text-anchor="middle" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">INTERNET</text>
+    <text x="90" y="64" text-anchor="middle" fill="#e08828" font-size="16" font-weight="700">UDP 51820</text>
+    <text x="90" y="88" text-anchor="middle" fill="#c0c0d8" font-size="13">encrypted</text>
+    <text x="90" y="106" text-anchor="middle" fill="#c0c0d8" font-size="13">WireGuard tunnel</text>
+  </g>
+
+  <!-- Router / port forward -->
+  <g transform="translate(560,236)">
+    <rect width="180" height="120" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="90" y="34" text-anchor="middle" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">ROUTER</text>
+    <text x="90" y="62" text-anchor="middle" fill="#e8e8f0" font-size="16" font-weight="700">Port Forward</text>
+    <text x="90" y="86" text-anchor="middle" fill="#c0c0d8" font-size="13">UDP 51820 -&gt;</text>
+    <text x="90" y="104" text-anchor="middle" fill="#c8ff00" font-size="13" font-weight="600">192.168.1.7</text>
+  </g>
+
+  <!-- Arrows clients -> internet -->
+  <line x1="270" y1="243" x2="324" y2="270" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="270" y1="351" x2="324" y2="320" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- internet -> router -->
+  <line x1="510" y1="296" x2="554" y2="296" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- router -> proxmox host -->
+  <line x1="740" y1="296" x2="784" y2="296" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ===== Proxmox host box (contains LXC) ===== -->
+  <g transform="translate(790,170)">
+    <rect width="340" height="320" rx="14" fill="#0d0d28" stroke="#1e1e3a" stroke-width="1.5"/>
+    <text x="20" y="34" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">PROXMOX VE 8 HOST</text>
+    <text x="20" y="56" fill="#c0c0d8" font-size="13">wireguard kernel module loaded</text>
+
+    <!-- WireGuard LXC -->
+    <g transform="translate(20,76)">
+      <rect width="300" height="140" rx="12" fill="#101028" stroke="#c8ff00" stroke-width="1.5"/>
+      <text x="18" y="30" fill="#c8ff00" font-size="16" font-weight="800">WireGuard LXC</text>
+      <text x="18" y="54" fill="#c0c0d8" font-size="13">Debian 12 · privileged · 1 vCPU / 256MB</text>
+      <text x="18" y="80" fill="#c0c0d8" font-size="14">LAN IP</text><text x="282" y="80" text-anchor="end" fill="#e8e8f0" font-size="14" font-weight="600">192.168.1.7</text>
+      <text x="18" y="104" fill="#c0c0d8" font-size="14">VPN gateway</text><text x="282" y="104" text-anchor="end" fill="#c8ff00" font-size="14" font-weight="600">10.10.0.1/24</text>
+      <text x="18" y="128" fill="#c0c0d8" font-size="14">wg0 · NAT masquerade</text><text x="282" y="128" text-anchor="end" fill="#5dca7a" font-size="13" font-weight="600">IP forward on</text>
+    </g>
+
+    <!-- AdGuard / LAN target -->
+    <g transform="translate(20,232)">
+      <rect width="300" height="68" rx="12" fill="#101028" stroke="#1e1e3a"/>
+      <text x="18" y="28" fill="#e8e8f0" font-size="15" font-weight="700">Home LAN 192.168.1.0/24</text>
+      <text x="18" y="50" fill="#c0c0d8" font-size="13">AdGuard Home DNS</text>
+      <text x="282" y="50" text-anchor="end" fill="#5090e0" font-size="13" font-weight="600">192.168.1.5</text>
+    </g>
+  </g>
+
+  <!-- ===== Tunnel mode legend ===== -->
+  <g transform="translate(330,392)">
+    <rect width="410" height="104" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="30" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">CLIENT AllowedIPs</text>
+    <circle cx="26" cy="58" r="5" fill="#c8ff00"/>
+    <text x="42" y="63" fill="#c0c0d8" font-size="14">Split tunnel — 192.168.1.0/24, 10.10.0.0/24</text>
+    <circle cx="26" cy="84" r="5" fill="#e08828"/>
+    <text x="42" y="89" fill="#c0c0d8" font-size="14">Full tunnel — 0.0.0.0/0, ::/0  (home IP exit)</text>
+  </g>
+
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · Setup Tutorial · Topology per the WireGuard on Proxmox guide</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

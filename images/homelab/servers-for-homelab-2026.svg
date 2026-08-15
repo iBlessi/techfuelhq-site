@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Five classes of homelab server for 2026 and who each is for</title>
+  <desc>Decision overview of five homelab server classes for 2026 — new mini PC, used small-form-factor desktop, used enterprise tower or rack, DIY Mini-ITX or used-parts build, and off-the-shelf or DIY NAS — each shown with its typical buyer, rough price band and idle power, routing the reader to the right detailed guide. Quiet low-power boxes are recommended as the first server; used rack servers are flagged as loud and power-hungry.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="760" fill="#0a0a23"/>
+  <rect width="1200" height="760" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">SERVERS FOR A HOMELAB · 2026 · WHICH ONE TO BUY</text>
+  <text x="70" y="124" fill="#e8e8f0" font-size="34" font-weight="700">Five classes of homelab server</text>
+  <text x="70" y="156" fill="#9a9ab8" font-size="17">Pick the class that fits your space and workload, then choose a model inside it.</text>
+
+  <!-- Card 1: New mini PC -->
+  <g>
+    <rect x="70" y="196" width="350" height="158" rx="10" fill="#11112e" stroke="#c8ff00" stroke-width="1.5"/>
+    <text x="92" y="232" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">1 · NEW MINI PC</text>
+    <text x="92" y="266" fill="#e8e8f0" font-size="19" font-weight="700">The default first server</text>
+    <text x="92" y="296" fill="#9a9ab8" font-size="14.5">Quiet, ~10-30W idle, just works.</text>
+    <text x="92" y="324" fill="#9a9ab8" font-size="14.5">~$400-600 with RAM + NVMe.</text>
+  </g>
+
+  <!-- Card 2: Used SFF -->
+  <g>
+    <rect x="440" y="196" width="350" height="158" rx="10" fill="#11112e" stroke="#2e2e5a" stroke-width="1.5"/>
+    <text x="462" y="232" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">2 · USED SFF DESKTOP</text>
+    <text x="462" y="266" fill="#e8e8f0" font-size="19" font-weight="700">Cheapest way in</text>
+    <text x="462" y="296" fill="#9a9ab8" font-size="14.5">OptiPlex / EliteDesk / Tiny.</text>
+    <text x="462" y="324" fill="#9a9ab8" font-size="14.5">Under $200 used on eBay.</text>
+  </g>
+
+  <!-- Card 3: Used enterprise -->
+  <g>
+    <rect x="810" y="196" width="320" height="158" rx="10" fill="#11112e" stroke="#2e2e5a" stroke-width="1.5"/>
+    <text x="832" y="232" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">3 · USED ENTERPRISE</text>
+    <text x="832" y="266" fill="#e8e8f0" font-size="19" font-weight="700">Capacity, at a cost</text>
+    <text x="832" y="296" fill="#ff8a6b" font-size="14.5">Loud: ~50-55 dBA idle.</text>
+    <text x="832" y="324" fill="#ff8a6b" font-size="14.5">Hungry: ~80-120W idle.</text>
+  </g>
+
+  <!-- Card 4: DIY build -->
+  <g>
+    <rect x="70" y="378" width="540" height="158" rx="10" fill="#11112e" stroke="#2e2e5a" stroke-width="1.5"/>
+    <text x="92" y="414" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">4 · DIY BUILD · MINI-ITX OR USED PARTS</text>
+    <text x="92" y="448" fill="#e8e8f0" font-size="19" font-weight="700">When you need a GPU, big DIMMs, or expansion</text>
+    <text x="92" y="478" fill="#9a9ab8" font-size="14.5">Shelf-sized ITX box or a max-capability used-parts tower.</text>
+    <text x="92" y="506" fill="#9a9ab8" font-size="14.5">Typically ~$600-1,100. You are the integrator.</text>
+  </g>
+
+  <!-- Card 5: NAS -->
+  <g>
+    <rect x="630" y="378" width="500" height="158" rx="10" fill="#11112e" stroke="#2e2e5a" stroke-width="1.5"/>
+    <text x="652" y="414" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">5 · OFF-THE-SHELF OR DIY NAS</text>
+    <text x="652" y="448" fill="#e8e8f0" font-size="19" font-weight="700">When storage is the point</text>
+    <text x="652" y="478" fill="#9a9ab8" font-size="14.5">Bulk capacity + drive redundancy, independent of compute.</text>
+    <text x="652" y="506" fill="#9a9ab8" font-size="14.5">Synology to buy, TrueNAS / Unraid to build.</text>
+  </g>
+
+  <!-- Decision strip -->
+  <rect x="70" y="568" width="1060" height="130" rx="10" fill="#0d0d28" stroke="#c8ff00" stroke-width="1.5"/>
+  <text x="92" y="606" fill="#c8ff00" font-size="14" letter-spacing="2" font-weight="700">THE RULE</text>
+  <text x="92" y="640" fill="#e8e8f0" font-size="17">Server lives in a room you sit in?  ->  quiet class only (new mini PC or used SFF). Never a rack first.</text>
+  <text x="92" y="668" fill="#e8e8f0" font-size="17">Need bulk storage?  ->  a NAS.   Need a GPU or big RAM?  ->  DIY.   Need huge cheap RAM + a closet?  ->  enterprise.</text>
+
+  <!-- Footer -->
+  <text x="1130" y="734" fill="#6a6a88" font-size="13" text-anchor="end">TechFuel HQ · idle-power and noise figures cited in the linked deep-dives</text>
+</svg>

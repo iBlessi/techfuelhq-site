@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0a23"/>
+      <stop offset="1" stop-color="#12123a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="60" y="78" font-size="46" font-weight="700" fill="#e8e8f0">Forgejo <tspan fill="#6a6a8a">vs</tspan> Gitea</text>
+  <text x="60" y="116" font-size="22" fill="#c8ff00" font-weight="600" letter-spacing="1">SELF-HOSTED GIT FORGES COMPARED &#183; 2026</text>
+  <rect x="60" y="132" width="120" height="4" rx="2" fill="#c8ff00"/>
+
+  <!-- Column headers -->
+  <text x="470" y="196" font-size="30" font-weight="700" fill="#c8ff00" text-anchor="middle">Forgejo</text>
+  <text x="470" y="222" font-size="15" fill="#9a9ab5" text-anchor="middle">Codeberg e.V. &#183; non-profit</text>
+  <text x="905" y="196" font-size="30" font-weight="700" fill="#7fb2ff" text-anchor="middle">Gitea</text>
+  <text x="905" y="222" font-size="15" fill="#9a9ab5" text-anchor="middle">Gitea Ltd &#183; Open Core</text>
+
+  <!-- Rows -->
+  <g font-size="20">
+    <!-- row template: label (left), forgejo (mid), gitea (right) -->
+    <g>
+      <rect x="40" y="250" width="1120" height="66" rx="8" fill="#ffffff" fill-opacity="0.03"/>
+      <text x="70" y="290" fill="#8a8aa2" font-weight="600">Governance</text>
+      <text x="470" y="290" fill="#e0e0f0" text-anchor="middle" font-weight="600">Community-led non-profit</text>
+      <text x="905" y="290" fill="#c0c0d4" text-anchor="middle">For-profit company</text>
+    </g>
+    <g>
+      <rect x="40" y="322" width="1120" height="66" rx="8" fill="#ffffff" fill-opacity="0.05"/>
+      <text x="70" y="362" fill="#8a8aa2" font-weight="600">License</text>
+      <text x="470" y="362" fill="#c8ff00" text-anchor="middle" font-weight="700">GPLv3+ (copyleft)</text>
+      <text x="905" y="362" fill="#c0c0d4" text-anchor="middle">MIT + commercial</text>
+    </g>
+    <g>
+      <rect x="40" y="394" width="1120" height="66" rx="8" fill="#ffffff" fill-opacity="0.03"/>
+      <text x="70" y="434" fill="#8a8aa2" font-weight="600">Federation</text>
+      <text x="470" y="434" fill="#c8ff00" text-anchor="middle" font-weight="700">ActivityPub (in dev)</text>
+      <text x="905" y="434" fill="#c0c0d4" text-anchor="middle">None</text>
+    </g>
+    <g>
+      <rect x="40" y="466" width="1120" height="66" rx="8" fill="#ffffff" fill-opacity="0.05"/>
+      <text x="70" y="506" fill="#8a8aa2" font-weight="600">CI / CD</text>
+      <text x="470" y="506" fill="#e0e0f0" text-anchor="middle" font-weight="600">Forgejo Actions</text>
+      <text x="905" y="506" fill="#c0c0d4" text-anchor="middle">Gitea Actions</text>
+    </g>
+    <g>
+      <rect x="40" y="538" width="1120" height="66" rx="8" fill="#ffffff" fill-opacity="0.03"/>
+      <text x="70" y="578" fill="#8a8aa2" font-weight="600">Fork status</text>
+      <text x="470" y="578" fill="#e0e0f0" text-anchor="middle" font-weight="600">Hard fork since early 2024</text>
+      <text x="905" y="578" fill="#c0c0d4" text-anchor="middle">Original project</text>
+    </g>
+    <g>
+      <rect x="40" y="610" width="1120" height="66" rx="8" fill="#ffffff" fill-opacity="0.05"/>
+      <text x="70" y="650" fill="#8a8aa2" font-weight="600">Upgrade tests</text>
+      <text x="470" y="650" fill="#c8ff00" text-anchor="middle" font-weight="700">Yes (+ a11y)</text>
+      <text x="905" y="650" fill="#c0c0d4" text-anchor="middle">Not as of mid-2025</text>
+    </g>
+  </g>
+
+  <!-- Migration footer bar -->
+  <rect x="40" y="700" width="1120" height="60" rx="10" fill="#c8ff00" fill-opacity="0.08" stroke="#c8ff00" stroke-opacity="0.5"/>
+  <text x="600" y="737" font-size="21" fill="#e8e8f0" text-anchor="middle">Migration is drop-in but <tspan fill="#c8ff00" font-weight="700">one-way</tspan>: Gitea &#8804; v1.22 &#8594; Forgejo v10</text>
+
+  <text x="1160" y="788" font-size="14" fill="#44445a" text-anchor="end">techfuelhq.com</text>
+</svg>

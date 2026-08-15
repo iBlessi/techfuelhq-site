@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520">
+  <defs>
+    <linearGradient id="bg-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0a23"/>
+      <stop offset="100%" stop-color="#0f0f2e"/>
+    </linearGradient>
+    <linearGradient id="bar-4090-new" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c8ff00"/>
+      <stop offset="100%" stop-color="#7ab800"/>
+    </linearGradient>
+    <linearGradient id="bar-4080-new" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#76b900"/>
+      <stop offset="100%" stop-color="#4a7800"/>
+    </linearGradient>
+    <linearGradient id="bar-4090-used" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c8ff00" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#7ab800" stop-opacity="0.6"/>
+    </linearGradient>
+    <linearGradient id="bar-4080-used" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#76b900" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#4a7800" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="520" fill="url(#bg-grad)" rx="12"/>
+  <rect x="0" y="0" width="1100" height="4" rx="2" fill="#c8ff00"/>
+
+  <!-- Title -->
+  <text x="60" y="52" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="700" fill="#e8e8f0">Cost-Per-Frame: RTX 4080 vs RTX 4090</text>
+  <text x="60" y="76" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6b6b8a">Higher FPS/$ = Better Value · MSRP &amp; Typical Used Prices · April 2026</text>
+
+  <!-- Legend -->
+  <rect x="700" y="36" width="14" height="14" rx="2" fill="#76b900"/>
+  <text x="720" y="48" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#e8e8f0">4080 New</text>
+  <rect x="800" y="36" width="14" height="14" rx="2" fill="#76b900" opacity="0.6"/>
+  <text x="820" y="48" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#e8e8f0">4080 Used</text>
+  <rect x="910" y="36" width="14" height="14" rx="2" fill="#c8ff00"/>
+  <text x="930" y="48" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#e8e8f0">4090 New</text>
+  <rect x="1010" y="36" width="14" height="14" rx="2" fill="#c8ff00" opacity="0.6"/>
+  <text x="1030" y="48" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#e8e8f0">4090 Used</text>
+
+  <!-- Grid lines (horizontal) — chart area y: 100–420, x: 120–1060 -->
+  <!-- Max value ~0.12 fps/$, grid at 0.03 intervals -->
+  <line x1="120" y1="420" x2="1060" y2="420" stroke="#2a2a4a" stroke-width="1.5"/>
+  <line x1="120" y1="345" x2="1060" y2="345" stroke="#1e1e3a" stroke-width="1"/>
+  <line x1="120" y1="270" x2="1060" y2="270" stroke="#1e1e3a" stroke-width="1"/>
+  <line x1="120" y1="195" x2="1060" y2="195" stroke="#1e1e3a" stroke-width="1"/>
+  <line x1="120" y1="120" x2="1060" y2="120" stroke="#1e1e3a" stroke-width="1"/>
+
+  <!-- Y axis labels (FPS/$) -->
+  <text x="110" y="424" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b6b8a" text-anchor="end">0.000</text>
+  <text x="110" y="349" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b6b8a" text-anchor="end">0.030</text>
+  <text x="110" y="274" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b6b8a" text-anchor="end">0.060</text>
+  <text x="110" y="199" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b6b8a" text-anchor="end">0.090</text>
+  <text x="110" y="124" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b6b8a" text-anchor="end">0.120</text>
+  <text x="60" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b6b8a" text-anchor="middle" transform="rotate(-90,60,270)">FPS per Dollar</text>
+
+  <!-- Bar width=160, gap=20 between groups, group gap=60 -->
+  <!-- Groups: 4080 New | 4080 Used | [gap] | 4090 New | 4090 Used -->
+  <!-- Group 1 center: ~310; Group 2 center: ~760 -->
+
+  <!-- 4080 New: 0.089 fps/$ → height = 0.089/0.12 * 300 = 222.5 px, so bar from y=420-222=198 to y=420 -->
+  <rect x="165" y="197" width="130" height="223" rx="5" fill="url(#bar-4080-new)"/>
+  <!-- Price label inside bar -->
+  <text x="230" y="360" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#0a0a23" text-anchor="middle">$999</text>
+  <!-- Value above bar -->
+  <text x="230" y="188" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#76b900" text-anchor="middle">0.089</text>
+  <text x="230" y="204" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b6b8a" text-anchor="middle">fps/$</text>
+
+  <!-- 4080 Used: 0.111 fps/$ → height = 0.111/0.12 * 300 = 277.5 → y=420-277=143 -->
+  <rect x="325" y="143" width="130" height="277" rx="5" fill="url(#bar-4080-used)"/>
+  <text x="390" y="370" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#0a0a23" text-anchor="middle">$800</text>
+  <text x="390" y="134" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#76b900" text-anchor="middle" opacity="0.85">0.111</text>
+  <text x="390" y="150" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b6b8a" text-anchor="middle">fps/$</text>
+
+  <!-- 4080 group label -->
+  <text x="290" y="448" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#76b900" text-anchor="middle">RTX 4080</text>
+  <text x="230" y="464" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b6b8a" text-anchor="middle">New</text>
+  <text x="390" y="464" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b6b8a" text-anchor="middle">Used</text>
+
+  <!-- VS divider -->
+  <line x1="550" y1="120" x2="550" y2="420" stroke="#1e1e3a" stroke-width="1" stroke-dasharray="6,4"/>
+  <text x="550" y="276" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="900" fill="#6b6b8a" text-anchor="middle">VS</text>
+
+  <!-- 4090 New: 0.066 fps/$ → height = 0.066/0.12 * 300 = 165 → y=420-165=255 -->
+  <rect x="645" y="255" width="130" height="165" rx="5" fill="url(#bar-4090-new)"/>
+  <text x="710" y="360" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#0a0a23" text-anchor="middle">$1699</text>
+  <text x="710" y="246" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#c8ff00" text-anchor="middle">0.066</text>
+  <text x="710" y="262" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b6b8a" text-anchor="middle">fps/$</text>
+
+  <!-- 4090 Used: 0.075 fps/$ → height = 0.075/0.12 * 300 = 187.5 → y=420-187=233 -->
+  <rect x="805" y="233" width="130" height="187" rx="5" fill="url(#bar-4090-used)"/>
+  <text x="870" y="370" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#0a0a23" text-anchor="middle">$1500</text>
+  <text x="870" y="224" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#c8ff00" text-anchor="middle" opacity="0.85">0.075</text>
+  <text x="870" y="240" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b6b8a" text-anchor="middle">fps/$</text>
+
+  <!-- 4090 group label -->
+  <text x="760" y="448" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#c8ff00" text-anchor="middle">RTX 4090</text>
+  <text x="710" y="464" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b6b8a" text-anchor="middle">New</text>
+  <text x="870" y="464" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b6b8a" text-anchor="middle">Used</text>
+
+  <!-- Value callout box: 4080 wins on value -->
+  <rect x="940" y="140" width="130" height="80" rx="8" fill="#1a1a38" stroke="#76b900" stroke-width="2"/>
+  <text x="1005" y="164" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b6b8a" text-anchor="middle">Best Value</text>
+  <text x="1005" y="184" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#76b900" text-anchor="middle">4080</text>
+  <text x="1005" y="202" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#9090a8" text-anchor="middle">+34% efficiency</text>
+
+  <!-- Footer -->
+  <text x="60" y="498" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#4a4a6a">Source: TechFuel analysis · Used prices: eBay/StockX averages April 2026 · FPS based on 4K gaming suite average</text>
+</svg>

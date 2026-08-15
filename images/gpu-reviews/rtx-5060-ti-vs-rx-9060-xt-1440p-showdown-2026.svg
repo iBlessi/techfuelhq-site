@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>RTX 5060 Ti 16GB vs RX 9060 XT 16GB — 1440p spec head-to-head for 2026</title>
+  <desc>Side-by-side spec table comparing the NVIDIA GeForce RTX 5060 Ti 16GB (Blackwell GB206) and the AMD Radeon RX 9060 XT 16GB (RDNA 4 Navi 44), covering shaders, RT cores, clocks, memory, bandwidth, TBP, and price, with per-row winners marked. Both cards average within one percent at native 1440p raster.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="760" fill="#0a0a23"/>
+  <rect width="1200" height="760" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="74" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">GPU COMPARISON · 1440p · 2026</text>
+  <text x="70" y="126" fill="#e8e8f0" font-size="48" font-weight="900">RTX 5060 Ti vs RX 9060 XT</text>
+  <text x="70" y="160" fill="#6b6b8a" font-size="20">16GB vs 16GB · within 1% on raster average · the honest 1440p showdown</text>
+
+  <!-- Column headers -->
+  <g transform="translate(0,196)">
+    <!-- spec label column header spacer -->
+    <text x="70" y="44" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">SPECIFICATION</text>
+
+    <!-- NVIDIA column -->
+    <rect x="560" y="6" width="290" height="56" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="560" y="6" width="5" height="56" rx="2" fill="#c8ff00"/>
+    <text x="585" y="32" fill="#e8e8f0" font-size="19" font-weight="900">RTX 5060 Ti 16GB</text>
+    <text x="585" y="52" fill="#6b6b8a" font-size="13">NVIDIA · Blackwell GB206</text>
+
+    <!-- AMD column -->
+    <rect x="868" y="6" width="290" height="56" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="868" y="6" width="5" height="56" rx="2" fill="#e63946"/>
+    <text x="893" y="32" fill="#e8e8f0" font-size="19" font-weight="900">RX 9060 XT 16GB</text>
+    <text x="893" y="52" fill="#6b6b8a" font-size="13">AMD · RDNA 4 Navi 44</text>
+  </g>
+
+  <!-- Spec rows: start y=276, each row 36px tall, spec label x=70, nvidia value x=585, amd value x=893 -->
+  <g font-size="16">
+    <!-- Row 1 -->
+    <rect x="60" y="276" width="1098" height="36" fill="#13132e"/>
+    <text x="70" y="300" fill="#c0c0d8">Process node</text>
+    <text x="585" y="300" fill="#e8e8f0">TSMC 4NP</text>
+    <text x="893" y="300" fill="#e8e8f0">TSMC N4P</text>
+
+    <!-- Row 2 -->
+    <rect x="60" y="312" width="1098" height="36" fill="#0d0d28"/>
+    <text x="70" y="336" fill="#c0c0d8">Shaders / SPs</text>
+    <text x="585" y="336" fill="#c8ff00" font-weight="700">4,608</text>
+    <text x="893" y="336" fill="#e8e8f0">2,048</text>
+
+    <!-- Row 3 -->
+    <rect x="60" y="348" width="1098" height="36" fill="#13132e"/>
+    <text x="70" y="372" fill="#c0c0d8">RT cores</text>
+    <text x="585" y="372" fill="#c8ff00" font-weight="700">36 (4th gen)</text>
+    <text x="893" y="372" fill="#e8e8f0">32 (3rd gen)</text>
+
+    <!-- Row 4 -->
+    <rect x="60" y="384" width="1098" height="36" fill="#0d0d28"/>
+    <text x="70" y="408" fill="#c0c0d8">AI / Tensor units</text>
+    <text x="585" y="408" fill="#c8ff00" font-weight="700">144 (5th gen)</text>
+    <text x="893" y="408" fill="#e8e8f0">64 (2nd gen)</text>
+
+    <!-- Row 5 -->
+    <rect x="60" y="420" width="1098" height="36" fill="#13132e"/>
+    <text x="70" y="444" fill="#c0c0d8">Boost clock</text>
+    <text x="585" y="444" fill="#e8e8f0">2,572 MHz</text>
+    <text x="893" y="444" fill="#e63946" font-weight="700">3,130 MHz</text>
+
+    <!-- Row 6 -->
+    <rect x="60" y="456" width="1098" height="36" fill="#0d0d28"/>
+    <text x="70" y="480" fill="#c0c0d8">Memory</text>
+    <text x="585" y="480" fill="#c8ff00" font-weight="700">16 GB GDDR7</text>
+    <text x="893" y="480" fill="#e8e8f0">16 GB GDDR6</text>
+
+    <!-- Row 7 -->
+    <rect x="60" y="492" width="1098" height="36" fill="#13132e"/>
+    <text x="70" y="516" fill="#c0c0d8">Bus / Bandwidth</text>
+    <text x="585" y="516" fill="#c8ff00" font-weight="700">128-bit · 448 GB/s</text>
+    <text x="893" y="516" fill="#e8e8f0">128-bit · 320 GB/s</text>
+
+    <!-- Row 8 -->
+    <rect x="60" y="528" width="1098" height="36" fill="#0d0d28"/>
+    <text x="70" y="552" fill="#c0c0d8">TBP / PCIe</text>
+    <text x="585" y="552" fill="#e8e8f0">180 W · 5.0 x8</text>
+    <text x="893" y="552" fill="#e63946" font-weight="700">160 W · 5.0 x16</text>
+
+    <!-- Row 9 -->
+    <rect x="60" y="564" width="1098" height="36" fill="#13132e"/>
+    <text x="70" y="588" fill="#c0c0d8">MSRP / Street (May 2026)</text>
+    <text x="585" y="588" fill="#e8e8f0">$429 · ~$400-430</text>
+    <text x="893" y="588" fill="#e63946" font-weight="700">$349 · ~$369-419</text>
+  </g>
+
+  <!-- 1440p raster verdict strip -->
+  <g transform="translate(0,620)">
+    <rect x="60" y="0" width="1098" height="74" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="84" y="30" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">1440p RASTER (8-GAME AVG, NATIVE ULTRA)</text>
+    <text x="84" y="60" fill="#5dca7a" font-size="26" font-weight="900">~78 fps</text>
+    <text x="220" y="60" fill="#c0c0d8" font-size="17">vs</text>
+    <text x="258" y="60" fill="#5dca7a" font-size="26" font-weight="900">~78 fps</text>
+    <text x="420" y="44" fill="#6b6b8a" font-size="14">Within 1% on raster · 5060 Ti wins RT &amp; AI · 9060 XT wins price &amp; Linux</text>
+
+    <rect x="980" y="14" width="158" height="46" rx="8" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="1059" y="32" text-anchor="middle" fill="#6b6b8a" font-size="11" letter-spacing="2" font-weight="700">PRICE GAP</text>
+    <text x="1059" y="52" text-anchor="middle" fill="#c8ff00" font-size="20" font-weight="900">$80</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="730" fill="#4a4a6a" font-size="13">TechFuel HQ · GPU Comparison · Specs per AMD &amp; NVIDIA pages; 1440p data via TechSpot, Tom's Hardware, Club386</text>
+  <text x="1130" y="730" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

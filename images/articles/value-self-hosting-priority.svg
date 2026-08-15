@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<rect width="1200" height="630" fill="#0a0a23"/>
+<text x="600" y="40" text-anchor="middle" fill="#c8ff00" font-size="20" font-weight="700" font-family="Inter,sans-serif">SELF-HOSTING PRIORITY vs COMPLEXITY</text>
+<text x="600" y="62" text-anchor="middle" fill="#8888aa" font-size="12" font-family="Inter,sans-serif">Deploy in order: high value + low complexity first | Bubble size = RAM requirement</text>
+<!-- Axes -->
+<text x="55" y="340" text-anchor="middle" fill="#8888aa" font-size="11" font-family="Inter,sans-serif" transform="rotate(-90,55,340)">DAILY VALUE</text>
+<line x1="100" y1="80" x2="100" y2="530" stroke="#1a1a3a" stroke-width="1"/>
+<line x1="100" y1="530" x2="1120" y2="530" stroke="#1a1a3a" stroke-width="1"/>
+<text x="610" y="560" text-anchor="middle" fill="#8888aa" font-size="11" font-family="Inter,sans-serif">SETUP COMPLEXITY →</text>
+<text x="110" y="95" fill="#555570" font-size="10" font-family="Inter,sans-serif">High</text>
+<text x="110" y="525" fill="#555570" font-size="10" font-family="Inter,sans-serif">Low</text>
+<text x="1090" y="545" fill="#555570" font-size="10" font-family="Inter,sans-serif">Hard</text>
+<text x="130" y="545" fill="#555570" font-size="10" font-family="Inter,sans-serif">Easy</text>
+<!-- Deploy zone highlights -->
+<rect x="110" y="85" width="350" height="220" fill="#c8ff00" opacity="0.04" rx="15"/>
+<text x="285" y="290" text-anchor="middle" fill="#c8ff00" font-size="10" font-family="Inter,sans-serif" opacity="0.5">DEPLOY FIRST</text>
+<rect x="470" y="85" width="350" height="220" fill="#6b8f00" opacity="0.04" rx="15"/>
+<text x="645" y="290" text-anchor="middle" fill="#6b8f00" font-size="10" font-family="Inter,sans-serif" opacity="0.5">WEEK 1</text>
+<rect x="830" y="85" width="280" height="440" fill="#555570" opacity="0.04" rx="15"/>
+<text x="970" y="510" text-anchor="middle" fill="#555570" font-size="10" font-family="Inter,sans-serif" opacity="0.5">MONTH 1+</text>
+<!-- Pi-hole -->
+<circle cx="200" cy="130" r="30" fill="#c8ff00" opacity="0.8"/>
+<text x="200" y="125" text-anchor="middle" fill="#0a0a23" font-size="11" font-weight="700" font-family="Inter,sans-serif">Pi-hole</text>
+<text x="200" y="140" text-anchor="middle" fill="#0a0a23" font-size="9" font-family="Inter,sans-serif">512MB</text>
+<text x="200" y="170" text-anchor="middle" fill="#c8ff00" font-size="10" font-weight="600" font-family="Inter,sans-serif">#1 DEPLOY FIRST</text>
+<!-- Uptime Kuma -->
+<circle cx="280" cy="200" r="22" fill="#c8ff00" opacity="0.7"/>
+<text x="280" y="196" text-anchor="middle" fill="#0a0a23" font-size="10" font-weight="700" font-family="Inter,sans-serif">Uptime</text>
+<text x="280" y="210" text-anchor="middle" fill="#0a0a23" font-size="9" font-family="Inter,sans-serif">256MB</text>
+<text x="280" y="232" text-anchor="middle" fill="#c8ff00" font-size="10" font-family="Inter,sans-serif">#2</text>
+<!-- Jellyfin -->
+<circle cx="550" cy="150" r="40" fill="#6b8f00" opacity="0.6"/>
+<text x="550" y="145" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="Inter,sans-serif">Jellyfin</text>
+<text x="550" y="162" text-anchor="middle" fill="#fff" font-size="9" font-family="Inter,sans-serif">8GB rec.</text>
+<text x="550" y="200" text-anchor="middle" fill="#6b8f00" font-size="10" font-family="Inter,sans-serif">#3</text>
+<!-- Nextcloud -->
+<circle cx="700" cy="230" r="32" fill="#6b8f00" opacity="0.5"/>
+<text x="700" y="225" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="Inter,sans-serif">Nextcloud</text>
+<text x="700" y="240" text-anchor="middle" fill="#fff" font-size="9" font-family="Inter,sans-serif">2GB rec.</text>
+<text x="700" y="272" text-anchor="middle" fill="#6b8f00" font-size="10" font-family="Inter,sans-serif">#4</text>
+<!-- Immich -->
+<circle cx="920" cy="180" r="42" fill="#ff6b6b" opacity="0.4"/>
+<text x="920" y="175" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="Inter,sans-serif">Immich</text>
+<text x="920" y="192" text-anchor="middle" fill="#fff" font-size="9" font-family="Inter,sans-serif">6GB+ | ML</text>
+<text x="920" y="232" text-anchor="middle" fill="#ff6b6b" font-size="10" font-family="Inter,sans-serif">#5 Resource-heavy</text>
+<!-- Home Assistant -->
+<circle cx="1020" cy="350" r="35" fill="#555570" opacity="0.5"/>
+<text x="1020" y="345" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="Inter,sans-serif">Home Asst.</text>
+<text x="1020" y="362" text-anchor="middle" fill="#fff" font-size="9" font-family="Inter,sans-serif">2GB | HA OS</text>
+<text x="1020" y="395" text-anchor="middle" fill="#555570" font-size="10" font-family="Inter,sans-serif">#6 Deep rabbit hole</text>
+<!-- Legend -->
+<rect x="130" y="400" width="340" height="100" fill="#12122a" rx="8"/>
+<text x="145" y="425" fill="#c8ff00" font-size="12" font-weight="600" font-family="Inter,sans-serif">DEPLOY ORDER:</text>
+<text x="145" y="445" fill="#ccccdd" font-size="11" font-family="Inter,sans-serif">1-2: Day 1 (easy wins, immediate payoff)</text>
+<text x="145" y="465" fill="#ccccdd" font-size="11" font-family="Inter,sans-serif">3-4: Week 1 (need more hardware knowledge)</text>
+<text x="145" y="485" fill="#ccccdd" font-size="11" font-family="Inter,sans-serif">5-6: Month 1+ (resource-heavy or deep rabbit hole)</text>
+<!-- Footer -->
+<text x="600" y="590" text-anchor="middle" fill="#555570" font-size="11" font-family="Inter,sans-serif">techfuelhq.com | Self-Hosting Essentials 2026</text>
+<rect x="200" y="605" width="800" height="3" fill="#c8ff00" rx="2" opacity="0.3"/>
+</svg>

@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Mini-ITX Homelab Build Guide 2026 — two-build comparison</title>
+  <desc>Side-by-side spec comparison of two Mini-ITX Proxmox homelab builds: an efficient no-GPU node around $660 and a GPU homelab workstation around $1,050, listing case, CPU, RAM, GPU, idle and load power draw, and annual electricity cost.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="760" fill="#0a0a23"/>
+  <rect width="1200" height="760" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">HOMELAB BUILD GUIDE · MINI-ITX · 2026</text>
+  <text x="70" y="128" fill="#e8e8f0" font-size="48" font-weight="900">Mini-ITX Homelab: Two Build Paths</text>
+  <text x="70" y="162" fill="#6b6b8a" font-size="20">Desktop CPU performance and a real GPU slot, in a box smaller than a shoebox</text>
+
+  <!-- Column header band -->
+  <text x="430" y="218" text-anchor="middle" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">BUILD</text>
+
+  <!-- Build 1 header -->
+  <g transform="translate(610,196)">
+    <rect width="270" height="44" rx="8" fill="#101028" stroke="#c8ff00" stroke-width="1.5"/>
+    <text x="135" y="22" text-anchor="middle" fill="#c8ff00" font-size="15" letter-spacing="1" font-weight="700">EFFICIENT PROXMOX NODE</text>
+    <text x="135" y="38" text-anchor="middle" fill="#6b6b8a" font-size="12">no discrete GPU</text>
+  </g>
+
+  <!-- Build 2 header -->
+  <g transform="translate(900,196)">
+    <rect width="270" height="44" rx="8" fill="#101028" stroke="#5090e0" stroke-width="1.5"/>
+    <text x="135" y="22" text-anchor="middle" fill="#5090e0" font-size="15" letter-spacing="1" font-weight="700">GPU HOMELAB WORKSTATION</text>
+    <text x="135" y="38" text-anchor="middle" fill="#6b6b8a" font-size="12">Proxmox + GPU passthrough</text>
+  </g>
+
+  <!-- Spec rows: y starts at 258, each row 46 tall -->
+  <!-- Row 1 Case -->
+  <g transform="translate(70,258)">
+    <rect width="1100" height="46" fill="#13132e"/>
+    <text x="20" y="29" fill="#c0c0d8" font-size="16">Case</text>
+    <text x="540" y="29" text-anchor="middle" fill="#e8e8f0" font-size="15">Cooler Master NR200P</text>
+    <text x="830" y="29" text-anchor="middle" fill="#e8e8f0" font-size="15">Cooler Master NR200P Max</text>
+  </g>
+  <!-- Row 2 CPU -->
+  <g transform="translate(70,304)">
+    <rect width="1100" height="46" fill="#0d0d28"/>
+    <text x="20" y="29" fill="#c0c0d8" font-size="16">CPU</text>
+    <text x="540" y="29" text-anchor="middle" fill="#e8e8f0" font-size="15">Ryzen 5 5600X · 6C/12T · 65W</text>
+    <text x="830" y="29" text-anchor="middle" fill="#e8e8f0" font-size="15">Ryzen 7 7700X · 8C/16T · 105W</text>
+  </g>
+  <!-- Row 3 Memory -->
+  <g transform="translate(70,350)">
+    <rect width="1100" height="46" fill="#13132e"/>
+    <text x="20" y="29" fill="#c0c0d8" font-size="16">Memory</text>
+    <text x="540" y="29" text-anchor="middle" fill="#e8e8f0" font-size="15">64GB DDR4-3600 (2×32GB)</text>
+    <text x="830" y="29" text-anchor="middle" fill="#e8e8f0" font-size="15">64GB DDR5-6000 (2×32GB)</text>
+  </g>
+  <!-- Row 4 GPU -->
+  <g transform="translate(70,396)">
+    <rect width="1100" height="46" fill="#0d0d28"/>
+    <text x="20" y="29" fill="#c0c0d8" font-size="16">GPU</text>
+    <text x="540" y="29" text-anchor="middle" fill="#6b6b8a" font-size="15">None (CPU-only host)</text>
+    <text x="830" y="29" text-anchor="middle" fill="#c8ff00" font-size="15" font-weight="600">RTX 3060 Ti · 8GB GDDR6</text>
+  </g>
+  <!-- Row 5 Cooling -->
+  <g transform="translate(70,442)">
+    <rect width="1100" height="46" fill="#13132e"/>
+    <text x="20" y="29" fill="#c0c0d8" font-size="16">Cooling</text>
+    <text x="540" y="29" text-anchor="middle" fill="#e8e8f0" font-size="15">Noctua NH-L12S (70mm)</text>
+    <text x="830" y="29" text-anchor="middle" fill="#e8e8f0" font-size="15">240mm AIO (bundled)</text>
+  </g>
+  <!-- Row 6 Idle power -->
+  <g transform="translate(70,488)">
+    <rect width="1100" height="46" fill="#0d0d28"/>
+    <text x="20" y="29" fill="#c0c0d8" font-size="16">Idle power draw</text>
+    <text x="540" y="29" text-anchor="middle" fill="#5dca7a" font-size="15" font-weight="600">~40–55W</text>
+    <text x="830" y="29" text-anchor="middle" fill="#e8e8f0" font-size="15">~55–75W</text>
+  </g>
+  <!-- Row 7 Load power -->
+  <g transform="translate(70,534)">
+    <rect width="1100" height="46" fill="#13132e"/>
+    <text x="20" y="29" fill="#c0c0d8" font-size="16">Active load draw</text>
+    <text x="540" y="29" text-anchor="middle" fill="#e8e8f0" font-size="15">~65–90W (VM load)</text>
+    <text x="830" y="29" text-anchor="middle" fill="#e08828" font-size="15">~200–280W (inference)</text>
+  </g>
+  <!-- Row 8 Annual electricity -->
+  <g transform="translate(70,580)">
+    <rect width="1100" height="46" fill="#0d0d28"/>
+    <text x="20" y="29" fill="#c0c0d8" font-size="16">Annual electricity (US avg)</text>
+    <text x="540" y="29" text-anchor="middle" fill="#5dca7a" font-size="15" font-weight="600">~$46–64/yr</text>
+    <text x="830" y="29" text-anchor="middle" fill="#e8e8f0" font-size="15">~$100–130/yr</text>
+  </g>
+  <!-- Row 9 Total cost -->
+  <g transform="translate(70,626)">
+    <rect width="1100" height="50" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="32" fill="#e8e8f0" font-size="17" font-weight="700">Approx. total build cost</text>
+    <text x="540" y="32" text-anchor="middle" fill="#c8ff00" font-size="22" font-weight="900">~$660</text>
+    <text x="830" y="32" text-anchor="middle" fill="#5090e0" font-size="22" font-weight="900">~$1,050</text>
+  </g>
+
+  <text x="70" y="712" fill="#6b6b8a" font-size="14">Both share a Corsair SF750 SFX PSU and ASUS ROG STRIX Mini-ITX boards (B550-I / B650E-I).</text>
+
+  <text x="70" y="745" fill="#4a4a6a" font-size="13">TechFuel HQ · Homelab Build Guide · Component picks and power figures per the build guide</text>
+  <text x="1130" y="745" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

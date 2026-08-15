@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>How to choose PC build parts in the right order, 2026</title>
+  <desc>A seven-step decision ladder for picking PC parts in 2026, in the order the guide recommends: first the anchor part (GPU for gaming, CPU and platform for productivity or homelab), then GPU VRAM by resolution (16 GB comfortable at 1440p), CPU and platform (current-gen socket, solid 8-core), RAM (DDR5-6000 CL30 1:1, 32 GB default), storage (PCIe Gen4 NVMe with DRAM, 2 TB), PSU (~30 percent headroom, 650 to 750 W, ATX 3.1 with 12V-2x6), and cooling and case (air for 65 to 105 W chips, front mesh airflow and clearance).</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="820" fill="#0a0a23"/>
+  <rect width="1200" height="820" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">PC BUILD DECISION GUIDE &#183; CHOOSE PARTS IN ORDER</text>
+  <text x="70" y="128" fill="#e8e8f0" font-size="42" font-weight="900">Pick the Parts in the Right Order</text>
+  <text x="70" y="162" fill="#6b6b8a" font-size="18">Choose the part that defines your use case first, then build outward so nothing else holds it back</text>
+
+  <!-- Step 1: Anchor part (winner accent) -->
+  <g transform="translate(70,196)">
+    <rect x="0" y="0" width="1060" height="78" rx="10" fill="#101028" stroke="#c8ff00"/>
+    <rect x="0" y="0" width="6" height="78" rx="3" fill="#c8ff00"/>
+    <circle cx="44" cy="39" r="20" fill="#c8ff00"/>
+    <text x="44" y="46" text-anchor="middle" fill="#0a0a23" font-size="20" font-weight="900">1</text>
+    <text x="84" y="32" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">START HERE &#183; THE ANCHOR PART</text>
+    <text x="84" y="58" fill="#e8e8f0" font-size="17" font-weight="600">Gaming &#8594; GPU first.&#160;&#160;Productivity / creation / homelab &#8594; CPU and platform first.</text>
+    <text x="1040" y="46" text-anchor="end" fill="#6b6b8a" font-size="14">sets the ceiling</text>
+  </g>
+
+  <!-- Step 2: GPU -->
+  <g transform="translate(70,288)">
+    <rect x="0" y="0" width="1060" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="64" rx="3" fill="#5090e0"/>
+    <circle cx="44" cy="32" r="18" fill="#13132e" stroke="#5090e0"/>
+    <text x="44" y="38" text-anchor="middle" fill="#5090e0" font-size="17" font-weight="900">2</text>
+    <text x="82" y="28" fill="#5090e0" font-size="15" font-weight="800">GPU</text>
+    <text x="82" y="50" fill="#6b6b8a" font-size="13">VRAM &amp; tier by resolution</text>
+    <text x="320" y="40" fill="#c0c0d8" font-size="15" font-weight="600">1080p: 8&#160;GB tight &#160;&#183;&#160; 1440p: 16&#160;GB comfortable &#160;&#183;&#160; 4K / AI: 16&#160;GB floor, 24&#160;GB+ headroom</text>
+  </g>
+
+  <!-- Step 3: CPU + platform -->
+  <g transform="translate(70,360)">
+    <rect x="0" y="0" width="1060" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="64" rx="3" fill="#e08828"/>
+    <circle cx="44" cy="32" r="18" fill="#13132e" stroke="#e08828"/>
+    <text x="44" y="38" text-anchor="middle" fill="#e08828" font-size="17" font-weight="900">3</text>
+    <text x="82" y="28" fill="#e08828" font-size="15" font-weight="800">CPU + PLATFORM</text>
+    <text x="82" y="50" fill="#6b6b8a" font-size="13">enough, not excessive</text>
+    <text x="320" y="40" fill="#c0c0d8" font-size="15" font-weight="600">Solid 8-core at 1440p / 4K &#160;&#183;&#160; current-gen socket (AM5 or Intel), not a dead end</text>
+  </g>
+
+  <!-- Step 4: RAM -->
+  <g transform="translate(70,432)">
+    <rect x="0" y="0" width="1060" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="64" rx="3" fill="#b06bff"/>
+    <circle cx="44" cy="32" r="18" fill="#13132e" stroke="#b06bff"/>
+    <text x="44" y="38" text-anchor="middle" fill="#b06bff" font-size="17" font-weight="900">4</text>
+    <text x="82" y="28" fill="#b06bff" font-size="15" font-weight="800">RAM</text>
+    <text x="82" y="50" fill="#6b6b8a" font-size="13">speed, timing, capacity</text>
+    <text x="320" y="40" fill="#c0c0d8" font-size="15" font-weight="600">AM5: DDR5-6000 CL30 at 1:1 &#160;&#183;&#160; 32&#160;GB default, 64&#160;GB heavy &#160;&#183;&#160; two slots, matched kit</text>
+  </g>
+
+  <!-- Step 5: Storage -->
+  <g transform="translate(70,504)">
+    <rect x="0" y="0" width="1060" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="64" rx="3" fill="#5090e0"/>
+    <circle cx="44" cy="32" r="18" fill="#13132e" stroke="#5090e0"/>
+    <text x="44" y="38" text-anchor="middle" fill="#5090e0" font-size="17" font-weight="900">5</text>
+    <text x="82" y="28" fill="#5090e0" font-size="15" font-weight="800">STORAGE</text>
+    <text x="82" y="50" fill="#6b6b8a" font-size="13">NVMe first, size by need</text>
+    <text x="320" y="40" fill="#c0c0d8" font-size="15" font-weight="600">PCIe Gen4 NVMe with real DRAM &#160;&#183;&#160; 2&#160;TB comfortable default &#160;&#183;&#160; add a second drive later</text>
+  </g>
+
+  <!-- Step 6: PSU -->
+  <g transform="translate(70,576)">
+    <rect x="0" y="0" width="1060" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="64" rx="3" fill="#e08828"/>
+    <circle cx="44" cy="32" r="18" fill="#13132e" stroke="#e08828"/>
+    <text x="44" y="38" text-anchor="middle" fill="#e08828" font-size="17" font-weight="900">6</text>
+    <text x="82" y="28" fill="#e08828" font-size="15" font-weight="800">PSU</text>
+    <text x="82" y="50" fill="#6b6b8a" font-size="13">headroom + right connector</text>
+    <text x="320" y="40" fill="#c0c0d8" font-size="15" font-weight="600">350&#8211;450&#160;W draw + ~30% headroom &#8594; 650&#8211;750&#160;W &#160;&#183;&#160; ATX 3.1 with native 12V-2x6</text>
+  </g>
+
+  <!-- Step 7: Cooling + case -->
+  <g transform="translate(70,648)">
+    <rect x="0" y="0" width="1060" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="64" rx="3" fill="#b06bff"/>
+    <circle cx="44" cy="32" r="18" fill="#13132e" stroke="#b06bff"/>
+    <text x="44" y="38" text-anchor="middle" fill="#b06bff" font-size="17" font-weight="900">7</text>
+    <text x="82" y="28" fill="#b06bff" font-size="15" font-weight="800">COOLING + CASE</text>
+    <text x="82" y="50" fill="#6b6b8a" font-size="13">match the heat, fit the parts</text>
+    <text x="320" y="40" fill="#c0c0d8" font-size="15" font-weight="600">Air for 65&#8211;105&#160;W; 240&#8211;360&#160;mm AIO when run hard &#160;&#183;&#160; front mesh airflow + clearance</text>
+  </g>
+
+  <!-- Verdict strip -->
+  <g transform="translate(70,732)">
+    <rect x="0" y="0" width="1060" height="50" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="50" rx="3" fill="#c8ff00"/>
+    <text x="26" y="22" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">THE DECISION IN ONE LINE</text>
+    <text x="26" y="40" fill="#c0c0d8" font-size="15">Anchor the use-case part first, give the GPU the VRAM your resolution needs, size the PSU with headroom, and let the calculators catch the mistakes.</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="806" fill="#4a4a6a" font-size="13">TechFuel HQ &#183; PC Build Decision Guide 2026 &#183; framework, not a fixed parts list</text>
+  <text x="1130" y="806" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

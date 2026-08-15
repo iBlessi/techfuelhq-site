@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>The 2026 GPU Tier Ladder — 41 graphics cards ranked by 1440p performance</title>
+  <desc>A TechFuel HQ tier ladder ranking 41 modern graphics cards into five tiers by relative 1440p rasterized gaming performance, fastest card equals 100. Flagship (69.7-100, top card RTX 5090), High-end (53.3-64.6, top card RX 7900 XT), Mid-range (40.0-51.8, top card RX 9070 GRE), Budget (30.3-37.3, top card RX 9060 XT 8GB), and Entry (25.0-28.4, top card RTX 4060). Raster only, no ray tracing or upscaling.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <text x="70" y="80" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">GPU HIERARCHY · 41 CARDS RANKED · MID-2026</text>
+  <text x="70" y="134" fill="#e8e8f0" font-size="48" font-weight="900">The 2026 GPU Tier Ladder</text>
+  <text x="70" y="168" fill="#6b6b8a" font-size="19">Ranked by 1440p rasterized performance, fastest card = 100. No ray tracing, no DLSS / FSR.</text>
+
+  <!-- column headers -->
+  <text x="70" y="212" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">TIER</text>
+  <text x="250" y="212" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">TOP CARD</text>
+  <text x="470" y="212" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">1440p PERFORMANCE RANGE</text>
+
+  <!-- scale gridlines: x = 460 + score*6.5 ; 0->460, 25->622.5, 50->785, 75->947.5, 100->1110 -->
+  <g stroke="#1e1e3a" stroke-width="1">
+    <line x1="622.5" y1="224" x2="622.5" y2="560"/>
+    <line x1="785" y1="224" x2="785" y2="560"/>
+    <line x1="947.5" y1="224" x2="947.5" y2="560"/>
+    <line x1="1110" y1="224" x2="1110" y2="560"/>
+  </g>
+
+  <!-- Flagship: 69.7-100 -> 913 to 1110 -->
+  <g transform="translate(70,232)">
+    <rect x="0" y="0" width="1060" height="58" rx="10" fill="#13132e" stroke="#c8ff00"/>
+    <rect x="0" y="0" width="5" height="58" rx="2" fill="#c8ff00"/>
+    <text x="24" y="27" fill="#c8ff00" font-size="20" font-weight="900">Flagship</text>
+    <text x="24" y="46" fill="#6b6b8a" font-size="13">8 cards · 4K</text>
+    <text x="180" y="27" fill="#e8e8f0" font-size="18" font-weight="700">RTX 5090</text>
+    <text x="180" y="46" fill="#6b6b8a" font-size="12">the ceiling</text>
+    <rect x="843" y="18" width="197" height="22" rx="6" fill="#c8ff00"/>
+    <text x="835" y="34" text-anchor="end" fill="#6b6b8a" font-size="13">69.7</text>
+    <text x="1048" y="34" fill="#0a0a23" font-size="14" font-weight="800">100</text>
+  </g>
+
+  <!-- High-end: 53.3-64.6 -> 806 to 880 -->
+  <g transform="translate(70,302)">
+    <rect x="0" y="0" width="1060" height="58" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="5" height="58" rx="2" fill="#5dca7a"/>
+    <text x="24" y="27" fill="#5dca7a" font-size="20" font-weight="900">High-end</text>
+    <text x="24" y="46" fill="#6b6b8a" font-size="13">10 cards · 1440p+</text>
+    <text x="180" y="27" fill="#e8e8f0" font-size="18" font-weight="700">RX 7900 XT</text>
+    <text x="180" y="46" fill="#6b6b8a" font-size="12">enthusiast ceiling</text>
+    <rect x="736" y="18" width="74" height="22" rx="6" fill="#5dca7a"/>
+    <text x="728" y="34" text-anchor="end" fill="#6b6b8a" font-size="13">53.3</text>
+    <text x="818" y="34" fill="#5dca7a" font-size="14" font-weight="800">64.6</text>
+  </g>
+
+  <!-- Mid-range: 40.0-51.8 -> 720 to 797 -->
+  <g transform="translate(70,372)">
+    <rect x="0" y="0" width="1060" height="58" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="5" height="58" rx="2" fill="#5090e0"/>
+    <text x="24" y="27" fill="#5090e0" font-size="20" font-weight="900">Mid-range</text>
+    <text x="24" y="46" fill="#6b6b8a" font-size="13">10 cards · 1440p</text>
+    <text x="180" y="27" fill="#e8e8f0" font-size="18" font-weight="700">RX 9070 GRE</text>
+    <text x="180" y="46" fill="#6b6b8a" font-size="12">best value per frame</text>
+    <rect x="650" y="18" width="77" height="22" rx="6" fill="#5090e0"/>
+    <text x="642" y="34" text-anchor="end" fill="#6b6b8a" font-size="13">40.0</text>
+    <text x="735" y="34" fill="#5090e0" font-size="14" font-weight="800">51.8</text>
+  </g>
+
+  <!-- Budget: 30.3-37.3 -> 657 to 702 -->
+  <g transform="translate(70,442)">
+    <rect x="0" y="0" width="1060" height="58" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="5" height="58" rx="2" fill="#e08828"/>
+    <text x="24" y="27" fill="#e08828" font-size="20" font-weight="900">Budget</text>
+    <text x="24" y="46" fill="#6b6b8a" font-size="13">9 cards · 1080p</text>
+    <text x="180" y="27" fill="#e8e8f0" font-size="18" font-weight="700">RX 9060 XT 8GB</text>
+    <text x="180" y="46" fill="#6b6b8a" font-size="12">watch the VRAM</text>
+    <rect x="587" y="18" width="45" height="22" rx="6" fill="#e08828"/>
+    <text x="579" y="34" text-anchor="end" fill="#6b6b8a" font-size="13">30.3</text>
+    <text x="640" y="34" fill="#e08828" font-size="14" font-weight="800">37.3</text>
+  </g>
+
+  <!-- Entry: 25.0-28.4 -> 623 to 645 -->
+  <g transform="translate(70,512)">
+    <rect x="0" y="0" width="1060" height="58" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="5" height="58" rx="2" fill="#6b6b8a"/>
+    <text x="24" y="27" fill="#a0a0bd" font-size="20" font-weight="900">Entry</text>
+    <text x="24" y="46" fill="#6b6b8a" font-size="13">4 cards · 1080p</text>
+    <text x="180" y="27" fill="#e8e8f0" font-size="18" font-weight="700">RTX 4060</text>
+    <text x="180" y="46" fill="#6b6b8a" font-size="12">the modern floor</text>
+    <rect x="553" y="18" width="22" height="22" rx="6" fill="#6b6b8a"/>
+    <text x="545" y="34" text-anchor="end" fill="#6b6b8a" font-size="13">25.0</text>
+    <text x="583" y="34" fill="#a0a0bd" font-size="14" font-weight="800">28.4</text>
+  </g>
+
+  <!-- axis labels -->
+  <text x="622.5" y="582" text-anchor="middle" fill="#4a4a6a" font-size="12">25</text>
+  <text x="785" y="582" text-anchor="middle" fill="#4a4a6a" font-size="12">50</text>
+  <text x="947.5" y="582" text-anchor="middle" fill="#4a4a6a" font-size="12">75</text>
+  <text x="1110" y="582" text-anchor="middle" fill="#4a4a6a" font-size="12">100</text>
+
+  <text x="70" y="612" fill="#4a4a6a" font-size="13">TechFuel HQ · relative 1440p raster performance · built on the Tom's Hardware GPU hierarchy</text>
+  <text x="1130" y="612" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

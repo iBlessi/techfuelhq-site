@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a23"/>
+      <stop offset="100%" stop-color="#0d0d26"/>
+    </linearGradient>
+    <linearGradient id="pve-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a2e1a"/>
+      <stop offset="100%" stop-color="#0f1f0f"/>
+    </linearGradient>
+    <linearGradient id="esxi-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1e30"/>
+      <stop offset="100%" stop-color="#0f1220"/>
+    </linearGradient>
+    <filter id="glow-green">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-blue">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Grid -->
+  <defs>
+    <pattern id="grid2" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#141432" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid2)" opacity="0.5"/>
+
+  <!-- Top accent bar split -->
+  <rect x="0" y="0" width="570" height="5" fill="#5dca7a"/>
+  <rect x="630" y="0" width="570" height="5" fill="#5090e0"/>
+
+  <!-- Left glow (green) -->
+  <ellipse cx="250" cy="315" rx="300" ry="250" fill="#5dca7a" opacity="0.05"/>
+  <!-- Right glow (blue) -->
+  <ellipse cx="950" cy="315" rx="300" ry="250" fill="#5090e0" opacity="0.05"/>
+
+  <!-- Proxmox Panel (left) -->
+  <rect x="80" y="120" width="470" height="380" rx="18" fill="url(#pve-grad)" stroke="#5dca7a" stroke-width="2"/>
+
+  <!-- PVE Logo representation -->
+  <rect x="160" y="160" width="80" height="80" rx="12" fill="#5dca7a" opacity="0.15" stroke="#5dca7a" stroke-width="1.5"/>
+  <!-- PVE Text logo -->
+  <text x="200" y="215" font-family="system-ui, sans-serif" font-size="28" font-weight="900" fill="#5dca7a" text-anchor="middle" filter="url(#glow-green)">PVE</text>
+
+  <text x="275" y="193" font-family="system-ui, sans-serif" font-size="22" font-weight="800" fill="#e8e8f0">Proxmox VE</text>
+  <text x="275" y="218" font-family="system-ui, sans-serif" font-size="14" fill="#6b6b8a">Version 8.3 · Open Source</text>
+
+  <!-- Proxmox feature list -->
+  <line x1="120" y1="265" x2="520" y2="265" stroke="#1e2e1e" stroke-width="1"/>
+
+  <circle cx="140" cy="290" r="4" fill="#5dca7a"/>
+  <text x="155" y="295" font-family="system-ui, sans-serif" font-size="14" fill="#c0c0d8">100% Free (no license fee)</text>
+
+  <circle cx="140" cy="320" r="4" fill="#5dca7a"/>
+  <text x="155" y="325" font-family="system-ui, sans-serif" font-size="14" fill="#c0c0d8">KVM + LXC containers</text>
+
+  <circle cx="140" cy="350" r="4" fill="#5dca7a"/>
+  <text x="155" y="355" font-family="system-ui, sans-serif" font-size="14" fill="#c0c0d8">Web UI + REST API</text>
+
+  <circle cx="140" cy="380" r="4" fill="#5dca7a"/>
+  <text x="155" y="385" font-family="system-ui, sans-serif" font-size="14" fill="#c0c0d8">Ceph storage built-in</text>
+
+  <circle cx="140" cy="410" r="4" fill="#5dca7a"/>
+  <text x="155" y="415" font-family="system-ui, sans-serif" font-size="14" fill="#c0c0d8">Community support</text>
+
+  <!-- Price badge -->
+  <rect x="120" y="454" width="90" height="30" rx="6" fill="#5dca7a"/>
+  <text x="165" y="474" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#0a0a23" text-anchor="middle">$0 / yr</text>
+  <text x="230" y="474" font-family="system-ui, sans-serif" font-size="13" fill="#6b6b8a">Community Edition</text>
+
+  <!-- VS Badge (center) -->
+  <circle cx="600" cy="315" r="44" fill="#0a0a23" stroke="#3a3a5a" stroke-width="2"/>
+  <text x="600" y="325" font-family="system-ui, sans-serif" font-size="26" font-weight="900" fill="#e8e8f0" text-anchor="middle">VS</text>
+
+  <!-- ESXi Panel (right) -->
+  <rect x="650" y="120" width="470" height="380" rx="18" fill="url(#esxi-grad)" stroke="#5090e0" stroke-width="2"/>
+
+  <!-- VMware/ESXi logo representation -->
+  <rect x="730" y="160" width="80" height="80" rx="12" fill="#5090e0" opacity="0.15" stroke="#5090e0" stroke-width="1.5"/>
+  <text x="770" y="215" font-family="system-ui, sans-serif" font-size="22" font-weight="900" fill="#5090e0" text-anchor="middle" filter="url(#glow-blue)">ESXi</text>
+
+  <text x="845" y="193" font-family="system-ui, sans-serif" font-size="22" font-weight="800" fill="#e8e8f0">VMware ESXi</text>
+  <text x="845" y="218" font-family="system-ui, sans-serif" font-size="14" fill="#6b6b8a">8.0 U3 · Broadcom</text>
+
+  <!-- ESXi feature list -->
+  <line x1="690" y1="265" x2="1090" y2="265" stroke="#1e1e2e" stroke-width="1"/>
+
+  <circle cx="710" cy="290" r="4" fill="#5090e0"/>
+  <text x="725" y="295" font-family="system-ui, sans-serif" font-size="14" fill="#c0c0d8">Free tier restored (2024)</text>
+
+  <circle cx="710" cy="320" r="4" fill="#5090e0"/>
+  <text x="725" y="325" font-family="system-ui, sans-serif" font-size="14" fill="#c0c0d8">Enterprise-grade hypervisor</text>
+
+  <circle cx="710" cy="350" r="4" fill="#5090e0"/>
+  <text x="725" y="355" font-family="system-ui, sans-serif" font-size="14" fill="#c0c0d8">vSphere client + API</text>
+
+  <circle cx="710" cy="380" r="4" fill="#5090e0"/>
+  <text x="725" y="385" font-family="system-ui, sans-serif" font-size="14" fill="#c0c0d8">No container runtime</text>
+
+  <circle cx="710" cy="410" r="4" fill="#e08040"/>
+  <text x="725" y="415" font-family="system-ui, sans-serif" font-size="14" fill="#c0c0d8">Limited free tier (8 vCPUs)</text>
+
+  <!-- Price badge -->
+  <rect x="710" y="454" width="90" height="30" rx="6" fill="#5090e0"/>
+  <text x="755" y="474" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#0a0a23" text-anchor="middle">$0*</text>
+  <text x="820" y="474" font-family="system-ui, sans-serif" font-size="13" fill="#6b6b8a">Free w/ limits</text>
+
+  <!-- Title at top center -->
+  <text x="600" y="66" font-family="system-ui, sans-serif" font-size="32" font-weight="900" fill="#e8e8f0" text-anchor="middle">Proxmox vs ESXi 2026</text>
+  <text x="600" y="94" font-family="system-ui, sans-serif" font-size="16" fill="#6b6b8a" text-anchor="middle">Free ESXi Is Back — Does It Matter?</text>
+
+  <!-- Footer -->
+  <text x="600" y="600" font-family="system-ui, sans-serif" font-size="12" fill="#4a4a6a" text-anchor="middle">techfuelhq.com · Hypervisor Comparison · April 2026</text>
+</svg>

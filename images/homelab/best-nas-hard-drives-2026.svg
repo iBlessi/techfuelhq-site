@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Best NAS hard drives 2026 - picks by use case</title>
+  <desc>Best NAS hard drives for 2026 by use case: WD Red Plus for a 4-bay home NAS (2 to 12TB, CMR, 180TB per year, 3-year warranty); Seagate IronWolf Pro and WD Red Pro for 24-7 heavier duty (up to 30TB and 26TB, CMR, 550TB per year, 5-year warranty); the lowest dollar-per-terabyte CMR drive for Plex media bulk; and a recertified big-capacity drive for budget value at 31 dollars 25 cents per TB. The one rule: buy CMR, never SMR.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="760" fill="#0a0a23"/>
+  <rect width="1200" height="760" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">NAS HARD DRIVE BUYING GUIDE &#183; 2026</text>
+  <text x="70" y="128" fill="#e8e8f0" font-size="44" font-weight="900">Best NAS Hard Drives, by Use Case</text>
+  <text x="70" y="162" fill="#6b6b8a" font-size="19">The one rule first: buy &#160;CMR&#160;, never SMR &#8212; then pick the tier that fits your workload</text>
+
+  <!-- Cards -->
+  <!-- Card 1: Home 4-bay -->
+  <g transform="translate(70,205)">
+    <rect x="0" y="0" width="256" height="230" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="256" height="6" rx="3" fill="#c8ff00"/>
+    <text x="20" y="42" fill="#c8ff00" font-size="13" letter-spacing="1" font-weight="700">4-BAY HOME NAS</text>
+    <text x="20" y="76" fill="#e8e8f0" font-size="24" font-weight="900">WD Red Plus</text>
+    <text x="20" y="112" fill="#a0a0b8" font-size="15">2&#8211;12TB &#183; all CMR</text>
+    <text x="20" y="140" fill="#a0a0b8" font-size="15">180 TB/yr workload</text>
+    <text x="20" y="168" fill="#a0a0b8" font-size="15">3-year warranty</text>
+    <text x="20" y="205" fill="#6b6b8a" font-size="14">Quieter, cheaper than Pro</text>
+  </g>
+
+  <!-- Card 2: 24-7 -->
+  <g transform="translate(342,205)">
+    <rect x="0" y="0" width="256" height="230" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="256" height="6" rx="3" fill="#c8ff00"/>
+    <text x="20" y="42" fill="#c8ff00" font-size="13" letter-spacing="1" font-weight="700">24-7 HEAVIER DUTY</text>
+    <text x="20" y="76" fill="#e8e8f0" font-size="21" font-weight="900">IronWolf Pro /</text>
+    <text x="20" y="101" fill="#e8e8f0" font-size="21" font-weight="900">WD Red Pro</text>
+    <text x="20" y="134" fill="#a0a0b8" font-size="15">up to 30TB / 26TB &#183; CMR</text>
+    <text x="20" y="162" fill="#a0a0b8" font-size="15">550 TB/yr workload</text>
+    <text x="20" y="190" fill="#a0a0b8" font-size="15">5-year warranty</text>
+    <text x="20" y="217" fill="#6b6b8a" font-size="14">IronWolf adds 3yr Rescue</text>
+  </g>
+
+  <!-- Card 3: Plex -->
+  <g transform="translate(614,205)">
+    <rect x="0" y="0" width="256" height="230" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="256" height="6" rx="3" fill="#c8ff00"/>
+    <text x="20" y="42" fill="#c8ff00" font-size="13" letter-spacing="1" font-weight="700">PLEX / MEDIA BULK</text>
+    <text x="20" y="76" fill="#e8e8f0" font-size="22" font-weight="900">Lowest $/TB</text>
+    <text x="20" y="101" fill="#e8e8f0" font-size="22" font-weight="900">CMR drive</text>
+    <text x="20" y="134" fill="#a0a0b8" font-size="15">shop the 8&#8211;16TB band</text>
+    <text x="20" y="162" fill="#a0a0b8" font-size="15">capacity beats speed here</text>
+    <text x="20" y="190" fill="#a0a0b8" font-size="15">1 drive &gt; home network</text>
+    <text x="20" y="217" fill="#6b6b8a" font-size="14">Bigger &#8800; cheaper per-TB</text>
+  </g>
+
+  <!-- Card 4: Budget recert -->
+  <g transform="translate(886,205)">
+    <rect x="0" y="0" width="256" height="230" rx="12" fill="#101028" stroke="#c8ff00"/>
+    <rect x="0" y="0" width="256" height="6" rx="3" fill="#c8ff00"/>
+    <text x="20" y="42" fill="#c8ff00" font-size="13" letter-spacing="1" font-weight="700">BUDGET / VALUE</text>
+    <text x="20" y="76" fill="#e8e8f0" font-size="22" font-weight="900">Recertified</text>
+    <text x="20" y="101" fill="#e8e8f0" font-size="22" font-weight="900">big-capacity</text>
+    <text x="20" y="138" fill="#c8ff00" font-size="30" font-weight="900">$31.25/TB</text>
+    <text x="20" y="166" fill="#a0a0b8" font-size="15">recert 16TB IronWolf Pro</text>
+    <text x="20" y="194" fill="#a0a0b8" font-size="15">~19&#8211;22% under new</text>
+    <text x="20" y="217" fill="#6b6b8a" font-size="14">Check the warranty terms</text>
+  </g>
+
+  <!-- Bottom rule band -->
+  <g transform="translate(70,475)">
+    <rect x="0" y="0" width="1072" height="210" rx="12" fill="#0d0d24" stroke="#1e1e3a"/>
+    <text x="30" y="46" fill="#c8ff00" font-size="15" letter-spacing="2" font-weight="700">THE CMR-vs-SMR RULE</text>
+    <text x="30" y="86" fill="#e8e8f0" font-size="20" font-weight="700">Every current NAS-Pro family is 100% CMR &#8212; that's the drive you want.</text>
+    <text x="30" y="122" fill="#a0a0b8" font-size="17">Buy: WD Red Plus, WD Red Pro, Seagate IronWolf &amp; IronWolf Pro, Toshiba N300 &amp; N300 Pro (all CMR).</text>
+    <text x="30" y="152" fill="#a0a0b8" font-size="17">Avoid for RAID: the legacy plain WD Red &#8220;EFAX&#8221; drives (WD20/30/40/60EFAX) &#8212; those are SMR.</text>
+    <text x="30" y="188" fill="#6b6b8a" font-size="15">Prices: live Amazon snapshot 2026-07-04, move week to week. Specs from manufacturer data sheets.</text>
+  </g>
+
+  <text x="70" y="726" fill="#3a3a5a" font-size="13">TechFuel HQ &#183; best-nas-hard-drives-2026 &#183; not first-party tested; editorial picks from cited specs</text>
+</svg>

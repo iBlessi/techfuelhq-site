@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Proxmox 2-node HA cluster architecture with QDevice quorum, shared storage, and fencing</title>
+  <desc>Topology diagram: Node 1 and Node 2 each hold one corosync vote, a QDevice casts a tie-breaking third vote so quorum (2 of 3) survives a single node failure. Both nodes attach to shared storage (NFS, iSCSI, or Ceph) enabling live migration and HA failover, guarded by IPMI or watchdog fencing.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#5090e0"/>
+    </marker>
+    <marker id="arrowlime" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#c8ff00"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <text x="70" y="64" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">SETUP TUTORIAL · PROXMOX CLUSTER</text>
+  <text x="70" y="108" fill="#e8e8f0" font-size="44" font-weight="900">2-Node HA Cluster with QDevice</text>
+  <text x="70" y="140" fill="#6b6b8a" font-size="19">Corosync quorum, shared storage, live migration, and fencing</text>
+
+  <!-- CONNECTION LINES (drawn first, behind boxes) -->
+  <!-- corosync mesh between nodes and qdevice -->
+  <line x1="320" y1="285" x2="640" y2="285" stroke="#c8ff00" stroke-width="2.5"/>
+  <line x1="490" y1="245" x2="850" y2="210" stroke="#c8ff00" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <line x1="790" y1="245" x2="930" y2="210" stroke="#c8ff00" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <!-- storage links from nodes down to shared storage -->
+  <line x1="225" y1="350" x2="360" y2="470" stroke="#5090e0" stroke-width="2"/>
+  <line x1="725" y1="350" x2="600" y2="470" stroke="#5090e0" stroke-width="2"/>
+
+  <!-- NODE 1 -->
+  <g transform="translate(130,225)">
+    <rect width="190" height="125" rx="12" fill="#101028" stroke="#c8ff00" stroke-width="2"/>
+    <text x="20" y="32" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">NODE 1</text>
+    <text x="20" y="62" fill="#e8e8f0" font-size="17" font-weight="700">Proxmox host</text>
+    <text x="20" y="88" fill="#c0c0d8" font-size="14">Runs VMs · 1 vote</text>
+    <text x="20" y="110" fill="#6b6b8a" font-size="13">pvecm create mycluster</text>
+  </g>
+
+  <!-- NODE 2 -->
+  <g transform="translate(640,225)">
+    <rect width="190" height="125" rx="12" fill="#101028" stroke="#c8ff00" stroke-width="2"/>
+    <text x="20" y="32" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">NODE 2</text>
+    <text x="20" y="62" fill="#e8e8f0" font-size="17" font-weight="700">Proxmox host</text>
+    <text x="20" y="88" fill="#c0c0d8" font-size="14">Runs VMs · 1 vote</text>
+    <text x="20" y="110" fill="#6b6b8a" font-size="13">pvecm add &lt;node1-ip&gt;</text>
+  </g>
+
+  <!-- corosync link label -->
+  <g transform="translate(405,262)">
+    <rect x="-78" y="0" width="156" height="42" rx="8" fill="#0a0a23" stroke="#1e1e3a"/>
+    <text x="0" y="18" text-anchor="middle" fill="#c8ff00" font-size="13" font-weight="700">corosync --link0</text>
+    <text x="0" y="34" text-anchor="middle" fill="#6b6b8a" font-size="12">1GbE min · 10GbE rec.</text>
+  </g>
+
+  <!-- QDEVICE -->
+  <g transform="translate(850,150)">
+    <rect width="200" height="118" rx="12" fill="#101028" stroke="#5dca7a" stroke-width="2"/>
+    <text x="20" y="30" fill="#5dca7a" font-size="13" letter-spacing="2" font-weight="700">QDEVICE</text>
+    <text x="20" y="58" fill="#e8e8f0" font-size="16" font-weight="700">Tie-breaker vote</text>
+    <text x="20" y="81" fill="#c0c0d8" font-size="13.5">Raspberry Pi / mini PC</text>
+    <text x="20" y="102" fill="#6b6b8a" font-size="13">corosync-qdevice · 256MB</text>
+  </g>
+
+  <!-- QUORUM CALLOUT -->
+  <g transform="translate(850,290)">
+    <rect width="200" height="92" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="30" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">QUORUM</text>
+    <text x="20" y="58" fill="#e8e8f0" font-size="15">Total votes</text>
+    <text x="180" y="58" text-anchor="end" fill="#c8ff00" font-size="15" font-weight="700">3</text>
+    <text x="20" y="80" fill="#e8e8f0" font-size="15">Required</text>
+    <text x="180" y="80" text-anchor="end" fill="#e8e8f0" font-size="15" font-weight="600">2</text>
+  </g>
+
+  <!-- SHARED STORAGE LAYER -->
+  <g transform="translate(280,470)">
+    <rect width="640" height="92" rx="12" fill="#101028" stroke="#5090e0" stroke-width="2"/>
+    <text x="24" y="30" fill="#5090e0" font-size="13" letter-spacing="2" font-weight="700">SHARED STORAGE  ·  required for HA + live migration</text>
+    <g transform="translate(24,48)">
+      <rect width="184" height="32" rx="6" fill="#0d0d28" stroke="#1e1e3a"/>
+      <text x="92" y="21" text-anchor="middle" fill="#c0c0d8" font-size="14" font-weight="600">NFS (easiest)</text>
+    </g>
+    <g transform="translate(228,48)">
+      <rect width="160" height="32" rx="6" fill="#0d0d28" stroke="#1e1e3a"/>
+      <text x="80" y="21" text-anchor="middle" fill="#c0c0d8" font-size="14" font-weight="600">iSCSI + LVM</text>
+    </g>
+    <g transform="translate(408,48)">
+      <rect width="208" height="32" rx="6" fill="#0d0d28" stroke="#1e1e3a"/>
+      <text x="104" y="21" text-anchor="middle" fill="#c0c0d8" font-size="14" font-weight="600">Ceph (3+ nodes)</text>
+    </g>
+  </g>
+
+  <!-- live migration label on the corosync line -->
+  <g transform="translate(530,395)">
+    <text x="0" y="0" fill="#5090e0" font-size="13" font-weight="700">qm migrate --online</text>
+    <text x="0" y="18" fill="#6b6b8a" font-size="12">10–30s on 10GbE · 60–120s on 1GbE</text>
+  </g>
+
+  <!-- FENCING panel -->
+  <g transform="translate(960,408)">
+    <rect width="170" height="154" rx="12" fill="#101028" stroke="#e08828" stroke-width="2"/>
+    <text x="18" y="28" fill="#e08828" font-size="12" letter-spacing="2" font-weight="700">FENCING</text>
+    <text x="18" y="50" fill="#c0c0d8" font-size="13">Prevents split-brain</text>
+    <text x="18" y="80" fill="#e8e8f0" font-size="13.5" font-weight="600">IPMI / iLO / iDRAC</text>
+    <text x="18" y="100" fill="#6b6b8a" font-size="12.5">production fence</text>
+    <text x="18" y="126" fill="#e8e8f0" font-size="13.5" font-weight="600">softdog watchdog</text>
+    <text x="18" y="146" fill="#6b6b8a" font-size="12.5">homelab fallback</text>
+  </g>
+
+  <text x="70" y="600" fill="#4a4a6a" font-size="13">TechFuel HQ · Tutorial · Architecture per Proxmox VE clustering &amp; corosync-qdevice docs</text>
+  <text x="1130" y="600" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

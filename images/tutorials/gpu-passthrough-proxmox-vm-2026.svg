@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>VFIO GPU passthrough topology for a Proxmox VM</title>
+  <desc>Data-flow diagram showing a discrete GPU and its HDMI audio device in IOMMU Group 20, with host drivers blacklisted and bound to vfio-pci on Proxmox VE 8.x, passed through to a q35 OVMF guest VM running the native driver, plus the BIOS IOMMU prerequisite.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#c8ff00"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="74" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">SETUP TUTORIAL · VFIO PASSTHROUGH</text>
+  <text x="70" y="124" fill="#e8e8f0" font-size="48" font-weight="900">GPU Passthrough to a Proxmox VM</text>
+  <text x="70" y="158" fill="#6b6b8a" font-size="19">Proxmox VE 8.x · IOMMU Group 20 binds to vfio-pci, then to one guest at a time</text>
+
+  <!-- Column 1: BIOS / IOMMU prerequisite -->
+  <g transform="translate(70,210)">
+    <rect width="240" height="320" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="34" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">STEP 1 · FIRMWARE</text>
+    <rect x="20" y="52" width="200" height="74" rx="8" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="36" y="82" fill="#e8e8f0" font-size="17" font-weight="700">BIOS / UEFI</text>
+    <text x="36" y="106" fill="#c0c0d8" font-size="14">VT-d (Intel) · AMD-Vi</text>
+    <rect x="20" y="146" width="200" height="74" rx="8" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="36" y="176" fill="#e8e8f0" font-size="17" font-weight="700">Kernel cmdline</text>
+    <text x="36" y="200" fill="#c0c0d8" font-size="14">iommu=on · iommu=pt</text>
+    <rect x="20" y="240" width="200" height="62" rx="8" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="36" y="268" fill="#e8e8f0" font-size="15" font-weight="700">VFIO modules</text>
+    <text x="36" y="290" fill="#c0c0d8" font-size="13">vfio · vfio_pci · type1</text>
+  </g>
+
+  <!-- Column 2: Proxmox Host with IOMMU group -->
+  <g transform="translate(380,210)">
+    <rect width="370" height="320" rx="12" fill="#101028" stroke="#5dca7a"/>
+    <text x="22" y="34" fill="#5dca7a" font-size="13" letter-spacing="2" font-weight="700">PROXMOX VE 8.x HOST</text>
+
+    <!-- IOMMU Group 20 box -->
+    <rect x="22" y="52" width="326" height="138" rx="8" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="38" y="78" fill="#6b6b8a" font-size="12" letter-spacing="1" font-weight="700">IOMMU GROUP 20</text>
+    <rect x="38" y="90" width="294" height="40" rx="6" fill="#101028" stroke="#1e1e3a"/>
+    <text x="52" y="115" fill="#e8e8f0" font-size="14" font-weight="700">GPU 0a:00.0  <tspan fill="#6b6b8a" font-weight="400">[10de:2203]</tspan></text>
+    <rect x="38" y="136" width="294" height="40" rx="6" fill="#101028" stroke="#1e1e3a"/>
+    <text x="52" y="161" fill="#c0c0d8" font-size="14" font-weight="700">HDMI Audio 0a:00.1  <tspan fill="#6b6b8a" font-weight="400">[10de:1aef]</tspan></text>
+
+    <!-- driver blacklist -->
+    <rect x="22" y="206" width="158" height="96" rx="8" fill="#0d0d28" stroke="#e63946"/>
+    <text x="38" y="232" fill="#e63946" font-size="13" letter-spacing="1" font-weight="700">BLACKLISTED</text>
+    <text x="38" y="258" fill="#c0c0d8" font-size="14">nouveau</text>
+    <text x="38" y="280" fill="#c0c0d8" font-size="14">nvidia · nvidia_drm</text>
+
+    <!-- vfio bind -->
+    <rect x="190" y="206" width="158" height="96" rx="8" fill="#0d0d28" stroke="#c8ff00"/>
+    <text x="206" y="232" fill="#c8ff00" font-size="13" letter-spacing="1" font-weight="700">BOUND TO</text>
+    <text x="206" y="258" fill="#e8e8f0" font-size="16" font-weight="700">vfio-pci</text>
+    <text x="206" y="282" fill="#6b6b8a" font-size="13">exclusive owner</text>
+  </g>
+
+  <!-- Column 3: Guest VM -->
+  <g transform="translate(820,210)">
+    <rect width="310" height="320" rx="12" fill="#101028" stroke="#5090e0"/>
+    <text x="22" y="34" fill="#5090e0" font-size="13" letter-spacing="2" font-weight="700">GUEST VM</text>
+    <rect x="22" y="52" width="266" height="44" rx="8" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="38" y="80" fill="#e8e8f0" font-size="15" font-weight="700">q35 · OVMF (UEFI) · cpu host</text>
+    <rect x="22" y="106" width="266" height="44" rx="8" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="38" y="134" fill="#c0c0d8" font-size="14">PCI device · ROM-Bar · kvm=off</text>
+    <rect x="22" y="160" width="266" height="60" rx="8" fill="#0d0d28" stroke="#5dca7a"/>
+    <text x="38" y="186" fill="#e8e8f0" font-size="15" font-weight="700">Native NVIDIA driver</text>
+    <text x="38" y="208" fill="#5dca7a" font-size="14">nvidia-smi shows the GPU</text>
+    <rect x="22" y="230" width="266" height="72" rx="8" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="38" y="256" fill="#c8ff00" font-size="13" letter-spacing="1" font-weight="700">PERFORMANCE</text>
+    <text x="38" y="288" fill="#e8e8f0" font-size="20" font-weight="900">Within 1–3% <tspan fill="#6b6b8a" font-size="15" font-weight="400">of bare-metal</tspan></text>
+  </g>
+
+  <!-- Connector arrows between columns -->
+  <line x1="310" y1="370" x2="378" y2="370" stroke="#c8ff00" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="750" y1="370" x2="818" y2="370" stroke="#c8ff00" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="344" y="360" text-anchor="middle" fill="#6b6b8a" font-size="11" letter-spacing="1">ENABLE</text>
+  <text x="784" y="360" text-anchor="middle" fill="#6b6b8a" font-size="11" letter-spacing="1">PASS-THRU</text>
+
+  <!-- Footer -->
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · Setup Tutorial · Topology per the VFIO passthrough steps in this guide</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

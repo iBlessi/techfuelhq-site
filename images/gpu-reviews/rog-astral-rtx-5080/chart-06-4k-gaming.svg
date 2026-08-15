@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" font-family="Inter, system-ui, sans-serif" role="img">
+<title>4K Gaming &#8211; Average FPS</title>
+<desc>4K Gaming &#8211; Average FPS: Cyberpunk Ultra (raster) 58 fps, Cyberpunk RT-Ultra + DLSS-Q 50 fps, Alan Wake 2 RT + DLSS-Q 49 fps, Black Myth: Wukong Cinematic 34 fps, Cyberpunk Path Tracing (native) 19 fps</desc>
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/></pattern></defs>
+<rect width="1200" height="640" fill="#0a0a23"/>
+<rect width="1200" height="640" fill="url(#grid)" opacity="0.4"/>
+<rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+<text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">RTX 5080 BENCHMARK &#183; 4K GAMING</text>
+<text x="70" y="126" fill="#e8e8f0" font-size="40" font-weight="900">4K Gaming &#8211; Average FPS</text>
+<text x="70" y="160" fill="#6b6b8a" font-size="18">Astral OC Manual profile &#183; native 4K &#183; higher is better &#183; TechFuelHQ first-party</text>
+<g transform="translate(70,205)">
+<text x="0" y="34" fill="#c8ff00" font-size="17" font-weight="800">Cyberpunk Ultra (raster)</text>
+<rect x="290" y="12" width="660" height="40" rx="8" fill="#c8ff00"/>
+<text x="964" y="39" fill="#e8e8f0" font-size="19" font-weight="800">58 fps</text>
+<text x="0" y="104" fill="#c0c0d8" font-size="17" font-weight="600">Cyberpunk RT-Ultra + DLSS-Q</text>
+<rect x="290" y="82" width="569" height="40" rx="8" fill="#e08828"/>
+<text x="873" y="109" fill="#e8e8f0" font-size="19" font-weight="800">50 fps</text>
+<text x="0" y="174" fill="#c0c0d8" font-size="17" font-weight="600">Alan Wake 2 RT + DLSS-Q</text>
+<rect x="290" y="152" width="558" height="40" rx="8" fill="#b06bff"/>
+<text x="862" y="179" fill="#e8e8f0" font-size="19" font-weight="800">49 fps</text>
+<text x="0" y="244" fill="#c0c0d8" font-size="17" font-weight="600">Black Myth: Wukong Cinematic</text>
+<rect x="290" y="222" width="387" height="40" rx="8" fill="#3aa0a0"/>
+<text x="691" y="249" fill="#e8e8f0" font-size="19" font-weight="800">34 fps</text>
+<text x="0" y="314" fill="#c0c0d8" font-size="17" font-weight="600">Cyberpunk Path Tracing (native)</text>
+<rect x="290" y="292" width="216" height="40" rx="8" fill="#5090e0"/>
+<text x="520" y="319" fill="#e8e8f0" font-size="19" font-weight="800">19 fps</text>
+</g>
+<text x="70" y="610" fill="#4a4a6a" font-size="13">TechFuelHQ first-party &#183; bars proportional to average FPS &#183; native path tracing at 19 fps is what DLSS 4 MFG exists to fix</text>
+<text x="1130" y="610" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="740" viewBox="0 0 1200 740" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Proxmox VE 8 to 9 in-place upgrade pre-flight sequence for 2026</title>
+  <desc>A five-stage labeled sequence for the Proxmox VE 8 to 9 in-place upgrade: get every node to PVE 8.4.1+, run the pve8to9 --full checklist until clean, handle the breaking-change gotchas before reboot, point repositories from bookworm to trixie and run apt dist-upgrade, then reboot into the new kernel (7.0 on the current PVE 9.2) and verify pveversion reports 9.x. A bottom band lists the gotchas to handle before reboot: LVM autoactivation off by default, NIC renames, cgroup v1 removed, and PCI passthrough on the new kernel. On a cluster: one node at a time, keep quorum, Ceph to Squid first.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="740" fill="#0a0a23"/>
+  <rect width="1200" height="740" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">PROXMOX VE 8 &#8594; 9 &#183; IN-PLACE UPGRADE PRE-FLIGHT</text>
+  <text x="70" y="128" fill="#e8e8f0" font-size="42" font-weight="900">The Upgrade in Five Steps</text>
+  <text x="70" y="162" fill="#6b6b8a" font-size="18">Debian 13.5 Trixie &#183; kernel 7.0 (PVE 9.2) &#183; supported in-place upgrade &#8211; the prep is the whole job</text>
+
+  <!-- Step pipeline -->
+  <g transform="translate(70,200)">
+    <!-- Step 1: Prerequisites -->
+    <rect x="0" y="0" width="200" height="170" rx="10" fill="#101028" stroke="#5090e0"/>
+    <rect x="0" y="0" width="200" height="6" rx="3" fill="#5090e0"/>
+    <text x="20" y="38" fill="#5090e0" font-size="13" letter-spacing="2" font-weight="700">STEP 1</text>
+    <text x="20" y="64" fill="#e8e8f0" font-size="19" font-weight="900">Prerequisites</text>
+    <text x="20" y="93" fill="#c0c0d8" font-size="13.5">On every node:</text>
+    <text x="20" y="115" fill="#c0c0d8" font-size="13.5">&#183; PVE 8.4.1+</text>
+    <text x="20" y="135" fill="#c0c0d8" font-size="13.5">&#183; Tested backups</text>
+    <text x="20" y="155" fill="#c0c0d8" font-size="13.5">&#183; 5 GB+ free root</text>
+
+    <!-- arrow 1 -->
+    <text x="218" y="92" text-anchor="middle" fill="#6b6b8a" font-size="26" font-weight="700">&#8594;</text>
+
+    <!-- Step 2: Checklist -->
+    <rect x="236" y="0" width="200" height="170" rx="10" fill="#101028" stroke="#e08828"/>
+    <rect x="236" y="0" width="200" height="6" rx="3" fill="#e08828"/>
+    <text x="256" y="38" fill="#e08828" font-size="13" letter-spacing="2" font-weight="700">STEP 2</text>
+    <text x="256" y="64" fill="#e8e8f0" font-size="19" font-weight="900">Checklist</text>
+    <text x="256" y="93" fill="#c0c0d8" font-size="13.5">Run:</text>
+    <text x="256" y="114" fill="#c8ff00" font-size="14" font-weight="700">pve8to9 --full</text>
+    <text x="256" y="136" fill="#c0c0d8" font-size="13.5">Clear every warning,</text>
+    <text x="256" y="155" fill="#c0c0d8" font-size="13.5">re-run until clean.</text>
+
+    <!-- arrow 2 -->
+    <text x="454" y="92" text-anchor="middle" fill="#6b6b8a" font-size="26" font-weight="700">&#8594;</text>
+
+    <!-- Step 3: Handle gotchas -->
+    <rect x="472" y="0" width="200" height="170" rx="10" fill="#101028" stroke="#b06bff"/>
+    <rect x="472" y="0" width="200" height="6" rx="3" fill="#b06bff"/>
+    <text x="492" y="38" fill="#b06bff" font-size="13" letter-spacing="2" font-weight="700">STEP 3</text>
+    <text x="492" y="64" fill="#e8e8f0" font-size="19" font-weight="900">Handle gotchas</text>
+    <text x="492" y="93" fill="#c0c0d8" font-size="13.5">Before you reboot:</text>
+    <text x="492" y="115" fill="#c0c0d8" font-size="13.5">&#183; Pin NIC names</text>
+    <text x="492" y="135" fill="#c0c0d8" font-size="13.5">&#183; LVM autoactivation</text>
+    <text x="492" y="155" fill="#c0c0d8" font-size="13.5">&#183; Console access</text>
+
+    <!-- arrow 3 -->
+    <text x="690" y="92" text-anchor="middle" fill="#6b6b8a" font-size="26" font-weight="700">&#8594;</text>
+
+    <!-- Step 4: Upgrade -->
+    <rect x="708" y="0" width="200" height="170" rx="10" fill="#101028" stroke="#5090e0"/>
+    <rect x="708" y="0" width="200" height="6" rx="3" fill="#5090e0"/>
+    <text x="728" y="38" fill="#5090e0" font-size="13" letter-spacing="2" font-weight="700">STEP 4</text>
+    <text x="728" y="64" fill="#e8e8f0" font-size="19" font-weight="900">Upgrade</text>
+    <text x="728" y="93" fill="#c0c0d8" font-size="13.5">Repos bookworm</text>
+    <text x="728" y="111" fill="#c0c0d8" font-size="13.5">&#8594; trixie, then:</text>
+    <text x="728" y="133" fill="#c8ff00" font-size="13.5" font-weight="700">apt update</text>
+    <text x="728" y="153" fill="#c8ff00" font-size="13.5" font-weight="700">apt dist-upgrade</text>
+
+    <!-- arrow 4 -->
+    <text x="926" y="92" text-anchor="middle" fill="#6b6b8a" font-size="26" font-weight="700">&#8594;</text>
+
+    <!-- Step 5: Reboot and verify (winner accent) -->
+    <rect x="944" y="0" width="200" height="170" rx="10" fill="#101028" stroke="#c8ff00"/>
+    <rect x="944" y="0" width="200" height="6" rx="3" fill="#c8ff00"/>
+    <text x="964" y="38" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">STEP 5</text>
+    <text x="964" y="64" fill="#e8e8f0" font-size="19" font-weight="900">Reboot &amp; verify</text>
+    <text x="964" y="93" fill="#c0c0d8" font-size="13.5">Reboot into the</text>
+    <text x="964" y="111" fill="#c0c0d8" font-size="13.5">new kernel, then:</text>
+    <text x="964" y="133" fill="#c8ff00" font-size="14" font-weight="700">pveversion</text>
+    <text x="964" y="153" fill="#c0c0d8" font-size="13.5">reports 9.x</text>
+  </g>
+
+  <!-- Gotchas band -->
+  <g transform="translate(70,408)">
+    <text x="0" y="18" fill="#b06bff" font-size="13" letter-spacing="2" font-weight="700">THE GOTCHAS THAT BITE &#8211; HANDLE BEFORE THE REBOOT</text>
+
+    <!-- gotcha 1 -->
+    <rect x="0" y="32" width="262" height="92" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="18" y="62" fill="#e8e8f0" font-size="15" font-weight="700">LVM autoactivation</text>
+    <text x="18" y="84" fill="#6b6b8a" font-size="13">Now off by default for new</text>
+    <text x="18" y="104" fill="#6b6b8a" font-size="13">volumes in shared-LVM setups.</text>
+
+    <!-- gotcha 2 -->
+    <rect x="282" y="32" width="262" height="92" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="300" y="62" fill="#e8e8f0" font-size="15" font-weight="700">NIC renames</text>
+    <text x="300" y="84" fill="#6b6b8a" font-size="13">The new kernel can rename ifaces.</text>
+    <text x="300" y="104" fill="#6b6b8a" font-size="13">Pin names; vmbr0 breaks if stale.</text>
+
+    <!-- gotcha 3 -->
+    <rect x="564" y="32" width="262" height="92" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="582" y="62" fill="#e8e8f0" font-size="15" font-weight="700">cgroup v1 removed</text>
+    <text x="582" y="84" fill="#6b6b8a" font-size="13">Old containers (CentOS 7,</text>
+    <text x="582" y="104" fill="#6b6b8a" font-size="13">Ubuntu 16.04) won't start.</text>
+
+    <!-- gotcha 4 -->
+    <rect x="846" y="32" width="262" height="92" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="864" y="62" fill="#e8e8f0" font-size="15" font-weight="700">PCI passthrough</text>
+    <text x="864" y="84" fill="#6b6b8a" font-size="13">Can break on the new kernel;</text>
+    <text x="864" y="104" fill="#6b6b8a" font-size="13">pin an older kernel as workaround.</text>
+  </g>
+
+  <!-- Cluster note strip -->
+  <g transform="translate(70,560)">
+    <rect x="0" y="0" width="1038" height="60" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="60" rx="3" fill="#e08828"/>
+    <text x="26" y="26" fill="#e08828" font-size="13" letter-spacing="2" font-weight="700">ON A CLUSTER</text>
+    <text x="26" y="48" fill="#c0c0d8" font-size="15">One node at a time, keep quorum throughout &#183; all nodes on 8.4.1+ first &#183; Ceph &#8594; 19.2 Squid before you start.</text>
+  </g>
+
+  <!-- Verdict strip -->
+  <g transform="translate(70,636)">
+    <rect x="0" y="0" width="1038" height="60" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="60" rx="3" fill="#c8ff00"/>
+    <text x="26" y="26" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">THE CALL</text>
+    <text x="26" y="48" fill="#c0c0d8" font-size="15">The mechanism isn't scary &#8211; preparation is. A tested backup, a clean pve8to9 --full, pinned NICs and real console access make the jump routine.</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="724" fill="#4a4a6a" font-size="13">TechFuel HQ &#183; Proxmox VE 8&#8594;9 Upgrade Pre-Flight &#183; per Proxmox official Upgrade_from_8_to_9 guide</text>
+  <text x="1130" y="724" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

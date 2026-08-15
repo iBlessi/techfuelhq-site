@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Best 27 and 32-inch monitors for a homelab desk in 2026 — top picks by use case</title>
+  <desc>Buying guide hero. Four picks: LG 27GS95QE-B 27-inch 1440p 240Hz WOLED at about $799; Asus ROG PG32UCDM 32-inch 4K 240Hz QD-OLED USB-C at about $999; Dell U3225QE 32-inch 4K 120Hz IPS Black Thunderbolt 4 at about $699; LG 32UP83A-W 32-inch 4K 60Hz IPS budget pick at about $399.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="74" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">BUYING GUIDE · MONITORS · 2026</text>
+  <text x="70" y="124" fill="#e8e8f0" font-size="48" font-weight="900">Best 27&quot; &amp; 32&quot; Homelab Monitors</text>
+  <text x="70" y="158" fill="#6b6b8a" font-size="20">OLED vs IPS at 27–32 inches — top picks by use case, 1440p to 4K</text>
+
+  <!-- Column headers -->
+  <text x="70" y="214" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">PICK</text>
+  <text x="592" y="214" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">PANEL · KEY SPEC</text>
+  <text x="1130" y="214" text-anchor="end" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">STREET PRICE</text>
+
+  <!-- Row 1: LG 27GS95QE-B -->
+  <g transform="translate(70,228)">
+    <rect width="1060" height="78" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="5" height="78" rx="2" fill="#c8ff00"/>
+    <text x="26" y="34" fill="#e8e8f0" font-size="22" font-weight="700">LG 27GS95QE-B</text>
+    <text x="26" y="60" fill="#6b6b8a" font-size="14">Best 27-inch OLED for gaming + productivity</text>
+    <text x="522" y="34" fill="#c8ff00" font-size="16" font-weight="700">WOLED · 1440p 240Hz</text>
+    <text x="522" y="58" fill="#c0c0d8" font-size="14">2560×1440 · ~109 PPI · G-Sync / FreeSync</text>
+    <text x="1034" y="50" text-anchor="end" fill="#e8e8f0" font-size="26" font-weight="900">~$799</text>
+  </g>
+
+  <!-- Row 2: Asus ROG PG32UCDM -->
+  <g transform="translate(70,316)">
+    <rect width="1060" height="78" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="5" height="78" rx="2" fill="#5090e0"/>
+    <text x="26" y="34" fill="#e8e8f0" font-size="22" font-weight="700">Asus ROG PG32UCDM</text>
+    <text x="26" y="60" fill="#6b6b8a" font-size="14">Best 32-inch OLED — gaming + work, one screen</text>
+    <text x="522" y="34" fill="#c8ff00" font-size="16" font-weight="700">QD-OLED · 4K 240Hz</text>
+    <text x="522" y="58" fill="#c0c0d8" font-size="14">3840×2160 · ~138 PPI · USB-C 90W (DP Alt)</text>
+    <text x="1034" y="50" text-anchor="end" fill="#e8e8f0" font-size="26" font-weight="900">~$999</text>
+  </g>
+
+  <!-- Row 3: Dell U3225QE -->
+  <g transform="translate(70,404)">
+    <rect width="1060" height="78" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="5" height="78" rx="2" fill="#5dca7a"/>
+    <text x="26" y="34" fill="#e8e8f0" font-size="22" font-weight="700">Dell U3225QE</text>
+    <text x="26" y="60" fill="#6b6b8a" font-size="14">Best 32-inch IPS — laptop-connected homelab desk</text>
+    <text x="522" y="34" fill="#5dca7a" font-size="16" font-weight="700">IPS Black · 4K 120Hz</text>
+    <text x="522" y="58" fill="#c0c0d8" font-size="14">3840×2160 · Thunderbolt 4 ×2 · USB-C 140W</text>
+    <text x="1034" y="50" text-anchor="end" fill="#e8e8f0" font-size="26" font-weight="900">~$699</text>
+  </g>
+
+  <!-- Row 4: LG 32UP83A-W -->
+  <g transform="translate(70,492)">
+    <rect width="1060" height="78" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="5" height="78" rx="2" fill="#e08828"/>
+    <text x="26" y="34" fill="#e8e8f0" font-size="22" font-weight="700">LG 32UP83A-W</text>
+    <text x="26" y="60" fill="#6b6b8a" font-size="14">Best budget 4K — productivity / second screen</text>
+    <text x="522" y="34" fill="#e08828" font-size="16" font-weight="700">IPS · 4K 60Hz</text>
+    <text x="522" y="58" fill="#c0c0d8" font-size="14">3840×2160 · DisplayHDR 600 · USB-C 90W</text>
+    <text x="1034" y="50" text-anchor="end" fill="#e8e8f0" font-size="26" font-weight="900">~$399</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · Buying Guide · Specs per Asus, Dell, LG official product pages; street prices mid-June 2026</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

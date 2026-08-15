@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a23"/>
+      <stop offset="100%" stop-color="#12123a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <text x="600" y="58" text-anchor="middle" fill="#c8ff00" font-size="30" font-weight="800">HOW MUCH RAM DO YOU NEED? 2026</text>
+  <text x="600" y="90" text-anchor="middle" fill="#9999bb" font-size="15">The honest amount by use case — during the RAM shortage</text>
+
+  <!-- 16GB: budget floor -->
+  <rect x="50" y="120" width="340" height="400" rx="14" fill="#13132e" stroke="#ffb020" stroke-width="1"/>
+  <text x="220" y="158" text-anchor="middle" fill="#ffb020" font-size="15" font-weight="700">BUDGET FLOOR</text>
+  <text x="220" y="205" text-anchor="middle" fill="#ffffff" font-size="46" font-weight="800">16GB</text>
+  <text x="220" y="235" text-anchor="middle" fill="#9999bb" font-size="13">Everyday · light / esports gaming</text>
+  <line x1="80" y1="255" x2="360" y2="255" stroke="#2a2a4a" stroke-width="1"/>
+  <text x="220" y="288" text-anchor="middle" fill="#bbbbcc" font-size="13">OK at 1080p esports + older titles</text>
+  <text x="220" y="316" text-anchor="middle" fill="#bbbbcc" font-size="13">Tight once you multitask or</text>
+  <text x="220" y="336" text-anchor="middle" fill="#bbbbcc" font-size="13">run a modern UE5 game</text>
+  <text x="220" y="372" text-anchor="middle" fill="#ffb020" font-size="13">Defensible on a shortage budget</text>
+  <text x="220" y="400" text-anchor="middle" fill="#ffb020" font-size="13">— add a matching kit later</text>
+
+  <!-- 32GB: the pick -->
+  <rect x="430" y="105" width="340" height="415" rx="16" fill="#171735" stroke="#c8ff00" stroke-width="3"/>
+  <rect x="600" y="90" width="0" height="0"/>
+  <text x="600" y="146" text-anchor="middle" fill="#c8ff00" font-size="15" font-weight="800">2026 BASELINE ✓</text>
+  <text x="600" y="196" text-anchor="middle" fill="#ffffff" font-size="52" font-weight="800">32GB</text>
+  <text x="600" y="228" text-anchor="middle" fill="#9999bb" font-size="13">New gaming build · multitasking</text>
+  <line x1="460" y1="248" x2="740" y2="248" stroke="#2a2a4a" stroke-width="1"/>
+  <text x="600" y="282" text-anchor="middle" fill="#c8ff00" font-size="13">✓ Headroom for OS + apps + engine</text>
+  <text x="600" y="310" text-anchor="middle" fill="#c8ff00" font-size="13">✓ Far smoother 1% lows than 16GB</text>
+  <text x="600" y="338" text-anchor="middle" fill="#c8ff00" font-size="13">✓ Microsoft + PC Gamer's default</text>
+  <text x="600" y="378" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">The sensible pick for most builds</text>
+
+  <!-- 64GB: specialists -->
+  <rect x="810" y="120" width="340" height="400" rx="14" fill="#13132e" stroke="#5090e0" stroke-width="1"/>
+  <text x="980" y="158" text-anchor="middle" fill="#5090e0" font-size="15" font-weight="700">SPECIALISTS</text>
+  <text x="980" y="205" text-anchor="middle" fill="#ffffff" font-size="46" font-weight="800">64GB+</text>
+  <text x="980" y="235" text-anchor="middle" fill="#9999bb" font-size="13">VMs · content creation · local AI</text>
+  <line x1="840" y1="255" x2="1120" y2="255" stroke="#2a2a4a" stroke-width="1"/>
+  <text x="980" y="288" text-anchor="middle" fill="#bbbbcc" font-size="13">No gaming benefit over 32GB</text>
+  <text x="980" y="316" text-anchor="middle" fill="#bbbbcc" font-size="13">Buy it for a real workload,</text>
+  <text x="980" y="336" text-anchor="middle" fill="#bbbbcc" font-size="13">not for future-proofing</text>
+  <text x="980" y="372" text-anchor="middle" fill="#e63946" font-size="13">Scarce + pricey in the shortage</text>
+  <text x="980" y="400" text-anchor="middle" fill="#bbbbcc" font-size="13">96–128GB only if pinned</text>
+
+  <text x="600" y="565" text-anchor="middle" fill="#667" font-size="13">Windows 11 alone uses ~4–6GB before a game launches · techfuelhq.com</text>
+</svg>

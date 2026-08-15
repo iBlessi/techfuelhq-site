@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>ASUS ROG STRIX B650-A Gaming WiFi review card, rated 4.2 out of 5</title>
+  <desc>TechFuel HQ review card for the ASUS ROG STRIX B650-A Gaming WiFi AM5 motherboard, rated 4.2 out of 5, with a key specifications panel covering socket, chipset, form factor, power delivery, PCIe and M.2 slots, networking, and memory support.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <text x="70" y="92" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">HARDWARE REVIEW · AM5 MOTHERBOARD</text>
+  <text x="70" y="150" fill="#e8e8f0" font-size="50" font-weight="900">ROG STRIX B650-A</text>
+  <text x="70" y="188" fill="#6b6b8a" font-size="20">Gaming WiFi · AM5 ATX done right for the 7800X3D homelab build</text>
+
+  <text x="70" y="270" fill="#c8ff00" font-size="62" font-weight="900">4.2</text>
+  <text x="188" y="270" fill="#6b6b8a" font-size="26" font-weight="700">/ 5</text>
+
+  <g transform="translate(70,310)">
+    <rect width="500" height="232" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="24" y="36" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">BUILD CONTEXT</text>
+    <text x="24" y="76" fill="#c0c0d8" font-size="16">Tested CPU</text>
+    <text x="476" y="76" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">Ryzen 7 7800X3D</text>
+    <text x="24" y="112" fill="#c0c0d8" font-size="16">VRM under load</text>
+    <text x="476" y="112" text-anchor="end" fill="#5dca7a" font-size="16" font-weight="600">No thermal concern</text>
+    <text x="24" y="148" fill="#c0c0d8" font-size="16">EXPO sweet spot</text>
+    <text x="476" y="148" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">DDR5-6000 (1:1)</text>
+    <text x="24" y="184" fill="#c0c0d8" font-size="16">Street price</text>
+    <text x="476" y="184" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">$279–319</text>
+    <text x="24" y="216" fill="#6b6b8a" font-size="13">BIOS UI is the best DDR5 tuning interface on AM5</text>
+  </g>
+
+  <g transform="translate(630,225)">
+    <rect width="500" height="345" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="24" y="36" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">KEY SPECIFICATIONS</text>
+
+    <text x="24" y="78" fill="#c0c0d8" font-size="16">Socket / Chipset</text>
+    <text x="476" y="78" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">AM5 / AMD B650</text>
+
+    <text x="24" y="114" fill="#c0c0d8" font-size="16">Form factor</text>
+    <text x="476" y="114" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">ATX, 305 × 244 mm</text>
+
+    <text x="24" y="150" fill="#c0c0d8" font-size="16">Power delivery</text>
+    <text x="476" y="150" text-anchor="end" fill="#c8ff00" font-size="16" font-weight="700">12+2 teamed stages</text>
+
+    <text x="24" y="186" fill="#c0c0d8" font-size="16">Memory</text>
+    <text x="476" y="186" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">4× DDR5, up to 192GB</text>
+
+    <text x="24" y="222" fill="#c0c0d8" font-size="16">PCIe slots</text>
+    <text x="476" y="222" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">4.0 x16 + 4.0 x4 + 2&#215; x1</text>
+
+    <text x="24" y="258" fill="#c0c0d8" font-size="16">M.2 slots</text>
+    <text x="476" y="258" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">3× (1× Gen5, 2× Gen4)</text>
+
+    <text x="24" y="294" fill="#c0c0d8" font-size="16">LAN / WiFi</text>
+    <text x="476" y="294" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">2.5GbE · WiFi 6E (AX210)</text>
+
+    <text x="24" y="328" fill="#c0c0d8" font-size="16">Audio</text>
+    <text x="476" y="328" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">SupremeFX ALC4082 + ESS DAC</text>
+  </g>
+
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · Hardware Review · Specs per ASUS official product page</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

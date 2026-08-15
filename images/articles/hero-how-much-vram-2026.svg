@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a23"/>
+      <stop offset="100%" stop-color="#12123a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <text x="600" y="58" text-anchor="middle" fill="#c8ff00" font-size="30" font-weight="800">HOW MUCH VRAM DO YOU NEED? 2026</text>
+  <text x="600" y="90" text-anchor="middle" fill="#9999bb" font-size="15">The honest amount by resolution — is 8GB enough?</text>
+
+  <!-- 8GB / 1080p -->
+  <rect x="50" y="120" width="340" height="400" rx="14" fill="#13132e" stroke="#ffb020" stroke-width="1"/>
+  <text x="220" y="158" text-anchor="middle" fill="#ffb020" font-size="15" font-weight="700">1080p</text>
+  <text x="220" y="205" text-anchor="middle" fill="#ffffff" font-size="46" font-weight="800">8GB</text>
+  <text x="220" y="235" text-anchor="middle" fill="#9999bb" font-size="13">esports + most AAA at 1080p</text>
+  <line x1="80" y1="255" x2="360" y2="255" stroke="#2a2a4a" stroke-width="1"/>
+  <text x="220" y="288" text-anchor="middle" fill="#bbbbcc" font-size="13">Fine for ~99% of 1080p games</text>
+  <text x="220" y="316" text-anchor="middle" fill="#bbbbcc" font-size="13">10–12GB if you want Ultra</text>
+  <text x="220" y="336" text-anchor="middle" fill="#bbbbcc" font-size="13">textures + ray tracing</text>
+  <text x="220" y="372" text-anchor="middle" fill="#e63946" font-size="13">A wall at 1440p Ultra / RT</text>
+  <text x="220" y="400" text-anchor="middle" fill="#ffb020" font-size="13">Budget-defensible for 1080p</text>
+
+  <!-- 12GB / 1440p -->
+  <rect x="430" y="105" width="340" height="415" rx="16" fill="#171735" stroke="#c8ff00" stroke-width="3"/>
+  <text x="600" y="146" text-anchor="middle" fill="#c8ff00" font-size="15" font-weight="800">1440p BASELINE ✓</text>
+  <text x="600" y="196" text-anchor="middle" fill="#ffffff" font-size="52" font-weight="800">12GB</text>
+  <text x="600" y="228" text-anchor="middle" fill="#9999bb" font-size="13">The 2026 floor for 1440p high</text>
+  <line x1="460" y1="248" x2="740" y2="248" stroke="#2a2a4a" stroke-width="1"/>
+  <text x="600" y="282" text-anchor="middle" fill="#c8ff00" font-size="13">✓ Handles 1440p high in nearly all games</text>
+  <text x="600" y="310" text-anchor="middle" fill="#c8ff00" font-size="13">✓ 8GB fills up + stutters here</text>
+  <text x="600" y="338" text-anchor="middle" fill="#c8ff00" font-size="13">✓ 16GB comfortable for RT</text>
+  <text x="600" y="378" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Don't buy 8GB for 1440p Ultra</text>
+
+  <!-- 16GB / 4K -->
+  <rect x="810" y="120" width="340" height="400" rx="14" fill="#13132e" stroke="#5090e0" stroke-width="1"/>
+  <text x="980" y="158" text-anchor="middle" fill="#5090e0" font-size="15" font-weight="700">4K + FUTURE-PROOF</text>
+  <text x="980" y="205" text-anchor="middle" fill="#ffffff" font-size="46" font-weight="800">16GB</text>
+  <text x="980" y="235" text-anchor="middle" fill="#9999bb" font-size="13">4K · ray tracing · creation</text>
+  <line x1="840" y1="255" x2="1120" y2="255" stroke="#2a2a4a" stroke-width="1"/>
+  <text x="980" y="288" text-anchor="middle" fill="#bbbbcc" font-size="13">The 4K minimum in 2026</text>
+  <text x="980" y="316" text-anchor="middle" fill="#bbbbcc" font-size="13">RT open-world can near/exceed 16GB</text>
+  <text x="980" y="344" text-anchor="middle" fill="#bbbbcc" font-size="13">24GB for future-proofing</text>
+  <text x="980" y="390" text-anchor="middle" fill="#5090e0" font-size="13">Don't starve a fast 4K GPU</text>
+
+  <text x="600" y="565" text-anchor="middle" fill="#667" font-size="13">Out of VRAM = stutter + texture pop-in + 1%-low collapse (not lower average FPS) · techfuelhq.com</text>
+</svg>

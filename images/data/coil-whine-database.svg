@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 736" width="1200" height="736" role="img" aria-label="Coil whine community census from TechFuelHQ: anchored severity scale from 0 (inaudible in a quiet room) to 4 (audible even at idle) for GPUs, PSUs, and AIO pumps. The census opens empty and is accepting submissions; per-model severity distributions publish once a model has at least 5 reports — odds, not verdicts, because whine varies unit to unit. Demand checked 2026-08-12: about 2,900 monthly searches for coil whine and 1,000 for gpu coil whine, with no public per-model database anywhere as of August 2026. CC BY 4.0.">
+  <rect width="1200" height="736" fill="#0e0e1a"/>
+  <text x="60" y="66" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700">Coil whine census &#8212; per-model odds, not verdicts</text>
+  <text x="60" y="102" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="18">GPUs &#183; PSUs &#183; AIO pumps &#183; anchored 0&#8211;4 severity scale &#183; one row per owned unit &#183; CC BY 4.0</text>
+
+  <!-- anchored severity scale: 5 blocks, no data bars — the census starts at n = 0 -->
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <rect x="60" y="150" width="208" height="210" fill="#5dca7a" opacity="0.08"/>
+    <rect x="60" y="150" width="208" height="6" fill="#5dca7a"/>
+    <text x="84" y="232" fill="#5dca7a" font-size="64" font-weight="700">0</text>
+    <text x="84" y="276" fill="#e8e8f0" font-size="17">inaudible in</text>
+    <text x="84" y="302" fill="#e8e8f0" font-size="17">a quiet room</text>
+
+    <rect x="278" y="150" width="208" height="210" fill="#9ad84a" opacity="0.08"/>
+    <rect x="278" y="150" width="208" height="6" fill="#9ad84a"/>
+    <text x="302" y="232" fill="#9ad84a" font-size="64" font-weight="700">1</text>
+    <text x="302" y="276" fill="#e8e8f0" font-size="17">audible with an ear</text>
+    <text x="302" y="302" fill="#e8e8f0" font-size="17">at the case</text>
+
+    <rect x="496" y="150" width="208" height="210" fill="#e8b04a" opacity="0.08"/>
+    <rect x="496" y="150" width="208" height="6" fill="#e8b04a"/>
+    <text x="520" y="232" fill="#e8b04a" font-size="64" font-weight="700">2</text>
+    <text x="520" y="276" fill="#e8e8f0" font-size="17">audible at the desk</text>
+    <text x="520" y="302" fill="#e8e8f0" font-size="17">under load</text>
+
+    <rect x="714" y="150" width="208" height="210" fill="#e0653a" opacity="0.08"/>
+    <rect x="714" y="150" width="208" height="6" fill="#e0653a"/>
+    <text x="738" y="232" fill="#e0653a" font-size="64" font-weight="700">3</text>
+    <text x="738" y="276" fill="#e8e8f0" font-size="17">audible across the</text>
+    <text x="738" y="302" fill="#e8e8f0" font-size="17">room under load</text>
+
+    <rect x="932" y="150" width="208" height="210" fill="#e05050" opacity="0.08"/>
+    <rect x="932" y="150" width="208" height="6" fill="#e05050"/>
+    <text x="956" y="232" fill="#e05050" font-size="64" font-weight="700">4</text>
+    <text x="956" y="276" fill="#e8e8f0" font-size="17">audible even</text>
+    <text x="956" y="302" fill="#e8e8f0" font-size="17">at idle</text>
+  </g>
+
+  <rect x="60" y="440" width="14" height="14" fill="#c8ff00"/>
+  <text x="86" y="453" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="2">COMMUNITY CENSUS &#8212; ACCEPTING SUBMISSIONS</text>
+  <text x="60" y="494" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="18">n = 0 today &#8212; the census opens empty by design: no seeded rows, and a silent unit counts as much as a screamer.</text>
+
+  <g fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="16">
+    <text x="60" y="546">&#8220;coil whine&#8221; &#8776;2,900 searches/mo &#183; &#8220;gpu coil whine&#8221; &#8776;1,000/mo (Google Ads exact match, checked 2026-08-12).</text>
+    <text x="60" y="576">No public per-model coil-whine database existed as of August 2026 &#8212; only scattered threads and one 30-card lab analysis.</text>
+    <text x="60" y="606">Per-model severity distributions publish once a model reaches 5 reports; below that, a model is listed as collecting.</text>
+  </g>
+
+  <text x="60" y="668" fill="#5a5a72" font-family="Segoe UI, Arial, sans-serif" font-size="16">techfuelhq.com/data/coil-whine-database/ &#8212; schema, severity anchors, and the raw CSV at github.com/iBlessi/coil-whine-db</text>
+</svg>

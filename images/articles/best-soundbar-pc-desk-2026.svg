@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Best Soundbar for a PC Desk Setup in 2026 — top picks</title>
+  <desc>TechFuelHQ buying guide hero ranking four desk soundbars: Sonos Arc Ultra overall pick at about 999 dollars, Bose Smart Soundbar 300 compact pick at about 379 dollars, Yamaha SR-B30A budget pick at about 249 dollars, and Samsung HW-Q600C ecosystem pick at about 349 dollars.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">BUYING GUIDE · DESK AUDIO · 2026</text>
+  <text x="70" y="132" fill="#e8e8f0" font-size="50" font-weight="900">Best Soundbar for a PC Desk</text>
+  <text x="70" y="168" fill="#6b6b8a" font-size="20">Tuned for 2–3 ft near-field listening — not a 10-ft living-room TV stand</text>
+
+  <!-- Ranked picks panel -->
+  <g transform="translate(70,206)">
+    <rect width="1060" height="346" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="24" y="36" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">THE PICKS</text>
+    <text x="1036" y="36" text-anchor="end" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">PRICE (USD)</text>
+
+    <!-- Row 1: Overall -->
+    <g transform="translate(0,52)">
+      <rect x="16" y="0" width="1028" height="62" rx="8" fill="#13132e"/>
+      <rect x="16" y="0" width="5" height="62" rx="2.5" fill="#c8ff00"/>
+      <text x="40" y="27" fill="#c8ff00" font-size="12" letter-spacing="2" font-weight="700">BEST OVERALL</text>
+      <text x="40" y="50" fill="#e8e8f0" font-size="22" font-weight="800">Sonos Arc Ultra</text>
+      <text x="470" y="48" fill="#c0c0d8" font-size="15">Dolby Atmos · Trueplay room calibration · HDMI eARC</text>
+      <text x="1028" y="40" text-anchor="end" fill="#c8ff00" font-size="24" font-weight="900">~$999</text>
+    </g>
+
+    <!-- Row 2: Compact -->
+    <g transform="translate(0,122)">
+      <rect x="16" y="0" width="1028" height="62" rx="8" fill="#0d0d28"/>
+      <rect x="16" y="0" width="5" height="62" rx="2.5" fill="#5dca7a"/>
+      <text x="40" y="27" fill="#5dca7a" font-size="12" letter-spacing="2" font-weight="700">BEST COMPACT</text>
+      <text x="40" y="50" fill="#e8e8f0" font-size="22" font-weight="800">Bose Smart Soundbar 300</text>
+      <text x="470" y="48" fill="#c0c0d8" font-size="15">26&quot; wide · fits 27–48&quot; monitors · clean near-field voicing</text>
+      <text x="1028" y="40" text-anchor="end" fill="#e8e8f0" font-size="24" font-weight="900">~$379</text>
+    </g>
+
+    <!-- Row 3: Budget -->
+    <g transform="translate(0,192)">
+      <rect x="16" y="0" width="1028" height="62" rx="8" fill="#13132e"/>
+      <rect x="16" y="0" width="5" height="62" rx="2.5" fill="#5090e0"/>
+      <text x="40" y="27" fill="#5090e0" font-size="12" letter-spacing="2" font-weight="700">BEST BUDGET</text>
+      <text x="40" y="50" fill="#e8e8f0" font-size="22" font-weight="800">Yamaha SR-B30A</text>
+      <text x="470" y="48" fill="#c0c0d8" font-size="15">2.0.2 Atmos · 2.4&quot; slim · no sub needed at a desk</text>
+      <text x="1028" y="40" text-anchor="end" fill="#e8e8f0" font-size="24" font-weight="900">~$249</text>
+    </g>
+
+    <!-- Row 4: Ecosystem -->
+    <g transform="translate(0,262)">
+      <rect x="16" y="0" width="1028" height="62" rx="8" fill="#0d0d28"/>
+      <rect x="16" y="0" width="5" height="62" rx="2.5" fill="#e08828"/>
+      <text x="40" y="27" fill="#e08828" font-size="12" letter-spacing="2" font-weight="700">SAMSUNG ECOSYSTEM</text>
+      <text x="40" y="50" fill="#e8e8f0" font-size="22" font-weight="800">Samsung HW-Q600C</text>
+      <text x="470" y="48" fill="#c0c0d8" font-size="15">3.1.2 · Atmos + DTS:X · wired sub included · Q-Symphony</text>
+      <text x="1028" y="40" text-anchor="end" fill="#e8e8f0" font-size="24" font-weight="900">~$349</text>
+    </g>
+  </g>
+
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · Buying Guide · Pricing per manufacturer pages &amp; mid-June 2026 retailer survey</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

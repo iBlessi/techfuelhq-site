@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Minisforum MS-01 (2025) vs MS-A2 (2026) homelab mini PC spec comparison</title>
+  <desc>Side-by-side specification table comparing the 2025 homelab pick, the Minisforum MS-01 with Intel Core i5-12600H, against the 2026 pick, the Minisforum MS-A2 with AMD Ryzen 9 7945HX. Rows cover cores and threads, TDP, max RAM, NICs, NVMe slots, expansion, and barebone MSRP.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="760" fill="#0a0a23"/>
+  <rect width="1200" height="760" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">HOMELAB COMPARISON · MINI PC · 2025 vs 2026</text>
+  <text x="70" y="132" fill="#e8e8f0" font-size="48" font-weight="900">Minisforum MS-01 vs MS-A2</text>
+  <text x="70" y="170" fill="#6b6b8a" font-size="20">Same chassis, same networking — AMD's 16 real cores at a $136 premium</text>
+
+  <!-- Column headers -->
+  <g transform="translate(70,210)">
+    <!-- spec label column header -->
+    <text x="0" y="34" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">SPECIFICATION</text>
+
+    <!-- 2025 column (left product) -->
+    <rect x="420" y="0" width="320" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="420" y="0" width="6" height="64" rx="3" fill="#c8ff00"/>
+    <text x="444" y="26" fill="#c8ff00" font-size="12" letter-spacing="2" font-weight="700">2025 PICK</text>
+    <text x="444" y="50" fill="#e8e8f0" font-size="19" font-weight="700">MS-01 · i5-12600H</text>
+
+    <!-- 2026 column (right product) -->
+    <rect x="760" y="0" width="320" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="760" y="0" width="6" height="64" rx="3" fill="#e63946"/>
+    <text x="784" y="26" fill="#e63946" font-size="12" letter-spacing="2" font-weight="700">2026 PICK</text>
+    <text x="784" y="50" fill="#e8e8f0" font-size="19" font-weight="700">MS-A2 · Ryzen 9 7945HX</text>
+  </g>
+
+  <!-- Spec rows -->
+  <g transform="translate(70,294)">
+    <!-- Row 1 -->
+    <rect x="0" y="0" width="1080" height="52" fill="#13132e"/>
+    <text x="12" y="33" fill="#c0c0d8" font-size="16">Cores / threads</text>
+    <text x="730" y="33" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">12C / 16T (6P+6E)</text>
+    <text x="1070" y="33" text-anchor="end" fill="#c8ff00" font-size="16" font-weight="700">16C / 32T</text>
+
+    <!-- Row 2 -->
+    <rect x="0" y="52" width="1080" height="52" fill="#0d0d28"/>
+    <text x="12" y="85" fill="#c0c0d8" font-size="16">TDP class</text>
+    <text x="730" y="85" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">45W (cTDP up)</text>
+    <text x="1070" y="85" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">55W base / 75W boost</text>
+
+    <!-- Row 3 -->
+    <rect x="0" y="104" width="1080" height="52" fill="#13132e"/>
+    <text x="12" y="137" fill="#c0c0d8" font-size="16">Max RAM</text>
+    <text x="730" y="137" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">64GB DDR5-5200</text>
+    <text x="1070" y="137" text-anchor="end" fill="#c8ff00" font-size="16" font-weight="700">96GB DDR5-5600</text>
+
+    <!-- Row 4 -->
+    <rect x="0" y="156" width="1080" height="52" fill="#0d0d28"/>
+    <text x="12" y="189" fill="#c0c0d8" font-size="16">NICs</text>
+    <text x="730" y="189" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">2x SFP+ 10G, 2x 2.5GbE</text>
+    <text x="1070" y="189" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">2x SFP+ 10G, 2x 2.5GbE</text>
+
+    <!-- Row 5 -->
+    <rect x="0" y="208" width="1080" height="52" fill="#13132e"/>
+    <text x="12" y="241" fill="#c0c0d8" font-size="16">NVMe slots</text>
+    <text x="730" y="241" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">3x M.2 (PCIe 4.0/3.0)</text>
+    <text x="1070" y="241" text-anchor="end" fill="#c8ff00" font-size="16" font-weight="700">3x M.2 4.0 + U.2</text>
+
+    <!-- Row 6 -->
+    <rect x="0" y="260" width="1080" height="52" fill="#0d0d28"/>
+    <text x="12" y="293" fill="#c0c0d8" font-size="16">Expansion</text>
+    <text x="730" y="293" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">PCIe 4.0 x8 (mech. x16)</text>
+    <text x="1070" y="293" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">PCIe 4.0 x8 (splittable)</text>
+
+    <!-- Row 7 -->
+    <rect x="0" y="312" width="1080" height="52" fill="#13132e"/>
+    <text x="12" y="345" fill="#c0c0d8" font-size="16">Barebone MSRP</text>
+    <text x="730" y="345" text-anchor="end" fill="#c8ff00" font-size="16" font-weight="700">$423</text>
+    <text x="1070" y="345" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">$559 (9955HX: $799)</text>
+
+    <!-- Row 8 -->
+    <rect x="0" y="364" width="1080" height="52" fill="#0d0d28"/>
+    <text x="12" y="397" fill="#c0c0d8" font-size="16">Idle (third-party)</text>
+    <text x="730" y="397" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">~25-29W</text>
+    <text x="1070" y="397" text-anchor="end" fill="#6b6b8a" font-size="16">No published figure yet</text>
+  </g>
+
+  <!-- Verdict strip -->
+  <g transform="translate(70,722)">
+    <rect x="0" y="-30" width="1080" height="42" rx="8" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="-3" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">VERDICT</text>
+    <text x="110" y="-3" fill="#c0c0d8" font-size="15">Buying new? MS-A2 is the pick. Already own an MS-01? Keep it — same networking, same form factor.</text>
+  </g>
+
+  <text x="70" y="755" fill="#4a4a6a" font-size="13">TechFuel HQ · Hardware Comparison · Specs per Minisforum product pages &amp; VirtualizationHowto</text>
+  <text x="1130" y="755" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Local LLM by GPU VRAM tier ladder for 2026 at Q4_K_M</title>
+  <desc>A six-tier VRAM ladder for running local LLMs in 2026, all at Q4_K_M: 8 GB runs 7-8B models (Qwen3-8B is a 5.03 GB file), 12 GB runs 8B plus 14B (~9 GB), 16 GB runs 14B plus GPT-OSS-20B (~14.9 GB at 8k), 24 GB is the sweet spot running up to ~32B (Qwen3-32B is a 19.76 GB file), 32 GB runs 32B at higher quants, and 48 GB+ joins the 70B club needing ~45-50 GB. The 24 GB tier is highlighted as the best single-card pick.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="800" fill="#0a0a23"/>
+  <rect width="1200" height="800" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">LOCAL LLM BY GPU VRAM &#183; 2026 TIER LADDER</text>
+  <text x="70" y="128" fill="#e8e8f0" font-size="44" font-weight="900">Which Model Fits Your Card?</text>
+  <text x="70" y="162" fill="#6b6b8a" font-size="19">All sizes at Q4_K_M, the everyday sweet spot &#183; ~0.5&#160;GB per billion params, +15&#8211;20% overhead</text>
+
+  <!-- Column header band -->
+  <g transform="translate(70,198)">
+    <rect x="0" y="0" width="180" height="48" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="22" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">VRAM TIER</text>
+    <text x="20" y="39" fill="#6b6b8a" font-size="12" letter-spacing="1">example cards</text>
+
+    <rect x="194" y="0" width="320" height="48" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="214" y="22" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">MODEL CLASS</text>
+    <text x="214" y="39" fill="#6b6b8a" font-size="12" letter-spacing="1">what runs comfortably</text>
+
+    <rect x="528" y="0" width="312" height="48" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="548" y="22" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">REAL FILE SIZE / NOTE</text>
+    <text x="548" y="39" fill="#6b6b8a" font-size="12" letter-spacing="1">from the article math</text>
+
+    <rect x="854" y="0" width="154" height="48" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="874" y="22" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">VERDICT</text>
+    <text x="874" y="39" fill="#6b6b8a" font-size="12" letter-spacing="1">tier role</text>
+  </g>
+
+  <!-- Tier rows -->
+  <g transform="translate(70,260)">
+
+    <!-- 8 GB -->
+    <rect x="0" y="0" width="1008" height="76" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="76" rx="3" fill="#5090e0"/>
+    <text x="24" y="34" fill="#5090e0" font-size="24" font-weight="900">8 GB</text>
+    <text x="24" y="58" fill="#6b6b8a" font-size="13">RTX 3060 8GB, 4060</text>
+    <text x="214" y="38" fill="#e8e8f0" font-size="19" font-weight="700">7&#8211;8B models</text>
+    <text x="214" y="60" fill="#6b6b8a" font-size="13">fast 8B chat &amp; coding helpers</text>
+    <text x="548" y="38" fill="#c0c0d8" font-size="16" font-weight="600">Qwen3-8B = 5.03 GB</text>
+    <text x="548" y="60" fill="#6b6b8a" font-size="13">lands ~6&#8211;7 GB with overhead</text>
+    <text x="931" y="44" text-anchor="middle" fill="#c0c0d8" font-size="16" font-weight="700">Entry</text>
+
+    <!-- 12 GB -->
+    <rect x="0" y="84" width="1008" height="76" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="84" width="6" height="76" rx="3" fill="#5090e0"/>
+    <text x="24" y="118" fill="#5090e0" font-size="24" font-weight="900">12 GB</text>
+    <text x="24" y="142" fill="#6b6b8a" font-size="13">RTX 3060 12GB, 5070</text>
+    <text x="214" y="122" fill="#e8e8f0" font-size="19" font-weight="700">8B + 14B at Q4</text>
+    <text x="214" y="144" fill="#6b6b8a" font-size="13">longer context or better reasoning</text>
+    <text x="548" y="122" fill="#c0c0d8" font-size="16" font-weight="600">14B &#8776; ~9 GB</text>
+    <text x="548" y="144" fill="#6b6b8a" font-size="13">still below the 20B class</text>
+    <text x="931" y="128" text-anchor="middle" fill="#c0c0d8" font-size="16" font-weight="700">Comfortable</text>
+
+    <!-- 16 GB -->
+    <rect x="0" y="168" width="1008" height="76" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="168" width="6" height="76" rx="3" fill="#e08828"/>
+    <text x="24" y="202" fill="#e08828" font-size="24" font-weight="900">16 GB</text>
+    <text x="24" y="226" fill="#6b6b8a" font-size="13">RTX 4060 Ti 16GB, 4080, 5080</text>
+    <text x="214" y="206" fill="#e8e8f0" font-size="19" font-weight="700">14B + GPT-OSS-20B</text>
+    <text x="214" y="228" fill="#6b6b8a" font-size="13">MoE, ~3.6B active; cap context ~32k</text>
+    <text x="548" y="206" fill="#c0c0d8" font-size="16" font-weight="600">GPT-OSS-20B &#8776; ~14.9 GB</text>
+    <text x="548" y="228" fill="#6b6b8a" font-size="13">total at 8k &#183; a 32B won't fit</text>
+    <text x="931" y="212" text-anchor="middle" fill="#c0c0d8" font-size="16" font-weight="700">Mid tier</text>
+
+    <!-- 24 GB (winner) -->
+    <rect x="0" y="252" width="1008" height="76" rx="10" fill="#13160a" stroke="#c8ff00" stroke-width="2"/>
+    <rect x="0" y="252" width="6" height="76" rx="3" fill="#c8ff00"/>
+    <text x="24" y="286" fill="#c8ff00" font-size="24" font-weight="900">24 GB</text>
+    <text x="24" y="310" fill="#6b6b8a" font-size="13">RTX 3090, 4090</text>
+    <text x="214" y="290" fill="#e8e8f0" font-size="19" font-weight="800">Up to ~32B</text>
+    <text x="214" y="312" fill="#6b6b8a" font-size="13">14&#8211;20B easily at higher quants</text>
+    <text x="548" y="290" fill="#c8ff00" font-size="16" font-weight="700">Qwen3-32B = 19.76 GB</text>
+    <text x="548" y="312" fill="#6b6b8a" font-size="13">headroom for context</text>
+    <text x="931" y="288" text-anchor="middle" fill="#c8ff00" font-size="15" font-weight="800">SWEET</text>
+    <text x="931" y="307" text-anchor="middle" fill="#c8ff00" font-size="15" font-weight="800">SPOT</text>
+
+    <!-- 32 GB -->
+    <rect x="0" y="336" width="1008" height="76" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="336" width="6" height="76" rx="3" fill="#b06bff"/>
+    <text x="24" y="370" fill="#b06bff" font-size="24" font-weight="900">32 GB</text>
+    <text x="24" y="394" fill="#6b6b8a" font-size="13">RTX 5090</text>
+    <text x="214" y="374" fill="#e8e8f0" font-size="19" font-weight="700">32B at Q5/Q6</text>
+    <text x="214" y="396" fill="#6b6b8a" font-size="13">long context, or several small models</text>
+    <text x="548" y="374" fill="#c0c0d8" font-size="16" font-weight="600">70B still doesn't fit</text>
+    <text x="548" y="396" fill="#6b6b8a" font-size="13">a 70B needs ~45&#8211;50 GB</text>
+    <text x="931" y="382" text-anchor="middle" fill="#c0c0d8" font-size="16" font-weight="700">Headroom</text>
+
+    <!-- 48 GB+ -->
+    <rect x="0" y="420" width="1008" height="76" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="420" width="6" height="76" rx="3" fill="#b06bff"/>
+    <text x="24" y="454" fill="#b06bff" font-size="24" font-weight="900">48 GB+</text>
+    <text x="24" y="478" fill="#6b6b8a" font-size="13">2&#215;24GB or workstation card</text>
+    <text x="214" y="458" fill="#e8e8f0" font-size="19" font-weight="700">70B at Q4_K_M</text>
+    <text x="214" y="480" fill="#6b6b8a" font-size="13">2&#215; 3090/4090, or 64&#8211;128 GB unified</text>
+    <text x="548" y="458" fill="#c0c0d8" font-size="16" font-weight="600">70B needs ~45&#8211;50 GB</text>
+    <text x="548" y="480" fill="#6b6b8a" font-size="13">on 80 GB, GPT-OSS-120B fits</text>
+    <text x="931" y="464" text-anchor="middle" fill="#c0c0d8" font-size="16" font-weight="700">70B club</text>
+  </g>
+
+  <!-- Verdict strip -->
+  <g transform="translate(70,772)">
+    <rect x="0" y="-2" width="1008" height="0.5" fill="#1e1e3a"/>
+  </g>
+  <text x="70" y="784" fill="#4a4a6a" font-size="13">TechFuel HQ &#183; Local LLM VRAM Tiers &#183; real GGUF file sizes at Q4_K_M, default to Q4_K_M</text>
+  <text x="1130" y="784" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

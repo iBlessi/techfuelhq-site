@@ -1,0 +1,72 @@
+<svg viewBox="0 0 1200 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vaultwarden vs Bitwarden in 2026: it is one client, two servers. The same official Bitwarden browser extension, desktop app and mobile app sit at the top and connect down to either of two backends. On the left, the official Bitwarden standard self-hosted deployment is eleven Docker containers - mssql, web, attachments, api, identity, sso, admin, icons, notifications, events and nginx, plus two conditional containers key-connector and scim - with a documented minimum of 2GB RAM, 4GB recommended, 12GB storage, and MSSQL mandatory. On the right, Vaultwarden is a single Rust container that can use SQLite, MySQL or PostgreSQL, is multi-architecture down to a Raspberry Pi, and publishes no minimum hardware table at all. With Vaultwarden you give up SAML SSO, SCIM, custom roles, passkey login and vendor support, and you gain Emergency Access and Directory Connector for free. Bitwarden lite is a third option: one container, 200MB of RAM, but the vendor scopes it out of business use.">
+  <rect width="1200" height="760" fill="#0e0e1a"/>
+
+  <text x="60" y="62" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="33" font-weight="700">Vaultwarden vs Bitwarden 2026</text>
+  <text x="60" y="94" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="18">Not two password managers. One client, two servers &#8212; you are only choosing the backend.</text>
+
+  <!-- Shared clients bar -->
+  <rect x="60" y="116" width="1080" height="76" rx="10" fill="#16162a" stroke="#3a4a2a" stroke-width="1.5"/>
+  <text x="82" y="144" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700">IDENTICAL EITHER WAY &#8212; official Bitwarden clients</text>
+  <rect x="82" y="154" width="196" height="28" rx="6" fill="#26301c"/>
+  <text x="180" y="173" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="14.5" text-anchor="middle">Browser extension</text>
+  <rect x="290" y="154" width="196" height="28" rx="6" fill="#26301c"/>
+  <text x="388" y="173" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="14.5" text-anchor="middle">Desktop app</text>
+  <rect x="498" y="154" width="196" height="28" rx="6" fill="#26301c"/>
+  <text x="596" y="173" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="14.5" text-anchor="middle">iOS / Android</text>
+  <text x="718" y="173" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">&#8592; same apps, pointed at a custom server URL</text>
+
+  <!-- split arrows -->
+  <path d="M320 192 L320 214 L320 232" stroke="#c8ff00" stroke-width="2" fill="none"/>
+  <path d="M314 226 L320 234 L326 226" stroke="#c8ff00" stroke-width="2" fill="none"/>
+  <path d="M880 192 L880 214 L880 232" stroke="#c8ff00" stroke-width="2" fill="none"/>
+  <path d="M874 226 L880 234 L886 226" stroke="#c8ff00" stroke-width="2" fill="none"/>
+
+  <!-- LEFT: official Bitwarden standard -->
+  <rect x="60" y="240" width="520" height="304" rx="10" fill="#16162a" stroke="#2a2a4a" stroke-width="1.5"/>
+  <rect x="60" y="240" width="520" height="50" rx="10" fill="#1c2630"/>
+  <text x="82" y="272" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700">Bitwarden self-hosted (standard)</text>
+  <text x="82" y="314" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700">11 Docker containers</text>
+
+  <rect x="82" y="328" width="110" height="30" rx="5" fill="#22223c"/><text x="137" y="348" fill="#a0a0b8" font-family="Consolas, monospace" font-size="13.5" text-anchor="middle">mssql</text>
+  <rect x="202" y="328" width="110" height="30" rx="5" fill="#22223c"/><text x="257" y="348" fill="#a0a0b8" font-family="Consolas, monospace" font-size="13.5" text-anchor="middle">web</text>
+  <rect x="322" y="328" width="110" height="30" rx="5" fill="#22223c"/><text x="377" y="348" fill="#a0a0b8" font-family="Consolas, monospace" font-size="13.5" text-anchor="middle">attachments</text>
+  <rect x="442" y="328" width="110" height="30" rx="5" fill="#22223c"/><text x="497" y="348" fill="#a0a0b8" font-family="Consolas, monospace" font-size="13.5" text-anchor="middle">api</text>
+
+  <rect x="82" y="366" width="110" height="30" rx="5" fill="#22223c"/><text x="137" y="386" fill="#a0a0b8" font-family="Consolas, monospace" font-size="13.5" text-anchor="middle">identity</text>
+  <rect x="202" y="366" width="110" height="30" rx="5" fill="#22223c"/><text x="257" y="386" fill="#a0a0b8" font-family="Consolas, monospace" font-size="13.5" text-anchor="middle">sso</text>
+  <rect x="322" y="366" width="110" height="30" rx="5" fill="#22223c"/><text x="377" y="386" fill="#a0a0b8" font-family="Consolas, monospace" font-size="13.5" text-anchor="middle">admin</text>
+  <rect x="442" y="366" width="110" height="30" rx="5" fill="#22223c"/><text x="497" y="386" fill="#a0a0b8" font-family="Consolas, monospace" font-size="13.5" text-anchor="middle">icons</text>
+
+  <rect x="82" y="404" width="110" height="30" rx="5" fill="#22223c"/><text x="137" y="424" fill="#a0a0b8" font-family="Consolas, monospace" font-size="13" text-anchor="middle">notifications</text>
+  <rect x="202" y="404" width="110" height="30" rx="5" fill="#22223c"/><text x="257" y="424" fill="#a0a0b8" font-family="Consolas, monospace" font-size="13.5" text-anchor="middle">events</text>
+  <rect x="322" y="404" width="110" height="30" rx="5" fill="#22223c"/><text x="377" y="424" fill="#a0a0b8" font-family="Consolas, monospace" font-size="13.5" text-anchor="middle">nginx</text>
+  <rect x="442" y="404" width="110" height="30" rx="5" fill="#191930" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="3,3"/><text x="497" y="424" fill="#5a5a72" font-family="Consolas, monospace" font-size="12.5" text-anchor="middle">+2 optional</text>
+
+  <text x="82" y="466" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">Min 2GB RAM (rec. 4GB) &#183; 12GB storage (rec. 25GB)</text>
+  <text x="82" y="492" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">MSSQL is mandatory &#8212; no other database</text>
+  <text x="82" y="518" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">SOC 2 / SOC 3 / ISO 27001 &#183; vendor support</text>
+
+  <!-- RIGHT: Vaultwarden -->
+  <rect x="620" y="240" width="520" height="304" rx="10" fill="#16162a" stroke="#3a4a2a" stroke-width="1.5"/>
+  <rect x="620" y="240" width="520" height="50" rx="10" fill="#26301c"/>
+  <text x="642" y="272" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700">Vaultwarden</text>
+  <text x="642" y="314" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700">1 Rust container</text>
+
+  <rect x="642" y="328" width="476" height="106" rx="6" fill="#22301c" stroke="#3a4a2a" stroke-width="1.5"/>
+  <text x="880" y="362" fill="#e8e8f0" font-family="Consolas, monospace" font-size="19" font-weight="700" text-anchor="middle">vaultwarden</text>
+  <text x="880" y="390" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14.5" text-anchor="middle">unified image since 1.17.0</text>
+  <text x="880" y="414" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14.5" text-anchor="middle">SQLite / MySQL / PostgreSQL &#183; x86_64 + ARM</text>
+
+  <text x="642" y="466" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">Publishes no minimum hardware table at all</text>
+  <text x="642" y="492" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">Runs on a Pi &#183; you own TLS, hardening, backups</text>
+  <text x="642" y="518" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">BSI CAOS + ERNW audits, Oct 2024 &#183; no attestation</text>
+
+  <!-- Footer strip -->
+  <rect x="60" y="572" width="1080" height="112" rx="10" fill="#14140f" stroke="#3a4a2a" stroke-width="1.5"/>
+  <text x="84" y="602" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">The trade, stated plainly</text>
+  <text x="84" y="630" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">You give up: SAML SSO &#183; SCIM &#183; custom roles &#183; passkey login &#183; several enterprise policies &#183; vendor support.</text>
+  <text x="84" y="652" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">You gain for free: Emergency Access &#183; Directory Connector &#8212; both paid-tier features upstream.</text>
+  <text x="84" y="674" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15">Third option: Bitwarden lite &#8212; 1 container, 200MB RAM, official code, but "not for use in business contexts".</text>
+
+  <text x="60" y="722" fill="#5a5a72" font-family="Segoe UI, Arial, sans-serif" font-size="13">Container list counted from bitwarden/server DockerCompose.hbs; requirements from vendor docs and project wikis read 2026-07-20. TechFuelHQ.</text>
+</svg>

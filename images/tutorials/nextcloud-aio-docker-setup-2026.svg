@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Nextcloud All-in-One Docker architecture</title>
+  <desc>Topology diagram of a Nextcloud All-in-One Docker deployment: desktop, mobile, and CalDAV/CardDAV clients reach Nginx Proxy Manager which terminates TLS and forwards to the AIO Apache instance on port 11000. The AIO master container on admin port 8080 manages child containers over the Docker socket — Nextcloud Hub, PostgreSQL, Redis, Collabora Office, Talk, and Imaginary — backed by the data volume and a Borg backup repository.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#5090e0"/>
+    </marker>
+    <marker id="arrowlime" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#c8ff00"/>
+    </marker>
+    <marker id="arrowgreen" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#5dca7a"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="62" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">SETUP TUTORIAL · DOCKER ARCHITECTURE</text>
+  <text x="70" y="104" fill="#e8e8f0" font-size="44" font-weight="900">Nextcloud All-in-One · Self-Hosted Cloud</text>
+  <text x="70" y="134" fill="#6b6b8a" font-size="18">One master container manages the whole stack — your Dropbox, Google Drive &amp; Docs replacement</text>
+
+  <!-- ===== CLIENTS column (left) ===== -->
+  <text x="70" y="186" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">CLIENTS</text>
+
+  <g transform="translate(70,200)">
+    <rect width="222" height="56" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="18" y="26" fill="#e8e8f0" font-size="16" font-weight="700">Desktop sync client</text>
+    <text x="18" y="46" fill="#6b6b8a" font-size="12">Windows · macOS · Linux</text>
+  </g>
+  <g transform="translate(70,268)">
+    <rect width="222" height="56" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="18" y="26" fill="#e8e8f0" font-size="16" font-weight="700">Mobile app</text>
+    <text x="18" y="46" fill="#6b6b8a" font-size="12">iOS / Android · auto photo upload</text>
+  </g>
+  <g transform="translate(70,336)">
+    <rect width="222" height="56" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="18" y="26" fill="#e8e8f0" font-size="16" font-weight="700">CalDAV / CardDAV</text>
+    <text x="18" y="46" fill="#6b6b8a" font-size="12">Calendar &amp; contacts · DAVx5</text>
+  </g>
+
+  <!-- Remote access node -->
+  <g transform="translate(70,404)">
+    <rect width="222" height="84" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="18" y="26" fill="#5090e0" font-size="13" letter-spacing="2" font-weight="700">REMOTE ACCESS</text>
+    <text x="18" y="50" fill="#c0c0d8" font-size="13">Tailscale · 100.64.0.0/10</text>
+    <text x="18" y="70" fill="#c0c0d8" font-size="13">LAN 192.168.1.0/24 · NPM allow-list</text>
+  </g>
+
+  <!-- ===== REVERSE PROXY (mid-left) ===== -->
+  <text x="324" y="186" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">REVERSE PROXY</text>
+  <g transform="translate(324,200)">
+    <rect width="150" height="288" rx="12" fill="#0d0d28" stroke="#5090e0" stroke-width="2"/>
+    <text x="18" y="30" fill="#5090e0" font-size="15" font-weight="700">Nginx Proxy</text>
+    <text x="18" y="50" fill="#5090e0" font-size="15" font-weight="700">Manager</text>
+    <text x="18" y="86" fill="#c0c0d8" font-size="13">TLS termination</text>
+    <text x="18" y="108" fill="#c0c0d8" font-size="13">wildcard cert</text>
+    <text x="18" y="130" fill="#c0c0d8" font-size="13">Force SSL · HTTP/2</text>
+    <text x="18" y="160" fill="#c0c0d8" font-size="13">Websockets ON</text>
+    <text x="18" y="182" fill="#6b6b8a" font-size="12">(Talk &amp; Office)</text>
+    <text x="18" y="214" fill="#c0c0d8" font-size="13">body size 10G</text>
+    <text x="18" y="236" fill="#c0c0d8" font-size="13">timeout 86400s</text>
+    <text x="18" y="268" fill="#c8ff00" font-size="13" font-weight="700">→ host :11000</text>
+  </g>
+
+  <!-- Arrows clients -> NPM -->
+  <line x1="292" y1="228" x2="316" y2="280" stroke="#5dca7a" stroke-width="2" marker-end="url(#arrowgreen)"/>
+  <line x1="292" y1="296" x2="316" y2="316" stroke="#5dca7a" stroke-width="2" marker-end="url(#arrowgreen)"/>
+  <line x1="292" y1="364" x2="316" y2="350" stroke="#5dca7a" stroke-width="2" marker-end="url(#arrowgreen)"/>
+  <line x1="292" y1="440" x2="316" y2="392" stroke="#5090e0" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+
+  <!-- ===== AIO MASTER + CHILD CONTAINERS (center) ===== -->
+  <text x="506" y="186" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">DOCKER HOST</text>
+  <g transform="translate(506,200)">
+    <rect width="380" height="288" rx="14" fill="#0d0d28" stroke="#c8ff00" stroke-width="2"/>
+    <text x="22" y="32" fill="#c8ff00" font-size="15" letter-spacing="1" font-weight="700">nextcloud-aio-mastercontainer</text>
+    <text x="22" y="52" fill="#6b6b8a" font-size="12">nextcloud/all-in-one:latest · admin :8080</text>
+
+    <!-- master manages via docker socket -->
+    <g transform="translate(22,66)">
+      <rect width="336" height="42" rx="8" fill="#101028" stroke="#1e1e3a"/>
+      <text x="14" y="19" fill="#c0c0d8" font-size="13">Manages child containers</text>
+      <text x="322" y="19" text-anchor="end" fill="#c8ff00" font-size="13" font-weight="700">docker.sock :ro</text>
+      <text x="14" y="35" fill="#6b6b8a" font-size="11">Apache (Nextcloud) listens on :11000</text>
+    </g>
+
+    <!-- child containers grid -->
+    <g transform="translate(22,118)">
+      <rect width="164" height="44" rx="8" fill="#101028" stroke="#1e1e3a"/>
+      <text x="13" y="20" fill="#e8e8f0" font-size="14" font-weight="600">Nextcloud Hub</text>
+      <text x="13" y="36" fill="#6b6b8a" font-size="11">Apache · PHP-FPM</text>
+    </g>
+    <g transform="translate(194,118)">
+      <rect width="164" height="44" rx="8" fill="#101028" stroke="#1e1e3a"/>
+      <text x="13" y="20" fill="#e8e8f0" font-size="14" font-weight="600">PostgreSQL</text>
+      <text x="13" y="36" fill="#6b6b8a" font-size="11">database · ~120 MB</text>
+    </g>
+    <g transform="translate(22,170)">
+      <rect width="164" height="44" rx="8" fill="#101028" stroke="#1e1e3a"/>
+      <text x="13" y="20" fill="#e8e8f0" font-size="14" font-weight="600">Redis</text>
+      <text x="13" y="36" fill="#6b6b8a" font-size="11">cache · ~25 MB</text>
+    </g>
+    <g transform="translate(194,170)">
+      <rect width="164" height="44" rx="8" fill="#101028" stroke="#1e1e3a"/>
+      <text x="13" y="20" fill="#c8ff00" font-size="14" font-weight="600">Collabora Office</text>
+      <text x="13" y="36" fill="#6b6b8a" font-size="11">CODE · DOCX/XLSX/PPTX</text>
+    </g>
+    <g transform="translate(22,222)">
+      <rect width="164" height="44" rx="8" fill="#101028" stroke="#1e1e3a"/>
+      <text x="13" y="20" fill="#e8e8f0" font-size="14" font-weight="600">Talk</text>
+      <text x="13" y="36" fill="#6b6b8a" font-size="11">signaling · video calls</text>
+    </g>
+    <g transform="translate(194,222)">
+      <rect width="164" height="44" rx="8" fill="#101028" stroke="#1e1e3a"/>
+      <text x="13" y="20" fill="#e8e8f0" font-size="14" font-weight="600">Imaginary</text>
+      <text x="13" y="36" fill="#6b6b8a" font-size="11">image processing</text>
+    </g>
+  </g>
+
+  <!-- NPM -> AIO arrow (to :11000 Apache) -->
+  <line x1="474" y1="344" x2="500" y2="344" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrowlime)"/>
+
+  <!-- ===== STORAGE + BACKUP (right) ===== -->
+  <text x="928" y="186" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">STORAGE &amp; BACKUP</text>
+  <g transform="translate(928,200)">
+    <rect width="202" height="66" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="16" y="26" fill="#e8e8f0" font-size="15" font-weight="700">Data dir</text>
+    <text x="16" y="46" fill="#6b6b8a" font-size="12">/mnt/ncdata · UID 33:33</text>
+    <text x="16" y="60" fill="#6b6b8a" font-size="11">upload limit 10G</text>
+  </g>
+  <g transform="translate(928,278)">
+    <rect width="202" height="66" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="16" y="26" fill="#e8e8f0" font-size="15" font-weight="700">AIO config volume</text>
+    <text x="16" y="46" fill="#6b6b8a" font-size="12">mastercontainer state</text>
+    <text x="16" y="60" fill="#6b6b8a" font-size="11">/mnt/docker-aio-config</text>
+  </g>
+  <g transform="translate(928,356)">
+    <rect width="202" height="82" rx="10" fill="#0d0d28" stroke="#5dca7a" stroke-width="2"/>
+    <text x="16" y="26" fill="#5dca7a" font-size="13" letter-spacing="1" font-weight="700">BORG BACKUP</text>
+    <text x="16" y="48" fill="#c0c0d8" font-size="12">/mnt/backups/nextcloud</text>
+    <text x="16" y="68" fill="#6b6b8a" font-size="11">daily · DB + Redis + files</text>
+  </g>
+
+  <!-- AIO -> storage arrows -->
+  <line x1="886" y1="300" x2="922" y2="240" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrowlime)"/>
+  <line x1="886" y1="330" x2="922" y2="306" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrowlime)"/>
+  <line x1="886" y1="372" x2="922" y2="392" stroke="#5dca7a" stroke-width="2" marker-end="url(#arrowgreen)"/>
+
+  <!-- ===== Resource footprint strip (bottom) ===== -->
+  <text x="70" y="528" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">IDLE RAM · OFFICE ENABLED</text>
+  <g transform="translate(70,538)">
+    <rect width="180" height="40" rx="8" fill="#101028" stroke="#1e1e3a"/>
+    <text x="14" y="25" fill="#c0c0d8" font-size="14">Base stack</text>
+    <text x="166" y="25" text-anchor="end" fill="#e8e8f0" font-size="14" font-weight="700">~625 MB</text>
+  </g>
+  <g transform="translate(264,538)">
+    <rect width="210" height="40" rx="8" fill="#101028" stroke="#1e1e3a"/>
+    <text x="14" y="25" fill="#c0c0d8" font-size="14">+ Collabora Office</text>
+    <text x="196" y="25" text-anchor="end" fill="#e8e8f0" font-size="14" font-weight="700">~700 MB</text>
+  </g>
+  <g transform="translate(488,538)">
+    <rect width="190" height="40" rx="8" fill="#101028" stroke="#1e1e3a"/>
+    <text x="14" y="25" fill="#c0c0d8" font-size="14">Total idle</text>
+    <text x="176" y="25" text-anchor="end" fill="#c8ff00" font-size="14" font-weight="700">~1.4 GB</text>
+  </g>
+  <g transform="translate(692,538)">
+    <rect width="220" height="40" rx="8" fill="#101028" stroke="#1e1e3a"/>
+    <text x="14" y="25" fill="#c0c0d8" font-size="14">Recommended RAM</text>
+    <text x="206" y="25" text-anchor="end" fill="#c8ff00" font-size="14" font-weight="700">4 GB min</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="600" fill="#4a4a6a" font-size="13">TechFuel HQ · Setup Tutorial · Topology per Nextcloud All-in-One official Docker deployment</text>
+  <text x="1130" y="600" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

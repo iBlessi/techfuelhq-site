@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" font-family="Inter, system-ui, sans-serif" role="img">
+<title>Time Spy Graphics &#8211; Stock / Factory / Manual OC</title>
+<desc>Time Spy Graphics &#8211; Stock / Factory / Manual OC: Stock 32,350 score, Factory OC 33,200 score, Manual OC 34,500 score</desc>
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/></pattern></defs>
+<rect width="1200" height="500" fill="#0a0a23"/>
+<rect width="1200" height="500" fill="url(#grid)" opacity="0.4"/>
+<rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+<text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">RTX 5080 BENCHMARK &#183; 3DMARK SYNTHETIC</text>
+<text x="70" y="126" fill="#e8e8f0" font-size="40" font-weight="900">Time Spy Graphics &#8211; Stock / Factory / Manual OC</text>
+<text x="70" y="160" fill="#6b6b8a" font-size="18">DX12 raster &#183; higher is better &#183; TechFuelHQ first-party (2026-06-11)</text>
+<g transform="translate(70,205)">
+<text x="0" y="34" fill="#c0c0d8" font-size="17" font-weight="600">Stock</text>
+<rect x="290" y="12" width="619" height="40" rx="8" fill="#5090e0"/>
+<text x="923" y="39" fill="#e8e8f0" font-size="19" font-weight="800">32,350 score</text>
+<text x="923" y="56" fill="#6b6b8a" font-size="12.5">stock baseline</text>
+<text x="0" y="104" fill="#c0c0d8" font-size="17" font-weight="600">Factory OC</text>
+<rect x="290" y="82" width="635" height="40" rx="8" fill="#e08828"/>
+<text x="939" y="109" fill="#e8e8f0" font-size="19" font-weight="800">33,200 score</text>
+<text x="939" y="126" fill="#6b6b8a" font-size="12.5">+2.6% vs stock</text>
+<text x="0" y="174" fill="#c8ff00" font-size="17" font-weight="800">Manual OC</text>
+<rect x="290" y="152" width="660" height="40" rx="8" fill="#c8ff00"/>
+<text x="964" y="179" fill="#e8e8f0" font-size="19" font-weight="800">34,500 score</text>
+<text x="964" y="196" fill="#6b6b8a" font-size="12.5">+6.6% vs stock</text>
+</g>
+<text x="70" y="470" fill="#4a4a6a" font-size="13">TechFuelHQ first-party &#183; bars proportional to score &#183; Manual OC = GPU Tweak III +328 MHz core, +2996 MHz memory, +12% power target</text>
+<text x="1130" y="470" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

@@ -1,0 +1,60 @@
+chart_id,chart_title,label,scenario,metric,value,unit,delta_pct_vs_stock,source
+01-generational-positioning,Generational Positioning — 4K Raster,RTX 4080,,index,96,index,,TechFuelHQ first-party (prior test-bench run)
+01-generational-positioning,Generational Positioning — 4K Raster,RTX 4080 Super,,index,100,index (baseline),,TechFuelHQ first-party (baseline reference run)
+01-generational-positioning,Generational Positioning — 4K Raster,RTX 5080 FE,,index,114,index,,TechFuelHQ first-party
+01-generational-positioning,Generational Positioning — 4K Raster,Astral 5080 OC,,index,123,index,,TechFuelHQ first-party
+02-3dmark-time-spy,3DMark Time Spy Graphics — Stock / Factory OC / Manual OC,Stock,,score,32350,score,,TechFuelHQ first-party (2026-06-11)
+02-3dmark-time-spy,3DMark Time Spy Graphics — Stock / Factory OC / Manual OC,Factory OC,,score,33200,score,2.6,TechFuelHQ first-party (2026-06-11)
+02-3dmark-time-spy,3DMark Time Spy Graphics — Stock / Factory OC / Manual OC,Manual OC,,score,34500,score,6.6,TechFuelHQ first-party (2026-06-11)
+02b-3dmark-time-spy-extreme,3DMark Time Spy Extreme — Stock / Factory OC / Manual OC,Stock,,score,16244,score,,TechFuelHQ first-party (2026-06-11)
+02b-3dmark-time-spy-extreme,3DMark Time Spy Extreme — Stock / Factory OC / Manual OC,Factory OC,,score,16961,score,4.4,TechFuelHQ first-party (2026-06-11)
+02b-3dmark-time-spy-extreme,3DMark Time Spy Extreme — Stock / Factory OC / Manual OC,Manual OC,,score,17600,score,8.3,TechFuelHQ first-party (2026-06-11)
+02c-3dmark-port-royal,3DMark Port Royal — Stock / Factory OC / Manual OC,Stock,,score,20300,score,,TechFuelHQ first-party (2026-06-11)
+02c-3dmark-port-royal,3DMark Port Royal — Stock / Factory OC / Manual OC,Factory OC,,score,21673,score,6.8,TechFuelHQ first-party (2026-06-11)
+02c-3dmark-port-royal,3DMark Port Royal — Stock / Factory OC / Manual OC,Manual OC,,score,22500,score,10.8,TechFuelHQ first-party (2026-06-11)
+02d-3dmark-speed-way,3DMark Speed Way — Stock / Factory OC / Manual OC,Stock,,score,9010,score,,TechFuelHQ first-party (2026-06-11)
+02d-3dmark-speed-way,3DMark Speed Way — Stock / Factory OC / Manual OC,Factory OC,,score,9100,score,1.0,TechFuelHQ first-party (2026-06-11)
+02d-3dmark-speed-way,3DMark Speed Way — Stock / Factory OC / Manual OC,Manual OC,,score,9900,score,9.9,TechFuelHQ first-party (2026-06-11)
+02e-3dmark-steel-nomad,3DMark Steel Nomad — Stock / Factory OC / Manual OC,Stock,,score,8150,score,,TechFuelHQ first-party (2026-06-11)
+02e-3dmark-steel-nomad,3DMark Steel Nomad — Stock / Factory OC / Manual OC,Factory OC,,score,8400,score,3.1,TechFuelHQ first-party (2026-06-11)
+02e-3dmark-steel-nomad,3DMark Steel Nomad — Stock / Factory OC / Manual OC,Manual OC,,score,9200,score,12.9,TechFuelHQ first-party (2026-06-11)
+03-clock-headroom,Clock Headroom — FE vs Astral OC,RTX 5080 FE (ref boost),,boost-clock,2671,MHz,,TechFuelHQ first-party (FE-profile reference run)
+03-clock-headroom,Clock Headroom — FE vs Astral OC,Astral OC Default,,boost-clock,2784,MHz,,TechFuelHQ first-party
+03-clock-headroom,Clock Headroom — FE vs Astral OC,Astral OC Mode (BIOS),,boost-clock,2885,MHz,,TechFuelHQ first-party
+03-clock-headroom,Clock Headroom — FE vs Astral OC,Astral OC Manual,,boost-clock,2918,MHz,,TechFuelHQ first-party
+04-power-thermal,Power & Thermal — Astral Stock vs Astral Manual OC,Astral Stock,,Idle power,13-20 W,,,"TechFuelHQ first-party (HWiNFO64, out-of-box defaults)"
+04-power-thermal,Power & Thermal — Astral Stock vs Astral Manual OC,Astral Manual OC,,Idle power,20-30 W,,,"TechFuelHQ first-party (HWiNFO64, GPU Tweak III User Mode 2: +328 MHz core, +2996 MHz memory, +12% PT)"
+04-power-thermal,Power & Thermal — Astral Stock vs Astral Manual OC,Astral Stock,,Gaming power,266-340 W,,,"TechFuelHQ first-party (HWiNFO64, out-of-box defaults)"
+04-power-thermal,Power & Thermal — Astral Stock vs Astral Manual OC,Astral Manual OC,,Gaming power,~271 W,,,"TechFuelHQ first-party (HWiNFO64, GPU Tweak III User Mode 2: +328 MHz core, +2996 MHz memory, +12% PT)"
+04-power-thermal,Power & Thermal — Astral Stock vs Astral Manual OC,Astral Stock,,Max / stress power,360 W,,,"TechFuelHQ first-party (HWiNFO64, out-of-box defaults)"
+04-power-thermal,Power & Thermal — Astral Stock vs Astral Manual OC,Astral Manual OC,,Max / stress power,400 W (450 W VBIOS),,,"TechFuelHQ first-party (HWiNFO64, GPU Tweak III User Mode 2: +328 MHz core, +2996 MHz memory, +12% PT)"
+04-power-thermal,Power & Thermal — Astral Stock vs Astral Manual OC,Astral Stock,,Transient spikes,500-600 W,,,"TechFuelHQ first-party (HWiNFO64, out-of-box defaults)"
+04-power-thermal,Power & Thermal — Astral Stock vs Astral Manual OC,Astral Manual OC,,Transient spikes,500-600 W,,,"TechFuelHQ first-party (HWiNFO64, GPU Tweak III User Mode 2: +328 MHz core, +2996 MHz memory, +12% PT)"
+04-power-thermal,Power & Thermal — Astral Stock vs Astral Manual OC,Astral Stock,,Idle temp,30-42 C,,,"TechFuelHQ first-party (HWiNFO64, out-of-box defaults)"
+04-power-thermal,Power & Thermal — Astral Stock vs Astral Manual OC,Astral Manual OC,,Idle temp,< ~50 C,,,"TechFuelHQ first-party (HWiNFO64, GPU Tweak III User Mode 2: +328 MHz core, +2996 MHz memory, +12% PT)"
+04-power-thermal,Power & Thermal — Astral Stock vs Astral Manual OC,Astral Stock,,Gaming core temp,63-72 C,,,"TechFuelHQ first-party (HWiNFO64, out-of-box defaults)"
+04-power-thermal,Power & Thermal — Astral Stock vs Astral Manual OC,Astral Manual OC,,Gaming core temp,~58 C,,,"TechFuelHQ first-party (HWiNFO64, GPU Tweak III User Mode 2: +328 MHz core, +2996 MHz memory, +12% PT)"
+04-power-thermal,Power & Thermal — Astral Stock vs Astral Manual OC,Astral Stock,,Stress core temp,—,,,"TechFuelHQ first-party (HWiNFO64, out-of-box defaults)"
+04-power-thermal,Power & Thermal — Astral Stock vs Astral Manual OC,Astral Manual OC,,Stress core temp,~66 C,,,"TechFuelHQ first-party (HWiNFO64, GPU Tweak III User Mode 2: +328 MHz core, +2996 MHz memory, +12% PT)"
+04-power-thermal,Power & Thermal — Astral Stock vs Astral Manual OC,Astral Stock,,Memory junction,72-82 C,,,"TechFuelHQ first-party (HWiNFO64, out-of-box defaults)"
+04-power-thermal,Power & Thermal — Astral Stock vs Astral Manual OC,Astral Manual OC,,Memory junction,60-72 C,,,"TechFuelHQ first-party (HWiNFO64, GPU Tweak III User Mode 2: +328 MHz core, +2996 MHz memory, +12% PT)"
+04-power-thermal,Power & Thermal — Astral Stock vs Astral Manual OC,Astral Stock,,Load noise,Near-silent,,,"TechFuelHQ first-party (HWiNFO64, out-of-box defaults)"
+04-power-thermal,Power & Thermal — Astral Stock vs Astral Manual OC,Astral Manual OC,,Load noise,Up to ~51 dBA,,,"TechFuelHQ first-party (HWiNFO64, GPU Tweak III User Mode 2: +328 MHz core, +2996 MHz memory, +12% PT)"
+05-dlss4-mfg-cyberpunk,DLSS 4 Multi-Frame Generation — Cyberpunk 4K Path Tracing,"Native PT (no DLSS, no FG)",Cyberpunk RT Overdrive 4K,fps,19,fps,,TechFuelHQ first-party
+05-dlss4-mfg-cyberpunk,DLSS 4 Multi-Frame Generation — Cyberpunk 4K Path Tracing,"Native PT (no DLSS, no FG)",Cyberpunk RT Overdrive 4K,pc-latency,95,ms,,TechFuelHQ first-party
+05-dlss4-mfg-cyberpunk,DLSS 4 Multi-Frame Generation — Cyberpunk 4K Path Tracing,"DLSS-Q, no FG",Cyberpunk RT Overdrive 4K,fps,40,fps,,TechFuelHQ first-party
+05-dlss4-mfg-cyberpunk,DLSS 4 Multi-Frame Generation — Cyberpunk 4K Path Tracing,"DLSS-Q, no FG",Cyberpunk RT Overdrive 4K,pc-latency,45,ms,,TechFuelHQ first-party
+05-dlss4-mfg-cyberpunk,DLSS 4 Multi-Frame Generation — Cyberpunk 4K Path Tracing,MFG 2x,Cyberpunk RT Overdrive 4K,fps,90,fps,,TechFuelHQ first-party
+05-dlss4-mfg-cyberpunk,DLSS 4 Multi-Frame Generation — Cyberpunk 4K Path Tracing,MFG 2x,Cyberpunk RT Overdrive 4K,pc-latency,55,ms,,TechFuelHQ first-party
+05-dlss4-mfg-cyberpunk,DLSS 4 Multi-Frame Generation — Cyberpunk 4K Path Tracing,MFG 4x,Cyberpunk RT Overdrive 4K,fps,135,fps,,TechFuelHQ first-party
+05-dlss4-mfg-cyberpunk,DLSS 4 Multi-Frame Generation — Cyberpunk 4K Path Tracing,MFG 4x,Cyberpunk RT Overdrive 4K,pc-latency,62,ms,,TechFuelHQ first-party
+06-4k-gaming,4K Gaming — Avg FPS and 1% Lows,Cyberpunk Ultra (raster),4K native,avg-fps,58,fps,,TechFuelHQ first-party
+06-4k-gaming,4K Gaming — Avg FPS and 1% Lows,Cyberpunk Ultra (raster),4K native,1pct-low-fps,49,fps,,TechFuelHQ first-party
+06-4k-gaming,4K Gaming — Avg FPS and 1% Lows,Cyberpunk RT-Ultra + DLSS-Q,4K native,avg-fps,50,fps,,TechFuelHQ first-party
+06-4k-gaming,4K Gaming — Avg FPS and 1% Lows,Cyberpunk RT-Ultra + DLSS-Q,4K native,1pct-low-fps,41,fps,,TechFuelHQ first-party
+06-4k-gaming,4K Gaming — Avg FPS and 1% Lows,Cyberpunk Path Tracing (native),4K native,avg-fps,19,fps,,TechFuelHQ first-party
+06-4k-gaming,4K Gaming — Avg FPS and 1% Lows,Cyberpunk Path Tracing (native),4K native,1pct-low-fps,15,fps,,TechFuelHQ first-party
+06-4k-gaming,4K Gaming — Avg FPS and 1% Lows,Alan Wake 2 RT + DLSS-Q,4K native,avg-fps,49,fps,,TechFuelHQ first-party
+06-4k-gaming,4K Gaming — Avg FPS and 1% Lows,Alan Wake 2 RT + DLSS-Q,4K native,1pct-low-fps,38,fps,,TechFuelHQ first-party
+06-4k-gaming,4K Gaming — Avg FPS and 1% Lows,Black Myth: Wukong Cinematic,4K native,avg-fps,34,fps,,TechFuelHQ first-party
+06-4k-gaming,4K Gaming — Avg FPS and 1% Lows,Black Myth: Wukong Cinematic,4K native,1pct-low-fps,27,fps,,TechFuelHQ first-party

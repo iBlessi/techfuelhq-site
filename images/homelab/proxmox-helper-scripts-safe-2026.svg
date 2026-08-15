@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="788" viewBox="0 0 1200 788" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>The six-step workflow to vet a Proxmox helper script before running it as root</title>
+  <desc>A numbered ladder of the six habits the article recommends for safely running community-scripts ProxmoxVE helper scripts: read it before you run it, back up the host first, test on a non-critical node, download and review then run a saved copy, pin to a commit if you re-run it, and keep the service in an unprivileged LXC. Each step moves from pasting blindly to a calculated, reversible decision. The verdict: on a test node steps one and two are plenty; on a host you cannot afford to lose, do all six.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="788" fill="#0a0a23"/>
+  <rect width="1200" height="788" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">PROXMOX HELPER SCRIPTS &#183; THE SAFE-RUN WORKFLOW</text>
+  <text x="70" y="128" fill="#e8e8f0" font-size="42" font-weight="900">How to Vet a Helper Script</text>
+  <text x="70" y="162" fill="#6b6b8a" font-size="18">Six habits that move you from pasting blindly to a calculated, reversible decision &#183; runs as root on your host</text>
+
+  <!-- Step 1 -->
+  <g transform="translate(70,198)">
+    <rect x="0" y="0" width="1060" height="78" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="78" rx="3" fill="#c8ff00"/>
+    <circle cx="58" cy="39" r="24" fill="#13132e" stroke="#c8ff00"/>
+    <text x="58" y="47" text-anchor="middle" fill="#c8ff00" font-size="24" font-weight="900">1</text>
+    <text x="104" y="34" fill="#e8e8f0" font-size="21" font-weight="800">Read it before you run it</text>
+    <text x="104" y="60" fill="#6b6b8a" font-size="15">Open the raw GitHub URL and read it &#183; also skim build.func, since the framework sources more files at runtime</text>
+  </g>
+
+  <!-- Step 2 -->
+  <g transform="translate(70,288)">
+    <rect x="0" y="0" width="1060" height="78" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="78" rx="3" fill="#5090e0"/>
+    <circle cx="58" cy="39" r="24" fill="#13132e" stroke="#5090e0"/>
+    <text x="58" y="47" text-anchor="middle" fill="#5090e0" font-size="24" font-weight="900">2</text>
+    <text x="104" y="34" fill="#e8e8f0" font-size="21" font-weight="800">Back up the host first</text>
+    <text x="104" y="60" fill="#6b6b8a" font-size="15">Snapshot or back up with Proxmox Backup Server &#183; turns &#8220;bricked my node&#8221; into &#8220;restored in ten minutes&#8221;</text>
+  </g>
+
+  <!-- Step 3 -->
+  <g transform="translate(70,378)">
+    <rect x="0" y="0" width="1060" height="78" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="78" rx="3" fill="#e08828"/>
+    <circle cx="58" cy="39" r="24" fill="#13132e" stroke="#e08828"/>
+    <text x="58" y="47" text-anchor="middle" fill="#e08828" font-size="24" font-weight="900">3</text>
+    <text x="104" y="34" fill="#e8e8f0" font-size="21" font-weight="800">Test on a non-critical node</text>
+    <text x="104" y="60" fill="#6b6b8a" font-size="15">Try new scripts on the box you would not cry over &#183; one node means steps 1 and 2 matter even more</text>
+  </g>
+
+  <!-- Step 4 -->
+  <g transform="translate(70,468)">
+    <rect x="0" y="0" width="1060" height="78" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="78" rx="3" fill="#b06bff"/>
+    <circle cx="58" cy="39" r="24" fill="#13132e" stroke="#b06bff"/>
+    <text x="58" y="47" text-anchor="middle" fill="#b06bff" font-size="24" font-weight="900">4</text>
+    <text x="104" y="34" fill="#e8e8f0" font-size="21" font-weight="800">Download, review, then run a saved copy</text>
+    <text x="104" y="60" fill="#6b6b8a" font-size="15">curl -fsSL &lt;url&gt; -o app.sh &#8594; read app.sh &#8594; bash app.sh &#183; run a fixed file, not whatever main contains</text>
+  </g>
+
+  <!-- Step 5 -->
+  <g transform="translate(70,558)">
+    <rect x="0" y="0" width="1060" height="78" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="78" rx="3" fill="#5090e0"/>
+    <circle cx="58" cy="39" r="24" fill="#13132e" stroke="#5090e0"/>
+    <text x="58" y="47" text-anchor="middle" fill="#5090e0" font-size="24" font-weight="900">5</text>
+    <text x="104" y="34" fill="#e8e8f0" font-size="21" font-weight="800">Pin to a commit if you re-run it</text>
+    <text x="104" y="60" fill="#6b6b8a" font-size="15">Reference a specific commit hash rather than main &#183; a reproducible, reviewed version each time</text>
+  </g>
+
+  <!-- Step 6 -->
+  <g transform="translate(70,648)">
+    <rect x="0" y="0" width="1060" height="78" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="78" rx="3" fill="#e08828"/>
+    <circle cx="58" cy="39" r="24" fill="#13132e" stroke="#e08828"/>
+    <text x="58" y="47" text-anchor="middle" fill="#e08828" font-size="24" font-weight="900">6</text>
+    <text x="104" y="34" fill="#e8e8f0" font-size="21" font-weight="800">Keep the service in an unprivileged LXC</text>
+    <text x="104" y="60" fill="#6b6b8a" font-size="15">Skip nesting, FUSE, and passthrough unless the workload needs them &#183; least privilege limits the blast radius</text>
+  </g>
+
+  <!-- Verdict strip -->
+  <g transform="translate(70,742)">
+    <rect x="0" y="0" width="1060" height="30" rx="8" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="20" fill="#c0c0d8" font-size="15"><tspan fill="#c8ff00" font-weight="700">THE CALL&#160;&#160;</tspan>Test node &#8594; steps 1&#8211;2 are plenty. Host you cannot afford to lose &#8594; do all six.</text>
+  </g>
+</svg>

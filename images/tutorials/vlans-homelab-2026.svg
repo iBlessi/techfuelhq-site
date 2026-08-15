@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Homelab VLAN topology: OPNsense router, MikroTik trunk switch, and Proxmox VLAN-aware bridge segmenting traffic into Homelab, IoT, Guest, and Management VLANs</title>
+  <desc>Architecture diagram showing internet to an OPNsense firewall performing inter-VLAN routing, connected by an 802.1Q tagged trunk to a MikroTik CRS305 managed switch, which fans out to untagged access ports and a Proxmox VLAN-aware bridge. VLANs: 10 Homelab 192.168.10.0/24, 20 IoT 192.168.20.0/24, 30 Guest 192.168.30.0/24, 99 Management 192.168.99.0/24.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#5090e0"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="60" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">SETUP TUTORIAL · NETWORK SEGMENTATION</text>
+  <text x="70" y="100" fill="#e8e8f0" font-size="42" font-weight="900">Homelab VLAN Topology</text>
+  <text x="70" y="130" fill="#6b6b8a" font-size="18">OPNsense inter-VLAN routing · MikroTik 802.1Q trunk · Proxmox VLAN-aware bridge</text>
+
+  <!-- Internet -->
+  <g transform="translate(70,175)">
+    <rect width="150" height="56" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="75" y="27" text-anchor="middle" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">WAN</text>
+    <text x="75" y="46" text-anchor="middle" fill="#c0c0d8" font-size="15">Internet</text>
+  </g>
+  <line x1="220" y1="203" x2="270" y2="203" stroke="#5090e0" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- OPNsense router -->
+  <g transform="translate(275,165)">
+    <rect width="230" height="78" rx="12" fill="#101028" stroke="#c8ff00" stroke-width="2"/>
+    <text x="20" y="28" fill="#c8ff00" font-size="12" letter-spacing="2" font-weight="700">ROUTER / FIREWALL</text>
+    <text x="20" y="52" fill="#e8e8f0" font-size="20" font-weight="700">OPNsense</text>
+    <text x="20" y="70" fill="#6b6b8a" font-size="12">Inter-VLAN routing + per-VLAN rules</text>
+  </g>
+
+  <!-- Trunk link OPNsense -> Switch -->
+  <line x1="505" y1="204" x2="560" y2="204" stroke="#c8ff00" stroke-width="3"/>
+  <text x="532" y="194" text-anchor="middle" fill="#c8ff00" font-size="11" letter-spacing="1" font-weight="700">TRUNK</text>
+  <text x="532" y="226" text-anchor="middle" fill="#6b6b8a" font-size="10">tagged 10,20,30,99</text>
+
+  <!-- MikroTik switch -->
+  <g transform="translate(560,165)">
+    <rect width="250" height="78" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="28" fill="#5090e0" font-size="12" letter-spacing="2" font-weight="700">MANAGED SWITCH (802.1Q)</text>
+    <text x="20" y="52" fill="#e8e8f0" font-size="20" font-weight="700">MikroTik CRS305</text>
+    <text x="20" y="70" fill="#6b6b8a" font-size="12">Bridge VLAN table · ether1 = trunk</text>
+  </g>
+
+  <!-- Mgmt VLAN callout off the switch -->
+  <line x1="685" y1="243" x2="685" y2="285" stroke="#e08828" stroke-width="2" stroke-dasharray="5 4"/>
+  <g transform="translate(560,285)">
+    <rect width="250" height="56" rx="10" fill="#101028" stroke="#e08828"/>
+    <text x="16" y="24" fill="#e08828" font-size="12" letter-spacing="1" font-weight="700">VLAN 99 · MANAGEMENT</text>
+    <text x="16" y="44" fill="#c0c0d8" font-size="14">192.168.99.0/24 · switch + OPNsense admin</text>
+  </g>
+
+  <!-- Distribution rail from switch to access ports -->
+  <line x1="685" y1="243" x2="685" y2="395" stroke="#1e1e3a" stroke-width="2"/>
+  <line x1="175" y1="395" x2="1075" y2="395" stroke="#1e1e3a" stroke-width="2"/>
+
+  <!-- Access port drops -->
+  <line x1="175" y1="395" x2="175" y2="430" stroke="#c8ff00" stroke-width="2"/>
+  <line x1="455" y1="395" x2="455" y2="430" stroke="#e08828" stroke-width="2"/>
+  <line x1="735" y1="395" x2="735" y2="430" stroke="#5dca7a" stroke-width="2"/>
+  <line x1="1015" y1="395" x2="1015" y2="430" stroke="#5090e0" stroke-width="2"/>
+
+  <text x="455" y="382" text-anchor="middle" fill="#6b6b8a" font-size="11">untagged access ports (PVID) · ether2..n</text>
+
+  <!-- VLAN 10 Homelab / Proxmox -->
+  <g transform="translate(70,430)">
+    <rect width="210" height="120" rx="12" fill="#101028" stroke="#c8ff00" stroke-width="1.5"/>
+    <text x="18" y="30" fill="#c8ff00" font-size="13" letter-spacing="1" font-weight="700">VLAN 10 · HOMELAB</text>
+    <text x="18" y="52" fill="#c0c0d8" font-size="13">192.168.10.0/24</text>
+    <line x1="18" y1="64" x2="192" y2="64" stroke="#1e1e3a" stroke-width="1"/>
+    <text x="18" y="86" fill="#e8e8f0" font-size="14" font-weight="600">Proxmox · NAS · infra</text>
+    <text x="18" y="106" fill="#6b6b8a" font-size="12">vmbr0 VLAN-aware bridge</text>
+  </g>
+
+  <!-- VLAN 20 IoT -->
+  <g transform="translate(350,430)">
+    <rect width="210" height="120" rx="12" fill="#101028" stroke="#e08828" stroke-width="1.5"/>
+    <text x="18" y="30" fill="#e08828" font-size="13" letter-spacing="1" font-weight="700">VLAN 20 · IoT</text>
+    <text x="18" y="52" fill="#c0c0d8" font-size="13">192.168.20.0/24</text>
+    <line x1="18" y1="64" x2="192" y2="64" stroke="#1e1e3a" stroke-width="1"/>
+    <text x="18" y="86" fill="#e8e8f0" font-size="14" font-weight="600">Cameras · speakers · TVs</text>
+    <text x="18" y="106" fill="#6b6b8a" font-size="12">Blocked from RFC1918</text>
+  </g>
+
+  <!-- VLAN 30 Guest -->
+  <g transform="translate(630,430)">
+    <rect width="210" height="120" rx="12" fill="#101028" stroke="#5dca7a" stroke-width="1.5"/>
+    <text x="18" y="30" fill="#5dca7a" font-size="13" letter-spacing="1" font-weight="700">VLAN 30 · GUEST</text>
+    <text x="18" y="52" fill="#c0c0d8" font-size="13">192.168.30.0/24</text>
+    <line x1="18" y1="64" x2="192" y2="64" stroke="#1e1e3a" stroke-width="1"/>
+    <text x="18" y="86" fill="#e8e8f0" font-size="14" font-weight="600">Visitor devices</text>
+    <text x="18" y="106" fill="#6b6b8a" font-size="12">Internet only · no LAN</text>
+  </g>
+
+  <!-- VLAN 1 Default / Main -->
+  <g transform="translate(910,430)">
+    <rect width="210" height="120" rx="12" fill="#101028" stroke="#5090e0" stroke-width="1.5"/>
+    <text x="18" y="30" fill="#5090e0" font-size="13" letter-spacing="1" font-weight="700">VLAN 1 · DEFAULT</text>
+    <text x="18" y="52" fill="#c0c0d8" font-size="13">192.168.1.0/24</text>
+    <line x1="18" y1="64" x2="192" y2="64" stroke="#1e1e3a" stroke-width="1"/>
+    <text x="18" y="86" fill="#e8e8f0" font-size="14" font-weight="600">Trusted laptops/phones</text>
+    <text x="18" y="106" fill="#6b6b8a" font-size="12">Native untagged VLAN</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · Tutorial · Topology per OPNsense, MikroTik &amp; Proxmox configuration in this guide</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

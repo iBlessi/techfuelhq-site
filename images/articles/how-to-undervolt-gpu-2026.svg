@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif">
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect x="1" y="1" width="1198" height="628" fill="none" stroke="#1e1e3a" stroke-width="2" rx="10"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#c8ff00"/>
+
+  <text x="64" y="76" fill="#c8ff00" font-size="16" font-weight="700" letter-spacing="3">TECHFUELHQ · GPU TUNING · 2026</text>
+  <text x="64" y="130" fill="#f2f2f7" font-size="46" font-weight="800" letter-spacing="-1">How to Undervolt Your GPU</text>
+  <text x="64" y="168" fill="#9a9ab5" font-size="21">Less heat &amp; noise, same performance — <tspan fill="#c8ff00" font-weight="700">and often a few more FPS</tspan></text>
+  <line x1="64" y1="196" x2="1136" y2="196" stroke="#1e1e3a" stroke-width="1.5"/>
+
+  <!-- Two vendor paths -->
+  <rect x="64" y="220" width="500" height="150" rx="10" fill="rgba(120,180,255,0.05)" stroke="#2a3a55" stroke-width="1"/>
+  <text x="88" y="258" fill="#7fb0f0" font-size="19" font-weight="800">NVIDIA — MSI Afterburner</text>
+  <text x="88" y="288" fill="#9a9ab5" font-size="16">Ctrl+F voltage/frequency curve; pin a point</text>
+  <text x="88" y="312" fill="#9a9ab5" font-size="16">near ~0.9V to your stock clock, flatten above.</text>
+  <text x="88" y="346" fill="#c8ff00" font-size="15" font-weight="700">Deep-dive: RTX 5080 &#8594;</text>
+
+  <rect x="636" y="220" width="500" height="150" rx="10" fill="rgba(200,255,0,0.04)" stroke="#3a3a1a" stroke-width="1"/>
+  <text x="660" y="258" fill="#8fdca0" font-size="19" font-weight="800">AMD — Adrenalin</text>
+  <text x="660" y="288" fill="#9a9ab5" font-size="16">Alt+R &#8594; Tuning &#8594; Custom; set a negative</text>
+  <text x="660" y="312" fill="#9a9ab5" font-size="16">voltage offset and trim the power limit.</text>
+  <text x="660" y="346" fill="#c8ff00" font-size="15" font-weight="700">Deep-dive: RX 9070 XT &#8594;</text>
+
+  <!-- The shared 5 steps -->
+  <text x="64" y="418" fill="#e8e8f0" font-size="18" font-weight="800">The method is the same on both:</text>
+  <text x="64" y="450" fill="#9a9ab5" font-size="16"><tspan fill="#c8ff00" font-weight="700">1</tspan> baseline &#160;&#160; <tspan fill="#c8ff00" font-weight="700">2</tspan> lower voltage &#160;&#160; <tspan fill="#c8ff00" font-weight="700">3</tspan> hold or raise clocks &#160;&#160; <tspan fill="#c8ff00" font-weight="700">4</tspan> stress-test 15 min &#160;&#160; <tspan fill="#c8ff00" font-weight="700">5</tspan> save</text>
+
+  <!-- Why callout -->
+  <rect x="64" y="486" width="1072" height="90" rx="8" fill="rgba(200,255,0,0.06)" stroke="#c8ff00" stroke-width="1.2"/>
+  <text x="88" y="516" fill="#c8ff00" font-size="19" font-weight="800">Why it works — and why it can add FPS.</text>
+  <text x="88" y="542" fill="#c8c8dc" font-size="15">GPUs ship with more voltage than they need. Cut it, and a power-limited card spends the freed headroom on higher</text>
+  <text x="88" y="564" fill="#c8c8dc" font-size="15">sustained clocks. Safe and reversible; the worst case is a crash you fix by adding voltage back. CPU too &#8594; 9800X3D guide.</text>
+
+  <text x="1136" y="608" fill="#44445a" font-size="14" text-anchor="end">techfuelhq.com · method: MSI Afterburner / AMD Adrenalin · worked examples: RTX 5080, RX 9070 XT</text>
+</svg>

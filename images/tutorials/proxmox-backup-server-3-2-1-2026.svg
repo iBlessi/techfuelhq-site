@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Proxmox Backup Server 3-2-1 backup topology</title>
+  <desc>Architecture diagram of a 3-2-1 backup strategy with Proxmox Backup Server: a Proxmox VE 8.x host sends daily snapshot backups at 00:30 to a local PBS node with a deduplicated pve-backups datastore, which then syncs off-site at 06:00 to a second PBS node or via restic to Backblaze B2 at 07:00.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#5090e0"/>
+    </marker>
+    <marker id="arrowlime" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#c8ff00"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="66" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">SETUP TUTORIAL · PROXMOX BACKUP SERVER</text>
+  <text x="70" y="112" fill="#e8e8f0" font-size="46" font-weight="900">The 3-2-1 Backup Topology</text>
+  <text x="70" y="144" fill="#c0c0d8" font-size="19">3 copies · 2 media · 1 off-site — automated with PBS 3.x dedup and verified restores</text>
+
+  <!-- ===== Stage labels ===== -->
+  <text x="200" y="210" text-anchor="middle" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">COPY 1 · PRODUCTION</text>
+  <text x="600" y="210" text-anchor="middle" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">COPY 2 · LOCAL BACKUP</text>
+  <text x="1000" y="210" text-anchor="middle" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">COPY 3 · OFF-SITE</text>
+
+  <!-- ===== Box 1: Proxmox VE host ===== -->
+  <g transform="translate(60,230)">
+    <rect width="280" height="190" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="190" rx="3" fill="#5090e0"/>
+    <text x="24" y="38" fill="#e8e8f0" font-size="22" font-weight="800">Proxmox VE 8.x</text>
+    <text x="24" y="62" fill="#6b6b8a" font-size="14">Production host · the original data</text>
+    <rect x="24" y="82" width="110" height="40" rx="7" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="79" y="107" text-anchor="middle" fill="#c0c0d8" font-size="15" font-weight="600">VMs</text>
+    <rect x="146" y="82" width="110" height="40" rx="7" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="201" y="107" text-anchor="middle" fill="#c0c0d8" font-size="15" font-weight="600">LXCs</text>
+    <text x="24" y="150" fill="#5dca7a" font-size="14" font-weight="700">Snapshot mode · no downtime</text>
+    <text x="24" y="172" fill="#6b6b8a" font-size="13">CBT incrementals: 1–5% of disk/day</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <line x1="350" y1="325" x2="448" y2="325" stroke="#5090e0" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="399" y="312" text-anchor="middle" fill="#5090e0" font-size="13" font-weight="700">00:30</text>
+  <text x="399" y="345" text-anchor="middle" fill="#6b6b8a" font-size="12">daily</text>
+
+  <!-- ===== Box 2: Local PBS ===== -->
+  <g transform="translate(460,230)">
+    <rect width="280" height="190" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="190" rx="3" fill="#c8ff00"/>
+    <text x="24" y="38" fill="#e8e8f0" font-size="22" font-weight="800">PBS Node</text>
+    <text x="24" y="62" fill="#6b6b8a" font-size="14">Separate machine · dedicated disk</text>
+    <rect x="24" y="82" width="232" height="44" rx="7" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="36" y="100" fill="#c8ff00" font-size="13" font-weight="700">DATASTORE</text>
+    <text x="36" y="119" fill="#e8e8f0" font-size="15" font-weight="600">pve-backups · dedup chunks</text>
+    <text x="24" y="150" fill="#c0c0d8" font-size="14">Prune 3 / 7d / 4w / 3m · GC 03:00</text>
+    <text x="24" y="172" fill="#5dca7a" font-size="14" font-weight="700">Verify job: weekly SHA-256 check</text>
+  </g>
+
+  <!-- Arrow 2 (branch out) -->
+  <line x1="750" y1="325" x2="848" y2="290" stroke="#c8ff00" stroke-width="2.5" marker-end="url(#arrowlime)"/>
+  <line x1="750" y1="325" x2="848" y2="392" stroke="#c8ff00" stroke-width="2.5" marker-end="url(#arrowlime)"/>
+  <text x="799" y="300" text-anchor="middle" fill="#c8ff00" font-size="13" font-weight="700">sync</text>
+  <text x="799" y="412" text-anchor="middle" fill="#c8ff00" font-size="13" font-weight="700">restic</text>
+
+  <!-- ===== Box 3a: Off-site PBS ===== -->
+  <g transform="translate(860,228)">
+    <rect width="280" height="92" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="92" rx="3" fill="#5dca7a"/>
+    <text x="24" y="34" fill="#e8e8f0" font-size="19" font-weight="800">Option A · 2nd PBS</text>
+    <text x="24" y="58" fill="#6b6b8a" font-size="13">Remote site · PBS Sync Job</text>
+    <text x="24" y="79" fill="#5dca7a" font-size="13" font-weight="700">06:00 daily · changed chunks only</text>
+  </g>
+
+  <!-- ===== Box 3b: Backblaze B2 ===== -->
+  <g transform="translate(860,330)">
+    <rect width="280" height="92" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="92" rx="3" fill="#e08828"/>
+    <text x="24" y="34" fill="#e8e8f0" font-size="19" font-weight="800">Option B · Backblaze B2</text>
+    <text x="24" y="58" fill="#6b6b8a" font-size="13">restic + Object Lock · 07:00 timer</text>
+    <text x="24" y="79" fill="#e08828" font-size="13" font-weight="700">$0.00695/GB/mo · ~$0.70 per 100GB</text>
+  </g>
+
+  <!-- ===== Bottom stat strip ===== -->
+  <g transform="translate(60,452)">
+    <rect width="1080" height="96" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <line x1="270" y1="20" x2="270" y2="76" stroke="#1e1e3a" stroke-width="1"/>
+    <line x1="540" y1="20" x2="540" y2="76" stroke="#1e1e3a" stroke-width="1"/>
+    <line x1="810" y1="20" x2="810" y2="76" stroke="#1e1e3a" stroke-width="1"/>
+
+    <text x="135" y="44" text-anchor="middle" fill="#c8ff00" font-size="30" font-weight="900">2.5×</text>
+    <text x="135" y="70" text-anchor="middle" fill="#6b6b8a" font-size="13">datastore sizing for 30-day retention</text>
+
+    <text x="405" y="44" text-anchor="middle" fill="#5090e0" font-size="30" font-weight="900">6–8 W</text>
+    <text x="405" y="70" text-anchor="middle" fill="#6b6b8a" font-size="13">idle draw for a mini-PC PBS node</text>
+
+    <text x="675" y="44" text-anchor="middle" fill="#5dca7a" font-size="30" font-weight="900">Monthly</text>
+    <text x="675" y="70" text-anchor="middle" fill="#6b6b8a" font-size="13">test restore to a fresh VMID</text>
+
+    <text x="945" y="44" text-anchor="middle" fill="#e08828" font-size="30" font-weight="900">8007</text>
+    <text x="945" y="70" text-anchor="middle" fill="#6b6b8a" font-size="13">PBS web UI &amp; PVE connection port</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · Setup Tutorial · Topology per Proxmox Backup Server official documentation</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

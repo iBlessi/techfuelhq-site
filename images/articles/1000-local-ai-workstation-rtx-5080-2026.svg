@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>$1,000 Local AI Workstation: RTX 5080-Class Build Guide (2026)</title>
+  <desc>Side-by-side comparison of two local AI inference PC builds: the Value Inference build at about $1,180 with an RTX 5060 Ti 16GB and Ryzen 5 7600X, versus the Maximum Performance build at about $2,250 with a ROG Astral RTX 5080 OC and Ryzen 7 7800X3D. Both share 16GB VRAM and run the same 8B-24B local model tier at Q4_K_M.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="62" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">PC BUILD GUIDE · LOCAL AI WORKSTATION</text>
+  <text x="70" y="108" fill="#e8e8f0" font-size="48" font-weight="900">$1,000 Local AI Workstation (2026)</text>
+  <text x="70" y="140" fill="#6b6b8a" font-size="19">Two real builds for local LLM inference — same 16GB VRAM, very different price</text>
+
+  <!-- Column headers -->
+  <g transform="translate(70,170)">
+    <rect x="0" y="0" width="525" height="46" rx="8" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="46" rx="3" fill="#c8ff00"/>
+    <text x="22" y="22" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">VALUE INFERENCE BUILD</text>
+    <text x="22" y="40" fill="#e8e8f0" font-size="15" font-weight="600">RTX 5060 Ti 16GB · Ryzen 5 7600X</text>
+    <text x="503" y="32" text-anchor="end" fill="#c8ff00" font-size="22" font-weight="900">~$1,180</text>
+  </g>
+  <g transform="translate(605,170)">
+    <rect x="0" y="0" width="525" height="46" rx="8" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="46" rx="3" fill="#5090e0"/>
+    <text x="22" y="22" fill="#5090e0" font-size="13" letter-spacing="2" font-weight="700">MAXIMUM PERFORMANCE BUILD</text>
+    <text x="22" y="40" fill="#e8e8f0" font-size="15" font-weight="600">ROG Astral RTX 5080 OC · Ryzen 7 7800X3D</text>
+    <text x="503" y="32" text-anchor="end" fill="#5090e0" font-size="22" font-weight="900">~$2,250</text>
+  </g>
+
+  <!-- Spec rows -->
+  <g transform="translate(70,232)" font-size="15">
+    <!-- Row template: label band + two value cells -->
+    <!-- GPU -->
+    <rect x="0" y="0" width="1060" height="36" fill="#13132e"/>
+    <text x="14" y="24" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">GPU</text>
+    <text x="180" y="24" fill="#c8ff00" font-weight="600">RTX 5060 Ti 16GB · $480</text>
+    <text x="715" y="24" fill="#e8e8f0">ROG Astral RTX 5080 OC · $1,100</text>
+
+    <!-- VRAM -->
+    <rect x="0" y="36" width="1060" height="36" fill="#0d0d28"/>
+    <text x="14" y="60" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">VRAM</text>
+    <text x="180" y="60" fill="#e8e8f0">16GB GDDR7</text>
+    <text x="715" y="60" fill="#e8e8f0">16GB GDDR7</text>
+
+    <!-- CPU -->
+    <rect x="0" y="72" width="1060" height="36" fill="#13132e"/>
+    <text x="14" y="96" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">CPU</text>
+    <text x="180" y="96" fill="#e8e8f0">Ryzen 5 7600X · $190</text>
+    <text x="715" y="96" fill="#e8e8f0">Ryzen 7 7800X3D · $350</text>
+
+    <!-- RAM -->
+    <rect x="0" y="108" width="1060" height="36" fill="#0d0d28"/>
+    <text x="14" y="132" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">RAM</text>
+    <text x="180" y="132" fill="#e8e8f0">32GB DDR5-5200</text>
+    <text x="715" y="132" fill="#e8e8f0">64GB DDR5-6000</text>
+
+    <!-- PSU -->
+    <rect x="0" y="144" width="1060" height="36" fill="#13132e"/>
+    <text x="14" y="168" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">PSU</text>
+    <text x="180" y="168" fill="#e8e8f0">Corsair RM750e · $90</text>
+    <text x="715" y="168" fill="#e8e8f0">EVGA SuperNOVA 1000 GT · $140</text>
+
+    <!-- Qwen2.5 14B Q4 throughput (bandwidth-bound estimate) -->
+    <rect x="0" y="180" width="1060" height="36" fill="#0d0d28"/>
+    <text x="14" y="204" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">QWEN2.5 14B Q4 (EST.)</text>
+    <text x="180" y="204" fill="#c0c0d8">25–35 tokens/sec</text>
+    <text x="715" y="204" fill="#5dca7a" font-weight="600">50–65 tokens/sec</text>
+
+    <!-- Best for -->
+    <rect x="0" y="216" width="1060" height="36" fill="#13132e"/>
+    <text x="14" y="240" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">BEST FOR</text>
+    <text x="180" y="240" fill="#c0c0d8">Pure inference value · best $/GB-VRAM</text>
+    <text x="715" y="240" fill="#c0c0d8">Inference + 4K gaming + video work</text>
+  </g>
+
+  <!-- Bottom stat strip -->
+  <g transform="translate(70,512)">
+    <rect x="0" y="0" width="340" height="54" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="24" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">RUNS LOCALLY AT Q4_K_M</text>
+    <text x="20" y="44" fill="#e8e8f0" font-size="15" font-weight="600">Llama 3.3 70B · Qwen2.5 72B</text>
+
+    <rect x="360" y="0" width="340" height="54" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="380" y="24" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">3-YEAR POWER COST</text>
+    <text x="380" y="44" fill="#c8ff00" font-size="15" font-weight="600">~$360–500 · ~$10–14/mo</text>
+
+    <rect x="720" y="0" width="340" height="54" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="740" y="24" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">CLOUD BREAK-EVEN</text>
+    <text x="740" y="44" fill="#5dca7a" font-size="15" font-weight="600">4 mo at 20M tokens/day</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="600" fill="#4a4a6a" font-size="13">TechFuel HQ · PC Build Guide · Prices &amp; specs per article build lists (June 2026)</text>
+  <text x="1130" y="600" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

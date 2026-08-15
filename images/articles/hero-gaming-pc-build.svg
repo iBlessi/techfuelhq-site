@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a23"/>
+      <stop offset="100%" stop-color="#0e0e28"/>
+    </linearGradient>
+    <linearGradient id="case-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e1e3c"/>
+      <stop offset="100%" stop-color="#111128"/>
+    </linearGradient>
+    <linearGradient id="gpu-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a2e1a"/>
+      <stop offset="100%" stop-color="#0f1e0f"/>
+    </linearGradient>
+    <linearGradient id="ram-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a3e"/>
+      <stop offset="100%" stop-color="#111128"/>
+    </linearGradient>
+    <filter id="rgb-glow">
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="case-shadow">
+      <feDropShadow dx="6" dy="8" stdDeviation="12" flood-color="#c8ff00" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <defs>
+    <pattern id="grid7" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid7)" opacity="0.4"/>
+
+  <!-- Top accent -->
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Background glow for PC case -->
+  <ellipse cx="680" cy="320" rx="280" ry="280" fill="#c8ff00" opacity="0.03"/>
+
+  <!-- ===== PC CASE OUTLINE ===== -->
+  <g filter="url(#case-shadow)">
+    <!-- Main case body (mid-tower) -->
+    <rect x="500" y="100" width="320" height="440" rx="16" fill="url(#case-grad)" stroke="#2a2a4a" stroke-width="2.5"/>
+
+    <!-- Tempered glass panel (front area) -->
+    <rect x="514" y="114" width="292" height="412" rx="10" fill="#0c0c28" opacity="0.8"/>
+
+    <!-- RGB strip top -->
+    <rect x="520" y="118" width="280" height="8" rx="4" fill="#c8ff00" opacity="0.7" filter="url(#rgb-glow)"/>
+    <!-- RGB strip bottom -->
+    <rect x="520" y="516" width="280" height="8" rx="4" fill="#c8ff00" opacity="0.5" filter="url(#rgb-glow)"/>
+
+    <!-- ===== MOTHERBOARD ===== -->
+    <rect x="540" y="140" width="180" height="200" rx="6" fill="#0a0a1e" stroke="#1e1e38" stroke-width="1"/>
+    <!-- Mobo traces -->
+    <line x1="540" y1="200" x2="720" y2="200" stroke="#1a1a35" stroke-width="1"/>
+    <line x1="580" y1="140" x2="580" y2="340" stroke="#1a1a35" stroke-width="1"/>
+    <!-- CPU socket -->
+    <rect x="590" y="160" width="70" height="70" rx="4" fill="#1a1a2e" stroke="#3a3a5a" stroke-width="1.5"/>
+    <rect x="600" y="170" width="50" height="50" rx="3" fill="#2a2a48"/>
+    <text x="625" y="200" font-family="monospace" font-size="10" fill="#5090e0" text-anchor="middle">CPU</text>
+    <!-- CPU cooler suggestion -->
+    <circle cx="625" cy="195" r="24" fill="none" stroke="#5090e0" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+    <!-- RAM slots -->
+    <rect x="726" y="148" width="10" height="80" rx="2" fill="url(#ram-grad)" stroke="#5090e0" stroke-width="1"/>
+    <rect x="742" y="148" width="10" height="80" rx="2" fill="url(#ram-grad)" stroke="#5090e0" stroke-width="1"/>
+    <!-- RAM RGB strip -->
+    <rect x="726" y="148" width="10" height="4" rx="1" fill="#c8ff00" opacity="0.8"/>
+    <rect x="742" y="148" width="10" height="4" rx="1" fill="#c8ff00" opacity="0.8"/>
+    <!-- M.2 slot -->
+    <rect x="550" y="250" width="80" height="12" rx="2" fill="#111130" stroke="#2a2a4a" stroke-width="1"/>
+    <text x="590" y="261" font-family="monospace" font-size="7" fill="#6b6b8a" text-anchor="middle">M.2 NVMe</text>
+    <!-- PCIe slot indicator -->
+    <rect x="550" y="310" width="140" height="10" rx="2" fill="#111130" stroke="#2a2a4a" stroke-width="1"/>
+    <text x="620" y="320" font-family="monospace" font-size="7" fill="#6b6b8a" text-anchor="middle">PCIe 4.0 x16</text>
+
+    <!-- ===== GPU ===== -->
+    <rect x="540" y="345" width="240" height="110" rx="10" fill="url(#gpu-grad)" stroke="#5dca7a" stroke-width="2"/>
+    <!-- GPU heatsink fins -->
+    <line x1="555" y1="355" x2="555" y2="445" stroke="#1a2e1a" stroke-width="3"/>
+    <line x1="565" y1="355" x2="565" y2="445" stroke="#1a2e1a" stroke-width="3"/>
+    <line x1="575" y1="355" x2="575" y2="445" stroke="#1a2e1a" stroke-width="3"/>
+    <line x1="585" y1="355" x2="585" y2="445" stroke="#1a2e1a" stroke-width="3"/>
+    <!-- GPU fan circles -->
+    <circle cx="640" cy="395" r="35" fill="#0f1e0f" stroke="#2a3a2a" stroke-width="1.5"/>
+    <circle cx="640" cy="395" r="25" fill="#0a150a" stroke="#1e2e1e" stroke-width="1"/>
+    <circle cx="640" cy="395" r="6" fill="#2a3a2a"/>
+    <circle cx="720" cy="395" r="35" fill="#0f1e0f" stroke="#2a3a2a" stroke-width="1.5"/>
+    <circle cx="720" cy="395" r="25" fill="#0a150a" stroke="#1e2e1e" stroke-width="1"/>
+    <circle cx="720" cy="395" r="6" fill="#2a3a2a"/>
+    <!-- GPU label -->
+    <text x="640" y="463" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#5dca7a" text-anchor="middle">RTX 4080 SUPER</text>
+
+    <!-- Power cables from PSU -->
+    <path d="M 500 480 Q 480 480 480 500 Q 480 520 500 520 L 560 520" stroke="#1e1e3a" stroke-width="4" fill="none"/>
+
+    <!-- PSU block (bottom) -->
+    <rect x="560" y="488" width="200" height="50" rx="6" fill="#111130" stroke="#2a2a4a" stroke-width="1"/>
+    <text x="660" y="518" font-family="monospace" font-size="10" fill="#6b6b8a" text-anchor="middle">PSU 850W GOLD</text>
+    <!-- PSU fan -->
+    <circle cx="615" cy="513" r="14" fill="#0a0a1e" stroke="#2a2a4a" stroke-width="1"/>
+
+    <!-- Case I/O panel (front bottom) -->
+    <rect x="544" y="498" width="15" height="12" rx="2" fill="#2a2a4a"/>
+    <circle cx="551" cy="510" r="3" fill="#c8ff00" opacity="0.8"/>
+
+  </g>
+
+  <!-- Left side text -->
+  <text x="80" y="150" font-family="system-ui, sans-serif" font-size="13" fill="#c8ff00" letter-spacing="2">PC BUILD GUIDE</text>
+  <text x="80" y="220" font-family="system-ui, sans-serif" font-size="40" font-weight="900" fill="#e8e8f0">The Gaming PC</text>
+  <text x="80" y="270" font-family="system-ui, sans-serif" font-size="40" font-weight="900" fill="#e8e8f0">I Actually Use</text>
+
+  <text x="80" y="316" font-family="system-ui, sans-serif" font-size="17" fill="#6b6b8a">No compromises · Built for</text>
+  <text x="80" y="340" font-family="system-ui, sans-serif" font-size="17" fill="#6b6b8a">real gaming in 2026</text>
+
+  <!-- Resolution badges -->
+  <rect x="80" y="374" width="90" height="36" rx="8" fill="#c8ff00"/>
+  <text x="125" y="397" font-family="system-ui, sans-serif" font-size="18" font-weight="900" fill="#0a0a23" text-anchor="middle">4K</text>
+
+  <rect x="183" y="374" width="105" height="36" rx="8" fill="#1a1a38" stroke="#c8ff00" stroke-width="2"/>
+  <text x="235" y="397" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#c8ff00" text-anchor="middle">1440p</text>
+
+  <!-- Spec summary -->
+  <rect x="80" y="426" width="380" height="120" rx="10" fill="#111128" stroke="#1e1e3a" stroke-width="1"/>
+  <text x="100" y="450" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#6b6b8a">CORE COMPONENTS</text>
+
+  <text x="100" y="476" font-family="system-ui, sans-serif" font-size="13" fill="#c0c0d8">CPU  </text>
+  <text x="145" y="476" font-family="system-ui, sans-serif" font-size="13" fill="#e8e8f0">AMD Ryzen 7 9800X3D</text>
+
+  <text x="100" y="498" font-family="system-ui, sans-serif" font-size="13" fill="#c0c0d8">GPU  </text>
+  <text x="145" y="498" font-family="system-ui, sans-serif" font-size="13" fill="#5dca7a">RTX 4080 Super 16GB</text>
+
+  <text x="100" y="520" font-family="system-ui, sans-serif" font-size="13" fill="#c0c0d8">RAM  </text>
+  <text x="145" y="520" font-family="system-ui, sans-serif" font-size="13" fill="#e8e8f0">64GB DDR5-6000 CL30</text>
+
+  <text x="100" y="542" font-family="system-ui, sans-serif" font-size="13" fill="#c0c0d8">STORAGE  </text>
+  <text x="175" y="542" font-family="system-ui, sans-serif" font-size="13" fill="#e8e8f0">2TB NVMe Gen5</text>
+
+  <!-- Right side callouts -->
+  <!-- RGB badge -->
+  <rect x="870" y="130" width="150" height="40" rx="8" fill="#1a1a38" stroke="#c8ff00" stroke-width="2"/>
+  <text x="945" y="155" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#c8ff00" text-anchor="middle">Full RGB Build</text>
+
+  <!-- Performance badge -->
+  <rect x="870" y="185" width="150" height="40" rx="8" fill="#1a1a38" stroke="#5dca7a" stroke-width="2"/>
+  <text x="945" y="210" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#5dca7a" text-anchor="middle">4K@120fps+</text>
+
+  <!-- Total cost -->
+  <rect x="870" y="460" width="220" height="60" rx="10" fill="#1a1a38" stroke="#c8ff00" stroke-width="2"/>
+  <text x="980" y="485" font-family="system-ui, sans-serif" font-size="13" fill="#6b6b8a" text-anchor="middle">Total Build Cost</text>
+  <text x="980" y="510" font-family="system-ui, sans-serif" font-size="26" font-weight="900" fill="#c8ff00" text-anchor="middle">~$2,400</text>
+
+  <!-- Footer -->
+  <text x="600" y="598" font-family="system-ui, sans-serif" font-size="12" fill="#4a4a6a" text-anchor="middle">techfuelhq.com · Gaming PC Build Guide · April 2026</text>
+</svg>

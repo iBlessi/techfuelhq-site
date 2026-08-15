@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>MikroTik CRS305-1G-4S+IN long-term spec card with key specifications</title>
+  <desc>TechFuel HQ long-term spec card for the MikroTik CRS305-1G-4S+IN 10GbE switch, listing four SFP+ ports, one gigabit management port, 9.1W max power, 6.5 to 7.1W idle, passive fanless cooling, and RouterOS or SwOS firmware.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <text x="70" y="92" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">LONG-TERM REVIEW · 10GbE SWITCH</text>
+  <text x="70" y="150" fill="#e8e8f0" font-size="50" font-weight="900">MikroTik CRS305-1G-4S+IN</text>
+  <text x="70" y="188" fill="#6b6b8a" font-size="20">The $80 10GbE switch that runs every homelab</text>
+
+  <g transform="translate(70,300)">
+    <rect width="500" height="232" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="24" y="36" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">THE VERDICT</text>
+    <text x="24" y="74" fill="#5dca7a" font-size="16" font-weight="600">+ Best-value 10GbE per port, no license fees</text>
+    <text x="24" y="104" fill="#5dca7a" font-size="16" font-weight="600">+ Sub-10W, fanless, open SFP+ standard</text>
+    <text x="24" y="134" fill="#5dca7a" font-size="16" font-weight="600">+ RouterOS or SwOS, both free</text>
+    <text x="24" y="172" fill="#e08828" font-size="16" font-weight="600">– RouterOS learning curve</text>
+    <text x="24" y="202" fill="#e08828" font-size="16" font-weight="600">– Dated web UI, four ports only</text>
+  </g>
+
+  <g transform="translate(630,225)">
+    <rect width="500" height="307" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="24" y="36" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">KEY SPECIFICATIONS</text>
+
+    <text x="24" y="76" fill="#c0c0d8" font-size="16">SFP+ ports (1 / 2.5 / 10 Gbps)</text>
+    <text x="476" y="76" text-anchor="end" fill="#c8ff00" font-size="16" font-weight="700">4×</text>
+
+    <text x="24" y="110" fill="#c0c0d8" font-size="16">Management port</text>
+    <text x="476" y="110" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">1× RJ45 GbE</text>
+
+    <text x="24" y="144" fill="#c0c0d8" font-size="16">Max power consumption</text>
+    <text x="476" y="144" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">9.1 W</text>
+
+    <text x="24" y="178" fill="#c0c0d8" font-size="16">Idle power (3rd-party measured)</text>
+    <text x="476" y="178" text-anchor="end" fill="#c8ff00" font-size="16" font-weight="700">6.5–7.1 W</text>
+
+    <text x="24" y="212" fill="#c0c0d8" font-size="16">Cooling</text>
+    <text x="476" y="212" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">Passive / fanless</text>
+
+    <text x="24" y="246" fill="#c0c0d8" font-size="16">Firmware</text>
+    <text x="476" y="246" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">RouterOS 7 / SwOS</text>
+
+    <text x="24" y="280" fill="#c0c0d8" font-size="16">Dimensions / temp range</text>
+    <text x="476" y="280" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">113×89×28 mm · 0–55°C</text>
+  </g>
+
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · Hardware Review · Specs per MikroTik official product page</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

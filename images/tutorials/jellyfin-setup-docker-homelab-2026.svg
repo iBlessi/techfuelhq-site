@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Jellyfin Docker homelab architecture: media mounts and GPU transcoding into a Jellyfin container, fronted by Nginx Proxy Manager HTTPS and Tailscale remote access</title>
+  <desc>Topology diagram. Media volume mounts (movies, tv, music) and a transcode SSD cache feed a Jellyfin Docker container running the linuxserver image on port 8096. Three hardware transcoding paths attach to the container: Intel Quick Sync via /dev/dri, NVIDIA NVENC via the NVIDIA runtime, and AMD VAAPI via renderD128. The container connects to a Docker proxy network. Nginx Proxy Manager terminates HTTPS at jellyfin.yourdomain.com with websockets on, and Tailscale provides remote access over a private VPN to phone, laptop and TV clients.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#5090e0"/>
+    </marker>
+    <marker id="arrowlime" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#c8ff00"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="66" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">SETUP TUTORIAL · SELF-HOSTED MEDIA SERVER</text>
+  <text x="70" y="108" fill="#e8e8f0" font-size="44" font-weight="900">Jellyfin on Docker — Homelab Topology</text>
+  <text x="70" y="140" fill="#6b6b8a" font-size="18">Media mounts + GPU transcoding → container → HTTPS proxy + Tailscale remote access</text>
+
+  <!-- ============ MEDIA MOUNTS (left) ============ -->
+  <text x="70" y="196" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">VOLUME MOUNTS</text>
+  <g transform="translate(70,210)">
+    <rect width="218" height="186" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="34" fill="#e8e8f0" font-size="17" font-weight="700">Media Library</text>
+    <text x="20" y="62" fill="#c0c0d8" font-size="15">/data/movies</text>
+    <text x="20" y="88" fill="#c0c0d8" font-size="15">/data/tv</text>
+    <text x="20" y="114" fill="#c0c0d8" font-size="15">/data/music</text>
+    <line x1="20" y1="130" x2="198" y2="130" stroke="#1e1e3a" stroke-width="1"/>
+    <text x="20" y="154" fill="#c8ff00" font-size="14" font-weight="700">/transcode</text>
+    <text x="20" y="174" fill="#6b6b8a" font-size="12">SSD cache, ephemeral</text>
+  </g>
+
+  <!-- ============ JELLYFIN CONTAINER (center) ============ -->
+  <g transform="translate(370,196)">
+    <rect width="356" height="262" rx="14" fill="#101028" stroke="#c8ff00" stroke-width="1.5"/>
+    <text x="22" y="34" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">DOCKER CONTAINER</text>
+    <text x="22" y="68" fill="#e8e8f0" font-size="30" font-weight="900">Jellyfin</text>
+    <text x="22" y="92" fill="#6b6b8a" font-size="13">lscr.io/linuxserver/jellyfin:latest</text>
+
+    <!-- port chip -->
+    <rect x="22" y="108" width="120" height="30" rx="6" fill="#0a0a23" stroke="#1e1e3a"/>
+    <text x="82" y="128" text-anchor="middle" fill="#5dca7a" font-size="14" font-weight="700">HTTP :8096</text>
+    <!-- PUID chip -->
+    <rect x="152" y="108" width="182" height="30" rx="6" fill="#0a0a23" stroke="#1e1e3a"/>
+    <text x="243" y="128" text-anchor="middle" fill="#c0c0d8" font-size="13">PUID/PGID 1000 · restart</text>
+
+    <line x1="22" y1="156" x2="334" y2="156" stroke="#1e1e3a" stroke-width="1"/>
+    <text x="22" y="180" fill="#6b6b8a" font-size="12" letter-spacing="1" font-weight="700">SERVES</text>
+    <text x="22" y="204" fill="#c0c0d8" font-size="14">Metadata scrape: TMDB · TheTVDB</text>
+    <text x="22" y="228" fill="#c0c0d8" font-size="14">Direct Play H.264 / HEVC · MP4 / MKV</text>
+    <text x="22" y="250" fill="#c0c0d8" font-size="14">Web client + native apps</text>
+  </g>
+
+  <!-- arrow: mounts -> container -->
+  <line x1="288" y1="300" x2="368" y2="300" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrowlime)"/>
+
+  <!-- ============ TRANSCODING PATHS (right) ============ -->
+  <text x="772" y="196" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">HARDWARE TRANSCODING</text>
+  <!-- Intel QSV -->
+  <g transform="translate(772,206)">
+    <rect width="358" height="74" rx="10" fill="#101028" stroke="#5090e0"/>
+    <text x="18" y="30" fill="#5090e0" font-size="16" font-weight="800">Intel Quick Sync (QSV / VAAPI)</text>
+    <text x="18" y="52" fill="#c0c0d8" font-size="13">device /dev/dri · group_add video, render</text>
+    <text x="340" y="52" text-anchor="end" fill="#c8ff00" font-size="13" font-weight="700">&lt;15% CPU @ 4K→1080p</text>
+  </g>
+  <!-- NVIDIA -->
+  <g transform="translate(772,290)">
+    <rect width="358" height="74" rx="10" fill="#101028" stroke="#5dca7a"/>
+    <text x="18" y="30" fill="#5dca7a" font-size="16" font-weight="800">NVIDIA NVENC</text>
+    <text x="18" y="52" fill="#c0c0d8" font-size="13">runtime: nvidia · Container Toolkit</text>
+    <text x="340" y="52" text-anchor="end" fill="#c0c0d8" font-size="13">AV1 on RTX 4000+</text>
+  </g>
+  <!-- AMD VAAPI -->
+  <g transform="translate(772,374)">
+    <rect width="358" height="74" rx="10" fill="#101028" stroke="#e63946"/>
+    <text x="18" y="30" fill="#e63946" font-size="16" font-weight="800">AMD VAAPI</text>
+    <text x="18" y="52" fill="#c0c0d8" font-size="13">VA device /dev/dri/renderD128</text>
+    <text x="340" y="52" text-anchor="end" fill="#c0c0d8" font-size="13">HW encode on</text>
+  </g>
+  <!-- arrows: container -> transcoders -->
+  <line x1="726" y1="243" x2="770" y2="243" stroke="#5090e0" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="726" y1="300" x2="770" y2="327" stroke="#5090e0" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="726" y1="340" x2="770" y2="411" stroke="#5090e0" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ============ ACCESS LAYER (bottom) ============ -->
+  <text x="70" y="498" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">ACCESS LAYER  ·  docker network: proxy (external)</text>
+  <!-- NPM -->
+  <g transform="translate(70,510)">
+    <rect width="372" height="62" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="18" y="27" fill="#e8e8f0" font-size="16" font-weight="700">Nginx Proxy Manager · HTTPS</text>
+    <text x="18" y="49" fill="#c0c0d8" font-size="13">jellyfin.yourdomain.com → :8096 · Websockets ON</text>
+  </g>
+  <!-- Tailscale -->
+  <g transform="translate(462,510)">
+    <rect width="324" height="62" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="18" y="27" fill="#e8e8f0" font-size="16" font-weight="700">Tailscale · Remote Access</text>
+    <text x="18" y="49" fill="#c0c0d8" font-size="13">subnet route 192.168.1.0/24 · no open ports</text>
+  </g>
+  <!-- Clients -->
+  <g transform="translate(806,510)">
+    <rect width="324" height="62" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="18" y="27" fill="#e8e8f0" font-size="16" font-weight="700">Clients</text>
+    <text x="18" y="49" fill="#c0c0d8" font-size="13">Apple TV · Android TV · Roku · iOS · Web</text>
+  </g>
+  <!-- arrow container -> access -->
+  <line x1="548" y1="458" x2="548" y2="508" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrowlime)"/>
+
+  <!-- Footer -->
+  <text x="70" y="600" fill="#4a4a6a" font-size="13">TechFuel HQ · Setup Tutorial · Topology &amp; specs per this guide; N100 Quick Sync: 4 streams @ ~28% CPU</text>
+  <text x="1130" y="600" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

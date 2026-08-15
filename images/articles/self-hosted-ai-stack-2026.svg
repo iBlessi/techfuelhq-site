@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="780" viewBox="0 0 1200 780" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>The four categories of the self-hosted AI stack in 2026 and where to start</title>
+  <desc>Map of the four self-hosted AI categories from the article: local LLMs (Ollama, LM Studio, llama.cpp, vLLM with Open WebUI front end), image generation (ComfyUI, AUTOMATIC1111, Flux and SDXL models), speech (Whisper for transcription, Piper and Kokoro for synthesis), and coding assistants (Tabby, Continue, Aider). All four lanes are gated by the same GPU VRAM tiers (8GB, 16GB, 24GB). The recommended starting point is Ollama plus Open WebUI.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="780" fill="#0a0a23"/>
+  <rect width="1200" height="780" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">SELF-HOSTED AI STACK &#183; 2026 CATEGORY MAP</text>
+  <text x="70" y="128" fill="#e8e8f0" font-size="44" font-weight="900">Four Lanes, One Hardware Question</text>
+  <text x="70" y="162" fill="#6b6b8a" font-size="19">Local AI in 2026 is a small stack of mature, mostly open-weight pieces &#183; pick the lane you need, match the model to your VRAM</text>
+
+  <!-- Four category columns -->
+  <g transform="translate(70,198)">
+    <!-- Column 1: Local LLMs (winner / start-here lane = lime) -->
+    <rect x="0" y="0" width="252" height="372" rx="10" fill="#101028" stroke="#c8ff00"/>
+    <rect x="0" y="0" width="252" height="6" rx="3" fill="#c8ff00"/>
+    <text x="20" y="40" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">CATEGORY 1</text>
+    <text x="20" y="68" fill="#e8e8f0" font-size="22" font-weight="900">Local LLMs</text>
+    <text x="20" y="90" fill="#6b6b8a" font-size="14">chat &#183; text &#183; RAG</text>
+
+    <text x="20" y="124" fill="#6b6b8a" font-size="12" letter-spacing="1" font-weight="700">RUNNERS</text>
+    <text x="20" y="148" fill="#e8e8f0" font-size="15" font-weight="600">Ollama &#183; LM Studio</text>
+    <text x="20" y="170" fill="#e8e8f0" font-size="15" font-weight="600">llama.cpp &#183; vLLM</text>
+
+    <text x="20" y="204" fill="#6b6b8a" font-size="12" letter-spacing="1" font-weight="700">FRONT END</text>
+    <text x="20" y="228" fill="#e8e8f0" font-size="15" font-weight="600">Open WebUI</text>
+
+    <text x="20" y="262" fill="#6b6b8a" font-size="12" letter-spacing="1" font-weight="700">MODELS</text>
+    <text x="20" y="286" fill="#c0c0d8" font-size="14">Qwen3 &#183; GPT-OSS</text>
+    <text x="20" y="306" fill="#c0c0d8" font-size="14">Llama &#183; DeepSeek</text>
+    <text x="20" y="326" fill="#c0c0d8" font-size="14">Mistral &#183; Gemma 3</text>
+
+    <rect x="14" y="340" width="224" height="22" rx="6" fill="#1a2a0a"/>
+    <text x="20" y="356" fill="#c8ff00" font-size="12" font-weight="700">START HERE: Ollama + Open WebUI</text>
+
+    <!-- Column 2: Image generation (blue) -->
+    <rect x="266" y="0" width="252" height="372" rx="10" fill="#101028" stroke="#5090e0"/>
+    <rect x="266" y="0" width="252" height="6" rx="3" fill="#5090e0"/>
+    <text x="286" y="40" fill="#5090e0" font-size="13" letter-spacing="2" font-weight="700">CATEGORY 2</text>
+    <text x="286" y="68" fill="#e8e8f0" font-size="22" font-weight="900">Image Gen</text>
+    <text x="286" y="90" fill="#6b6b8a" font-size="14">no per-image cost</text>
+
+    <text x="286" y="124" fill="#6b6b8a" font-size="12" letter-spacing="1" font-weight="700">INTERFACES</text>
+    <text x="286" y="148" fill="#e8e8f0" font-size="15" font-weight="600">ComfyUI</text>
+    <text x="286" y="170" fill="#e8e8f0" font-size="15" font-weight="600">AUTOMATIC1111</text>
+    <text x="286" y="190" fill="#6b6b8a" font-size="13">(Forge fork)</text>
+
+    <text x="286" y="224" fill="#6b6b8a" font-size="12" letter-spacing="1" font-weight="700">MODELS</text>
+    <text x="286" y="248" fill="#c0c0d8" font-size="14">Flux (12GB+ VRAM)</text>
+    <text x="286" y="270" fill="#c0c0d8" font-size="14">SDXL</text>
+    <text x="286" y="292" fill="#c0c0d8" font-size="14">Stable Diffusion 3.5</text>
+
+    <rect x="280" y="340" width="224" height="22" rx="6" fill="#0d1a2e"/>
+    <text x="286" y="356" fill="#5090e0" font-size="12" font-weight="700">EASY PATH: AUTOMATIC1111</text>
+
+    <!-- Column 3: Speech (orange) -->
+    <rect x="532" y="0" width="252" height="372" rx="10" fill="#101028" stroke="#e08828"/>
+    <rect x="532" y="0" width="252" height="6" rx="3" fill="#e08828"/>
+    <text x="552" y="40" fill="#e08828" font-size="13" letter-spacing="2" font-weight="700">CATEGORY 3</text>
+    <text x="552" y="68" fill="#e8e8f0" font-size="22" font-weight="900">Speech</text>
+    <text x="552" y="90" fill="#6b6b8a" font-size="14">STT &#183; TTS</text>
+
+    <text x="552" y="124" fill="#6b6b8a" font-size="12" letter-spacing="1" font-weight="700">TRANSCRIBE (STT)</text>
+    <text x="552" y="148" fill="#e8e8f0" font-size="15" font-weight="600">Whisper</text>
+    <text x="552" y="170" fill="#c0c0d8" font-size="13">whisper.cpp &#183; faster-whisper</text>
+
+    <text x="552" y="204" fill="#6b6b8a" font-size="12" letter-spacing="1" font-weight="700">SYNTHESIZE (TTS)</text>
+    <text x="552" y="228" fill="#e8e8f0" font-size="15" font-weight="600">Piper &#183; Kokoro</text>
+    <text x="552" y="250" fill="#c0c0d8" font-size="13">20+ languages</text>
+
+    <text x="552" y="284" fill="#6b6b8a" font-size="12" letter-spacing="1" font-weight="700">ALL-IN-ONE</text>
+    <text x="552" y="308" fill="#c0c0d8" font-size="14">Speaches (OpenAI API)</text>
+
+    <rect x="546" y="340" width="224" height="22" rx="6" fill="#2e1c0a"/>
+    <text x="552" y="356" fill="#e08828" font-size="12" font-weight="700">SMALL MODELS RUN ON CPU</text>
+
+    <!-- Column 4: Coding assistants (purple) -->
+    <rect x="798" y="0" width="252" height="372" rx="10" fill="#101028" stroke="#b06bff"/>
+    <rect x="798" y="0" width="252" height="6" rx="3" fill="#b06bff"/>
+    <text x="818" y="40" fill="#b06bff" font-size="13" letter-spacing="2" font-weight="700">CATEGORY 4</text>
+    <text x="818" y="68" fill="#e8e8f0" font-size="22" font-weight="900">Coding</text>
+    <text x="818" y="90" fill="#6b6b8a" font-size="14">Copilot-style, local</text>
+
+    <text x="818" y="124" fill="#6b6b8a" font-size="12" letter-spacing="1" font-weight="700">TOOLS</text>
+    <text x="818" y="148" fill="#e8e8f0" font-size="15" font-weight="600">Tabby (self-hosted)</text>
+    <text x="818" y="170" fill="#e8e8f0" font-size="15" font-weight="600">Continue (VS Code)</text>
+    <text x="818" y="192" fill="#e8e8f0" font-size="15" font-weight="600">Aider &#183; Cline</text>
+
+    <text x="818" y="226" fill="#6b6b8a" font-size="12" letter-spacing="1" font-weight="700">MODELS</text>
+    <text x="818" y="250" fill="#c0c0d8" font-size="14">Codestral</text>
+    <text x="818" y="272" fill="#c0c0d8" font-size="14">DeepSeek Coder</text>
+    <text x="818" y="294" fill="#c0c0d8" font-size="14">Qwen3-Coder</text>
+
+    <rect x="812" y="340" width="224" height="22" rx="6" fill="#1f0d2e"/>
+    <text x="818" y="356" fill="#b06bff" font-size="12" font-weight="700">AIR-GAPPED TEAM: Tabby</text>
+  </g>
+
+  <!-- Shared gating bar: GPU VRAM -->
+  <g transform="translate(70,594)">
+    <rect x="0" y="0" width="1052" height="100" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="100" rx="3" fill="#c8ff00"/>
+    <text x="26" y="30" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">THE ONE GATE FOR ALL FOUR LANES &#183; GPU VRAM</text>
+
+    <!-- 8GB tier -->
+    <rect x="26" y="44" width="320" height="44" rx="8" fill="#13132e"/>
+    <text x="42" y="64" fill="#e8e8f0" font-size="15" font-weight="800">8&#160;GB</text>
+    <text x="98" y="64" fill="#6b6b8a" font-size="13">RTX 3060 / 4060</text>
+    <text x="42" y="82" fill="#c0c0d8" font-size="13">7&#8211;8B chat &amp; coding models</text>
+
+    <!-- 16GB tier -->
+    <rect x="358" y="44" width="320" height="44" rx="8" fill="#13132e"/>
+    <text x="374" y="64" fill="#e8e8f0" font-size="15" font-weight="800">16&#160;GB</text>
+    <text x="430" y="64" fill="#6b6b8a" font-size="13">4060 Ti / 5060 Ti / 5080</text>
+    <text x="374" y="82" fill="#c0c0d8" font-size="13">14B + GPT-OSS-20B + Flux</text>
+
+    <!-- 24GB tier (sweet spot = lime accent) -->
+    <rect x="690" y="44" width="336" height="44" rx="8" fill="#13132e"/>
+    <text x="706" y="64" fill="#e8e8f0" font-size="15" font-weight="800">24&#160;GB</text>
+    <text x="762" y="64" fill="#c8ff00" font-size="13" font-weight="700">RTX 3090 / 4090 &#183; sweet spot</text>
+    <text x="706" y="82" fill="#c0c0d8" font-size="13">~32B models with room for context</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="744" fill="#4a4a6a" font-size="13">TechFuel HQ &#183; Self-Hosted AI Stack 2026 &#183; tools and tiers per the article</text>
+  <text x="1130" y="744" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

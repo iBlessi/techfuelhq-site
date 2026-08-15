@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="TechFuel HQ — hardware reviews, homelab guides, and first-party data">
+  <rect width="1200" height="630" fill="#0a0a0b"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#16161a" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect x="0" y="0" width="1200" height="10" fill="#c8ff00"/>
+  <g font-family="Inter, system-ui, -apple-system, sans-serif">
+    <text x="80" y="250" font-size="40" font-weight="700" fill="#c8ff00" letter-spacing="2">TECHFUEL HQ</text>
+    <text x="80" y="360" font-size="76" font-weight="800" fill="#fafafa">Hardware tested.</text>
+    <text x="80" y="450" font-size="76" font-weight="800" fill="#fafafa">Homelabs, <tspan fill="#c8ff00">honestly.</tspan></text>
+    <text x="80" y="540" font-size="32" font-weight="400" fill="#8c8c8c">Reviews &middot; Homelab guides &middot; First-party benchmark data</text>
+  </g>
+</svg>

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Best GPU for Plex and Jellyfin transcoding in 2026 — buying guide</title>
+  <desc>Buying guide ranking transcoding options. Top pick: Intel Quick Sync iGPU at about 3 watts and zero marginal cost, handling 4 to 8 simultaneous 1080p or 2 to 4 simultaneous 4K H.265 to H.264 streams. Ranked picks by use case follow, with annual electricity costs from the article: Intel iGPU $0, AMD RX 6600 about $6 per year, NVIDIA GTX 1650 about $8 per year, RTX 3060 about $15 per year.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">BUYING GUIDE · HOMELAB · 2026</text>
+  <text x="70" y="132" fill="#e8e8f0" font-size="50" font-weight="900">Best GPU for Plex &amp; Jellyfin</text>
+  <text x="70" y="180" fill="#e8e8f0" font-size="50" font-weight="900">Transcoding</text>
+  <text x="70" y="218" fill="#6b6b8a" font-size="20">The cheap Intel iGPU beats the dedicated card for media server work</text>
+
+  <!-- TOP PICK panel -->
+  <g transform="translate(70,252)">
+    <rect width="520" height="300" rx="12" fill="#101028" stroke="#c8ff00" stroke-width="1.5"/>
+    <text x="24" y="38" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">TOP PICK · BEST TCO</text>
+    <text x="24" y="78" fill="#c8ff00" font-size="30" font-weight="900">Intel Quick Sync (QSV)</text>
+    <text x="24" y="106" fill="#c0c0d8" font-size="16">Built-in iGPU — Alder Lake-N and newer</text>
+
+    <line x1="24" y1="126" x2="496" y2="126" stroke="#1e1e3a" stroke-width="1"/>
+
+    <text x="24" y="160" fill="#c0c0d8" font-size="16">Idle power draw</text>
+    <text x="496" y="160" text-anchor="end" fill="#c8ff00" font-size="16" font-weight="700">~3 W</text>
+
+    <text x="24" y="194" fill="#c0c0d8" font-size="16">Marginal hardware / electricity</text>
+    <text x="496" y="194" text-anchor="end" fill="#c8ff00" font-size="16" font-weight="700">$0</text>
+
+    <text x="24" y="228" fill="#c0c0d8" font-size="16">1080p transcode streams</text>
+    <text x="496" y="228" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">4–8 simultaneous</text>
+
+    <text x="24" y="262" fill="#c0c0d8" font-size="16">4K H.265 → H.264 streams</text>
+    <text x="496" y="262" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">2–4 simultaneous</text>
+
+    <text x="24" y="290" fill="#5dca7a" font-size="14">HDR tone-mapping in hardware on Gen 12+ iGPUs</text>
+  </g>
+
+  <!-- Picks by use case + cost -->
+  <g transform="translate(610,252)">
+    <rect width="520" height="300" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="24" y="38" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">PICK BY USE CASE</text>
+
+    <!-- Row 1 -->
+    <text x="24" y="74" fill="#c8ff00" font-size="15" font-weight="700">Mixed clients + remote streaming</text>
+    <text x="24" y="96" fill="#c0c0d8" font-size="14">Intel N100 / N150 mini PC, QSV</text>
+    <text x="496" y="88" text-anchor="end" fill="#5dca7a" font-size="15" font-weight="700">$0 / yr</text>
+
+    <line x1="24" y1="112" x2="496" y2="112" stroke="#1e1e3a" stroke-width="1"/>
+
+    <!-- Row 2 -->
+    <text x="24" y="142" fill="#c8ff00" font-size="15" font-weight="700">Family server, 4–8 users</text>
+    <text x="24" y="164" fill="#c0c0d8" font-size="14">i5-12400 / i5-12500H, QSV first</text>
+    <text x="496" y="156" text-anchor="end" fill="#5dca7a" font-size="15" font-weight="700">$0 / yr</text>
+
+    <line x1="24" y1="180" x2="496" y2="180" stroke="#1e1e3a" stroke-width="1"/>
+
+    <!-- Row 3 -->
+    <text x="24" y="210" fill="#5090e0" font-size="15" font-weight="700">Already own an RTX card</text>
+    <text x="24" y="232" fill="#c0c0d8" font-size="14">Enable NVENC as secondary workload</text>
+    <text x="496" y="224" text-anchor="end" fill="#5090e0" font-size="15" font-weight="700">no extra</text>
+
+    <line x1="24" y1="248" x2="496" y2="248" stroke="#1e1e3a" stroke-width="1"/>
+
+    <!-- Row 4 -->
+    <text x="24" y="278" fill="#e63946" font-size="15" font-weight="700">Buying a card just to transcode</text>
+    <text x="24" y="288" fill="#6b6b8a" font-size="12">GTX 1650 ~+$8/yr · RX 6600 ~+$6/yr · RTX 3060 ~+$15/yr idle</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · Homelab Buying Guide · Power figures &amp; stream counts per article (US avg electricity)</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

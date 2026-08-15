@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<rect width="1200" height="630" fill="#0a0a23"/>
+<text x="600" y="40" text-anchor="middle" fill="#c8ff00" font-size="20" font-weight="700" font-family="Inter,sans-serif">SELF-HOSTING HARDWARE TIERS</text>
+<text x="600" y="62" text-anchor="middle" fill="#8888aa" font-size="12" font-family="Inter,sans-serif">Match your hardware to your ambition | What each tier can run</text>
+<!-- Tier 1 -->
+<rect x="40" y="85" width="360" height="300" fill="#12122a" rx="12"/>
+<rect x="40" y="85" width="360" height="50" fill="#1a1a3a" rx="12"/>
+<rect x="40" y="110" width="360" height="25" fill="#1a1a3a"/>
+<text x="220" y="118" text-anchor="middle" fill="#c8ff00" font-size="18" font-weight="800" font-family="Inter,sans-serif">TIER 1: TINY BOX</text>
+<text x="220" y="155" text-anchor="middle" fill="#ccccdd" font-size="28" font-weight="800" font-family="Inter,sans-serif">4-8 GB RAM</text>
+<text x="220" y="180" text-anchor="middle" fill="#8888aa" font-size="12" font-family="Inter,sans-serif">Raspberry Pi | Old laptop | Thin client</text>
+<line x1="60" y1="195" x2="380" y2="195" stroke="#1a1a3a" stroke-width="1"/>
+<text x="60" y="220" fill="#c8ff00" font-size="12" font-family="Inter,sans-serif">✓ Pi-hole</text>
+<text x="60" y="240" fill="#c8ff00" font-size="12" font-family="Inter,sans-serif">✓ Uptime Kuma</text>
+<text x="60" y="260" fill="#c8ff00" font-size="12" font-family="Inter,sans-serif">✓ Home Assistant</text>
+<text x="60" y="285" fill="#555570" font-size="11" font-family="Inter,sans-serif">✗ Jellyfin (no transcode)</text>
+<text x="60" y="305" fill="#555570" font-size="11" font-family="Inter,sans-serif">✗ Immich (too RAM-hungry)</text>
+<text x="220" y="340" text-anchor="middle" fill="#c8ff00" font-size="13" font-weight="600" font-family="Inter,sans-serif">RAM used: ~3GB</text>
+<text x="220" y="360" text-anchor="middle" fill="#8888aa" font-size="11" font-family="Inter,sans-serif">Room for reverse proxy + WireGuard</text>
+<!-- Tier 2 -->
+<rect x="420" y="85" width="360" height="300" fill="#12122a" rx="12" stroke="#c8ff00" stroke-width="1.5"/>
+<rect x="420" y="85" width="360" height="50" fill="#1a1a3a" rx="12"/>
+<rect x="420" y="110" width="360" height="25" fill="#1a1a3a"/>
+<text x="600" y="118" text-anchor="middle" fill="#c8ff00" font-size="18" font-weight="800" font-family="Inter,sans-serif">TIER 2: N100 BOX</text>
+<text x="349" y="100" fill="#0a0a23" font-size="9" font-weight="700" font-family="Inter,sans-serif">SWEET SPOT</text>
+<rect x="730" y="90" width="45" height="16" fill="#c8ff00" rx="3"/>
+<text x="752" y="101" text-anchor="middle" fill="#0a0a23" font-size="9" font-weight="700" font-family="Inter,sans-serif">BEST</text>
+<text x="600" y="155" text-anchor="middle" fill="#ccccdd" font-size="28" font-weight="800" font-family="Inter,sans-serif">8-16 GB RAM</text>
+<text x="600" y="180" text-anchor="middle" fill="#8888aa" font-size="12" font-family="Inter,sans-serif">Intel N100 mini PC | Beelink | Minisforum</text>
+<line x1="440" y1="195" x2="760" y2="195" stroke="#1a1a3a" stroke-width="1"/>
+<text x="440" y="220" fill="#c8ff00" font-size="12" font-family="Inter,sans-serif">✓ Everything from Tier 1</text>
+<text x="440" y="240" fill="#c8ff00" font-size="12" font-family="Inter,sans-serif">✓ Jellyfin + HW transcode (Quick Sync)</text>
+<text x="440" y="260" fill="#c8ff00" font-size="12" font-family="Inter,sans-serif">✓ Nextcloud (light usage)</text>
+<text x="440" y="285" fill="#555570" font-size="11" font-family="Inter,sans-serif">✗ Immich ML (slow but works)</text>
+<text x="600" y="340" text-anchor="middle" fill="#c8ff00" font-size="13" font-weight="600" font-family="Inter,sans-serif">RAM used: ~10-12GB</text>
+<text x="600" y="360" text-anchor="middle" fill="#8888aa" font-size="11" font-family="Inter,sans-serif">N100 Quick Sync is excellent for transcode</text>
+<!-- Tier 3 -->
+<rect x="800" y="85" width="360" height="300" fill="#12122a" rx="12"/>
+<rect x="800" y="85" width="360" height="50" fill="#1a1a3a" rx="12"/>
+<rect x="800" y="110" width="360" height="25" fill="#1a1a3a"/>
+<text x="980" y="118" text-anchor="middle" fill="#c8ff00" font-size="18" font-weight="800" font-family="Inter,sans-serif">TIER 3: SERIOUS NODE</text>
+<text x="980" y="155" text-anchor="middle" fill="#ccccdd" font-size="28" font-weight="800" font-family="Inter,sans-serif">16-32 GB RAM</text>
+<text x="980" y="180" text-anchor="middle" fill="#8888aa" font-size="12" font-family="Inter,sans-serif">Ryzen 7 | Intel i5 | 8+ cores</text>
+<line x1="820" y1="195" x2="1140" y2="195" stroke="#1a1a3a" stroke-width="1"/>
+<text x="820" y="220" fill="#c8ff00" font-size="12" font-family="Inter,sans-serif">✓ ALL 6 services simultaneously</text>
+<text x="820" y="240" fill="#c8ff00" font-size="12" font-family="Inter,sans-serif">✓ Immich ML processing (comfortable)</text>
+<text x="820" y="260" fill="#c8ff00" font-size="12" font-family="Inter,sans-serif">✓ Multi-user Nextcloud</text>
+<text x="820" y="280" fill="#c8ff00" font-size="12" font-family="Inter,sans-serif">✓ Proxmox VMs on the side</text>
+<text x="980" y="340" text-anchor="middle" fill="#c8ff00" font-size="13" font-weight="600" font-family="Inter,sans-serif">RAM used: ~16-20GB</text>
+<text x="980" y="360" text-anchor="middle" fill="#8888aa" font-size="11" font-family="Inter,sans-serif">Family hosting + dev environment</text>
+<!-- Docker vs bare metal note -->
+<rect x="40" y="405" width="1120" height="70" fill="#12122a" rx="10"/>
+<text x="600" y="435" text-anchor="middle" fill="#c8ff00" font-size="14" font-weight="700" font-family="Inter,sans-serif">INSTALL METHOD: Docker Compose for everything except Home Assistant (use HA OS) and Nextcloud (use AIO)</text>
+<text x="600" y="458" text-anchor="middle" fill="#8888aa" font-size="12" font-family="Inter,sans-serif">Don't overcomplicate it with Kubernetes. Don't hand-install packages. Docker is the right path.</text>
+<!-- Footer -->
+<text x="600" y="520" text-anchor="middle" fill="#555570" font-size="11" font-family="Inter,sans-serif">techfuelhq.com | Self-Hosting Essentials 2026</text>
+<rect x="200" y="535" width="800" height="3" fill="#c8ff00" rx="2" opacity="0.3"/>
+</svg>

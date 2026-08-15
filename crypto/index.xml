@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Crypto From the Hardware Side: Mining, Nodes &amp; Self-Custody on TechFuel HQ</title><link>https://techfuelhq.com/crypto/</link><description>Recent content in Crypto From the Hardware Side: Mining, Nodes &amp; Self-Custody on TechFuel HQ</description><generator>Hugo</generator><language>en-us</language><managingEditor>LK Wood IV</managingEditor><lastBuildDate>Wed, 01 Jul 2026 00:00:00 -0500</lastBuildDate><atom:link href="https://techfuelhq.com/crypto/index.xml" rel="self" type="application/rss+xml"/><atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/><item><title>CPU Mining in 2026: Is It Worth It, and Which Coins?</title><link>https://techfuelhq.com/crypto/cpu-mining-guide-2026/</link><pubDate>Wed, 01 Jul 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/crypto/cpu-mining-guide-2026/</guid><description>&lt;p>If you have a decent desktop or a homelab box sitting idle, &amp;ldquo;can I just mine some crypto on it&amp;rdquo; is a fair question. The honest answer in 2026 is: yes, on exactly one coin worth taking seriously, for a few dimes to a couple of dollars a day, and only if your electricity is cheap. This guide is the math and the method, from the hardware side, with none of the &amp;ldquo;passive income&amp;rdquo; fantasy.&lt;/p>
+&lt;h2 id="the-bottom-line-up-front">The bottom line, up front&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>The coin is Monero (XMR).&lt;/strong> Its RandomX algorithm is the one major mining algorithm deliberately designed to run best on ordinary CPUs. Almost everything else worth mining now needs ASICs or GPUs.&lt;/li>
+&lt;li>&lt;strong>The money is small.&lt;/strong> A high-end Ryzen earns roughly &lt;strong>$0.60–$0.80/day&lt;/strong> in XMR at a ~$200 price, before power. Net profit is measured in cents unless your electricity is very cheap.&lt;/li>
+&lt;li>&lt;strong>The electricity rate decides everything.&lt;/strong> Below ~$0.08/kWh it is worth running; above ~$0.17/kWh you are paying to mine.&lt;/li>
+&lt;li>&lt;strong>Never buy hardware to do this.&lt;/strong> The payback on a bought rig runs past five years. Mine on a machine you already own and would keep anyway.&lt;/li>
+&lt;li>&lt;strong>The real risk is malware, not money.&lt;/strong> Mining software is one of the most abused categories on the internet. Getting the download wrong is how people lose far more than they ever mine.&lt;/li>
+&lt;/ul>
+&lt;p>If that is enough for you, great — that restraint is the whole point. If you want to actually do it well, here is the rest.&lt;/p>
+&lt;h2 id="what-cpu-mining-is-and-why-it-still-exists">What CPU mining is (and why it still exists)&lt;/h2>
+&lt;p>Most crypto mining abandoned CPUs over a decade ago. Bitcoin moved to purpose-built ASICs, and GPU mining dominated everything else until Ethereum — the coin that made graphics cards worth buying by the pallet — switched to proof-of-stake and stopped being mined at all. That should have been the end of the CPU miner.&lt;/p>
+&lt;p>It was not, because of one deliberate design choice. Monero uses an algorithm called &lt;strong>RandomX&lt;/strong>, built specifically to be &lt;em>ASIC-resistant&lt;/em> and CPU-friendly. It works by generating random program code and forcing miners through large, unpredictable memory-access patterns — exactly the workload a general-purpose CPU with a big cache is built for, and exactly what a fixed-function ASIC circuit is bad at. Per reputable 2026 mining coverage, no dedicated Monero ASIC meaningfully beats a well-tuned CPU, and GPUs generally lose to CPUs on a hash-per-watt basis for RandomX.&lt;/p>
+&lt;p>That single design decision is why CPU mining is a real, if niche, thing in 2026 — and why the chips that win are the same big-cache processors that win at gaming.&lt;/p>
+&lt;h2 id="is-cpu-mining-profitable-the-actual-math">Is CPU mining profitable? The actual math&lt;/h2>
+&lt;p>Here is the whole calculation. There is no magic in it, which is the point.&lt;/p>
+&lt;p>&lt;strong>Daily profit = (your XMR per day × XMR price) − (watts ÷ 1000 × 24 × your $/kWh)&lt;/strong>&lt;/p>
+&lt;p>Work a real example — a &lt;strong>Ryzen 9 7950X&lt;/strong>, one of the strongest home mining CPUs, tuned to about &lt;strong>27 KH/s&lt;/strong>, which earns roughly &lt;strong>0.0035 XMR/day&lt;/strong>. At an illustrative &lt;strong>$200&lt;/strong> XMR price that is about &lt;strong>$0.70/day&lt;/strong> of revenue, and the chip draws about &lt;strong>170W&lt;/strong> while doing it (≈ 4.08 kWh/day):&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Your electricity rate&lt;/th>
+&lt;th scope="col">Daily power cost&lt;/th>
+&lt;th scope="col">Daily &lt;em>net&lt;/em> profit&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>$0.05 / kWh&lt;/td>
+&lt;td>$0.20&lt;/td>
+&lt;td>&lt;strong>$0.50&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$0.10 / kWh&lt;/td>
+&lt;td>$0.41&lt;/td>
+&lt;td>&lt;strong>$0.29&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$0.15 / kWh&lt;/td>
+&lt;td>$0.61&lt;/td>
+&lt;td>&lt;strong>$0.09&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$0.17 / kWh&lt;/td>
+&lt;td>$0.69&lt;/td>
+&lt;td>&lt;strong>$0.01&lt;/strong> (break-even)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$0.20 / kWh&lt;/td>
+&lt;td>$0.82&lt;/td>
+&lt;td>&lt;strong>−$0.12 (loss)&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Two things fall out of that table. First, &lt;strong>the electricity rate is the entire game&lt;/strong> — the same machine is a modest earner or a money-loser depending only on what you pay per kilowatt-hour. The break-even here is about &lt;strong>$0.17/kWh&lt;/strong>; the U.S. residential average is near that line, which is why &amp;ldquo;it depends where you live&amp;rdquo; is the real answer.&lt;/p>
+&lt;p>Second, &lt;strong>buying hardware to mine is a bad trade.&lt;/strong> At $0.29/day net, a $600 machine takes over &lt;strong>2,000 days — more than five years — to pay for itself&lt;/strong>, and that is before the XMR price or network difficulty moves against you. Mining only makes sense on a capable CPU you &lt;em>already own and would keep running anyway&lt;/em>. On this site we are big fans of &lt;a href="https://techfuelhq.com/articles/repurpose-gaming-pc-proxmox-server-2026/">turning an old gaming PC into a homelab server&lt;/a>; letting spare cycles on that box mine a little XMR is a reasonable use of hardware you already paid for. Buying a box for it is not.&lt;/p>
+&lt;blockquote>
+&lt;p>These numbers are &lt;strong>illustrative and move constantly.&lt;/strong> XMR price and network difficulty change daily, so plug your own CPU, wattage, and power rate into a live Monero mining calculator (CoinWarz and MoneroOcean both publish one) before you commit. Treat any single day&amp;rsquo;s figure as a snapshot, not a promise.&lt;/p>&lt;/blockquote>
+&lt;h2 id="which-cpus-actually-mine-well">Which CPUs actually mine well&lt;/h2>
+&lt;p>RandomX rewards three things: cores, &lt;strong>L3 cache&lt;/strong>, and memory bandwidth. That is an unusual profile — it means the chips built for high-end gaming and workstation loads are also the best miners, and that cache can matter as much as core count.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Enthusiast (≈25–31 KH/s):&lt;/strong> AMD Ryzen 9 7950X / 7950X3D / 9950X. The top of the home range.&lt;/li>
+&lt;li>&lt;strong>Mid-range (≈10–15 KH/s):&lt;/strong> six-to-eight-core Ryzen and recent Intel Core chips — this is where most people&amp;rsquo;s existing desktop lands.&lt;/li>
+&lt;li>&lt;strong>Budget / SBC (≈1–5 KH/s):&lt;/strong> older CPUs and Raspberry-Pi-class boards. Real, but the earnings are rounding error.&lt;/li>
+&lt;/ul>
+&lt;p>Because RandomX leans on cache and RAM, fast dual-channel memory genuinely helps — this is one of the few consumer workloads where your &lt;a href="https://techfuelhq.com/articles/ddr5-ram-buying-guide-2025/">DDR5 kit choice&lt;/a> shows up in the result — and AMD&amp;rsquo;s stacked-cache X3D chips punch above their core count. The same &lt;a href="https://techfuelhq.com/reviews/ryzen-7-7800x3d-review-2026/">Ryzen 7 7800X3D&lt;/a> that tops gaming charts for its cache is, for the same reason, an efficient little RandomX miner. If you want exact per-model numbers, the XMRig benchmark page and the community Monero Benchmarks site list tuned hashrates by CPU.&lt;/p>
+&lt;h2 id="how-to-mine-monero-safely">How to mine Monero, safely&lt;/h2>
+&lt;p>Four pieces, in order. Do them in this order and you avoid every common beginner mistake.&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>A Monero wallet.&lt;/strong> Get an address to be paid into first. The official GUI/CLI wallet from getmonero.org is the reference; a reputable hardware or mobile wallet also works. You only need the receiving address to start.&lt;/li>
+&lt;li>&lt;strong>A pool (or P2Pool).&lt;/strong> Solo mining a single CPU will realistically never find a block, so you join a pool and earn a steady share. &lt;strong>SupportXMR&lt;/strong> and &lt;strong>MoneroOcean&lt;/strong> are the common centralized pools; &lt;strong>P2Pool&lt;/strong> is the decentralized option that keeps mining trustless and is the community&amp;rsquo;s preferred choice for network health. You point your miner at the pool and paste your wallet address.&lt;/li>
+&lt;li>&lt;strong>The miner: XMRig.&lt;/strong> This is the standard RandomX miner. Download it &lt;strong>only from the official XMRig GitHub releases page&lt;/strong>, and read the safety section below before you run anything.&lt;/li>
+&lt;li>&lt;strong>Tune and monitor.&lt;/strong> Enable large/huge pages and set thread count for your chip (XMRig&amp;rsquo;s docs and its &lt;code>--randomx&lt;/code> guidance cover this), then watch temperatures and the pool dashboard for your accepted shares. A CPU pinned at 100% for days runs hot — make sure cooling and your &lt;a href="https://techfuelhq.com/tools/psu-wattage-calculator/">power supply&lt;/a> are actually up to a sustained 24/7 load, which is a different thing from a gaming spike.&lt;/li>
+&lt;/ol>
+&lt;h2 id="the-part-that-actually-matters-dont-get-owned">The part that actually matters: don&amp;rsquo;t get owned&lt;/h2>
+&lt;p>This is where CPU mining hurts people, and it has nothing to do with profit.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Mining software is a top malware category.&lt;/strong> XMRig is legitimate and open-source, but it is also &lt;em>the&lt;/em> miner attackers bundle into cracked games, &amp;ldquo;free&amp;rdquo; tools, and drive-by installs to quietly mine on other people&amp;rsquo;s machines. That reputation is earned.&lt;/li>
+&lt;li>&lt;strong>Only use official sources.&lt;/strong> Download XMRig from its official GitHub releases and verify the published checksum. Never run a build from a random forum post, a YouTube description, or anything advertising &lt;strong>&amp;ldquo;double hashrate,&amp;rdquo; &amp;ldquo;AV-bypass,&amp;rdquo; or &amp;ldquo;no-fee unlocked&amp;rdquo;&lt;/strong> — those are the exact lures used to ship wallet-stealers.&lt;/li>
+&lt;li>&lt;strong>Expect an antivirus flag on the &lt;em>real&lt;/em> binary.&lt;/strong> Because the genuine miner is so widely abused, Windows Defender and most AV tools flag even the legitimate XMRig as riskware or a &amp;ldquo;coin miner.&amp;rdquo; That is expected. Whitelist it &lt;em>only after&lt;/em> you have verified you downloaded the real thing yourself — do not blindly disable protection because a &amp;ldquo;guide&amp;rdquo; told you to.&lt;/li>
+&lt;li>&lt;strong>Watch the thermals and the bill.&lt;/strong> Sustained all-core load is a real stress test. Confirm your cooling holds and that mining a few dimes a day is not quietly adding dollars to your power bill.&lt;/li>
+&lt;/ul>
+&lt;h2 id="the-honest-verdict-who-should-and-who-shouldnt">The honest verdict: who should, and who shouldn&amp;rsquo;t&lt;/h2>
+&lt;p>&lt;strong>Do it if:&lt;/strong> you already own a capable CPU, your electricity is cheap (roughly $0.10/kWh or less), and you see it as slowly accumulating a bit of a genuinely private coin and supporting a network you like — not as income. Running it on a homelab box you keep on anyway, especially in winter when the heat is not wasted, is the sweet spot.&lt;/p>
+&lt;p>&lt;strong>Skip it if:&lt;/strong> you would need to buy hardware, your power is expensive, or you are expecting meaningful money. The five-year payback and cents-per-day margins are real, and no amount of tuning changes the arithmetic. There is no shame in concluding the honest answer is &amp;ldquo;not worth it for me&amp;rdquo; — for a lot of people it is, and knowing that before you install anything is the win.&lt;/p>
+&lt;p>Either way, mine the math first. That is the one step that never depends on the price.&lt;/p></description></item></channel></rss>

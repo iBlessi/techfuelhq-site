@@ -1,0 +1,61 @@
+<svg viewBox="0 0 1200 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jellyfin versus Emby in 2026, drawn as a fork tree. A shared root labelled Emby 3.5.2, 2018, splits into two branches after Emby took version 4 closed-source. The left branch is Jellyfin: GPL-2.0, version 10.11.11, nothing paywalled at all, hardware transcoding free across Intel QuickSync, NVIDIA NVENC, AMD AMF and VA-API, and its own maintained jellyfin-ffmpeg fork, stable build 7.1.4. The right branch is Emby: proprietary since 2018, version 4.9.5.0, Emby Premiere at 4.99 dollars per month or 119 dollars lifetime with a 30-device limit, hardware transcoding behind that paywall except on Nvidia Shield and WD NAS, and crucially the native mobile and desktop apps capped at one-minute playback, while the PC or mobile web browser client gets full playback free, as do Roku, Apple TV and LG and Samsung smart TVs, while Live TV requires Premiere on every client. A footer notes two traps inherited from the shared ancestor: both servers still default to TCP 8096, TCP 8920 and UDP 7359 so they collide on one host, and direct database migration between them is officially unsupported by Jellyfin's own documentation.">
+  <rect width="1200" height="760" fill="#0e0e1a"/>
+
+  <text x="60" y="60" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="33" font-weight="700">Jellyfin vs Emby 2026</text>
+  <text x="60" y="92" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="18">Not two similar products &#8212; one product that split. The paywall is what diverged.</text>
+
+  <!-- shared root -->
+  <rect x="410" y="116" width="380" height="62" rx="10" fill="#22223c" stroke="#5a5a72" stroke-width="1.5"/>
+  <text x="600" y="142" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" text-anchor="middle">Emby 3.5.2 &#183; 2018</text>
+  <text x="600" y="165" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14.5" text-anchor="middle">shared ancestor &#8212; then Emby 4.x went closed-source</text>
+
+  <!-- fork lines -->
+  <path d="M600 178 L600 200 L300 200 L300 226" stroke="#c8ff00" stroke-width="2" fill="none"/>
+  <path d="M294 220 L300 228 L306 220" stroke="#c8ff00" stroke-width="2" fill="none"/>
+  <path d="M600 178 L600 200 L900 200 L900 226" stroke="#ffb020" stroke-width="2" fill="none"/>
+  <path d="M894 220 L900 228 L906 220" stroke="#ffb020" stroke-width="2" fill="none"/>
+  <text x="300" y="196" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="13.5" text-anchor="middle">forked Dec 2018</text>
+  <text x="900" y="196" fill="#ffb020" font-family="Segoe UI, Arial, sans-serif" font-size="13.5" text-anchor="middle">went proprietary</text>
+
+  <!-- LEFT: Jellyfin -->
+  <rect x="60" y="232" width="480" height="330" rx="10" fill="#16162a" stroke="#3a4a2a" stroke-width="1.5"/>
+  <rect x="60" y="232" width="480" height="52" rx="10" fill="#26301c"/>
+  <text x="82" y="266" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="700">Jellyfin</text>
+  <text x="518" y="266" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15" text-anchor="end">10.11.11 &#183; GPL-2.0</text>
+
+  <rect x="82" y="300" width="436" height="42" rx="6" fill="#22301c" stroke="#3a4a2a" stroke-width="1.5"/>
+  <text x="300" y="327" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" text-anchor="middle">Nothing is paywalled</text>
+
+  <text x="82" y="372" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">Full playback on every client, free</text>
+  <text x="82" y="400" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">Hardware transcoding free:</text>
+  <text x="100" y="426" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15">QuickSync &#183; NVENC &#183; AMF &#183; VA-API</text>
+  <text x="82" y="456" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">Ships its own jellyfin-ffmpeg fork,</text>
+  <text x="82" y="478" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">stable build 7.1.4</text>
+  <text x="82" y="508" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15">No licence server in the path</text>
+  <text x="82" y="538" fill="#5a5a72" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">Trade: client polish is uneven</text>
+
+  <!-- RIGHT: Emby -->
+  <rect x="660" y="232" width="480" height="330" rx="10" fill="#16162a" stroke="#2a2a4a" stroke-width="1.5"/>
+  <rect x="660" y="232" width="480" height="52" rx="10" fill="#2a2010"/>
+  <text x="682" y="266" fill="#ffb020" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="700">Emby</text>
+  <text x="1118" y="266" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15" text-anchor="end">4.9.5.0 &#183; proprietary</text>
+
+  <rect x="682" y="300" width="436" height="42" rx="6" fill="#2a2010" stroke="#ffb020" stroke-width="1.5"/>
+  <text x="900" y="327" fill="#ffb020" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" text-anchor="middle">Free tier depends on your screen</text>
+
+  <text x="682" y="372" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">Browser + TV apps: full playback</text>
+  <text x="700" y="396" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="15">full playback, free</text>
+  <text x="682" y="426" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">Native phone/desktop apps:</text>
+  <text x="700" y="450" fill="#ffb020" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700">ONE MINUTE of playback</text>
+  <text x="682" y="480" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">Hardware transcoding = Premiere</text>
+  <text x="700" y="502" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">(Nvidia Shield + WD NAS excepted)</text>
+  <text x="682" y="538" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15">$4.99/mo &#183; $119 lifetime &#183; 30 devices</text>
+
+  <!-- Footer: shared-ancestor traps -->
+  <rect x="60" y="586" width="1080" height="92" rx="10" fill="#14140f" stroke="#3a4a2a" stroke-width="1.5"/>
+  <text x="84" y="614" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">Two traps they inherited from the same ancestor</text>
+  <text x="84" y="642" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">Both still default to TCP 8096, TCP 8920 and UDP 7359 &#8212; install both on one host and the second fails to bind.</text>
+  <text x="84" y="664" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">Database migration between them is officially NOT SUPPORTED &#8212; media and sidecars survive, watch history does not.</text>
+
+  <text x="60" y="722" fill="#5a5a72" font-family="Segoe UI, Arial, sans-serif" font-size="13">Versions from each project's own release feed; capabilities and prices from jellyfin.org and emby.media, read 2026-07-23. Prices move. TechFuelHQ.</text>
+</svg>

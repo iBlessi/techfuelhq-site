@@ -1,0 +1,94 @@
+TechFuelHQ Open Bench Dataset — Manifest
+
+Dataset ID:    rog-astral-rtx-5080-oc-2026-06-09
+Title:         ASUS ROG Astral RTX 5080 OC — TechFuelHQ First-Party Bench Dataset
+Version:       1.3.0
+Published:     2026-06-09
+Last updated:  2026-08-01
+Publisher:     TechFuelHQ / LK Wood Web Development (https://techfuelhq.com)
+Author:        Lowell K. Wood IV (LK Wood IV)
+Contact:       hello@techfuelhq.com
+Location:      St. Louis County, Missouri, United States
+License:       Creative Commons Attribution 4.0 (CC BY 4.0, see LICENSE.txt)
+
+Version history:
+
+  1.0.0 (2026-06-09): Initial publication with 6 charts: generational positioning,
+    Time Spy stock-vs-OC, clock headroom, thermals/power, DLSS 4 MFG Cyberpunk,
+    4K native gaming 8-game gauntlet.
+
+  1.1.0 (2026-06-11): PR K expansion. Full 5-test synthetic ladder (Time Spy,
+    Time Spy Extreme, Port Royal, Speed Way, Steel Nomad) x 3 tune tiers
+    (Stock / Factory OC / Manual OC) = 15 new first-party data points. The 4K
+    gaming chart re-shot with 5 titles plus 1% lows. DLSS 4 MFG ladder expanded
+    to 4 modes (Native PT, DLSS-Q no FG, MFG 2x, MFG 4x) with PC Latency overlay
+    (Reflex on). Power & Thermal converted to side-by-side comparison.
+
+  1.2.0 (2026-06-11): PR N. Per-point sourcing re-cited — every value on the
+    page is now correctly attributed as TechFuelHQ first-party measurement.
+    Power & Thermal column relabeled to "Astral Stock vs Astral Manual OC"
+    (both TechFuelHQ measured on the same rig). Manual OC offsets documented:
+    +328 MHz core, +2996 MHz memory, +12% power target (GPU Tweak III User
+    Mode 2). Dataset license changed from CC BY 4.0 to TechFuelHQ Proprietary
+    — All Rights Reserved. "About this dataset" callout added to article.
+
+  1.3.0 (2026-08-01): License reverted to CC BY 4.0 from TechFuelHQ
+    Proprietary. The 1.2.0 license change was made without operator sanction;
+    reverted by operator-delegated ruling - open licensing is the citation
+    engine the dataset strategy runs on. No data values changed.
+
+Files in this directory:
+
+  dataset.json
+    Machine-readable structured dataset. Every chart's data points,
+    per-point source attribution, methodology, license grant.
+
+  dataset.csv
+    Same dataset flattened to one row per data point for spreadsheet use.
+
+  LICENSE.txt
+    Full CC BY 4.0 license grant and required attribution format.
+
+  MANIFEST.txt
+    This file.
+
+  01-generational-positioning-4k-raster.jpeg
+    Chart: "Generational Positioning — 4K Raster"
+    Index normalized to RTX 4080 Super baseline.
+
+  02-3dmark-time-spy-stock-vs-oc.jpeg
+    Chart: "3DMark Time Spy Graphics — Stock / Factory OC / Manual OC"
+    Three tune profiles compared on the same card.
+
+  02b-3dmark-time-spy-extreme.jpeg     [NEW in v1.1.0]
+    Chart: "3DMark Time Spy Extreme — Stock / Factory OC / Manual OC"
+    The 4K-relevant synthetic. Same 3-tier comparison.
+
+  02c-3dmark-port-royal.jpeg           [NEW in v1.1.0]
+    Chart: "3DMark Port Royal — Stock / Factory OC / Manual OC"
+    Ray-tracing-heavy synthetic.
+
+  02d-3dmark-speed-way.jpeg            [NEW in v1.1.0]
+    Chart: "3DMark Speed Way — Stock / Factory OC / Manual OC"
+    DX12 Ultimate raytraced GI + reflections.
+
+  02e-3dmark-steel-nomad.jpeg          [NEW in v1.1.0]
+    Chart: "3DMark Steel Nomad — Stock / Factory OC / Manual OC"
+    Current heavy-raster standard, replacing Fire Strike Extreme.
+
+  03-clock-headroom-fe-vs-astral-oc.jpeg
+    Chart: "Clock Headroom — FE vs Astral OC"
+    GPU boost clock across FE reference, Astral default, OC Mode, manual.
+
+  04-thermals-power.png                [RECITED in v1.2.0]
+    Chart: "Power & Thermal — Astral Stock vs Astral Manual OC"
+    Side-by-side comparison of two TechFuelHQ-measured profiles on the
+    same Astral card.
+
+  05-dlss4-mfg-cyberpunk-4k.jpeg       [REFRESHED in v1.1.0]
+    Chart: "DLSS 4 Multi-Frame Generation — Cyberpunk 4K Path Tracing"
+    4-mode ladder (Native PT, DLSS-Q, MFG 2x, MFG 4x) with FPS + PC Latency.
+
+  06-4k-native-gaming-8-game.png       [REFRESHED in v1.1.0]
+    Chart: "4K Gaming — Avg FPS and 1% Lows"
+    5 titles with avg FPS and 1% lows.

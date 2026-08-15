@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>The $1,500 RTX 5060 Ti 1440p PC Build for 2026 — parts list</title>
+  <desc>A TechFuel HQ build sheet for a $1,498 mid-range 1440p PC: Ryzen 7 7700 CPU, RTX 5060 Ti 16GB GPU, 32GB DDR5-6000 CL30 RAM, and a 2TB Gen4 NVMe, targeting 1440p high-to-ultra at about 380 watts.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="84" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">PC BUILD GUIDE · 1440p MID-RANGE · MAY 2026</text>
+  <text x="70" y="140" fill="#e8e8f0" font-size="50" font-weight="900">The $1,500 RTX 5060 Ti 1440p Build</text>
+  <text x="70" y="176" fill="#6b6b8a" font-size="20">An AM5 mid-range box for 1440p high&#8211;to&#8211;ultra, with room to upgrade</text>
+
+  <!-- Left: parts panel -->
+  <g transform="translate(70,212)">
+    <rect width="640" height="350" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="24" y="38" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">CORE PARTS LIST</text>
+
+    <text x="24" y="84" fill="#6b6b8a" font-size="13" letter-spacing="1" font-weight="700">CPU</text>
+    <text x="24" y="106" fill="#c0c0d8" font-size="17">AMD Ryzen 7 7700 &#183; 8C / 16T &#183; AM5</text>
+    <text x="616" y="106" text-anchor="end" fill="#e8e8f0" font-size="17" font-weight="600">$250</text>
+
+    <text x="24" y="146" fill="#6b6b8a" font-size="13" letter-spacing="1" font-weight="700">GPU</text>
+    <text x="24" y="168" fill="#c0c0d8" font-size="17">RTX 5060 Ti 16GB &#183; ASUS Dual OC</text>
+    <text x="616" y="168" text-anchor="end" fill="#c8ff00" font-size="17" font-weight="700">$449</text>
+
+    <text x="24" y="208" fill="#6b6b8a" font-size="13" letter-spacing="1" font-weight="700">MOTHERBOARD</text>
+    <text x="24" y="230" fill="#c0c0d8" font-size="17">MSI MAG B650 Tomahawk WIFI</text>
+    <text x="616" y="230" text-anchor="end" fill="#e8e8f0" font-size="17" font-weight="600">$200</text>
+
+    <text x="24" y="270" fill="#6b6b8a" font-size="13" letter-spacing="1" font-weight="700">MEMORY</text>
+    <text x="24" y="292" fill="#c0c0d8" font-size="17">Corsair Vengeance 32GB DDR5-6000 CL30</text>
+    <text x="616" y="292" text-anchor="end" fill="#e8e8f0" font-size="17" font-weight="600">$130</text>
+
+    <text x="24" y="332" fill="#6b6b8a" font-size="13" letter-spacing="1" font-weight="700">STORAGE</text>
+    <text x="24" y="354" fill="#c0c0d8" font-size="17">WD Black SN770 2TB PCIe Gen4 NVMe</text>
+    <text x="616" y="354" text-anchor="end" fill="#e8e8f0" font-size="17" font-weight="600">$185</text>
+  </g>
+
+  <!-- Right: total + specs at a glance -->
+  <g transform="translate(742,212)">
+    <rect width="388" height="350" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="24" y="38" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">BUILD TOTAL</text>
+    <text x="24" y="108" fill="#c8ff00" font-size="62" font-weight="900">$1,498</text>
+    <text x="24" y="138" fill="#6b6b8a" font-size="15">before tax &#183; real May 2026 US prices</text>
+
+    <line x1="24" y1="162" x2="364" y2="162" stroke="#1e1e3a" stroke-width="1"/>
+
+    <text x="24" y="194" fill="#c0c0d8" font-size="16">Target resolution</text>
+    <text x="364" y="194" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">1440p high&#8211;ultra</text>
+
+    <text x="24" y="230" fill="#c0c0d8" font-size="16">VRAM</text>
+    <text x="364" y="230" text-anchor="end" fill="#5dca7a" font-size="16" font-weight="600">16 GB</text>
+
+    <text x="24" y="266" fill="#c0c0d8" font-size="16">System power (full load)</text>
+    <text x="364" y="266" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">~380 W</text>
+
+    <text x="24" y="302" fill="#c0c0d8" font-size="16">PSU / connector</text>
+    <text x="364" y="302" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">750 W ATX 3.1</text>
+
+    <text x="24" y="338" fill="#c0c0d8" font-size="16">CS2 at 1440p</text>
+    <text x="364" y="338" text-anchor="end" fill="#5090e0" font-size="16" font-weight="600">312 avg FPS</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="600" fill="#4a4a6a" font-size="13">TechFuel HQ &#183; PC Build Guide &#183; Prices verified May 2026 on Newegg, Amazon &amp; manufacturer stores</text>
+  <text x="1130" y="600" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

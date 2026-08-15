@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif">
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect x="1" y="1" width="1198" height="628" fill="none" stroke="#1e1e3a" stroke-width="2" rx="10"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#c8ff00"/>
+
+  <text x="64" y="78" fill="#c8ff00" font-size="16" font-weight="700" letter-spacing="3">TECHFUELHQ · CPU TUNING · 2026</text>
+  <text x="64" y="134" fill="#f2f2f7" font-size="46" font-weight="800" letter-spacing="-1">Ryzen 7 9800X3D Undervolt</text>
+  <text x="64" y="174" fill="#9a9ab5" font-size="21">Curve Optimizer on the <tspan fill="#c8ff00" font-weight="700">first X3D chip AMD let you tune</tspan></text>
+  <line x1="64" y1="204" x2="1136" y2="204" stroke="#1e1e3a" stroke-width="1.5"/>
+
+  <!-- Settings panel -->
+  <rect x="64" y="232" width="500" height="250" rx="10" fill="rgba(255,255,255,0.03)" stroke="#2a2a44" stroke-width="1"/>
+  <text x="88" y="274" fill="#e8e8f0" font-size="22" font-weight="800">The settings</text>
+  <text x="88" y="300" fill="#8fdca0" font-size="14" font-weight="700">BIOS: PBO &#8594; CURVE OPTIMIZER</text>
+  <text x="88" y="344" fill="#9a9ab5" font-size="17">Offset sign <tspan x="540" fill="#c8ff00" font-weight="700" text-anchor="end">Negative</tspan></text>
+  <text x="88" y="378" fill="#9a9ab5" font-size="17">Magnitude <tspan x="540" fill="#c8ff00" font-weight="700" text-anchor="end">start &#8722;10, step to &#8722;30/&#8722;40</tspan></text>
+  <text x="88" y="412" fill="#9a9ab5" font-size="17">Scope <tspan x="540" fill="#e8e8f0" font-weight="700" text-anchor="end">Per-core &gt; all-core</tspan></text>
+  <text x="88" y="446" fill="#9a9ab5" font-size="17">Stock limits <tspan x="540" fill="#e8e8f0" font-weight="700" text-anchor="end">120W TDP · PPT 162W</tspan></text>
+
+  <!-- Outcomes panel -->
+  <rect x="636" y="232" width="500" height="250" rx="10" fill="rgba(200,255,0,0.04)" stroke="#3a3a1a" stroke-width="1"/>
+  <text x="660" y="274" fill="#e8e8f0" font-size="22" font-weight="800">Two different outcomes</text>
+  <text x="660" y="300" fill="#f0b060" font-size="14" font-weight="700">PICK ONE — THEY ARE NOT THE SAME</text>
+  <text x="660" y="340" fill="#8fdca0" font-size="16" font-weight="700">Efficiency path — stock limits</text>
+  <text x="660" y="366" fill="#9a9ab5" font-size="16">Lower voltage &#8594; cooler, quieter, same speed</text>
+  <text x="660" y="404" fill="#c8ff00" font-size="16" font-weight="700">Performance path — PBO pushed</text>
+  <text x="660" y="430" fill="#9a9ab5" font-size="16">~5,425 MHz all-core · <tspan fill="#e8e8f0" font-weight="700">+4.8% geomean</tspan></text>
+  <text x="660" y="456" fill="#79839a" font-size="14">(runs hot by design — 84.6&#176;C in OCCT)</text>
+
+  <!-- center arrow -->
+  <circle cx="600" cy="357" r="28" fill="#0a0a23" stroke="#c8ff00" stroke-width="1.5"/>
+  <text x="600" y="365" fill="#c8ff00" font-size="20" font-weight="800" text-anchor="middle">&#8594;</text>
+
+  <!-- Mechanism callout -->
+  <rect x="64" y="512" width="1072" height="66" rx="8" fill="rgba(200,255,0,0.06)" stroke="#c8ff00" stroke-width="1.2"/>
+  <text x="88" y="542" fill="#c8ff00" font-size="19" font-weight="800">Why a negative offset can make it faster, not slower.</text>
+  <text x="88" y="566" fill="#c8c8dc" font-size="15">SkatterBencher measured Curve Optimizer &#8722;40 dropping voltage 1.13V &#8594; ~0.998V at 5.1 GHz — the freed headroom lets it boost higher.</text>
+
+  <text x="1136" y="612" fill="#44445a" font-size="14" text-anchor="end">techfuelhq.com · specs + tuning data: SkatterBencher #82 · community: r/overclocking</text>
+</svg>

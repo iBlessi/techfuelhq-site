@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Jellyfin vs Plex 2026 feature comparison</title>
+  <desc>A side-by-side spec table comparing the Jellyfin open-source media server against Plex across cost, account requirement, hardware transcoding, mobile apps, offline sync, Live TV and DVR, remote access, skip intro, watch history, and open-source licensing.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="760" fill="#0a0a23"/>
+  <rect width="1200" height="760" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">HEAD-TO-HEAD · SELF-HOSTED MEDIA SERVER · 2026</text>
+  <text x="70" y="132" fill="#e8e8f0" font-size="50" font-weight="900">Jellyfin vs Plex</text>
+  <text x="70" y="170" fill="#6b6b8a" font-size="20">Free and open source vs polished with a paywall — feature by feature</text>
+
+  <!-- Column header bar -->
+  <g transform="translate(70,200)">
+    <!-- feature label column header -->
+    <text x="0" y="38" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">FEATURE</text>
+
+    <!-- Jellyfin column header -->
+    <rect x="430" y="6" width="300" height="48" rx="8" fill="#101028" stroke="#c8ff00"/>
+    <text x="580" y="36" text-anchor="middle" fill="#c8ff00" font-size="22" font-weight="900">Jellyfin</text>
+
+    <!-- Plex column header -->
+    <rect x="760" y="6" width="300" height="48" rx="8" fill="#101028" stroke="#5090e0"/>
+    <text x="910" y="36" text-anchor="middle" fill="#5090e0" font-size="22" font-weight="900">Plex</text>
+  </g>
+
+  <!-- Rows -->
+  <g transform="translate(70,268)" font-size="17">
+    <!-- Row 1 Cost -->
+    <rect x="0" y="0" width="1060" height="40" fill="#13132e"/>
+    <text x="16" y="26" fill="#c0c0d8">Cost</text>
+    <text x="510" y="26" text-anchor="middle" fill="#c8ff00" font-weight="700">Free forever</text>
+    <text x="840" y="26" text-anchor="middle" fill="#c0c0d8">Free / $6.99 mo / $749.99 lifetime</text>
+
+    <!-- Row 2 Account required -->
+    <rect x="0" y="40" width="1060" height="40" fill="#0d0d28"/>
+    <text x="16" y="66" fill="#c0c0d8">Account required</text>
+    <text x="510" y="66" text-anchor="middle" fill="#c8ff00" font-weight="700">No</text>
+    <text x="840" y="66" text-anchor="middle" fill="#c0c0d8">Yes</text>
+
+    <!-- Row 3 Hardware transcoding -->
+    <rect x="0" y="80" width="1060" height="40" fill="#13132e"/>
+    <text x="16" y="106" fill="#c0c0d8">Hardware transcoding</text>
+    <text x="510" y="106" text-anchor="middle" fill="#c8ff00" font-weight="700">Free</text>
+    <text x="840" y="106" text-anchor="middle" fill="#c0c0d8">Plex Pass only</text>
+
+    <!-- Row 4 Mobile apps -->
+    <rect x="0" y="120" width="1060" height="40" fill="#0d0d28"/>
+    <text x="16" y="146" fill="#c0c0d8">Mobile apps</text>
+    <text x="510" y="146" text-anchor="middle" fill="#c8ff00" font-weight="700">Free, full</text>
+    <text x="840" y="146" text-anchor="middle" fill="#c0c0d8">Limited free / full on Pass</text>
+
+    <!-- Row 5 Offline sync -->
+    <rect x="0" y="160" width="1060" height="40" fill="#13132e"/>
+    <text x="16" y="186" fill="#c0c0d8">Offline sync (mobile)</text>
+    <text x="510" y="186" text-anchor="middle" fill="#c8ff00" font-weight="700">Free</text>
+    <text x="840" y="186" text-anchor="middle" fill="#c0c0d8">Plex Pass only</text>
+
+    <!-- Row 6 Live TV + DVR -->
+    <rect x="0" y="200" width="1060" height="40" fill="#0d0d28"/>
+    <text x="16" y="226" fill="#c0c0d8">Live TV + DVR</text>
+    <text x="510" y="226" text-anchor="middle" fill="#c8ff00" font-weight="700">Free</text>
+    <text x="840" y="226" text-anchor="middle" fill="#c0c0d8">Plex Pass only</text>
+
+    <!-- Row 7 4K HDR passthrough -->
+    <rect x="0" y="240" width="1060" height="40" fill="#13132e"/>
+    <text x="16" y="266" fill="#c0c0d8">4K HDR passthrough</text>
+    <text x="510" y="266" text-anchor="middle" fill="#c0c0d8">Free</text>
+    <text x="840" y="266" text-anchor="middle" fill="#c0c0d8">Free</text>
+
+    <!-- Row 8 Remote access -->
+    <rect x="0" y="280" width="1060" height="40" fill="#0d0d28"/>
+    <text x="16" y="306" fill="#c0c0d8">Remote access</text>
+    <text x="510" y="306" text-anchor="middle" fill="#c0c0d8">Tailscale / NPM setup</text>
+    <text x="840" y="306" text-anchor="middle" fill="#5090e0" font-weight="700">Plex Relay, no setup</text>
+
+    <!-- Row 9 Skip intro/credits -->
+    <rect x="0" y="320" width="1060" height="40" fill="#13132e"/>
+    <text x="16" y="346" fill="#c0c0d8">Skip intro / credits</text>
+    <text x="510" y="346" text-anchor="middle" fill="#c8ff00" font-weight="700">Plugin (free)</text>
+    <text x="840" y="346" text-anchor="middle" fill="#c0c0d8">Plex Pass only</text>
+
+    <!-- Row 10 Watch history sync -->
+    <rect x="0" y="360" width="1060" height="40" fill="#0d0d28"/>
+    <text x="16" y="386" fill="#c0c0d8">Watch history</text>
+    <text x="510" y="386" text-anchor="middle" fill="#c8ff00" font-weight="700">Local only</text>
+    <text x="840" y="386" text-anchor="middle" fill="#c0c0d8">Synced to Plex servers</text>
+
+    <!-- Row 11 Open source -->
+    <rect x="0" y="400" width="1060" height="40" fill="#13132e"/>
+    <text x="16" y="426" fill="#c0c0d8">Open source</text>
+    <text x="510" y="426" text-anchor="middle" fill="#c8ff00" font-weight="700">Yes (GPL-3.0)</text>
+    <text x="840" y="426" text-anchor="middle" fill="#c0c0d8">No</text>
+  </g>
+
+  <!-- Summary strip -->
+  <g transform="translate(70,720)">
+    <text x="0" y="0" fill="#6b6b8a" font-size="15">Verdict: <tspan fill="#c8ff00" font-weight="700">Jellyfin</tspan> for cost, privacy and Live TV · <tspan fill="#5090e0" font-weight="700">Plex</tspan> for non-technical family and effortless remote access.</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="752" fill="#4a4a6a" font-size="13">TechFuel HQ · Media Server Comparison · Features per Jellyfin (GPL-3.0) and Plex official docs</text>
+  <text x="1130" y="752" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

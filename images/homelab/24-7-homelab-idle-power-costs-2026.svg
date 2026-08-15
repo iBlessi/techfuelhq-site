@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>24/7 Homelab Idle Power Costs (2026)</title>
+  <desc>Hero showing annual electricity cost by homelab configuration at $0.13 per kWh: starter N100 mini PC plus 4-bay NAS at 28 to 40 watts costs $32 to $46 per year, a 3-node cluster at 70 to 120 watts costs $80 to $137, and a full multi-node plus GPU setup at 155 to 220 watts costs $177 to $251. Mini PCs idle 5 to 8 times lower than used rack servers.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Eyebrow + Title -->
+  <text x="70" y="92" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">HOMELAB POWER · IDLE COST ANALYSIS · 2026</text>
+  <text x="70" y="150" fill="#e8e8f0" font-size="50" font-weight="900">24/7 Homelab Idle Power Costs</text>
+  <text x="70" y="188" fill="#c0c0d8" font-size="20">What it actually costs to run, measured at the wall — not vague estimates</text>
+
+  <!-- Highlight strip: 3 key facts -->
+  <g transform="translate(70,222)">
+    <!-- Card 1: efficiency gap -->
+    <g>
+      <rect width="338" height="120" rx="12" fill="#101028" stroke="#1e1e3a"/>
+      <text x="24" y="34" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">MINI PC vs RACK SERVER</text>
+      <text x="24" y="84" fill="#c8ff00" font-size="46" font-weight="900">5–8×</text>
+      <text x="148" y="84" fill="#c0c0d8" font-size="16">lower idle</text>
+      <text x="148" y="106" fill="#6b6b8a" font-size="14">draw per node</text>
+    </g>
+    <!-- Card 2: annual cost spread -->
+    <g transform="translate(361,0)">
+      <rect width="338" height="120" rx="12" fill="#101028" stroke="#1e1e3a"/>
+      <text x="24" y="34" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">ANNUAL COST RANGE</text>
+      <text x="24" y="84" fill="#5dca7a" font-size="46" font-weight="900">$32–251</text>
+      <text x="24" y="106" fill="#6b6b8a" font-size="14">per year · starter to full multi-node setup</text>
+    </g>
+    <!-- Card 3: regional rate range -->
+    <g transform="translate(722,0)">
+      <rect width="338" height="120" rx="12" fill="#101028" stroke="#1e1e3a"/>
+      <text x="24" y="34" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">REGIONAL RATE SPREAD</text>
+      <text x="24" y="84" fill="#5090e0" font-size="46" font-weight="900">3–4×</text>
+      <text x="160" y="84" fill="#c0c0d8" font-size="16">LA / MO vs</text>
+      <text x="160" y="106" fill="#6b6b8a" font-size="14">CA &amp; HI per kWh</text>
+    </g>
+  </g>
+
+  <!-- Configuration cost panel -->
+  <g transform="translate(70,366)">
+    <rect width="1060" height="186" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="24" y="34" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">ANNUAL COST BY CONFIGURATION · 24/7 AT $0.13/kWh (US AVG, EIA Q1 2026)</text>
+
+    <!-- column headers -->
+    <text x="24" y="64" fill="#6b6b8a" font-size="13" letter-spacing="1" font-weight="700">CONFIGURATION</text>
+    <text x="720" y="64" text-anchor="end" fill="#6b6b8a" font-size="13" letter-spacing="1" font-weight="700">IDLE</text>
+    <text x="870" y="64" text-anchor="end" fill="#6b6b8a" font-size="13" letter-spacing="1" font-weight="700">ANNUAL kWh</text>
+    <text x="1036" y="64" text-anchor="end" fill="#6b6b8a" font-size="13" letter-spacing="1" font-weight="700">ANNUAL COST</text>
+
+    <!-- Row 1 -->
+    <rect x="14" y="76" width="1032" height="28" rx="4" fill="#13132e"/>
+    <text x="24" y="95" fill="#c0c0d8" font-size="15">Starter — N100 mini PC + 4-bay NAS</text>
+    <text x="720" y="95" text-anchor="end" fill="#e8e8f0" font-size="15">28–40W</text>
+    <text x="870" y="95" text-anchor="end" fill="#e8e8f0" font-size="15">245–350</text>
+    <text x="1036" y="95" text-anchor="end" fill="#c8ff00" font-size="15" font-weight="700">$32–46</text>
+
+    <!-- Row 2 -->
+    <rect x="14" y="104" width="1032" height="28" rx="4" fill="#0d0d28"/>
+    <text x="24" y="123" fill="#c0c0d8" font-size="15">3-node cluster — 3× mini PC + NAS + 10GbE switch</text>
+    <text x="720" y="123" text-anchor="end" fill="#e8e8f0" font-size="15">70–120W</text>
+    <text x="870" y="123" text-anchor="end" fill="#e8e8f0" font-size="15">613–1,051</text>
+    <text x="1036" y="123" text-anchor="end" fill="#5dca7a" font-size="15" font-weight="700">$80–137</text>
+
+    <!-- Row 3 -->
+    <rect x="14" y="132" width="1032" height="28" rx="4" fill="#13132e"/>
+    <text x="24" y="151" fill="#c0c0d8" font-size="15">Single used rack server — Dell PowerEdge R720 (1P)</text>
+    <text x="720" y="151" text-anchor="end" fill="#e8e8f0" font-size="15">80–100W</text>
+    <text x="870" y="151" text-anchor="end" fill="#e8e8f0" font-size="15">701–876</text>
+    <text x="1036" y="151" text-anchor="end" fill="#e08828" font-size="15" font-weight="700">$91–114</text>
+
+    <!-- Row 4 -->
+    <rect x="14" y="160" width="1032" height="28" rx="4" fill="#0d0d28"/>
+    <text x="24" y="179" fill="#c0c0d8" font-size="15">Full setup — 3-node + NAS + GPU workstation + switch</text>
+    <text x="720" y="179" text-anchor="end" fill="#e8e8f0" font-size="15">155–220W</text>
+    <text x="870" y="179" text-anchor="end" fill="#e8e8f0" font-size="15">1,358–1,927</text>
+    <text x="1036" y="179" text-anchor="end" fill="#e63946" font-size="15" font-weight="700">$177–251</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · Homelab Cost Analysis · Measured idle draws per ServeTheHome &amp; community testing; rates per EIA Electric Power Monthly Q1 2026</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

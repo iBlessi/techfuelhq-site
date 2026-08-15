@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="Inter, system-ui, sans-serif">
+  <rect width="1200" height="600" fill="#0a0a23"/>
+  <text x="600" y="45" text-anchor="middle" fill="#c8ff00" font-size="24" font-weight="800">POWER DRAW &amp; VALUE ANALYSIS</text>
+  <text x="600" y="70" text-anchor="middle" fill="#667" font-size="13">RTX 5060 vs RX 9060 XT — Efficiency &amp; Cost Breakdown</text>
+  <!-- Power Section -->
+  <rect x="50" y="100" width="520" height="220" rx="14" fill="#13132e" stroke="#1e1e4a" stroke-width="1"/>
+  <text x="310" y="135" text-anchor="middle" fill="#c8ff00" font-size="18" font-weight="700">⚡ POWER DRAW (TDP)</text>
+  <!-- RTX 5060 power bar -->
+  <text x="80" y="175" fill="#c8ff00" font-size="14" font-weight="600">RTX 5060</text>
+  <rect x="180" y="162" width="300" height="22" rx="4" fill="#1a1a3e"/>
+  <rect x="180" y="162" width="250" height="22" rx="4" fill="#c8ff00"/>
+  <text x="440" y="178" fill="#c8ff00" font-size="14" font-weight="700">~150W</text>
+  <!-- RX 9060 XT power bar -->
+  <text x="80" y="215" fill="#e63946" font-size="14" font-weight="600">RX 9060 XT</text>
+  <rect x="180" y="202" width="300" height="22" rx="4" fill="#1a1a3e"/>
+  <rect x="180" y="202" width="300" height="22" rx="4" fill="#e63946"/>
+  <text x="490" y="218" fill="#e63946" font-size="14" font-weight="700">~180W</text>
+  <text x="310" y="265" text-anchor="middle" fill="#c8ff00" font-size="13" font-weight="600">✅ RTX 5060 uses 17% less power</text>
+  <text x="310" y="290" text-anchor="middle" fill="#9999bb" font-size="12">Better for SFF builds &amp; lower electricity costs</text>
+  <!-- Value Section -->
+  <rect x="630" y="100" width="520" height="220" rx="14" fill="#13132e" stroke="#1e1e4a" stroke-width="1"/>
+  <text x="890" y="135" text-anchor="middle" fill="#e63946" font-size="18" font-weight="700">💰 VALUE PER DOLLAR</text>
+  <!-- Price per GB VRAM -->
+  <text x="660" y="175" fill="#bbbbcc" font-size="13">Price per GB VRAM:</text>
+  <text x="860" y="175" fill="#ffffff" font-size="13">RTX 5060: $37.38/GB</text>
+  <text x="1060" y="175" fill="#c8ff00" font-size="13" font-weight="700">RX 9060 XT: $18.06/GB ✅</text>
+  <!-- FPS per dollar -->
+  <text x="660" y="210" fill="#bbbbcc" font-size="13">Avg FPS per $100:</text>
+  <text x="860" y="210" fill="#c8ff00" font-size="13" font-weight="700">RTX 5060: ~22 FPS ✅</text>
+  <text x="1060" y="210" fill="#ffffff" font-size="13">RX 9060 XT: ~21 FPS</text>
+  <!-- Perf per watt -->
+  <text x="660" y="245" fill="#bbbbcc" font-size="13">FPS per Watt:</text>
+  <text x="860" y="245" fill="#c8ff00" font-size="13" font-weight="700">RTX 5060: 0.44 ✅</text>
+  <text x="1060" y="245" fill="#ffffff" font-size="13">RX 9060 XT: 0.37</text>
+  <text x="890" y="290" text-anchor="middle" fill="#e63946" font-size="13" font-weight="600">✅ RX 9060 XT wins on VRAM value</text>
+  <!-- Bottom Verdict -->
+  <rect x="50" y="360" width="1100" height="200" rx="14" fill="#13132e" stroke="#c8ff00" stroke-width="1"/>
+  <text x="600" y="400" text-anchor="middle" fill="#c8ff00" font-size="20" font-weight="800">THE VERDICT</text>
+  <text x="300" y="440" text-anchor="middle" fill="#c8ff00" font-size="16" font-weight="700">Choose RTX 5060 if:</text>
+  <text x="300" y="465" text-anchor="middle" fill="#bbbbcc" font-size="13">• You want better ray tracing &amp; DLSS 4</text>
+  <text x="300" y="485" text-anchor="middle" fill="#bbbbcc" font-size="13">• You prioritize power efficiency</text>
+  <text x="300" y="505" text-anchor="middle" fill="#bbbbcc" font-size="13">• You stream or create content (NVENC)</text>
+  <text x="900" y="440" text-anchor="middle" fill="#e63946" font-size="16" font-weight="700">Choose RX 9060 XT if:</text>
+  <text x="900" y="465" text-anchor="middle" fill="#bbbbcc" font-size="13">• You need 16GB VRAM for modding/future</text>
+  <text x="900" y="485" text-anchor="middle" fill="#bbbbcc" font-size="13">• You play at higher resolutions (1440p+)</text>
+  <text x="900" y="505" text-anchor="middle" fill="#bbbbcc" font-size="13">• You prefer open-source driver support</text>
+  <text x="600" y="540" text-anchor="middle" fill="#556" font-size="11">techfuelhq.com | Both GPUs are excellent for 1080p gaming in 2025</text>
+</svg>

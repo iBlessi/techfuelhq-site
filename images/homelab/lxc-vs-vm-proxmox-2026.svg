@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>LXC vs VM in Proxmox — resource overhead comparison</title>
+  <desc>Side-by-side comparison of LXC containers versus KVM/QEMU virtual machines in Proxmox VE 8.x, benchmarked on a Beelink SEi12 Pro (N150, 16GB RAM, 512GB NVMe). Rows cover guest RAM, CPU overhead, storage and network throughput versus bare metal, boot time, backup size, kernel control, GPU passthrough, and isolation. The winner of each row is highlighted in the column accent color.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="760" fill="#0a0a23"/>
+  <rect width="1200" height="760" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="74" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">HOMELAB · HEAD-TO-HEAD · PROXMOX VE 8.x</text>
+  <text x="70" y="128" fill="#e8e8f0" font-size="50" font-weight="900">LXC vs VM in Proxmox</text>
+  <text x="70" y="162" fill="#6b6b8a" font-size="19">Resource overhead measured on a Beelink SEi12 Pro · N150 · 16GB RAM · 512GB NVMe</text>
+
+  <!-- Column headers -->
+  <g transform="translate(70,196)">
+    <rect x="0" y="0" width="1060" height="54" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="24" y="34" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">METRIC (DEBIAN 12, IDLE)</text>
+
+    <rect x="560" y="10" width="6" height="34" rx="3" fill="#c8ff00"/>
+    <text x="582" y="26" fill="#c8ff00" font-size="18" font-weight="900">LXC CONTAINER</text>
+    <text x="582" y="45" fill="#6b6b8a" font-size="12">Shared host kernel</text>
+
+    <rect x="810" y="10" width="6" height="34" rx="3" fill="#5090e0"/>
+    <text x="832" y="26" fill="#5090e0" font-size="18" font-weight="900">KVM / QEMU VM</text>
+    <text x="832" y="45" fill="#6b6b8a" font-size="12">Own kernel · virtio</text>
+  </g>
+
+  <!-- Rows -->
+  <g transform="translate(70,262)" font-size="16">
+    <!-- Row template: x=0..1060, height 46 -->
+    <!-- Row 1 -->
+    <rect x="0" y="0" width="1060" height="46" fill="#13132e"/>
+    <text x="24" y="29" fill="#c0c0d8">RAM used by guest</text>
+    <text x="582" y="29" fill="#c8ff00" font-weight="700">~55 MB</text>
+    <text x="832" y="29" fill="#c0c0d8">~280 MB</text>
+
+    <!-- Row 2 -->
+    <rect x="0" y="46" width="1060" height="46" fill="#0d0d28"/>
+    <text x="24" y="75" fill="#c0c0d8">CPU overhead</text>
+    <text x="582" y="75" fill="#c8ff00" font-weight="700">&lt;1%</text>
+    <text x="832" y="75" fill="#c0c0d8">1–3%</text>
+
+    <!-- Row 3 -->
+    <rect x="0" y="92" width="1060" height="46" fill="#13132e"/>
+    <text x="24" y="121" fill="#c0c0d8">Storage IO vs bare metal</text>
+    <text x="582" y="121" fill="#c8ff00" font-weight="700">~98%</text>
+    <text x="832" y="121" fill="#c0c0d8">~94–97%</text>
+
+    <!-- Row 4 -->
+    <rect x="0" y="138" width="1060" height="46" fill="#0d0d28"/>
+    <text x="24" y="167" fill="#c0c0d8">Network throughput vs bare metal</text>
+    <text x="582" y="167" fill="#c8ff00" font-weight="700">~99%</text>
+    <text x="832" y="167" fill="#c0c0d8">~97%</text>
+
+    <!-- Row 5 -->
+    <rect x="0" y="184" width="1060" height="46" fill="#13132e"/>
+    <text x="24" y="213" fill="#c0c0d8">Boot time</text>
+    <text x="582" y="213" fill="#c8ff00" font-weight="700">0.5–1.5 s</text>
+    <text x="832" y="213" fill="#c0c0d8">8–20 s</text>
+
+    <!-- Row 6 -->
+    <rect x="0" y="230" width="1060" height="46" fill="#0d0d28"/>
+    <text x="24" y="259" fill="#c0c0d8">Backup size (Debian + 1 app)</text>
+    <text x="582" y="259" fill="#c8ff00" font-weight="700">~400 MB</text>
+    <text x="832" y="259" fill="#c0c0d8">~2.0 GB</text>
+
+    <!-- Row 7 -->
+    <rect x="0" y="276" width="1060" height="46" fill="#13132e"/>
+    <text x="24" y="305" fill="#c0c0d8">Own kernel / custom modules</text>
+    <text x="582" y="305" fill="#6b6b8a">Locked to host</text>
+    <text x="832" y="305" fill="#5090e0" font-weight="700">Full control</text>
+
+    <!-- Row 8 -->
+    <rect x="0" y="322" width="1060" height="46" fill="#0d0d28"/>
+    <text x="24" y="351" fill="#c0c0d8">GPU passthrough · Windows guests</text>
+    <text x="582" y="351" fill="#6b6b8a">Limited / Linux only</text>
+    <text x="832" y="351" fill="#5090e0" font-weight="700">VFIO · any OS</text>
+
+    <!-- Row 9 -->
+    <rect x="0" y="368" width="1060" height="46" fill="#13132e"/>
+    <text x="24" y="397" fill="#c0c0d8">Isolation (untrusted / public-facing)</text>
+    <text x="582" y="397" fill="#6b6b8a">Shared kernel</text>
+    <text x="832" y="397" fill="#5090e0" font-weight="700">QEMU + KVM boundary</text>
+  </g>
+
+  <!-- Verdict strip -->
+  <g transform="translate(70,690)">
+    <rect x="0" y="0" width="1060" height="36" rx="8" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="36" rx="3" fill="#c8ff00"/>
+    <text x="24" y="24" fill="#c0c0d8" font-size="15">Verdict: <tspan fill="#c8ff00" font-weight="700">LXC</tspan> for trusted Linux services that are "just a process." <tspan fill="#5090e0" font-weight="700">VM</tspan> for GPU passthrough, Windows, custom kernels, or strong isolation.</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="744" fill="#4a4a6a" font-size="13">TechFuel HQ · Spec Comparison · Numbers representative of Proxmox VE 8.x with virtio drivers</text>
+  <text x="1130" y="744" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a23"/>
+      <stop offset="100%" stop-color="#0e0e28"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+    <linearGradient id="chip" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1a3c"/>
+      <stop offset="100%" stop-color="#101028"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Eyebrow + title -->
+  <text x="70" y="92" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">LONG-TERM REVIEW · CPU</text>
+  <text x="70" y="150" fill="#e8e8f0" font-size="52" font-weight="900">Ryzen 7 7800X3D</text>
+  <text x="70" y="188" fill="#6b6b8a" font-size="20">The gaming CPU standard, after three years on the bench</text>
+
+  <!-- Rating block -->
+  <g transform="translate(70,230)">
+    <text x="0" y="0" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">VERDICT</text>
+    <text x="0" y="58" fill="#c8ff00" font-size="62" font-weight="900">4.6</text>
+    <text x="118" y="58" fill="#6b6b8a" font-size="26" font-weight="700">/ 5</text>
+    <!-- stars -->
+    <g transform="translate(2,78)" fill="#c8ff00">
+      <polygon points="0,15 4.7,24.5 15,26 7.5,33.5 9.3,44 0,39 -9.3,44 -7.5,33.5 -15,26 -4.7,24.5" transform="translate(15,0)"/>
+      <polygon points="0,15 4.7,24.5 15,26 7.5,33.5 9.3,44 0,39 -9.3,44 -7.5,33.5 -15,26 -4.7,24.5" transform="translate(55,0)"/>
+      <polygon points="0,15 4.7,24.5 15,26 7.5,33.5 9.3,44 0,39 -9.3,44 -7.5,33.5 -15,26 -4.7,24.5" transform="translate(95,0)"/>
+      <polygon points="0,15 4.7,24.5 15,26 7.5,33.5 9.3,44 0,39 -9.3,44 -7.5,33.5 -15,26 -4.7,24.5" transform="translate(135,0)"/>
+      <polygon points="0,15 4.7,24.5 15,26 7.5,33.5 9.3,44 0,39 -9.3,44 -7.5,33.5 -15,26 -4.7,24.5" transform="translate(175,0)" fill="#3a4a1a"/>
+      <polygon points="0,15 4.7,24.5 15,26 7.5,33.5 9.3,44 0,39 -9.3,44 -7.5,33.5 -15,26 -4.7,24.5" transform="translate(175,0)" fill="#c8ff00" clip-path="inset(0 40% 0 0)"/>
+    </g>
+  </g>
+
+  <!-- CPU chip illustration -->
+  <g transform="translate(395,250)">
+    <rect x="0" y="0" width="180" height="180" rx="14" fill="url(#chip)" stroke="#2a2a4a" stroke-width="2"/>
+    <rect x="22" y="22" width="136" height="136" rx="8" fill="#0c0c22" stroke="#3a3a5a" stroke-width="1.5"/>
+    <text x="90" y="84" text-anchor="middle" fill="#c8ff00" font-size="15" font-weight="800" letter-spacing="1">3D</text>
+    <text x="90" y="104" text-anchor="middle" fill="#5dca7a" font-size="12" font-weight="700">V-CACHE</text>
+    <!-- pins hint -->
+    <g fill="#2a2a48">
+      <rect x="14" y="166" width="6" height="10" rx="2"/><rect x="34" y="166" width="6" height="10" rx="2"/>
+      <rect x="54" y="166" width="6" height="10" rx="2"/><rect x="74" y="166" width="6" height="10" rx="2"/>
+      <rect x="94" y="166" width="6" height="10" rx="2"/><rect x="114" y="166" width="6" height="10" rx="2"/>
+      <rect x="134" y="166" width="6" height="10" rx="2"/><rect x="154" y="166" width="6" height="10" rx="2"/>
+    </g>
+  </g>
+
+  <!-- Spec panel -->
+  <g transform="translate(640,225)">
+    <rect x="0" y="0" width="490" height="320" rx="12" fill="#101028" stroke="#1e1e3a" stroke-width="1"/>
+    <text x="24" y="36" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">KEY SPECIFICATIONS</text>
+
+    <g font-size="16">
+      <text x="24" y="78" fill="#c0c0d8">Cores / Threads</text><text x="466" y="78" text-anchor="end" fill="#e8e8f0" font-weight="600">8C / 16T</text>
+      <line x1="24" y1="94" x2="466" y2="94" stroke="#1a1a35"/>
+      <text x="24" y="124" fill="#c0c0d8">L3 cache (3D V-Cache)</text><text x="466" y="124" text-anchor="end" fill="#c8ff00" font-weight="700">96 MB</text>
+      <line x1="24" y1="140" x2="466" y2="140" stroke="#1a1a35"/>
+      <text x="24" y="170" fill="#c0c0d8">Boost clock</text><text x="466" y="170" text-anchor="end" fill="#e8e8f0" font-weight="600">5.0 GHz</text>
+      <line x1="24" y1="186" x2="466" y2="186" stroke="#1a1a35"/>
+      <text x="24" y="216" fill="#c0c0d8">TDP</text><text x="466" y="216" text-anchor="end" fill="#e8e8f0" font-weight="600">120 W</text>
+      <line x1="24" y1="232" x2="466" y2="232" stroke="#1a1a35"/>
+      <text x="24" y="262" fill="#c0c0d8">Socket / Memory</text><text x="466" y="262" text-anchor="end" fill="#e8e8f0" font-weight="600">AM5 · DDR5</text>
+      <line x1="24" y1="278" x2="466" y2="278" stroke="#1a1a35"/>
+      <text x="24" y="304" fill="#c0c0d8">Real gaming draw</text><text x="466" y="304" text-anchor="end" fill="#5dca7a" font-weight="700">60–90 W</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · Hardware Review · Specs per AMD official product page</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

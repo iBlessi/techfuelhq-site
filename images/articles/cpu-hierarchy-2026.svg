@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>The 2026 CPU Gaming Ladder — why gaming processors cluster tightly and 3D V-Cache wins</title>
+  <desc>A TechFuel HQ visual contrasting graphics card and gaming CPU performance spread on a shared 0-100 scale. Graphics cards spread widely from about 25 to 100. Gaming CPUs cluster tightly from 61 to 100, and the seven fastest gaming chips are all AMD 3D V-Cache (X3D) processors, led by the Ryzen 7 9850X3D at 100 down to the Core i5-12600K at 61.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <text x="70" y="80" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">CPU HIERARCHY · 28 CHIPS · GAMING · MID-2026</text>
+  <text x="70" y="134" fill="#e8e8f0" font-size="48" font-weight="900">The 2026 CPU Gaming Ladder</text>
+  <text x="70" y="168" fill="#6b6b8a" font-size="19">Relative 1080p gaming performance, fastest chip = 100. Where GPUs sprawl, CPUs cluster.</text>
+
+  <!-- shared axis: x = 90 + score*10.4 ; 0->90, 100->1130 -->
+  <g stroke="#1e1e3a" stroke-width="1">
+    <line x1="350" y1="250" x2="350" y2="520"/>
+    <line x1="610" y1="250" x2="610" y2="520"/>
+    <line x1="870" y1="250" x2="870" y2="520"/>
+    <line x1="1130" y1="250" x2="1130" y2="520"/>
+  </g>
+
+  <!-- GPU row (wide spread) baseline y=320 -->
+  <text x="70" y="300" fill="#6b6b8a" font-size="14" font-weight="700">GRAPHICS CARDS</text>
+  <text x="70" y="332" fill="#5a5a78" font-size="12">spread wide: ~25–100</text>
+  <g fill="#5a5a78" opacity="0.8">
+    <circle cx="1130" cy="320" r="6"/><circle cx="981" cy="320" r="6"/><circle cx="888" cy="320" r="6"/><circle cx="850" cy="320" r="6"/><circle cx="827" cy="320" r="6"/><circle cx="815" cy="320" r="6"/><circle cx="762" cy="320" r="6"/><circle cx="736" cy="320" r="6"/><circle cx="689" cy="320" r="6"/><circle cx="646" cy="320" r="6"/><circle cx="612" cy="320" r="6"/><circle cx="585" cy="320" r="6"/><circle cx="547" cy="320" r="6"/><circle cx="506" cy="320" r="6"/><circle cx="478" cy="320" r="6"/><circle cx="448" cy="320" r="6"/><circle cx="407" cy="320" r="6"/><circle cx="385" cy="320" r="6"/><circle cx="373" cy="320" r="6"/><circle cx="350" cy="320" r="6"/>
+  </g>
+
+  <!-- CPU row (tight cluster) baseline y=420 -->
+  <text x="70" y="400" fill="#e8e8f0" font-size="14" font-weight="700">GAMING CPUs</text>
+  <text x="70" y="432" fill="#5a5a78" font-size="12">clustered: 61–100</text>
+  <!-- non-X3D chips (grey-blue) -->
+  <g fill="#7a8ab5" opacity="0.85">
+    <circle cx="903" cy="420" r="6"/><circle cx="896" cy="420" r="6"/><circle cx="890" cy="420" r="6"/><circle cx="889" cy="420" r="6"/><circle cx="884" cy="420" r="6"/><circle cx="878" cy="420" r="6"/><circle cx="859" cy="420" r="6"/><circle cx="852" cy="420" r="6"/><circle cx="847" cy="420" r="6"/><circle cx="845" cy="420" r="6"/><circle cx="837" cy="420" r="6"/><circle cx="828" cy="420" r="6"/><circle cx="827" cy="420" r="6"/><circle cx="824" cy="420" r="6"/><circle cx="821" cy="420" r="6"/><circle cx="810" cy="420" r="6"/><circle cx="790" cy="420" r="6"/><circle cx="788" cy="420" r="6"/><circle cx="774" cy="420" r="6"/><circle cx="722" cy="420" r="6"/>
+  </g>
+  <!-- X3D chips (lime) -->
+  <g fill="#c8ff00">
+    <circle cx="1130" cy="420" r="7"/><circle cx="1099" cy="420" r="7"/><circle cx="1085" cy="420" r="7"/><circle cx="994" cy="420" r="7"/><circle cx="980" cy="420" r="7"/><circle cx="963" cy="420" r="7"/><circle cx="928" cy="420" r="7"/><circle cx="892" cy="420" r="7"/>
+  </g>
+
+  <!-- X3D bracket callout over the top cluster -->
+  <path d="M 918 452 L 918 462 L 1140 462 L 1140 452" fill="none" stroke="#c8ff00" stroke-width="1.5"/>
+  <text x="1029" y="484" text-anchor="middle" fill="#c8ff00" font-size="14" font-weight="700">the 7 fastest gaming chips = all AMD 3D V-Cache</text>
+
+  <!-- anchor labels -->
+  <text x="1130" y="304" text-anchor="end" fill="#a0a0bd" font-size="12">RTX 5090</text>
+  <text x="1130" y="404" text-anchor="end" fill="#c8ff00" font-size="12" font-weight="700">9850X3D</text>
+  <text x="722" y="404" text-anchor="middle" fill="#7a8ab5" font-size="12">i5-12600K</text>
+
+  <!-- axis labels -->
+  <text x="350" y="540" text-anchor="middle" fill="#4a4a6a" font-size="12">25</text>
+  <text x="610" y="540" text-anchor="middle" fill="#4a4a6a" font-size="12">50</text>
+  <text x="870" y="540" text-anchor="middle" fill="#4a4a6a" font-size="12">75</text>
+  <text x="1130" y="540" text-anchor="middle" fill="#4a4a6a" font-size="12">100</text>
+  <text x="70" y="540" fill="#4a4a6a" font-size="12">relative performance →</text>
+
+  <text x="70" y="590" fill="#c0c0d8" font-size="15">Every modern gaming CPU scores 60+. The whole race happens in the top 40% of the scale.</text>
+  <text x="70" y="612" fill="#4a4a6a" font-size="13">TechFuel HQ · 1080p gaming index · built on the Tom's Hardware CPU hierarchy</text>
+  <text x="1130" y="612" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

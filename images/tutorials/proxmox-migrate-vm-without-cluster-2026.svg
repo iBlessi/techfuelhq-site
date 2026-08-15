@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Three no-cluster methods to move a Proxmox VM to a new host, compared (2026)</title>
+  <desc>Side-by-side comparison of the three supported ways to migrate a Proxmox VM or LXC between standalone hosts without a cluster: qm/pct remote-migrate, vzdump plus qmrestore, and Proxmox Backup Server, compared on downtime, whether they cross storage types, what they need, live-migration support, and best fit. vzdump plus restore is the most reliable pick for a one-off move; remote-migrate is the only live option but is experimental.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="760" fill="#0a0a23"/>
+  <rect width="1200" height="760" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">PROXMOX MIGRATION &#183; NO CLUSTER REQUIRED</text>
+  <text x="70" y="128" fill="#e8e8f0" font-size="42" font-weight="900">Three Ways to Move a VM to a New Host</text>
+  <text x="70" y="162" fill="#6b6b8a" font-size="18">Between standalone Proxmox hosts &#183; no cluster, no <tspan font-style="italic">qm migrate</tspan> &#8211; pick by downtime and storage</text>
+
+  <!-- Column header band -->
+  <g transform="translate(70,198)">
+    <!-- spec label column -->
+    <rect x="0" y="0" width="320" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="29" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">METHOD</text>
+    <text x="20" y="50" fill="#6b6b8a" font-size="13" letter-spacing="1">(same guest, three transfer paths)</text>
+
+    <!-- remote-migrate column -->
+    <rect x="334" y="0" width="240" height="64" rx="10" fill="#101028" stroke="#5090e0"/>
+    <rect x="334" y="0" width="240" height="6" rx="3" fill="#5090e0"/>
+    <text x="454" y="32" text-anchor="middle" fill="#e8e8f0" font-size="19" font-weight="900">remote-migrate</text>
+    <text x="454" y="52" text-anchor="middle" fill="#5090e0" font-size="14" font-weight="600">direct, supports live</text>
+
+    <!-- vzdump column (winner accent) -->
+    <rect x="586" y="0" width="240" height="64" rx="10" fill="#101028" stroke="#c8ff00"/>
+    <rect x="586" y="0" width="240" height="6" rx="3" fill="#c8ff00"/>
+    <text x="706" y="32" text-anchor="middle" fill="#e8e8f0" font-size="19" font-weight="900">vzdump + restore</text>
+    <text x="706" y="52" text-anchor="middle" fill="#c8ff00" font-size="14" font-weight="600">most reliable</text>
+
+    <!-- PBS column -->
+    <rect x="838" y="0" width="240" height="64" rx="10" fill="#101028" stroke="#e08828"/>
+    <rect x="838" y="0" width="240" height="6" rx="3" fill="#e08828"/>
+    <text x="958" y="32" text-anchor="middle" fill="#e8e8f0" font-size="19" font-weight="900">Backup Server</text>
+    <text x="958" y="52" text-anchor="middle" fill="#e08828" font-size="14" font-weight="600">if you already run PBS</text>
+  </g>
+
+  <!-- Spec rows -->
+  <g transform="translate(70,278)">
+    <!-- Row 1: Downtime -->
+    <rect x="0" y="0" width="1008" height="64" rx="8" fill="#13132e"/>
+    <text x="20" y="30" fill="#c0c0d8" font-size="16" font-weight="600">Downtime</text>
+    <text x="20" y="51" fill="#6b6b8a" font-size="13">time the guest is offline</text>
+    <text x="454" y="40" text-anchor="middle" fill="#5dca7a" font-size="15" font-weight="700">Near-zero (--online)</text>
+    <text x="706" y="40" text-anchor="middle" fill="#c0c0d8" font-size="15" font-weight="700">Some (mode-dependent)</text>
+    <text x="958" y="40" text-anchor="middle" fill="#c0c0d8" font-size="15" font-weight="700">Some (or --live-restore)</text>
+
+    <!-- Row 2: Crosses storage types -->
+    <rect x="0" y="68" width="1008" height="64" rx="8" fill="#0d0d28"/>
+    <text x="20" y="98" fill="#c0c0d8" font-size="16" font-weight="600">Crosses storage types?</text>
+    <text x="20" y="119" fill="#6b6b8a" font-size="13">e.g. lvmthin &#8594; zfspool</text>
+    <text x="454" y="108" text-anchor="middle" fill="#e08828" font-size="15" font-weight="700">Only when online</text>
+    <text x="706" y="108" text-anchor="middle" fill="#c8ff00" font-size="16" font-weight="800">Yes</text>
+    <text x="958" y="108" text-anchor="middle" fill="#5dca7a" font-size="16" font-weight="800">Yes</text>
+
+    <!-- Row 3: Needs -->
+    <rect x="0" y="136" width="1008" height="64" rx="8" fill="#13132e"/>
+    <text x="20" y="166" fill="#c0c0d8" font-size="16" font-weight="600">Needs</text>
+    <text x="20" y="187" fill="#6b6b8a" font-size="13">prerequisite to set up</text>
+    <text x="454" y="176" text-anchor="middle" fill="#c0c0d8" font-size="16" font-weight="700">API token</text>
+    <text x="706" y="176" text-anchor="middle" fill="#c0c0d8" font-size="16" font-weight="700">File copy (scp/rsync)</text>
+    <text x="958" y="176" text-anchor="middle" fill="#c0c0d8" font-size="16" font-weight="700">Shared PBS</text>
+
+    <!-- Row 4: Live migration -->
+    <rect x="0" y="204" width="1008" height="64" rx="8" fill="#0d0d28"/>
+    <text x="20" y="234" fill="#c0c0d8" font-size="16" font-weight="600">Live (online) migration</text>
+    <text x="20" y="255" fill="#6b6b8a" font-size="13">guest keeps running</text>
+    <text x="454" y="244" text-anchor="middle" fill="#5dca7a" font-size="15" font-weight="800">Yes (only method)</text>
+    <text x="706" y="244" text-anchor="middle" fill="#6b6b8a" font-size="16" font-weight="700">No</text>
+    <text x="958" y="244" text-anchor="middle" fill="#6b6b8a" font-size="16" font-weight="700">No</text>
+
+    <!-- Row 5: Best for -->
+    <rect x="0" y="272" width="1008" height="64" rx="8" fill="#13132e"/>
+    <text x="20" y="302" fill="#c0c0d8" font-size="16" font-weight="600">Best for</text>
+    <text x="20" y="323" fill="#6b6b8a" font-size="13">match method to the move</text>
+    <text x="454" y="312" text-anchor="middle" fill="#5090e0" font-size="14" font-weight="700">Minimal-downtime moves</text>
+    <text x="706" y="312" text-anchor="middle" fill="#c8ff00" font-size="14" font-weight="700">Mismatched storage</text>
+    <text x="958" y="312" text-anchor="middle" fill="#e08828" font-size="14" font-weight="700">Repeated PBS moves</text>
+  </g>
+
+  <!-- Verdict strip -->
+  <g transform="translate(70,640)">
+    <rect x="0" y="0" width="1008" height="66" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="66" rx="3" fill="#c8ff00"/>
+    <text x="26" y="29" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">THE CALL</text>
+    <text x="26" y="52" fill="#c0c0d8" font-size="16">One-off move to new hardware &#8594; vzdump + restore (reliable, crosses storage, original stays safe). Need minimal downtime &#8594; remote-migrate --online (experimental; test first).</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="738" fill="#4a4a6a" font-size="13">TechFuel HQ &#183; Proxmox Migration &#183; per the official qm / pct manpages and vzdump docs</text>
+  <text x="1130" y="738" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

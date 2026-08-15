@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>n8n self-hosted Docker architecture: HTTPS via Nginx Proxy Manager into the n8n container, PostgreSQL database, and optional Redis queue-mode worker on two Docker networks</title>
+  <desc>Topology diagram for a self-hosted n8n stack. Internet traffic reaches Nginx Proxy Manager over HTTPS on the proxy network, which forwards to the n8n container on port 5678. n8n connects over the private n8n-internal network to a PostgreSQL 16 database for workflows and credentials, and optionally to Redis 7 with an n8n worker for queue mode. n8n also reaches LAN homelab services. Idle RAM totals about 255 MB.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#5090e0"/>
+    </marker>
+    <marker id="arrowlime" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#c8ff00"/>
+    </marker>
+    <marker id="arrowmuted" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#6b6b8a"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="62" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">SETUP TUTORIAL · DOCKER TOPOLOGY</text>
+  <text x="70" y="106" fill="#e8e8f0" font-size="44" font-weight="900">n8n Self-Hosted on Docker</text>
+  <text x="70" y="138" fill="#6b6b8a" font-size="18">PostgreSQL · HTTPS via Nginx Proxy Manager · optional Redis queue mode</text>
+
+  <!-- Internet node -->
+  <g transform="translate(70,180)">
+    <rect width="150" height="70" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="75" y="32" text-anchor="middle" fill="#c0c0d8" font-size="15" font-weight="600">Internet</text>
+    <text x="75" y="52" text-anchor="middle" fill="#6b6b8a" font-size="12">browser / webhooks</text>
+  </g>
+
+  <!-- proxy network band -->
+  <rect x="250" y="168" width="290" height="300" rx="14" fill="none" stroke="#5090e0" stroke-width="1" stroke-dasharray="6 5" opacity="0.7"/>
+  <text x="262" y="190" fill="#5090e0" font-size="12" letter-spacing="2" font-weight="700">proxy NETWORK (external)</text>
+
+  <!-- Nginx Proxy Manager -->
+  <g transform="translate(270,210)">
+    <rect width="250" height="86" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="5" height="86" rx="2" fill="#5090e0"/>
+    <text x="22" y="32" fill="#e8e8f0" font-size="18" font-weight="700">Nginx Proxy Manager</text>
+    <text x="22" y="55" fill="#c0c0d8" font-size="13">Wildcard SSL · Force SSL · Websockets ON</text>
+    <text x="22" y="74" fill="#6b6b8a" font-size="12">n8n.yourdomain.com</text>
+  </g>
+
+  <!-- n8n container (sits on both networks) -->
+  <g transform="translate(270,340)">
+    <rect width="250" height="100" rx="10" fill="#101028" stroke="#c8ff00" stroke-width="1.5"/>
+    <rect x="0" y="0" width="5" height="100" rx="2" fill="#c8ff00"/>
+    <text x="22" y="32" fill="#e8e8f0" font-size="20" font-weight="800">n8n</text>
+    <text x="22" y="56" fill="#c0c0d8" font-size="13">n8nio/n8n (pinned tag) · port 5678</text>
+    <text x="22" y="78" fill="#c8ff00" font-size="13" font-weight="600">~180 MB RAM idle</text>
+  </g>
+
+  <!-- internal network band -->
+  <rect x="588" y="168" width="382" height="380" rx="14" fill="none" stroke="#6b6b8a" stroke-width="1" stroke-dasharray="6 5" opacity="0.6"/>
+  <text x="600" y="190" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">n8n-internal NETWORK (bridge)</text>
+
+  <!-- PostgreSQL -->
+  <g transform="translate(610,210)">
+    <rect width="250" height="100" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="5" height="100" rx="2" fill="#5dca7a"/>
+    <text x="22" y="32" fill="#e8e8f0" font-size="18" font-weight="700">PostgreSQL 16</text>
+    <text x="22" y="56" fill="#c0c0d8" font-size="13">postgres:16-alpine</text>
+    <text x="22" y="78" fill="#6b6b8a" font-size="12.5">Workflows · encrypted credentials · history · ~60 MB</text>
+  </g>
+
+  <!-- Redis (queue mode) -->
+  <g transform="translate(610,335)">
+    <rect width="250" height="92" rx="10" fill="#101028" stroke="#1e1e3a" stroke-dasharray="4 4"/>
+    <rect x="0" y="0" width="5" height="92" rx="2" fill="#e08828"/>
+    <text x="22" y="30" fill="#e8e8f0" font-size="17" font-weight="700">Redis 7</text>
+    <text x="100" y="30" fill="#e08828" font-size="11" letter-spacing="1" font-weight="700">QUEUE MODE (OPT)</text>
+    <text x="22" y="53" fill="#c0c0d8" font-size="13">redis:7-alpine · BullMQ jobs</text>
+    <text x="22" y="74" fill="#6b6b8a" font-size="12.5">~15 MB RAM</text>
+  </g>
+
+  <!-- n8n-worker -->
+  <g transform="translate(610,452)">
+    <rect width="250" height="74" rx="10" fill="#101028" stroke="#1e1e3a" stroke-dasharray="4 4"/>
+    <rect x="0" y="0" width="5" height="74" rx="2" fill="#e08828"/>
+    <text x="22" y="30" fill="#e8e8f0" font-size="17" font-weight="700">n8n-worker</text>
+    <text x="22" y="53" fill="#c0c0d8" font-size="13">command: worker · executes jobs</text>
+  </g>
+
+  <!-- LAN homelab services -->
+  <g transform="translate(890,210)">
+    <rect width="240" height="100" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="5" height="100" rx="2" fill="#5090e0"/>
+    <text x="22" y="32" fill="#e8e8f0" font-size="17" font-weight="700">LAN Homelab Services</text>
+    <text x="22" y="56" fill="#c0c0d8" font-size="13">Proxmox API · Grafana</text>
+    <text x="22" y="76" fill="#6b6b8a" font-size="12.5">Uptime Kuma · NAS · direct LAN IP</text>
+  </g>
+
+  <!-- Backups -->
+  <g transform="translate(890,452)">
+    <rect width="240" height="74" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="5" height="74" rx="2" fill="#5dca7a"/>
+    <text x="22" y="30" fill="#e8e8f0" font-size="16" font-weight="700">Backups (cron 04:00)</text>
+    <text x="22" y="52" fill="#c0c0d8" font-size="12.5">pg_dump + ./n8n config</text>
+    <text x="22" y="69" fill="#6b6b8a" font-size="12">N8N_ENCRYPTION_KEY</text>
+  </g>
+
+  <!-- Connections -->
+  <!-- Internet -> NPM (HTTPS) -->
+  <line x1="220" y1="215" x2="266" y2="253" stroke="#5090e0" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="200" y="200" fill="#5090e0" font-size="11" font-weight="700">HTTPS 443</text>
+
+  <!-- NPM -> n8n (http 5678) -->
+  <line x1="395" y1="296" x2="395" y2="336" stroke="#5090e0" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="405" y="322" fill="#6b6b8a" font-size="11">http :5678</text>
+
+  <!-- n8n -> PostgreSQL -->
+  <line x1="520" y1="372" x2="606" y2="290" stroke="#5dca7a" stroke-width="2" marker-end="url(#arrowmuted)"/>
+  <!-- n8n -> Redis -->
+  <line x1="520" y1="400" x2="606" y2="385" stroke="#e08828" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowmuted)"/>
+  <!-- Redis -> worker -->
+  <line x1="735" y1="427" x2="735" y2="448" stroke="#e08828" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowmuted)"/>
+  <!-- worker -> PostgreSQL (curve up) -->
+  <path d="M 860 478 C 880 430 880 330 862 300" fill="none" stroke="#6b6b8a" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrowmuted)"/>
+
+  <!-- n8n -> LAN services (outbound HTTP Request) -->
+  <path d="M 520 360 C 700 150 760 150 886 230" fill="none" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrowlime)"/>
+  <text x="640" y="160" fill="#c8ff00" font-size="11" font-weight="700">HTTP Request node → LAN IP</text>
+
+  <!-- PostgreSQL -> Backups -->
+  <line x1="855" y1="300" x2="980" y2="448" stroke="#5dca7a" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrowmuted)"/>
+
+  <!-- Total RAM stat -->
+  <g transform="translate(70,492)">
+    <rect width="450" height="56" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="26" fill="#6b6b8a" font-size="12" letter-spacing="1.5" font-weight="700">TOTAL RAM · 15 ACTIVE WORKFLOWS, IDLE</text>
+    <text x="20" y="48" fill="#c8ff00" font-size="22" font-weight="900">~255 MB</text>
+    <text x="120" y="48" fill="#c0c0d8" font-size="13">on a Debian 12 LXC</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · Setup Tutorial · Component versions and RAM figures per this guide</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

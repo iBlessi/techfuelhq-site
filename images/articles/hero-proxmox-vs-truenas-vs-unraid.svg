@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a23"/>
+      <stop offset="100%" stop-color="#0d0d26"/>
+    </linearGradient>
+    <linearGradient id="pve-card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#142014"/>
+      <stop offset="100%" stop-color="#0a150a"/>
+    </linearGradient>
+    <linearGradient id="truenas-card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#101828"/>
+      <stop offset="100%" stop-color="#0a1020"/>
+    </linearGradient>
+    <linearGradient id="unraid-card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#201610"/>
+      <stop offset="100%" stop-color="#150f08"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Grid -->
+  <defs>
+    <pattern id="grid3" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#141432" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid3)" opacity="0.4"/>
+
+  <!-- Top three-color accent bar -->
+  <rect x="0" y="0" width="365" height="5" fill="#5dca7a"/>
+  <rect x="417" y="0" width="366" height="5" fill="#5090e0"/>
+  <rect x="835" y="0" width="365" height="5" fill="#e08040"/>
+
+  <!-- Glow accents -->
+  <ellipse cx="183" cy="400" rx="200" ry="180" fill="#5dca7a" opacity="0.04"/>
+  <ellipse cx="600" cy="400" rx="200" ry="180" fill="#5090e0" opacity="0.04"/>
+  <ellipse cx="1017" cy="400" rx="200" ry="180" fill="#e08040" opacity="0.04"/>
+
+  <!-- Title area -->
+  <text x="600" y="60" font-family="system-ui, sans-serif" font-size="34" font-weight="900" fill="#e8e8f0" text-anchor="middle">Proxmox vs TrueNAS vs Unraid</text>
+  <text x="600" y="92" font-family="system-ui, sans-serif" font-size="16" fill="#6b6b8a" text-anchor="middle">Which home server OS is right for you in 2026?</text>
+
+  <!-- Proxmox Card -->
+  <rect x="40" y="115" width="340" height="380" rx="16" fill="url(#pve-card)" stroke="#5dca7a" stroke-width="2"/>
+  <!-- Top color bar -->
+  <rect x="40" y="115" width="340" height="6" rx="3" fill="#5dca7a"/>
+
+  <!-- Proxmox icon -->
+  <rect x="90" y="145" width="60" height="60" rx="10" fill="#5dca7a" opacity="0.2" stroke="#5dca7a" stroke-width="1.5"/>
+  <text x="120" y="185" font-family="monospace" font-size="20" font-weight="900" fill="#5dca7a" text-anchor="middle">PVE</text>
+
+  <text x="175" y="168" font-family="system-ui, sans-serif" font-size="20" font-weight="800" fill="#e8e8f0">Proxmox VE</text>
+  <text x="175" y="190" font-family="system-ui, sans-serif" font-size="12" fill="#5dca7a">Hypervisor + Storage</text>
+
+  <line x1="60" y1="225" x2="360" y2="225" stroke="#1e2e1e" stroke-width="1"/>
+
+  <!-- Best for badge -->
+  <rect x="60" y="233" width="200" height="24" rx="4" fill="#0f1f0f"/>
+  <text x="70" y="250" font-family="system-ui, sans-serif" font-size="11" fill="#5dca7a">Best for: VMs + NAS combined</text>
+
+  <circle cx="70" cy="278" r="3.5" fill="#5dca7a"/>
+  <text x="84" y="283" font-family="system-ui, sans-serif" font-size="13" fill="#c0c0d8">Run VMs &amp; containers</text>
+  <circle cx="70" cy="303" r="3.5" fill="#5dca7a"/>
+  <text x="84" y="308" font-family="system-ui, sans-serif" font-size="13" fill="#c0c0d8">ZFS + Btrfs storage</text>
+  <circle cx="70" cy="328" r="3.5" fill="#5dca7a"/>
+  <text x="84" y="333" font-family="system-ui, sans-serif" font-size="13" fill="#c0c0d8">Enterprise features free</text>
+  <circle cx="70" cy="353" r="3.5" fill="#e08040"/>
+  <text x="84" y="358" font-family="system-ui, sans-serif" font-size="13" fill="#9090a8">Steeper learning curve</text>
+  <circle cx="70" cy="378" r="3.5" fill="#e08040"/>
+  <text x="84" y="383" font-family="system-ui, sans-serif" font-size="13" fill="#9090a8">No media server out of box</text>
+
+  <!-- Price -->
+  <rect x="60" y="445" width="80" height="30" rx="6" fill="#5dca7a"/>
+  <text x="100" y="465" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#0a0a23" text-anchor="middle">Free</text>
+  <text x="155" y="465" font-family="system-ui, sans-serif" font-size="12" fill="#6b6b8a">Open source · AGPLv3</text>
+
+  <!-- TrueNAS Card -->
+  <rect x="430" y="115" width="340" height="380" rx="16" fill="url(#truenas-card)" stroke="#5090e0" stroke-width="2"/>
+  <rect x="430" y="115" width="340" height="6" rx="3" fill="#5090e0"/>
+
+  <!-- TrueNAS icon -->
+  <rect x="480" y="145" width="60" height="60" rx="10" fill="#5090e0" opacity="0.2" stroke="#5090e0" stroke-width="1.5"/>
+  <!-- Drive stack icon -->
+  <rect x="492" y="157" width="36" height="9" rx="3" fill="#5090e0" opacity="0.8"/>
+  <rect x="492" y="170" width="36" height="9" rx="3" fill="#5090e0" opacity="0.6"/>
+  <rect x="492" y="183" width="36" height="9" rx="3" fill="#5090e0" opacity="0.4"/>
+
+  <text x="565" y="168" font-family="system-ui, sans-serif" font-size="20" font-weight="800" fill="#e8e8f0">TrueNAS</text>
+  <text x="565" y="190" font-family="system-ui, sans-serif" font-size="12" fill="#5090e0">Scale · CORE · Electric Eel</text>
+
+  <line x1="450" y1="225" x2="750" y2="225" stroke="#1e1e2e" stroke-width="1"/>
+
+  <rect x="450" y="233" width="200" height="24" rx="4" fill="#0a1020"/>
+  <text x="460" y="250" font-family="system-ui, sans-serif" font-size="11" fill="#5090e0">Best for: Pure NAS · Data storage</text>
+
+  <circle cx="460" cy="278" r="3.5" fill="#5090e0"/>
+  <text x="474" y="283" font-family="system-ui, sans-serif" font-size="13" fill="#c0c0d8">Best-in-class ZFS storage</text>
+  <circle cx="460" cy="303" r="3.5" fill="#5090e0"/>
+  <text x="474" y="308" font-family="system-ui, sans-serif" font-size="13" fill="#c0c0d8">Snapshots &amp; replication</text>
+  <circle cx="460" cy="328" r="3.5" fill="#5090e0"/>
+  <text x="474" y="333" font-family="system-ui, sans-serif" font-size="13" fill="#c0c0d8">Apps via TrueCharts</text>
+  <circle cx="460" cy="353" r="3.5" fill="#e08040"/>
+  <text x="474" y="358" font-family="system-ui, sans-serif" font-size="13" fill="#9090a8">Heavy RAM requirement</text>
+  <circle cx="460" cy="378" r="3.5" fill="#e08040"/>
+  <text x="474" y="383" font-family="system-ui, sans-serif" font-size="13" fill="#9090a8">Not ideal for gaming VMs</text>
+
+  <rect x="450" y="445" width="80" height="30" rx="6" fill="#5090e0"/>
+  <text x="490" y="465" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#0a0a23" text-anchor="middle">Free</text>
+  <text x="545" y="465" font-family="system-ui, sans-serif" font-size="12" fill="#6b6b8a">Open source · FreeBSD</text>
+
+  <!-- Unraid Card -->
+  <rect x="820" y="115" width="340" height="380" rx="16" fill="url(#unraid-card)" stroke="#e08040" stroke-width="2"/>
+  <rect x="820" y="115" width="340" height="6" rx="3" fill="#e08040"/>
+
+  <!-- Unraid icon -->
+  <rect x="870" y="145" width="60" height="60" rx="10" fill="#e08040" opacity="0.2" stroke="#e08040" stroke-width="1.5"/>
+  <!-- Unraid U logo concept -->
+  <path d="M 882 155 L 882 185 Q 882 198 900 198 Q 918 198 918 185 L 918 155" stroke="#e08040" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <text x="955" y="168" font-family="system-ui, sans-serif" font-size="20" font-weight="800" fill="#e8e8f0">Unraid</text>
+  <text x="955" y="190" font-family="system-ui, sans-serif" font-size="12" fill="#e08040">v7 · Parity-based array</text>
+
+  <line x1="840" y1="225" x2="1140" y2="225" stroke="#2e1e0e" stroke-width="1"/>
+
+  <rect x="840" y="233" width="215" height="24" rx="4" fill="#150f08"/>
+  <text x="850" y="250" font-family="system-ui, sans-serif" font-size="11" fill="#e08040">Best for: Mixed drives · Beginners</text>
+
+  <circle cx="850" cy="278" r="3.5" fill="#e08040"/>
+  <text x="864" y="283" font-family="system-ui, sans-serif" font-size="13" fill="#c0c0d8">Mix drive sizes freely</text>
+  <circle cx="850" cy="303" r="3.5" fill="#e08040"/>
+  <text x="864" y="308" font-family="system-ui, sans-serif" font-size="13" fill="#c0c0d8">GUI-first, beginner friendly</text>
+  <circle cx="850" cy="328" r="3.5" fill="#e08040"/>
+  <text x="864" y="333" font-family="system-ui, sans-serif" font-size="13" fill="#c0c0d8">Docker + VMs supported</text>
+  <circle cx="850" cy="353" r="3.5" fill="#e08040"/>
+  <text x="864" y="358" font-family="system-ui, sans-serif" font-size="13" fill="#c0c0d8">Community plugin store</text>
+  <circle cx="850" cy="378" r="3.5" fill="#9090a8"/>
+  <text x="864" y="383" font-family="system-ui, sans-serif" font-size="13" fill="#9090a8">Paid license required</text>
+
+  <rect x="840" y="445" width="100" height="30" rx="6" fill="#e08040"/>
+  <text x="890" y="465" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#0a0a23" text-anchor="middle">$49–129</text>
+  <text x="955" y="465" font-family="system-ui, sans-serif" font-size="12" fill="#6b6b8a">One-time license</text>
+
+  <!-- Footer -->
+  <text x="600" y="558" font-family="system-ui, sans-serif" font-size="12" fill="#4a4a6a" text-anchor="middle">techfuelhq.com · Home Server OS Comparison · April 2026</text>
+</svg>

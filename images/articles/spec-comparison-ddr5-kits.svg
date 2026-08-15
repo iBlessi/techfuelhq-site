@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<rect width="1200" height="630" fill="#0a0a23"/>
+<text x="600" y="40" text-anchor="middle" fill="#c8ff00" font-size="20" font-weight="700" font-family="Inter,sans-serif">DDR5 KIT COMPARISON — RECOMMENDED PICKS BY CAPACITY</text>
+<text x="600" y="62" text-anchor="middle" fill="#8888aa" font-size="12" font-family="Inter,sans-serif">Tom's Hardware benchmark scores | Street pricing March 2026</text>
+<!-- 32GB Section -->
+<rect x="40" y="80" width="360" height="240" fill="#12122a" rx="10"/>
+<text x="220" y="105" text-anchor="middle" fill="#c8ff00" font-size="16" font-weight="700" font-family="Inter,sans-serif">32GB (2x16GB)</text>
+<text x="220" y="122" text-anchor="middle" fill="#555570" font-size="11" font-family="Inter,sans-serif">Gaming + General Use</text>
+<rect x="55" y="135" width="330" height="55" fill="#1a1a3a" rx="6" stroke="#c8ff00" stroke-width="1.5"/>
+<text x="65" y="155" fill="#c8ff00" font-size="10" font-weight="600" font-family="Inter,sans-serif">BEST VALUE</text>
+<text x="65" y="172" fill="#ccccdd" font-size="13" font-weight="600" font-family="Inter,sans-serif">TeamGroup Vulcan Eco</text>
+<text x="345" y="155" text-anchor="end" fill="#c8ff00" font-size="14" font-weight="700" font-family="Inter,sans-serif">$100</text>
+<text x="345" y="172" text-anchor="end" fill="#8888aa" font-size="11" font-family="Inter,sans-serif">6000 CL30 | XMP+EXPO</text>
+<rect x="55" y="198" width="330" height="45" fill="#1a1a3a" rx="6"/>
+<text x="65" y="218" fill="#ccccdd" font-size="12" font-family="Inter,sans-serif">Klevv Cras V RGB</text>
+<text x="345" y="210" text-anchor="end" fill="#ccccdd" font-size="13" font-weight="600" font-family="Inter,sans-serif">$140</text>
+<text x="345" y="228" text-anchor="end" fill="#8888aa" font-size="11" font-family="Inter,sans-serif">6400 CL32 | Score: 5,379</text>
+<rect x="55" y="250" width="330" height="45" fill="#1a1a3a" rx="6"/>
+<text x="65" y="270" fill="#ccccdd" font-size="12" font-family="Inter,sans-serif">G.Skill Trident Z5 RGB</text>
+<text x="345" y="262" text-anchor="end" fill="#888" font-size="13" font-weight="600" font-family="Inter,sans-serif">$198</text>
+<text x="345" y="280" text-anchor="end" fill="#ff6b6b" font-size="11" font-family="Inter,sans-serif">Same score, $58 more</text>
+<!-- 64GB Section -->
+<rect x="420" y="80" width="360" height="240" fill="#12122a" rx="10"/>
+<text x="600" y="105" text-anchor="middle" fill="#c8ff00" font-size="16" font-weight="700" font-family="Inter,sans-serif">64GB (2x32GB)</text>
+<text x="600" y="122" text-anchor="middle" fill="#555570" font-size="11" font-family="Inter,sans-serif">Workstation + Multitasking</text>
+<rect x="435" y="135" width="330" height="55" fill="#1a1a3a" rx="6" stroke="#c8ff00" stroke-width="1.5"/>
+<text x="445" y="155" fill="#c8ff00" font-size="10" font-weight="600" font-family="Inter,sans-serif">BEST OVERALL</text>
+<text x="445" y="172" fill="#ccccdd" font-size="13" font-weight="600" font-family="Inter,sans-serif">Corsair Dominator Titanium</text>
+<text x="725" y="155" text-anchor="end" fill="#c8ff00" font-size="14" font-weight="700" font-family="Inter,sans-serif">$329</text>
+<text x="725" y="172" text-anchor="end" fill="#8888aa" font-size="11" font-family="Inter,sans-serif">6600 CL32 | Score: 5,393</text>
+<rect x="435" y="198" width="330" height="45" fill="#1a1a3a" rx="6"/>
+<text x="445" y="218" fill="#ccccdd" font-size="12" font-family="Inter,sans-serif">TeamGroup T-Create Expert</text>
+<text x="725" y="210" text-anchor="end" fill="#ccccdd" font-size="13" font-weight="600" font-family="Inter,sans-serif">$340</text>
+<text x="725" y="228" text-anchor="end" fill="#8888aa" font-size="11" font-family="Inter,sans-serif">6000 CL34 | Safer for AMD</text>
+<!-- 96GB Section -->
+<rect x="800" y="80" width="360" height="240" fill="#12122a" rx="10"/>
+<text x="980" y="105" text-anchor="middle" fill="#c8ff00" font-size="16" font-weight="700" font-family="Inter,sans-serif">96GB (2x48GB)</text>
+<text x="980" y="122" text-anchor="middle" fill="#555570" font-size="11" font-family="Inter,sans-serif">Content Creation + VMs</text>
+<rect x="815" y="135" width="330" height="55" fill="#1a1a3a" rx="6" stroke="#c8ff00" stroke-width="1.5"/>
+<text x="825" y="155" fill="#c8ff00" font-size="10" font-weight="600" font-family="Inter,sans-serif">BEST AMD</text>
+<text x="825" y="172" fill="#ccccdd" font-size="13" font-weight="600" font-family="Inter,sans-serif">Kingston Fury Renegade</text>
+<text x="1105" y="155" text-anchor="end" fill="#c8ff00" font-size="14" font-weight="700" font-family="Inter,sans-serif">$350</text>
+<text x="1105" y="172" text-anchor="end" fill="#8888aa" font-size="11" font-family="Inter,sans-serif">6400 CL32 | Score: 5,297</text>
+<rect x="815" y="198" width="330" height="55" fill="#1a1a3a" rx="6" stroke="#6b8f00" stroke-width="1"/>
+<text x="825" y="218" fill="#6b8f00" font-size="10" font-weight="600" font-family="Inter,sans-serif">BEST INTEL</text>
+<text x="825" y="235" fill="#ccccdd" font-size="13" font-weight="600" font-family="Inter,sans-serif">G.Skill Trident Z5 RGB</text>
+<text x="1105" y="218" text-anchor="end" fill="#ccccdd" font-size="14" font-weight="600" font-family="Inter,sans-serif">$450</text>
+<text x="1105" y="235" text-anchor="end" fill="#8888aa" font-size="11" font-family="Inter,sans-serif">6400 CL32 | Score: 5,673</text>
+<!-- Gotcha boxes -->
+<rect x="40" y="340" width="560" height="110" fill="#12122a" rx="10"/>
+<text x="55" y="365" fill="#ff6b6b" font-size="14" font-weight="700" font-family="Inter,sans-serif">GOTCHAS TO KNOW</text>
+<text x="55" y="388" fill="#ccccdd" font-size="12" font-family="Inter,sans-serif">XMP/EXPO are overclocks — not guaranteed to work</text>
+<text x="55" y="406" fill="#ccccdd" font-size="12" font-family="Inter,sans-serif">4 DIMMs = 400-800 MT/s speed drop vs 2 DIMMs</text>
+<text x="55" y="424" fill="#ccccdd" font-size="12" font-family="Inter,sans-serif">Check motherboard QVL before buying</text>
+<text x="55" y="442" fill="#ccccdd" font-size="12" font-family="Inter,sans-serif">$200-$800 price spread on same kit — buy from authorized sellers</text>
+<!-- Sweet spot callout -->
+<rect x="620" y="340" width="540" height="110" fill="#12122a" rx="10" stroke="#c8ff00" stroke-width="1"/>
+<text x="890" y="370" text-anchor="middle" fill="#c8ff00" font-size="18" font-weight="700" font-family="Inter,sans-serif">THE SWEET SPOT: DDR5-6000 to 6400</text>
+<text x="890" y="395" text-anchor="middle" fill="#ccccdd" font-size="13" font-family="Inter,sans-serif">AMD: DDR5-6000 (1:1 FCLK ratio)</text>
+<text x="890" y="415" text-anchor="middle" fill="#ccccdd" font-size="13" font-family="Inter,sans-serif">Intel: DDR5-6400 (less picky, more headroom)</text>
+<text x="890" y="440" text-anchor="middle" fill="#8888aa" font-size="11" font-family="Inter,sans-serif">Above 6400: diminishing returns + instability risk</text>
+<!-- Footer -->
+<text x="600" y="500" text-anchor="middle" fill="#555570" font-size="11" font-family="Inter,sans-serif">techfuelhq.com | DDR5 RAM Buying Guide 2026</text>
+<rect x="200" y="515" width="800" height="3" fill="#c8ff00" rx="2" opacity="0.3"/>
+</svg>

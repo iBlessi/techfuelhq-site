@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 500" font-family="Inter, system-ui, sans-serif">
+<rect width="750" height="500" fill="#0a0a23"/>
+<text x="375" y="40" text-anchor="middle" fill="#e8e8f0" font-size="18" font-weight="600" letter-spacing="-0.3">The self-hosting priority stack</text>
+<text x="375" y="58" text-anchor="middle" fill="#6b6b8a" font-size="12">Start at the bottom. Work up as you outgrow each tier.</text>
+<!-- Tier labels on left -->
+<text x="47" y="430" fill="#555570" font-size="10" font-weight="500" text-anchor="middle" transform="rotate(-90,47,430)">DAY 1</text>
+<text x="47" y="315" fill="#555570" font-size="10" font-weight="500" text-anchor="middle" transform="rotate(-90,47,315)">WEEK 1</text>
+<text x="47" y="180" fill="#555570" font-size="10" font-weight="500" text-anchor="middle" transform="rotate(-90,47,180)">MONTH 1+</text>
+<!-- Layer 1 (bottom): Pi-hole -->
+<rect x="75" y="395" width="600" height="60" rx="8" fill="rgba(93,202,122,0.12)" stroke="rgba(93,202,122,0.3)" stroke-width="1"/>
+<text x="375" y="421" text-anchor="middle" fill="#5dca7a" font-size="16" font-weight="700">Pi-hole</text>
+<text x="375" y="441" text-anchor="middle" fill="#5a9a6a" font-size="11">DNS ad blocking · 512MB RAM · instant payoff</text>
+<text x="665" y="431" text-anchor="end" fill="#3a6a3a" font-size="22" font-weight="700">1</text>
+<!-- Layer 2: Uptime Kuma -->
+<rect x="125" y="325" width="500" height="60" rx="8" fill="rgba(80,144,224,0.12)" stroke="rgba(80,144,224,0.3)" stroke-width="1"/>
+<text x="375" y="351" text-anchor="middle" fill="#5090e0" font-size="16" font-weight="700">Uptime Kuma</text>
+<text x="375" y="371" text-anchor="middle" fill="#4070a0" font-size="11">Service monitoring · trivial Docker deploy · know when things break</text>
+<text x="615" y="361" text-anchor="end" fill="#305080" font-size="22" font-weight="700">2</text>
+<!-- Layer 3: Jellyfin -->
+<rect x="165" y="255" width="420" height="60" rx="8" fill="rgba(200,128,224,0.12)" stroke="rgba(200,128,224,0.3)" stroke-width="1"/>
+<text x="375" y="281" text-anchor="middle" fill="#c880e0" font-size="16" font-weight="700">Jellyfin</text>
+<text x="375" y="301" text-anchor="middle" fill="#8060a0" font-size="11">Media server · 8GB RAM rec. · N100 for transcoding</text>
+<text x="575" y="291" text-anchor="end" fill="#604080" font-size="22" font-weight="700">3</text>
+<!-- Layer 4: Nextcloud -->
+<rect x="205" y="185" width="340" height="60" rx="8" fill="rgba(224,128,64,0.12)" stroke="rgba(224,128,64,0.3)" stroke-width="1"/>
+<text x="375" y="211" text-anchor="middle" fill="#e08040" font-size="16" font-weight="700">Nextcloud</text>
+<text x="375" y="231" text-anchor="middle" fill="#a06030" font-size="11">File sync + office · AIO install · 512MB+ RAM</text>
+<text x="535" y="221" text-anchor="end" fill="#805020" font-size="22" font-weight="700">4</text>
+<!-- Layer 5: Immich -->
+<rect x="245" y="115" width="260" height="60" rx="8" fill="rgba(224,64,80,0.12)" stroke="rgba(224,64,80,0.3)" stroke-width="1"/>
+<text x="375" y="141" text-anchor="middle" fill="#e04050" font-size="16" font-weight="700">Immich</text>
+<text x="375" y="161" text-anchor="middle" fill="#a03040" font-size="11">Photo library · 6GB RAM min · Docker required</text>
+<text x="495" y="151" text-anchor="end" fill="#802030" font-size="22" font-weight="700">5</text>
+<!-- Layer 6 (top): Home Assistant -->
+<rect x="295" y="55" width="160" height="50" rx="8" fill="rgba(200,160,60,0.15)" stroke="rgba(200,160,60,0.35)" stroke-width="1"/>
+<text x="375" y="77" text-anchor="middle" fill="#c8a03c" font-size="14" font-weight="700">Home Assistant</text>
+<text x="375" y="95" text-anchor="middle" fill="#8a7030" font-size="10">Smart home · HA OS best · UEFI</text>
+<text x="447" y="85" fill="#6a5020" font-size="18" font-weight="700">6</text>
+<!-- Footer -->
+<text x="725" y="490" text-anchor="end" fill="#44445a" font-size="10">techfuelhq.com · March 2026</text>
+</svg>

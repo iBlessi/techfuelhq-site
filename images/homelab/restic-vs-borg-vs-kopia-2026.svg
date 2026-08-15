@@ -1,0 +1,74 @@
+<svg viewBox="0 0 1200 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Restic vs Borg vs Kopia in 2026, decided by where the backup lands. First, the correction: restic has had compression since version 0.14.0 released 2022-08-25, tied to repository format version 2, with five modes today; repositories created before that need migrate upgrade underscore repo underscore v2 followed by prune. Then three branches by destination. If your target is cloud object storage - S3, Backblaze B2, Wasabi, Azure or Google Cloud Storage - pick restic or Kopia, because Borg documents no native object-storage backend at all; reach B2 through its S3-compatible API rather than the native B2 backend. If your target is an SSH box you control, pick Borg, and install Borg at both ends via borg serve over SSH; Borg has the widest compression menu, lz4, zstd, zlib, lzma and auto, plus an obfuscate mode that pads chunk sizes against fingerprinting attacks with no equivalent in restic or Kopia. If your fleet includes Windows, pick restic with Volume Shadow Copy Service via the use-fs-snapshot option, or Kopia, which is the only one of the three with an official GUI; Borg on Windows is WSL or Cygwin only and both are labelled experimental. Versions checked 2026-07-20: restic 0.19.1, Borg stable 1.4.5 released mid-July 2026, Kopia 0.23.1, and Borg 2.0 is still beta at 2.0.0b21 with no release candidate.">
+  <rect width="1200" height="760" fill="#0e0e1a"/>
+
+  <text x="60" y="62" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="33" font-weight="700">restic vs Borg vs Kopia 2026</text>
+  <text x="60" y="94" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="18">All three compress. That axis is dead &#8212; where the backup <tspan font-style="italic">lands</tspan> is what actually decides it.</text>
+
+  <!-- Correction banner -->
+  <rect x="60" y="116" width="1080" height="66" rx="10" fill="#14140f" stroke="#c8ff00" stroke-width="1.5"/>
+  <text x="84" y="144" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">The correction almost nobody makes: restic HAS compression</text>
+  <text x="84" y="169" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">Since v0.14.0 (2022-08-25), with repository format v2 &#8212; five modes today. Repos made before that need a migrate + prune.</text>
+
+  <!-- ===== Column 1: bucket ===== -->
+  <rect x="60" y="200" width="345" height="316" rx="10" fill="#16162a" stroke="#3a4a2a" stroke-width="1.5"/>
+  <rect x="60" y="200" width="345" height="56" rx="10" fill="#26301c"/>
+  <text x="82" y="224" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="700">IF YOUR TARGET IS</text>
+  <text x="82" y="246" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700">A cloud bucket</text>
+  <text x="82" y="278" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">S3 &#183; B2 &#183; Wasabi &#183; Azure &#183; GCS</text>
+
+  <rect x="82" y="294" width="301" height="40" rx="6" fill="#22301c" stroke="#3a4a2a" stroke-width="1.5"/>
+  <text x="232" y="320" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">restic or Kopia</text>
+
+  <rect x="82" y="346" width="301" height="34" rx="6" fill="#191930" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="232" y="368" fill="#5a5a72" font-family="Segoe UI, Arial, sans-serif" font-size="14" text-anchor="middle">Borg: no object-storage backend</text>
+
+  <text x="82" y="410" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">Both write straight into the bucket &#8212;</text>
+  <text x="82" y="432" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">the far end is just dumb storage.</text>
+  <text x="82" y="464" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">Gotcha: reach Backblaze B2 through</text>
+  <text x="82" y="486" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">its S3-compatible API, not native B2.</text>
+
+  <!-- ===== Column 2: SSH box ===== -->
+  <rect x="428" y="200" width="345" height="316" rx="10" fill="#16162a" stroke="#3a4a2a" stroke-width="1.5"/>
+  <rect x="428" y="200" width="345" height="56" rx="10" fill="#26301c"/>
+  <text x="450" y="224" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="700">IF YOUR TARGET IS</text>
+  <text x="450" y="246" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700">An SSH box you own</text>
+  <text x="450" y="278" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">A NAS, a VPS, a second server</text>
+
+  <rect x="450" y="294" width="301" height="40" rx="6" fill="#22301c" stroke="#3a4a2a" stroke-width="1.5"/>
+  <text x="600" y="320" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">Borg 1.4.5</text>
+
+  <rect x="450" y="346" width="301" height="34" rx="6" fill="#22223c"/>
+  <text x="600" y="368" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="14" text-anchor="middle">Install Borg at BOTH ends</text>
+
+  <text x="450" y="410" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">Widest compression menu of the three:</text>
+  <text x="450" y="432" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">lz4 &#183; zstd &#183; zlib &#183; lzma &#183; auto</text>
+  <text x="450" y="464" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">Plus obfuscate &#8212; pads chunk sizes</text>
+  <text x="450" y="486" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">against fingerprinting. Unique here.</text>
+
+  <!-- ===== Column 3: Windows ===== -->
+  <rect x="796" y="200" width="345" height="316" rx="10" fill="#16162a" stroke="#3a4a2a" stroke-width="1.5"/>
+  <rect x="796" y="200" width="345" height="56" rx="10" fill="#26301c"/>
+  <text x="818" y="224" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="700">IF YOUR FLEET INCLUDES</text>
+  <text x="818" y="246" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700">Windows machines</text>
+  <text x="818" y="278" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">Desktops, laptops, mixed estates</text>
+
+  <rect x="818" y="294" width="301" height="40" rx="6" fill="#22301c" stroke="#3a4a2a" stroke-width="1.5"/>
+  <text x="968" y="320" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">restic or Kopia</text>
+
+  <rect x="818" y="346" width="301" height="34" rx="6" fill="#191930" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="968" y="368" fill="#5a5a72" font-family="Segoe UI, Arial, sans-serif" font-size="14" text-anchor="middle">Borg: WSL/Cygwin, experimental</text>
+
+  <text x="818" y="410" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">restic drives Volume Shadow Copy</text>
+  <text x="818" y="432" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">Service via --use-fs-snapshot.</text>
+  <text x="818" y="464" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">Kopia is the only one of the three</text>
+  <text x="818" y="486" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">with an official GUI (KopiaUI).</text>
+
+  <!-- Footer strip -->
+  <rect x="60" y="544" width="1080" height="124" rx="10" fill="#14140f" stroke="#3a4a2a" stroke-width="1.5"/>
+  <text x="84" y="574" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">Versions checked 2026-07-20 &#8212; these age fast</text>
+  <text x="84" y="602" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">restic 0.19.1 (2026-07-05) &#160;&#183;&#160; Borg stable 1.4.5 (mid-July 2026) &#160;&#183;&#160; Kopia 0.23.1 (2026-06-16)</text>
+  <text x="84" y="630" fill="#ffb020" font-family="Segoe UI, Arial, sans-serif" font-size="15.5" font-weight="700">Borg 2.0 is still BETA &#8212; 2.0.0b21, no release candidate. Do not point it at a production repository.</text>
+  <text x="84" y="656" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15">The two credible restore benchmarks point opposite ways &#8212; and they do not measure the same thing.</text>
+
+  <text x="60" y="716" fill="#5a5a72" font-family="Segoe UI, Arial, sans-serif" font-size="13">Versions from the GitHub release APIs; capabilities from restic, Borg and Kopia documentation read 2026-07-20. TechFuelHQ.</text>
+</svg>

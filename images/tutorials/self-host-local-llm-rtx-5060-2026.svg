@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Self-hosted local LLM topology on an RTX 5060 in 2026</title>
+  <desc>Architecture diagram: GGUF models served by Ollama on Linux or LM Studio on Windows, running on an RTX 5060 GPU inference node, exposed over a LAN to laptop, Open WebUI, and OpenAI-API client endpoints.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#5090e0"/>
+    </marker>
+    <marker id="arrowlime" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#c8ff00"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <text x="70" y="58" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">SETUP TUTORIAL · HOMELAB INFERENCE</text>
+  <text x="70" y="100" fill="#e8e8f0" font-size="44" font-weight="900">Self-Hosting a Local LLM on an RTX 5060</text>
+  <text x="70" y="132" fill="#6b6b8a" font-size="19">A private inference node for ~$300 — models, runner, and LAN topology</text>
+
+  <!-- Column labels -->
+  <text x="170" y="186" text-anchor="middle" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">MODEL LAYER (GGUF)</text>
+  <text x="600" y="186" text-anchor="middle" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">GPU INFERENCE NODE</text>
+  <text x="1030" y="186" text-anchor="middle" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">LAN CLIENTS</text>
+
+  <!-- MODEL LAYER column -->
+  <g transform="translate(45,205)">
+    <rect width="250" height="62" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="18" y="28" fill="#e8e8f0" font-size="16" font-weight="700">Qwen 2.5 14B</text>
+    <text x="232" y="28" text-anchor="end" fill="#c8ff00" font-size="14" font-weight="700">Q4_K_M</text>
+    <text x="18" y="49" fill="#6b6b8a" font-size="13">~8.7 GB · 32 t/s (16GB)</text>
+  </g>
+  <g transform="translate(45,277)">
+    <rect width="250" height="62" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="18" y="28" fill="#e8e8f0" font-size="16" font-weight="700">Llama 3.1 8B</text>
+    <text x="232" y="28" text-anchor="end" fill="#c8ff00" font-size="14" font-weight="700">Q4_K_M</text>
+    <text x="18" y="49" fill="#6b6b8a" font-size="13">~5.2 GB · 59 t/s</text>
+  </g>
+  <g transform="translate(45,349)">
+    <rect width="250" height="62" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="18" y="28" fill="#e8e8f0" font-size="16" font-weight="700">Qwen 2.5 7B</text>
+    <text x="232" y="28" text-anchor="end" fill="#c8ff00" font-size="14" font-weight="700">Q4_K_M</text>
+    <text x="18" y="49" fill="#6b6b8a" font-size="13">~4.7 GB · 58 t/s (8GB)</text>
+  </g>
+  <g transform="translate(45,421)">
+    <rect width="250" height="62" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="18" y="28" fill="#e8e8f0" font-size="16" font-weight="700">Mistral 7B</text>
+    <text x="232" y="28" text-anchor="end" fill="#c8ff00" font-size="14" font-weight="700">Q4</text>
+    <text x="18" y="49" fill="#6b6b8a" font-size="13">~4.4 GB · 73 t/s (8GB)</text>
+  </g>
+
+  <!-- Arrows model -> node -->
+  <line x1="295" y1="236" x2="385" y2="300" stroke="#5090e0" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="295" y1="308" x2="385" y2="320" stroke="#5090e0" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="295" y1="380" x2="385" y2="340" stroke="#5090e0" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="295" y1="452" x2="385" y2="360" stroke="#5090e0" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- GPU INFERENCE NODE (center) -->
+  <g transform="translate(390,205)">
+    <rect width="420" height="278" rx="14" fill="#0d0d28" stroke="#c8ff00" stroke-width="1.5"/>
+    <text x="24" y="38" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">RTX 5060 / 5060 Ti · BLACKWELL</text>
+
+    <!-- GPU spec card -->
+    <g transform="translate(24,52)">
+      <rect width="372" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+      <text x="16" y="27" fill="#e8e8f0" font-size="17" font-weight="700">RTX 5060 Ti 16GB</text>
+      <text x="356" y="27" text-anchor="end" fill="#5dca7a" font-size="16" font-weight="700">$429</text>
+      <text x="16" y="50" fill="#c0c0d8" font-size="13">4,608 CUDA · 759 AI TOPS · 448 GB/s</text>
+    </g>
+
+    <!-- Runner: Ollama -->
+    <g transform="translate(24,128)">
+      <rect width="180" height="70" rx="10" fill="#101028" stroke="#1e1e3a"/>
+      <text x="16" y="26" fill="#e8e8f0" font-size="16" font-weight="700">Ollama</text>
+      <text x="16" y="46" fill="#6b6b8a" font-size="12.5">Linux daemon</text>
+      <text x="16" y="62" fill="#5090e0" font-size="12.5" font-weight="600">:11434</text>
+    </g>
+    <!-- Runner: LM Studio -->
+    <g transform="translate(216,128)">
+      <rect width="180" height="70" rx="10" fill="#101028" stroke="#1e1e3a"/>
+      <text x="16" y="26" fill="#e8e8f0" font-size="16" font-weight="700">LM Studio</text>
+      <text x="16" y="46" fill="#6b6b8a" font-size="12.5">Windows GUI</text>
+      <text x="16" y="62" fill="#5090e0" font-size="12.5" font-weight="600">:1234 (OpenAI API)</text>
+    </g>
+
+    <!-- llama.cpp foundation -->
+    <g transform="translate(24,210)">
+      <rect width="372" height="48" rx="10" fill="#101028" stroke="#1e1e3a"/>
+      <text x="16" y="30" fill="#c0c0d8" font-size="15">Shared foundation:</text>
+      <text x="356" y="30" text-anchor="end" fill="#c8ff00" font-size="15" font-weight="700">llama.cpp</text>
+    </g>
+  </g>
+
+  <!-- Arrows node -> clients -->
+  <line x1="810" y1="280" x2="905" y2="240" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrowlime)"/>
+  <line x1="810" y1="330" x2="905" y2="330" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrowlime)"/>
+  <line x1="810" y1="380" x2="905" y2="420" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrowlime)"/>
+
+  <!-- LAN link label -->
+  <text x="857" y="295" text-anchor="middle" fill="#6b6b8a" font-size="11.5" font-weight="600">10G LAN</text>
+
+  <!-- LAN CLIENTS column -->
+  <g transform="translate(910,205)">
+    <rect width="245" height="62" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="18" y="28" fill="#e8e8f0" font-size="16" font-weight="700">Laptop · CLI / chat</text>
+    <text x="18" y="49" fill="#6b6b8a" font-size="13">ollama run over the LAN</text>
+  </g>
+  <g transform="translate(910,299)">
+    <rect width="245" height="62" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="18" y="28" fill="#e8e8f0" font-size="16" font-weight="700">Open WebUI</text>
+    <text x="18" y="49" fill="#6b6b8a" font-size="13">on a low-power mini PC</text>
+  </g>
+  <g transform="translate(910,393)">
+    <rect width="245" height="62" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="18" y="28" fill="#e8e8f0" font-size="16" font-weight="700">OpenAI-API tools</text>
+    <text x="18" y="49" fill="#6b6b8a" font-size="13">Continue · Cursor · scripts</text>
+  </g>
+
+  <!-- Bottom strip: privacy / pitfalls -->
+  <g transform="translate(45,510)">
+    <rect width="1110" height="58" rx="10" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="22" y="25" fill="#6b6b8a" font-size="12" letter-spacing="1.5" font-weight="700">SETUP NOTES</text>
+    <text x="22" y="46" fill="#c0c0d8" font-size="14">Prompts never leave the box · Driver 570+ Linux / 575+ Windows · Default ctx 2048 — raising it OOMs the 8GB card</text>
+    <text x="1088" y="38" text-anchor="end" fill="#c8ff00" font-size="22" font-weight="900">~$300 entry</text>
+  </g>
+
+  <text x="70" y="600" fill="#4a4a6a" font-size="13">TechFuel HQ · Setup Tutorial · Specs &amp; tokens/sec per NVIDIA, LocalScore &amp; Database Mart</text>
+  <text x="1130" y="600" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

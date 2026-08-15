@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>EVGA SuperNOVA 1000 GT review rating card — 4.3 out of 5</title>
+  <desc>TechFuel HQ review card for the EVGA SuperNOVA 1000 GT power supply, rated 4.3 out of 5, with a key specifications panel listing 1000W capacity, 80 Plus Gold efficiency, fully modular cabling, the Seasonic Focus GX-derived platform, a 135mm FDB fan with zero-RPM mode, connector counts, and the 10-year warranty whose service availability is uncertain after EVGA's wind-down.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <text x="70" y="92" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">LONG-TERM REVIEW · POWER SUPPLY</text>
+  <text x="70" y="150" fill="#e8e8f0" font-size="52" font-weight="900">EVGA SuperNOVA 1000 GT</text>
+  <text x="70" y="186" fill="#6b6b8a" font-size="20">A Gold-rated PSU from the brand that left the GPU business in 2022</text>
+
+  <text x="70" y="262" fill="#c8ff00" font-size="62" font-weight="900">4.3</text>
+  <text x="190" y="262" fill="#6b6b8a" font-size="26" font-weight="700">/ 5</text>
+  <text x="70" y="296" fill="#c0c0d8" font-size="16">Top-tier hardware · warranty service uncertain</text>
+
+  <g transform="translate(70,340)">
+    <rect width="500" height="56" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="22" y="26" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">EFFICIENCY CLASS</text>
+    <text x="22" y="46" fill="#5dca7a" font-size="17" font-weight="700">80 Plus Gold · Seasonic Focus GX platform</text>
+  </g>
+
+  <g transform="translate(70,412)">
+    <rect width="500" height="56" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="22" y="26" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">WARRANTY STATUS</text>
+    <text x="22" y="46" fill="#e08828" font-size="17" font-weight="700">10-year on paper — verify service before relying on it</text>
+  </g>
+
+  <g transform="translate(70,484)">
+    <rect width="500" height="56" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="22" y="26" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">BUILD FIT</text>
+    <text x="22" y="46" fill="#c0c0d8" font-size="17" font-weight="700">Ryzen 7 7800X3D + RTX 5080 · ~45% load</text>
+  </g>
+
+  <g transform="translate(640,210)">
+    <rect width="490" height="338" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="24" y="36" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">KEY SPECIFICATIONS</text>
+
+    <text x="24" y="76" fill="#c0c0d8" font-size="16">Capacity</text>
+    <text x="466" y="76" text-anchor="end" fill="#c8ff00" font-size="16" font-weight="600">1000W</text>
+
+    <text x="24" y="112" fill="#c0c0d8" font-size="16">Efficiency rating</text>
+    <text x="466" y="112" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">80 Plus Gold</text>
+
+    <text x="24" y="148" fill="#c0c0d8" font-size="16">Cabling</text>
+    <text x="466" y="148" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">Fully modular</text>
+
+    <text x="24" y="184" fill="#c0c0d8" font-size="16">Platform</text>
+    <text x="466" y="184" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">Seasonic Focus GX-derived</text>
+
+    <text x="24" y="220" fill="#c0c0d8" font-size="16">Fan</text>
+    <text x="466" y="220" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">135mm FDB · zero-RPM to 40%</text>
+
+    <text x="24" y="256" fill="#c0c0d8" font-size="16">EPS / PCIe connectors</text>
+    <text x="466" y="256" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">2× 8-pin · 4× 6+2</text>
+
+    <text x="24" y="292" fill="#c0c0d8" font-size="16">Depth / Warranty</text>
+    <text x="466" y="292" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">160mm · 10 yr (service uncertain)</text>
+  </g>
+
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · Hardware Review · Specs per EVGA official product page</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

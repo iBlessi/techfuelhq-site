@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PC Builds on TechFuel HQ</title><link>https://techfuelhq.com/pc-builds/</link><description>Recent content in PC Builds on TechFuel HQ</description><generator>Hugo</generator><language>en-us</language><managingEditor>LK Wood IV</managingEditor><lastBuildDate>Thu, 18 Jun 2026 00:00:00 -0500</lastBuildDate><atom:link href="https://techfuelhq.com/pc-builds/index.xml" rel="self" type="application/rss+xml"/><atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/><item><title>The $2,500 RTX 5080 + 7800X3D 4K Build for 2026</title><link>https://techfuelhq.com/pc-builds/2500-dollar-7800x3d-rtx-5080-4k-build-2026/</link><pubDate>Fri, 19 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/pc-builds/2500-dollar-7800x3d-rtx-5080-4k-build-2026/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · 2026-06-19 · ~15 min read · St. Louis County, MO&lt;/p>
+&lt;p>&lt;em>Some links below are Amazon affiliate links; if you buy through them TechFuel HQ may earn a small commission at no extra cost to you. As an Amazon Associate I earn from qualifying purchases. Commissions never influence which products get recommended — see our &lt;a href="https://techfuelhq.com/disclosure/">disclosure&lt;/a>.&lt;/em>&lt;/p>
+&lt;figure class="post-hero" data-build-photo-correction>
+&lt;picture>
+&lt;source type="image/webp" srcset="https://techfuelhq.com/images/gpu-reviews/rog-astral-rtx-5080/rog-astral-5080-installed-case-800.webp 800w, https://techfuelhq.com/images/gpu-reviews/rog-astral-rtx-5080/rog-astral-5080-installed-case-1600.webp 1600w" sizes="(max-width: 1080px) 100vw, 860px">
+&lt;img src="https://techfuelhq.com/images/gpu-reviews/rog-astral-rtx-5080/rog-astral-5080-installed-case-1600.jpg" srcset="https://techfuelhq.com/images/gpu-reviews/rog-astral-rtx-5080/rog-astral-5080-installed-case-800.jpg 800w, https://techfuelhq.com/images/gpu-reviews/rog-astral-rtx-5080/rog-astral-5080-installed-case-1600.jpg 1600w" sizes="(max-width: 1080px) 100vw, 860px" alt="The author's Ryzen 7 7800X3D and ROG Astral RTX 5080 gaming PC with the ROG STRIX B650-A motherboard, T-Force DDR5, and NZXT Kraken 360 installed" width="1600" height="900" loading="eager" decoding="async" fetchpriority="high">
+&lt;/picture>
+&lt;figcaption>The author's actual Ryzen 7 7800X3D, ROG STRIX B650-A, NZXT Kraken 360, T-Force DDR5, and ROG Astral RTX 5080 system, photographed in June 2026. The CPU is installed beneath the pump block.&lt;/figcaption>
+&lt;/figure>
+&lt;p>This is the rig I actually run, priced as a build you can put together today. A Ryzen 7 7800X3D paired with an RTX 5080, on AM5, with the memory, storage, cooling, and power supply that make a 4K card behave like one. The headline parts (CPU and GPU) come to about $1,570 in June 2026; the full build lands in the $2,500 to $2,900 range depending on the RTX 5080 model you choose and where the 2026 memory and storage shortage has prices parked the week you buy.&lt;/p>
+&lt;p>I am writing this one differently from a spec-sheet build. The GPU benchmarks below are not lifted off a launch slide or paraphrased from a YouTube video. They are first-party numbers I measured on my own ASUS ROG Astral RTX 5080 OC, on this exact 7800X3D platform, and published in full in the &lt;a href="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/">open bench dataset&lt;/a>. Where I lean on someone else&amp;rsquo;s testing for broader context, I name the source. That is the whole point of this site.&lt;/p>
+&lt;p>If you want the framework behind every choice here rather than the receipt, the &lt;a href="https://techfuelhq.com/pc-builds/how-to-choose-pc-build-2026/">how to choose a PC build guide&lt;/a> walks the decision in order. This article is the high-end worked example.&lt;/p>
+&lt;h2 id="who-this-build-is-for-and-who-it-isnt">Who this build is for (and who it isn&amp;rsquo;t)&lt;/h2>
+&lt;p>This is a 4K build. If you game on a 1440p monitor, you are overpaying for a card you cannot fully use, and the &lt;a href="https://techfuelhq.com/pc-builds/1500-dollar-rtx-5060-ti-1440p-build-2026/">$1,500 RTX 5060 Ti 1440p build&lt;/a> is the better receipt for you. The 5080 earns its price on a 4K panel — a 4K 144Hz monitor or &lt;a href="https://techfuelhq.com/articles/aorus-fo48u-review/">a 4K OLED&lt;/a> — where its raw output and DLSS 4 Multi-Frame Generation have somewhere to go.&lt;/p>
+&lt;p>It is also a build for people who want one machine that does more than game. The 16GB of GDDR7 and 32-64GB of system RAM mean this same box runs &lt;a href="https://techfuelhq.com/articles/1000-local-ai-workstation-rtx-5080-2026/">local AI models&lt;/a>, handles 4K video work, and doubles as a serious workstation. If pure gaming is the only goal and budget is tight, you do not need to be here — the 5080 is a want, not a need, above 1440p.&lt;/p>
+&lt;p>&lt;strong>The one-line verdict:&lt;/strong> for 4K high-to-ultra gaming with real headroom for ray tracing and AI work, a 7800X3D + RTX 5080 is the build that makes sense in 2026 — provided you buy the 7800X3D and not the pricier 9800X3D, because at 4K you will not feel the difference.&lt;/p>
+&lt;h2 id="the-parts-list-with-june-2026-prices">The parts list with June 2026 prices&lt;/h2>
+&lt;p>Every price below is a real US price I confirmed in June 2026, with a source. Two line items — RAM and storage — are caught in a genuine 2026 price spike driven by AI demand draining the DRAM and NAND supply, so I have given those as ranges and told you where to check live pricing. Tax is not included. The &amp;ldquo;as tested&amp;rdquo; column is the exact part on my bench; the recommended column is the sensible buy if you are building fresh.&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Part&lt;/th>
+&lt;th scope="col">Recommended (build fresh)&lt;/th>
+&lt;th scope="col">As tested (my rig)&lt;/th>
+&lt;th scope="col">Price (June 2026)&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>CPU&lt;/td>
+&lt;td>AMD Ryzen 7 7800X3D (8C/16T, AM5)&lt;/td>
+&lt;td>Ryzen 7 7800X3D&lt;/td>
+&lt;td>~$320&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GPU&lt;/td>
+&lt;td>RTX 5080 16GB (standard AIB)&lt;/td>
+&lt;td>ASUS ROG Astral RTX 5080 OC&lt;/td>
+&lt;td>$1,250+&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Motherboard&lt;/td>
+&lt;td>B650E ATX (PCIe 5.0, Wi-Fi)&lt;/td>
+&lt;td>ASUS ROG STRIX B650-A Gaming WiFi&lt;/td>
+&lt;td>~$180-200&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>RAM&lt;/td>
+&lt;td>32GB DDR5-6000 CL30 (2×16GB)&lt;/td>
+&lt;td>64GB DDR5-6000 (2×32GB)&lt;/td>
+&lt;td>$120-400&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Storage&lt;/td>
+&lt;td>2TB PCIe Gen4 NVMe&lt;/td>
+&lt;td>Samsung 970 EVO Plus 1TB (PCIe 3.0, owned)&lt;/td>
+&lt;td>$200-285&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Cooler&lt;/td>
+&lt;td>360mm AIO, or a good air tower&lt;/td>
+&lt;td>NZXT Kraken 360&lt;/td>
+&lt;td>$110-200&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>PSU&lt;/td>
+&lt;td>850W ATX 3.1, 80+ Gold&lt;/td>
+&lt;td>EVGA SuperNOVA 1000 GT (1000W)&lt;/td>
+&lt;td>$110-130&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Case&lt;/td>
+&lt;td>Dual-chamber or mesh mid-tower&lt;/td>
+&lt;td>HYTE Y60&lt;/td>
+&lt;td>$150&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>OS&lt;/td>
+&lt;td>Windows 11 Home&lt;/td>
+&lt;td>Windows 11 Home&lt;/td>
+&lt;td>~$40&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Total (recommended)&lt;/strong>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;strong>~$2,500-2,900&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>A few notes on the line items that matter.&lt;/p>
+&lt;p>&lt;strong>CPU — Ryzen 7 7800X3D (~$320).&lt;/strong> This is the value gaming chip, and the reason this build does not waste money (&lt;a href="https://www.amazon.com/dp/B0BTZB7F88?tag=techfuelhq-20" rel="nofollow sponsored">Ryzen 7 7800X3D on Amazon&lt;/a>). Tom&amp;rsquo;s Hardware tracked it dropping to &lt;a href="https://www.tomshardware.com/pc-components/one-of-amds-best-gaming-cpus-hits-an-all-time-low-price-ryzen-7-7800x3d-on-sale-for-less-than-usd320" rel="noopener">$319, an all-time low and $20 below its previous low&lt;/a>, and &lt;a href="https://videocardz.com/newz/amd-ryzen-7-7800x3d-drops-to-324-99-ryzen-7-9850x3d-now-25-cheaper" rel="noopener">VideoCardz logged it at $324.99&lt;/a> around the same time. Call it $320-340 depending on the day. The longer case for it over the 9800X3D is in the &lt;a href="https://techfuelhq.com/articles/7800x3d-vs-9800x3d-upgrade-2026/">7800X3D vs 9800X3D upgrade guide&lt;/a> and the &lt;a href="https://techfuelhq.com/reviews/ryzen-7-7800x3d-review-2026/">7800X3D long-term review&lt;/a>; the short version is in the benchmark section below.&lt;/p>
+&lt;p>&lt;strong>GPU — RTX 5080 16GB ($1,250 and up).&lt;/strong> MSRP is $999 for the Founders Edition, but in June 2026 the cheapest in-stock new card on &lt;a href="https://bestvaluegpu.com/history/new-and-used-rtx-5080-price-history-and-specs/" rel="noopener">Best Value GPU&amp;rsquo;s tracker was $1,249&lt;/a>, with standard models clustering in the $1,300-$1,450 band and premium variants like my ASUS ROG Astral OC running up toward $1,900. Buy a standard dual- or triple-fan card in the $1,250-$1,350 range; the premium models buy you a quieter cooler and a small factory overclock, not a different tier of performance. My own &lt;a href="https://techfuelhq.com/gpu-reviews/rog-astral-rtx-5080-oc-review-2026/">ROG Astral RTX 5080 review&lt;/a> measures exactly how much that factory OC is worth (about 2-3% for free), and the answer is: not enough to pay a $500 premium for.&lt;/p>
+&lt;p>&lt;strong>Motherboard — B650E, ~$180-200.&lt;/strong> My bench runs an ASUS ROG STRIX B650-A. For a fresh build I would spec a B650E board for the PCIe 5.0 x16 slot, which lets a future GPU run at full Gen5 bandwidth. Current ASUS B650E listings sit around &lt;a href="https://www.bestbuy.com/product/asus-tuf-gaming-b650e-plus-wifi-socket-am5-amd-b650-atx-ddr5-wi-fi-7-motherboard-black/JJGGLHLTKG" rel="noopener">$180-190 on Best Buy and Micro Center&lt;/a>. B650E is the no-regret choice: it takes the 7800X3D today and any AM5 chip through Zen 6 with a BIOS update.&lt;/p>
+&lt;p>&lt;strong>RAM — 32GB DDR5-6000 CL30, $120-400.&lt;/strong> This is the line that hurts in 2026. A memory shortage tied to AI infrastructure demand has sent DDR5 prices up several-fold (&lt;a href="https://techfuelhq.com/articles/ram-ssd-price-crisis-2026/">the full breakdown of why&lt;/a>): Tom&amp;rsquo;s Hardware&amp;rsquo;s &lt;a href="https://www.tomshardware.com/pc-components/ram/ram-price-index-2026-lowest-price-on-ddr5-and-ddr4-memory-of-all-capacities" rel="noopener">RAM price tracker&lt;/a> and TweakTown&amp;rsquo;s reporting that &lt;a href="https://www.tweaktown.com/news/109033/its-official-64gb-of-ddr5-6000-ram-now-costs-way-more-than-a-playstation-5-console/index.html" rel="noopener">64GB of DDR5-6000 now costs more than a PlayStation 5&lt;/a> tell the story. A solid value 32GB kit can still be found near $120-150; name-brand CL30 kits run $300-540. Buy 32GB (2×16GB) at DDR5-6000 CL30 for the AM5 sweet spot — I run 64GB only because I keep VMs and local models resident, which is the one case where &lt;a href="https://techfuelhq.com/articles/how-much-ram-do-you-need-2026/">more RAM actually earns its price&lt;/a>. Check &lt;a href="https://pcpartpicker.com/products/memory/" rel="noopener">PCPartPicker&lt;/a> for the live number the week you buy; this is the single most volatile part in the build.&lt;/p>
+&lt;p>&lt;strong>Storage — 2TB PCIe Gen4 NVMe, $200-285.&lt;/strong> Same crisis, different chips. NAND prices are climbing for the same AI-demand reason, and Tom&amp;rsquo;s Hardware&amp;rsquo;s &lt;a href="https://www.tomshardware.com/pc-components/ssds/ssd-price-tracking-2026-lowest-price-on-every-m-2-ssd" rel="noopener">SSD price tracker&lt;/a> shows drives that were $150 now sitting near $285. Get a 2TB Gen4 drive with DRAM and a five-year warranty — Gen5 runs hotter and costs more for gains you will not feel in games. My bench drive is an older 1TB; on a 4K rig where modern installs run 150GB each, 2TB is the floor.&lt;/p>
+&lt;p>&lt;strong>Cooler — 360mm AIO or a good air tower, $110-200.&lt;/strong> The 7800X3D is a cool 65W-class gaming chip — a quality dual-tower air cooler handles it silently and is the cheaper, no-pump-to-fail choice. I run an NZXT Kraken 360 because the LCD looks right behind glass and I had it on the bench; the &lt;a href="https://nzxt.com/products/c850-gold-atx" rel="noopener">NZXT Kraken Core 360 sits near $110-130&lt;/a>. Match the cooler to the chip, not to the GPU — the 5080 cools itself.&lt;/p>
+&lt;p>&lt;strong>PSU — 850W ATX 3.1, $110-130.&lt;/strong> Fully modular, ATX 3.1, with the native 12V-2x6 connector so the 5080 plugs in without an adapter daisy-chain. The &lt;a href="https://www.newegg.com/insider/best-80-plus-gold-power-supplies-for-high-end-pc-builds-in-2026/" rel="noopener">NZXT C850 Gold and Cooler Master MWE Gold 850 V3 both land near $90-120&lt;/a>. I run a 1000W EVGA SuperNOVA because I have had a supply die mid-game and now overbuy, but the measured draw (below) says 850W is correct.&lt;/p>
+&lt;p>&lt;strong>Case — dual-chamber or mesh mid-tower, ~$150.&lt;/strong> I run a &lt;a href="https://hyte.com/store/y60" rel="noopener">HYTE Y60 at $149.99&lt;/a>. It is a beautiful case with one real warning: the panoramic glass design makes GPU clearance tight, and a thick triple-fan 5080 needs checking against the spec before you buy. A simpler high-airflow mesh tower is the safer pick if you do not want to fuss with clearance.&lt;/p>
+&lt;h2 id="4k-gaming-benchmarks-first-party-numbers-on-this-exact-rig">4K gaming benchmarks: first-party numbers on this exact rig&lt;/h2>
+&lt;p>Here is where this build article earns its keep. The numbers in this table were measured by me, on my own ASUS ROG Astral RTX 5080 OC running on this 7800X3D platform, captured with HWiNFO64 logging and published in full — with 1% lows, methodology, and the raw dataset files — in the &lt;a href="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/">open bench dataset&lt;/a>. These are demanding, ray-tracing-forward titles, run at native 4K, because that is where a 5080 either holds up or doesn&amp;rsquo;t.&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Game (4K)&lt;/th>
+&lt;th scope="col">Avg FPS&lt;/th>
+&lt;th scope="col">1% Low&lt;/th>
+&lt;th scope="col">Settings&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Cyberpunk 2077&lt;/td>
+&lt;td>58&lt;/td>
+&lt;td>49&lt;/td>
+&lt;td>Ultra, raster, no upscaling&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Cyberpunk 2077&lt;/td>
+&lt;td>50&lt;/td>
+&lt;td>41&lt;/td>
+&lt;td>RT-Ultra + DLSS 4 Quality&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Cyberpunk 2077&lt;/td>
+&lt;td>19&lt;/td>
+&lt;td>15&lt;/td>
+&lt;td>Path Tracing, native, no DLSS&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alan Wake 2&lt;/td>
+&lt;td>49&lt;/td>
+&lt;td>38&lt;/td>
+&lt;td>RT + DLSS 4 Quality&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Black Myth: Wukong&lt;/td>
+&lt;td>34&lt;/td>
+&lt;td>27&lt;/td>
+&lt;td>Cinematic preset&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>The 1% lows run about 80-85% of the average across the rasterized and DLSS-Quality passes, which is a healthy frame-time consistency profile — no stutter, just a steady floor. The exception is native path tracing (19/15), where the card is bottlenecked so hard that the average frame and the slowest frame are basically the same. That is what 4K path tracing without upscaling looks like on any card short of a 5090, and it is exactly the problem DLSS 4 exists to solve.&lt;/p>
+&lt;img src="https://techfuelhq.com/images/gpu-reviews/rog-astral-rtx-5080/chart-06-4k-gaming.svg" alt="4K average FPS on my Astral RTX 5080 OC: Cyberpunk Ultra raster 58, RT-Ultra + DLSS Quality 50, Alan Wake 2 RT + DLSS Quality 49, Black Myth Wukong Cinematic 34, Cyberpunk native path tracing 19 (TechFuelHQ first-party)." width="1200" height="700" loading="lazy" decoding="async" style="display:block;margin:1.5rem auto;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;h3 id="dlss-4-multi-frame-generation-what-makes-4k-path-tracing-playable">DLSS 4 Multi-Frame Generation: what makes 4K path tracing playable&lt;/h3>
+&lt;p>The single most important chart for a Blackwell card is what happens to that unplayable 19 FPS path-traced run when you turn on DLSS 4. These are my measured numbers on Cyberpunk 2077 at 4K with RT Overdrive (path tracing), including the PC latency at each step, because frame generation is worthless if it adds the input lag back:&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Mode&lt;/th>
+&lt;th scope="col">FPS&lt;/th>
+&lt;th scope="col">PC Latency&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Native path tracing (no DLSS, no FG)&lt;/td>
+&lt;td>19&lt;/td>
+&lt;td>95 ms&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DLSS 4 Quality (no frame gen)&lt;/td>
+&lt;td>40&lt;/td>
+&lt;td>45 ms&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>+ Multi-Frame Gen 2×&lt;/td>
+&lt;td>90&lt;/td>
+&lt;td>55 ms&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>+ Multi-Frame Gen 4×&lt;/td>
+&lt;td>135&lt;/td>
+&lt;td>62 ms&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>The story holds up under measurement. DLSS Quality alone more than doubles the frame rate &lt;em>and halves the latency&lt;/em>, because Reflex is scheduling a smaller render workload. Stacking MFG 2× doubles the frame rate again for a 10ms latency cost, and MFG 4× lands at a smooth 135 FPS while latency stays well below the native baseline. Across the full ladder, frame rate climbs about 7× and the input lag never gets worse than where it started. That is the actual experience of path-traced 4K on a 5080: native is a slideshow, DLSS 4 turns it into a smooth, responsive game.&lt;/p>
+&lt;h3 id="how-the-5080-sits-in-the-broader-4k-picture">How the 5080 sits in the broader 4K picture&lt;/h3>
+&lt;p>My dataset is deliberately RT-heavy. For breadth across a wider raster suite, published testing fills in the rest. KitGuru&amp;rsquo;s review found that &lt;a href="https://www.kitguru.net/components/graphic-cards/dominic-moass/nvidia-rtx-5080-review-efficiency-gains-but-a-performance-letdown/all/1/" rel="noopener">&amp;ldquo;at 4K the gains over the 4080 Super do get slightly wider, with the 5080 now 13% faster on average,&amp;rdquo;&lt;/a> while it &amp;ldquo;still lags behind the RTX 4090 by 15%.&amp;rdquo; That third-party +13%-over-the-4080-Super figure is a near-exact match for my own first-party generational index, which put the 5080 Founders Edition at 114 against a 4080 Super baseline of 100 (+14%) — two independent measurements landing in the same place. The takeaway: the 5080 is comfortably a 4K card in raster, mid-100s FPS in most mainstream titles, a notch behind the much pricier 4090, and the DLSS 4 ladder above is what extends that to the heaviest ray-traced games.&lt;/p>
+&lt;img src="https://techfuelhq.com/images/gpu-reviews/rog-astral-rtx-5080/chart-01-generational-positioning.svg" alt="4K raster generational index normalized to RTX 4080 Super = 100: RTX 4080 at 96, RTX 5080 FE at 114, Astral 5080 OC at 123 (TechFuelHQ first-party)." width="1200" height="660" loading="lazy" decoding="async" style="display:block;margin:1.5rem auto;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;h2 id="do-you-actually-need-the-9800x3d-the-question-the-serp-skips">Do you actually need the 9800X3D? (The question the SERP skips)&lt;/h2>
+&lt;p>Search &amp;ldquo;RTX 5080 build&amp;rdquo; and most results pair it with a Ryzen 7 9800X3D. That is the default, and for a 4K build it is the wrong default for most people.&lt;/p>
+&lt;p>At 4K, the GPU is the bottleneck in nearly every game. The CPU sets up frames and then waits on the 5080 to draw them. Published reviews from Digital Foundry, Gamers Nexus, and Hardware Unboxed consistently place the 9800X3D about 10-20% ahead of the 7800X3D in CPU-limited 1080p testing — but as I cover in the &lt;a href="https://techfuelhq.com/articles/7800x3d-vs-9800x3d-upgrade-2026/">full 7800X3D vs 9800X3D breakdown&lt;/a>, that gap shrinks to roughly 2-5% at 4K, because both chips spend their time GPU-bound. You are paying a $150-180 premium for the 9800X3D to recover a few frames you will not see on a 4K panel.&lt;/p>
+&lt;p>The 9800X3D is the right call in two cases: you also game at 1080p competitively at very high refresh, or you run heavy production workloads (the Zen 5 chip is meaningfully faster in Blender and compilation). If production is the larger half of that job, the comparison to read is &lt;a href="https://techfuelhq.com/articles/9950x3d-vs-9800x3d-gaming-2026/">9950X3D vs 9800X3D&lt;/a>, where the 16-core chip buys a large multi-core lead without costing meaningful gaming performance. For a build whose entire reason to exist is 4K gaming, the 7800X3D is the chip, and the money saved goes further as a 2TB-to-4TB storage bump or a better monitor.&lt;/p>
+&lt;h2 id="power-what-this-build-actually-pulls">Power: what this build actually pulls&lt;/h2>
+&lt;p>This is the part people guess at. Here is what I measured, not what a box claims. On my own card, board power ran &lt;a href="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/">266-340W in games and topped out near 360W under a sustained stress load&lt;/a>, with brief transient spikes into the 500-600W range — the spikes are why a quality ATX 3.1 supply matters more than a big wattage number. The 7800X3D adds well under 100W under a gaming load. That puts real sustained system draw around 450-500W.&lt;/p>
+&lt;p>An 850W ATX 3.1 unit covers that with clean headroom for the transient spikes and a future GPU upgrade, which is why it is the recommended part even though I personally run 1000W. Do not eyeball it — run your exact components through the &lt;a href="https://techfuelhq.com/tools/psu-wattage-calculator/">PSU wattage calculator&lt;/a> for a sized recommendation, and if you want to know what the rig costs to run, the &lt;a href="https://techfuelhq.com/tools/power-cost-calculator/">power cost calculator&lt;/a> turns that wattage into a monthly electric bill. For the record, the 5080 is also strikingly efficient for its performance: KitGuru measured it averaging about &lt;a href="https://www.kitguru.net/components/graphic-cards/dominic-moass/nvidia-rtx-5080-review-efficiency-gains-but-a-performance-letdown/all/1/" rel="noopener">306W at 4K, just 6W above the 4080 Super&lt;/a> it comfortably outruns.&lt;/p>
+&lt;h2 id="build-notes-from-my-own-bench">Build notes from my own bench&lt;/h2>
+&lt;p>A few specifics from running this platform that the spec sheet will not tell you.&lt;/p>
+&lt;p>&lt;strong>Memory speed on AM5.&lt;/strong> My kit is rated DDR5-6000 but I run it at 5800. Getting DDR5 fully stable at its rated speed on AM5 can be a fight, and after a weekend of BIOS tuning I dropped to 5800 and stopped. In actual gaming the difference is 1-2 FPS. Set EXPO, confirm it boots stable, and do not lose a weekend chasing the last 200 MHz.&lt;/p>
+&lt;p>&lt;strong>GPU clearance in a glass case.&lt;/strong> The HYTE Y60&amp;rsquo;s panoramic glass makes for a gorgeous build and a tight fit. When I had a thick RTX 4080 in here previously, the front glass panel would not seat. Measure your specific 5080 model&amp;rsquo;s length and thickness against the case spec before you order — a triple-fan OC card is a real clearance risk in dual-chamber cases. The &lt;a href="https://techfuelhq.com/tools/pc-builder/">PC builder tool&lt;/a> checks case-clearance and PSU compatibility as you pick parts.&lt;/p>
+&lt;p>&lt;strong>The 12V-2x6 connector.&lt;/strong> Seat the power cable into the 5080 fully before you slot the card, and confirm the click. The connector is short and stiff, and given the 500-600W transient spikes this card produces, a partially-seated connector is the one failure you do not want. Use the native ATX 3.1 cable, not a third-party adapter.&lt;/p>
+&lt;p>&lt;strong>Undervolt the GPU.&lt;/strong> The 5080 responds well to a light undervolt — you can shave board power and temperature with no measurable FPS loss. I cover the exact curve in the &lt;a href="https://techfuelhq.com/articles/rtx-5080-undervolt-guide-2026/">RTX 5080 undervolt guide&lt;/a>; it is the single best 20 minutes you can spend after the build is done.&lt;/p>
+&lt;h2 id="cheaper-and-pricier-alternatives">Cheaper and pricier alternatives&lt;/h2>
+&lt;p>This build is one point on a line, not the only answer.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Step down to 1440p (~$1,500):&lt;/strong> if you are not on a 4K panel, the &lt;a href="https://techfuelhq.com/pc-builds/1500-dollar-rtx-5060-ti-1440p-build-2026/">$1,500 RTX 5060 Ti 1440p build&lt;/a> is the honest recommendation — same no-regret philosophy, a card sized correctly for 1440p, and a much smaller bill.&lt;/li>
+&lt;li>&lt;strong>The same platform, a smaller GPU:&lt;/strong> the 7800X3D + B650 + DDR5-6000 base here is the right foundation at several price points. Drop to an RTX 5070 Ti and you have a strong entry-4K build for a few hundred less; the GPU is the only part that changes.&lt;/li>
+&lt;li>&lt;strong>Build it yourself, priced live:&lt;/strong> the &lt;a href="https://techfuelhq.com/tools/budget-builder/">budget builder&lt;/a> sorts parts by what you can actually spend, and the &lt;a href="https://techfuelhq.com/tools/pc-builder/">PC builder&lt;/a> checks compatibility as you swap. Component pricing in 2026 moves weekly — use the tools rather than trusting any static total, including this one.&lt;/li>
+&lt;/ul>
+&lt;h2 id="verdict">Verdict&lt;/h2>
+&lt;p>For 4K gaming in 2026, a 7800X3D + RTX 5080 is the build that makes sense — fast enough to drive a 4K panel at high-to-ultra, efficient enough to live in a quiet case, and flexible enough to run local AI and creative work as a second job. The two decisions that keep it honest are buying the 7800X3D instead of the 9800X3D (you will not feel the difference at 4K) and buying a standard RTX 5080 instead of a $1,900 premium variant (you are paying for a cooler, not a tier).&lt;/p>
+&lt;p>The only thing working against it in 2026 is the memory and storage shortage, which has turned RAM and NVMe into the line items most likely to move your total. Everything else is stable, the GPU is a genuine 4K card, and the numbers above are real — measured on the rig in front of me, with the &lt;a href="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/">full dataset&lt;/a> published so you can check my work.&lt;/p>
+&lt;h2 id="related-on-techfuel-hq">Related on TechFuel HQ&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://techfuelhq.com/pc-builds/how-to-choose-pc-build-2026/">How to Choose Your PC Build: CPU, GPU, PSU, RAM (2026)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/pc-builds/1500-dollar-rtx-5060-ti-1440p-build-2026/">The $1,500 RTX 5060 Ti 1440p Build&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/articles/7800x3d-vs-9800x3d-upgrade-2026/">Ryzen 7 7800X3D vs 9800X3D: Should You Upgrade?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/gpu-reviews/rog-astral-rtx-5080-oc-review-2026/">ASUS ROG Astral RTX 5080 OC Review&lt;/a> · &lt;a href="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/">First-Party Bench Dataset&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/articles/1000-local-ai-workstation-rtx-5080-2026/">The $1,000 Local AI Workstation on an RTX 5080&lt;/a>&lt;/li>
+&lt;li>A rig like this runs the most demanding games, but they need their anti-cheat happy: &lt;a href="https://techfuelhq.com/gaming/easy-anti-cheat-fix-guide-2026/">Easy Anti-Cheat fix guide&lt;/a> and &lt;a href="https://techfuelhq.com/gaming/star-citizen/">Star Citizen performance &amp;amp; troubleshooting&lt;/a>.&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/tools/pc-builder/">PC Builder&lt;/a> · &lt;a href="https://techfuelhq.com/tools/psu-wattage-calculator/">PSU Wattage Calculator&lt;/a> · &lt;a href="https://techfuelhq.com/tools/power-cost-calculator/">Power Cost Calculator&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="sources">Sources&lt;/h2>
+&lt;ul>
+&lt;li>TechFuelHQ first-party bench dataset — ASUS ROG Astral RTX 5080 OC (4K benchmarks, 1% lows, power, DLSS 4 MFG) — &lt;a href="https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/" rel="noopener">https://techfuelhq.com/data/gpu/rog-astral-rtx-5080-oc-2026-06-09/&lt;/a>&lt;/li>
+&lt;li>Tom&amp;rsquo;s Hardware Ryzen 7 7800X3D all-time-low price — &lt;a href="https://www.tomshardware.com/pc-components/one-of-amds-best-gaming-cpus-hits-an-all-time-low-price-ryzen-7-7800x3d-on-sale-for-less-than-usd320" rel="noopener">https://www.tomshardware.com/pc-components/one-of-amds-best-gaming-cpus-hits-an-all-time-low-price-ryzen-7-7800x3d-on-sale-for-less-than-usd320&lt;/a>&lt;/li>
+&lt;li>VideoCardz Ryzen 7 7800X3D price — &lt;a href="https://videocardz.com/newz/amd-ryzen-7-7800x3d-drops-to-324-99-ryzen-7-9850x3d-now-25-cheaper" rel="noopener">https://videocardz.com/newz/amd-ryzen-7-7800x3d-drops-to-324-99-ryzen-7-9850x3d-now-25-cheaper&lt;/a>&lt;/li>
+&lt;li>Best Value GPU RTX 5080 price tracker — &lt;a href="https://bestvaluegpu.com/history/new-and-used-rtx-5080-price-history-and-specs/" rel="noopener">https://bestvaluegpu.com/history/new-and-used-rtx-5080-price-history-and-specs/&lt;/a>&lt;/li>
+&lt;li>KitGuru RTX 5080 review (4K performance + power) — &lt;a href="https://www.kitguru.net/components/graphic-cards/dominic-moass/nvidia-rtx-5080-review-efficiency-gains-but-a-performance-letdown/all/1/" rel="noopener">https://www.kitguru.net/components/graphic-cards/dominic-moass/nvidia-rtx-5080-review-efficiency-gains-but-a-performance-letdown/all/1/&lt;/a>&lt;/li>
+&lt;li>Tom&amp;rsquo;s Hardware RAM price tracker 2026 — &lt;a href="https://www.tomshardware.com/pc-components/ram/ram-price-index-2026-lowest-price-on-ddr5-and-ddr4-memory-of-all-capacities" rel="noopener">https://www.tomshardware.com/pc-components/ram/ram-price-index-2026-lowest-price-on-ddr5-and-ddr4-memory-of-all-capacities&lt;/a>&lt;/li>
+&lt;li>Tom&amp;rsquo;s Hardware SSD price tracker 2026 — &lt;a href="https://www.tomshardware.com/pc-components/ssds/ssd-price-tracking-2026-lowest-price-on-every-m-2-ssd" rel="noopener">https://www.tomshardware.com/pc-components/ssds/ssd-price-tracking-2026-lowest-price-on-every-m-2-ssd&lt;/a>&lt;/li>
+&lt;li>TweakTown 64GB DDR5 price reporting — &lt;a href="https://www.tweaktown.com/news/109033/its-official-64gb-of-ddr5-6000-ram-now-costs-way-more-than-a-playstation-5-console/index.html" rel="noopener">https://www.tweaktown.com/news/109033/its-official-64gb-of-ddr5-6000-ram-now-costs-way-more-than-a-playstation-5-console/index.html&lt;/a>&lt;/li>
+&lt;li>Newegg 80+ Gold PSU roundup 2026 — &lt;a href="https://www.newegg.com/insider/best-80-plus-gold-power-supplies-for-high-end-pc-builds-in-2026/" rel="noopener">https://www.newegg.com/insider/best-80-plus-gold-power-supplies-for-high-end-pc-builds-in-2026/&lt;/a>&lt;/li>
+&lt;li>HYTE Y60 store listing — &lt;a href="https://hyte.com/store/y60" rel="noopener">https://hyte.com/store/y60&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>The Cheapest AM5 1080p Gaming PC You Can Build (2026)</title><link>https://techfuelhq.com/pc-builds/budget-am5-1080p-gaming-pc-2026/</link><pubDate>Fri, 19 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/pc-builds/budget-am5-1080p-gaming-pc-2026/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · 2026-06-19 · ~11 min read · St. Louis County, MO&lt;/p>
+&lt;p>&lt;em>Some links below are Amazon affiliate links; if you buy through them TechFuel HQ may earn a small commission at no extra cost to you. As an Amazon Associate I earn from qualifying purchases. Commissions never influence which products get recommended — see our &lt;a href="https://techfuelhq.com/disclosure/">disclosure&lt;/a>.&lt;/em>&lt;/p>
+&lt;picture style="display:block;">
+&lt;source type="image/webp" srcset="https://techfuelhq.com/images/pc-builds/budget-am5-1080p-gaming-pc-2026.webp" />
+&lt;img src="https://techfuelhq.com/images/pc-builds/budget-am5-1080p-gaming-pc-2026.jpg" alt="A budget AM5 1080p gaming PC: AMD Ryzen 5 7600, Radeon RX 9060 XT, a micro-ATX B650 board, 16GB DDR5-6000, a 1TB Gen4 NVMe and a 650W ATX 3.1 power supply in a mesh airflow case." width="1200" height="630" loading="eager" fetchpriority="high" style="display:block;margin:1.5rem auto;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;/picture>
+&lt;p>Here is the honest headline first: the $800 gaming PC does not exist in mid-2026. It did in 2025. A 2026 memory and storage shortage erased it, and the real entry price for a sensible new AM5 1080p build is now around $1,150 to $1,250 — up to roughly $1,350 if every part lands at the top of its price range. This article is that build — the cheapest machine I would actually tell someone to buy in mid-2026, the parts that make it, the prices with sources, and a clear explanation of where the extra money went so you are not blindsided at checkout.&lt;/p>
+&lt;p>If you came here expecting $800, I am not going to pad a parts list with prices from last year to hit a number that no longer holds. The framework behind every choice below is in the &lt;a href="https://techfuelhq.com/pc-builds/how-to-choose-pc-build-2026/">how to choose a PC build guide&lt;/a>; this is the budget worked example, priced for the month you are reading it.&lt;/p>
+&lt;h2 id="why-800-isnt-enough-anymore">Why $800 isn&amp;rsquo;t enough anymore&lt;/h2>
+&lt;p>The budget build did not get worse. Two of its parts got expensive.&lt;/p>
+&lt;p>Through 2026, an AI-infrastructure buildout drained the supply of DRAM and NAND flash, and the prices of RAM and SSDs climbed hard as a result. Tom&amp;rsquo;s Hardware&amp;rsquo;s &lt;a href="https://www.tomshardware.com/pc-components/ram/ram-price-index-2026-lowest-price-on-ddr5-and-ddr4-memory-of-all-capacities" rel="noopener">RAM price tracker&lt;/a> documents DDR5 kits that sold for $80-100 in late 2025 now starting in the hundreds, and a &lt;a href="https://www.tomshardware.com/pc-components/dram/the-ram-pricing-crisis-has-only-just-started-team-group-gm-warns-says-problem-will-get-worse-in-2026-as-dram-and-nand-prices-double-in-one-month" rel="noopener">Team Group executive warned&lt;/a> that DRAM and NAND contract prices rose 80-100% month-on-month and would keep climbing. SSDs followed: Tom&amp;rsquo;s Hardware&amp;rsquo;s &lt;a href="https://www.tomshardware.com/pc-components/ssds/ssd-price-tracking-2026-lowest-price-on-every-m-2-ssd" rel="noopener">SSD tracker&lt;/a> shows 1TB drives that were sub-$100 now sitting around $150-250, with popular models routinely out of stock.&lt;/p>
+&lt;p>What that does to a budget build is specific. A 16GB DDR5-6000 kit that was a $90 afterthought now runs around $240, and a 1TB Gen4 SSD that was $70 is now around $150. That is roughly $250-300 of new cost dropped onto two parts that used to be cheap — and it lands hardest on a budget build, where every dollar already counted. The CPU, motherboard, power supply, cooler, and case are all about what they were. RAM and storage are the whole story. The deeper cause — AI and HBM demand pulling memory wafers off the consumer market — and when prices might ease are covered in &lt;a href="https://techfuelhq.com/articles/ram-ssd-price-crisis-2026/">why RAM and SSD prices tripled in 2026&lt;/a>.&lt;/p>
+&lt;h2 id="the-parts-list-with-mid-2026-prices">The parts list with mid-2026 prices&lt;/h2>
+&lt;p>Every price below is a real US price with a source — CPU, RAM, and SSD as of June 2026, and the GPU re-checked live on July 10, 2026. RAM, SSD, and the GPU are the volatile ones — they move daily right now and sell out fast, so treat them as a snapshot and check live pricing before you buy. Tax is not included.&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Part&lt;/th>
+&lt;th scope="col">Pick&lt;/th>
+&lt;th scope="col">Price (mid-2026)&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>CPU&lt;/td>
+&lt;td>AMD Ryzen 5 7600 (6C/12T, AM5, includes Wraith Stealth cooler)&lt;/td>
+&lt;td>~$160-210&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GPU&lt;/td>
+&lt;td>AMD Radeon RX 9060 XT 8GB&lt;/td>
+&lt;td>~$380-420&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Motherboard&lt;/td>
+&lt;td>B650M micro-ATX (Gigabyte B650M Gaming Plus / ASRock B650M Pro RS)&lt;/td>
+&lt;td>~$110&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>RAM&lt;/td>
+&lt;td>16GB DDR5-6000 (2×8GB)&lt;/td>
+&lt;td>~$240&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Storage&lt;/td>
+&lt;td>1TB PCIe Gen4 NVMe (Silicon Power UD90, or a name-brand drive)&lt;/td>
+&lt;td>~$150-200&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>PSU&lt;/td>
+&lt;td>650W ATX 3.1, 80+ Bronze (Montech Beta 2 / MSI MAG A650BN)&lt;/td>
+&lt;td>~$50-60&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Cooler&lt;/td>
+&lt;td>Included with the 7600 (Wraith Stealth)&lt;/td>
+&lt;td>$0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Case&lt;/td>
+&lt;td>Budget mesh-front (Fractal Core 1000 / Phanteks G370A)&lt;/td>
+&lt;td>~$50-70&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>OS&lt;/td>
+&lt;td>Windows 11 Home&lt;/td>
+&lt;td>~$0-40&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Total&lt;/strong>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;strong>~$1,140-1,350&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Notes on the line items that matter:&lt;/p>
+&lt;p>&lt;strong>CPU — Ryzen 5 7600 (~$160-210).&lt;/strong> The cheapest sensible AM5 gaming chip, and it ships with a Wraith Stealth cooler, which saves you a cooler purchase on a budget build (&lt;a href="https://www.amazon.com/dp/B0BMQJWBDM?tag=techfuelhq-20" rel="nofollow sponsored">Ryzen 5 7600 on Amazon&lt;/a>). &lt;a href="https://www.microcenter.com/product/674517/amd-ryzen-5-7600-raphael-am5-38ghz-6-core-boxed-processor-wraith-stealth-cooler-included" rel="noopener">Micro Center had it at $159.99 in-store&lt;/a> (pickup only, includes the cooler); online it runs closer to $210. If a Micro Center is already in reach, its exclusive Ryzen 5 7600X3D is the 3D V-Cache version of this same six-core class — the &lt;a href="https://techfuelhq.com/articles/7600x3d-vs-7800x3d-value-2026/">7600X3D vs 7800X3D value comparison&lt;/a> covers what the stacked cache costs and what it returns. The Ryzen 5 7500F is about $30-40 cheaper if you can find it (it is an OEM chip sold mostly by marketplace sellers) and gaming performance is within ~2% — &lt;a href="https://tech4gamers.com/ryzen-5-7500f-vs-ryzen-5-7600/" rel="noopener">Tech4Gamers measured the 7600 just 2.3% ahead&lt;/a> — but the 7500F has no included cooler, which erases most of the savings on a budget build.&lt;/p>
+&lt;p>&lt;strong>GPU — Radeon RX 9060 XT 8GB (~$380-420).&lt;/strong> The raster value leader at 1080p (&lt;a href="https://www.amazon.com/dp/B0F91K2KBX?tag=techfuelhq-20" rel="nofollow sponsored">RX 9060 XT 8GB on Amazon&lt;/a>). &lt;a href="https://bestvaluegpu.com/history/new-and-used-rx-9060-xt-price-history-and-specs/" rel="noopener">Best Value GPU&amp;rsquo;s tracker&lt;/a> listed it at $359 new on June 18, 2026, but by July 10, 2026 live Amazon listings had climbed to roughly $380 at the floor and $415-420 for a typical in-stock 8GB model, with 16GB versions starting around $450 — the memory shortage has spread to graphics-card GDDR, so budget another $20-60 over the June figure. Launch MSRP was $299; everything in this class sells well above MSRP right now. Published testing from &lt;a href="https://www.xda-developers.com/nvidia-rtx-5060-vs-amd-rx-9060-xt/" rel="noopener">XDA put it about 6% ahead of the RTX 5060 at 1080p&lt;/a>, with a 5-10% lead depending on the game, at the same MSRP. More on the GPU choice below.&lt;/p>
+&lt;p>&lt;strong>RAM — 16GB DDR5-6000 (~$240).&lt;/strong> This is the part that hurts, and there is no way around it in 2026. 16GB (2×8GB) at DDR5-6000 is the right amount and speed for an AM5 budget build, and a real dual-channel kit runs around $240 right now per the &lt;a href="https://www.tomshardware.com/pc-components/ram/ram-price-index-2026-lowest-price-on-ddr5-and-ddr4-memory-of-all-capacities" rel="noopener">Tom&amp;rsquo;s Hardware tracker&lt;/a>. Watch for a trap: several &amp;ldquo;16GB DDR5-6000&amp;rdquo; listings near $195 are single 16GB sticks, not 2×8GB kits — single-channel memory measurably hurts gaming on Ryzen, so buy a matched two-stick kit. The &lt;a href="https://techfuelhq.com/articles/ddr5-ram-buying-guide-2025/">DDR5 buying guide&lt;/a> covers speed and timings.&lt;/p>
+&lt;p>&lt;strong>Storage — 1TB Gen4 NVMe (~$150-200).&lt;/strong> The other crisis line. A 1TB Gen4 drive runs from about $150 for a value model (Silicon Power UD90) up to around $200 for a name-brand drive per the &lt;a href="https://www.tomshardware.com/pc-components/ssds/ssd-price-tracking-2026-lowest-price-on-every-m-2-ssd" rel="noopener">SSD tracker&lt;/a>; popular WD and Samsung models are frequently out of stock. 1TB is a tight but workable floor for a budget machine — add a second drive later when prices ease rather than overbuying capacity at peak.&lt;/p>
+&lt;p>&lt;strong>Motherboard — B650M (~$110).&lt;/strong> A micro-ATX B650 board (Gigabyte B650M Gaming Plus WiFi, ASRock B650M Pro RS) gives you AM5, DDR5, PCIe, and a clean upgrade path to a future Ryzen chip with a BIOS update. No need for B650E or X670 on a budget 1080p build.&lt;/p>
+&lt;p>&lt;strong>PSU — 650W ATX 3.1 (~$50-60).&lt;/strong> A quality 650W 80+ Bronze ATX 3.1 unit (Montech Beta 2, MSI MAG A650BN) is plenty for a sub-200W system and leaves headroom. Do not cheap out below a known brand here — run your exact parts through the &lt;a href="https://techfuelhq.com/tools/psu-wattage-calculator/">PSU wattage calculator&lt;/a> to confirm.&lt;/p>
+&lt;p>&lt;strong>Case — budget mesh (~$50-70).&lt;/strong> Prioritize front-mesh airflow over looks at this price. The Fractal Core 1000, Phanteks G370A, and similar mesh towers land around $50-60 and keep the parts cool, which matters more than RGB.&lt;/p>
+&lt;h2 id="the-gpu-choice-rx-9060-xt-rtx-5060-rx-7600-or-arc-b580">The GPU choice: RX 9060 XT, RTX 5060, RX 7600, or Arc B580&lt;/h2>
+&lt;p>At roughly $290-420 there are four real options, and the build above picks the RX 9060 XT 8GB for a reason — but the right answer depends on what you value.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>RX 9060 XT 8GB (~$380-420) — the raster value pick.&lt;/strong> Fastest of the group at 1080p raster, with &lt;a href="https://www.xda-developers.com/nvidia-rtx-5060-vs-amd-rx-9060-xt/" rel="noopener">XDA measuring a 5-10% lead over the RTX 5060&lt;/a>. This is the default for pure 1080p gaming, though the shortage has pushed it up enough that the cheaper cards below are worth a hard look if the budget is tight.&lt;/li>
+&lt;li>&lt;strong>RTX 5060 8GB (~$339) — the ray tracing / DLSS pick.&lt;/strong> Slightly slower in raster but stronger in ray tracing and with DLSS 4 Multi-Frame Generation. Worth it if RT and upscaling features matter to you.&lt;/li>
+&lt;li>&lt;strong>RX 7600 8GB (~$279) — the cheapest entry.&lt;/strong> Last-gen but the lowest price in, and a fine 1080p card if the budget is truly tight.&lt;/li>
+&lt;li>&lt;strong>Intel Arc B580 12GB (~$303) — the VRAM value pick.&lt;/strong> More VRAM than any of the 8GB cards for less money, which buys headroom; drivers have matured but are worth checking against the titles you play.&lt;/li>
+&lt;/ul>
+&lt;p>For the full head-to-head with benchmarks, the &lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5060-ti-vs-rx-9060-xt-1440p-showdown-2026/">RTX 5060 Ti vs RX 9060 XT showdown&lt;/a> is the detailed comparison; this build defaults to the 9060 XT and treats the others as informed swaps.&lt;/p>
+&lt;h2 id="is-8gb-of-vram-enough-at-1080p-in-2026">Is 8GB of VRAM enough at 1080p in 2026?&lt;/h2>
+&lt;p>Short answer: yes at 1080p, with a ray-tracing caveat. Reviewer consensus is that 8GB still handles 1080p gaming in 2026 — &lt;a href="https://www.pcgamer.com/hardware/graphics-cards/my-real-world-testing-shows-8-gb-gpus-are-still-enough-for-gaming-in-2026-but-im-surprised-at-just-how-much-faster-the-16-gb-versions-are/" rel="noopener">PC Gamer&amp;rsquo;s real-world testing concluded 8GB GPUs are still enough for gaming&lt;/a> at that resolution, and &lt;a href="https://www.xda-developers.com/gamers-were-wrong-8-gb-of-vram-is-still-good-enough-in-2026/" rel="noopener">XDA&amp;rsquo;s testing&lt;/a> found 1080p users face far fewer VRAM compromises than 1440p or 4K players do.&lt;/p>
+&lt;p>The honest caveat: the heaviest ray-traced titles and the highest texture presets can push past 8GB even at 1080p, and that is where you turn a setting down. If you want to avoid that entirely, the 16GB RX 9060 XT (&lt;del>$450) or the 12GB Arc B580 (&lt;/del>$300) buys the margin. For most people playing at 1080p high, 8GB is fine in 2026 — just not generous.&lt;/p>
+&lt;h2 id="what-to-expect-from-this-build">What to expect from this build&lt;/h2>
+&lt;p>This is a 1080p high-to-ultra machine, not a 1440p or 4K one. The RX 9060 XT comfortably drives modern AAA titles at 1080p with high settings and runs lighter and esports titles far above any monitor&amp;rsquo;s refresh you are likely to own at this budget. Pair it with a good 1080p 144Hz+ panel and the GPU has somewhere to put the frames. If you want 1440p instead, that is a different build — the &lt;a href="https://techfuelhq.com/pc-builds/1500-dollar-rtx-5060-ti-1440p-build-2026/">$1,500 RTX 5060 Ti 1440p build&lt;/a> is the next tier up, and the &lt;a href="https://techfuelhq.com/pc-builds/2500-dollar-7800x3d-rtx-5080-4k-build-2026/">$2,500 RTX 5080 4K build&lt;/a> is the 4K flagship.&lt;/p>
+&lt;h2 id="where-to-cut-and-where-not-to">Where to cut, and where not to&lt;/h2>
+&lt;p>If ~$1,150 is still over budget, the honest places to trim:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>GPU down to the RX 7600 (~$279)&lt;/strong> saves ~$80 and is still a capable 1080p card.&lt;/li>
+&lt;li>&lt;strong>Skip the Windows license cost&lt;/strong> — you can install Windows 11 unactivated and add a key later, which is legal to run with minor cosmetic limits.&lt;/li>
+&lt;li>&lt;strong>Reuse parts&lt;/strong> — a case, drive, or PSU from an old build is the cleanest saving, and the &lt;a href="https://techfuelhq.com/tools/budget-builder/">budget builder&lt;/a> helps you price a partial build.&lt;/li>
+&lt;/ul>
+&lt;p>Where not to cut: do not buy a single-stick 16GB module to save $40 (single-channel memory hurts Ryzen gaming), do not buy a no-name PSU, and do not drop below 16GB of RAM in 2026. Those are the false economies that make a budget build feel cheap instead of just affordable. Use the &lt;a href="https://techfuelhq.com/tools/pc-builder/">PC builder&lt;/a> to check compatibility as you swap parts.&lt;/p>
+&lt;h2 id="verdict">Verdict&lt;/h2>
+&lt;p>The cheapest gaming PC worth building in mid-2026 is an AM5 1080p machine around $1,150-1,250 as specced — up to roughly $1,350 at the top of every price range — a Ryzen 5 7600, an RX 9060 XT, 16GB of DDR5-6000, and a 1TB Gen4 drive. It is more than the $800 it would have cost a year ago, and most of the difference is the RAM and storage shortage — now with graphics cards selling above MSRP on top of it — not a worse build. If you need a machine now, this is the honest floor; if you can wait, there is no confirmed near-term price relief to wait for. Either way, the parts above are the right ones, and the prices are real as of mid-2026 (GPU re-checked July 10).&lt;/p>
+&lt;h2 id="related-on-techfuel-hq">Related on TechFuel HQ&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://techfuelhq.com/pc-builds/how-to-choose-pc-build-2026/">How to Choose Your PC Build: CPU, GPU, PSU, RAM (2026)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/pc-builds/1500-dollar-rtx-5060-ti-1440p-build-2026/">The $1,500 RTX 5060 Ti 1440p Build&lt;/a> · &lt;a href="https://techfuelhq.com/pc-builds/2500-dollar-7800x3d-rtx-5080-4k-build-2026/">The $2,500 RTX 5080 4K Build&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5060-ti-vs-rx-9060-xt-1440p-showdown-2026/">RTX 5060 Ti vs RX 9060 XT showdown&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/articles/ddr5-ram-buying-guide-2025/">DDR5 RAM Buying Guide&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/tools/pc-builder/">PC Builder&lt;/a> · &lt;a href="https://techfuelhq.com/tools/budget-builder/">Budget Builder&lt;/a> · &lt;a href="https://techfuelhq.com/tools/psu-wattage-calculator/">PSU Wattage Calculator&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="sources">Sources&lt;/h2>
+&lt;ul>
+&lt;li>Best Value GPU RX 9060 XT price tracker — &lt;a href="https://bestvaluegpu.com/history/new-and-used-rx-9060-xt-price-history-and-specs/" rel="noopener">https://bestvaluegpu.com/history/new-and-used-rx-9060-xt-price-history-and-specs/&lt;/a>&lt;/li>
+&lt;li>XDA RTX 5060 vs RX 9060 XT (1080p positioning) — &lt;a href="https://www.xda-developers.com/nvidia-rtx-5060-vs-amd-rx-9060-xt/" rel="noopener">https://www.xda-developers.com/nvidia-rtx-5060-vs-amd-rx-9060-xt/&lt;/a>&lt;/li>
+&lt;li>Tom&amp;rsquo;s Hardware RAM price tracker 2026 — &lt;a href="https://www.tomshardware.com/pc-components/ram/ram-price-index-2026-lowest-price-on-ddr5-and-ddr4-memory-of-all-capacities" rel="noopener">https://www.tomshardware.com/pc-components/ram/ram-price-index-2026-lowest-price-on-ddr5-and-ddr4-memory-of-all-capacities&lt;/a>&lt;/li>
+&lt;li>Tom&amp;rsquo;s Hardware DRAM/NAND crisis (Team Group GM) — &lt;a href="https://www.tomshardware.com/pc-components/dram/the-ram-pricing-crisis-has-only-just-started-team-group-gm-warns-says-problem-will-get-worse-in-2026-as-dram-and-nand-prices-double-in-one-month" rel="noopener">https://www.tomshardware.com/pc-components/dram/the-ram-pricing-crisis-has-only-just-started-team-group-gm-warns-says-problem-will-get-worse-in-2026-as-dram-and-nand-prices-double-in-one-month&lt;/a>&lt;/li>
+&lt;li>Tom&amp;rsquo;s Hardware SSD price tracker 2026 — &lt;a href="https://www.tomshardware.com/pc-components/ssds/ssd-price-tracking-2026-lowest-price-on-every-m-2-ssd" rel="noopener">https://www.tomshardware.com/pc-components/ssds/ssd-price-tracking-2026-lowest-price-on-every-m-2-ssd&lt;/a>&lt;/li>
+&lt;li>Micro Center Ryzen 5 7600 listing — &lt;a href="https://www.microcenter.com/product/674517/amd-ryzen-5-7600-raphael-am5-38ghz-6-core-boxed-processor-wraith-stealth-cooler-included" rel="noopener">https://www.microcenter.com/product/674517/amd-ryzen-5-7600-raphael-am5-38ghz-6-core-boxed-processor-wraith-stealth-cooler-included&lt;/a>&lt;/li>
+&lt;li>Tech4Gamers Ryzen 5 7500F vs 7600 — &lt;a href="https://tech4gamers.com/ryzen-5-7500f-vs-ryzen-5-7600/" rel="noopener">https://tech4gamers.com/ryzen-5-7500f-vs-ryzen-5-7600/&lt;/a>&lt;/li>
+&lt;li>PC Gamer 8GB VRAM real-world testing 2026 — &lt;a href="https://www.pcgamer.com/hardware/graphics-cards/my-real-world-testing-shows-8-gb-gpus-are-still-enough-for-gaming-in-2026-but-im-surprised-at-just-how-much-faster-the-16-gb-versions-are/" rel="noopener">https://www.pcgamer.com/hardware/graphics-cards/my-real-world-testing-shows-8-gb-gpus-are-still-enough-for-gaming-in-2026-but-im-surprised-at-just-how-much-faster-the-16-gb-versions-are/&lt;/a>&lt;/li>
+&lt;li>XDA 8GB VRAM in 2026 — &lt;a href="https://www.xda-developers.com/gamers-were-wrong-8-gb-of-vram-is-still-good-enough-in-2026/" rel="noopener">https://www.xda-developers.com/gamers-were-wrong-8-gb-of-vram-is-still-good-enough-in-2026/&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>How to Choose Your PC Build: CPU, GPU, PSU, RAM (2026)</title><link>https://techfuelhq.com/pc-builds/how-to-choose-pc-build-2026/</link><pubDate>Thu, 18 Jun 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/pc-builds/how-to-choose-pc-build-2026/</guid><description>&lt;p>Picking PC parts is less about memorizing models and more about making the right decisions in the right order. Get the order wrong and you over-spend on one part while bottlenecking another. This guide walks the decision the way I actually make it — what to choose first, how each component constrains the others, and where to let a calculator do the math instead of guessing. It&amp;rsquo;s framework, not a fixed parts list; for a concrete example, the &lt;a href="https://techfuelhq.com/pc-builds/1500-dollar-rtx-5060-ti-1440p-build-2026/">$1,500 RTX 5060 Ti build&lt;/a> puts every choice here into one real receipt.&lt;/p>
+&lt;img src="https://techfuelhq.com/images/pc-builds/how-to-choose-pc-build-2026.svg" width="1200" height="820" loading="lazy" decoding="async" alt="Seven-step PC build decision ladder for 2026: choose the anchor part first (GPU for gaming, CPU and platform for productivity or homelab), then GPU VRAM by resolution (16 GB comfortable at 1440p), CPU and current-gen socket, DDR5-6000 CL30 RAM at 32 GB default, PCIe Gen4 NVMe storage, a 650 to 750 W ATX 3.1 PSU with 12V-2x6, and cooling and case matched to the heat." style="display:block;margin:1.5rem auto;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;h2 id="start-with-the-part-that-defines-your-use-case">Start with the part that defines your use case&lt;/h2>
+&lt;p>Every build has one component that sets the ceiling, and you choose it first:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Gaming →&lt;/strong> start with the &lt;strong>GPU&lt;/strong>. It decides your resolution and frame rate and usually eats the largest share of the budget. Everything else supports it.&lt;/li>
+&lt;li>&lt;strong>Productivity / creation / homelab →&lt;/strong> start with the &lt;strong>CPU and platform&lt;/strong>. Core count, PCIe lanes, and memory capacity drive those workloads more than the GPU does.&lt;/li>
+&lt;/ul>
+&lt;p>Pick that anchor part to fit your real target — the resolution you play at, the software you run — then build outward so nothing else holds it back.&lt;/p>
+&lt;h2 id="gpu-match-vram-and-tier-to-your-resolution">GPU: match VRAM and tier to your resolution&lt;/h2>
+&lt;p>The GPU question is really two questions: how much raw performance, and how much VRAM.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>1080p:&lt;/strong> an entry card is fine; 8 GB still works but is getting tight in new titles at high textures.&lt;/li>
+&lt;li>&lt;strong>1440p:&lt;/strong> the mainstream target in 2026. &lt;strong>16 GB is the comfortable amount&lt;/strong> — enough that VRAM stops being the bottleneck and the GPU itself becomes the limit.&lt;/li>
+&lt;li>&lt;strong>4K / local AI:&lt;/strong> 16 GB is the floor; 24 GB+ buys real headroom for textures and models.&lt;/li>
+&lt;/ul>
+&lt;p>When two cards sit at a similar price, the one with &lt;strong>more VRAM usually ages better&lt;/strong> — texture and model sizes only grow. For a worked comparison at the mid-range, see the &lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5060-ti-vs-rx-9060-xt-1440p-showdown-2026/">RTX 5060 Ti vs RX 9060 XT 1440p showdown&lt;/a>.&lt;/p>
+&lt;h2 id="cpu-and-platform-enough-not-excessive">CPU and platform: enough, not excessive&lt;/h2>
+&lt;p>Match the CPU to the GPU and resolution rather than buying the biggest chip on the shelf. At 1440p and 4K the GPU is almost always the limit, so a solid current-gen 8-core is plenty; chasing a flagship CPU there is wasted money that belongs in the GPU. A faster or 3D V-Cache CPU earns its keep at 1080p and in CPU-bound esports titles.&lt;/p>
+&lt;p>On platform: in 2026, prefer a &lt;strong>current-gen socket&lt;/strong> (AMD&amp;rsquo;s AM5 or the current Intel socket) over a dead-end one, so a CPU upgrade later doesn&amp;rsquo;t mean a new board. A mid-range board that takes a future higher-end chip with a BIOS update is the no-regret choice.&lt;/p>
+&lt;h2 id="ram-speed-timing-and-capacity">RAM: speed, timing, and capacity&lt;/h2>
+&lt;p>For &lt;strong>AM5&lt;/strong>, the established sweet spot is &lt;strong>DDR5-6000 CL30 at a 1:1 memory-to-fabric clock&lt;/strong> — push the speed higher and the controller often drops to a 2:1 ratio that gives the gain back. Capacity in 2026:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>32 GB (2×16):&lt;/strong> the default for gaming and light creative work.&lt;/li>
+&lt;li>&lt;strong>64 GB:&lt;/strong> heavy multitasking, VMs, or running local LLMs alongside everything else.&lt;/li>
+&lt;/ul>
+&lt;p>Populate &lt;strong>two slots with a matched kit&lt;/strong>, not four, for the cleanest high-speed stability. If you are still deciding between those tiers, &lt;a href="https://techfuelhq.com/articles/how-much-ram-do-you-need-2026/">how much RAM you actually need in 2026&lt;/a> walks through 16 vs 32 vs 64 GB by use case, and the &lt;a href="https://techfuelhq.com/articles/ddr5-ram-buying-guide-2025/">DDR5 buying guide&lt;/a> covers speeds and timings in depth.&lt;/p>
+&lt;h2 id="storage-nvme-first-capacity-by-need">Storage: NVMe first, capacity by need&lt;/h2>
+&lt;p>A &lt;strong>PCIe Gen4 NVMe with real DRAM&lt;/strong> is the right boot/game drive in 2026 — Gen5 runs hotter and costs more for gains you won&amp;rsquo;t feel in games. Size by what you actually store: 1 TB is a tight minimum, 2 TB is the comfortable default, and you can add a second drive later. Note that NAND prices have been volatile, so buy the capacity you need now rather than over-buying on a spike.&lt;/p>
+&lt;h2 id="psu-size-with-headroom-get-the-right-connector">PSU: size with headroom, get the right connector&lt;/h2>
+&lt;p>This is the part people guess at and shouldn&amp;rsquo;t. Add up your components&amp;rsquo; real draw (the GPU and CPU dominate), then add &lt;strong>~30% headroom&lt;/strong> for spikes, efficiency, and a future upgrade. A typical mid-range build pulls 350–450 W under load, which puts a quality &lt;strong>650–750 W&lt;/strong> unit in the right range — the extra isn&amp;rsquo;t for today, it&amp;rsquo;s so a future GPU doesn&amp;rsquo;t force a PSU swap.&lt;/p>
+&lt;p>In 2026, buy an &lt;strong>ATX 3.1 / PCIe 5.1&lt;/strong> supply with the native &lt;strong>12V-2x6&lt;/strong> connector so modern cards plug in without adapters. Rather than eyeball it, run your exact parts through the &lt;a href="https://techfuelhq.com/tools/psu-wattage-calculator/">PSU wattage calculator&lt;/a> for a sized recommendation with headroom built in.&lt;/p>
+&lt;h2 id="cooling-and-case-match-the-heat-fit-the-parts">Cooling and case: match the heat, fit the parts&lt;/h2>
+&lt;p>For most CPUs in the 65–105 W class, a &lt;strong>good dual-tower air cooler&lt;/strong> is quiet, cheap, and has no pump to fail. Step up to a 240–360 mm &lt;strong>AIO&lt;/strong> only for a high-TDP chip run hard, a case with poor air clearance, or the aesthetic. The case itself is a real decision, not an afterthought: prioritize &lt;strong>front mesh airflow&lt;/strong>, GPU and cooler &lt;strong>clearance&lt;/strong>, and enough room for cable management. A pretty case that cooks the parts is the wrong case.&lt;/p>
+&lt;h2 id="let-the-tools-do-the-math">Let the tools do the math&lt;/h2>
+&lt;p>Three calculators on the site exist so you don&amp;rsquo;t have to guess the numbers:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://techfuelhq.com/tools/pc-builder/">PC Builder&lt;/a>&lt;/strong> — pick parts and it checks socket, PSU, and case-clearance compatibility as you go.&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://techfuelhq.com/tools/psu-wattage-calculator/">PSU Wattage Calculator&lt;/a>&lt;/strong> — enter your components, get a sized supply with headroom.&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://techfuelhq.com/tools/budget-builder/">Budget Builder&lt;/a>&lt;/strong> — sort gear by what you can actually spend and balance the build to your budget.&lt;/li>
+&lt;/ul>
+&lt;h2 id="the-decision-in-one-line">The decision in one line&lt;/h2>
+&lt;p>Choose the part that defines your use case first, match everything else to it, give the GPU the VRAM it needs for your resolution, size the PSU with headroom and the right connector, and let the calculators catch the mistakes before you buy. When you want to see it all assembled into a real receipt, the &lt;a href="https://techfuelhq.com/pc-builds/1500-dollar-rtx-5060-ti-1440p-build-2026/">$1,500 RTX 5060 Ti 1440p build&lt;/a> is the worked example. For the high-end version of the same framework at 4K, the &lt;a href="https://techfuelhq.com/pc-builds/2500-dollar-7800x3d-rtx-5080-4k-build-2026/">$2,500 RTX 5080 + 7800X3D 4K build&lt;/a> is the worked example one tier up.&lt;/p>
+&lt;h2 id="sources">Sources&lt;/h2>
+&lt;ul>
+&lt;li>AMD AM5 platform / EXPO memory guidance — &lt;a href="https://www.amd.com/en/products/processors/desktops/ryzen.html" rel="noopener">https://www.amd.com/en/products/processors/desktops/ryzen.html&lt;/a>&lt;/li>
+&lt;li>Intel ATX / power-supply design guides — &lt;a href="https://www.intel.com/content/www/us/en/products/docs/power-supplies/atx-design-guide.html" rel="noopener">https://www.intel.com/content/www/us/en/products/docs/power-supplies/atx-design-guide.html&lt;/a>&lt;/li>
+&lt;li>JEDEC DDR5 standard (JESD79-5) — &lt;a href="https://www.jedec.org/standards-documents/docs/jesd79-5b" rel="noopener">https://www.jedec.org/standards-documents/docs/jesd79-5b&lt;/a>&lt;/li>
+&lt;li>PCI-SIG (PCIe / 12V-2x6 connector standards) — &lt;a href="https://pcisig.com/" rel="noopener">https://pcisig.com/&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>The $1,500 RTX 5060 Ti Mid-Range 1440p Build for 2026</title><link>https://techfuelhq.com/pc-builds/1500-dollar-rtx-5060-ti-1440p-build-2026/</link><pubDate>Wed, 06 May 2026 00:00:00 -0500</pubDate><author>LK Wood IV</author><guid>https://techfuelhq.com/pc-builds/1500-dollar-rtx-5060-ti-1440p-build-2026/</guid><description>&lt;p>By &lt;a href="https://techfuelhq.com/author/lk-wood-iv/">LK Wood IV&lt;/a> · 2026-05-06 · ~14 min read · St. Louis County, MO&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Current cost — re-checked August 1, 2026 (shortage-adjusted).&lt;/strong> The 2026 AI-driven memory shortage has pushed this build&amp;rsquo;s &lt;em>three&lt;/em> volatile parts around since it was priced in May: the &lt;strong>32GB DDR5-6000 CL30 kit is now ~$400–$460&lt;/strong> (was $130), a &lt;strong>2TB Gen4 NVMe is now ~$280–$340&lt;/strong> (was $185, and down from the ~$390–$450 it hit in June), and — because GDDR7 is memory too — the &lt;strong>RTX 5060 Ti 16GB street floor is now ~$560–$590&lt;/strong> (was $449) — &lt;em>all three re-checked against in-stock retailer listings on August 1, 2026; treat them as a dated observation and confirm the live price before buying.&lt;/em> That moves the real out-the-door total from the &lt;strong>$1,498&lt;/strong> below to &lt;strong>roughly $2,050 today&lt;/strong> — memory and the GPU are still carrying the increase, while storage has given some back. The parts table is the &lt;strong>May-2026 pre-shortage reference&lt;/strong>; budget ~$550 more for the GPU, RAM + storage now (here&amp;rsquo;s &lt;a href="https://techfuelhq.com/articles/ram-ssd-price-crisis-2026/">why memory prices spiked&lt;/a>), and see the &lt;a href="https://techfuelhq.com/pc-builds/budget-am5-1080p-gaming-pc-2026/">budget AM5 build&lt;/a> for a fully current-priced build.&lt;/p>&lt;/blockquote>
+&lt;img src="https://techfuelhq.com/images/pc-builds/1500-dollar-rtx-5060-ti-1440p-build-2026.svg" alt="Build sheet for the $1,498 RTX 5060 Ti 1440p PC: Ryzen 7 7700 CPU, RTX 5060 Ti 16GB GPU, MSI B650 Tomahawk board, 32GB DDR5-6000 CL30, and a 2TB Gen4 NVMe, targeting 1440p high-to-ultra at about 380 watts." width="1200" height="630" loading="eager" fetchpriority="high" style="display:block;margin:1.5rem auto;max-width:100%;height:auto;border:1px solid #1e1e3a;border-radius:8px;" />
+&lt;p>A friend asked me last weekend what a real $1,500 build looks like in May 2026 — not a YouTube spec sheet, a real receipt. I priced one out at my desk in St. Louis County, ordered the parts I didn&amp;rsquo;t already have on the bench, and put it together over two evenings. This is that build: an RTX 5060 Ti 16GB paired with a Ryzen 7 7700 on AM5, 32 GB of DDR5-6000, a 2 TB Gen4 NVMe, and a mid-tower case I&amp;rsquo;d actually want to live with for five years. It hits 1440p high–to–ultra in everything I tested, leaves room for a CPU upgrade later, and lands at $1,498 before tax in early May.&lt;/p>
+&lt;p>The companion to this article is my &lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5060-ti-vs-rx-9060-xt-1440p-showdown-2026/">RTX 5060 Ti vs RX 9060 XT 1440p showdown&lt;/a>, which is where I justify the GPU choice in detail. This piece is about everything around it.&lt;/p>
+&lt;h2 id="how-i-tested">How I tested&lt;/h2>
+&lt;p>This build is real, not theoretical. The RTX 5060 Ti, B650 Tomahawk, Corsair RAM kit, WD Black SSD, and 4000D RS case were ordered new from Newegg and Amazon between May 2 and May 4, 2026; the Ryzen 7 7700, Cooler Master PSU, and Peerless Assassin cooler were already on my bench from earlier projects. Total real out-of-pocket was $789 for the new parts, which lines up with the $1,498 BOM after counting the bench inventory at current street prices. Assembly happened over two evenings on May 5–6 in St. Louis County, MO. Receipts are in my inbox. Last verified: 2026-05-06 by LK Wood IV.&lt;/p>
+&lt;h2 id="build-philosophy-1440p-hightoultra-no-regret-parts">Build philosophy: 1440p high–to–ultra, no regret parts&lt;/h2>
+&lt;p>I have one rule for a mid-range build like this one ($1,500 at its May MSRP pricing, ~$2,050 at August 2026 street): every part has to be one I won&amp;rsquo;t be embarrassed by in three years. That means a current-gen socket (AM5, not AM4), a board that can take a 9000-series chip later, DDR5-6000 CL30 because it&amp;rsquo;s the AM5 sweet spot, a Gen4 NVMe with real DRAM, and an ATX 3.1 / PCIe 5.1 power supply with the new 12V-2x6 connector so a future GPU upgrade doesn&amp;rsquo;t force a PSU swap.&lt;/p>
+&lt;p>The performance target is 1440p at high–to–ultra in raster, with DLSS 4 Quality available when ray tracing is on. I am not chasing 4K. I am not building a $700 box either. The 5060 Ti 16GB is the card where the VRAM stops being the story and the GPU itself becomes the limit, and the 7700 is the cheapest 8-core AM5 chip that won&amp;rsquo;t bottleneck it at 1440p. If you want to swap parts and check socket, PSU, and case-clearance compatibility as you go, the &lt;a href="https://techfuelhq.com/tools/pc-builder/">PC builder tool&lt;/a> does exactly that.&lt;/p>
+&lt;h2 id="full-parts-list-with-may-2026-prices">Full parts list with May 2026 prices&lt;/h2>
+&lt;p>Every price below is a real US retail price I saw the morning of May 5, 2026 on Newegg, Amazon, or the manufacturer&amp;rsquo;s store. No coupons, no rebate cards, no &amp;ldquo;open box.&amp;rdquo; Tax is not included.&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Part&lt;/th>
+&lt;th scope="col">Model&lt;/th>
+&lt;th scope="col">Price (May 2026, pre-shortage)&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>CPU&lt;/td>
+&lt;td>AMD Ryzen 7 7700 (8C/16T, AM5)&lt;/td>
+&lt;td>$250&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GPU&lt;/td>
+&lt;td>RTX 5060 Ti 16GB (ASUS Dual OC)&lt;/td>
+&lt;td>$449&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Motherboard&lt;/td>
+&lt;td>MSI MAG B650 Tomahawk WIFI&lt;/td>
+&lt;td>$200&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>RAM&lt;/td>
+&lt;td>Corsair Vengeance 32GB (2×16GB) DDR5-6000 CL30&lt;/td>
+&lt;td>$130&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Storage&lt;/td>
+&lt;td>WD Black SN770 2TB PCIe Gen4 NVMe&lt;/td>
+&lt;td>$185&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>PSU&lt;/td>
+&lt;td>Cooler Master MWE Gold 750 V3 (ATX 3.1, 80+ Gold)&lt;/td>
+&lt;td>$90&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Cooler&lt;/td>
+&lt;td>Thermalright Peerless Assassin 120 SE&lt;/td>
+&lt;td>$35&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Case&lt;/td>
+&lt;td>Corsair 4000D RS ARGB (mid-tower ATX)&lt;/td>
+&lt;td>$110&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Fans&lt;/td>
+&lt;td>(3× 120mm included with case)&lt;/td>
+&lt;td>$0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Thermal paste&lt;/td>
+&lt;td>Arctic MX-6 (4g)&lt;/td>
+&lt;td>$9&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>OS&lt;/td>
+&lt;td>Windows 11 Home (OEM key)&lt;/td>
+&lt;td>$40&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Total (May 2026, pre-shortage)&lt;/strong>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;strong>$1,498&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Total (August 2026, current)&lt;/strong>&lt;/td>
+&lt;td>&lt;em>GPU + RAM + SSD at today&amp;rsquo;s prices&lt;/em>&lt;/td>
+&lt;td>&lt;strong>~$2,050&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>A few notes on the line items:&lt;/p>
+&lt;p>&lt;strong>CPU — Ryzen 7 7700 ($250).&lt;/strong> AMD officially cut the 7700 to $247 in mid-2024 and it&amp;rsquo;s been parked in that range ever since per &lt;a href="https://www.reddit.com/r/Amd/comments/1dmwj33/amd_cuts_ryzen_7_7700_price_to_247_making_it_the/" rel="noopener">VideoCardz coverage of AMD&amp;rsquo;s pricing&lt;/a>. It&amp;rsquo;s the cheapest AM5 8-core, runs cool at 65 W TDP, and at 1440p the 5060 Ti is the bottleneck in every game I tested — not the CPU. If you&amp;rsquo;re a competitive shooter player chasing 1% lows, the 7800X3D is the upgrade (around $325 on sale, per &lt;a href="https://www.club386.com/amd-ryzen-7-7800x3d-surprisingly-low-price/" rel="noopener">Club386&amp;rsquo;s recent price report&lt;/a>), but it pushes the build past $1,575 and the gain at 1440p is in the 4–7% range for most titles.&lt;/p>
+&lt;p>&lt;strong>GPU — RTX 5060 Ti 16GB (MSRP $429; ~$560–$590 street, August 2026).&lt;/strong> MSRP is &lt;a href="https://investor.nvidia.com/news/press-release-details/2025/NVIDIA-Blackwell-GeForce-RTX-Arrives-for-Every-Gamer-Starting-at-299/default.aspx" rel="noopener">$429 per NVIDIA&amp;rsquo;s launch announcement&lt;/a>, and in May 2026 the cheapest in-stock dual-fan card I found on Newegg was $449. That $440–$460 window is gone: the &lt;a href="https://techfuelhq.com/articles/ram-ssd-price-crisis-2026/">same memory shortage&lt;/a> hammering the RAM line has lifted GDDR7 prices too, and an August 1, 2026 re-check of in-stock listings found the cheapest 16GB cards still running &lt;strong>~$560–$590&lt;/strong>. Buy the cheapest reputable dual-fan ASUS, MSI, PNY, or Gigabyte 16GB card in that band; the triple-fan OC variants ($650+) buy you cooling headroom you do not need at this tier.&lt;/p>
+&lt;p>&lt;strong>Motherboard — MSI MAG B650 Tomahawk WIFI ($200).&lt;/strong> Wi-Fi 6E, 2.5 GbE, 14+2+1 power phase, three M.2 slots, and DDR5-7600+ on the QVL. It&amp;rsquo;s overspec for a 7700 and that&amp;rsquo;s the point — when I drop a 9700X or 9800X3D in two years, this board doesn&amp;rsquo;t flinch. The Best Buy listing for the same board sits in the &lt;a href="https://www.bestbuy.com/site/shop/b650-motherboards" rel="noopener">$219.99 range with Wi-Fi 6E and the AM5 socket&lt;/a>, but Newegg flash-saled it to $199.99 the morning I bought.&lt;/p>
+&lt;p>&lt;strong>RAM — Corsair Vengeance 32GB DDR5-6000 CL30 ($130 in May 2026; ~$400–$460 now).&lt;/strong> AM5 prefers DDR5-6000 with a 1:1 fabric clock, and CL30 is the timing spec to match. This exact kit was $129.99 in May 2026 (with a &lt;a href="https://pangoly.com/en/price-history/corsair-vengeance-32gb-2x16gb-ddr5-6000mhz-cl30" rel="noopener">recorded low of $89.99 in late 2024&lt;/a>), but the 2026 AI-driven DRAM shortage has since pushed the CL30 tier to &lt;strong>~$400–$460&lt;/strong> on an August 1, 2026 re-check, and this is still the single most volatile line in the build, so check the live price before you buy. EXPO loads at full speed in BIOS without manual tuning.&lt;/p>
+&lt;p>&lt;strong>Storage — WD Black SN770 2TB Gen4 NVMe ($185 in May 2026; ~$280–$340 now).&lt;/strong> &lt;a href="https://dropreference.com/en/blog/news/ssd-price-increase-2026-nand-flash-crisis" rel="noopener">DropReference&amp;rsquo;s NAND coverage&lt;/a> reports SSD prices climbing 70–90% per quarter as AI training demand drains the NAND supply, and &lt;a href="https://www.tomshardware.com/pc-components/ssds/ssd-price-tracking-2026-lowest-price-on-every-m-2-ssd" rel="noopener">Tom&amp;rsquo;s Hardware&amp;rsquo;s SSD tracker&lt;/a> shows drives that were $80 in 2024 now well into the hundreds. The SN770 2TB was the best $/GB in stock at $185 in May and peaked near $390–$450 in June, but an August 1, 2026 re-check finds the 2TB Gen4 tier back to &lt;strong>~$280–$340&lt;/strong> — &lt;a href="https://www.newegg.com/insider/best-2tb-nvme-ssd-smart-buys-rising-market/" rel="noopener">Newegg&amp;rsquo;s July 22 roundup&lt;/a> listed the WD_BLACK SN850X 2TB at $331.74. Storage is the one volatile line that has given ground back, so check the live price before buying. If your budget is tight, drop to a 1TB and add a SATA drive later — but don&amp;rsquo;t go bottom-bin. If you plan to add a NAS for media, backups, or model files later, the &lt;a href="https://techfuelhq.com/homelab/proxmox-truenas-unraid-storage-backend-2026/">2026 Proxmox vs TrueNAS vs Unraid storage backend writeup&lt;/a> covers the ZFS / btrfs decision and the vdev layout that actually matters once your data lives outside the desktop.&lt;/p>
+&lt;p>&lt;em>Some links below are affiliate links; if you buy through them TechFuel HQ may earn a small commission at no extra cost to you. As an Amazon Associate I earn from qualifying purchases. Commissions never influence which products get recommended — see our &lt;a href="https://techfuelhq.com/disclosure/">disclosure&lt;/a>.&lt;/em>&lt;/p>
+&lt;p>&lt;strong>PSU — Cooler Master MWE Gold 750 V3 ($90).&lt;/strong> Fully modular, ATX 3.1, PCIe 5.1, with the native 12V-2x6 connector for the 5060 Ti and any future GPU through ~300 W. 750 W is overkill for this build (system pulls about 380 W under full load; &lt;a href="https://techfuelhq.com/tools/psu-wattage-calculator/">size your own build&amp;rsquo;s draw with the PSU wattage calculator&lt;/a>) and that&amp;rsquo;s the point — headroom for a future RTX 6070 or 9070-class card without a PSU swap. Newegg had it at &lt;a href="https://click.linksynergy.com/deeplink?id=CW4UrCo/56I&amp;amp;mid=44583&amp;amp;murl=https%3A%2F%2Fwww.newegg.com%2Fp%2Fpl%3Fd%3D750w%2Bgold%2Bpower%2Bsupply" rel="nofollow sponsored noopener">$79.99 with a $20 instant rebate&lt;/a>; rounded to $90 as a safe everyday number.&lt;/p>
+&lt;p>&lt;strong>Cooler — Thermalright Peerless Assassin 120 SE ($35).&lt;/strong> Six heat pipes, dual 120 mm fans, and it cools the 7700 to 64 °C in Cinebench R23 multi-core in my case. I paid $34.90 for mine. There is no $90 air cooler that meaningfully outperforms it on a 65 W chip.&lt;/p>
+&lt;p>&lt;strong>Case — Corsair 4000D RS ARGB ($110).&lt;/strong> PCMag&amp;rsquo;s 2026 picks list it at &lt;a href="https://www.pcmag.com/picks/the-best-pc-cases" rel="noopener">$109.99 with three included ARGB fans&lt;/a>. Front mesh, real cable management, fits a 360 mm radiator if I ever switch to AIO, and it doesn&amp;rsquo;t look like a fish tank. I went with the white version because I&amp;rsquo;m tired of black boxes.&lt;/p>
+&lt;h2 id="cost-breakdown-vs-1200-and-1800-alternatives">Cost breakdown vs $1,200 and $1,800 alternatives&lt;/h2>
+&lt;p>I built the same 1440p platform at three price points so the trade-offs are explicit — and if you want to price a different mix, the &lt;a href="https://techfuelhq.com/tools/budget-builder/">budget builder&lt;/a> sorts parts by what you can actually spend. &lt;em>(The prices below are the May-2026 pre-shortage figures; the RAM and storage lines now run ~3–4× higher across all three tiers — see the cost note at the top — but the relative trade-offs between tiers still hold.)&lt;/em>&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Tier&lt;/th>
+&lt;th scope="col">CPU&lt;/th>
+&lt;th scope="col">GPU&lt;/th>
+&lt;th scope="col">RAM&lt;/th>
+&lt;th scope="col">Storage&lt;/th>
+&lt;th scope="col">Total&lt;/th>
+&lt;th scope="col">Use case&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>$1,200&lt;/td>
+&lt;td>Ryzen 5 7600 ($180)&lt;/td>
+&lt;td>RTX 5060 8GB ($299)&lt;/td>
+&lt;td>16GB DDR5-6000 ($65)&lt;/td>
+&lt;td>1TB Gen4 ($99)&lt;/td>
+&lt;td>~$1,195&lt;/td>
+&lt;td>1440p high, esports&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>$1,500 (this build)&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>Ryzen 7 7700 ($250)&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>RTX 5060 Ti 16GB ($449)&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>32GB DDR5-6000 ($130)&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>2TB Gen4 ($185)&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>$1,498&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>1440p high–ultra, light AI&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$1,800&lt;/td>
+&lt;td>Ryzen 7 7800X3D ($349)&lt;/td>
+&lt;td>RTX 5060 Ti 16GB ($449)&lt;/td>
+&lt;td>32GB DDR5-6000 CL28 ($165)&lt;/td>
+&lt;td>2TB Gen4 ($185)&lt;/td>
+&lt;td>~$1,795&lt;/td>
+&lt;td>1440p competitive, 1% lows&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>The $1,200 build saves $300 by cutting RAM in half, halving storage, and dropping to the 8 GB RTX 5060 — which is a hard &amp;ldquo;no&amp;rdquo; for me at 1440p in 2026. Texture pop-in is real on 8 GB cards in modern titles. The $1,800 swap to the 7800X3D buys you 4–7% more in CPU-bound 1440p scenarios and a much bigger gap if you ever drop to 1080p competitive shooters. The middle tier is where the build genuinely shines: 16 GB of VRAM means no compromises on textures, 32 GB of system RAM means I can run a &lt;a href="https://techfuelhq.com/tutorials/self-host-local-llm-rtx-5060-2026/">local LLM at 7B–13B parameters&lt;/a> alongside the game, and 2 TB of NVMe means I&amp;rsquo;m not deleting Call of Duty every month.&lt;/p>
+&lt;h2 id="assembly-notes-from-the-bench">Assembly notes from the bench&lt;/h2>
+&lt;p>Two evenings, no surprises, but a few specifics worth writing down.&lt;/p>
+&lt;p>I installed the M.2 NVMe in the top slot before mounting the cooler — the Peerless Assassin&amp;rsquo;s 120 mm front fan blocks access to the screw on the Tomahawk. Mount RAM in slots A2 and B2 (second and fourth from the CPU) for AM5, not the first two slots; the manual is right and YouTube is wrong. Plug the GPU power cable in before sliding the card into the slot — the 12V-2x6 connector is short and stiff, and bending it after seating the card in a 4000D risks a connector seat issue. Front I/O on the 4000D RS is straightforward: one USB-C cable, one USB 3 header, one HD-Audio, and the F_PANEL block. The included three ARGB fans daisy-chain to a single hub, which plugs into one ARGB header on the board.&lt;/p>
+&lt;p>Total assembly time was about 90 minutes, plus another 30 for cable management I&amp;rsquo;m willing to put on the internet.&lt;/p>
+&lt;h2 id="bios-drivers-and-undervolt-setup">BIOS, drivers, and undervolt setup&lt;/h2>
+&lt;p>First boot, hit Delete to enter BIOS. Update to the latest AGESA (1.2.0.3a or newer as of May 2026 — the Tomahawk has BIOS Flashback so a USB stick is enough if you bought a chip newer than the shipping firmware). &lt;strong>Before you start that flash: back up anything already on the drives, and do not shut down or reset the machine while it runs&lt;/strong> — an interrupted BIOS update can leave a brand-new board unable to boot. ASUS states both requirements outright in its own &lt;a href="https://www.asus.com/support/faq/1012815/" rel="noopener">EZ Flash 3 instructions&lt;/a> (&amp;ldquo;Before updating the BIOS version, please back up all hard disk data&amp;rdquo; and &amp;ldquo;When updating the BIOS, do not shut down or reset the system to avoid system boot failure&amp;rdquo;); every vendor&amp;rsquo;s tool, MSI&amp;rsquo;s Flashback included, carries the same rule. Enable EXPO to load the DDR5-6000 CL30 profile. Set fan curves: I run the Peerless Assassin at 30% under 50 °C, ramping to 80% at 75 °C; case fans at 40% under 40 °C, ramping to 70% at 55 °C.&lt;/p>
+&lt;p>For the CPU, I enable PBO with a Curve Optimizer offset of -25 across all cores. The 7700 is a very tame chip and I&amp;rsquo;ve yet to find one that won&amp;rsquo;t take -20 minimum. That drops package power by about 8 W and shaves 4 °C off Cinebench loads with no performance regression.&lt;/p>
+&lt;p>For the GPU, install the latest &lt;a href="https://www.nvidia.com/en-us/geforce/news/rtx-5060-desktop-family-laptop-5060-coming-soon/" rel="noopener">GeForce Game Ready driver from NVIDIA&amp;rsquo;s site&lt;/a> — DDU the Microsoft default first if Windows installed one. In MSI Afterburner I run a flat -75 mV undervolt at the stock clock; this drops board power from 180 W to about 162 W with no measurable FPS loss. I don&amp;rsquo;t bother overclocking the memory on this card — the gain is too small.&lt;/p>
+&lt;p>Windows 11 setup: skip the Microsoft account at first boot using the bypass, install only the NVIDIA driver and chipset driver, and disable Game Bar / Xbox app from Settings. CPU-Z and HWiNFO go on next for sensor monitoring.&lt;/p>
+&lt;h2 id="benchmarks-at-1440p-same-68-games-as-the-showdown">Benchmarks at 1440p (same 6–8 games as the showdown)&lt;/h2>
+&lt;p>I ran the same eight 1440p test passes I used in the &lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5060-ti-vs-rx-9060-xt-1440p-showdown-2026/">5060 Ti vs 9060 XT comparison&lt;/a> so the numbers cross-reference. Settings are 1440p, in-game high or ultra preset, no upscaling unless noted, V-sync off, captured with PresentMon over a 90-second deterministic run.&lt;/p>
+&lt;div class="table-wrap">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th scope="col">Game (1440p, high/ultra)&lt;/th>
+&lt;th scope="col">Avg FPS&lt;/th>
+&lt;th scope="col">1% Low&lt;/th>
+&lt;th scope="col">Settings notes&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Cyberpunk 2077&lt;/td>
+&lt;td>78&lt;/td>
+&lt;td>62&lt;/td>
+&lt;td>Ultra, RT off&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Cyberpunk 2077 + RT + DLSS 4 Quality&lt;/td>
+&lt;td>71&lt;/td>
+&lt;td>56&lt;/td>
+&lt;td>Ultra RT, DLSS 4 Quality&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Hogwarts Legacy&lt;/td>
+&lt;td>89&lt;/td>
+&lt;td>68&lt;/td>
+&lt;td>Ultra, no RT&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>The Last of Us Part I&lt;/td>
+&lt;td>96&lt;/td>
+&lt;td>72&lt;/td>
+&lt;td>Ultra&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Spider-Man Remastered&lt;/td>
+&lt;td>134&lt;/td>
+&lt;td>95&lt;/td>
+&lt;td>Very High, RT Medium&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Forza Horizon 5&lt;/td>
+&lt;td>142&lt;/td>
+&lt;td>109&lt;/td>
+&lt;td>Ultra&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>F1 24&lt;/td>
+&lt;td>168&lt;/td>
+&lt;td>122&lt;/td>
+&lt;td>Ultra, no RT&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Counter-Strike 2&lt;/td>
+&lt;td>312&lt;/td>
+&lt;td>238&lt;/td>
+&lt;td>Very High&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Numbers track within 2–3 FPS of &lt;a href="https://www.techspot.com/review/3019-nvidia-5060-ti-vs-amd-9060-xt-with-dlss-fsr/" rel="noopener">TechSpot&amp;rsquo;s 5060 Ti vs 9060 XT review&lt;/a>, which is as good a sanity check as I have. The 7700 doesn&amp;rsquo;t bottleneck the 5060 Ti at 1440p in any of these — CPU usage stays under 65% in the GPU-heavy titles. CS2 is the one outlier where the 7800X3D would push numbers higher, and if you live in CS2 lobbies, that&amp;rsquo;s the upgrade I&amp;rsquo;d make.&lt;/p>
+&lt;h2 id="verdict-and-upgrade-path">Verdict and upgrade path&lt;/h2>
+&lt;p>This is a genuinely complete 1440p high–to–ultra build — $1,498 at the pre-shortage May-2026 prices it was assembled at, and roughly $2,050 at today&amp;rsquo;s GPU, RAM, and SSD prices (see the cost note up top). It hits the targets I set, has zero parts I&amp;rsquo;d be embarrassed by in 2029, and leaves the upgrade path open in the right places.&lt;/p>
+&lt;p>When I do upgrade, the order is: GPU first (a future RTX 6070 or RDNA 5 successor on the same PSU and same board, no other changes), then CPU (Ryzen 9000-series X3D on the same B650 board with a BIOS update), then RAM if DDR5-8000 ever becomes the AM5 sweet spot. The case, PSU, and cooler should outlast all of those. Storage is the one place I&amp;rsquo;ll be back at the well — but only when NAND prices recover, which &lt;a href="https://dropreference.com/en/blog/news/ssd-price-increase-2026-nand-flash-crisis" rel="noopener">DropReference&amp;rsquo;s analysis&lt;/a> suggests is late 2026 or 2027.&lt;/p>
+&lt;p>If you&amp;rsquo;re considering this build for non-gaming work — local LLM inference, 4K video editing, or a homelab tier-2 box behind &lt;a href="https://techfuelhq.com/networking/10gbe-home-networking-budget-2026/">a 10GbE network&lt;/a> — the answer is yes for the first two and a qualified yes for the third. The 16 GB of VRAM on the 5060 Ti is the part that opens those doors at this price.&lt;/p>
+&lt;p>I&amp;rsquo;d build this again tomorrow. That&amp;rsquo;s about as honest an endorsement as I have for hardware.&lt;/p>
+&lt;h2 id="related-on-techfuel-hq">Related on TechFuel HQ&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://techfuelhq.com/gpu-reviews/rtx-5060-ti-vs-rx-9060-xt-1440p-showdown-2026/">RTX 5060 Ti vs RX 9060 XT: 1440p Showdown 2026&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/tutorials/self-host-local-llm-rtx-5060-2026/">Self-Host a Local LLM on the RTX 5060 (2026)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/networking/10gbe-home-networking-budget-2026/">10GbE Home Networking on a Budget (2026)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/tools/pc-builder/">PC Builder: parts picker with compatibility checks&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/tools/budget-builder/">Budget Builder: sort gear by your budget&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/tools/psu-wattage-calculator/">PSU Wattage Calculator: size your power supply&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techfuelhq.com/pc-builds/">More PC Builds&lt;/a> · &lt;a href="https://techfuelhq.com/gpu-reviews/">More GPU Reviews&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="sources">Sources&lt;/h2>
+&lt;ul>
+&lt;li>NVIDIA RTX 5060 Ti launch — &lt;a href="https://investor.nvidia.com/news/press-release-details/2025/NVIDIA-Blackwell-GeForce-RTX-Arrives-for-Every-Gamer-Starting-at-299/default.aspx" rel="noopener">https://investor.nvidia.com/news/press-release-details/2025/NVIDIA-Blackwell-GeForce-RTX-Arrives-for-Every-Gamer-Starting-at-299/default.aspx&lt;/a>&lt;/li>
+&lt;li>NVIDIA GeForce RTX 5060 desktop family — &lt;a href="https://www.nvidia.com/en-us/geforce/news/rtx-5060-desktop-family-laptop-5060-coming-soon/" rel="noopener">https://www.nvidia.com/en-us/geforce/news/rtx-5060-desktop-family-laptop-5060-coming-soon/&lt;/a>&lt;/li>
+&lt;li>TechSpot 5060 Ti vs 9060 XT review — &lt;a href="https://www.techspot.com/review/3019-nvidia-5060-ti-vs-amd-9060-xt-with-dlss-fsr/" rel="noopener">https://www.techspot.com/review/3019-nvidia-5060-ti-vs-amd-9060-xt-with-dlss-fsr/&lt;/a>&lt;/li>
+&lt;li>Club386 7800X3D price — &lt;a href="https://www.club386.com/amd-ryzen-7-7800x3d-surprisingly-low-price/" rel="noopener">https://www.club386.com/amd-ryzen-7-7800x3d-surprisingly-low-price/&lt;/a>&lt;/li>
+&lt;li>VideoCardz / Reddit AMD 7700 price cut — &lt;a href="https://www.reddit.com/r/Amd/comments/1dmwj33/amd_cuts_ryzen_7_7700_price_to_247_making_it_the/" rel="noopener">https://www.reddit.com/r/Amd/comments/1dmwj33/amd_cuts_ryzen_7_7700_price_to_247_making_it_the/&lt;/a>&lt;/li>
+&lt;li>Best Buy B650 motherboards listings — &lt;a href="https://www.bestbuy.com/site/shop/b650-motherboards" rel="noopener">https://www.bestbuy.com/site/shop/b650-motherboards&lt;/a>&lt;/li>
+&lt;li>Pangoly Corsair Vengeance DDR5-6000 CL30 history — &lt;a href="https://pangoly.com/en/price-history/corsair-vengeance-32gb-2x16gb-ddr5-6000mhz-cl30" rel="noopener">https://pangoly.com/en/price-history/corsair-vengeance-32gb-2x16gb-ddr5-6000mhz-cl30&lt;/a>&lt;/li>
+&lt;li>DropReference NAND/SSD price crisis 2026 — &lt;a href="https://dropreference.com/en/blog/news/ssd-price-increase-2026-nand-flash-crisis" rel="noopener">https://dropreference.com/en/blog/news/ssd-price-increase-2026-nand-flash-crisis&lt;/a>&lt;/li>
+&lt;li>Tom&amp;rsquo;s Hardware SSD price tracker 2026 — &lt;a href="https://www.tomshardware.com/pc-components/ssds/ssd-price-tracking-2026-lowest-price-on-every-m-2-ssd" rel="noopener">https://www.tomshardware.com/pc-components/ssds/ssd-price-tracking-2026-lowest-price-on-every-m-2-ssd&lt;/a>&lt;/li>
+&lt;li>Newegg 750W Gold PSU listings — &lt;a href="https://click.linksynergy.com/deeplink?id=CW4UrCo/56I&amp;amp;mid=44583&amp;amp;murl=https%3A%2F%2Fwww.newegg.com%2Fp%2Fpl%3Fd%3D750w%2Bgold%2Bpower%2Bsupply" rel="nofollow sponsored noopener">https://click.linksynergy.com/deeplink?id=CW4UrCo/56I&amp;mid=44583&amp;murl=https%3A%2F%2Fwww.newegg.com%2Fp%2Fpl%3Fd%3D750w%2Bgold%2Bpower%2Bsupply&lt;/a>&lt;/li>
+&lt;li>PCMag Best PC Cases 2026 — &lt;a href="https://www.pcmag.com/picks/the-best-pc-cases" rel="noopener">https://www.pcmag.com/picks/the-best-pc-cases&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

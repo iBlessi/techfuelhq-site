@@ -1,0 +1,55 @@
+<svg viewBox="0 0 1200 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Best mini PC for Home Assistant in 2026: Home Assistant itself is tiny and runs on a 2GB Raspberry Pi, so almost any mini PC is enough - buy one for the SSD reliability and headroom, not raw speed. Three tiers: a new Intel N100 or N150 mini PC (4 cores, 6-watt chip, Quick Sync, 16GB, about 10 to 14 watts idle, roughly $170 to $340) runs Home Assistant plus a few Frigate cameras; a refurbished enterprise micro like a Dell OptiPlex Micro or Lenovo ThinkCentre Tiny (6-core i5, includes a Windows Pro license, about 15 to 20 watts idle, roughly $150 to $250) is the value and headroom pick; and a step up to an i5 or Ryzen box (roughly $400 and up) is for heavy multi-camera Frigate plus local voice. The N100 already has Intel Quick Sync so Frigate needs no Coral. Put the Zigbee or Z-Wave USB stick on a USB 2.0 port with a shielded extension cable to avoid interference.">
+  <rect width="1200" height="760" fill="#0e0e1a"/>
+  <text x="60" y="66" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="33" font-weight="700">Best mini PC for Home Assistant 2026</text>
+  <text x="60" y="100" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="18">Home Assistant itself is tiny (runs on a 2GB Pi). Buy the box for SSD reliability + headroom, not speed.</text>
+
+  <!-- Card 1: N100 new -->
+  <rect x="60" y="134" width="345" height="418" rx="10" fill="#16162a" stroke="#3a4a2a" stroke-width="1.5"/>
+  <rect x="60" y="134" width="345" height="54" rx="10" fill="#26301c"/>
+  <text x="82" y="169" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">New N100 / N150</text>
+  <text x="82" y="220" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="16.5" font-weight="600">HA + a few Frigate cameras</text>
+  <text x="82" y="256" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="16">4 cores / 6W chip, 16GB</text>
+  <text x="82" y="286" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="16">Quick Sync (Frigate decode)</text>
+  <text x="82" y="316" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="16">~10&#8211;14 W idle</text>
+  <text x="82" y="346" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="16">Quiet, tiny, low power</text>
+  <text x="82" y="416" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="16.5" font-weight="600">Roughly $170&#8211;$340</text>
+  <text x="82" y="452" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15">Beelink S12 Pro / EQ-series,</text>
+  <text x="82" y="474" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15">GMKtec N150. Buy it complete,</text>
+  <text x="82" y="496" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15">not barebone (RAM tripled).</text>
+
+  <!-- Card 2: refurb i5 -->
+  <rect x="428" y="134" width="345" height="418" rx="10" fill="#16162a" stroke="#2a2a4a" stroke-width="1.5"/>
+  <rect x="428" y="134" width="345" height="54" rx="10" fill="#1e2a1e"/>
+  <text x="450" y="169" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Refurb i5 micro</text>
+  <text x="450" y="220" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="16.5" font-weight="600">Value + headroom pick</text>
+  <text x="450" y="256" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="16">6-core i5 (more than N100)</text>
+  <text x="450" y="286" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="16">Includes Windows Pro license</text>
+  <text x="450" y="316" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="16">~15&#8211;20 W idle</text>
+  <text x="450" y="346" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="16">Enterprise build, 24/7-rated</text>
+  <text x="450" y="416" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="16.5" font-weight="600">Roughly $150&#8211;$250</text>
+  <text x="450" y="452" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15">Dell OptiPlex Micro,</text>
+  <text x="450" y="474" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15">Lenovo ThinkCentre Tiny,</text>
+  <text x="450" y="496" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15">HP EliteDesk Mini (used).</text>
+
+  <!-- Card 3: step up -->
+  <rect x="796" y="134" width="345" height="418" rx="10" fill="#16162a" stroke="#2a2a4a" stroke-width="1.5"/>
+  <rect x="796" y="134" width="345" height="54" rx="10" fill="#1c2630"/>
+  <text x="818" y="169" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Step up (i5 / Ryzen)</text>
+  <text x="818" y="220" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="16.5" font-weight="600">Heavy Frigate + local voice</text>
+  <text x="818" y="256" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="16">6&#8211;8 cores, 16&#8211;32GB</text>
+  <text x="818" y="286" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="16">Many cameras, Whisper voice</text>
+  <text x="818" y="316" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="16">HA in a Proxmox VM + more</text>
+  <text x="818" y="346" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="16">Only if you actually need it</text>
+  <text x="818" y="416" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="16.5" font-weight="600">Roughly $400 and up</text>
+  <text x="818" y="452" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15">i5-12450H or Ryzen 5 box.</text>
+  <text x="818" y="474" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15">Don't pre-buy this &#8212; measure</text>
+  <text x="818" y="496" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="15">real CPU/RAM use first.</text>
+
+  <!-- Footer strip -->
+  <rect x="60" y="588" width="1081" height="90" rx="10" fill="#14140f" stroke="#3a4a2a" stroke-width="1.5"/>
+  <text x="84" y="624" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">Two things everyone gets wrong</text>
+  <text x="84" y="652" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">Frigate needs no Coral &#8212; the N100's Quick Sync decodes video and OpenVINO does detection on the same iGPU. And put the</text>
+  <text x="84" y="672" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15.5">Zigbee/Z-Wave stick on a USB 2.0 port with a shielded extension cable &#8212; USB 3.0 next to it wrecks the 2.4GHz radio.</text>
+
+  <text x="60" y="726" fill="#5a5a72" font-family="Segoe UI, Arial, sans-serif" font-size="13">Specs from Intel ARK + Home Assistant / Frigate docs. Prices a live Amazon snapshot 2026-07-20 &#8212; they move weekly. TechFuelHQ.</text>
+</svg>

@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Home Assistant automation flow: Trigger to Condition to Action</title>
+  <desc>A topology diagram of the Home Assistant automation structure. A trigger node (sun, time, state, zone, numeric_state platforms) flows into a condition gate (state, sun, template, numeric_state), which flows into an action node (light, climate, scene, notify, tts services). Below sit two reusable building blocks (choose branches and scripts) and a debugging strip (traces, template tool, logbook).</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#c8ff00"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <text x="70" y="64" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">SETUP TUTORIAL · HOME ASSISTANT</text>
+  <text x="70" y="110" fill="#e8e8f0" font-size="44" font-weight="900">Automation Structure</text>
+  <text x="70" y="142" fill="#6b6b8a" font-size="19">Trigger then Condition then Action — the YAML model behind every automation. No Node-RED required.</text>
+
+  <!-- Main flow: three stages -->
+  <!-- TRIGGER -->
+  <g transform="translate(70,185)">
+    <rect width="320" height="200" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="200" rx="3" fill="#c8ff00"/>
+    <text x="26" y="38" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">1 · TRIGGER</text>
+    <text x="26" y="64" fill="#c0c0d8" font-size="15">Something happens and starts the run</text>
+    <text x="26" y="100" fill="#e8e8f0" font-size="15" font-weight="600">sun</text><text x="294" y="100" text-anchor="end" fill="#6b6b8a" font-size="13">sunset / sunrise + offset</text>
+    <text x="26" y="126" fill="#e8e8f0" font-size="15" font-weight="600">time</text><text x="294" y="126" text-anchor="end" fill="#6b6b8a" font-size="13">at: 22:00:00</text>
+    <text x="26" y="152" fill="#e8e8f0" font-size="15" font-weight="600">state</text><text x="294" y="152" text-anchor="end" fill="#6b6b8a" font-size="13">to: "on" · for:</text>
+    <text x="26" y="178" fill="#e8e8f0" font-size="15" font-weight="600">zone</text><text x="294" y="178" text-anchor="end" fill="#6b6b8a" font-size="13">enter zone.home</text>
+  </g>
+
+  <!-- CONDITION -->
+  <g transform="translate(440,185)">
+    <rect width="320" height="200" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="200" rx="3" fill="#5090e0"/>
+    <text x="26" y="38" fill="#5090e0" font-size="13" letter-spacing="2" font-weight="700">2 · CONDITION</text>
+    <text x="26" y="64" fill="#c0c0d8" font-size="15">Optional gate — all must pass</text>
+    <text x="26" y="100" fill="#e8e8f0" font-size="15" font-weight="600">state</text><text x="294" y="100" text-anchor="end" fill="#6b6b8a" font-size="13">entity is "on" / away</text>
+    <text x="26" y="126" fill="#e8e8f0" font-size="15" font-weight="600">sun</text><text x="294" y="126" text-anchor="end" fill="#6b6b8a" font-size="13">after sunset</text>
+    <text x="26" y="152" fill="#e8e8f0" font-size="15" font-weight="600">numeric_state</text><text x="294" y="152" text-anchor="end" fill="#6b6b8a" font-size="13">above / below</text>
+    <text x="26" y="178" fill="#e8e8f0" font-size="15" font-weight="600">template</text><text x="294" y="178" text-anchor="end" fill="#6b6b8a" font-size="13">Jinja2 value_template</text>
+  </g>
+
+  <!-- ACTION -->
+  <g transform="translate(810,185)">
+    <rect width="320" height="200" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="200" rx="3" fill="#5dca7a"/>
+    <text x="26" y="38" fill="#5dca7a" font-size="13" letter-spacing="2" font-weight="700">3 · ACTION</text>
+    <text x="26" y="64" fill="#c0c0d8" font-size="15">Call services when it all passes</text>
+    <text x="26" y="100" fill="#e8e8f0" font-size="15" font-weight="600">light.turn_on / off</text><text x="294" y="100" text-anchor="end" fill="#6b6b8a" font-size="13">brightness · color_temp</text>
+    <text x="26" y="126" fill="#e8e8f0" font-size="15" font-weight="600">climate.set_temperature</text>
+    <text x="26" y="152" fill="#e8e8f0" font-size="15" font-weight="600">scene.turn_on</text><text x="294" y="152" text-anchor="end" fill="#6b6b8a" font-size="13">evening scene</text>
+    <text x="26" y="178" fill="#e8e8f0" font-size="15" font-weight="600">notify · tts.speak</text><text x="294" y="178" text-anchor="end" fill="#6b6b8a" font-size="13">mobile app · speaker</text>
+  </g>
+
+  <!-- arrows between stages -->
+  <line x1="392" y1="285" x2="436" y2="285" stroke="#c8ff00" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="762" y1="285" x2="806" y2="285" stroke="#c8ff00" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Building blocks row -->
+  <g transform="translate(70,415)">
+    <rect width="540" height="118" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="24" y="34" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">BUILDING BLOCKS</text>
+    <text x="24" y="66" fill="#c8ff00" font-size="16" font-weight="700">choose</text>
+    <text x="24" y="90" fill="#c0c0d8" font-size="14">Branch actions by time of day or state —</text>
+    <text x="24" y="108" fill="#c0c0d8" font-size="14">conditions / sequence / default.</text>
+    <line x1="278" y1="50" x2="278" y2="100" stroke="#1e1e3a" stroke-width="1.5"/>
+    <text x="298" y="66" fill="#c8ff00" font-size="16" font-weight="700">script</text>
+    <text x="298" y="90" fill="#c0c0d8" font-size="14">Reusable action sequence (no trigger),</text>
+    <text x="298" y="108" fill="#c0c0d8" font-size="14">called from many automations.</text>
+  </g>
+
+  <!-- Debug strip -->
+  <g transform="translate(630,415)">
+    <rect width="500" height="118" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="24" y="34" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">DEBUG WHEN IT MISBEHAVES</text>
+    <text x="24" y="66" fill="#e08828" font-size="15" font-weight="600">Traces</text><text x="476" y="66" text-anchor="end" fill="#6b6b8a" font-size="13">trigger + each condition result</text>
+    <text x="24" y="90" fill="#e08828" font-size="15" font-weight="600">Template tool</text><text x="476" y="90" text-anchor="end" fill="#6b6b8a" font-size="13">test Jinja2 live</text>
+    <text x="24" y="114" fill="#e08828" font-size="15" font-weight="600">Logbook + States</text><text x="476" y="114" text-anchor="end" fill="#6b6b8a" font-size="13">when did the entity change</text>
+  </g>
+
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · Tutorial · Structure per Home Assistant automation YAML</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

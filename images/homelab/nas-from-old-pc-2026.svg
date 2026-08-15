@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Decision flow for turning an old PC into a NAS in 2026: power gate, then OS pick by RAM</title>
+  <desc>A two-stage decision flow for repurposing an old desktop as network storage. Stage one is the power gate: a 65W-class or smaller CPU idling under about 40W means repurposing wins, while a 105W-plus chip or one idling north of about 75W even after tuning means buy a purpose-built mini NAS. Stage two picks the OS by RAM: under 8GB or a simple file server goes to OpenMediaVault; 8GB-plus with irreplaceable data goes to TrueNAS Community Edition on ZFS accepting no ECC; a pile of mismatched drives you will pay to use goes to Unraid.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="760" fill="#0a0a23"/>
+  <rect width="1200" height="760" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">OLD PC INTO A NAS &#183; THE DECISION FLOW</text>
+  <text x="70" y="128" fill="#e8e8f0" font-size="42" font-weight="900">Power Gate First, Then Pick the OS by RAM</text>
+  <text x="70" y="162" fill="#6b6b8a" font-size="18">Two questions decide it: does the power math win, and which OS matches your RAM</text>
+
+  <!-- ============ STAGE 1: POWER GATE ============ -->
+  <text x="70" y="212" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">STAGE 1 &#183; THE POWER GATE</text>
+
+  <!-- Decision node -->
+  <g transform="translate(70,228)">
+    <rect x="0" y="0" width="360" height="118" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="34" fill="#e8e8f0" font-size="17" font-weight="700">Old PC idle power draw?</text>
+    <text x="20" y="62" fill="#6b6b8a" font-size="13">Measure idle watts with a smart plug</text>
+    <text x="20" y="84" fill="#6b6b8a" font-size="13">or Kill-A-Watt, then do the 3-year math.</text>
+    <text x="20" y="106" fill="#6b6b8a" font-size="13">A mini NAS idles under 20W for reference.</text>
+  </g>
+
+  <!-- Arrow to PASS -->
+  <path d="M 430 268 L 488 268" stroke="#c8ff00" stroke-width="2" fill="none"/>
+  <path d="M 488 268 l -10 -5 l 0 10 z" fill="#c8ff00"/>
+
+  <!-- PASS card -->
+  <g transform="translate(496,228)">
+    <rect x="0" y="0" width="298" height="118" rx="10" fill="#101028" stroke="#c8ff00"/>
+    <rect x="0" y="0" width="6" height="118" rx="3" fill="#c8ff00"/>
+    <text x="22" y="30" fill="#c8ff00" font-size="13" letter-spacing="1" font-weight="700">REPURPOSE WINS</text>
+    <text x="22" y="58" fill="#e8e8f0" font-size="15" font-weight="600">65W-class or smaller CPU</text>
+    <text x="22" y="80" fill="#c0c0d8" font-size="14">idling under ~40W</text>
+    <text x="22" y="104" fill="#6b6b8a" font-size="13">Continue to the OS pick below &#8594;</text>
+  </g>
+
+  <!-- Arrow to FAIL -->
+  <path d="M 430 300 L 488 300" stroke="#e08828" stroke-width="2" fill="none"/>
+  <path d="M 488 300 l -10 -5 l 0 10 z" fill="#e08828"/>
+
+  <!-- FAIL card -->
+  <g transform="translate(802,228)">
+    <rect x="0" y="0" width="328" height="118" rx="10" fill="#101028" stroke="#e08828"/>
+    <rect x="0" y="0" width="6" height="118" rx="3" fill="#e08828"/>
+    <text x="22" y="30" fill="#e08828" font-size="13" letter-spacing="1" font-weight="700">BUY PURPOSE-BUILT</text>
+    <text x="22" y="58" fill="#e8e8f0" font-size="15" font-weight="600">105W+ enthusiast chip,</text>
+    <text x="22" y="80" fill="#c0c0d8" font-size="14">or idles north of ~75W after tuning</text>
+    <text x="22" y="104" fill="#6b6b8a" font-size="13">Sell the platform, build a mini NAS</text>
+  </g>
+
+  <!-- divider line -->
+  <line x1="70" y1="378" x2="1130" y2="378" stroke="#1e1e3a" stroke-width="1"/>
+
+  <!-- ============ STAGE 2: OS PICK BY RAM ============ -->
+  <text x="70" y="416" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">STAGE 2 &#183; PICK THE OS BY RAM</text>
+
+  <!-- OMV card (blue) -->
+  <g transform="translate(70,436)">
+    <rect x="0" y="0" width="340" height="172" rx="10" fill="#101028" stroke="#5090e0"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="#5090e0"/>
+    <text x="22" y="42" fill="#e8e8f0" font-size="22" font-weight="900">OpenMediaVault</text>
+    <text x="22" y="68" fill="#5090e0" font-size="14" font-weight="700">Free &#183; Debian-based</text>
+    <line x1="22" y1="84" x2="318" y2="84" stroke="#1e1e3a" stroke-width="1"/>
+    <text x="22" y="112" fill="#6b6b8a" font-size="13" letter-spacing="1" font-weight="700">PICK WHEN</text>
+    <text x="22" y="138" fill="#c0c0d8" font-size="15">Under 8GB RAM, or you</text>
+    <text x="22" y="160" fill="#c0c0d8" font-size="15">just want a simple file server</text>
+  </g>
+
+  <!-- TrueNAS card (lime / default pick accent) -->
+  <g transform="translate(430,436)">
+    <rect x="0" y="0" width="340" height="172" rx="10" fill="#101028" stroke="#c8ff00"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="#c8ff00"/>
+    <text x="22" y="42" fill="#e8e8f0" font-size="22" font-weight="900">TrueNAS CE</text>
+    <text x="22" y="68" fill="#c8ff00" font-size="14" font-weight="700">Free &#183; ZFS, accepting no-ECC</text>
+    <line x1="22" y1="84" x2="318" y2="84" stroke="#1e1e3a" stroke-width="1"/>
+    <text x="22" y="112" fill="#6b6b8a" font-size="13" letter-spacing="1" font-weight="700">PICK WHEN</text>
+    <text x="22" y="138" fill="#c0c0d8" font-size="15">8GB+ RAM and the data</text>
+    <text x="22" y="160" fill="#c0c0d8" font-size="15">is irreplaceable</text>
+  </g>
+
+  <!-- Unraid card (orange) -->
+  <g transform="translate(790,436)">
+    <rect x="0" y="0" width="340" height="172" rx="10" fill="#101028" stroke="#e08828"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="#e08828"/>
+    <text x="22" y="42" fill="#e8e8f0" font-size="22" font-weight="900">Unraid</text>
+    <text x="22" y="68" fill="#e08828" font-size="14" font-weight="700">Paid &#183; $49&#8211;$249</text>
+    <line x1="22" y1="84" x2="318" y2="84" stroke="#1e1e3a" stroke-width="1"/>
+    <text x="22" y="112" fill="#6b6b8a" font-size="13" letter-spacing="1" font-weight="700">PICK WHEN</text>
+    <text x="22" y="138" fill="#c0c0d8" font-size="15">A pile of mismatched drives</text>
+    <text x="22" y="160" fill="#c0c0d8" font-size="15">to use as-is, and you will pay</text>
+  </g>
+
+  <!-- Verdict strip -->
+  <g transform="translate(70,640)">
+    <rect x="0" y="0" width="1060" height="66" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="66" rx="3" fill="#c8ff00"/>
+    <text x="26" y="29" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">THE CALL</text>
+    <text x="26" y="52" fill="#c0c0d8" font-size="16">Put the OS on a separate 64&#8211;128GB boot SSD, add an LSI HBA in IT mode if you run short on SATA ports, and keep backups regardless of redundancy.</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="738" fill="#4a4a6a" font-size="13">TechFuel HQ &#183; Old PC into a NAS &#183; decision rule per the article's power and OS guidance</text>
+  <text x="1130" y="738" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

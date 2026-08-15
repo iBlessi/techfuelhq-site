@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520">
+  <defs>
+    <linearGradient id="bg-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a23"/>
+      <stop offset="100%" stop-color="#0f0f2e"/>
+    </linearGradient>
+    <linearGradient id="bar-4090" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c8ff00"/>
+      <stop offset="100%" stop-color="#c8ff00"/>
+    </linearGradient>
+    <linearGradient id="bar-4080" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#76b900"/>
+      <stop offset="100%" stop-color="#8fd000"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="520" fill="url(#bg-grad)" rx="12"/>
+
+  <!-- Top accent line -->
+  <rect x="0" y="0" width="1100" height="4" rx="2" fill="#c8ff00"/>
+
+  <!-- Title -->
+  <text x="60" y="52" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="700" fill="#e8e8f0">RTX 4080 vs RTX 4090 — 4K Benchmark FPS</text>
+  <text x="60" y="76" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6b6b8a">Ultra / Max Settings · 4K (3840×2160) · Average FPS</text>
+
+  <!-- Legend -->
+  <rect x="820" y="36" width="16" height="16" rx="3" fill="#76b900"/>
+  <text x="842" y="49" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#e8e8f0">RTX 4080</text>
+  <rect x="920" y="36" width="16" height="16" rx="3" fill="#c8ff00"/>
+  <text x="942" y="49" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#e8e8f0">RTX 4090</text>
+
+  <!-- Grid lines -->
+  <line x1="300" y1="100" x2="1050" y2="100" stroke="#1e1e3a" stroke-width="1"/>
+  <line x1="300" y1="140" x2="1050" y2="140" stroke="#1e1e3a" stroke-width="1"/>
+  <line x1="300" y1="180" x2="1050" y2="180" stroke="#1e1e3a" stroke-width="1"/>
+  <line x1="300" y1="220" x2="1050" y2="220" stroke="#1e1e3a" stroke-width="1"/>
+  <line x1="300" y1="260" x2="1050" y2="260" stroke="#1e1e3a" stroke-width="1"/>
+  <line x1="300" y1="300" x2="1050" y2="300" stroke="#1e1e3a" stroke-width="1"/>
+  <line x1="300" y1="340" x2="1050" y2="340" stroke="#1e1e3a" stroke-width="1"/>
+  <line x1="300" y1="380" x2="1050" y2="380" stroke="#1e1e3a" stroke-width="1"/>
+  <line x1="300" y1="420" x2="1050" y2="420" stroke="#1e1e3a" stroke-width="1"/>
+
+  <!-- Y axis line -->
+  <line x1="300" y1="95" x2="300" y2="430" stroke="#2a2a4a" stroke-width="2"/>
+
+  <!-- Game labels (Y axis) -->
+  <text x="290" y="128" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#9090a8" text-anchor="end">Fortnite</text>
+  <text x="290" y="188" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#9090a8" text-anchor="end">Spider-Man 2</text>
+  <text x="290" y="248" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#9090a8" text-anchor="end">Hogwarts Legacy</text>
+  <text x="290" y="308" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#9090a8" text-anchor="end">MSFS 2024</text>
+  <text x="290" y="368" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#9090a8" text-anchor="end">Alan Wake 2</text>
+  <text x="290" y="428" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#9090a8" text-anchor="end">Cyberpunk 2077</text>
+
+  <!-- Scale: max ~130fps, bar max width = 700px, so 1fps = ~5.38px -->
+  <!-- Fortnite: 4080=95, 4090=120 -->
+  <rect x="302" y="107" width="511" height="18" rx="3" fill="url(#bar-4080)" opacity="0.9"/>
+  <text x="820" y="121" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#76b900">95 fps</text>
+  <rect x="302" y="127" width="645" height="18" rx="3" fill="url(#bar-4090)" opacity="0.9"/>
+  <text x="954" y="141" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#c8ff00">120 fps</text>
+
+  <!-- Spider-Man 2: 4080=85, 4090=108 -->
+  <rect x="302" y="167" width="457" height="18" rx="3" fill="url(#bar-4080)" opacity="0.9"/>
+  <text x="766" y="181" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#76b900">85 fps</text>
+  <rect x="302" y="187" width="581" height="18" rx="3" fill="url(#bar-4090)" opacity="0.9"/>
+  <text x="890" y="201" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#c8ff00">108 fps</text>
+
+  <!-- Hogwarts Legacy: 4080=78, 4090=100 -->
+  <rect x="302" y="227" width="420" height="18" rx="3" fill="url(#bar-4080)" opacity="0.9"/>
+  <text x="729" y="241" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#76b900">78 fps</text>
+  <rect x="302" y="247" width="538" height="18" rx="3" fill="url(#bar-4090)" opacity="0.9"/>
+  <text x="847" y="261" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#c8ff00">100 fps</text>
+
+  <!-- MSFS 2024: 4080=48, 4090=65 -->
+  <rect x="302" y="287" width="258" height="18" rx="3" fill="url(#bar-4080)" opacity="0.9"/>
+  <text x="567" y="301" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#76b900">48 fps</text>
+  <rect x="302" y="307" width="350" height="18" rx="3" fill="url(#bar-4090)" opacity="0.9"/>
+  <text x="659" y="321" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#c8ff00">65 fps</text>
+
+  <!-- Alan Wake 2: 4080=55, 4090=73 -->
+  <rect x="302" y="347" width="296" height="18" rx="3" fill="url(#bar-4080)" opacity="0.9"/>
+  <text x="605" y="361" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#76b900">55 fps</text>
+  <rect x="302" y="367" width="393" height="18" rx="3" fill="url(#bar-4090)" opacity="0.9"/>
+  <text x="702" y="381" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#c8ff00">73 fps</text>
+
+  <!-- Cyberpunk 2077: 4080=62, 4090=82 -->
+  <rect x="302" y="407" width="334" height="18" rx="3" fill="url(#bar-4080)" opacity="0.9"/>
+  <text x="643" y="421" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#76b900">62 fps</text>
+  <rect x="302" y="427" width="441" height="18" rx="3" fill="url(#bar-4090)" opacity="0.9"/>
+  <text x="750" y="441" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#c8ff00">82 fps</text>
+
+  <!-- X axis ticks -->
+  <text x="302" y="470" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b6b8a">0</text>
+  <text x="375" y="470" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b6b8a">20</text>
+  <text x="483" y="470" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b6b8a">40</text>
+  <text x="591" y="470" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b6b8a">60</text>
+  <text x="699" y="470" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b6b8a">80</text>
+  <text x="807" y="470" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b6b8a">100</text>
+  <text x="915" y="470" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b6b8a">120</text>
+  <text x="1023" y="470" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6b6b8a">140 fps</text>
+
+  <!-- X axis base line -->
+  <line x1="300" y1="455" x2="1060" y2="455" stroke="#2a2a4a" stroke-width="1.5"/>
+
+  <!-- Footer -->
+  <text x="60" y="498" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#4a4a6a">Source: TechFuel internal testing · April 2026 · All games at max/ultra settings, 4K resolution, RT on where applicable</text>
+</svg>

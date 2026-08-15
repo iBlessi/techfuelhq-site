@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 736" width="1200" height="736" role="img" aria-label="HDD price index pilot, day-one capture 2026-08-12 from named direct US retailers, Amazon excluded. The only qualifying 8TB drive of 12 tracked: WD Red Pro 8TB at $402.99 at Best Buy, $50.37 per TB, roughly 1.7x its 2024 street price. Shown against rejected rows: a $599.98 BarraCuda OEM 2-pack (multi-pack) and a $739.98 pack-priced Red Plus listing (outside the $100-600 sanity band). 673 listings reviewed, 1 qualified, 672 rejected with recorded reasons. Index activates at 6 of 12 drives. CC BY 4.0.">
+  <rect width="1200" height="736" fill="#0e0e1a"/>
+  <text x="60" y="66" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700">8TB HDD price index &#8212; dated $/TB, direct retailers only</text>
+  <text x="60" y="102" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="18">8TB 3.5-inch internal drives &#183; Amazon excluded by design &#183; pilot capture 2026-08-12 &#183; CC BY 4.0</text>
+
+  <!-- bars: real day-one rows, scale 0.55 px per dollar; one qualified, two rejected -->
+  <line x1="300" y1="150" x2="300" y2="480" stroke="#5a5a72" stroke-width="1" opacity="0.6"/>
+  <text x="285" y="205" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="19" text-anchor="end">WD Red Pro 8TB &#183; qualified</text>
+  <rect x="300" y="180" width="222" height="42" fill="#c8ff00" opacity="0.9"/>
+  <text x="532" y="208" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="700">$402.99 &#183; $50.37/TB &#183; Best Buy</text>
+
+  <text x="285" y="325" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="19" text-anchor="end">BarraCuda OEM 2-Pack</text>
+  <rect x="300" y="300" width="330" height="42" fill="#5a5a72" opacity="0.5"/>
+  <text x="640" y="328" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="21">$599.98 &#183; rejected: multi-pack</text>
+
+  <text x="285" y="445" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="19" text-anchor="end">Red Plus, pack-priced listing</text>
+  <rect x="300" y="420" width="407" height="42" fill="#5a5a72" opacity="0.5"/>
+  <text x="717" y="448" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="21">$739.98 &#183; rejected: outside $100&#8211;600 band</text>
+
+  <g fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="16">
+    <text x="60" y="580">673 listings reviewed &#183; 1 qualified &#183; 672 rejected with recorded reasons (marketplace sellers, capacity-ambiguous titles, multi-packs).</text>
+    <text x="60" y="610">The one qualifying offer is roughly 1.7x its 2024 street price. Index metric activates at 6 of 12 tracked drives.</text>
+    <text x="60" y="646" fill="#5a5a72">techfuelhq.com/data/hdd-price-index/ &#8212; method, rejection log, and raw capture published; verification_status: discovery_only</text>
+  </g>
+</svg>

@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>2026 homelab router OS comparison: pfSense Plus, OPNsense, MikroTik RouterOS, and UniFi on a 1 Gbps WAN bench</title>
+  <desc>Side-by-side bench results for Netgate 4100 (pfSense Plus 25.10), Protectli VP2420 i3-N305 (OPNsense 25.10), MikroTik CCR2004 (RouterOS 7.16), and UniFi Cloud Gateway Max (4.1) showing NAT throughput, NAT plus IDS, WireGuard single-tunnel throughput, idle power, signature IDS support, and learning curve, measured on a single 1 Gbps symmetric WAN.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="760" fill="#0a0a23"/>
+  <rect width="1200" height="760" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="74" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">HEAD-TO-HEAD · HOMELAB ROUTER OS 2026</text>
+  <text x="70" y="124" fill="#e8e8f0" font-size="46" font-weight="900">pfSense vs OPNsense vs MikroTik vs UniFi</text>
+  <text x="70" y="158" fill="#6b6b8a" font-size="19">Bench-measured on one 1 Gbps symmetric WAN · trial median of three 5-minute iperf3 runs</text>
+
+  <!-- Column header band -->
+  <!-- Label column: x 70..330 (width 260). Product columns: 4 x 195 wide starting at 330 -->
+  <g>
+    <!-- pfSense (accent lime) -->
+    <rect x="330" y="184" width="195" height="74" rx="8" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="330" y="184" width="195" height="5" rx="2.5" fill="#c8ff00"/>
+    <text x="427" y="214" text-anchor="middle" fill="#e8e8f0" font-size="19" font-weight="800">pfSense Plus</text>
+    <text x="427" y="236" text-anchor="middle" fill="#6b6b8a" font-size="12.5">Netgate 4100 · 25.10</text>
+
+    <!-- OPNsense (accent green) -->
+    <rect x="535" y="184" width="195" height="74" rx="8" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="535" y="184" width="195" height="5" rx="2.5" fill="#5dca7a"/>
+    <text x="632" y="214" text-anchor="middle" fill="#e8e8f0" font-size="19" font-weight="800">OPNsense</text>
+    <text x="632" y="236" text-anchor="middle" fill="#6b6b8a" font-size="12.5">VP2420 i3-N305 · 25.10</text>
+
+    <!-- MikroTik (accent blue) -->
+    <rect x="740" y="184" width="195" height="74" rx="8" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="740" y="184" width="195" height="5" rx="2.5" fill="#5090e0"/>
+    <text x="837" y="214" text-anchor="middle" fill="#e8e8f0" font-size="19" font-weight="800">MikroTik</text>
+    <text x="837" y="236" text-anchor="middle" fill="#6b6b8a" font-size="12.5">CCR2004 · RouterOS 7.16</text>
+
+    <!-- UniFi (accent warn/orange) -->
+    <rect x="945" y="184" width="195" height="74" rx="8" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="945" y="184" width="195" height="5" rx="2.5" fill="#e08828"/>
+    <text x="1042" y="214" text-anchor="middle" fill="#e8e8f0" font-size="19" font-weight="800">UniFi</text>
+    <text x="1042" y="236" text-anchor="middle" fill="#6b6b8a" font-size="12.5">Cloud Gateway Max · 4.1</text>
+  </g>
+
+  <!-- Spec rows. Row height 56, start y 268. Row centers at +37 for value baseline -->
+  <!-- Row 1: NAT only -->
+  <rect x="70" y="268" width="1070" height="56" fill="#13132e"/>
+  <text x="86" y="294" fill="#c0c0d8" font-size="15.5" font-weight="600">NAT throughput</text>
+  <text x="86" y="313" fill="#6b6b8a" font-size="12">WAN-to-LAN, default rules</text>
+  <text x="427" y="304" text-anchor="middle" fill="#c8ff00" font-size="18" font-weight="700">938 Mbps</text>
+  <text x="632" y="304" text-anchor="middle" fill="#c8ff00" font-size="18" font-weight="700">941 Mbps</text>
+  <text x="837" y="304" text-anchor="middle" fill="#c8ff00" font-size="18" font-weight="700">941 Mbps</text>
+  <text x="1042" y="304" text-anchor="middle" fill="#c8ff00" font-size="18" font-weight="700">941 Mbps</text>
+
+  <!-- Row 2: NAT + IDS -->
+  <rect x="70" y="324" width="1070" height="56" fill="#0d0d28"/>
+  <text x="86" y="350" fill="#c0c0d8" font-size="15.5" font-weight="600">NAT + IDS</text>
+  <text x="86" y="369" fill="#6b6b8a" font-size="12">vendor default ruleset</text>
+  <text x="427" y="360" text-anchor="middle" fill="#e8e8f0" font-size="18" font-weight="700">612 Mbps</text>
+  <text x="632" y="360" text-anchor="middle" fill="#c8ff00" font-size="18" font-weight="700">728 Mbps</text>
+  <text x="837" y="360" text-anchor="middle" fill="#6b6b8a" font-size="16" font-weight="600">no IDS</text>
+  <text x="1042" y="360" text-anchor="middle" fill="#e8e8f0" font-size="18" font-weight="700">720 Mbps</text>
+
+  <!-- Row 3: WireGuard 1 tunnel -->
+  <rect x="70" y="380" width="1070" height="56" fill="#13132e"/>
+  <text x="86" y="406" fill="#c0c0d8" font-size="15.5" font-weight="600">WireGuard</text>
+  <text x="86" y="425" fill="#6b6b8a" font-size="12">single tunnel, WAN-to-WAN</text>
+  <text x="427" y="416" text-anchor="middle" fill="#c8ff00" font-size="18" font-weight="700">941 Mbps</text>
+  <text x="632" y="416" text-anchor="middle" fill="#e8e8f0" font-size="18" font-weight="700">938 Mbps</text>
+  <text x="837" y="416" text-anchor="middle" fill="#e8e8f0" font-size="18" font-weight="700">871 Mbps</text>
+  <text x="1042" y="416" text-anchor="middle" fill="#e8e8f0" font-size="18" font-weight="700">612 Mbps</text>
+
+  <!-- Row 4: Idle power -->
+  <rect x="70" y="436" width="1070" height="56" fill="#0d0d28"/>
+  <text x="86" y="462" fill="#c0c0d8" font-size="15.5" font-weight="600">Idle power</text>
+  <text x="86" y="481" fill="#6b6b8a" font-size="12">P3 Kill A Watt, lower is better</text>
+  <text x="427" y="472" text-anchor="middle" fill="#e8e8f0" font-size="18" font-weight="700">14 W</text>
+  <text x="632" y="472" text-anchor="middle" fill="#c8ff00" font-size="18" font-weight="700">11 W</text>
+  <text x="837" y="472" text-anchor="middle" fill="#e8e8f0" font-size="18" font-weight="700">28 W</text>
+  <text x="1042" y="472" text-anchor="middle" fill="#e8e8f0" font-size="18" font-weight="700">12 W</text>
+
+  <!-- Row 5: Signature IDS -->
+  <rect x="70" y="492" width="1070" height="56" fill="#13132e"/>
+  <text x="86" y="518" fill="#c0c0d8" font-size="15.5" font-weight="600">Signature IDS</text>
+  <text x="86" y="537" fill="#6b6b8a" font-size="12">Suricata / Snort class</text>
+  <text x="427" y="528" text-anchor="middle" fill="#5dca7a" font-size="16" font-weight="700">Suricata + ETOpen</text>
+  <text x="632" y="528" text-anchor="middle" fill="#5dca7a" font-size="16" font-weight="700">Suricata + ETOpen</text>
+  <text x="837" y="528" text-anchor="middle" fill="#e63946" font-size="16" font-weight="700">None</text>
+  <text x="1042" y="528" text-anchor="middle" fill="#e08828" font-size="16" font-weight="700">Curated subset</text>
+
+  <!-- Row 6: Best for / learning curve -->
+  <rect x="70" y="548" width="1070" height="56" fill="#0d0d28"/>
+  <text x="86" y="574" fill="#c0c0d8" font-size="15.5" font-weight="600">Best fit</text>
+  <text x="86" y="593" fill="#6b6b8a" font-size="12">where each one wins</text>
+  <text x="427" y="578" text-anchor="middle" fill="#c0c0d8" font-size="13.5" font-weight="600">Set &amp; forget</text>
+  <text x="427" y="595" text-anchor="middle" fill="#6b6b8a" font-size="12">stable, dated UI</text>
+  <text x="632" y="578" text-anchor="middle" fill="#c0c0d8" font-size="13.5" font-weight="600">Best modern UI</text>
+  <text x="632" y="595" text-anchor="middle" fill="#6b6b8a" font-size="12">commodity HW</text>
+  <text x="837" y="578" text-anchor="middle" fill="#c0c0d8" font-size="13.5" font-weight="600">Wire-rate multi-gig</text>
+  <text x="837" y="595" text-anchor="middle" fill="#6b6b8a" font-size="12">steep curve</text>
+  <text x="1042" y="578" text-anchor="middle" fill="#c0c0d8" font-size="13.5" font-weight="600">Easy mode</text>
+  <text x="1042" y="595" text-anchor="middle" fill="#6b6b8a" font-size="12">polish over control</text>
+
+  <!-- Outer table border -->
+  <rect x="70" y="268" width="1070" height="336" fill="none" stroke="#1e1e3a" stroke-width="1"/>
+  <!-- Column separators -->
+  <line x1="330" y1="268" x2="330" y2="604" stroke="#1e1e3a" stroke-width="1"/>
+  <line x1="525" y1="268" x2="525" y2="604" stroke="#1e1e3a" stroke-width="1"/>
+  <line x1="730" y1="268" x2="730" y2="604" stroke="#1e1e3a" stroke-width="1"/>
+  <line x1="935" y1="268" x2="935" y2="604" stroke="#1e1e3a" stroke-width="1"/>
+
+  <!-- Verdict strip -->
+  <text x="70" y="652" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">THE PICK</text>
+  <text x="70" y="678" fill="#c0c0d8" font-size="16">New 1–2.5 Gbps build that wants IDS: <tspan fill="#5dca7a" font-weight="700">OPNsense on a Protectli VP2420 (i3-N305)</tspan> — best balance in 2026.</text>
+
+  <!-- Footer -->
+  <text x="70" y="724" fill="#4a4a6a" font-size="13">TechFuel HQ · Networking Comparison · Bench-measured throughput, single 1 Gbps WAN · vendor numbers labeled separately</text>
+  <text x="1130" y="724" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

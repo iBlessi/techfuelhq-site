@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Home Assistant Zigbee and Z-Wave architecture on Proxmox</title>
+  <desc>Topology diagram: Sonoff Zigbee and Zooz Z-Wave USB coordinators pass through the Proxmox host into a Home Assistant OS VM, where Zigbee2MQTT publishes to the Mosquitto MQTT broker and Z-Wave JS UI drives Z-Wave, both surfacing entities into Home Assistant. Zigbee runs on 2.4 GHz channel 25, Z-Wave on 800-900 MHz.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5090e0"/>
+    </marker>
+    <marker id="arrowlime" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c8ff00"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="60" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">SETUP TUTORIAL · SMART HOME TOPOLOGY</text>
+  <text x="70" y="104" fill="#e8e8f0" font-size="40" font-weight="900">Home Assistant Zigbee + Z-Wave on Proxmox</text>
+  <text x="70" y="134" fill="#6b6b8a" font-size="18">Two USB radios, passed through to one HAOS VM, fully local — no cloud</text>
+
+  <!-- ===================== COLUMN 1: RADIO COORDINATORS ===================== -->
+  <text x="70" y="186" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">USB COORDINATORS</text>
+
+  <!-- Sonoff Zigbee stick -->
+  <g transform="translate(70,200)">
+    <rect width="250" height="86" rx="12" fill="#101028" stroke="#c8ff00" stroke-width="1.5"/>
+    <text x="20" y="34" fill="#e8e8f0" font-size="18" font-weight="700">Sonoff ZB 3.0 Dongle Plus</text>
+    <text x="20" y="58" fill="#c0c0d8" font-size="14">CC2652P chip · Zigbee 3.0</text>
+    <text x="20" y="76" fill="#c8ff00" font-size="13" font-weight="600">2.4 GHz · channel 25</text>
+  </g>
+
+  <!-- Zooz Z-Wave stick -->
+  <g transform="translate(70,310)">
+    <rect width="250" height="86" rx="12" fill="#101028" stroke="#5090e0" stroke-width="1.5"/>
+    <text x="20" y="34" fill="#e8e8f0" font-size="18" font-weight="700">Zooz 800 Series ZST39 LR</text>
+    <text x="20" y="58" fill="#c0c0d8" font-size="14">800-series · Long Range</text>
+    <text x="20" y="76" fill="#5090e0" font-size="13" font-weight="600">800–900 MHz</text>
+  </g>
+
+  <!-- USB passthrough label -->
+  <text x="195" y="430" text-anchor="middle" fill="#e08828" font-size="12" letter-spacing="1" font-weight="700">USB PASSTHROUGH</text>
+  <text x="195" y="448" text-anchor="middle" fill="#6b6b8a" font-size="12">vendor ID 10c4:ea60</text>
+
+  <!-- Arrows: sticks -> Proxmox -->
+  <line x1="320" y1="243" x2="408" y2="300" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrowlime)"/>
+  <line x1="320" y1="353" x2="408" y2="320" stroke="#5090e0" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ===================== COLUMN 2: PROXMOX + HAOS VM ===================== -->
+  <!-- Proxmox host outer -->
+  <g transform="translate(410,170)">
+    <rect width="430" height="300" rx="14" fill="#0d0d28" stroke="#1e1e3a" stroke-width="1.5"/>
+    <text x="22" y="32" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">PROXMOX VE HOST</text>
+
+    <!-- HAOS VM inner -->
+    <rect x="22" y="48" width="386" height="232" rx="10" fill="#101028" stroke="#c8ff00" stroke-width="1.5"/>
+    <text x="42" y="78" fill="#c8ff00" font-size="14" letter-spacing="1" font-weight="700">HOME ASSISTANT OS · VM</text>
+
+    <!-- Zigbee2MQTT add-on -->
+    <rect x="42" y="92" width="174" height="62" rx="8" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="56" y="116" fill="#e8e8f0" font-size="15" font-weight="700">Zigbee2MQTT</text>
+    <text x="56" y="138" fill="#c0c0d8" font-size="12">add-on · adapter ezsp</text>
+
+    <!-- Mosquitto broker -->
+    <rect x="232" y="92" width="160" height="62" rx="8" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="246" y="116" fill="#e8e8f0" font-size="15" font-weight="700">Mosquitto</text>
+    <text x="246" y="138" fill="#c0c0d8" font-size="12">MQTT broker</text>
+
+    <!-- Z-Wave JS UI add-on -->
+    <rect x="42" y="166" width="174" height="62" rx="8" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="56" y="190" fill="#e8e8f0" font-size="15" font-weight="700">Z-Wave JS UI</text>
+    <text x="56" y="212" fill="#c0c0d8" font-size="12">driver · port 3000</text>
+
+    <!-- Home Assistant core -->
+    <rect x="232" y="166" width="160" height="62" rx="8" fill="#0d0d28" stroke="#5dca7a"/>
+    <text x="246" y="190" fill="#e8e8f0" font-size="15" font-weight="700">HA Core</text>
+    <text x="246" y="212" fill="#5dca7a" font-size="12">entities + automations</text>
+
+    <!-- internal flow arrows -->
+    <!-- Zigbee2MQTT -> Mosquitto -->
+    <line x1="216" y1="123" x2="230" y2="123" stroke="#5090e0" stroke-width="2" marker-end="url(#arrow)"/>
+    <!-- Mosquitto -> HA Core (MQTT discovery) -->
+    <line x1="312" y1="154" x2="312" y2="164" stroke="#5090e0" stroke-width="2" marker-end="url(#arrow)"/>
+    <!-- Z-Wave JS UI -> HA Core -->
+    <line x1="216" y1="197" x2="230" y2="197" stroke="#5090e0" stroke-width="2" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- ===================== COLUMN 3: DEVICE MESHES ===================== -->
+  <text x="880" y="186" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">LOCAL DEVICE MESH</text>
+
+  <!-- Zigbee mesh -->
+  <g transform="translate(880,200)">
+    <rect width="250" height="120" rx="12" fill="#101028" stroke="#c8ff00" stroke-width="1.5"/>
+    <text x="20" y="32" fill="#c8ff00" font-size="16" font-weight="700">Zigbee mesh</text>
+    <text x="20" y="56" fill="#c0c0d8" font-size="13">Aqara · IKEA · Hue · Sonoff</text>
+    <text x="20" y="78" fill="#c0c0d8" font-size="13">Plugs/bulbs = auto routers</text>
+    <text x="20" y="102" fill="#5dca7a" font-size="13" font-weight="600">50–200 devices · LQI ≥ 80</text>
+  </g>
+
+  <!-- Z-Wave mesh -->
+  <g transform="translate(880,344)">
+    <rect width="250" height="120" rx="12" fill="#101028" stroke="#5090e0" stroke-width="1.5"/>
+    <text x="20" y="32" fill="#5090e0" font-size="16" font-weight="700">Z-Wave mesh</text>
+    <text x="20" y="56" fill="#c0c0d8" font-size="13">Zooz · Inovelli · Aeotec</text>
+    <text x="20" y="78" fill="#c0c0d8" font-size="13">S2 inclusion for locks</text>
+    <text x="20" y="102" fill="#5dca7a" font-size="13" font-weight="600">232 devices max · certified</text>
+  </g>
+
+  <!-- Arrows: VM -> meshes (RF, bidirectional) -->
+  <line x1="840" y1="260" x2="876" y2="260" stroke="#c8ff00" stroke-width="2" marker-start="url(#arrowlime)" marker-end="url(#arrowlime)"/>
+  <line x1="840" y1="404" x2="876" y2="404" stroke="#5090e0" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+
+  <!-- ===================== KEY STAT STRIP ===================== -->
+  <g transform="translate(70,500)">
+    <rect width="1060" height="60" rx="12" fill="#0d0d28" stroke="#1e1e3a"/>
+    <text x="30" y="27" fill="#6b6b8a" font-size="12" letter-spacing="1" font-weight="700">ZIGBEE PRICE</text>
+    <text x="30" y="49" fill="#e8e8f0" font-size="16" font-weight="700">$10–25 / sensor</text>
+
+    <text x="290" y="27" fill="#6b6b8a" font-size="12" letter-spacing="1" font-weight="700">Z-WAVE PRICE</text>
+    <text x="290" y="49" fill="#e8e8f0" font-size="16" font-weight="700">$35–80 / device</text>
+
+    <text x="560" y="27" fill="#6b6b8a" font-size="12" letter-spacing="1" font-weight="700">Z-WAVE INCLUSION</text>
+    <text x="560" y="49" fill="#e8e8f0" font-size="16" font-weight="700">within 3 m</text>
+
+    <text x="800" y="27" fill="#6b6b8a" font-size="12" letter-spacing="1" font-weight="700">CLOUD ACCOUNT</text>
+    <text x="800" y="49" fill="#c8ff00" font-size="16" font-weight="700">none — fully local</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="600" fill="#4a4a6a" font-size="13">TechFuel HQ · Setup Tutorial · Coordinators per Sonoff &amp; Zooz product pages</text>
+  <text x="1130" y="600" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

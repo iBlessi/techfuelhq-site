@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>NZXT Kraken 360 review rating card: 4.0 out of 5, with key specifications</title>
+  <desc>A TechFuel HQ rating card for the NZXT Kraken 360 360mm AIO liquid cooler, showing a 4.0 out of 5 long-term review score on a Ryzen 7 7800X3D, plus a key specifications panel listing radiator size, pump platform, fans, LCD display, included sockets, and price.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <text x="70" y="92" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">LONG-TERM REVIEW · AIO COOLER</text>
+  <text x="70" y="150" fill="#e8e8f0" font-size="52" font-weight="900">NZXT Kraken 360</text>
+  <text x="70" y="186" fill="#6b6b8a" font-size="20">A 360mm AIO after the LCD novelty wears off, on a Ryzen 7 7800X3D</text>
+
+  <text x="70" y="262" fill="#c8ff00" font-size="62" font-weight="900">4.0</text>
+  <text x="186" y="262" fill="#6b6b8a" font-size="26" font-weight="700">/ 5</text>
+
+  <g transform="translate(70,300)">
+    <text x="0" y="0" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">VERDICT</text>
+    <text x="0" y="34" fill="#c0c0d8" font-size="17">Excellent hardware, quiet pump,</text>
+    <text x="0" y="60" fill="#c0c0d8" font-size="17">middling CAM software.</text>
+
+    <g transform="translate(0,96)">
+      <rect width="14" height="14" rx="3" fill="#5dca7a"/>
+      <text x="26" y="12" fill="#c0c0d8" font-size="16">Inaudible Asetek pump, high build quality</text>
+    </g>
+    <g transform="translate(0,128)">
+      <rect width="14" height="14" rx="3" fill="#5dca7a"/>
+      <text x="26" y="12" fill="#c0c0d8" font-size="16">Stayed under 80&#176;C gaming on a 7800X3D</text>
+    </g>
+    <g transform="translate(0,160)">
+      <rect width="14" height="14" rx="3" fill="#e08828"/>
+      <text x="26" y="12" fill="#c0c0d8" font-size="16">CAM must run in background; Windows only</text>
+    </g>
+  </g>
+
+  <g transform="translate(640,225)">
+    <rect width="490" height="320" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="24" y="36" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">KEY SPECIFICATIONS</text>
+
+    <text x="24" y="78" fill="#c0c0d8" font-size="16">Radiator</text>
+    <text x="466" y="78" text-anchor="end" fill="#c8ff00" font-size="16" font-weight="600">394 &#215; 120 &#215; 27 mm (360mm)</text>
+
+    <text x="24" y="116" fill="#c0c0d8" font-size="16">Pump platform</text>
+    <text x="466" y="116" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">Asetek 7th-gen, 800&#8211;2800 RPM</text>
+
+    <text x="24" y="154" fill="#c0c0d8" font-size="16">Fans</text>
+    <text x="466" y="154" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">3&#215; F120 RGB Core, 500&#8211;2400 RPM</text>
+
+    <text x="24" y="192" fill="#c0c0d8" font-size="16">Max fan noise</text>
+    <text x="466" y="192" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">30.4 dBA</text>
+
+    <text x="24" y="230" fill="#c0c0d8" font-size="16">Pump display</text>
+    <text x="466" y="230" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">2.36-inch color LCD</text>
+
+    <text x="24" y="268" fill="#c0c0d8" font-size="16">Included sockets</text>
+    <text x="466" y="268" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">AM5 / AM4 / LGA1700 / LGA1851</text>
+
+    <text x="24" y="306" fill="#c0c0d8" font-size="16">Price (base / Elite)</text>
+    <text x="466" y="306" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">$179 / $199 USD</text>
+  </g>
+
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · Hardware Review · Specs per NZXT official product page (accessed 2026-06)</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

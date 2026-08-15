@@ -1,0 +1,80 @@
+<svg viewBox="0 0 1200 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Decision diagram for self-hosted read-it-later apps in 2026. Pocket shut down on 2025-07-08 and deleted user data from 2025-11-12, and its export was a CSV of URLs only with no article text. Three paths by the job you want done. If you want to READ articles later, pick Readeck 0.22.3 AGPL-3.0, reader-first and actively developed, or wallabag 2.6.14 MIT, which adds annotations and ePUB export; both extract and store readable article text. If you want to ORGANIZE links, pick linkding 1.45.0 MIT, a single container on SQLite, though server-side archiving needs the latest-plus image and about 1 GB of RAM for Chromium, or Shiori 1.8.0 MIT, a single Go binary that archives by default but moves slowly with one main maintainer. If you want to ARCHIVE and organize at scale, that is the bookmark-manager end covered by Karakeep and Linkwarden in a separate comparison. Versions verified 2026-07-25 from each project's release API.">
+  <rect width="1200" height="720" fill="#0e0e1a"/>
+
+  <text x="60" y="58" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="32" font-weight="700">Self-hosted read-it-later, after Pocket</text>
+  <text x="60" y="90" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="18">Pick by the job you want done &#8212; <tspan font-style="italic">reading</tspan> and <tspan font-style="italic">organizing</tspan> are different products.</text>
+
+  <!-- Pocket banner -->
+  <rect x="60" y="114" width="1080" height="66" rx="10" fill="#2a1e0c" stroke="#ffb020" stroke-width="1.5"/>
+  <text x="84" y="142" fill="#ffb020" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">Pocket shut down 2025-07-08 &#183; data deleted from 2025-11-12 (not the Oct 8 date most write-ups repeat)</text>
+  <text x="84" y="166" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15">The export was a CSV of <tspan font-weight="700">URLs only</tspan> &#8212; no article text. A migration restores your list, not your reading.</text>
+
+  <!-- Column 1: READ -->
+  <rect x="60" y="202" width="345" height="330" rx="10" fill="#16162a" stroke="#c8ff00" stroke-width="1.5"/>
+  <rect x="60" y="202" width="345" height="56" rx="10" fill="#2b331b"/>
+  <text x="82" y="226" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="700">IF YOU WANT TO</text>
+  <text x="82" y="248" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700">Read articles later</text>
+
+  <rect x="82" y="278" width="301" height="46" rx="6" fill="#22301c" stroke="#3a4a2a" stroke-width="1.5"/>
+  <text x="232" y="298" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" text-anchor="middle">Readeck 0.22.3</text>
+  <text x="232" y="316" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" text-anchor="middle">AGPL-3.0 &#183; reader-first &#183; 2026-04-16</text>
+
+  <rect x="82" y="334" width="301" height="46" rx="6" fill="#22301c" stroke="#3a4a2a" stroke-width="1.5"/>
+  <text x="232" y="354" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" text-anchor="middle">wallabag 2.6.14</text>
+  <text x="232" y="372" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" text-anchor="middle">MIT &#183; annotations + ePUB &#183; 2025-10-07</text>
+
+  <text x="82" y="410" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">Both <tspan font-weight="700">extract and store</tspan> the readable</text>
+  <text x="82" y="430" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">article text &#8212; the thing Pocket did.</text>
+  <text x="82" y="462" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14">wallabag exports to ePUB, so saved</text>
+  <text x="82" y="482" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14">articles reach an e-reader.</text>
+  <text x="82" y="512" fill="#5a5a72" font-family="Segoe UI, Arial, sans-serif" font-size="13">Heavier PHP stack; fiddlier setup.</text>
+
+  <!-- Column 2: ORGANIZE -->
+  <rect x="428" y="202" width="345" height="330" rx="10" fill="#16162a" stroke="#3a4a2a" stroke-width="1.5"/>
+  <rect x="428" y="202" width="345" height="56" rx="10" fill="#26301c"/>
+  <text x="450" y="226" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="700">IF YOU WANT TO</text>
+  <text x="450" y="248" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700">Organize links</text>
+
+  <rect x="450" y="278" width="301" height="46" rx="6" fill="#22301c" stroke="#3a4a2a" stroke-width="1.5"/>
+  <text x="600" y="298" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" text-anchor="middle">linkding 1.45.0</text>
+  <text x="600" y="316" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" text-anchor="middle">MIT &#183; one container on SQLite &#183; 2026-01-06</text>
+
+  <rect x="450" y="334" width="301" height="46" rx="6" fill="#22301c" stroke="#3a4a2a" stroke-width="1.5"/>
+  <text x="600" y="354" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" text-anchor="middle">Shiori 1.8.0</text>
+  <text x="600" y="372" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" text-anchor="middle">MIT &#183; one Go binary &#183; 2025-09-26</text>
+
+  <rect x="450" y="398" width="301" height="52" rx="6" fill="#2a1e0c" stroke="#ffb020" stroke-width="1.2"/>
+  <text x="600" y="418" fill="#ffb020" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" text-anchor="middle">linkding archiving is opt-in</text>
+  <text x="600" y="436" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" text-anchor="middle">`latest-plus` image &#183; &#8805;1 GB RAM for Chromium</text>
+
+  <text x="450" y="474" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14">Shiori archives by default, but moves</text>
+  <text x="450" y="494" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14">slowly &#8212; one main maintainer.</text>
+  <text x="450" y="518" fill="#5a5a72" font-family="Segoe UI, Arial, sans-serif" font-size="13">Great for recall. Not a reading app.</text>
+
+  <!-- Column 3: ARCHIVE AT SCALE -->
+  <rect x="796" y="202" width="345" height="330" rx="10" fill="#16162a" stroke="#3a4a2a" stroke-width="1.5"/>
+  <rect x="796" y="202" width="345" height="56" rx="10" fill="#26301c"/>
+  <text x="818" y="226" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="700">IF YOU WANT TO</text>
+  <text x="818" y="248" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700">Archive at scale</text>
+
+  <rect x="818" y="278" width="301" height="46" rx="6" fill="#191930" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="968" y="298" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" text-anchor="middle">Karakeep &#183; Linkwarden</text>
+  <text x="968" y="316" fill="#5a5a72" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" text-anchor="middle">the bookmark-manager end</text>
+
+  <text x="818" y="352" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">Full-page snapshots, heavy</text>
+  <text x="818" y="372" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="14.5">organization, thousands of links.</text>
+  <text x="818" y="402" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14">A different job from reading &#8212; and</text>
+  <text x="818" y="422" fill="#a0a0b8" font-family="Segoe UI, Arial, sans-serif" font-size="14">the heaviest footprint here.</text>
+  <text x="818" y="456" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">&#8594; see the dedicated head-to-head:</text>
+  <text x="818" y="476" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">Karakeep vs Linkwarden</text>
+  <text x="818" y="510" fill="#5a5a72" font-family="Segoe UI, Arial, sans-serif" font-size="13">Organize vs archive is decided there.</text>
+
+  <!-- footer -->
+  <rect x="60" y="554" width="1080" height="76" rx="10" fill="#14140f" stroke="#3a4a2a" stroke-width="1.5"/>
+  <text x="84" y="582" fill="#c8ff00" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700">The gotcha that outlives the tool choice</text>
+  <text x="84" y="606" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15">Server-side fetchers get blocked on paywalled and JS-heavy pages. The community workaround is the SingleFile</text>
+  <text x="84" y="624" fill="#e8e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="15">browser extension &#8212; your logged-in browser renders the page, then pushes that snapshot into the app.</text>
+
+  <text x="60" y="672" fill="#5a5a72" font-family="Segoe UI, Arial, sans-serif" font-size="13">Versions verified 2026-07-25 from each project&#8217;s release API. Pocket dates from Mozilla&#8217;s announcement and support docs. TechFuelHQ.</text>
+  <text x="60" y="696" fill="#5a5a72" font-family="Segoe UI, Arial, sans-serif" font-size="13">Community-sourced gotchas are labelled as such in the article &#8212; single data points, not benchmarks.</text>
+</svg>

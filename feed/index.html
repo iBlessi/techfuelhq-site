@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>https://techfuelhq.com/index.xml</title>
+    <link rel="canonical" href="https://techfuelhq.com/index.xml">
+    <meta name="robots" content="noindex">
+    <meta charset="utf-8">
+    <!--
+      /feed/ is the one conventional feed path that cannot be a generated XML file here:
+      GitHub Pages resolves a directory request to index.html, never index.xml. So this
+      stub does the two things a reader arriving at /feed/ needs - it advertises the real
+      feed via rel="alternate" autodiscovery (which is how feed readers resolve an HTML
+      URL to its feed) and refreshes a browser to it. Deliberately noindex, matching the
+      site's existing alias-stub convention. The other three paths - /feed.xml, /rss.xml,
+      /atom.xml - are real generated feeds; see hugo.toml [outputFormats].
+    -->
+    <link rel="alternate" type="application/rss+xml" title="TechFuel HQ" href="https://techfuelhq.com/index.xml">
+    <meta http-equiv="refresh" content="0; url=https://techfuelhq.com/index.xml">
+  </head>
+  <body>
+    <p>The TechFuel HQ feed lives at <a href="https://techfuelhq.com/index.xml">https://techfuelhq.com/index.xml</a>.</p>
+  </body>
+</html>

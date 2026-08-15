@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>UPS to Proxmox NUT power-event shutdown flow for a 2026 homelab</title>
+  <desc>Architecture diagram tracing a power outage through a CyberPower CP1500PFCLCD line-interactive UPS, USB HID into Network UPS Tools on a Proxmox node, and the timed VM-aware shutdown sequence: 5-minute ONBATT grace, 300-second low-battery threshold, qm shutdown of running VMs, then a clean host power-off, with the NAS on its own slave delay.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#5090e0"/>
+    </marker>
+    <marker id="arrowlime" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#c8ff00"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <text x="70" y="58" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">HOMELAB TUTORIAL · NUT + PROXMOX</text>
+  <text x="70" y="104" fill="#e8e8f0" font-size="44" font-weight="900">UPS Power-Event Shutdown Flow</text>
+  <text x="70" y="138" fill="#6b6b8a" font-size="19">CyberPower CP1500PFCLCD (1500VA / 900W, line-interactive) wired into Proxmox via NUT</text>
+
+  <!-- Row 1: power chain -->
+  <!-- Wall power -->
+  <g transform="translate(70,180)">
+    <rect width="200" height="116" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="34" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">UTILITY</text>
+    <text x="20" y="64" fill="#e8e8f0" font-size="21" font-weight="700">Wall Outlet</text>
+    <text x="20" y="90" fill="#c0c0d8" font-size="14">Dedicated 20A circuit</text>
+    <text x="20" y="108" fill="#6b6b8a" font-size="13">No surge strip in-line</text>
+  </g>
+  <line x1="270" y1="238" x2="318" y2="238" stroke="#5090e0" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- UPS -->
+  <g transform="translate(326,180)">
+    <rect width="236" height="116" rx="12" fill="#101028" stroke="#c8ff00" stroke-width="1.5"/>
+    <text x="20" y="34" fill="#c8ff00" font-size="12" letter-spacing="2" font-weight="700">LINE-INTERACTIVE UPS</text>
+    <text x="20" y="64" fill="#e8e8f0" font-size="20" font-weight="700">CP1500PFCLCD</text>
+    <text x="20" y="90" fill="#c0c0d8" font-size="14">1500VA / 900W · pure sine</text>
+    <text x="20" y="108" fill="#c0c0d8" font-size="14">2–4 ms transfer · 900 J surge</text>
+  </g>
+  <!-- USB HID link to node -->
+  <line x1="562" y1="238" x2="620" y2="238" stroke="#5090e0" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="591" y="226" fill="#6b6b8a" font-size="12" text-anchor="middle" font-weight="700">USB HID</text>
+
+  <!-- Proxmox node / NUT -->
+  <g transform="translate(628,180)">
+    <rect width="236" height="116" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="34" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">PROXMOX NODE · NUT</text>
+    <text x="20" y="64" fill="#e8e8f0" font-size="20" font-weight="700">usbhid-ups driver</text>
+    <text x="20" y="90" fill="#c0c0d8" font-size="14">upsd · upsmon · upssched</text>
+    <text x="20" y="108" fill="#c0c0d8" font-size="14">~120 W idle ≈ 13% load</text>
+  </g>
+  <!-- powers the protected load -->
+  <line x1="864" y1="238" x2="922" y2="238" stroke="#5090e0" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Protected load -->
+  <g transform="translate(930,180)">
+    <rect width="200" height="116" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="34" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">SLAVE · NFS STORE</text>
+    <text x="20" y="64" fill="#e8e8f0" font-size="21" font-weight="700">TrueNAS / NAS</text>
+    <text x="20" y="90" fill="#c0c0d8" font-size="14">Longer shutdown delay</text>
+    <text x="20" y="108" fill="#6b6b8a" font-size="13">Outlasts compute node</text>
+  </g>
+
+  <!-- vertical connector from UPS down to event timeline -->
+  <line x1="444" y1="296" x2="444" y2="338" stroke="#c8ff00" stroke-width="2.5" marker-end="url(#arrowlime)"/>
+  <text x="456" y="324" fill="#c8ff00" font-size="13" font-weight="700">power flicker / outage</text>
+
+  <!-- Event timeline panel -->
+  <g transform="translate(70,348)">
+    <rect width="1060" height="200" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="24" y="34" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">SHUTDOWN SEQUENCE ON BATTERY  ·  upsmon → upssched → qm</text>
+
+    <!-- timeline baseline -->
+    <line x1="40" y1="92" x2="1020" y2="92" stroke="#1e1e3a" stroke-width="2"/>
+
+    <!-- step 1 -->
+    <circle cx="120" cy="92" r="8" fill="#e08828"/>
+    <text x="120" y="74" fill="#e08828" font-size="13" text-anchor="middle" font-weight="700">ONBATT</text>
+    <text x="120" y="124" fill="#e8e8f0" font-size="15" text-anchor="middle" font-weight="700">t = 0</text>
+    <text x="120" y="146" fill="#c0c0d8" font-size="13" text-anchor="middle">Outage detected</text>
+    <text x="120" y="164" fill="#6b6b8a" font-size="12" text-anchor="middle">5-min grace timer</text>
+
+    <line x1="160" y1="92" x2="350" y2="92" stroke="#e08828" stroke-width="2.5" stroke-dasharray="5 4"/>
+
+    <!-- step 2 -->
+    <circle cx="390" cy="92" r="8" fill="#5090e0"/>
+    <text x="390" y="74" fill="#5090e0" font-size="13" text-anchor="middle" font-weight="700">LOWBATT</text>
+    <text x="390" y="124" fill="#e8e8f0" font-size="15" text-anchor="middle" font-weight="700">runtime.low = 300s</text>
+    <text x="390" y="146" fill="#c0c0d8" font-size="13" text-anchor="middle">5 min remaining triggers</text>
+    <text x="390" y="164" fill="#6b6b8a" font-size="12" text-anchor="middle">override in ups.conf</text>
+
+    <line x1="430" y1="92" x2="640" y2="92" stroke="#5090e0" stroke-width="2.5" stroke-dasharray="5 4"/>
+
+    <!-- step 3 -->
+    <circle cx="680" cy="92" r="8" fill="#c8ff00"/>
+    <text x="680" y="74" fill="#c8ff00" font-size="13" text-anchor="middle" font-weight="700">qm shutdown</text>
+    <text x="680" y="124" fill="#e8e8f0" font-size="15" text-anchor="middle" font-weight="700">VM-aware stop</text>
+    <text x="680" y="146" fill="#c0c0d8" font-size="13" text-anchor="middle">Each running VM, 120s timeout</text>
+    <text x="680" y="164" fill="#6b6b8a" font-size="12" text-anchor="middle">+ 30s settle</text>
+
+    <line x1="720" y1="92" x2="920" y2="92" stroke="#c8ff00" stroke-width="2.5" stroke-dasharray="5 4"/>
+
+    <!-- step 4 -->
+    <circle cx="960" cy="92" r="8" fill="#5dca7a"/>
+    <text x="960" y="74" fill="#5dca7a" font-size="13" text-anchor="middle" font-weight="700">HOST OFF</text>
+    <text x="960" y="124" fill="#e8e8f0" font-size="15" text-anchor="middle" font-weight="700">shutdown -h now</text>
+    <text x="960" y="146" fill="#c0c0d8" font-size="13" text-anchor="middle">Clean power-off</text>
+    <text x="960" y="164" fill="#6b6b8a" font-size="12" text-anchor="middle">NAS follows after</text>
+  </g>
+
+  <!-- runtime context strip -->
+  <text x="70" y="578" fill="#6b6b8a" font-size="14">Vendor runtime curve at ~120 W load: <tspan fill="#c8ff00" font-weight="700">45–55 min</tspan>  ·  far more than the 5–10 min a clean VM-aware shutdown needs</text>
+
+  <text x="70" y="608" fill="#4a4a6a" font-size="13">TechFuel HQ · Homelab Tutorial · Flow per CyberPower spec, NUT docs &amp; Proxmox VE NUT wiki</text>
+  <text x="1130" y="608" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

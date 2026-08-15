@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>ASUS ROG Astral GeForce RTX 5080 OC Edition review rating card</title>
+  <desc>TechFuelHQ review card for the ASUS ROG Astral RTX 5080 OC Edition, rated 4.4 out of 5, with a key specifications panel: NVIDIA GB203 Blackwell GPU, 16GB GDDR7 on a 256-bit bus, 10,752 CUDA cores, 960 GB/s memory bandwidth, 340W TDP with a 450W VBIOS cap, and a 2,784 MHz factory OC boost clock.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Left column: eyebrow, name, rating, key call-outs -->
+  <text x="70" y="92" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">FIRST-PARTY GPU REVIEW · BLACKWELL</text>
+  <text x="70" y="150" fill="#e8e8f0" font-size="50" font-weight="900">ROG Astral RTX 5080 OC</text>
+  <text x="70" y="188" fill="#6b6b8a" font-size="20">ASUS GeForce RTX 5080 OC Edition · the 4K card before a 5090</text>
+
+  <text x="70" y="262" fill="#c8ff00" font-size="62" font-weight="900">4.4</text>
+  <text x="188" y="262" fill="#6b6b8a" font-size="26" font-weight="700">/ 5</text>
+
+  <!-- Stars -->
+  <g transform="translate(72,288)" fill="#c8ff00">
+    <path d="M0 14 L4.1 24.7 L15.5 25.4 L6.8 32.7 L9.7 43.8 L0 37.5 L-9.7 43.8 L-6.8 32.7 L-15.5 25.4 L-4.1 24.7 Z" transform="translate(15,0)"/>
+    <path d="M0 14 L4.1 24.7 L15.5 25.4 L6.8 32.7 L9.7 43.8 L0 37.5 L-9.7 43.8 L-6.8 32.7 L-15.5 25.4 L-4.1 24.7 Z" transform="translate(58,0)"/>
+    <path d="M0 14 L4.1 24.7 L15.5 25.4 L6.8 32.7 L9.7 43.8 L0 37.5 L-9.7 43.8 L-6.8 32.7 L-15.5 25.4 L-4.1 24.7 Z" transform="translate(101,0)"/>
+    <path d="M0 14 L4.1 24.7 L15.5 25.4 L6.8 32.7 L9.7 43.8 L0 37.5 L-9.7 43.8 L-6.8 32.7 L-15.5 25.4 L-4.1 24.7 Z" transform="translate(144,0)"/>
+    <path d="M0 14 L4.1 24.7 L15.5 25.4 L6.8 32.7 L9.7 43.8 L0 37.5 L-9.7 43.8 L-6.8 32.7 L-15.5 25.4 L-4.1 24.7 Z" transform="translate(187,0)" fill="#2a2a4a"/>
+    <path d="M0 14 L4.1 24.7 L15.5 25.4 L6.8 32.7 L9.7 43.8 L0 37.5 L-9.7 43.8 L-6.8 32.7 L-15.5 25.4 L-4.1 24.7 Z" transform="translate(187,0)" fill="#c8ff00" clip-path="inset(0 50% 0 0)"/>
+  </g>
+
+  <!-- Highlight call-out boxes -->
+  <g transform="translate(70,360)">
+    <rect width="232" height="86" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="32" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">CYBERPUNK 4K PT · DLSS 4 MFG 4x</text>
+    <text x="20" y="66" fill="#5dca7a" font-size="28" font-weight="900">135 FPS</text>
+    <text x="150" y="66" fill="#6b6b8a" font-size="15" font-weight="600">62 ms lat.</text>
+  </g>
+  <g transform="translate(322,360)">
+    <rect width="232" height="86" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="32" fill="#6b6b8a" font-size="12" letter-spacing="2" font-weight="700">BOOST OVER FE REFERENCE</text>
+    <text x="20" y="66" fill="#c8ff00" font-size="28" font-weight="900">+247 MHz</text>
+    <text x="152" y="66" fill="#6b6b8a" font-size="15" font-weight="600">hand-tuned</text>
+  </g>
+
+  <!-- Profile delta strip -->
+  <g transform="translate(70,470)">
+    <text x="0" y="14" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">MANUAL OC OVER STOCK (FIRST-PARTY 3DMARK)</text>
+    <text x="0" y="50" fill="#c0c0d8" font-size="16">Steel Nomad</text>
+    <text x="158" y="50" fill="#5dca7a" font-size="16" font-weight="700">+12.9%</text>
+    <text x="262" y="50" fill="#c0c0d8" font-size="16">Speed Way</text>
+    <text x="400" y="50" fill="#5dca7a" font-size="16" font-weight="700">+9.9%</text>
+    <text x="488" y="50" fill="#c0c0d8" font-size="16">Time Spy Ex.</text>
+    <text x="0" y="50" fill="#c0c0d8" font-size="16"></text>
+  </g>
+
+  <!-- Right column: KEY SPECIFICATIONS panel -->
+  <g transform="translate(636,72)">
+    <rect width="494" height="466" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="24" y="40" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">KEY SPECIFICATIONS</text>
+
+    <text x="24" y="86" fill="#c0c0d8" font-size="16">GPU</text>
+    <text x="470" y="86" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">NVIDIA GB203 (Blackwell)</text>
+
+    <line x1="24" y1="104" x2="470" y2="104" stroke="#1e1e3a" stroke-width="1"/>
+    <text x="24" y="138" fill="#c0c0d8" font-size="16">Memory</text>
+    <text x="470" y="138" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">16 GB GDDR7 · 256-bit</text>
+
+    <line x1="24" y1="156" x2="470" y2="156" stroke="#1e1e3a" stroke-width="1"/>
+    <text x="24" y="190" fill="#c0c0d8" font-size="16">CUDA cores</text>
+    <text x="470" y="190" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">10,752</text>
+
+    <line x1="24" y1="208" x2="470" y2="208" stroke="#1e1e3a" stroke-width="1"/>
+    <text x="24" y="242" fill="#c0c0d8" font-size="16">Memory bandwidth</text>
+    <text x="470" y="242" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">960 GB/s</text>
+
+    <line x1="24" y1="260" x2="470" y2="260" stroke="#1e1e3a" stroke-width="1"/>
+    <text x="24" y="294" fill="#c0c0d8" font-size="16">Boost clock (factory OC)</text>
+    <text x="470" y="294" text-anchor="end" fill="#c8ff00" font-size="16" font-weight="700">2,784 MHz</text>
+
+    <line x1="24" y1="312" x2="470" y2="312" stroke="#1e1e3a" stroke-width="1"/>
+    <text x="24" y="346" fill="#c0c0d8" font-size="16">TDP · VBIOS cap</text>
+    <text x="470" y="346" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">340W · 450W</text>
+
+    <line x1="24" y1="364" x2="470" y2="364" stroke="#1e1e3a" stroke-width="1"/>
+    <text x="24" y="398" fill="#c0c0d8" font-size="16">Power connector</text>
+    <text x="470" y="398" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">16-pin 12VHPWR</text>
+
+    <line x1="24" y1="416" x2="470" y2="416" stroke="#1e1e3a" stroke-width="1"/>
+    <text x="24" y="450" fill="#c0c0d8" font-size="16">Cooler · form factor</text>
+    <text x="470" y="450" text-anchor="end" fill="#e8e8f0" font-size="16" font-weight="600">Quad-fan vapor chamber · 3.5 slot</text>
+  </g>
+
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · GPU Review · Specs per NVIDIA and ASUS official product pages; benchmarks first-party</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

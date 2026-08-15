@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="828" viewBox="0 0 1200 828" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Beszel vs Netdata vs Glances vs Uptime Kuma homelab monitoring comparison for 2026</title>
+  <desc>Four-way comparison of lightweight homelab monitoring tools: Beszel, Netdata, Glances, and Uptime Kuma, across job, license, architecture, historical data, footprint, and approximate GitHub stars. Beszel is the very-light multi-server resource dashboard default; Netdata is the heavier deep real-time option; Glances is the single-box glance; Uptime Kuma is uptime and status-page monitoring, a different job run alongside the others. The common stack is Beszel plus Uptime Kuma.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="828" fill="#0a0a23"/>
+  <rect width="1200" height="828" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">HOMELAB MONITORING COMPARISON &#183; LIGHTWEIGHT TOOLS</text>
+  <text x="70" y="128" fill="#e8e8f0" font-size="42" font-weight="900">Beszel vs Netdata vs Glances vs Uptime Kuma</text>
+  <text x="70" y="162" fill="#6b6b8a" font-size="18">Resource monitors vs uptime monitoring &#183; verified against each project's repo and docs, mid-2026</text>
+
+  <!-- Column header band -->
+  <g transform="translate(70,198)">
+    <!-- spec label column -->
+    <rect x="0" y="0" width="300" height="64" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="29" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">COMPARE</text>
+    <text x="20" y="50" fill="#6b6b8a" font-size="13" letter-spacing="1">(four lightweight tools)</text>
+
+    <!-- Beszel column (winner accent) -->
+    <rect x="312" y="0" width="168" height="64" rx="10" fill="#101028" stroke="#c8ff00"/>
+    <rect x="312" y="0" width="168" height="6" rx="3" fill="#c8ff00"/>
+    <text x="396" y="33" text-anchor="middle" fill="#e8e8f0" font-size="19" font-weight="900">Beszel</text>
+    <text x="396" y="53" text-anchor="middle" fill="#c8ff00" font-size="13" font-weight="600">homelab default</text>
+
+    <!-- Netdata column -->
+    <rect x="486" y="0" width="168" height="64" rx="10" fill="#101028" stroke="#5090e0"/>
+    <rect x="486" y="0" width="168" height="6" rx="3" fill="#5090e0"/>
+    <text x="570" y="33" text-anchor="middle" fill="#e8e8f0" font-size="19" font-weight="900">Netdata</text>
+    <text x="570" y="53" text-anchor="middle" fill="#5090e0" font-size="13" font-weight="600">deep real-time</text>
+
+    <!-- Glances column -->
+    <rect x="660" y="0" width="168" height="64" rx="10" fill="#101028" stroke="#e08828"/>
+    <rect x="660" y="0" width="168" height="6" rx="3" fill="#e08828"/>
+    <text x="744" y="33" text-anchor="middle" fill="#e8e8f0" font-size="19" font-weight="900">Glances</text>
+    <text x="744" y="53" text-anchor="middle" fill="#e08828" font-size="13" font-weight="600">single-box glance</text>
+
+    <!-- Uptime Kuma column -->
+    <rect x="834" y="0" width="168" height="64" rx="10" fill="#101028" stroke="#b06bff"/>
+    <rect x="834" y="0" width="168" height="6" rx="3" fill="#b06bff"/>
+    <text x="918" y="33" text-anchor="middle" fill="#e8e8f0" font-size="19" font-weight="900">Uptime Kuma</text>
+    <text x="918" y="53" text-anchor="middle" fill="#b06bff" font-size="13" font-weight="600">different job</text>
+  </g>
+
+  <!-- Spec rows -->
+  <g transform="translate(70,278)">
+    <!-- Row 1: Job -->
+    <rect x="0" y="0" width="1002" height="64" rx="8" fill="#13132e"/>
+    <text x="20" y="30" fill="#c0c0d8" font-size="16" font-weight="600">Job</text>
+    <text x="20" y="51" fill="#6b6b8a" font-size="13">what it actually does</text>
+    <text x="396" y="33" text-anchor="middle" fill="#c8ff00" font-size="14" font-weight="700">Resource dashboard</text>
+    <text x="570" y="33" text-anchor="middle" fill="#c0c0d8" font-size="14" font-weight="600">Deep real-time metrics</text>
+    <text x="744" y="33" text-anchor="middle" fill="#c0c0d8" font-size="14" font-weight="600">Single-box glance</text>
+    <text x="918" y="33" text-anchor="middle" fill="#c0c0d8" font-size="14" font-weight="600">Uptime / status pages</text>
+
+    <!-- Row 2: License -->
+    <rect x="0" y="68" width="1002" height="64" rx="8" fill="#0d0d28"/>
+    <text x="20" y="98" fill="#c0c0d8" font-size="16" font-weight="600">License</text>
+    <text x="20" y="119" fill="#6b6b8a" font-size="13">open source</text>
+    <text x="396" y="108" text-anchor="middle" fill="#c0c0d8" font-size="15" font-weight="700">MIT</text>
+    <text x="570" y="108" text-anchor="middle" fill="#c0c0d8" font-size="15" font-weight="700">GPL-3.0 (agent)</text>
+    <text x="744" y="108" text-anchor="middle" fill="#c0c0d8" font-size="15" font-weight="700">LGPL-3.0</text>
+    <text x="918" y="108" text-anchor="middle" fill="#c0c0d8" font-size="15" font-weight="700">MIT</text>
+
+    <!-- Row 3: Architecture -->
+    <rect x="0" y="136" width="1002" height="64" rx="8" fill="#13132e"/>
+    <text x="20" y="166" fill="#c0c0d8" font-size="16" font-weight="600">Architecture</text>
+    <text x="20" y="187" fill="#6b6b8a" font-size="13">how it deploys</text>
+    <text x="396" y="176" text-anchor="middle" fill="#c0c0d8" font-size="15" font-weight="700">Hub + agents</text>
+    <text x="570" y="176" text-anchor="middle" fill="#c0c0d8" font-size="15" font-weight="700">Per-node agent</text>
+    <text x="744" y="176" text-anchor="middle" fill="#c0c0d8" font-size="15" font-weight="700">One process/host</text>
+    <text x="918" y="176" text-anchor="middle" fill="#c0c0d8" font-size="15" font-weight="700">Single app</text>
+
+    <!-- Row 4: Historical data -->
+    <rect x="0" y="204" width="1002" height="64" rx="8" fill="#0d0d28"/>
+    <text x="20" y="234" fill="#c0c0d8" font-size="16" font-weight="600">Historical data</text>
+    <text x="20" y="255" fill="#6b6b8a" font-size="13">retention built in</text>
+    <text x="396" y="244" text-anchor="middle" fill="#5dca7a" font-size="15" font-weight="800">Yes</text>
+    <text x="570" y="244" text-anchor="middle" fill="#5dca7a" font-size="15" font-weight="800">Yes (tiered)</text>
+    <text x="744" y="244" text-anchor="middle" fill="#c0c0d8" font-size="15" font-weight="700">No (export)</text>
+    <text x="918" y="244" text-anchor="middle" fill="#c0c0d8" font-size="15" font-weight="700">Yes (checks)</text>
+
+    <!-- Row 5: Footprint -->
+    <rect x="0" y="272" width="1002" height="64" rx="8" fill="#13132e"/>
+    <text x="20" y="302" fill="#c0c0d8" font-size="16" font-weight="600">Footprint</text>
+    <text x="20" y="323" fill="#6b6b8a" font-size="13">measure on your own box</text>
+    <text x="396" y="312" text-anchor="middle" fill="#c8ff00" font-size="15" font-weight="800">Very light</text>
+    <text x="570" y="312" text-anchor="middle" fill="#c0c0d8" font-size="15" font-weight="700">Heavier (tunable)</text>
+    <text x="744" y="312" text-anchor="middle" fill="#c0c0d8" font-size="15" font-weight="700">Light (Python)</text>
+    <text x="918" y="312" text-anchor="middle" fill="#c0c0d8" font-size="15" font-weight="700">Light</text>
+
+    <!-- Row 6: Stars -->
+    <rect x="0" y="340" width="1002" height="64" rx="8" fill="#0d0d28"/>
+    <text x="20" y="370" fill="#c0c0d8" font-size="16" font-weight="600">Stars (approx)</text>
+    <text x="20" y="391" fill="#6b6b8a" font-size="13">rounded mid-2026</text>
+    <text x="396" y="380" text-anchor="middle" fill="#c0c0d8" font-size="15" font-weight="700">~23k</text>
+    <text x="570" y="380" text-anchor="middle" fill="#c0c0d8" font-size="15" font-weight="700">~80k</text>
+    <text x="744" y="380" text-anchor="middle" fill="#c0c0d8" font-size="15" font-weight="700">~33k</text>
+    <text x="918" y="380" text-anchor="middle" fill="#c0c0d8" font-size="15" font-weight="700">~89k</text>
+  </g>
+
+  <!-- Verdict strip -->
+  <g transform="translate(70,706)">
+    <rect x="0" y="0" width="1002" height="66" rx="10" fill="#101028" stroke="#1e1e3a"/>
+    <rect x="0" y="0" width="6" height="66" rx="3" fill="#c8ff00"/>
+    <text x="26" y="29" fill="#c8ff00" font-size="13" letter-spacing="2" font-weight="700">THE CALL</text>
+    <text x="26" y="52" fill="#c0c0d8" font-size="16">Common stack: Beszel + Uptime Kuma (resource overview + uptime) &#183; reach for Netdata to deep-dive a host &#183; Glances for a quick one-off look.</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="806" fill="#4a4a6a" font-size="13">TechFuel HQ &#183; Homelab Monitoring Comparison &#183; verified against each tool's repo &amp; docs</text>
+  <text x="1130" y="806" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

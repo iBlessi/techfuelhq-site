@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="The 2026 PSU tier list: 28 power supplies sorted into four tiers plus an avoid class.">
+  <rect width="1200" height="630" fill="#0a0a23"/>
+
+  <text x="60" y="72" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="38" font-weight="700" fill="#e8e8f0" letter-spacing="-0.5">PSU Tier List 2026</text>
+  <text x="60" y="106" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="17" fill="#8f9bb3">28 power supplies · every placement sourced to manufacturer specs and professional testing</text>
+
+  <!-- Tier S -->
+  <rect x="60" y="132" width="1080" height="86" rx="8" fill="#11112b" stroke="#1e1e3a"/>
+  <rect x="60" y="132" width="6" height="86" rx="3" fill="#c8ff00"/>
+  <text x="96" y="176" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="34" font-weight="700" fill="#c8ff00">S</text>
+  <text x="150" y="167" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="16" font-weight="600" fill="#e8e8f0">The units reviewers benchmark against</text>
+  <text x="150" y="194" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14.5" fill="#8f9bb3">Corsair RMx (2024) · NZXT C850/C1000 · FSP Hydro Ti Pro · be quiet! Dark Power 13</text>
+
+  <!-- Tier A -->
+  <rect x="60" y="228" width="1080" height="86" rx="8" fill="#11112b" stroke="#1e1e3a"/>
+  <rect x="60" y="228" width="6" height="86" rx="3" fill="#7dd88f"/>
+  <text x="96" y="272" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="34" font-weight="700" fill="#7dd88f">A</text>
+  <text x="150" y="263" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="16" font-weight="600" fill="#e8e8f0">Excellent, held out of S by one finding</text>
+  <text x="150" y="290" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14.5" fill="#8f9bb3">Seasonic Vertex GX · Corsair HXi · Super Flower Leadex VII · Corsair SF Platinum (SFX)</text>
+
+  <!-- Tier B -->
+  <rect x="60" y="324" width="1080" height="86" rx="8" fill="#11112b" stroke="#1e1e3a"/>
+  <rect x="60" y="324" width="6" height="86" rx="3" fill="#6ab0f3"/>
+  <text x="96" y="368" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="34" font-weight="700" fill="#6ab0f3">B</text>
+  <text x="150" y="359" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="16" font-weight="600" fill="#e8e8f0">Good, with a caveat worth knowing</text>
+  <text x="150" y="386" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14.5" fill="#8f9bb3">Seasonic Focus GX · Corsair RMe · MSI MPG A1000G · Thermaltake GF3 · Montech Century II</text>
+
+  <!-- Tier C -->
+  <rect x="60" y="420" width="1080" height="86" rx="8" fill="#11112b" stroke="#1e1e3a"/>
+  <rect x="60" y="420" width="6" height="86" rx="3" fill="#f0b060"/>
+  <text x="96" y="464" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="34" font-weight="700" fill="#f0b060">C</text>
+  <text x="150" y="455" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="16" font-weight="600" fill="#e8e8f0">Budget class, fine when right-sized</text>
+  <text x="150" y="482" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14.5" fill="#8f9bb3">XPG Core Reactor II VE · DeepCool PN850D · Thermaltake Smart BM3 · Corsair CX750</text>
+
+  <!-- Avoid -->
+  <rect x="60" y="516" width="1080" height="62" rx="8" fill="#1a1020" stroke="rgba(237,106,90,0.35)"/>
+  <text x="96" y="555" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="19" font-weight="700" fill="#ed6a5a">✕</text>
+  <text x="150" y="548" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="16" font-weight="600" fill="#ed6a5a">Avoid — documented failures, not rumour</text>
+  <text x="150" y="568" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14" fill="#8f9bb3">Gigabyte GP-P750GM/P850GM · unbranded case-bundled units</text>
+
+  <text x="1140" y="608" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12.5" fill="#44445a">techfuelhq.com · rev 1.0, July 2026</text>
+</svg>

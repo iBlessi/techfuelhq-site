@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>RTX 5070 Ti vs RX 9070 XT — published specifications comparison</title>
+  <desc>Side-by-side spec table comparing the NVIDIA GeForce RTX 5070 Ti (Blackwell GB203) and AMD Radeon RX 9070 XT (RDNA 4). Rows cover architecture, process node, shader TFLOPS, shader units, VRAM, memory bandwidth, TDP, MSRP, upscaling, and ray tracing. Per-row leaders are highlighted: NVIDIA in lime, AMD in red.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="760" fill="#0a0a23"/>
+  <rect width="1200" height="760" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <!-- Header -->
+  <text x="70" y="74" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">GPU COMPARISON · 1440p &amp; 4K · $600–750</text>
+  <text x="70" y="128" fill="#e8e8f0" font-size="50" font-weight="900">RTX 5070 Ti vs RX 9070 XT</text>
+  <text x="70" y="164" fill="#6b6b8a" font-size="20">Published specifications, head to head — which GPU wins the mid-high tier?</text>
+
+  <!-- Column headers -->
+  <g transform="translate(70,200)">
+    <!-- Spec label column header spacer -->
+    <text x="0" y="34" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">SPECIFICATION</text>
+
+    <!-- NVIDIA column header -->
+    <g transform="translate(470,0)">
+      <rect x="0" y="0" width="290" height="52" rx="10" fill="#101028" stroke="#1e1e3a"/>
+      <rect x="0" y="0" width="6" height="52" rx="3" fill="#c8ff00"/>
+      <text x="24" y="23" fill="#e8e8f0" font-size="18" font-weight="900">RTX 5070 Ti</text>
+      <text x="24" y="42" fill="#6b6b8a" font-size="12">NVIDIA · Blackwell GB203</text>
+    </g>
+
+    <!-- AMD column header -->
+    <g transform="translate(780,0)">
+      <rect x="0" y="0" width="290" height="52" rx="10" fill="#101028" stroke="#1e1e3a"/>
+      <rect x="0" y="0" width="6" height="52" rx="3" fill="#e63946"/>
+      <text x="24" y="23" fill="#e8e8f0" font-size="18" font-weight="900">RX 9070 XT</text>
+      <text x="24" y="42" fill="#6b6b8a" font-size="12">AMD · RDNA 4</text>
+    </g>
+  </g>
+
+  <!-- Spec rows: 10 rows, start y=272, height 42 each -->
+  <!-- Columns: label x=70 ; NVIDIA value centered around x=685 ; AMD value centered around x=995 -->
+  <g font-size="16">
+    <!-- Row 1 Architecture -->
+    <rect x="55" y="272" width="1090" height="42" fill="#13132e"/>
+    <text x="70" y="299" fill="#c0c0d8">Architecture</text>
+    <text x="685" y="299" text-anchor="middle" fill="#e8e8f0" font-weight="600">Blackwell (GB203)</text>
+    <text x="995" y="299" text-anchor="middle" fill="#e8e8f0" font-weight="600">RDNA 4</text>
+
+    <!-- Row 2 Process node (tie) -->
+    <rect x="55" y="314" width="1090" height="42" fill="#0d0d28"/>
+    <text x="70" y="341" fill="#c0c0d8">Process node</text>
+    <text x="685" y="341" text-anchor="middle" fill="#e8e8f0" font-weight="600">TSMC 4nm</text>
+    <text x="995" y="341" text-anchor="middle" fill="#e8e8f0" font-weight="600">TSMC 4nm</text>
+
+    <!-- Row 3 Shader TFLOPS (AMD higher number) -->
+    <rect x="55" y="356" width="1090" height="42" fill="#13132e"/>
+    <text x="70" y="383" fill="#c0c0d8">Shader TFLOPS (FP32)</text>
+    <text x="685" y="383" text-anchor="middle" fill="#e8e8f0" font-weight="600">~44 TFLOPS</text>
+    <text x="995" y="383" text-anchor="middle" fill="#e63946" font-weight="700">~48 TFLOPS</text>
+
+    <!-- Row 4 Shader units (NVIDIA higher) -->
+    <rect x="55" y="398" width="1090" height="42" fill="#0d0d28"/>
+    <text x="70" y="425" fill="#c0c0d8">Shader units</text>
+    <text x="685" y="425" text-anchor="middle" fill="#c8ff00" font-weight="700">8,960</text>
+    <text x="995" y="425" text-anchor="middle" fill="#e8e8f0" font-weight="600">4,096</text>
+
+    <!-- Row 5 VRAM (tie capacity) -->
+    <rect x="55" y="440" width="1090" height="42" fill="#13132e"/>
+    <text x="70" y="467" fill="#c0c0d8">VRAM</text>
+    <text x="685" y="467" text-anchor="middle" fill="#e8e8f0" font-weight="600">16GB GDDR7</text>
+    <text x="995" y="467" text-anchor="middle" fill="#e8e8f0" font-weight="600">16GB GDDR6</text>
+
+    <!-- Row 6 Memory bandwidth (NVIDIA higher) -->
+    <rect x="55" y="482" width="1090" height="42" fill="#0d0d28"/>
+    <text x="70" y="509" fill="#c0c0d8">Memory bandwidth</text>
+    <text x="685" y="509" text-anchor="middle" fill="#c8ff00" font-weight="700">896 GB/s</text>
+    <text x="995" y="509" text-anchor="middle" fill="#e8e8f0" font-weight="600">640 GB/s</text>
+
+    <!-- Row 7 TDP (NVIDIA lower draw = better) -->
+    <rect x="55" y="524" width="1090" height="42" fill="#13132e"/>
+    <text x="70" y="551" fill="#c0c0d8">TDP (reference)</text>
+    <text x="685" y="551" text-anchor="middle" fill="#c8ff00" font-weight="700">300W</text>
+    <text x="995" y="551" text-anchor="middle" fill="#e8e8f0" font-weight="600">304W TBP</text>
+
+    <!-- Row 8 MSRP (AMD cheaper = better value) -->
+    <rect x="55" y="566" width="1090" height="42" fill="#0d0d28"/>
+    <text x="70" y="593" fill="#c0c0d8">MSRP (reference)</text>
+    <text x="685" y="593" text-anchor="middle" fill="#e8e8f0" font-weight="600">$749</text>
+    <text x="995" y="593" text-anchor="middle" fill="#e63946" font-weight="700">$599</text>
+
+    <!-- Row 9 Upscaling -->
+    <rect x="55" y="608" width="1090" height="42" fill="#13132e"/>
+    <text x="70" y="635" fill="#c0c0d8">Upscaling</text>
+    <text x="685" y="635" text-anchor="middle" fill="#e8e8f0" font-weight="600">DLSS 4 + MFG</text>
+    <text x="995" y="635" text-anchor="middle" fill="#e8e8f0" font-weight="600">FSR 4 + AFMF 2</text>
+
+    <!-- Row 10 Ray tracing (NVIDIA leads) -->
+    <rect x="55" y="650" width="1090" height="42" fill="#0d0d28"/>
+    <text x="70" y="677" fill="#c0c0d8">Ray tracing</text>
+    <text x="685" y="677" text-anchor="middle" fill="#c8ff00" font-weight="700">4th gen RT cores</text>
+    <text x="995" y="677" text-anchor="middle" fill="#e8e8f0" font-weight="600">3rd gen RT accel.</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="70" y="724" fill="#4a4a6a" font-size="13">TechFuel HQ · GPU Comparison · Specs per NVIDIA &amp; AMD official product pages</text>
+  <text x="1130" y="724" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

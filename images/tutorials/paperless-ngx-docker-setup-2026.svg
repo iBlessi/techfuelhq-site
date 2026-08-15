@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, system-ui, sans-serif" role="img">
+  <title>Paperless-ngx Docker Compose architecture: consume folder feeds the core app, backed by PostgreSQL, Redis, Tika and Gotenberg</title>
+  <desc>Topology diagram of the five-container Paperless-ngx stack. A document dropped into the consume folder is picked up within 60 seconds by the Paperless core app, which queues OCR jobs through Redis, stores metadata in PostgreSQL, and uses Tika and Gotenberg to render and extract text from non-PDF formats. The result is full-text searchable, auto-tagged, and filed by correspondent.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M 0 0 L 8 4.5 L 0 9 z" fill="#5090e0"/>
+    </marker>
+    <marker id="arrowLime" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M 0 0 L 8 4.5 L 0 9 z" fill="#c8ff00"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a23"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+
+  <text x="70" y="62" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">SETUP TUTORIAL · DOCKER COMPOSE STACK</text>
+  <text x="70" y="104" fill="#e8e8f0" font-size="40" font-weight="900">Paperless-ngx: the five-container stack</text>
+  <text x="70" y="134" fill="#6b6b8a" font-size="18">Drop a file in consume/ &#8594; OCR&#8217;d, auto-tagged, full-text searchable in ~30 seconds</text>
+
+  <!-- INGEST: consume folder -->
+  <g transform="translate(70,182)">
+    <rect width="190" height="120" rx="12" fill="#101028" stroke="#c8ff00" stroke-width="1.5"/>
+    <text x="20" y="32" fill="#c8ff00" font-size="12" letter-spacing="2" font-weight="700">INGEST</text>
+    <text x="20" y="62" fill="#e8e8f0" font-size="19" font-weight="700">consume/</text>
+    <text x="20" y="86" fill="#c0c0d8" font-size="13">SMB / FTP / WebDAV drop</text>
+    <text x="20" y="106" fill="#6b6b8a" font-size="13">60s polling · subdirs = tags</text>
+  </g>
+
+  <!-- CORE APP: paperless -->
+  <g transform="translate(370,168)">
+    <rect width="240" height="150" rx="12" fill="#101028" stroke="#c8ff00" stroke-width="2"/>
+    <text x="20" y="32" fill="#c8ff00" font-size="12" letter-spacing="2" font-weight="700">CORE APP</text>
+    <text x="20" y="62" fill="#e8e8f0" font-size="22" font-weight="800">paperless-ngx</text>
+    <text x="20" y="88" fill="#c0c0d8" font-size="14">Web UI · Tesseract OCR</text>
+    <text x="20" y="110" fill="#c0c0d8" font-size="14">Matching rules &#8594; tags</text>
+    <text x="20" y="132" fill="#6b6b8a" font-size="13">Port 8010 &#8594; 8000 · ~180 MB</text>
+  </g>
+
+  <!-- OUTPUT: archive -->
+  <g transform="translate(940,182)">
+    <rect width="190" height="120" rx="12" fill="#101028" stroke="#5dca7a" stroke-width="1.5"/>
+    <text x="20" y="32" fill="#5dca7a" font-size="12" letter-spacing="2" font-weight="700">ARCHIVE</text>
+    <text x="20" y="62" fill="#e8e8f0" font-size="19" font-weight="700">media/ + index</text>
+    <text x="20" y="86" fill="#c0c0d8" font-size="13">Full-text search</text>
+    <text x="20" y="106" fill="#6b6b8a" font-size="13">Correspondent + type filed</text>
+  </g>
+
+  <!-- arrows top row -->
+  <line x1="262" y1="242" x2="366" y2="242" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrowLime)"/>
+  <line x1="612" y1="242" x2="936" y2="242" stroke="#5dca7a" stroke-width="2" marker-end="url(#arrowLime)"/>
+
+  <!-- SERVICES label -->
+  <text x="70" y="372" fill="#6b6b8a" font-size="13" letter-spacing="2" font-weight="700">BACKING SERVICES · same Docker network</text>
+
+  <!-- vertical connectors from core app down to services -->
+  <line x1="490" y1="318" x2="490" y2="392" stroke="#1e1e3a" stroke-width="1.5"/>
+  <line x1="200" y1="392" x2="900" y2="392" stroke="#1e1e3a" stroke-width="1.5"/>
+  <line x1="200" y1="392" x2="200" y2="408" stroke="#5090e0" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="433" y1="392" x2="433" y2="408" stroke="#5090e0" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="667" y1="392" x2="667" y2="408" stroke="#5090e0" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="900" y1="392" x2="900" y2="408" stroke="#5090e0" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- PostgreSQL -->
+  <g transform="translate(70,412)">
+    <rect width="260" height="118" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="32" fill="#5090e0" font-size="12" letter-spacing="2" font-weight="700">DATABASE</text>
+    <text x="20" y="60" fill="#e8e8f0" font-size="19" font-weight="700">paperless-db</text>
+    <text x="20" y="84" fill="#c0c0d8" font-size="13">PostgreSQL 16 &#183; metadata,</text>
+    <text x="20" y="102" fill="#c0c0d8" font-size="13">tags, correspondents &#183; ~50 MB</text>
+  </g>
+
+  <!-- Redis -->
+  <g transform="translate(350,412)">
+    <rect width="200" height="118" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="32" fill="#e08828" font-size="12" letter-spacing="2" font-weight="700">TASK QUEUE</text>
+    <text x="20" y="60" fill="#e8e8f0" font-size="19" font-weight="700">paperless-redis</text>
+    <text x="20" y="84" fill="#c0c0d8" font-size="13">Redis 7 &#183; background</text>
+    <text x="20" y="102" fill="#c0c0d8" font-size="13">OCR job broker &#183; ~10 MB</text>
+  </g>
+
+  <!-- Tika -->
+  <g transform="translate(570,412)">
+    <rect width="200" height="118" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="32" fill="#5090e0" font-size="12" letter-spacing="2" font-weight="700">EXTRACTION</text>
+    <text x="20" y="60" fill="#e8e8f0" font-size="19" font-weight="700">paperless-tika</text>
+    <text x="20" y="84" fill="#c0c0d8" font-size="13">DOCX / XLSX / PPTX /</text>
+    <text x="20" y="102" fill="#c0c0d8" font-size="13">ODT / EML text &#183; ~200 MB</text>
+  </g>
+
+  <!-- Gotenberg -->
+  <g transform="translate(790,412)">
+    <rect width="220" height="118" rx="12" fill="#101028" stroke="#1e1e3a"/>
+    <text x="20" y="32" fill="#5090e0" font-size="12" letter-spacing="2" font-weight="700">RENDER</text>
+    <text x="20" y="60" fill="#e8e8f0" font-size="19" font-weight="700">paperless-gotenberg</text>
+    <text x="20" y="84" fill="#c0c0d8" font-size="13">PDF render of non-PDF</text>
+    <text x="20" y="102" fill="#c0c0d8" font-size="13">docs for OCR &#183; ~60 MB</text>
+  </g>
+
+  <!-- total footprint callout -->
+  <g transform="translate(1030,412)">
+    <rect width="100" height="118" rx="12" fill="#101028" stroke="#c8ff00" stroke-width="1.5"/>
+    <text x="50" y="34" text-anchor="middle" fill="#6b6b8a" font-size="11" letter-spacing="1" font-weight="700">IDLE RAM</text>
+    <text x="50" y="78" text-anchor="middle" fill="#c8ff00" font-size="30" font-weight="900">~500</text>
+    <text x="50" y="100" text-anchor="middle" fill="#c0c0d8" font-size="14">MB total</text>
+  </g>
+
+  <!-- footer -->
+  <text x="70" y="592" fill="#4a4a6a" font-size="13">TechFuel HQ · Setup Tutorial · Stack and resource figures per the guide&#8217;s compose file</text>
+  <text x="1130" y="592" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>

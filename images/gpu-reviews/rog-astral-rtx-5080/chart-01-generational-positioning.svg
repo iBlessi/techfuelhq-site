@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="570" viewBox="0 0 1200 570" font-family="Inter, system-ui, sans-serif" role="img">
+<title>Generational Positioning &#8211; 4K Raster</title>
+<desc>Generational Positioning &#8211; 4K Raster: RTX 4080 96 index, RTX 4080 Super 100 index, RTX 5080 FE 114 index, Astral 5080 OC 123 index</desc>
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#131333" stroke-width="0.5"/></pattern></defs>
+<rect width="1200" height="570" fill="#0a0a23"/>
+<rect width="1200" height="570" fill="url(#grid)" opacity="0.4"/>
+<rect x="0" y="0" width="1200" height="5" fill="#c8ff00"/>
+<text x="70" y="78" fill="#c8ff00" font-size="14" letter-spacing="3" font-weight="700">RTX 5080 BENCHMARK &#183; GENERATIONAL POSITIONING</text>
+<text x="70" y="126" fill="#e8e8f0" font-size="40" font-weight="900">Generational Positioning &#8211; 4K Raster</text>
+<text x="70" y="160" fill="#6b6b8a" font-size="18">Index normalized to RTX 4080 Super = 100 &#183; higher is faster &#183; TechFuelHQ first-party</text>
+<g transform="translate(70,205)">
+<text x="0" y="34" fill="#c0c0d8" font-size="17" font-weight="600">RTX 4080</text>
+<rect x="290" y="12" width="515" height="40" rx="8" fill="#5090e0"/>
+<text x="819" y="39" fill="#e8e8f0" font-size="19" font-weight="800">96 index</text>
+<text x="0" y="104" fill="#c0c0d8" font-size="17" font-weight="600">RTX 4080 Super</text>
+<text x="0" y="124" fill="#6b6b8a" font-size="12.5">baseline</text>
+<rect x="290" y="82" width="537" height="40" rx="8" fill="#e08828"/>
+<text x="841" y="109" fill="#e8e8f0" font-size="19" font-weight="800">100 index</text>
+<text x="0" y="174" fill="#c0c0d8" font-size="17" font-weight="600">RTX 5080 FE</text>
+<rect x="290" y="152" width="612" height="40" rx="8" fill="#b06bff"/>
+<text x="916" y="179" fill="#e8e8f0" font-size="19" font-weight="800">114 index</text>
+<text x="0" y="244" fill="#c8ff00" font-size="17" font-weight="800">Astral 5080 OC</text>
+<text x="0" y="264" fill="#6b6b8a" font-size="12.5">manual OC</text>
+<rect x="290" y="222" width="660" height="40" rx="8" fill="#c8ff00"/>
+<text x="964" y="249" fill="#e8e8f0" font-size="19" font-weight="800">123 index</text>
+</g>
+<text x="70" y="540" fill="#4a4a6a" font-size="13">TechFuelHQ first-party &#183; Astral 5080 OC on current bench; 4080 / 4080 Super / 5080 FE from a retired 2024-2025 bench, normalized</text>
+<text x="1130" y="540" text-anchor="end" fill="#4a4a6a" font-size="13">techfuelhq.com</text>
+</svg>
